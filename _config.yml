@@ -1,0 +1,50 @@
+# =============================================
+# Build config
+# =============================================
+
+root:			build
+build:      	<%= site.root %>
+build_assets: 	<%= site.root %>/assets
+build_img: 		<%= site.root %>/assets/img
+
+src:       		   source
+src_assets:	    <%= site.src %>/assets
+src_img:   		  <%= site.src_assets %>/img
+
+# Data
+src_data: 	    <%= site.src %>/data/*.{json,yml}
+
+# Templates
+src_templates: 	<%= site.src %>/templates
+src_layoutdir:	<%= site.src_templates %>/layouts
+src_layout:     default
+src_partials:	  <%= site.src_templates %>/partials/**/*.hbs
+src_pages:		  <%= site.src_templates %>/pages
+
+# Extensions
+src_helpers: 	<%= site.src_templates %>/helpers/**/*.js
+
+preview:  		preview
+
+
+# =============================================
+# Project metadata
+# =============================================
+
+name:           <%= package.name %>
+title:           <%= package.title %>
+author:
+  name:           <%= package.author.name %>
+  url:            <%= package.author.url %>
+
+
+# =============================================
+# Site metadata
+# =============================================
+
+keywords:         <%= package.keywords %>
+version:          <%= package.version %>
+description:      <%= package.description %>
+license:
+  type:           <%= package.license.type %>
+  url:            <%= package.license.url %>

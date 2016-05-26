@@ -1,0 +1,53 @@
+/*BASE - Base styles, Variables, Mixins, etc*/
+
+@import "reset";
+@import "base";
+@import "mixins";
+@import "variables";
+
+/* MODULES - Individual site components*/
+
+@import "blocks";
+@import "buttons";
+@import "components";
+@import "forms";
+@import "sections";
+@import "tables";
+@import "typography";
+
+/* PARTIALS - Layout styles*/
+
+@import "header";
+@import "nav";
+@import "footer";
+
+/* COMPASS FEATURE*/
+
+@import 'compass/css3';
+
+/*****************/
+
+.content-navigation {
+    border-color: $blue;
+    color: darken($blue, 9%);
+}
+
+.border {
+    padding: $margin / 2;
+    margin: $margin / 2;
+    border-color: $blue;
+    padding-left: 10px;
+}
+
+.example-compass {
+    @include box-shadow(#000 5px 5px 5px);
+    @include single-text-shadow;
+    @include opacity(0.1);
+}
+
+.example-autoprefixer {
+    display: flex;
+    transition: all .5s;
+    user-select: none;
+    background: linear-gradient(to bottom, white, black);
+}

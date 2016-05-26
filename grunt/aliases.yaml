@@ -1,0 +1,31 @@
+pro:
+  - 'clean'
+  - 'sass'
+  - 'copy'
+  - 'autoprefixer'
+  - 'cssmin'
+  - 'usebanner:css'
+  - 'concat'
+  - 'uglify'
+  - 'usebanner:js'
+  - 'imagemin'
+  - 'assemble:production'
+
+serve_pro:
+  - 'production'
+  - 'browserSync'
+  - 'watch'
+
+dev:
+  - 'clean'
+  - 'sass'
+  - 'copy'
+  - 'autoprefixer'
+  - 'imagemin'
+  - 'assemble:development'
+
+serve_dev:
+  - 'development'
+  - 'browserSync'
+  - 'watch'
+
