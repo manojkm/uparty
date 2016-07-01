@@ -8,7 +8,7 @@ module.exports = {
         },
 
         files: {
-            src: ['<%= site.build_assets %>/css/<%=site.name %>.min.css']
+            src: ['<%= site.dev_assets %>/css/**/<%=site.name %>.min.css']
         }
 
     },
@@ -21,7 +21,7 @@ module.exports = {
         },
 
         files: {
-            src: ['<%= site.build_assets %>/js/<%=site.name %>.min.js']
+            src: ['<%= site.dev_assets %>/js/<%=site.name %>.min.js']
         }
     }
 };

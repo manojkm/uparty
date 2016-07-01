@@ -1,31 +1,48 @@
-pro:
-  - 'clean'
-  - 'sass'
-  - 'copy'
+task_css:
+  - 'compass'
+  - 'copy:css'
+  - 'csslint'
   - 'autoprefixer'
   - 'cssmin'
-  - 'usebanner:css'
+  - 'notify:css'
+task_js:
+  - 'copy:js'
+  - 'bower_concat'
   - 'concat'
+  - 'jshint'
   - 'uglify'
-  - 'usebanner:js'
+  - 'wiredep'
+  - 'notify:js'
+task_img:
   - 'imagemin'
-  - 'assemble:production'
-
-serve_pro:
-  - 'production'
-  - 'browserSync'
-  - 'watch'
-
+  - 'sprite'
+  - 'notify:img'
+task_banner:
+  - 'usebanner'
+  - 'notify:banner'
+task_html:
+  - 'assemble'
+  - 'htmlhint'
+  - 'prettify'
+  - 'notify:html'
+task_copy:
+  - 'copy:vendor'
+  - 'notify:copy'
+# =================
+# FINAL BUILD
+# =================
+default:
+  - 'task_css'
+  - 'task_js'
+  - 'task_img'
+  - 'task_banner'
+  - 'task_html'
+  - 'task_copy'
 dev:
-  - 'clean'
-  - 'sass'
-  - 'copy'
-  - 'autoprefixer'
-  - 'imagemin'
-  - 'assemble:development'
-
-serve_dev:
-  - 'development'
+  - 'default'
   - 'browserSync'
-  - 'watch'
-
+  - 'concurrent:watch'
+deploy:
+  - 'default'
+  - 'browserSync'
+  - 'concurrent:watch'

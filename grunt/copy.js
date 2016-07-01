@@ -2,15 +2,31 @@ module.exports = {
 
     vendor: {
         files: [
-            { expand: true, cwd: '<%= site.src %>/bower_components/', src: ['**'], dest: '<%= site.build %>/vendor/' },
+            { expand: true, cwd: '<%= site.src %>/vendor/', src: ['**'], dest: '<%= site.dev %>/vendor/' },
         ],
     },
 
-    assets: {
+    css: {
         files: [
-            { expand: true, cwd: '<%= site.src_assets %>/css/', src: ['**'], dest: '<%= site.build_assets %>/css/' },
-            { expand: true, cwd: '<%= site.src_assets %>/js/', src: ['**'], dest: '<%= site.build_assets %>/js/' },
-            { expand: true, cwd: '<%= site.src_assets %>/fonts/', src: ['**'], dest: '<%= site.build_assets %>/fonts/' },
+            { expand: true, cwd: '<%= site.src_assets %>/css/', src: ['**'], dest: '<%= site.dev_assets %>/css/' },
+        ],
+    },
+
+    js: {
+        files: [
+            { expand: true, cwd: '<%= site.src_assets %>/js/', src: ['**'], dest: '<%= site.dev_assets %>/js/' },
+        ],
+    },
+
+    images: {
+        files: [
+            { expand: true, cwd: '<%= site.src_assets %>/img/', src: ['**'], dest: '<%= site.dev_assets %>/img/' },
+        ],
+    },
+
+    fonts: {
+        files: [
+            { expand: true, cwd: '<%= site.src_assets %>/fonts/', src: ['**'], dest: '<%= site.dev_assets %>/fonts/' },
         ],
     },
 

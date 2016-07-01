@@ -1,9 +1,12 @@
 module.exports = {
-    dist: {
-        src: [
+    options: {
+        // separator: ';',
+    },
 
-            '<%= site.build_assets %>/js/<%=site.name %>.js'
-        ],
-        dest: '<%= site.build_assets %>/js/<%=site.name %>.js',
-    }
+    dev: {
+        src: ['<%= jsCombPath %>'],
+        dest: '<%= site.dev_assets %>/js/<%=site.name %>.js',
+        nonull: true, //to warn if a given file is missing or invalid
+    },
+
 };

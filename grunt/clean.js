@@ -1,12 +1,12 @@
-// Clean your /build folder
+// Clean your /dist folder
 module.exports = {
 
-    // build: ['<%= site.build %>'],
-    // js: ['<%= site.build_assets %>/js'],
-    // css: ['<%= site.build_assets %>/css'],
-    // html: ['<%= site.build %>/*.html'],
-    // img: ['<%= site.build_img %>'],
+    // dist: ['<%= site.dist %>'],
+    // js: ['<%= site.dist_assets %>/js'],
+    // css: ['<%= site.dist_assets %>/css'],
+    // html: ['<%= site.dist %>/*.html'],
+    // img: ['<%= site.dist_img %>'],
 
-    dist: ['<%= site.build %>/**/*', '!<%= site.build %>/.{git,gitignore}'],
+    dev: ['<%= site.dev %>/**/*', '!<%= site.dev %>/.{git,gitignore}'],
 
 };

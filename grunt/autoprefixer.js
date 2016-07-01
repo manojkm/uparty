@@ -1,7 +1,9 @@
 module.exports = {
-    dist: {
-        files: {
-            '<%= site.build_assets %>/css/<%=site.name %>.css': ['<%= site.build_assets %>/css/<%=site.name %>.css'],
-        },
+    dev: {
+        expand: true,
+        flatten: true,
+        src: '<%= cssCombPath %>',
+        dest: '<%= site.dev_assets %>/css/',
+        nonull: true, //to warn if a given file is missing or invalid
     }
 };

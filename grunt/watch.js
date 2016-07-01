@@ -1,34 +1,27 @@
 module.exports = {
-
-    assemble: {
-        files: ['<%= site.src %>/templates/{,*/}*.{md,hbs,yml}'],
-        tasks: ['assemble']
+    options: {
+        spawn: false,
+        debounceDelay: 250,
     },
 
-    css: {
+    sass_css: {
         files: ['<%= site.src_assets %>/scss/*.scss', '<%= site.src_assets %>/css/**/*.css'],
-        tasks: ['sass', 'autoprefixer', 'cssmin', 'usebanner:css'],
-        options: {
-            spawn: false,
-        }
+        tasks: ['concurrent:task_css'],
     },
 
-    scripts: {
+    js: {
         files: ['<%= site.src_assets %>/js/*.js'],
-        tasks: ['concat', 'uglify', 'usebanner:js'],
-        options: {
-            spawn: false,
-        }
+        tasks: ['concurrent:task_js'],
+    },
+
+    html: {
+        files: ['<%= site.src %>/templates/{,*/}*.{md,hbs,yml}'],
+        tasks: ['concurrent:task_html']
     },
 
     images: {
         files: ['<%= site.src_assets %>/img/**/*.{png,jpg,gif}'],
-        tasks: ['imagemin'],
-        options: {
-            spawn: false,
-        }
+        tasks: ['concurrent:task_img'],
     },
-
-
 
 };

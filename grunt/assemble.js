@@ -4,7 +4,7 @@ module.exports = {
     options: {
         flatten: true,
         layoutext: '.hbs',
-        assets: '<%= site.build_assets %>',
+        assets: '<%= site.dev_assets %>',
 
         // Metadata
         site: '<%= site %>',
@@ -19,29 +19,41 @@ module.exports = {
         helpers: '<%= site.src_helpers %>'
     },
 
-    development: {
+    main: {
         options: {
-            production: false
+            dist: false
         },
         files: [{
             expand: true,
             cwd: '<%= site.src_pages %>',
             src: ['**/*.hbs'],
-            dest: '<%= site.build %>'
+            dest: '<%= site.dev %>'
         }]
     },
 
-    production: {
-        options: {
-            production: true
-        },
-        files: [{
-            expand: true,
-            cwd: '<%= site.src_pages %>',
-            src: ['**/*.hbs'],
-            dest: '<%= site.build %>'
-        }]
-    },
+    // dev: {
+    //     options: {
+    //         dist: false
+    //     },
+    //     files: [{
+    //         expand: true,
+    //         cwd: '<%= site.src_pages %>',
+    //         src: ['**/*.hbs'],
+    //         dest: '<%= site.dist %>'
+    //     }]
+    // },
+
+    // dist: {
+    //     options: {
+    //         dist: true
+    //     },
+    //     files: [{
+    //         expand: true,
+    //         cwd: '<%= site.src_pages %>',
+    //         src: ['**/*.hbs'],
+    //         dest: '<%= site.dist %>'
+    //     }]
+    // },
 
     rtl: {
         options: {
@@ -52,7 +64,7 @@ module.exports = {
             expand: true,
             cwd: '<%= site.src_pages %>',
             src: ['**/*.hbs'],
-            dest: '<%= site.build %>/rtl'
+            dest: '<%= site.dev %>/rtl'
         }]
     }
 };

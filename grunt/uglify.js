@@ -1,14 +1,38 @@
 module.exports = {
     options: {
-        sourceMap: true,
+        sourceMap: false,
     },
-    dist: {
+
+
+    dev: {
         files: [{
             expand: true,
-            cwd: '<%= site.build_assets %>/js/',
-            src: ['**/*.js', '!**/*.min.js'],
-            dest: '<%= site.build_assets %>/js/',
+            cwd: '<%= site.dev_assets %>/js/',
+            src: ['<%=site.name %>.js', ],
+            dest: '<%= site.dev_assets %>/js/',
             ext: '.min.js'
         }, ]
     }
+
+    // dev: {
+    //     files: [{
+    //         expand: true,
+    //         cwd: '<%= site.dev_assets %>/js/',
+    //         // src: ['<%=site.name %>.js', 'vendor.js'],
+    //         src: ['**/*.js', '!**/*.min.js'],
+    //         dest: '<%= site.dev_assets %>/js/',
+    //         ext: '.min.js'
+    //     }, ]
+    // }
+
+    // custom: {
+    //     files: [{
+    //         expand: true,
+    //         cwd: '<%= site.dev_assets %>/js/',
+    //         src: ['**/*.js', '!**/*.min.js'],
+    //         dest: '<%= site.dev_assets %>/js/',
+    //         ext: '.min.js'
+    //     }, ]
+    // }
+
 };
