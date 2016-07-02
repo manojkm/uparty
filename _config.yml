@@ -9,7 +9,7 @@ deploy_img:       <%= site.deploy %>/assets/img
 dev:              app/development
 dev_assets:       <%= site.dev %>/assets
 dev_img:          <%= site.dev %>/assets/img
-dev_port:         8081
+dev_port:         8080
 
 env:              app/environment
 
@@ -49,7 +49,7 @@ author:
 # Site metadata
 # =============================================
 
-keywords :        <%= package.keywords %>
+keywords :         <%= package.keywords %>
 version:          <%= package.version %>
 description:      <%= package.description %>
 license:
