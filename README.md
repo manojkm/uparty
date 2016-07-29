@@ -1,8 +1,6 @@
 # Envato
 New Read Me
-# I am thinking twice
-ok.
-from Office
+# Changes
 change 1
 change 2
 change 3
