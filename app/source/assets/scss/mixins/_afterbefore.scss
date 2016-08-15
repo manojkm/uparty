@@ -1,0 +1,19 @@
+@mixin after-float($content, $margin:0 0 0 0, $font-weight:bold, $float:right, $display:block) {
+    &:after {
+        float: $float;
+        margin: $margin;
+        font-weight: $font-weight;
+        content: $content;
+        display: $display;
+    }
+}
+
+@mixin before-float($content, $margin:0 0 0 0, $font-weight:bold, $float:left, $display:block) {
+    &:before {
+        float: $float;
+        margin: $margin;
+        font-weight: $font-weight;
+        content: $content;
+        display: $display;
+    }
+}

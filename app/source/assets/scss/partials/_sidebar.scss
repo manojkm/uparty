@@ -1,3 +1,4 @@
-.sidebar {
-
+ul#menutree {
+    @include before-float("CATEGORIES", 0 0 10px 0, bold, none);
+    border-bottom: 1px solid lighten($grey, 30%);
 }

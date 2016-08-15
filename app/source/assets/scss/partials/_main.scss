@@ -1,3 +1,132 @@
-.main {
+#websiteFeature {
+    color: #747373;
+    text-align: center;
+    margin: 0 0 15px 0;
+    h3 {
+        font-size: 1.125em;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        color: #747373;
+    }
+    span {
+        font-size: 1.000em
+    }
+    div:nth-child(2) {
+        border-right: 1px solid lighten($grey, 30%);
+        border-left: 1px solid lighten($grey, 30%);
+    }
+}
 
+#slide_home,
+#promotions_home,
+#promotions_home_wide,
+#top_brands {
+    img {
+        width: 100%;
+        opacity: 1;
+        @include single-transition(opacity, .25s);
+    }
+    a:hover img {
+        opacity: .8
+    }
+}
+
+#promotions_home {
+    margin: 15px 0
+}
+
+#top_brands {
+    margin: 15px 0;
+    h3 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        text-align: center;
+        li {
+            width: 19%;
+            display: inline-block;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+    }
+    a.viewAllBrands {
+        border: 1px solid lighten($grey, 30%);
+        text-align: center;
+        display: block;
+        clear: both;
+        text-decoration: none;
+        width: 200px;
+        padding: 10px 15px;
+        margin: 0 auto;
+        transition: all 0.3s ease 0s;
+    }
+    a.viewAllBrands:hover {
+        background-color: $cool-blue;
+        color: #fff;
+    }
+}
+
+#about_us {
+    border: 1px solid lighten($grey, 30%);
+    border-width: 1px 0 1px 0;
+    padding: 20px 0 10px 0;
+    p {
+        text-align: center;
+    }
+}
+
+h3.popular_products {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.500em;
+    text-transform: uppercase;
+    color: $military-blue;
+    font-weight: bold;
+}
+
+.product_cell {
+    background: #f4f4f4;
+    padding: 10px 20px;
+    margin: 0
+}
+
+.product_cell_graphic {
+    background: #fff;
+    border: none;
+}
+
+.product_cell_label {
+    background: #fff;
+    border: none;
+    margin: 0;
+    padding: 10px 20px;
+}
+
+.product_cell_label a {
+    border-bottom: 1px solid lighten($grey, 30%);
+    font-weight: normal;
+    padding: 10px 0;
+}
+
+span.product_cell_price {
+    padding: 10px 0 50px 0!important;
+    display: block;
+    color: #ff2121;
+    font-weight: normal;
+    @include background-image("shop-now.png", 0 bottom, none);
+    opacity: 1;
+    @include single-transition(opacity, .25s);
+}
+
+span.product_cell_price:hover {
+    opacity: 0.8;
 }

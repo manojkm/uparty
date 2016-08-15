@@ -1,10 +1,44 @@
-.nav {
-  ul {
-    list-style:none;
-    li {
-      a {
-
-      }
+#menubar {
+    border: none;
+    width: 100%;
+    ul {
+        background: $cool-blue;
+        li {
+            margin: 0 10px;
+            a {
+                color: #fff
+            }
+        }
+        li:nth-child(1) a {
+            @include background-image("home.png", 0 2px, none);
+            padding: 0 0 0 20px;
+        }
+        li:last-child a {
+            color: #e0c418
+        }
     }
-  }
+    form {
+        position: absolute;
+        display: block;
+        top: 60px;
+        margin-left: 20px;
+        border: none;
+        width: 350px;
+        input#xlsSearch {
+            background: $military-blue;
+            border: 1px solid lighten($cool-blue, 10%);
+            color: #fff;
+            max-width: 100%;
+        }
+        a {
+            @include background-image("search.png", 10px 12px, none);
+            width: 40px;
+            height: 40px;
+            font-size: 0;
+            top: 0;
+        }
+        a:hover {
+            opacity: .5
+        }
+    }
 }

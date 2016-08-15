@@ -1,3 +1,50 @@
-.footer {
-    padding-left: 10px
+#footer {
+    @include background-image("floral.png", 1100px -50px, $military-blue);
+    text-align: center;
+    padding: 20px 0;
+    .store {
+        border: none;
+        padding: 0;
+        margin: 0;
+        p {
+            text-align: center;
+            float: none;
+            color: #fff;
+            width: auto;
+            margin: 10px 0;
+            opacity: 0.5;
+            strong {
+                font-size: 1.875em;
+                color: #fff;
+                font-weight: normal;
+                opacity: 1
+            }
+        }
+    }
+    ul {
+        float: none;
+        padding: 0 0 20px 0;
+        margin: 0;
+        li {
+            a {
+                font-size: 0.875em;
+                color: #fff;
+                text-transform: capitalize;
+                opacity: 0.5;
+            }
+            a:hover {
+                color: #fff;
+                opacity: 1;
+                border: none;
+            }
+        }
+    }
+    p.copyright {
+        @include background-image("linen-alley-logo-footer.png", center top, none);
+        padding: 130px 0 0 0;
+        float: none;
+        text-align: center;
+        width: auto;
+        height: auto;
+    }
 }

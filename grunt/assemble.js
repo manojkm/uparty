@@ -31,40 +31,17 @@ module.exports = {
         }]
     },
 
-    // dev: {
+
+    // rtl: {
     //     options: {
-    //         dist: false
+    //         layout: 'default',
+    //         rtl: true
     //     },
     //     files: [{
     //         expand: true,
     //         cwd: '<%= site.src_pages %>',
     //         src: ['**/*.hbs'],
-    //         dest: '<%= site.dist %>'
+    //         dest: '<%= site.dev %>/rtl'
     //     }]
-    // },
-
-    // dist: {
-    //     options: {
-    //         dist: true
-    //     },
-    //     files: [{
-    //         expand: true,
-    //         cwd: '<%= site.src_pages %>',
-    //         src: ['**/*.hbs'],
-    //         dest: '<%= site.dist %>'
-    //     }]
-    // },
-
-    rtl: {
-        options: {
-            layout: 'default',
-            rtl: true
-        },
-        files: [{
-            expand: true,
-            cwd: '<%= site.src_pages %>',
-            src: ['**/*.hbs'],
-            dest: '<%= site.dev %>/rtl'
-        }]
-    }
+    // }
 };

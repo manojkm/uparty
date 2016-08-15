@@ -5,7 +5,7 @@ module.exports = {
     },
 
     sass_css: {
-        files: ['<%= site.src_assets %>/scss/*.scss', '<%= site.src_assets %>/css/**/*.css'],
+        files: ['<%= site.src_assets %>/scss/**/*.scss', '<%= site.src_assets %>/css/**/*.css'],
         tasks: ['concurrent:task_css'],
     },
 

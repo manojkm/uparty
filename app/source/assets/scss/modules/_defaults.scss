@@ -1,14 +1,18 @@
 * {
-  -webkit-font-smoothing:antialiased;
-  font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-  @include vendor(box-sizing, border-box);
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    @include vendor(box-sizing, border-box);
 }
-html {
-  font-size:62.5%;
-}
+
+html {}
+
 body {
-  font:300 13px/1.6 'Helvetica Neue', Helvetica, Arial;
-  background:#fff;
-  color:#444;
+    background: $body-bg;
+}
+
+body > #container {
+    max-width: 1300px;
+    background: $white-bg;
+    @include box-shadow($grey 0px 0px 15px 0px);
 }

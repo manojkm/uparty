@@ -1,7 +1,49 @@
-.header {}
-
-.logo {
-    margin: -100px 0 0 -84px;
-    @include position(absolute, 50% 0 0 50%);
-    img {}
+#topbar {
+    @include background-image("floral_header.png", 150px 0px, $military-blue);
+    padding: 15px 0;
+    margin: 0;
+    #headerimage {
+        padding: 0 0 0 57%;
+    }
+    ul {
+        margin: 60px 20px 0 0;
+        li {
+            display: inline-block;
+            padding: 0 5px;
+            margin: 0;
+            a:hover {
+                opacity: .5
+            }
+        }
+    }
+    ul li:nth-child(2) a {
+        @include background-image("my_account.png", 0 0, none);
+        width: 26px;
+        height: 25px;
+        font-size: 0
+    }
+    ul li:nth-child(3) a {
+        @include background-image("wishlist.png", 0 0, none);
+        width: 28px;
+        height: 23px;
+        font-size: 0
+    }
+    a#topbar-cart-text {
+        color: #fff;
+        padding: 4px 0 0 0px;
+        text-align: left;
+    }
+    a#topbar-cart-text:hover {
+        font-weight: normal;
+    }
+    #topbar-cart-number {
+        border: none;
+        @include background-image("cart.png", 0 0, none);
+        width: 34px;
+        height: 25px;
+        color: #fff;
+        text-align: center;
+        padding: 9px 0 0 0;
+        margin: 0 0 0 8px;
+    }
 }

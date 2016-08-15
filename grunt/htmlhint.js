@@ -13,14 +13,14 @@ module.exports = {
         'spec-char-escape': true,
         // Force special characters to be escaped
         'id-unique': true,
-        // Prevent using the same ID multiple times in a document 
+        // Prevent using the same ID multiple times in a document
         'id-class-ad-disabled': true,
         // Id and class can not use ad keyword, it will blocked by adblock software.
         'attr-unsafe-chars': true,
         // Attribute value cant not use unsafe chars.
         'attr-no-duplication': true,
         // The same attribute can't be specified twice.
-        'head-script-disabled': true
+        'head-script-disabled': false
             // Performance: The script tag can not be used in head.
     },
 
