@@ -5,12 +5,13 @@
         background: $cool-blue;
         li {
             margin: 0 10px;
+            padding: 15px 15px 10px 15px;
             a {
                 color: #fff
             }
         }
         li:nth-child(1) a {
-            @include background-image("home.png", 0 2px, none);
+            @include background-image("home.png", 0 0px, none);
             padding: 0 0 0 20px;
         }
         li:last-child a {
