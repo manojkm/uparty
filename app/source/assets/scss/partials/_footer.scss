@@ -3,8 +3,9 @@
     text-align: center;
     padding: 20px 0;
     .store {
+         @include background-image("linen-alley-logo-footer.png", center top, none);
+        padding: 160px 0 0 0;
         border: none;
-        padding: 0;
         margin: 0;
         p {
             text-align: center;
@@ -21,9 +22,11 @@
             }
         }
     }
+
+    .address{ display: none;}
     ul {
         float: none;
-        padding: 0 0 20px 0;
+        padding: 0 0 0 0;
         margin: 0;
         li {
             a {
@@ -40,8 +43,6 @@
         }
     }
     p.copyright {
-        @include background-image("linen-alley-logo-footer.png", center top, none);
-        padding: 130px 0 0 0;
         float: none;
         text-align: center;
         width: auto;
