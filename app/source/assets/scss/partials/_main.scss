@@ -9,8 +9,7 @@
         margin: 0;
         text-transform: uppercase;
         color: #747373;
-         line-height: normal;
-
+        line-height: normal;
     }
     span {
         font-size: 1.000em
@@ -118,7 +117,10 @@ h3.popular_products {
     font-weight: normal;
     padding: 10px 0;
 }
-.product_cell img { margin-top:0 }
+
+.product_cell img {
+    margin-top: 0
+}
 
 span.product_cell_price {
     padding: 10px 0 50px 0!important;
@@ -134,5 +136,26 @@ span.product_cell_price:hover {
     opacity: 0.8;
 }
 
-.familylist ul { @include background-image("brands_home.jpg", 0 top, none); padding:120px 0 0 0; margin: 20px 0}
-.familylist ul li{ display: block; float: left; padding-top: 5px 10px; width: 300px}
+.familylist ul {
+    @include background-image("brands_home.jpg", 0 top, none);
+    padding: 120px 0 0 0;
+    margin: 20px 0
+}
+
+.familylist ul li {
+    display: block;
+    float: left;
+    padding-top: 5px 10px;
+    width: 300px
+}
+
+ul.linenSocial {
+ display: block; text-align: center; padding: 0; margin: 0;
+
+    li{ display: inline-block; text-align: center; margin: 0 5px;opacity: 1;
+
+a:hover { opacity: 0.8;}
+    }
+}
+
+
