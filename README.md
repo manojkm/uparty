@@ -1,3 +1,2 @@
-# Linen Alley
-Re-design
-uploaded
+# Linen Blog
+design implemented.
