@@ -28,6 +28,8 @@ task_html:
 task_copy:
   - 'copy:vendor'
   - 'notify:copy'
+task_sync:
+  - 'sync'
 # =================
 # FINAL BUILD
 # =================
@@ -38,6 +40,8 @@ default:
   - 'task_banner'
   - 'task_html'
   - 'task_copy'
+  - 'task_sync'
+
 dev:
   - 'default'
   - 'browserSync'

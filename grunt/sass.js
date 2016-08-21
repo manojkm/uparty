@@ -8,8 +8,9 @@ module.exports = {
             //     '<%= site.src_assets %>/scss/partials',
             // ],
 
-            style: 'expanded',
-            compass: true
+            sourceMap: true,
+            outputStyle: 'compressed'
+
         },
 
         files: {

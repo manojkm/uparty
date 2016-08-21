@@ -1,20 +1,17 @@
 module.exports = {
-
     dev: {
 
         bsFiles: {
             src: [
-                '<%= site.dev_assets %>/css/*.css',
-                '<%= site.dev %>/*.html'
+                '<%= site.env %>/css/*.css',
+                '<%= site.env %>/assets/**',
+                '<%= site.env %>/*.php'
             ]
         },
 
         options: {
             watchTask: true, //Option 'false' will open browser directly without watching grunt tasks.
-            port: '<%= site.dev_port %>',
-            server: {
-                baseDir: "<%= site.dev %>"
-            }
+            proxy: "http://localhost/linen_wp/app/environment/",
         }
 
     },

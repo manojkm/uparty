@@ -11,8 +11,26 @@ body {
     background: $body-bg;
 }
 
-body > #container {
-    max-width: 1200px;
-    background: $white-bg;
-    @include box-shadow($grey 0px 0px 15px 0px);
+.wrap {
+    margin: 0 auto;
+    padding: 0 20px;
+    box-shadow: 0 0 15px 0 #6b6b6b;
+}
+
+.site-content {
+    padding: 0
+}
+
+a {
+    color: $link-blue;
+}
+
+.btn-primary {
+    background-color: $military-blue;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: $link-blue;
+    border: none;
 }

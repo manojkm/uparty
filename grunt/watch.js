@@ -19,9 +19,16 @@ module.exports = {
         tasks: ['concurrent:task_html']
     },
 
+
     images: {
         files: ['<%= site.src_assets %>/img/**/*.{png,jpg,gif}'],
         tasks: ['concurrent:task_img'],
     },
+
+    wp_theme_php_flies: {
+        files: ['<%= site.dev %>/**/*.php'],
+        tasks: ['concurrent:task_wp_theme_php_flies']
+    },
+
 
 };

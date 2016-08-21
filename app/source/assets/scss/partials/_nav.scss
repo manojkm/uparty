@@ -1,45 +1,20 @@
-#menubar {
+.navbar-default {
+    background: $cool-blue;
     border: none;
-    width: 100%;
-    ul {
-        background: $cool-blue;
-        li {
-            margin: 0 10px;
-            padding: 15px 15px 10px 15px;
-            a {
-                color: #fff
-            }
-        }
-        li:nth-child(1) a {
-            @include background-image("home.png", 0 0px, none);
-            padding: 0 0 0 20px;
-        }
-        li:last-child a {
-            color: #e0c418
-        }
+    border-radius: 0;
+}
+
+.navbar-default .navbar-nav > li {
+    a {
+        color: #fff;
+        opacity: 1
     }
-    form {
-        position: absolute;
-        display: block;
-        top: 60px;
-        margin-left: 20px;
-        border: none;
-        width: 350px;
-        input#xlsSearch {
-            background: $military-blue;
-            border: 1px solid lighten($cool-blue, 10%);
-            color: #fff;
-            max-width: 100%;
-        }
-        a {
-            @include background-image("search.png", 10px 12px, none);
-            width: 40px;
-            height: 40px;
-            font-size: 0;
-            top: 0;
-        }
-        a:hover {
-            opacity: .5
-        }
+    a:hover {
+        color: #fff;
+        opacity: .5
     }
+}
+
+.navbar-default .navbar-brand {
+    color: #fff
 }

@@ -1,51 +1,45 @@
-#footer {
+footer.site-footer {
     @include background-image("floral.png", 1000px -50px, $military-blue);
     text-align: center;
-    padding: 20px 0;
-    .store {
-         @include background-image("linen-alley-logo-footer.png", center top, none);
-        padding: 160px 0 0 0;
-        border: none;
-        margin: 0;
-        p {
-            text-align: center;
-            float: none;
-            color: #fff;
-            width: auto;
-            margin: 10px 0;
-            opacity: 0.5;
-            strong {
-                font-size: 1.875em;
-                color: #fff;
-                font-weight: normal;
-                opacity: 1
-            }
-        }
-    }
-
-    .address{ display: none;}
-    ul {
-        float: none;
-        padding: 0 0 0 0;
-        margin: 0;
-        li {
-            a {
-                font-size: 0.875em;
-                color: #fff;
-                text-transform: capitalize;
-                opacity: 0.5;
-            }
-            a:hover {
-                color: #fff;
-                opacity: 1;
-                border: none;
-            }
-        }
-    }
-    p.copyright {
-        float: none;
+    text-align: center;
+    font-size: 0.875em;
+    padding: 20px 0 10px 0;
+    .copyright {
         text-align: center;
-        width: auto;
-        height: auto;
+        float: none;
+        color: #fff;
+        opacity: 0.7;
+        font-size: 0.938em;
+        a {
+            color: #fff;
+            text-transform: capitalize;
+        }
     }
+    a {
+        color: #fff;
+        text-transform: capitalize;
+    }
+}
+
+.footer-logo-info {
+    a.foot_logo {
+        padding: 0 0 30px 0;
+        display: inline-block;
+    }
+    h4 {
+        font-size: 2em
+    }
+    h6 {
+        font-size: 1.063em
+    }
+    h4,
+    h6 {
+        color: #fff;
+        opacity: 0.7;
+    }
+}
+
+.footer-menu {
+    padding: 0;
+    margin: 0
 }
