@@ -3,16 +3,34 @@ header.site-header {
     margin: 0 15px;
     padding: 0px 0;
     h1.site-logo {
-        display: none;
         padding: 0;
         margin: 15px 0;
         img {
             width: auto;
             height: auto;
         }
+        a:hover {
+            opacity: .8
+        }
     }
     .site-description {
         color: #fff;
         opacity: .5
+    }
+    #menu-social {
+        ul {
+            margin: 53px 0 0 0;
+            padding: 0;
+        }
+        li a {
+            background: none!important;
+            opacity: .8
+        }
+        li a:hover {
+            opacity: 1
+        }
+        a::before {
+            font-size: 1.000em
+        }
     }
 }
