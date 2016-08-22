@@ -14,7 +14,5 @@ module.exports = {
             // proxy: "http://localhost/linen_wp/app/environment/",
            proxy: "http://localhost/linenblog/app/environment/",
         }
-
     },
-
 };
