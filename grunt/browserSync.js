@@ -11,8 +11,8 @@ module.exports = {
 
         options: {
             watchTask: true, //Option 'false' will open browser directly without watching grunt tasks.
-            proxy: "http://localhost/linen_wp/app/environment/",
-            //proxy: "http://localhost/linenblog/app/environment/",
+            //proxy: "http://localhost/linen_wp/app/environment/",
+             proxy: "http://localhost/linenblog/app/environment/",
         }
     },
 };
