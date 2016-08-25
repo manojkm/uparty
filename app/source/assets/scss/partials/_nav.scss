@@ -7,12 +7,19 @@
 .navbar-default .navbar-nav > li {
     a {
         color: #fff;
-        opacity: 1
+        opacity: 1;
+        font-weight: bold;
     }
-    a:hover {
+    a:hover,
+    a:active {
         color: #fff;
         opacity: .5
     }
+}
+
+.navbar-nav > li:nth-child(1) a {
+    @include background-image("home.png", 0 17px, none);
+    padding-left: 20px;
 }
 
 .navbar-nav > li.shopnow {
