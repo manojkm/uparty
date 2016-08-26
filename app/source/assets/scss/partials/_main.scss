@@ -1,2 +1,31 @@
-.widget-area .panel-body{ padding: 10px!important}
-#wp-calendar {margin: 0}
+.widget_calendar {
+    .panel-body {
+        padding: 0 10px;
+        #wp-calendar {
+            margin: 0;
+            caption {
+                padding-top: 0
+            }
+            th,
+            td {
+                padding: 2px
+            }
+        }
+    }
+}
+
+.panel-default > .panel-heading {
+    margin-bottom: 0
+}
+
+.widget-area .panel-body {
+    padding: 10px!important;
+}
+
+.featured-image,
+.entry-thumbnail,
+.entry-content {
+    img {
+        width: 100%
+    }
+}

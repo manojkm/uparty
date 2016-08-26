@@ -24,7 +24,11 @@
 <div id="page" class="hfeed site">
 <div class="row">
 	<header id="masthead" class="site-header" role="banner">
-<div class="col-md-4 col-lg-4"><h2 class="site-description"><?php bloginfo( 'description' ); ?></h2></div>
+<div class="col-md-4 col-lg-4">
+<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+
+<?php get_search_form(); ?>
+</div>
 			<div class="col-md-4 col-lg-4 text-center">
 					<h1 class="site-logo">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linen_alley_logo.png" alt=""><?php //bloginfo( 'name' ); ?></a>
