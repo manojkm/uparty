@@ -12,7 +12,7 @@ module.exports = {
 
         options: {
             watchTask: true, //Option 'false' will open browser directly without watching grunt tasks.
-            proxy: "http://localhost/imageprocez/app/development/",
+            proxy: "http://localhost/myGruntBoilerplate/app/development/",
             // proxy: "http://localhost/linenblog/app/environment/",
         }
     },

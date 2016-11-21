@@ -1,2 +1,1 @@
-# Linen Blog
-design implemented.
+# My Grunt BoilerPlate
