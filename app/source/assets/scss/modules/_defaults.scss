@@ -4,33 +4,3 @@
     text-rendering: optimizeLegibility;
     @include vendor(box-sizing, border-box);
 }
-
-html {}
-
-body {
-    background: $body-bg;
-}
-
-.wrap {
-    margin: 0 auto;
-    padding: 0 20px;
-    box-shadow: 0 0 15px 0 #6b6b6b;
-}
-
-.site-content {
-    padding: 0
-}
-
-a {
-    color: $link-blue;
-}
-
-.btn-primary {
-    background-color: $military-blue;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: $link-blue;
-    border: none;
-}

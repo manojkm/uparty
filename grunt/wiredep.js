@@ -5,8 +5,7 @@ module.exports = {
             '<%= site.src_layoutdir %>/*.hbs',
         ],
         exclude: [
-            'jquery',
-            'bootstrap',
+             
         ],
         options: {
             ignorePath: '../../'

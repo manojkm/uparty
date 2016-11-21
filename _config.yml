@@ -6,12 +6,12 @@ deploy:           app/deploy
 deploy_assets:    <%= site.deploy %>/assets
 deploy_img:       <%= site.deploy %>/assets/img
 
-dev:              app/development/bootville-lite
+dev:              app/development/
 dev_assets:       <%= site.dev %>/assets
 dev_img:          <%= site.dev %>/assets/img
 dev_port:         8080
 
-env:              app/environment/wp-content/themes/bootville-lite
+# env:              app/environment/wp-content/themes/bootville-lite
 
 src:              app/source
 src_assets:       <%= site.src %>/assets
@@ -49,7 +49,7 @@ author:
 # Site metadata
 # =============================================
 
-keywords :         <%= package.keywords %>
+keywords :        <%= package.keywords %>
 version:          <%= package.version %>
 description:      <%= package.description %>
 license:
