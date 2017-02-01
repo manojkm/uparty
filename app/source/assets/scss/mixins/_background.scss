@@ -2,5 +2,9 @@
     background-image: url('#{$path--rel}/#{$img}');
     background-repeat: no-repeat;
     background-position: $background-position;
-    background-color: $background-color;
-}
+    background-color: $background-color ;
+} 
+
+/* Usage */
+// @include background-image("header.png", right, $black)
+// }

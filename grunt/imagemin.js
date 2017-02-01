@@ -6,7 +6,7 @@ module.exports = {
         files: [{
             expand: true,
             cwd: '<%= site.src_img %>/',
-            src: ['**/*.{png,jpg,gif}'],
+            src: ['**/*.{png,jpg,gif,ico}'],
             dest: '<%= site.dev_img %>/'
         }]
     }
