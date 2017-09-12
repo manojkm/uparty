@@ -25,7 +25,7 @@ module.exports = function(grunt) {
             }
         },
 
-
+        // path to task.js files, defaults to grunt dir
         configPath: path.join(process.cwd(), 'grunt'),
         // ...
         data: { //data passed into config.  Can use with <%= test %>
