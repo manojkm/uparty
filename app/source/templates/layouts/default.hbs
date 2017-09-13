@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ <!-- Required meta tags -->
     <meta charset="UTF-8">
     <title>{{title}} | {{site.title}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="{{ site.description }}">
 		<meta name="keywords" content="{{ site.keywords }}">
         <meta name="author" content="{{ site.author.name }}">
@@ -12,11 +14,9 @@
         <link rel="apple-touch-icon" sizes="72x72" href="{{assets}}/img/apple-touch-icon-72x72.png" />
         <link rel="apple-touch-icon" sizes="114x114" href="{{assets}}/img/apple-touch-icon-114x114.png" />
           <!-- bower:css -->
-          <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
           <!-- endbower -->
-
-    <link href="{{assets}}/css/{{ site.name }}.min.css" rel="stylesheet">
-
+        <link href="{{assets}}/css/{{ site.name }}.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,6 +35,7 @@
  
         <!-- bower:js -->
         <script src="vendor/jquery/dist/jquery.js"></script>
+        <script src="vendor/popper.js/dist/umd/popper.js"></script>
         <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
         <!-- endbower -->
 

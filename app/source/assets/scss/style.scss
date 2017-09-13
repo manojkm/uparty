@@ -1,48 +1,52 @@
 // @import "compass/css3";
+
+//----------------------------------*\
+// BOOTSTRAP
+//----------------------------------*/
+//@import "vendor/bootstrap.scss";
 //----------------------------------*\
 // SCSS MIXINS
 //----------------------------------*/
-@import 'mixins/_vendor.scss';
-@import 'mixins/_position.scss';
-@import 'mixins/_background.scss';
-@import 'mixins/_afterbefore.scss';
+@import 'mixins/vendor.scss';
+@import 'mixins/position.scss';
+@import 'mixins/background.scss';
+@import 'mixins/afterbefore.scss';
 //----------------------------------*\
 // SCSS UTILS
 //----------------------------------*/
-@import 'utils/_extends.scss';
-@import 'utils/_functions.scss';
-@import 'utils/_variables.scss';
+@import 'utils/extends.scss';
+@import 'utils/functions.scss';
+@import 'utils/variables.scss';
 //----------------------------------*\
 // CONFIG MODULES
 //----------------------------------*/
-// Config modules
-@import 'modules/_app.scss';
-@import 'modules/_typography.scss';
-@import 'modules/_vars.scss';
-@import 'modules/_clearfix.scss';
-@import 'modules/_normalize.scss';
-@import 'modules/_defaults.scss';
+@import 'modules/app.scss';
+@import 'modules/typography.scss';
+@import 'modules/clearfix.scss';
+@import 'modules/normalize.scss';
+@import 'modules/defaults.scss';
 //----------------------------------*\
 // PARTIALS
 //----------------------------------*/
-@import 'partials/_header.scss';
-@import 'partials/_nav.scss';
-@import 'partials/_sidebar.scss';
-@import 'partials/_main.scss';
-@import 'partials/_footer.scss';
+@import 'partials/header.scss';
+@import 'partials/nav.scss';
+@import 'partials/sidebar.scss';
+@import 'partials/main.scss';
+@import 'partials/footer.scss';
 //----------------------------------*\
 // OBJECTS & MODULES
 //----------------------------------*/
-@import 'modules/_buttons.scss';
-@import 'modules/_inputs.scss';
-@import 'modules/_lists.scss';
-@import 'modules/_misc.scss';
+
+@import 'modules/buttons.scss';
+@import 'modules/inputs.scss';
+@import 'modules/lists.scss';
+@import 'modules/misc.scss';
 //----------------------------------*\
 // ENHANCEMENT MODULES
 //----------------------------------*/
-@import 'modules/_breakpoints.scss';
-@import 'modules/_print.scss';
+@import 'modules/breakpoints.scss';
+@import 'modules/print.scss';
 //----------------------------------*\
 // VENDOR
 //----------------------------------*/
-@import 'vendor/_external.scss';
+@import 'vendor/external.scss';
