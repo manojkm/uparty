@@ -7,9 +7,16 @@
 @import 'mixins/_background.scss';
 @import 'mixins/_afterbefore.scss';
 //----------------------------------*\
+// SCSS UTILS
+//----------------------------------*/
+@import 'utils/_extends.scss';
+@import 'utils/_functions.scss';
+@import 'utils/_variables.scss';
+//----------------------------------*\
 // CONFIG MODULES
 //----------------------------------*/
 // Config modules
+@import 'modules/_app.scss';
 @import 'modules/_typography.scss';
 @import 'modules/_vars.scss';
 @import 'modules/_clearfix.scss';
@@ -30,7 +37,6 @@
 @import 'modules/_inputs.scss';
 @import 'modules/_lists.scss';
 @import 'modules/_misc.scss';
-@import 'modules/_app.scss';
 //----------------------------------*\
 // ENHANCEMENT MODULES
 //----------------------------------*/
