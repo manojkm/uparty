@@ -16,17 +16,15 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.1.1",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "v4.0.0-beta"
   },
-
   "overrides": {
-  "bootstrap": {
-    "main": [
-      "dist/js/bootstrap.js",
-      "dist/css/bootstrap.css",
-      "less/bootstrap.less"
-        ]
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
+        "less/bootstrap.less"
+      ]
     }
-}
+  }
 }
