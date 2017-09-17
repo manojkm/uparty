@@ -1,30 +1,31 @@
 // @import "compass/css3";
-
 //----------------------------------*\
-// BOOTSTRAP
-//----------------------------------*/
-//@import "vendor/bootstrap.scss";
+
 //----------------------------------*\
 // SCSS MIXINS
 //----------------------------------*/
-@import 'mixins/vendor.scss';
+/* @import 'mixins/vendor.scss';
 @import 'mixins/position.scss';
 @import 'mixins/background.scss';
 @import 'mixins/afterbefore.scss';
+@import 'mixins/width.scss';
+@import 'mixins/border.scss'; */
 //----------------------------------*\
 // SCSS UTILS
 //----------------------------------*/
+@import 'utils/mixins.scss';
 @import 'utils/extends.scss';
 @import 'utils/functions.scss';
 @import 'utils/variables.scss';
 //----------------------------------*\
 // CONFIG MODULES
 //----------------------------------*/
+@import 'modules/defaults.scss';
 @import 'modules/app.scss';
 @import 'modules/typography.scss';
 @import 'modules/clearfix.scss';
 @import 'modules/normalize.scss';
-@import 'modules/defaults.scss';
+@import 'modules/media-queries';
 //----------------------------------*\
 // PARTIALS
 //----------------------------------*/
@@ -36,7 +37,6 @@
 //----------------------------------*\
 // OBJECTS & MODULES
 //----------------------------------*/
-
 @import 'modules/buttons.scss';
 @import 'modules/inputs.scss';
 @import 'modules/lists.scss';

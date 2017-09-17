@@ -1,0 +1,29 @@
+//	------------------------------
+//	  Width mixin
+//	------------------------------
+
+@mixin size($width, $height...) {
+  @if length($height) == 1 {
+    height: $height;
+    width: $width;
+  } @else {
+    height: $width;
+    width: $width;
+  }
+}
+
+// Usage & Ref https://bumbu.github.io/sass-width-mixin/
+/* @include size(10px, 20px); 
+@include size(25px); */
+
+//	------------------------------
+//	  
+//	------------------------------
+
+@mixin vendor ($property, $value...) {
+    -webkit-#{$property}:$value;
+    -moz-#{$property}:$value;
+    -ms-#{$property}:$value;
+    -o-#{$property}:$value;
+    #{$property}:$value;
+}
