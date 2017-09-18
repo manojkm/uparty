@@ -40,56 +40,46 @@
 </head>
 
 <body>
-<div class="wrapper">
-
-     <aside class="app-side">
-
-            <nav class="side-nav">
-
-                <ul class="metismenu" data-plugin="metismenu" >
-
-                    <li class="active">
-                        <a href="#" class="has-arrow" aria-expanded="true">
-
-                        <span class="nav-icon">i</span>
-                        <span class="nav-title">Menu 1</span>
-
-
-                        </a>
-                        <ul aria-expanded="true">
-                            <li>asdsad</li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" class="has-arrow" aria-expanded="false">
-                            <span class="nav-icon">i</span>
-                            <span class="nav-title">Menu 2</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li>asdsad</li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-
-    </aside>
-
-    <div class="side-visible-line hidden-xs" data-side="collapse">
-                  s
-   </div>
-
-
-
-    <!-- Page Content -->
-    <div id="content">
-            <a class="visible-xs b-r" href="#" data-side="collapse">11111111111</a>
-            <a class="hidden-xs b-r" href="#" data-side="mini">2222222222222222</a>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <aside class="app-side" >
+                <nav class="side-nav">
+                    <ul class="metismenu" data-plugin="metismenu">
+                        <li class="active">
+                            <a href="#" class="has-arrow" aria-expanded="true">
+                                <span class="nav-icon">i</span>
+                                <span class="nav-title">Menu 1</span>
+                            </a>
+                            <ul aria-expanded="true">
+                                <li>asdsad</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="has-arrow" aria-expanded="false">
+                                <span class="nav-icon">i</span>
+                                <span class="nav-title">Menu 2</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li>asdsad</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <div class="side-visible-line hidden-xs" data-side="collapse">
+                s
+            </div>
+            <div class="col" id="content">
+                <a class="visible-xs b-r" href="#" data-side="collapse">11111111111</a>
+                <a class="hidden-xs b-r" href="#" data-side="mini">2222222222222222</a>
                 {{> body }}
+            </div>
+        </div>
     </div>
-
-
+    <!-- <div class="wrapper">
+    <div >
     </div>
+    </div> -->
     <!-- bower:js -->
     <script src="vendor/jquery/dist/jquery.js"></script>
     <script src="vendor/popper.js/dist/umd/popper.js"></script>
