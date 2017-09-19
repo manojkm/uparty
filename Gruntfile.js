@@ -21,7 +21,8 @@ module.exports = function(grunt) {
             staticMappings: {
                 // here you can specify static mappings, for example:
                 usebanner: 'grunt-banner',
-                sprite: 'grunt-spritesmith'
+                sprite: 'grunt-spritesmith',
+                scsslint: 'grunt-scss-lint'
             }
         },
 

@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: style.scss
-// Description: The 7-1 Pattern | https://sass-guidelin.es/#architecture. Importing order & 
+// Description: The 7-1 Pattern | https://sass-guidelin.es/#architecture. Importing order &
 // guidelines are mentioned under the title MAIN FILE : https://sass-guidelin.es/#architecture.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
@@ -10,7 +10,7 @@
 // ================================================================================================
 
 // ================================================================================================
-// Guidelines : 
+// Guidelines :
 // One @import per folder;
 // A linebreak after @import;
 // Each file on its own line;
@@ -26,7 +26,7 @@
 //----------------------------------*\
 // SCSS ABSTRACTS
 //----------------------------------*/
-@import 
+@import
 	'abstracts/variables',
 	'abstracts/functions',
 	'abstracts/mixins',
@@ -36,7 +36,7 @@
 //----------------------------------*\
 // VENDOR
 //----------------------------------*/
-@import 
+@import
 	'vendor/external',
 	'vendor/normalize',
 	'vendor/media-queries';
@@ -44,14 +44,14 @@
 //----------------------------------*\
 // BASE
 //----------------------------------*/
-@import 
+@import
 	'base/reset',
 	'base/typography';
 
 //----------------------------------*\
 // PARTIALS
 //----------------------------------*/
-@import 
+@import
 	'partials/header',
 	'partials/nav',
 	'partials/sidebar',
@@ -62,7 +62,7 @@
 //----------------------------------*\
 // ENHANCEMENT COMPONENTS
 //----------------------------------*/
-@import 
+@import
 	'components/carousel',
 	'components/buttons',
 	'components/inputs',
@@ -79,13 +79,13 @@
 //----------------------------------*\
 // PAGES
 //----------------------------------*/
-@import 
+@import
 	'pages/home',
 	'pages/contact';
 
 //----------------------------------*\
 // THEMES
 //----------------------------------*/
-@import 
+@import
 	'themes/theme',
 	'themes/admin';
