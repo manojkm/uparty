@@ -5,6 +5,7 @@ module.exports = {
 
     task_css: [
         ['sass:dev', 'newer:copy:css', 'newer:csslint', 'newer:autoprefixer', 'newer:cssmin', 'sync', 'notify:css']
+        // ['scsslint:files','sass:dev', 'newer:copy:css', 'newer:csslint', 'newer:autoprefixer', 'newer:cssmin', 'sync', 'notify:css']
     ],
 
     task_js: [

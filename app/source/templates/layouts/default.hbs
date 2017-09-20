@@ -42,13 +42,13 @@
 <body>
     <div class="container-fluid h-100">
         <div class="row h-100">
-            <aside class="app-side" >
-                <nav class="side-nav">
+            <aside class="sidebar" >
+                <nav class="sidebar__nav">
                     <ul class="metismenu" data-plugin="metismenu">
                         <li class="active">
                             <a href="#" class="has-arrow" aria-expanded="true">
-                                <span class="nav-icon">i</span>
-                                <span class="nav-title">Menu 1</span>
+                                <span class="sidebar__nav-icon">i</span>
+                                <span class="sidebar__nav-title">Menu 1</span>
                             </a>
                             <ul aria-expanded="true">
                                 <li>asdsad</li>
@@ -56,8 +56,8 @@
                         </li>
                         <li>
                             <a href="#" class="has-arrow" aria-expanded="false">
-                                <span class="nav-icon">i</span>
-                                <span class="nav-title">Menu 2</span>
+                                <span class="sidebar__nav-icon">i</span>
+                                <span class="sidebar__nav-title">Menu 2</span>
                             </a>
                             <ul aria-expanded="false">
                                 <li>asdsad</li>
@@ -66,12 +66,12 @@
                     </ul>
                 </nav>
             </aside>
-            <div class="side-visible-line hidden-xs" data-side="collapse">
+            <div class="sidebar-hide hidden-xs" data-side="hide">
                 s
             </div>
             <div class="col" id="content">
-                <a class="visible-xs b-r" href="#" data-side="collapse">11111111111</a>
-                <a class="hidden-xs b-r" href="#" data-side="mini">2222222222222222</a>
+                <a class="visible-xs b-r" href="#" data-side="hide">11111111111</a>
+                <a class="hidden-xs b-r" href="#" data-side="mini">mini</a>
                 {{> body }}
             </div>
         </div>

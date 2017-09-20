@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: sidebar.scss
-// Description: 
+// Description:
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -10,82 +10,87 @@
 
 // https://gist.github.com/jareware/4738651
 
-.app-side {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    transform: translateX(-100%);
-    transition: all 0.3s ease-out;
-    /*   display: flex;
-    flex-flow: column nowrap;
-    min-height: 100vh; */
-    background-color: $grey;
-    width: 200px;
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-out;
+  background-color: $grey;
+  width: $sidebar-width;
 }
 
-.app-side-opened .app-side {
-    position: absolute !important;
-    transform: translateX(0);
+body.sidebar-opened .sidebar {
+  position: relative;
+  transform: translateX(0);
+
+  .sidebar__nav > ul {
+    padding: 10px;
+    margin: 0;
+
+    li {
+      list-style: none;
+
+      a {
+        display: block;
+      }
+    }
+  }
+}
+
+body.sidebar-closed {
+  [data-side="mini"] {
+    display: none !important;
+  }
+}
+
+body.sidebar-opened.sidebar-mini .sidebar {
+  width: $sidebar-mini-width;
+  z-index: 1;
+
+  .sidebar__nav > ul > li > a > .sidebar__nav-title {
+    display: none;
+  }
+
+  .sidebar__nav > ul > li {
+    &.active > a,
+    &:hover > a {
+      min-width: 180px;
+      display: block;
+
+      .sidebar__nav-title {
+        display: inline-block;
+      }
+    }
+
+    > ul.collapsing,
+    > ul.collapse,
+    &.active > ul.collapse.in {
+      min-width: 180px;
+    }
+  }
 }
 
 @include max-screen(767px) {
-    .app-side {
-        overflow-y: auto;
-    }
+  .sidebar {
+    overflow-y: auto;
+    position: absolute !important;
+  }
 
-    .app-side-opened .app-side {
-        z-index: 1000;
-    }
+  body.sidebar-opened .sidebar {
+    z-index: 1000;
+  }
 }
 
 
-@include min-screen(768px) {
-    .app-side-opened .app-side {
-        position: relative !important;
-    }
+.sidebar-hide {
+  background: $white;
+  border-right: 1px solid #e7e7e7;
+  padding: 5px 3px;
+  cursor: pointer;
 
-    .app-side-closed [data-side="mini"] {
-        display: none !important;
-    }
-
-    .app-side-opened.app-side-mini .app-side {
-        width: 60px;
-        z-index: 1;
-
-        .side-nav > ul > li > a > .nav-title {
-            display: none;
-        }
-    }
-
-    .app-side-opened.app-side-mini .app-side .side-nav > ul {
-        > li.active > a,
-        > li:hover > a {
-            min-width: 200px;
-            top: 0;
-            display: inline-block;
-            .nav-title {
-                display: inline-block;
-            }
-        }
-
-        > li > ul.collapsing,
-        > li > ul.collapse,
-        > li.active > ul.collapse.in {
-            min-width: 180px;
-            /* left: 100%;
-                top: 100%;
-                 */
-        }
-    }
-}
-
-
-.side-visible-line {
-    background: #fff;
-    border-right: 1px solid #e7e7e7;
-    padding: 5px 3px;
-    cursor: pointer;
-
-    &:hover{background: #fafafa;}
+  &:hover {
+    background: #fafafa;
+  }
 }
