@@ -1,12 +1,15 @@
 // ================================================================================================
-//     File Name: sidebar.scss
-//     Description: 
-//     ----------------------------------------------------------------------------------------------
-//     Item Name: xxx - Responsive Admin Theme
-//     Version: 1.2
-//     Author: MANOJ
-//     Author URL: http://www.themeforest.net/user/xxx
+// File Name: sidebar.scss
+// Description: 
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
+
+// https://gist.github.com/jareware/4738651
+
 .app-side {
     position: fixed;
     top: 0;
@@ -14,10 +17,9 @@
     bottom: 0;
     transform: translateX(-100%);
     transition: all 0.3s ease-out;
-
-  /*   display: flex;
-flex-flow: column nowrap;
-min-height: 100vh; */
+    /*   display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh; */
     background-color: $grey;
     width: 200px;
 }
@@ -33,7 +35,6 @@ min-height: 100vh; */
     }
 
     .app-side-opened .app-side {
-        /* .app-side always top */
         z-index: 1000;
     }
 }
@@ -63,7 +64,6 @@ min-height: 100vh; */
             min-width: 200px;
             top: 0;
             display: inline-block;
-
             .nav-title {
                 display: inline-block;
             }
@@ -73,7 +73,6 @@ min-height: 100vh; */
         > li > ul.collapse,
         > li.active > ul.collapse.in {
             min-width: 180px;
-
             /* left: 100%;
                 top: 100%;
                  */
@@ -87,8 +86,6 @@ min-height: 100vh; */
     border-right: 1px solid #e7e7e7;
     padding: 5px 3px;
     cursor: pointer;
-}
 
-.side-visible-line:hover {
-    background: #fafafa;
+    &:hover{background: #fafafa;}
 }
