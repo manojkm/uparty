@@ -18,13 +18,12 @@
   transform: translateX(-100%);
   transition: all 0.3s ease-out;
   background-color: $grey;
-  
 }
 
 body.sidebar-opened .sidebar {
   position: relative;
   transform: translateX(0);
-   width: $sidebar-width;
+  width: $sidebar-width;
 
   .sidebar__nav > ul {
     padding: 10px;
@@ -35,8 +34,14 @@ body.sidebar-opened .sidebar {
 
       a {
         display: block;
+
+        @include font-size(1.6);
       }
     }
+  }
+
+  .sidebar__nav > ul > li > ul > li {
+    @include font-size(1.4);
   }
 }
 
@@ -55,12 +60,15 @@ body.sidebar-opened.sidebar-mini .sidebar {
   }
 
   .sidebar__nav > ul > li {
-     > a {
-          display: inline-block;
-      }
+    > a {
+      display: inline-block;
+    }
+
     &.active > a,
-    &:hover > a {
+    &:hover > a ,
+    &:focus > a {
       min-width: 180px;
+
       .sidebar__nav-title {
         display: inline-block;
       }

@@ -1,0 +1,38 @@
+// ================================================================================================
+// File Name: reset.scss
+// Description: Write any resets in addition to Normalize.css
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p,
+blockquote {
+  // margin: 0;
+  // padding: 0;
+}
+
+
+a,
+input,
+textarea,
+button,
+object,
+embed {
+	 outline: none;
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}

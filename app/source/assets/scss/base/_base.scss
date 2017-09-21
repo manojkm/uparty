@@ -1,6 +1,6 @@
 // ================================================================================================
-// File Name: app.scss
-// Description: 
+// File Name: base.scss
+// Description: Write styles that apply throughout the project in this file.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -8,7 +8,17 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
-// PLACEHOLDERS
-//----------------------------------*/
+body {
+  height: 100vh;
+}
 
+html {
+  font-size: $html-font-size;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
