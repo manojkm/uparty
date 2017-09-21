@@ -12,7 +12,7 @@ if (typeof jQuery === 'undefined') {
   
 var Side = {
 
-  _ps: $('.sidebar'),
+  // _ps: $('.sidebar'),
   _body: $('body'),
 
   responsive: function responsive() {
@@ -38,6 +38,7 @@ var Side = {
   _stopMetisMenu: function _stopMetisMenu() {
     $('.sidebar__nav').find('li').removeClass('active');
     $('.sidebar__nav').find('a').attr('aria-expanded', false);
+     // $('.sidebar__nav').find('a').removeClass('has-arrow');
     $('.sidebar__nav').find('ul.collapse').removeClass('in').attr('aria-expanded', false);
   }
 
