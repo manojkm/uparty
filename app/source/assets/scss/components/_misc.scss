@@ -1,15 +1,14 @@
-::selection{
-  background:#333;
-  color:#fff;
-  text-shadow:none;
+::-webkit-selection {
+  color: $selection-color;
+  background: $selection-bg;
 }
-::-moz-selection{
-  background:#333;
-  color:#fff;
-  text-shadow:none;
+
+::-moz-selection {
+  color: $selection-color;
+  background: $selection-bg;
 }
-::-webkit-selection{
-  background:#333;
-  color:#fff;
-  text-shadow:none; 
+
+::selection {
+  color: $selection-color;
+  background: $selection-bg;
 }

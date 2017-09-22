@@ -2,7 +2,7 @@ module.exports = {
 
     task: {
         src: [
-            '<%= site.src_layoutdir %>/*.hbs',
+            '<%= site.src_partials %>',
         ],
         exclude: [
              

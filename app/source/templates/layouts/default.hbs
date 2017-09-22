@@ -1,74 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>{{title}} | {{site.title}}</title>
-    <!-- Required meta tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{ site.description }}">
-    <meta name="keywords" content="{{ site.keywords }}">
-    <meta name="author" content="{{ site.author.name }}">
-    <!-- 
-    //////////////////////////////////////////////////////
-
-    ADMIN HTML5 TEMPLATE 
-    DESIGNED & DEVELOPED by {{ site.author.name }}
-
-    Website:        xxx
-    Email:          xxx
-
-    //////////////////////////////////////////////////////
-    -->
-    <link rel="icon" href="{{assets}}/img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="{{assets}}/img/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="{{assets}}/img/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="{{assets}}/img/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="{{assets}}/img/apple-touch-icon-114x114.png" />
-    <!-- bower:css -->
-    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="vendor/metisMenu/dist/metisMenu.css" />
-    <!-- endbower -->
-    <!-- Custom styles for this template -->
-    <link href="{{assets}}/css/{{ site.name }}.min.css" rel="stylesheet" title="mainStyle">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]> 
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> 
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> 
-        <![endif]-->
+<!-- Meta, title, CSS, favicons, etc. -->
+ {{> head }}
 </head>
-
 <body>
     <div class="container-fluid h-100">
         <div class="row h-100">
-            <aside class="sidebar" >
-                <nav class="sidebar__nav">
-                    <ul class="metismenu" data-plugin="metismenu">
-                        <li class="active">
-                            <a href="#" class="has-arrow" aria-expanded="true">
-                                <span class="sidebar__nav-icon">i</span>
-                                <span class="sidebar__nav-title">Menu 1</span>
-                            </a>
-                            <ul aria-expanded="true">
-                                <li>asdsad</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="has-arrow" aria-expanded="false">
-                                <span class="sidebar__nav-icon">i</span>
-                                <span class="sidebar__nav-title">Menu 2</span>
-                            </a>
-                            <ul aria-expanded="false">
-                                <li>asdsad</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
-            <div class="sidebar-hide hidden-xs" data-side="hide">
-                s
-            </div>
+       {{> sidebar }}
             <div class="col" id="content">
                 <a class="visible-xs b-r" href="#" data-side="hide">11111111111</a>
                 <a class="hidden-xs b-r" href="#" data-side="mini">mini</a>
@@ -76,14 +15,6 @@
             </div>
         </div>
     </div>
-    <!-- bower:js -->
-    <script src="vendor/jquery/dist/jquery.js"></script>
-    <script src="vendor/popper.js/dist/umd/popper.js"></script>
-    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="vendor/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-    <script src="vendor/metisMenu/dist/metisMenu.js"></script>
-    <!-- endbower -->
-    <script src="{{assets}}/js/{{ site.name }}.js"></script>
+{{> footer-scripts }}
 </body>
-
 </html>

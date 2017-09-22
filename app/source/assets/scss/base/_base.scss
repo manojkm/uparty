@@ -8,13 +8,19 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-body {
-  height: 100vh;
-}
-
 html {
   font-size: $html-font-size;
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  color: $text-color;
+  @include font-size(1.6);
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  background-color: $body-bg-color;
 }
 
 *,

@@ -16,7 +16,7 @@
   left: 0;
   bottom: 0;
   transform: translateX(-100%);
-  transition: all 0.3s ease-out;
+  @include transition(all 0.3s ease-out);
   background-color: $grey;
 }
 
@@ -101,6 +101,6 @@ body.sidebar-opened.sidebar-mini .sidebar {
   cursor: pointer;
 
   &:hover {
-    background: #fafafa;
+    background:$light-grey;
   }
 }
