@@ -11,118 +11,116 @@
 // https://gist.github.com/jareware/4738651
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
 
-  @include transition(all 0.3s ease-out);
-
-  background-color: $sidebar-menu-bg;
+    @include transition(all 0.3s ease-out);
 }
 
 body.sidebar-opened .sidebar {
-  position: relative;
-  transform: translateX(0);
-  width: $sidebar-width;
+    position: relative;
+    transform: translateX(0);
+    width: $sidebar-width;
 
-  .sidebar__nav {
-    .sidebar__logo-mini {
-      display: none;
+    &__logo-mini {
+        display: none;
     }
-  }
 
-  .sidebar__nav > ul {
-    padding: 10px;
-    margin: 0;
+    &__nav > ul {
+        padding: 10px;
+        margin: 0;
 
-    li {
-      list-style: none;
+        li {
+            list-style: none;
 
-      a {
-        display: block;
+            a {
+                display: block;
 
-        @include font-size(1.6);
-      }
+                @include font-size(1.6);
+            }
+        }
     }
-  }
 
-  .sidebar__nav > ul > li > ul > li {
-    @include font-size(1.4);
-  }
+    &__nav > ul > li > ul > li {
+        @include font-size(1.4);
+    }
 }
 
 body.sidebar-closed {
-  [data-side="mini"] {
-    display: none !important;
-  }
+    [data-side="mini"] {
+        display: none !important;
+    }
 }
 
 body.sidebar-opened.sidebar-mini .sidebar {
-  width: $sidebar-mini-width;
-  z-index: 1;
+    $s: sidebar;
 
-  .sidebar__nav {
-    .sidebar__logo-mini {
-      display: block;
-    }
-  }
+    width: $sidebar-mini-width;
+    z-index: 1;
 
-  .sidebar__nav > ul > li {
-    > a {
-      display: inline-block;
-
-      > .sidebar__nav-title {
-        display: none;
-      }
-
-      &:after {
-        display: none;
-      }
-    }
-
-    &.active > a,
-    &:hover > a,
-    &:focus > a {
-      min-width: 180px;
-
-      &:after {
+    &__logo-mini {
         display: block;
-      }
+    }
 
-      .sidebar__nav-title {
+    &__nav > ul > li > a {
         display: inline-block;
-      }
+
+        .#{$s}__nav-title {
+            display: none;
+        }
+
+        &:after {
+            display: none;
+        }
     }
 
-    > ul.collapsing,
-    > ul.collapse,
-    &.active > ul.collapse.in {
-      min-width: 180px;
+    &__nav > ul > li {
+        &.active > a,
+        &:hover > a,
+        &:focus > a {
+            min-width: 180px;
+
+            &:after {
+                display: block;
+            }
+
+            .#{$s}__nav-title {
+                display: inline-block;
+            }
+        }
     }
-  }
+
+    &__nav > ul > li {
+        > ul.collapsing,
+        > ul.collapse,
+        &.active > ul.collapse.in {
+            min-width: 180px;
+        }
+    }
 }
 
 @include max-screen(767px) {
-  .sidebar {
-    overflow-y: auto;
-    position: absolute !important;
-  }
+    .sidebar {
+        overflow-y: auto;
+        position: absolute !important;
+    }
 
-  body.sidebar-opened .sidebar {
-    z-index: 1000;
-  }
+    body.sidebar-opened .sidebar {
+        z-index: 1000;
+    }
 }
 
 
 .sidebar-hide {
-  background: $white;
-  border-right: 1px solid #e7e7e7;
-  padding: 5px 3px;
-  cursor: pointer;
+    background: $white;
+    border-right: 1px solid #e7e7e7;
+    padding: 5px 3px;
+    cursor: pointer;
 
-  &:hover {
-    background: $light-grey;
-  }
+    &:hover {
+        background: $light-grey;
+    }
 }

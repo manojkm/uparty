@@ -15,13 +15,17 @@
 // We suggest you to use this (assets/scss/variables/app-variables.scss) file for overriding app variables.
 // ================================================================================================
 
-
 //----------------------------------*\
 // BODY
 //----------------------------------*/
 $base-line-height: 1.6;
 $body-bg-color: #fff;
 $text-color: #333;
+
+//----------------------------------*\
+// THEMES
+//----------------------------------*/
+$themes: theme-news #f44f74 #f497ac, theme-sports #5cbb00 #b2e581, theme-entertainment #00afc4 #92d3db  !default;
 
 //----------------------------------*\
 // LINKS
@@ -44,17 +48,25 @@ $sidebar-submenu-hover-color: #fff;
 //----------------------------------*\
 // FONTS
 //----------------------------------*/
-$html-font-size: 62.5%; // 62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
-$base-font-family: 'Source Sans Pro', Arial, sans-serif;
+$html-font-size: 62.5%;
+
+// 62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
+$base-font-family: "Source Sans Pro", Arial, sans-serif;
 $base-font-weight: 300;
 
 //----------------------------------*\
 // OTHER COLORS
 // Adapted from https://flatuicolors.com/
 //----------------------------------*/
-$primary-color: #021320; // dark blue
-$secondary-color: #0f9962; // green
-$tertiary-color: #005292; // light blue
+$primary-color: #021320;
+
+// dark blue
+$secondary-color: #0f9962;
+
+// green
+$tertiary-color: #005292;
+
+// light blue
 $grey: #ccc;
 $light-grey: #fafafa;
 $white: #fff;
