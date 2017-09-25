@@ -16,19 +16,14 @@
 // ================================================================================================
 
 
-// Variables
-$color-black : #000;
-$color-white : #fff;
-$color-alpha : #ff0000;
-
-
 $themes: (
+	theme-default: (
+		primary-color: #021320,
+		secondary-color: #0f9962,
+		sidebar-menu-bg: lighten(#021320, 60%)
+	),
+
   theme-blue: (
-    color-alpha: blue,
-    color-beta: orange
   ),
-  theme-default: (
-    color-alpha: $color-alpha,
-    color-beta: yellow
-  )
+ 
 );

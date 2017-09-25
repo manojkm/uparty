@@ -12,16 +12,16 @@
 
 .sidebar {
     @include transition(all 0.3s ease-out);
+
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     transform: translateX(-100%);
 
-    @include themify() {
-    background-color: getThemifyVariable('color-alpha');
+    @include themify {
+        background-color: themify-variable('sidebar-menu-bg');
     }
-
 }
 
 .sidebar-opened .sidebar {
@@ -42,12 +42,12 @@
 
             a {
                 display: block;
+
                 @include font-size(1.6);
 
-                  @include themify() {
-                    color: getThemifyVariable('color-beta');
+                @include themify {
+                    color: themify-variable("color-beta");
                 }
-
             }
         }
     }
