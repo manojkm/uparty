@@ -1,0 +1,43 @@
+// ================================================================================================
+// File Name: theme.scss
+// Description: Theme instantiations adapted from https://www.sitepoint.com/dealing-color-schemes-sass/, 
+// https://stackoverflow.com/questions/18697963/sass-color-theme-without-repeat-elements
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//----------------------------------*\
+// HELPER THEME MIXIN
+//----------------------------------
+// Color manipulation functions adapted from http://sass-lang.com/documentation/Sass/Script/Functions.html
+
+@mixin theme($theme) {
+    $area: nth($theme, 1);
+    $primary: nth($theme, 2);
+    $secondary: nth($theme, 3);
+
+    //you can use apply a class to the body or apply to a div like - div.#{$area}
+    // body.#{$area} {
+    .#{$area} {
+        .sidebar {
+            background-color: $primary;
+
+            &__nav > ul li a {
+                color: darken($primary, 60%);
+            }
+        }
+    }
+}
+
+// Including themes 
+// By looping through the $themes map
+// @each $key, $value in $themes {
+//     @include theme($key, $value);
+// }
+
+@each $theme in $themes {
+    @include theme($theme);
+}

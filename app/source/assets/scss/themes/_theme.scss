@@ -9,35 +9,13 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
-// HELPER THEME MIXIN
-//----------------------------------
-// Color manipulation functions adapted from http://sass-lang.com/documentation/Sass/Script/Functions.html
+/* !!!!!!!!!!!!!!!!!!!! https://www.sitepoint.com/sass-theming-neverending-story/
+https://zellwk.com/blog/organizing-multiple-theme-styles-with-sass/
+https://codepen.io/celar/pen/dXRNQo
+https://codepen.io/nibi/pen/LbzqPo
+https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+https://codepen.io/anon/pen/vNXRJW
+https://codepen.io/anon/pen/ZbLoGE
+https://github.com/zellwk/themify/blob/master/_themify.scss
+https://github.com/Kurtz1993/sass-theme-test */
 
-@mixin theme($theme) {
-    $area: nth($theme, 1);
-    $primary: nth($theme, 2);
-    $secondary: nth($theme, 3);
-
-    //you can use apply a class to the body or apply to a div like - div.#{$area}
-    // body.#{$area} {
-    .#{$area} {
-        .sidebar {
-            background-color: $primary;
-
-            &__nav > ul li a {
-                color: darken($primary, 60%);
-            }
-        }
-    }
-}
-
-// Including themes 
-// By looping through the $themes map
-// @each $key, $value in $themes {
-//     @include theme($key, $value);
-// }
-
-@each $theme in $themes {
-    @include theme($theme);
-}

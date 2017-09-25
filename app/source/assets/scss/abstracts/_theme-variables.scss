@@ -1,0 +1,34 @@
+// ================================================================================================
+// File Name: variables.scss
+// Description: Custom variables
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+// ================================================================================================
+// WARNING: PLEASE DO NOT CHANGE THIS VARIABLE FILE.
+// THIS FILE WILL GET OVERWRITTEN WITH EACH XXXX TEMPLATE RELEASE.
+// TIP:
+// We suggest you to use this (assets/scss/variables/app-variables.scss) file for overriding app variables.
+// ================================================================================================
+
+
+// Variables
+$color-black : #000;
+$color-white : #fff;
+$color-alpha : #ff0000;
+
+
+$themes: (
+  theme-blue: (
+    color-alpha: blue,
+    color-beta: orange
+  ),
+  theme-default: (
+    color-alpha: $color-alpha,
+    color-beta: yellow
+  )
+);
