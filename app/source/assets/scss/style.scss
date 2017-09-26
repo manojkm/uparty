@@ -23,12 +23,18 @@
 //----------------------------------*\
 // @import "compass/css3";
 
+
+//----------------------------------*\
+// THEME MAP
+//----------------------------------*/
+@import
+	'themes/theme-map';
+
 //----------------------------------*\
 // SCSS ABSTRACTS
 //----------------------------------*/
 @import
 	'abstracts/variables',
-	'abstracts/theme-variables',
 	'abstracts/mixins',
 	'abstracts/functions',
 	'abstracts/extends',
@@ -84,10 +90,3 @@
 @import
 	'pages/home',
 	'pages/contact';
-
-//----------------------------------*\
-// THEMES
-//----------------------------------*/
-@import
-	'themes/theme',
-	'themes/admin';

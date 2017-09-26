@@ -11,17 +11,16 @@
 // https://gist.github.com/jareware/4738651
 
 .sidebar {
-    @include transition(all 0.3s ease-out);
-
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     transform: translateX(-100%);
-
-    @include themify {
-        background-color: themify-variable('sidebar-menu-bg');
-    }
+    @include themify(background-color, sidebar-menu-bg);
+    @include transition(all 0.3s ease-out);
+    /* @include themi {
+        background-color: themi-variable('sidebar-menu-bg');
+    } */
 }
 
 .sidebar-opened .sidebar {
@@ -44,10 +43,7 @@
                 display: block;
 
                 @include font-size(1.6);
-
-                @include themify {
-                    color: themify-variable("color-beta");
-                }
+                
             }
         }
     }

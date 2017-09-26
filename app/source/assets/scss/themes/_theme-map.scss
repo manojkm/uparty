@@ -1,0 +1,77 @@
+// ================================================================================================
+// File Name: theme-map.scss
+// Description: Theme instantiations adapted from https://fjcalzado.github.io/DemoSeries-SASS-Easy-Theming/
+// https://stackoverflow.com/questions/18697963/sass-color-theme-without-repeat-elements
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+/* !!!!!!!!!!!!!!!!!!!! https://www.sitepoint.com/sass-theming-neverending-story/
+https://zellwk.com/blog/organizing-multiple-theme-styles-with-sass/
+https://codepen.io/celar/pen/dXRNQo
+https://codepen.io/nibi/pen/LbzqPo
+https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+https://codepen.io/anon/pen/vNXRJW
+https://codepen.io/anon/pen/ZbLoGE
+https://github.com/zellwk/themify/blob/master/_themify.scss
+https://github.com/Kurtz1993/sass-theme-test 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import 'https://fonts.googleapis.com/css?family=Raleway:0,600,800';
+@import 'https://fonts.googleapis.com/css?family=Ubuntu:0,600,800';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:0,600,800';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:0,600,800';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:0,600,800';
+
+
+
+//----------------------------------*\
+// COLOR VARIABLES
+//----------------------------------*/
+// Adapted from https://www.materialui.co/metrocolors, https://flatuicolors.com/
+
+$lime: 		#a4c400;	$turquoise:		#1abc9c;
+$green: 	#60a917;	$green-sea:		#16a085;
+$emerald: 	#008a00;	$sunflower:		#f1c40f;
+$teal: 		#00aba9;	$nephritis:		#27ae60;
+$cyan: 		#1ba1e2;	$carrot:		#e67e22;
+$cobalt: 	#0050ef;	$pumpkin:		#d35400;
+$indigo: 	#6a00ff;	$peter-river:	#3498db;
+$violet: 	#aa00ff;	$belize-hole:	#2980b9;
+$pink: 		#f472d0;	$alizarin:		#e74c3c;
+$magenta: 	#d80073;	$pomegranate:	#c0392b;
+$crimson: 	#a20025;	$amethyst:		#9b59b6;
+$red: 		#e51400;	$wisteria:		#8e44ad;
+$orange: 	#fa6800;	$clouds:		#ecf0f1;
+$amber : 	#f0a30a;	$silver:		#bdc3c7;
+$yellow: 	#e3c800;	$wet-asphalt:	#34495e;
+$brown: 	#825a2c;	$midnight-blue:	#2c3e50;
+$olive: 	#6d8764;	$concrete:		#95a5a6;
+$steel: 	#647687;	$abestos:		#7f8c8d;
+$mauve: 	#76608a;
+$sienna: 	#a0522d;
+
+//----------------------------------*\
+// THEME MAP 
+//----------------------------------*/
+
+$theme-collection: (
+	default: (
+		'primary-font': ("Raleway", Arial, sans-serif),
+		'primary-color': $lime,
+		'secondary-color': #0f9962,
+		'sidebar-menu-bg': $lime
+	),
+
+   blue: (
+		'primary-color': #021320,
+		'secondary-color': #0f9962,
+		'sidebar-menu-bg': lighten(#021320, 60%)
+   ),
+ 
+) !default;

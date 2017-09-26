@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: variables.scss
-// Description: Custom variables
+// Description: Global Themes variables.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -24,11 +24,6 @@ $body-bg-color: #fff;
 $text-color: #333;
 
 //----------------------------------*\
-// THEMES
-//----------------------------------*/
-$themes: theme-news #f44f74 #f497ac, theme-sports #5cbb00 #b2e581, theme-entertainment #00afc4 #92d3db  !default;
-
-//----------------------------------*\
 // LINKS
 //----------------------------------*/
 
@@ -49,16 +44,17 @@ $sidebar-submenu-hover-color: #fff;
 //----------------------------------*\
 // FONTS
 //----------------------------------*/
-$html-font-size: 62.5%;
-
 // 62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
+$html-font-size: 62.5%;
 $base-font-family: "Source Sans Pro", Arial, sans-serif;
 $base-font-weight: 300;
 
 //----------------------------------*\
 // OTHER COLORS
-// Adapted from https://flatuicolors.com/
 //----------------------------------*/
+// Adapted from https://flatuicolors.com/
+
+
 $primary-color: #021320;
 
 // dark blue
@@ -115,3 +111,9 @@ $path-rel: 'images/';
 //----------------------------------*\
 // TABLES
 //----------------------------------*/
+
+
+//----------------------------------*\
+// THEME TRANSITION
+//----------------------------------*/
+$theme-transition-duration: 1.5s;

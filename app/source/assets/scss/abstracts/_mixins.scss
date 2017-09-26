@@ -10,7 +10,7 @@
 
 
 //----------------------------------*\
-//	WIDTH
+// WIDTH
 //----------------------------------*/
 // Usage @include size(10px, 20px), @include size(25px); Adapted from https://bumbu.github.io/sass-width-mixin/
 @mixin size($width, $height...) {
@@ -24,9 +24,10 @@
 }
 
 //----------------------------------*\
-//	REM FONT SIZING : - https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+// REM FONT SIZING 
 //----------------------------------*/
-// Usage @include font-size(1.6);
+// Will convert pixels to ems because who thinks in rem? Adapted from https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+// Usage @include font-size(1.6); 
 @mixin font-size($size-value: 1.6) {
   font-size: ($size-value * 10) + px;
   font-size: $size-value + rem;
@@ -69,19 +70,19 @@
 
 
 //----------------------------------*\
-// THEMIFY
+// THEMIFY - OLD
 //----------------------------------*/
-
-@mixin themify ($themes: $themes) {
-  @each $theme, $map in $themes {
-    body.#{$theme} & {
+// Usage  @include themi { background-color: themi-variable('sidebar-menu-bg');}
+@mixin themi ($theme-collection: $theme-collection) {
+  @each $theme, $map in $theme-collection {
+    .theme-#{$theme} & {
       // Define theme color
       $theme-map : (
           color-alpha: blue
       ) !global;
       
       @each $key, $submap in $map {
-        $value: map-fetch($themes, $theme '#{$key}');
+        $value: map-fetch($theme-collection, $theme '#{$key}');
         $theme-map: map-merge($theme-map, ($key: $value)) !global;
       }
       
@@ -89,5 +90,81 @@
       // reset theme color to null
       $theme-map: null !global;
     }
+  }
+}
+// Function
+@function map-fetch($map, $keys) {
+  $key: nth($keys, 1);
+  $length: length($keys);
+  $value: map-get($map, $key);
+  
+  
+  @if $value != null {
+    @if $length > 1 {
+      $rest: ();
+      
+      @for $i from 2 through $length {
+        $rest: append($rest, nth($keys, $i))
+      }
+      
+      @return map-fetch($value, $rest);
+    } @else {
+      @return $value;
+    }
+  } @else {
+    @return false;
+  }
+}
+
+@function themi-variable($key) {
+  @return map-get($theme-map, $key);
+}
+
+
+//----------------------------------*\
+// THEMIFY - NEW
+//----------------------------------*/
+// Adapted from https://github.com/fjcalzado/DemoSeries-SASS-Easy-Theming, https://fjcalzado.github.io/DemoSeries-SASS-Easy-Theming/
+// Usage:
+// Mutiple properties: @include themify((background-color,box-shadow),(primary-color, shadow-dark)); 
+// Single properties:  @include themify(color, text-color-light);
+
+// Single Themify mixin. It accepts several properties and keys.
+// @param {List} $properties: Properties to themify.
+// @param {List} $keys: Theme items to map properies against to.
+// @param $transition-duration: Duration in seconds for transition effect.
+// @param {Map} $themes [$themes] - Map of themes to use.
+@mixin themify($properties, $keys, $transition-duration: $theme-transition-duration, $themes: $theme-collection) {
+  // Iterate over the themes.
+  @each $theme, $theme-item in $themes {
+    // Create a selector CLASS -> THEME and also THEME -> CLASS.
+    &.theme-#{$theme},
+    .theme-#{$theme} & {
+      // Iterate over each property-key value.
+      @for $i from 1 through length($properties) {
+        $property: nth($properties, $i);
+        $key: nth($keys, $i);
+        #{$property}: map-get($theme-item, $key);
+      }
+      // Finally add transitions over themified properties.
+      // transition-property: #{$properties};
+      // transition-duration: $transition-duration;
+    }
+  }
+}
+
+
+// Device specific media query helper.
+// @param $materialize-device: device out of mobile, tablet or desktop.
+// Usage sample https://www.sassmeister.com/gist/307f690b022e44917704
+$materialize-mobile-brkpnt: 600px;
+$materialize-tablet-brkpnt: 992px;
+@mixin respond-to($materialize-device) {
+  @if $materialize-device == mobile {
+    @media screen and (max-width: $materialize-mobile-brkpnt) { @content; }
+  } @else if $materialize-device == tablet {
+    @media screen and (min-width: $materialize-mobile-brkpnt + 1) and (max-width: $materialize-tablet-brkpnt) { @content; }
+  } @else if $materialize-device == desktop {
+    @media screen and (min-width: $materialize-tablet-brkpnt + 1) { @content; }
   }
 }
