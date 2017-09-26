@@ -19,7 +19,6 @@
 //----------------------------------*\
 // BODY
 //----------------------------------*/
-$base-line-height: 1.6;
 $body-bg-color: #fff;
 $text-color: #333;
 
@@ -44,10 +43,16 @@ $sidebar-submenu-hover-color: #fff;
 //----------------------------------*\
 // FONTS
 //----------------------------------*/
-// 62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
-$html-font-size: 62.5%;
-$base-font-family: "Source Sans Pro", Arial, sans-serif;
-$base-font-weight: 300;
+
+$font-html: (
+	size: 62.5%, // 62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
+);
+
+$font: (
+    color: #666,
+	weight: 300,
+	line-height: 1.6
+);
 
 //----------------------------------*\
 // OTHER COLORS

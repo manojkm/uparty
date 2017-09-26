@@ -97,12 +97,10 @@
   $key: nth($keys, 1);
   $length: length($keys);
   $value: map-get($map, $key);
-  
-  
+
   @if $value != null {
     @if $length > 1 {
-      $rest: ();
-      
+      $rest: ();     
       @for $i from 2 through $length {
         $rest: append($rest, nth($keys, $i))
       }
@@ -126,7 +124,7 @@
 //----------------------------------*/
 // Adapted from https://github.com/fjcalzado/DemoSeries-SASS-Easy-Theming, https://fjcalzado.github.io/DemoSeries-SASS-Easy-Theming/
 // Usage:
-// Mutiple properties: @include themify((background-color,box-shadow),(primary-color, shadow-dark)); 
+// Mutiple properties: @include themify((background-color,box-shadow),(primary-color, shadow-dark));
 // Single properties:  @include themify(color, text-color-light);
 
 // Single Themify mixin. It accepts several properties and keys.
@@ -144,7 +142,7 @@
       @for $i from 1 through length($properties) {
         $property: nth($properties, $i);
         $key: nth($keys, $i);
-        #{$property}: map-get($theme-item, $key);
+        #{$property}: map-get-strict($theme-item, $key); // Will throw error if values not found.
       }
       // Finally add transitions over themified properties.
       // transition-property: #{$properties};
@@ -159,6 +157,7 @@
 // Usage sample https://www.sassmeister.com/gist/307f690b022e44917704
 $materialize-mobile-brkpnt: 600px;
 $materialize-tablet-brkpnt: 992px;
+
 @mixin respond-to($materialize-device) {
   @if $materialize-device == mobile {
     @media screen and (max-width: $materialize-mobile-brkpnt) { @content; }

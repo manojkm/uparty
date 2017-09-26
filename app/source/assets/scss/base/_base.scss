@@ -9,17 +9,17 @@
 // ================================================================================================
 
 html {
-  font-size: $html-font-size;
+  font-size: map-get-strict($font-html, size);
   box-sizing: border-box;
 }
 
 body {
   height: 100vh;
-  color: $text-color;
+  color: map-get-strict($font, color);
   @include font-size(1.6);
   @include themify(font-family, primary-font);
-  font-weight: $base-font-weight;
-  line-height: $base-line-height;
+  font-weight: map-get-strict($font, weight);
+  line-height: map-get-strict($font, line-height);
   background-color: $body-bg-color;
 }
 

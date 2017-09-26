@@ -1,1 +1,24 @@
- 
+// ================================================================================================
+// File Name: functions.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+
+//----------------------------------*\
+// MAP GET ERROR HANDLING
+//----------------------------------*/
+// Usage map-get-strict($font-html, size);
+
+@function map-get-strict($map, $key) {
+    @if map-has-key($map, $key) {
+        @return map-get($map, $key);
+    }  @else {
+    @warn 'Unfortunately, no value could be retrieved from '#{$key}'. '
+        + 'Please make sure it is defined in map.';
+  }
+}

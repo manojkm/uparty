@@ -22,6 +22,7 @@ https://github.com/Kurtz1993/sass-theme-test
 */
 
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700';
 @import 'https://fonts.googleapis.com/css?family=Raleway:0,600,800';
 @import 'https://fonts.googleapis.com/css?family=Ubuntu:0,600,800';
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:0,600,800';
@@ -62,16 +63,16 @@ $sienna: 	#a0522d;
 
 $theme-collection: (
 	default: (
-		'primary-font': ("Raleway", Arial, sans-serif),
-		'primary-color': $lime,
+		'primary-font': ("Source Sans Pro", Arial, sans-serif),
+		'primary-color': $nephritis,
 		'secondary-color': #0f9962,
-		'sidebar-menu-bg': $lime
+		'sidebar-menu-bg': $nephritis
 	),
 
    blue: (
+   		'primary-font': ("Raleway", Arial, sans-serif),
 		'primary-color': #021320,
 		'secondary-color': #0f9962,
 		'sidebar-menu-bg': lighten(#021320, 60%)
    ),
- 
 ) !default;
