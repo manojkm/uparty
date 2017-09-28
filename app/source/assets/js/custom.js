@@ -16,13 +16,13 @@ var Side = {
   _logo: $('.brand-logo'),
 
   responsive: function responsive() {
-    $(window).width() < 768 ? Side._body.removeClass('sidebar-mini sidebar-opened').addClass('sidebar-closed') : Side._body.addClass('sidebar-opened').removeClass('sidebar-closed');
+    $(window).width() < 768 ? Side._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed') : Side._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed');
   },
 
   hide: function hide(element) {
     $(element).on('click', function (event) {
       event.preventDefault();
-      Side._body.toggleClass('sidebar-opened sidebar-closed');
+      Side._body.toggleClass('sidebar-is-open sidebar-is-closed');
       Side._stopMetisMenu();
     });
   },

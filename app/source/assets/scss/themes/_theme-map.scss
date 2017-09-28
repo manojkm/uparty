@@ -56,20 +56,38 @@ $mauve: 	#76608a;
 $sienna: 	#a0522d;
 
 //----------------------------------*\
-// THEME MAP 
+// THEME MAP
 //----------------------------------*/
+
+// TO DO: Remove the below comment on understood.
+// Following BEM naming :-
+// http://mathayward.com/modular-css-with-sass-and-bem/
+// https://image.slidesharecdn.com/learn-bem-css-naming-convention-160906200350/95/slide-19-1024.jpg
+// https://image.slidesharecdn.com/2014-usgrockeagle-sass-141013122331-conversion-gate02/95/october-2014-usg-rock-eagle-sass-101-43-638.jpg?cb=1413203122
+// >>>>>>>>>>>>>>>>>>>http://css-weekly.com/wp-content/uploads/2015/04/bem-101.jpg
+// http://www.juliecameron.com/blog/2013/11/06/bem-naming-for-sass-color-variables-what1/
+
 
 $theme-collection: (
         default: (
-                'primary-font': ("Source Sans Pro", Arial, sans-serif),
-                'primary-color': $nephritis,
-                'secondary-color': #0f9962,
-                'sidebar-menu-bg': $alizarin
+                'font__primary': ("Source Sans Pro", Arial, sans-serif),
+                'color__primary': $midnight-blue,
+                'color__secondary': $abestos,
+
+                'sidebar--bg': $midnight-blue,
+                'sidebar-menu--bg--active': darken($midnight-blue, 10%),
+                'sidebar-menu__submenu--bg--active': darken($midnight-blue, 5%),
+                'sidebar-menu--color': lighten(#000, 90%),
+
         ),
         blue: (
-                'primary-font': ("Raleway", Arial, sans-serif),
-                'primary-color': #021320,
-                'secondary-color': #0f9962,
-                'sidebar-menu-bg': lighten(#021320, 60%)
+                'font__primary': ("Raleway", Arial, sans-serif),
+                'color__primary': #021320,
+                'color__secondary': #0f9962,
+
+                'sidebar--bg': $midnight-blue,
+                'sidebar-menu--bg--active': darken($midnight-blue, 10%),
+                'sidebar-menu__submenu--bg--active': darken($midnight-blue, 5%),
+                'sidebar-menu--color': lighten(#000, 90%),
         ),
 ) !default;

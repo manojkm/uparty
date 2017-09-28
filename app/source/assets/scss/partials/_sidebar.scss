@@ -11,7 +11,7 @@
 // https://gist.github.com/jareware/4738651
 
 .sidebar {
-  @include themify(background-color, sidebar-menu-bg);
+  @include themify(background-color, sidebar--bg);
   @include transition(all 0.3s ease-out);
   position: fixed;
   top: 0;
@@ -29,33 +29,43 @@
     margin: 0;
 
     li {
-
       a {
+        @include themify((background-color, color), (sidebar--bg, sidebar-menu--color));
         @include font-size(1.6);
         display: block;
-
+        text-decoration: none;
       }
     }
+
+    li.active {
+      a {
+        @include themify(background-color, sidebar-menu--bg--active)
+      }
+      ul {
+        @include themify(background-color, sidebar-menu__submenu--bg--active)
+      }
+    }
+
   }
 
-  &__nav > ul > li > ul > li {
+  &__nav ul li {
     @include font-size(1.4);
   }
 
 }
 
-.sidebar-opened .sidebar {
+.sidebar-is-open .sidebar {
   position: relative;
   transform: translateX(0);
 }
 
-.sidebar-closed {
+.sidebar-is-closed {
   [data-side="mini"] {
     display: none !important;
   }
 }
 
-.sidebar-opened.sidebar-mini .sidebar {
+.sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
   width: $sidebar-mini-width;
@@ -108,7 +118,7 @@
     position: absolute !important;
   }
 
-  .sidebar-opened .sidebar {
+  .sidebar-is-open .sidebar {
     z-index: 1000;
   }
 }

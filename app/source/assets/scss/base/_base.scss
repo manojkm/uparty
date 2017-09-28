@@ -14,17 +14,17 @@ html {
 }
 
 body {
+  @include font-size(1.6);
+  @include themify(font-family, font__primary);
   height: 100vh;
   color: map-get-strict($font, color);
-  @include font-size(1.6);
-  @include themify(font-family, primary-font);
   font-weight: map-get-strict($font, weight);
   line-height: map-get-strict($font, line-height);
   background-color: $body-bg-color;
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
