@@ -25,21 +25,30 @@
   }
 
   &__nav > ul {
-    padding: 10px;
+    padding: 0px;
     margin: 0;
 
-    li {
+    li{
       a {
         @include themify((background-color, color), (sidebar--bg, sidebar-menu--color));
         @include font-size(1.6);
         display: block;
         text-decoration: none;
+        min-height:40px;
+        line-height: 20px;
+        padding: 10px 15px;
+        &:hover, &:active, &:focus {
+          @include themify(background-color, sidebar-menu--bg--hover);
+        }
       }
     }
 
     li.active {
       a {
-        @include themify(background-color, sidebar-menu--bg--active)
+        @include themify(background-color, sidebar-menu--bg--active);
+        &:hover, &:active, &:focus {
+          @include themify(background-color, sidebar-menu--bg--hover);
+        }
       }
       ul {
         @include themify(background-color, sidebar-menu__submenu--bg--active)
@@ -47,6 +56,8 @@
     }
 
   }
+
+
 
   &__nav ul li {
     @include font-size(1.4);
