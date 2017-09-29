@@ -9,9 +9,10 @@
             <li class="sidebar__logo-mini">+N</li>
 
             <li class="sidebar__item">
-                <a href="#" >
+                <a href="#">
                     <span class="sidebar__nav-icon"><i class="fa fa-camera-retro"></i></span>
                     <span class="sidebar__nav-title">Menu 1</span>
+                    <span class="label label-primary pull-right">lab</span>
                 </a>
             </li>
 
@@ -31,15 +32,26 @@
                     <span class="sidebar__nav-title">Menu 3</span>
                 </a>
                 <ul class="sidebar__child" aria-expanded="false">
-                    <li>sub menu</li>
-                    <li>sub menu</li>
-                    <li>sub menu</li>
-                    <li>sub menu</li>
-                    <li>sub menu</li>
-                    <li>sub menu</li>
+                    <li><a href="#">sub menu</a></li>
+                    <li><a href="#">sub menu</a></li>
+                    <li><a href="#">sub menu</a></li>
+                    <li><a href="#">sub menu</a></li>
+                    <li><a href="#">sub menu</a></li>
+                    <li><a href="#">sub menu</a></li>
+                    <li>
+                        <a href="#" class="has-arrow" aria-expanded="false">
+                            <span class="sidebar__nav-icon"><i class="fa fa-camera-retro"></i></span>
+                            <span class="sidebar__nav-title">Menu 2</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="#">sub menu</a></li>
+                        </ul>
+                    </li>
+
+
                 </ul>
             </li>
         </ul>
     </nav>
 </aside>
-<div class="sidebar-hide hidden-xs" data-side="hide"> <i class="fa fa-caret-left"></i></div>
+<div class="sidebar-hide hidden-xs" data-side="hide"><i class="fa fa-caret-left"></i></div>

@@ -77,8 +77,11 @@ $theme-collection: (
                 'sidebar--bg': $midnight-blue,
                 'sidebar-menu--bg--active': darken($midnight-blue, 5%),
                 'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
+                'sidebar-menu--color': lighten($midnight-blue, 60%),
+                'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu--color': lighten(#000, 90%),
+                'sidebar-menu__submenu--color': lighten($midnight-blue, 90%),
+                'sidebar-menu__border--color--hover': lighten($midnight-blue, 90%),
 
         ),
         blue: (
@@ -87,9 +90,12 @@ $theme-collection: (
                 'color__secondary': #0f9962,
 
                 'sidebar--bg': $midnight-blue,
-                'sidebar-menu--bg--active': darken($midnight-blue, 10%),
-                'sidebar-menu--bg--hover': darken($midnight-blue, 20%),
+                'sidebar-menu--bg--active': darken($midnight-blue, 5%),
+                'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
+                'sidebar-menu--color': lighten($midnight-blue, 90%),
+                'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu--color': lighten(#000, 90%),
+                'sidebar-menu__submenu--color': lighten($midnight-blue, 90%),
+                'sidebar-menu__hover--border-color': lighten($midnight-blue, 90%),
         ),
 ) !default;

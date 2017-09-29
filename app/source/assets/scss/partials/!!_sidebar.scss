@@ -46,24 +46,28 @@
       padding: 10px 15px;
       transition: 0.3s ease;
       border-left: 3px solid transparent;
+
+      &:hover, &:active, &:focus {
+        @include themify(background-color, sidebar-menu--bg--hover);
+
+      }
+
     }
 
-    &:hover > a, &:active > a, &.active > a, &:focus > a {
-      @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--hover));
-      @include themify(border-left-color, sidebar-menu__border--color--hover);
+    &.active {
+      > a {
+        @include themify(background-color, sidebar-menu--bg--active);
+        &:hover {
+          @include themify(background-color, sidebar-menu--bg--hover);
+        }
+      }
     }
-
-    .label {
-      margin-left: 25px;
-    }
-
   }
 
   &__nav-title {
     margin-left: 10px;
   }
 
-  // Submenu
   &__child {
     @include themify(background-color, sidebar-menu__submenu--bg);
 
