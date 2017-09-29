@@ -8,29 +8,34 @@
 
             <li class="sidebar__logo-mini">+N</li>
 
-            <li class="active">
+            <li class="sidebar__item">
                 <a href="#" >
                     <span class="sidebar__nav-icon"><i class="fa fa-camera-retro"></i></span>
                     <span class="sidebar__nav-title">Menu 1</span>
                 </a>
             </li>
 
-            <li>
-                <a href="#" class="has-arrow" aria-expanded="false">
+            <li class="sidebar__item active">
+                <a href="#" class="has-arrow" aria-expanded="true">
                     <span class="sidebar__nav-icon"><i class="fa fa-camera-retro"></i></span>
                     <span class="sidebar__nav-title">Menu 2</span>
                 </a>
-                <ul aria-expanded="false">
+                <ul class="sidebar__child" aria-expanded="true">
                     <li>sub menu</li>
                 </ul>
             </li>
 
-            <li>
+            <li class="sidebar__item">
                 <a href="#" class="has-arrow" aria-expanded="false">
                     <span class="sidebar__nav-icon"><i class="fa fa-camera-retro"></i></span>
                     <span class="sidebar__nav-title">Menu 3</span>
                 </a>
-                <ul aria-expanded="false">
+                <ul class="sidebar__child" aria-expanded="false">
+                    <li>sub menu</li>
+                    <li>sub menu</li>
+                    <li>sub menu</li>
+                    <li>sub menu</li>
+                    <li>sub menu</li>
                     <li>sub menu</li>
                 </ul>
             </li>

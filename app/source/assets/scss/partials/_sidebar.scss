@@ -27,55 +27,54 @@
   &__nav > ul {
     padding: 0px;
     margin: 0;
+  }
 
-    li{
-      a {
-        @include themify((background-color, color), (sidebar--bg, sidebar-menu--color));
-        @include font-size(1.6);
-        display: block;
-        text-decoration: none;
-        min-height:40px;
-        line-height: 20px;
-        padding: 10px 15px;
-        &:hover, &:active, &:focus {
-          @include themify(background-color, sidebar-menu--bg--hover);
-        }
+  &__item {
+    position: relative;
+    > a {
+      @include themify((background-color, color), (sidebar--bg, sidebar-menu--color));
+      @include font-size(1.4);
+      display: flex;
+      text-decoration: none;
+      min-height: 40px;
+      line-height: 20px;
+      padding: 10px 15px;
+      transition: 0.3s ease;
+
+      &:hover, &:active, &:focus {
+        @include themify(background-color, sidebar-menu--bg--hover);
+
       }
     }
 
-    li.active {
+    &.active {
       a {
         @include themify(background-color, sidebar-menu--bg--active);
-        &:hover, &:active, &:focus {
+        &:hover {
           @include themify(background-color, sidebar-menu--bg--hover);
+
         }
       }
-      ul {
-        @include themify(background-color, sidebar-menu__submenu--bg--active)
+    }
+  }
+
+  &__nav-title {
+    margin-left: 10px;
+  }
+
+  &__child {
+    @include themify(background-color, sidebar-menu__submenu--bg);
+    li {
+      a {
+        @include font-size(1.2);
       }
     }
 
   }
 
-
-
-  &__nav ul li {
-    @include font-size(1.4);
-  }
-
 }
 
-.sidebar-is-open .sidebar {
-  position: relative;
-  transform: translateX(0);
-}
-
-.sidebar-is-closed {
-  [data-side="mini"] {
-    display: none !important;
-  }
-}
-
+// Mini sidebar
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
@@ -86,41 +85,66 @@
     display: block;
   }
 
-  &__nav > ul > li > a {
-    display: inline-block;
-
-    .#{$s}__nav-title {
-      display: none;
-    }
-
-    &::after {
-      display: none;
-    }
-  }
-
-  &__nav > ul > li {
-    &.active > a,
-    &:hover > a,
-    &:focus > a {
-      min-width: 180px;
+  // hiding title and arrow
+  &__item {
+    > a {
+      min-width: 0;
+      transition: min-width 0.3s ease-out;
 
       &::after {
-        display: block;
+        opacity: 0;
       }
+    }
+
+  }
+
+  &__nav-title {
+    display: none;
+    visibility: hidden;
+
+  }
+  //hiding submenu
+  &__child {
+    min-width: $sidebar-width;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+
+  }
+
+  &__item {
+    // showing title and arrow
+    &.active > a, &:hover > a, &:focus > a {
+      min-width: $sidebar-width;
 
       .#{$s}__nav-title {
         display: inline-block;
+        position: absolute;
+        visibility: visible;
+        left: $sidebar-mini-width;
+        width: 100%;
+
+      }
+
+      &::after {
+        opacity: 1;
       }
     }
+
+    // showing submenu
+    &.active {
+      .#{$s}__child {
+        visibility: visible;
+        opacity: 1;
+        left: $sidebar-mini-width;
+      }
+
+    }
+
   }
 
-  &__nav > ul > li {
-    > ul.collapsing,
-    > ul.collapse,
-    &.active > ul.collapse.in {
-      min-width: 180px;
-    }
-  }
 }
 
 @include max-screen(767px) {
@@ -142,5 +166,16 @@
 
   &:hover {
     background: $light-grey;
+  }
+}
+
+.sidebar-is-open .sidebar {
+  position: relative;
+  transform: translateX(0);
+}
+
+.sidebar-is-closed {
+  [data-side="mini"] {
+    display: none !important;
   }
 }

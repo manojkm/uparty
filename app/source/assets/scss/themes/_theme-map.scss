@@ -75,9 +75,9 @@ $theme-collection: (
                 'color__secondary': $abestos,
 
                 'sidebar--bg': $midnight-blue,
-                'sidebar-menu--bg--active': darken($midnight-blue, 10%),
-                'sidebar-menu--bg--hover': darken($midnight-blue, 20%),
-                'sidebar-menu__submenu--bg--active': darken($midnight-blue, 5%),
+                'sidebar-menu--bg--active': darken($midnight-blue, 5%),
+                'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
+                'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
                 'sidebar-menu--color': lighten(#000, 90%),
 
         ),
@@ -89,7 +89,7 @@ $theme-collection: (
                 'sidebar--bg': $midnight-blue,
                 'sidebar-menu--bg--active': darken($midnight-blue, 10%),
                 'sidebar-menu--bg--hover': darken($midnight-blue, 20%),
-                'sidebar-menu__submenu--bg--active': darken($midnight-blue, 5%),
+                'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
                 'sidebar-menu--color': lighten(#000, 90%),
         ),
 ) !default;
