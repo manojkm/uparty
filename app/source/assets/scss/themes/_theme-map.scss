@@ -67,13 +67,11 @@ $sienna: 	#a0522d;
 // >>>>>>>>>>>>>>>>>>>http://css-weekly.com/wp-content/uploads/2015/04/bem-101.jpg
 // http://www.juliecameron.com/blog/2013/11/06/bem-naming-for-sass-color-variables-what1/
 
-
 $theme-collection: (
         default: (
                 'font__primary': ("Source Sans Pro", Arial, sans-serif),
                 'color__primary': $midnight-blue,
                 'color__secondary': $abestos,
-
                 'sidebar--bg': $midnight-blue,
                 'sidebar-menu--bg--active': darken($midnight-blue, 5%),
                 'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
@@ -81,15 +79,12 @@ $theme-collection: (
                 'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
                 'sidebar-menu--color--active': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu__submenu--color': lighten($midnight-blue, 90%),
                 'sidebar-menu__border--color--hover': lighten($midnight-blue, 90%),
-
         ),
         blue: (
                 'font__primary': ("Raleway", Arial, sans-serif),
                 'color__primary': #021320,
                 'color__secondary': #0f9962,
-
                 'sidebar--bg': $midnight-blue,
                 'sidebar-menu--bg--active': darken($midnight-blue, 5%),
                 'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
@@ -97,7 +92,6 @@ $theme-collection: (
                 'sidebar-menu--color--active': lighten($midnight-blue, 100%),
                 'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu__submenu--color': lighten($midnight-blue, 90%),
                 'sidebar-menu__border--color--hover': lighten($midnight-blue, 90%),
         ),
 ) !default;

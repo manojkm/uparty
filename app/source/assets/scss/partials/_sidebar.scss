@@ -26,8 +26,8 @@
     display: none;
   }
 
-  &__nav > ul {
-    padding: 0px;
+  &__nav ul {
+    padding: 0;
     margin: 0;
     li {
       list-style: none;
@@ -52,12 +52,6 @@
 
   &__item {
     position: relative;
-    padding: 0px;
-    margin: 0;
-
-    .label {
-      margin-left: 25px;
-    }
 
     .#{$s}__nav-title {
       margin-left: 10px;
@@ -69,24 +63,29 @@
     }
   }
 
-  // First child
+  // Level one
   &__child {
     @include themify(background-color, sidebar-menu__submenu--bg);
-    padding-left: 10px;
 
     a {
       @include font-size(1.4);
       min-height: 20px;
       line-height: 20px;
-      padding: 5px 15px;
+      padding: 5px 15px 5px 20px;
       border-left: none;
     }
-
-    .#{$s}__item {
-    }
-    // Next child
+    // Level two, three
     .#{$s}__child {
-      padding-left: 20px;
+      a {
+        padding: 5px 15px 5px 35px;
+      }
+
+      // Level three
+      .#{$s}__child {
+        a {
+          padding: 5px 15px 5px 50px;
+        }
+      }
     }
 
   }
@@ -103,11 +102,10 @@
     display: block;
   }
 
-  // hiding title and arrow
   &__item {
     a {
-       min-width: 0;
-       transition: min-width 0.3s ease-out;
+      min-width: 0;
+      transition: min-width 0.3s ease-out;
       &::after {
         opacity: 0;
       }
@@ -115,6 +113,7 @@
       .#{$s}__nav-title {
         display: none;
         visibility: hidden;
+        left: 0px;
       }
     }
 
@@ -133,7 +132,6 @@
   $s: sidebar;
 
   &__item {
-    // showing title and arrow
     &.active > a,
     &:hover > a,
     &:focus > a {
@@ -173,9 +171,7 @@
         left: 0;
         min-width: 100%;
       }
-
     }
-
   }
 }
 
