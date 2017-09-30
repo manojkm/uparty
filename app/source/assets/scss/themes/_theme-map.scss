@@ -72,14 +72,16 @@ $theme-collection: (
                 'font__primary': ("Source Sans Pro", Arial, sans-serif),
                 'color__primary': $midnight-blue,
                 'color__secondary': $abestos,
+
                 'sidebar--bg': $midnight-blue,
+                'sidebar-menu--bg--hover': darken($midnight-blue, 5%),
                 'sidebar-menu--bg--active': darken($midnight-blue, 5%),
-                'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
                 'sidebar-menu--color': lighten($midnight-blue, 60%),
                 'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
                 'sidebar-menu--color--active': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu__border--color--hover': lighten($midnight-blue, 90%),
+                'sidebar-menu__border--color--hover': lighten($midnight-blue, 20%),
+                'sidebar-menu__border--color--active': lighten($midnight-blue, 50%),
         ),
         blue: (
                 'font__primary': ("Raleway", Arial, sans-serif),
@@ -93,5 +95,6 @@ $theme-collection: (
                 'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
                 'sidebar-menu__border--color--hover': lighten($midnight-blue, 90%),
+                'sidebar-menu__border--color--active': lighten($midnight-blue, 50%),
         ),
 ) !default;
