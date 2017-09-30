@@ -12,7 +12,7 @@
                 <a href="#">
                     <span class="sidebar__nav-icon"><i class="fa fa-camera-retro"></i></span>
                     <span class="sidebar__nav-title">Menu 1</span>
-                    <span class="label label-primary pull-right">lab</span>
+                    {{!--<span class="label label-primary pull-right">lab</span>--}}
                 </a>
             </li>
 
@@ -22,7 +22,7 @@
                     <span class="sidebar__nav-title">Menu 2</span>
                 </a>
                 <ul class="sidebar__child" aria-expanded="true">
-                    <li>sub menu</li>
+                    <li class="sidebar__item">sub menu</li>
                 </ul>
             </li>
 
@@ -31,25 +31,27 @@
                     <span class="sidebar__nav-icon"><i class="fa fa-camera-retro"></i></span>
                     <span class="sidebar__nav-title">Menu 3</span>
                 </a>
+
                 <ul class="sidebar__child" aria-expanded="false">
-                    <li><a href="#">sub menu</a></li>
-                    <li><a href="#">sub menu</a></li>
-                    <li><a href="#">sub menu</a></li>
-                    <li><a href="#">sub menu</a></li>
-                    <li><a href="#">sub menu</a></li>
-                    <li><a href="#">sub menu</a></li>
-                    <li>
-                        <a href="#" class="has-arrow" aria-expanded="false">
-                            <span class="sidebar__nav-icon"><i class="fa fa-camera-retro"></i></span>
-                            <span class="sidebar__nav-title">Menu 2</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">sub menu</a></li>
+                    <li class="sidebar__item"><a href="#">Level One</a></li>
+                    <li class="sidebar__item"><a href="#">Level One</a></li>
+                    <li class="sidebar__item"><a href="#" class="has-arrow">Level One</a>
+                        <ul class="sidebar__child" >
+                            <li class="sidebar__item"><a href="#">Level Two</a></li>
+                            <li class="sidebar__item"><a href="#" class="has-arrow">Level Two</a>
+                                <ul class="sidebar__child" >
+                                    <li class="sidebar__item"><a href="#">Level Threee</a></li>
+                                    <li class="sidebar__item"><a href="#">Level Threee</a></li>
+                                    <li class="sidebar__item"><a href="#">Level Threee</a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar__item"><a href="#">Level Two</a></li>
                         </ul>
                     </li>
 
-
+                    <li class="sidebar__item"><a href="#">Level One</a></li>
                 </ul>
+
             </li>
         </ul>
     </nav>
