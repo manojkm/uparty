@@ -50,7 +50,6 @@
 
   }
 
-
   &__item {
     position: relative;
     padding: 0px;
@@ -85,7 +84,7 @@
 
     .#{$s}__item {
     }
-    // Next childs
+    // Next child
     .#{$s}__child {
       padding-left: 20px;
     }
@@ -106,38 +105,38 @@
 
   // hiding title and arrow
   &__item {
-    > a {
-      min-width: 0;
-      transition: min-width 0.3s ease-out;
-
+    a {
+       min-width: 0;
+       transition: min-width 0.3s ease-out;
       &::after {
         opacity: 0;
       }
+
+      .#{$s}__nav-title {
+        display: none;
+        visibility: hidden;
+      }
+    }
+
+    .#{$s}__child {
+      position: absolute;
+      min-width: $sidebar-submenu-width;
+      left: $sidebar-mini-width;
     }
 
   }
-
-  &__nav-title {
-    display: none;
-  }
-
-  &__child {
-    min-width: $sidebar-submenu-width;
-    position: absolute;
-    left: $sidebar-mini-width;
-    z-index: 1;
-  }
-
 }
 
-// Mini sidebar -- modifier
+// Mini sidebar -- Modifiers
 .sidebar-is-open.sidebar-mini .sidebar {
 
   $s: sidebar;
 
   &__item {
     // showing title and arrow
-    &.active > a, &:hover > a, &:focus > a {
+    &.active > a,
+    &:hover > a,
+    &:focus > a {
       min-width: $sidebar-active-menu-width;
 
       .#{$s}__nav-title {
@@ -145,18 +144,34 @@
         position: absolute;
         visibility: visible;
         left: $sidebar-mini-width;
-        width: 100%;
-
       }
-
       &::after {
         opacity: 1;
       }
     }
 
-    // showing submenu
-    &.active {
+    &.active > .#{$s}__child {
+      position: absolute;
+      z-index: 1;
+
+      .#{$s}__item {
+        &.active > a,
+        &:hover > a,
+        &:focus > a {
+          min-width: 100%;
+        }
+
+        a {
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+
       .#{$s}__child {
+        position: relative;
+        left: 0;
+        min-width: 100%;
       }
 
     }

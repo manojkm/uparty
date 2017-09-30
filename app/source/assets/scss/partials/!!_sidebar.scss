@@ -11,6 +11,8 @@
 // https://gist.github.com/jareware/4738651
 
 .sidebar {
+  $s: sidebar;
+
   @include themify(background-color, sidebar--bg);
   @include transition(all 0.3s ease-out);
   position: fixed;
@@ -24,63 +26,70 @@
     display: none;
   }
 
-  &__nav ul {
+  &__nav > ul {
     padding: 0px;
     margin: 0;
+    li {
+      list-style: none;
+    }
   }
 
-  //First Level
+  a {
+    @include themify(color, sidebar-menu--color);
+    @include font-size(1.6);
+    display: block;
+    text-decoration: none;
+    min-height: 40px;
+    line-height: 40px;
+    padding: 5px 15px;
+    transition: 0.3s ease;
+    border-left: 3px solid transparent;
+    &:hover, &:active, &:focus {
+      @include themify(color, sidebar-menu--color--hover);
+    }
+
+  }
+
   &__item {
     position: relative;
     padding: 0px;
     margin: 0;
 
-    > a {
-      //@include themify((background-color, color), (sidebar--bg, sidebar-menu--color));
-      @include font-size(1.6);
-      @include themify(color, sidebar-menu--color);
-      display: flex;
-      text-decoration: none;
-      min-height: 40px;
-      line-height: 20px;
-      padding: 10px 15px;
-      transition: 0.3s ease;
-      border-left: 3px solid transparent;
-
-      &:hover, &:active, &:focus {
-        @include themify(background-color, sidebar-menu--bg--hover);
-
-      }
-
+    .label {
+      margin-left: 25px;
     }
 
-    &.active {
-      > a {
-        @include themify(background-color, sidebar-menu--bg--active);
-        &:hover {
-          @include themify(background-color, sidebar-menu--bg--hover);
-        }
-      }
+    .#{$s}__nav-title {
+      margin-left: 10px;
+    }
+
+    &:hover > a, &:active > a, &.active > a, &:focus > a {
+      @include themify((background-color, border-left-color), (sidebar-menu--bg--active, sidebar-menu__border--color--hover));
+      @include themify(color, sidebar-menu--color--active);
     }
   }
 
-  &__nav-title {
-    margin-left: 10px;
-  }
-
+  // First child
   &__child {
     @include themify(background-color, sidebar-menu__submenu--bg);
+    padding-left: 10px;
 
-    li {
-      a {
-        @include font-size(1.4);
-        @include themify(color, sidebar-menu__submenu--color);
+    a {
+      @include font-size(1.4);
+      min-height: 20px;
+      line-height: 20px;
+      padding: 5px 15px;
+      border-left: none;
+    }
 
-      }
+    .#{$s}__item {
+    }
+    // Next childs
+    .#{$s}__child {
+      padding-left: 20px;
     }
 
   }
-
 }
 
 // Mini sidebar
@@ -95,7 +104,7 @@
   }
 
   // hiding title and arrow
-  &__item {
+  > .sidebar__item {
     > a {
       min-width: 0;
       transition: min-width 0.3s ease-out;
@@ -103,19 +112,34 @@
       &::after {
         opacity: 0;
       }
+
+      .#{$s}__nav-title {
+        display: none;
+        visibility: hidden;
+      }
+
     }
 
-  }
 
-  &__nav-title {
-    display: none;
-  }
+    > .#{$s}__child {
+      min-width: $sidebar-submenu-width;
+      position: absolute;
+      left: $sidebar-mini-width;
+      z-index: 1;
+      /*display: none;
+      visibility: hidden;*/
+    }
 
-  &__child {
-    min-width: $sidebar-submenu-width;
-    position: absolute;
-    left: $sidebar-mini-width;
-    z-index: 1;
+    /*   .#{$s}__child {
+         min-width: $sidebar-submenu-width;
+         position: absolute;
+         left: $sidebar-mini-width;
+         z-index: 1;
+
+         .#{$s}__child {
+           position: relative;
+         }
+       }*/
   }
 
 }
@@ -127,7 +151,9 @@
 
   &__item {
     // showing title and arrow
-    &.active > a, &:hover > a, &:focus > a {
+    &.active > a,
+    &:hover > a,
+    &:focus > a {
       min-width: $sidebar-active-menu-width;
 
       .#{$s}__nav-title {
@@ -135,24 +161,38 @@
         position: absolute;
         visibility: visible;
         left: $sidebar-mini-width;
-        width: 100%;
-
+        //width: 100%;
       }
-
       &::after {
         opacity: 1;
       }
     }
 
-    // showing submenu
     &.active {
       .#{$s}__child {
-      }
 
+        .#{$s}__child {
+          position: relative;
+          left: 0;
+        }
+      }
     }
 
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @include max-screen(767px) {
   .sidebar {
