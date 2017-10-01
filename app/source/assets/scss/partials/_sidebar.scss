@@ -60,23 +60,21 @@
     }*/
 
     &:hover {
-      @include themify((background-color, border-left-color), (sidebar-menu--bg--hover, sidebar-menu__border--color--hover));
+      @include themify((background-color, border-left-color), (sidebar-menu--bg--hover, sidebar-menu--border--color--hover));
       > a {
         @include themify((background-color, color), (sidebar-menu--bg--hover, sidebar-menu--color--hover));
-        //@include themify(color, sidebar-menu--color--hover);
       }
     }
 
     &.active, &:active, &:focus {
-      @include themify((background-color, border-left-color), (sidebar-menu--bg--active, sidebar-menu__border--color--active));
+      @include themify((background-color, border-left-color), (sidebar-menu--bg--active, sidebar-menu--border--color--active));
       > a {
         @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--active));
-        //@include themify(color, sidebar-menu--color--active);
       }
     }
   }
 
-  // Level one
+  /*Submenu - Level one*/
   &__child {
     @include themify(background-color, sidebar-menu__submenu--bg);
 
@@ -90,13 +88,13 @@
       border: none;
     }
 
-    //Level two
+    /*Submenu - Level two*/
     .#{$s}__child {
       a {
         padding: 5px 15px 5px 35px;
       }
 
-      //Level three
+      /*Submenu - Level three*/
       .#{$s}__child {
         a {
           padding: 5px 15px 5px 50px;
@@ -107,7 +105,7 @@
   }
 }
 
-// Mini sidebar
+/*Mini sidebar*/
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
@@ -135,14 +133,14 @@
 
     .#{$s}__child {
       position: absolute;
-      min-width: $sidebar-submenu-width + 2; // Value 2 is to adjust the width to include border of parent li
-      left: $sidebar-mini-width - 2; // Value 2 is to adjust the width to include border of parent li
+      min-width: $sidebar-submenu-width + 2; /*Value 2 is to adjust the width to include border of parent li*/
+      left: $sidebar-mini-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
     }
 
   }
 }
 
-// Mini sidebar -- Modifiers
+/*Mini sidebar -- Modifiers*/
 .sidebar-is-open.sidebar-mini .sidebar {
 
   $s: sidebar;
@@ -190,6 +188,8 @@
     }
   }
 }
+
+/*To show normal sidebar in smaller devices*/
 
 @include max-screen(767px) {
   .sidebar {

@@ -30,6 +30,7 @@ $text-color: #333;
 //----------------------------------*\
 // SIDEBAR
 //----------------------------------*/
+/*Sidebar color variables can be found in themes/_theme-map.scss*/
 $sidebar-width: 200px;
 $sidebar-mini-width: 60px;
 $sidebar-submenu-width: $sidebar-width;
@@ -40,7 +41,7 @@ $sidebar-active-menu-width: $sidebar-width + $sidebar-mini-width;
 //----------------------------------*/
 
 $font-html: (
-  size: 62.5%, // 62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
+  size: 62.5%, /*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
 );
 
 $font: (
@@ -48,6 +49,11 @@ $font: (
   weight: 300,
   line-height: 1.6
 );
+
+//----------------------------------*\
+// COLOR PALETTE
+//----------------------------------*/
+/*Color palette can be found in themes/_theme-map.scss*/
 
 //----------------------------------*\
 // OTHER COLORS
@@ -100,23 +106,23 @@ $path-rel: 'images/';
 // Grabbed from Bootstrap
 // --------------------------------------
 
-// Extra small screen / phone
+/*Extra small screen / phone*/
 $screen-xs: 480px !default;
 $screen-xs-min: $screen-xs !default;
 
-// Small screen / tablet
+/*Small screen / tablet*/
 $screen-sm: 768px !default;
 $screen-sm-min: $screen-sm !default;
 
-// Medium screen / desktop
+/*Medium screen / desktop*/
 $screen-md: 992px !default;
 $screen-md-min: $screen-md !default;
 
-// Large screen / wide desktop
+/*Large screen / wide desktop*/
 $screen-lg: 1200px !default;
 $screen-lg-min: $screen-lg !default;
 
-// So media queries don't overlap when required, provide a maximum
+/*So media queries don't overlap when required, provide a maximum*/
 $screen-xs-max: ($screen-sm-min - 1) !default;
 $screen-sm-max: ($screen-md-min - 1) !default;
 $screen-md-max: ($screen-lg-min - 1) !default;

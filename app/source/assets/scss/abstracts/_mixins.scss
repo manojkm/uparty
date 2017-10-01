@@ -1,5 +1,5 @@
 // ================================================================================================
-// File Name: config.scss
+// File Name: mixins.scss
 // Description: 
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
@@ -8,11 +8,10 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
 //----------------------------------*\
 // WIDTH
 //----------------------------------*/
-// Usage @include size(10px, 20px), @include size(25px); Adapted from https://bumbu.github.io/sass-width-mixin/
+/*Usage @include size(10px, 20px), @include size(25px); Adapted from https://bumbu.github.io/sass-width-mixin/*/
 @mixin size($width, $height...) {
   @if length($height) == 1 {
     height: $height;
@@ -26,8 +25,8 @@
 //----------------------------------*\
 // REM FONT SIZING 
 //----------------------------------*/
-// Will convert pixels to ems because who thinks in rem? Adapted from https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
-// Usage @include font-size(1.6); 
+/*Will convert pixels to ems because who thinks in rem? Adapted from https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+Usage @include font-size(1.6); */
 @mixin font-size($size-value: 1.6) {
   font-size: ($size-value * 10) + px;
   font-size: $size-value + rem;
@@ -36,7 +35,7 @@
 //----------------------------------*\
 // TRANSITIONS
 //----------------------------------*/
-// Usage @include transition(color .3s ease);
+/*Usage @include transition(color .3s ease);*/
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -48,7 +47,7 @@
 //----------------------------------*\
 // BORDER RADIUS
 //----------------------------------*/
-// Usage @include border-radius(4px);
+/*Usage @include border-radius(4px);*/
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
@@ -72,11 +71,11 @@
 //----------------------------------*\
 // THEMIFY - OLD
 //----------------------------------*/
-// Usage  @include themi { background-color: themi-variable('sidebar-menu-bg');}
+/*Usage  @include themi { background-color: themi-variable('sidebar-menu-bg');}*/
 @mixin themi ($theme-collection: $theme-collection) {
   @each $theme, $map in $theme-collection {
     .theme-#{$theme} & {
-      // Define theme color
+      /*Define theme color*/
       $theme-map : (
           color-alpha: blue
       ) !global;
@@ -87,12 +86,12 @@
       }
       
       @content;
-      // reset theme color to null
+      /*Reset theme color to null*/
       $theme-map: null !global;
     }
   }
 }
-// Function
+/*Function*/
 @function map-fetch($map, $keys) {
   $key: nth($keys, 1);
   $length: length($keys);
@@ -122,39 +121,39 @@
 //----------------------------------*\
 // THEMIFY - NEW
 //----------------------------------*/
-// Adapted from https://github.com/fjcalzado/DemoSeries-SASS-Easy-Theming, https://fjcalzado.github.io/DemoSeries-SASS-Easy-Theming/
-// Usage:
-// Mutiple properties: @include themify((background-color,box-shadow),(primary-color, shadow-dark));
-// Single properties:  @include themify(color, text-color-light);
+/* Adapted from https://github.com/fjcalzado/DemoSeries-SASS-Easy-Theming, https://fjcalzado.github.io/DemoSeries-SASS-Easy-Theming/
+ Usage:
+ Mutiple properties: @include themify((background-color,box-shadow),(primary-color, shadow-dark));
+ Single properties:  @include themify(color, text-color-light);
 
-// Single Themify mixin. It accepts several properties and keys.
-// @param {List} $properties: Properties to themify.
-// @param {List} $keys: Theme items to map properies against to.
-// @param $transition-duration: Duration in seconds for transition effect.
-// @param {Map} $themes [$themes] - Map of themes to use.
+ Single Themify mixin. It accepts several properties and keys.
+ @param {List} $properties: Properties to themify.
+ @param {List} $keys: Theme items to map properies against to.
+ @param $transition-duration: Duration in seconds for transition effect.
+ @param {Map} $themes [$themes] - Map of themes to use.*/
 @mixin themify($properties, $keys, $transition-duration: $theme-transition-duration, $themes: $theme-collection) {
-  // Iterate over the themes.
+  /*Iterate over the themes.*/
   @each $theme, $theme-item in $themes {
-    // Create a selector CLASS -> THEME and also THEME -> CLASS.
+   /*Create a selector CLASS -> THEME and also THEME -> CLASS.*/
     &.theme-#{$theme},
     .theme-#{$theme} & {
-      // Iterate over each property-key value.
+      /*Iterate over each property-key value.*/
       @for $i from 1 through length($properties) {
         $property: nth($properties, $i);
         $key: nth($keys, $i);
-        #{$property}: map-get-strict($theme-item, $key); // Will throw error if values not found.
+        #{$property}: map-get-strict($theme-item, $key); /*Will throw error if values not found.*/
       }
-      // Finally add transitions over themified properties.
-      // transition-property: #{$properties};
-      // transition-duration: $transition-duration;
+      /* Finally add transitions over themified properties.
+       transition-property: #{$properties};
+       transition-duration: $transition-duration;*/
     }
   }
 }
 
 
-// Device specific media query helper.
-// @param $materialize-device: device out of mobile, tablet or desktop.
-// Usage sample https://www.sassmeister.com/gist/307f690b022e44917704
+/* Device specific media query helper.
+ @param $materialize-device: device out of mobile, tablet or desktop.
+ Usage sample https://www.sassmeister.com/gist/307f690b022e44917704*/
 $materialize-mobile-brkpnt: 600px;
 $materialize-tablet-brkpnt: 992px;
 

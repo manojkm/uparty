@@ -30,9 +30,9 @@ https://github.com/Kurtz1993/sass-theme-test
 @import 'https://fonts.googleapis.com/css?family=Montserrat:0,600,800';
 
 //----------------------------------*\
-// COLOR VARIABLES
+// COLOR PALETTE
 //----------------------------------*/
-// Adapted from https://www.materialui.co/metrocolors, https://flatuicolors.com/
+/*Adapted from https://www.materialui.co/metrocolors, https://flatuicolors.com/*/
 
 $lime: 		#a4c400;	$turquoise:		#1abc9c;
 $green: 	#60a917;	$green-sea:		#16a085;
@@ -80,8 +80,8 @@ $theme-collection: (
                 'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
                 'sidebar-menu--color--active': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu__border--color--hover': lighten($midnight-blue, 20%),
-                'sidebar-menu__border--color--active': lighten($midnight-blue, 50%),
+                'sidebar-menu--border--color--hover': lighten($midnight-blue, 20%),
+                'sidebar-menu--border--color--active': lighten($midnight-blue, 50%),
         ),
         blue: (
                 'font__primary': ("Raleway", Arial, sans-serif),
@@ -94,7 +94,7 @@ $theme-collection: (
                 'sidebar-menu--color--active': lighten($midnight-blue, 100%),
                 'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu__border--color--hover': lighten($midnight-blue, 90%),
-                'sidebar-menu__border--color--active': lighten($midnight-blue, 50%),
+                'sidebar-menu--border--color--hover': lighten($midnight-blue, 90%),
+                'sidebar-menu--border--color--active': lighten($midnight-blue, 50%),
         ),
 ) !default;
