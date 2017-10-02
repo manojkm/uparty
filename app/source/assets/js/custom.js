@@ -37,16 +37,7 @@ var Side = {
     },
 
     _changeLogo: function __changeLogo() {
-
         Side._body.hasClass("sidebar-mini") ? Side._logo.attr('src', Side._logo.data('collapse')) : Side._logo.attr('src', Side._logo.data('expand'));
-
-        /* if(Side._body.hasClass("sidebar-mini")){
-         Side._logo.attr('src',Side._logo.data('collapse'));
-         }
-         else{
-         Side._logo.attr('src',Side._logo.data('expand'));
-         }
-         */
     },
 
 

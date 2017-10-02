@@ -17,10 +17,14 @@ body {
   @include font-size(1.6);
   @include themify(font-family, font__primary);
   height: 100vh;
+  min-height: 100%;
   color: map-get-strict($font, color);
   font-weight: map-get-strict($font, weight);
   line-height: map-get-strict($font, line-height);
   background-color: $body-bg-color;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 *,
@@ -28,3 +32,4 @@ body {
 *::after {
   box-sizing: inherit;
 }
+

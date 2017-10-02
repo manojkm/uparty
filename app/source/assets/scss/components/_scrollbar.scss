@@ -1,0 +1,34 @@
+// ================================================================================================
+// File Name: scrollbar.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  // -webkit-box-shadow: inset 0 0 6px #626d77;
+  // background: #626d77;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background: darken(#e51400, 5%);
+  // -webkit-box-shadow: inset 0 0 6px $color-primary;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #e51400;
+}

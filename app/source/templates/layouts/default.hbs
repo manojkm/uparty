@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Meta, title, CSS, favicons, etc. -->
- {{> head }}
+    <!-- Meta, title, CSS, favicons, etc. -->
+    {{> head }}
 </head>
 <body class="theme-default">
-    <div class="container-fluid h-100">
-        <div class="row h-100">
-       {{> sidebar }}
-            <div class="col" id="content">
-                <a class="visible-xs b-r" href="#" data-side="hide">11111111111</a>
-                <a class="hidden-xs b-r" href="#" data-side="mini">mini</a>
+
+<div class="main-wrapper">
+    <div class="app sidebar-fixed header-fixed footer-fixed" id="app">
+        <header class="header">
+            <div class="header-block header-block-collapse d-lg-none d-xl-none">
+                <button class="collapse-btn" id="sidebar-collapse-btn">
+                    1
+                </button>
+            </div>
+        </header>
+        {{> sidebar }}
+        <article class="content">
+            {{> body }}
+        </article>
+        <footer class="footer">
+            footer
+        </footer>
+    </div>
+</div>
+
+
+{{!--<div class="container-fluid h-100">
+    <div class="row h-100">
+        {{> sidebar }}
+        <div class="col">
+            <div id="content">
                 {{> body }}
             </div>
         </div>
     </div>
+</div>--}}
 {{> footer-scripts }}
 </body>
 </html>

@@ -1,0 +1,34 @@
+// ================================================================================================
+// File Name: footer.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.footer {
+
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: $footer-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .footer-fixed & {
+    position: fixed;
+  }
+
+  .sidebar-is-open & {
+    left: $sidebar-width;
+  }
+
+  .sidebar-is-open.sidebar-mini & {
+    left: $sidebar-mini-width;
+  }
+}

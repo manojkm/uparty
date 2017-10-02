@@ -10,6 +10,7 @@
 
 // https://gist.github.com/jareware/4738651
 
+
 .sidebar {
   $s: sidebar;
 
@@ -19,15 +20,17 @@
   top: 0;
   left: 0;
   bottom: 0;
-  transform: translateX(-100%);
+  transform: translateX(-100%); /*Hiding sidebar as default*/
   width: $sidebar-width;
+  //margin-left: -$sidebar-width;
+  min-height: 100vh;
 
   &__logo-mini {
     display: none;
   }
 
-  &__nav > ul {
-    padding: 0px;
+  &__nav ul {
+    padding: 0;
     margin: 0;
     li {
       list-style: none;
@@ -43,72 +46,84 @@
     line-height: 40px;
     padding: 5px 15px;
     transition: 0.3s ease;
-    border-left: 3px solid transparent;
-    &:hover, &:active, &:focus {
-      @include themify(color, sidebar-menu--color--hover);
-    }
 
   }
 
   &__item {
     position: relative;
-    padding: 0px;
-    margin: 0;
-
-    .label {
-      margin-left: 25px;
-    }
+    border-left: 2px solid transparent;
+    box-sizing: border-box;
 
     .#{$s}__nav-title {
       margin-left: 10px;
     }
 
-    &:hover > a, &:active > a, &.active > a, &:focus > a {
-      @include themify((background-color, border-left-color), (sidebar-menu--bg--active, sidebar-menu__border--color--hover));
-      @include themify(color, sidebar-menu--color--active);
+    /*&:hover > a, &:active > a, &.active > a, &:focus > a {
+      @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--active));
+    }*/
+
+    &:hover {
+      @include themify((background-color, border-left-color), (sidebar-menu--bg--hover, sidebar-menu--border--color--hover));
+      > a {
+        @include themify((background-color, color), (sidebar-menu--bg--hover, sidebar-menu--color--hover));
+      }
+    }
+
+    &.active, &:active, &:focus {
+      @include themify((background-color, border-left-color), (sidebar-menu--bg--active, sidebar-menu--border--color--active));
+      > a {
+        @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--active));
+      }
     }
   }
 
-  // First child
+  /*Submenu - Level one*/
   &__child {
     @include themify(background-color, sidebar-menu__submenu--bg);
-    padding-left: 10px;
 
     a {
       @include font-size(1.4);
       min-height: 20px;
       line-height: 20px;
-      padding: 5px 15px;
-      border-left: none;
+      padding: 5px 15px 5px 20px;
+    }
+    .#{$s}__item {
+      border: none;
     }
 
-    .#{$s}__item {
-    }
-    // Next childs
+    /*Submenu - Level two*/
     .#{$s}__child {
-      padding-left: 20px;
+      a {
+        padding: 5px 15px 5px 35px;
+      }
+
+      /*Submenu - Level three*/
+      .#{$s}__child {
+        a {
+          padding: 5px 15px 5px 50px;
+        }
+      }
     }
 
   }
 }
 
-// Mini sidebar
+/*Mini sidebar*/
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
   width: $sidebar-mini-width;
+  //margin-left: -$sidebar-mini-width;
   z-index: 1;
 
   &__logo-mini {
     display: block;
   }
 
-  // hiding title and arrow
-  > .sidebar__item {
-    > a {
+  &__item {
+    a {
       min-width: 0;
       transition: min-width 0.3s ease-out;
-
       &::after {
         opacity: 0;
       }
@@ -116,41 +131,25 @@
       .#{$s}__nav-title {
         display: none;
         visibility: hidden;
+        left: 0px;
       }
-
     }
 
-
-    > .#{$s}__child {
-      min-width: $sidebar-submenu-width;
+    .#{$s}__child {
       position: absolute;
-      left: $sidebar-mini-width;
-      z-index: 1;
-      /*display: none;
-      visibility: hidden;*/
+      min-width: $sidebar-submenu-width + 2; /*Value 2 is to adjust the width to include border of parent li*/
+      left: $sidebar-mini-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
     }
 
-    /*   .#{$s}__child {
-         min-width: $sidebar-submenu-width;
-         position: absolute;
-         left: $sidebar-mini-width;
-         z-index: 1;
-
-         .#{$s}__child {
-           position: relative;
-         }
-       }*/
   }
-
 }
 
-// Mini sidebar -- modifier
+/*Mini sidebar -- Modifiers*/
 .sidebar-is-open.sidebar-mini .sidebar {
 
   $s: sidebar;
 
   &__item {
-    // showing title and arrow
     &.active > a,
     &:hover > a,
     &:focus > a {
@@ -161,38 +160,40 @@
         position: absolute;
         visibility: visible;
         left: $sidebar-mini-width;
-        //width: 100%;
       }
       &::after {
         opacity: 1;
       }
     }
 
-    &.active {
-      .#{$s}__child {
+    &.active > .#{$s}__child {
+      position: absolute;
+      z-index: 1;
 
-        .#{$s}__child {
-          position: relative;
-          left: 0;
+      .#{$s}__item {
+        &.active > a,
+        &:hover > a,
+        &:focus > a {
+          min-width: 100%;
+        }
+
+        a {
+          &::after {
+            opacity: 1;
+          }
         }
       }
-    }
 
+      .#{$s}__child {
+        position: relative;
+        left: 0;
+        min-width: 100%;
+      }
+    }
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+/*To show normal sidebar in smaller devices*/
 
 @include max-screen(767px) {
   .sidebar {
@@ -218,7 +219,7 @@
 
 .sidebar-is-open .sidebar {
   position: relative;
-  transform: translateX(0);
+  transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
 }
 
 .sidebar-is-closed {

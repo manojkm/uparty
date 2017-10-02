@@ -11,16 +11,38 @@
 // https://gist.github.com/jareware/4738651
 
 .sidebar {
+
   $s: sidebar;
 
   @include themify(background-color, sidebar--bg);
   @include transition(all 0.3s ease-out);
-  position: fixed;
+  width: $sidebar-width;
+  padding-bottom: 60px;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  transform: translateX(-100%);
-  width: $sidebar-width;
+  transition: left 0.3s ease;
+  z-index: 20;
+  transform: translateX(-100%); /*Hiding sidebar as default*/
+
+  .sidebar-is-open & {
+    transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
+  }
+  .sidebar-fixed & {
+    position: fixed;
+  }
+
+
+  &__container {
+    position: absolute;
+    top: 0;
+    bottom: 51px;
+    width: 100%;
+    left: 0;
+    //overflow-y: auto;
+    //overflow-x: hidden;
+  }
 
   &__logo-mini {
     display: none;
@@ -54,10 +76,6 @@
     .#{$s}__nav-title {
       margin-left: 10px;
     }
-
-    /*&:hover > a, &:active > a, &.active > a, &:focus > a {
-      @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--active));
-    }*/
 
     &:hover {
       @include themify((background-color, border-left-color), (sidebar-menu--bg--hover, sidebar-menu--border--color--hover));
@@ -103,13 +121,17 @@
     }
 
   }
+
 }
+
+
 
 /*Mini sidebar*/
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
   width: $sidebar-mini-width;
+  //margin-left: -$sidebar-mini-width;
   z-index: 1;
 
   &__logo-mini {
@@ -139,6 +161,7 @@
 
   }
 }
+
 
 /*Mini sidebar -- Modifiers*/
 .sidebar-is-open.sidebar-mini .sidebar {
@@ -189,8 +212,13 @@
   }
 }
 
-/*To show normal sidebar in smaller devices*/
+.sidebar-is-closed {
+  [data-side="mini"] {
+    display: none !important;
+  }
+}
 
+//TO DO: Fix the bleow later as its current not working well.
 @include max-screen(767px) {
   .sidebar {
     overflow-y: auto;
@@ -199,27 +227,5 @@
 
   .sidebar-is-open .sidebar {
     z-index: 1000;
-  }
-}
-
-.sidebar-hide {
-  background: $white;
-  border-right: 1px solid #e7e7e7;
-  padding: 5px 3px;
-  cursor: pointer;
-
-  &:hover {
-    background: $light-grey;
-  }
-}
-
-.sidebar-is-open .sidebar {
-  position: relative;
-  transform: translateX(0);
-}
-
-.sidebar-is-closed {
-  [data-side="mini"] {
-    display: none !important;
   }
 }
