@@ -40,8 +40,16 @@
     bottom: 51px;
     width: 100%;
     left: 0;
-    //overflow-y: auto;
-    //overflow-x: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    //overflow: scroll;
+
+
+    &::-webkit-scrollbar-track {
+      background-color: darken(#ccc, 6.5%);
+    }
+
+
   }
 
   &__logo-mini {
@@ -86,6 +94,7 @@
 
     &.active, &:active, &:focus {
       @include themify((background-color, border-left-color), (sidebar-menu--bg--active, sidebar-menu--border--color--active));
+      z-index: 1000;
       > a {
         @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--active));
       }
@@ -134,6 +143,8 @@
   //margin-left: -$sidebar-mini-width;
   z-index: 1;
 
+  &__container {}
+
   &__logo-mini {
     display: block;
   }
@@ -168,6 +179,17 @@
 
   $s: sidebar;
 
+  //temp
+
+  &__item {
+    &.active  > a{
+      position: fixed;
+    }
+
+    &.active > .#{$s}__child{ position: fixed;}
+  }
+  //temp
+
   &__item {
     &.active > a,
     &:hover > a,
@@ -186,7 +208,7 @@
     }
 
     &.active > .#{$s}__child {
-      position: absolute;
+      //position: absolute;
       z-index: 1;
 
       .#{$s}__item {
