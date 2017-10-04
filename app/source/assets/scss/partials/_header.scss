@@ -1,1 +1,35 @@
- #myheaderrr{padding: 0}
+// ================================================================================================
+// File Name: header.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.header {
+  background-color: #d7dde4;
+  height: $header-height;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: left 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .header-fixed & {
+    position: fixed;
+  }
+
+  .sidebar-is-open & {
+    left: $sidebar-width;
+  }
+
+  .sidebar-is-open.sidebar-mini & {
+    left: $sidebar-mini-width;
+  }
+
+}

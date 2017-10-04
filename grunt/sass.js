@@ -9,7 +9,7 @@ module.exports = {
             // ],
 
             sourceMap: true,
-            outputStyle: 'compressed'
+            outputStyle: 'expanded' //Values: nested, expanded, compact, compressed
 
         },
 

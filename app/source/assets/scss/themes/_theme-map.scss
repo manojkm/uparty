@@ -30,9 +30,9 @@ https://github.com/Kurtz1993/sass-theme-test
 @import 'https://fonts.googleapis.com/css?family=Montserrat:0,600,800';
 
 //----------------------------------*\
-// COLOR VARIABLES
+// COLOR PALETTE
 //----------------------------------*/
-// Adapted from https://www.materialui.co/metrocolors, https://flatuicolors.com/
+/*Adapted from https://www.materialui.co/metrocolors, https://flatuicolors.com/*/
 
 $lime: 		#a4c400;	$turquoise:		#1abc9c;
 $green: 	#60a917;	$green-sea:		#16a085;
@@ -59,14 +59,13 @@ $sienna: 	#a0522d;
 // THEME MAP
 //----------------------------------*/
 
-// TO DO: Remove the below comment on understood.
+// TO DO: Remove the below comment once understood.
 // Following BEM naming :-
 // http://mathayward.com/modular-css-with-sass-and-bem/
 // https://image.slidesharecdn.com/learn-bem-css-naming-convention-160906200350/95/slide-19-1024.jpg
 // https://image.slidesharecdn.com/2014-usgrockeagle-sass-141013122331-conversion-gate02/95/october-2014-usg-rock-eagle-sass-101-43-638.jpg?cb=1413203122
 // >>>>>>>>>>>>>>>>>>>http://css-weekly.com/wp-content/uploads/2015/04/bem-101.jpg
 // http://www.juliecameron.com/blog/2013/11/06/bem-naming-for-sass-color-variables-what1/
-
 
 $theme-collection: (
         default: (
@@ -75,21 +74,27 @@ $theme-collection: (
                 'color__secondary': $abestos,
 
                 'sidebar--bg': $midnight-blue,
+                'sidebar-menu--bg--hover': darken($midnight-blue, 5%),
                 'sidebar-menu--bg--active': darken($midnight-blue, 5%),
-                'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
+                'sidebar-menu--color': lighten($midnight-blue, 60%),
+                'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
+                'sidebar-menu--color--active': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu--color': lighten(#000, 90%),
-
+                'sidebar-menu--border--color--hover': lighten($midnight-blue, 20%),
+                'sidebar-menu--border--color--active': lighten($midnight-blue, 50%),
         ),
         blue: (
                 'font__primary': ("Raleway", Arial, sans-serif),
                 'color__primary': #021320,
                 'color__secondary': #0f9962,
-
                 'sidebar--bg': $midnight-blue,
-                'sidebar-menu--bg--active': darken($midnight-blue, 10%),
-                'sidebar-menu--bg--hover': darken($midnight-blue, 20%),
+                'sidebar-menu--bg--active': darken($midnight-blue, 5%),
+                'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
+                'sidebar-menu--color': lighten($midnight-blue, 90%),
+                'sidebar-menu--color--active': lighten($midnight-blue, 100%),
+                'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu--color': lighten(#000, 90%),
+                'sidebar-menu--border--color--hover': lighten($midnight-blue, 90%),
+                'sidebar-menu--border--color--active': lighten($midnight-blue, 50%),
         ),
 ) !default;

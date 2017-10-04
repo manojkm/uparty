@@ -10,47 +10,20 @@
 
 // https://gist.github.com/jareware/4738651
 
-.sidebar {
 
+.sidebar {
   $s: sidebar;
 
   @include themify(background-color, sidebar--bg);
   @include transition(all 0.3s ease-out);
-  width: $sidebar-width;
-  padding-bottom: 60px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  transition: left 0.3s ease;
-  z-index: 20;
   transform: translateX(-100%); /*Hiding sidebar as default*/
-
-  .sidebar-is-open & {
-    transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
-  }
-  .sidebar-fixed & {
-    position: fixed;
-  }
-
-
-  &__container {
-    position: absolute;
-    top: 0;
-    bottom: 51px;
-    width: 100%;
-    left: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    //overflow: scroll;
-
-
-    &::-webkit-scrollbar-track {
-      background-color: darken(#ccc, 6.5%);
-    }
-
-
-  }
+  width: $sidebar-width;
+  //margin-left: -$sidebar-width;
+  min-height: 100vh;
 
   &__logo-mini {
     display: none;
@@ -85,6 +58,10 @@
       margin-left: 10px;
     }
 
+    /*&:hover > a, &:active > a, &.active > a, &:focus > a {
+      @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--active));
+    }*/
+
     &:hover {
       @include themify((background-color, border-left-color), (sidebar-menu--bg--hover, sidebar-menu--border--color--hover));
       > a {
@@ -94,7 +71,6 @@
 
     &.active, &:active, &:focus {
       @include themify((background-color, border-left-color), (sidebar-menu--bg--active, sidebar-menu--border--color--active));
-      z-index: 1000;
       > a {
         @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--active));
       }
@@ -130,10 +106,7 @@
     }
 
   }
-
 }
-
-
 
 /*Mini sidebar*/
 .sidebar-is-open.sidebar-mini .sidebar {
@@ -142,8 +115,6 @@
   width: $sidebar-mini-width;
   //margin-left: -$sidebar-mini-width;
   z-index: 1;
-
-  &__container {}
 
   &__logo-mini {
     display: block;
@@ -173,22 +144,10 @@
   }
 }
 
-
 /*Mini sidebar -- Modifiers*/
 .sidebar-is-open.sidebar-mini .sidebar {
 
   $s: sidebar;
-
-  //temp
-
-  &__item {
-    &.active  > a{
-      position: fixed;
-    }
-
-    &.active > .#{$s}__child{ position: fixed;}
-  }
-  //temp
 
   &__item {
     &.active > a,
@@ -208,7 +167,7 @@
     }
 
     &.active > .#{$s}__child {
-      //position: absolute;
+      position: absolute;
       z-index: 1;
 
       .#{$s}__item {
@@ -234,13 +193,8 @@
   }
 }
 
-.sidebar-is-closed {
-  [data-side="mini"] {
-    display: none !important;
-  }
-}
+/*To show normal sidebar in smaller devices*/
 
-//TO DO: Fix the bleow later as its current not working well.
 @include max-screen(767px) {
   .sidebar {
     overflow-y: auto;
@@ -249,5 +203,27 @@
 
   .sidebar-is-open .sidebar {
     z-index: 1000;
+  }
+}
+
+.sidebar-hide {
+  background: $white;
+  border-right: 1px solid #e7e7e7;
+  padding: 5px 3px;
+  cursor: pointer;
+
+  &:hover {
+    background: $light-grey;
+  }
+}
+
+.sidebar-is-open .sidebar {
+  position: relative;
+  transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
+}
+
+.sidebar-is-closed {
+  [data-side="mini"] {
+    display: none !important;
   }
 }
