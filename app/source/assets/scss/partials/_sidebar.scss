@@ -33,34 +33,35 @@
     position: fixed;
   }
 
-
-  &__container {
-    position: absolute;
-    top: 0;
-    bottom: 51px;
-    width: 100%;
-    left: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    //overflow: scroll;
-
-
-    &::-webkit-scrollbar-track {
-      background-color: darken(#ccc, 6.5%);
-    }
-
-
-  }
+  //&__container {
+  //  position: absolute;
+  //  top: 0;
+  //  bottom: 51px;
+  //  width: 100%;
+  //  left: 0;
+  //  overflow-y: auto;
+  //  overflow-x: hidden;
+  //  &::-webkit-scrollbar-track {
+  //    background-color: darken(#ccc, 6.5%);
+  //  }
+  //}
 
   &__logo-mini {
     display: none;
   }
 
-  &__nav ul {
-    padding: 0;
-    margin: 0;
-    li {
-      list-style: none;
+  &__nav {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        list-style: none;
+      }
     }
   }
 
@@ -133,23 +134,21 @@
 
 }
 
-
-
 /*Mini sidebar*/
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
   width: $sidebar-mini-width;
-  //margin-left: -$sidebar-mini-width;
   z-index: 1;
-
-  &__container {}
 
   &__logo-mini {
     display: block;
   }
 
   &__item {
+    min-height: 50px;
+    position: static;
+
     a {
       min-width: 0;
       transition: min-width 0.3s ease-out;
@@ -160,7 +159,8 @@
       .#{$s}__nav-title {
         display: none;
         visibility: hidden;
-        left: 0px;
+        position: absolute;
+        left: 0;
       }
     }
 
@@ -168,37 +168,26 @@
       position: absolute;
       min-width: $sidebar-submenu-width + 2; /*Value 2 is to adjust the width to include border of parent li*/
       left: $sidebar-mini-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
+      display: none;
     }
 
   }
 }
 
-
 /*Mini sidebar -- Modifiers*/
 .sidebar-is-open.sidebar-mini .sidebar {
 
   $s: sidebar;
-
-  //temp
-
   &__item {
-    &.active  > a{
-      position: fixed;
-    }
 
-    &.active > .#{$s}__child{ position: fixed;}
-  }
-  //temp
-
-  &__item {
     &.active > a,
     &:hover > a,
     &:focus > a {
       min-width: $sidebar-active-menu-width;
+      position: absolute;
 
       .#{$s}__nav-title {
         display: inline-block;
-        position: absolute;
         visibility: visible;
         left: $sidebar-mini-width;
       }
@@ -208,8 +197,8 @@
     }
 
     &.active > .#{$s}__child {
-      //position: absolute;
       z-index: 1;
+      display: block;
 
       .#{$s}__item {
         &.active > a,
