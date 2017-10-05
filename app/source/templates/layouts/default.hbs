@@ -7,35 +7,37 @@
 <body class="theme-default">
 
 <div class="main-wrapper">
-    <div class="app sidebar-fixed header-fixed footer-fixed" id="app">
+    <div class="app sidebar-fixed header-fixed footer-fixed">
+
+        <!--https://zellwk.com/blog/html-structure/-->
+
+        <!-- header -->
         <header class="header">
-            <div class="header-block header-block-collapse d-lg-none d-xl-none">
-                <button class="collapse-btn" id="sidebar-collapse-btn">
-                    1
-                </button>
-            </div>
+            header
         </header>
-        {{> sidebar }}
-        <article class="content">
+        <!-- /header -->
+
+        <!-- sidebar -->
+        <aside class="sidebar">
+            {{> sidebar }}
+        </aside>
+        <!-- /sidebar -->
+
+        <!--main content-->
+        <section class="main">
             {{> body }}
-        </article>
+        </section>
+        <!-- /main content-->
+
+        <!-- footer -->
         <footer class="footer">
             footer
         </footer>
+        <!-- /footer -->
+
     </div>
 </div>
 
-
-{{!--<div class="container-fluid h-100">
-    <div class="row h-100">
-        {{> sidebar }}
-        <div class="col">
-            <div id="content">
-                {{> body }}
-            </div>
-        </div>
-    </div>
-</div>--}}
 {{> footer-scripts }}
 </body>
 </html>
