@@ -12,7 +12,7 @@ if (typeof jQuery === 'undefined') {
 var Side = {
 
     _body: $('body'),
-    _logo: $('.brand-logo'),
+    _logo: $('.sidebar__brand__logo'),
 
     responsive: function responsive() {
         $(window).width() < 768 ? Side._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed') : Side._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed');

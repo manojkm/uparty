@@ -6,38 +6,40 @@
 </head>
 <body class="theme-default">
 
-<div class="main-wrapper">
-    <div class="app sidebar-fixed header-fixed footer-fixed">
+<div class="main-wrap">
+    <section class="app sidebar-fixed header-fixed footer-fixed">
 
         <!--https://zellwk.com/blog/html-structure/-->
+        <!--https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines-->
 
         <!-- header -->
         <header class="header">
-            header
+            <div class="header__wrap">header</div>
         </header>
         <!-- /header -->
 
         <!-- sidebar -->
         <aside class="sidebar">
-            {{> sidebar }}
+            <div class="sidebar__wrap">{{> sidebar }}</div>
         </aside>
         <!-- /sidebar -->
 
         <!--main content-->
-        <section class="main">
-            {{> body }}
+        <section class="content">
+            <section class="content__wrap">{{> body }}</section>
         </section>
         <!-- /main content-->
 
         <!-- footer -->
         <footer class="footer">
-            footer
+            <div class="footer__wrap">footer</div>
         </footer>
         <!-- /footer -->
 
-    </div>
+    </section>
 </div>
 
+<!-- Placed js at the end of the document so the pages load faster -->
 {{> footer-scripts }}
 </body>
 </html>
