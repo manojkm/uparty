@@ -37,6 +37,7 @@ $header-height: 50px;
 //----------------------------------*/
 /*Sidebar color variables can be found in themes/_theme-map.scss*/
 $sidebar-width: 200px;
+$sidebar-padding-left: 10px;
 $sidebar-mini-width: 60px;
 $sidebar-submenu-width: $sidebar-width;
 $sidebar-active-menu-width: $sidebar-width + $sidebar-mini-width;
@@ -46,7 +47,8 @@ $sidebar-active-menu-width: $sidebar-width + $sidebar-mini-width;
 //----------------------------------*/
 
 $font-html: (
-  size: 62.5%, /*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
+  size: 100%, /*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
+  //size: 16px
 );
 
 $font: (
