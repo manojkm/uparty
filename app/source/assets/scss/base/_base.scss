@@ -27,9 +27,18 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  &, &:visited {
+    @include themify(color, color__primary);
+  }
+}
+
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
 
+input, textarea, button {
+  @include border-radius(0px);
+}

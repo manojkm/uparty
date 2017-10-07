@@ -44,17 +44,25 @@ Usage @include fontSize(16px);*/
   font-size: calculateRem($size);
 }
 
+//----------------------------------*\
+// TEXT SHADOW
+//----------------------------------*/
+@mixin text-shadow($tShadow : 0px 1px 3px rgba(0,0,0,.5)) {
+  -webkit-box-shadow: $tShadow;
+  -moz-box-shadow: $tShadow;
+  -o-box-shadow: $tShadow;
+  box-shadow: $tShadow;
+}
 
 //----------------------------------*\
 // TRANSITIONS
 //----------------------------------*/
-/*Usage @include transition(color .3s ease);*/
-@mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
+/*Usage @include transition(color .3s ease); @include transition;*/
+@mixin transition($transitionvalue : all .25s ease-in-out) {
+  -webkit-transition: $transitionvalue;
+  -o-transition: $transitionvalue;
+  -moz-transition: $transitionvalue;
+  transition: $transitionvalue;
 }
 
 //----------------------------------*\
@@ -63,47 +71,74 @@ Usage @include fontSize(16px);*/
 /*Usage @include border-radius(4px);*/
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//----------------------------------*\
+// BORDER
+//----------------------------------*/
+/*Usage
+@include add-border(1px, #cccccc,top);
+@include add-border(1px, #cccccc,right-left);
+@include add-border(1px, #cccccc, all);*/
+@mixin add-border($size, $color, $position) {
+  @if $position == 'all' {
+    border: $size solid $color;
+  } @else if $position == 'top' {
+    border-top: $size solid $color;
+  } @else if $position == 'bottom' {
+    border-bottom: $size solid $color;
+  } @else if $position == 'right' {
+    border-right: $size solid $color;
+  } @else if $position == 'left' {
+    border-left: $size solid $color;
+  } @else if $position == 'top-bottom' {
+    border-top: $size solid $color;
+    border-bottom: $size solid $color;
+  } @else if $position == 'right-left' {
+    border-left: $size solid $color;
+    border-right: $size solid $color;
+  }
 }
 
 //----------------------------------*\
 // NO IDEAAAAAAAAA
 //----------------------------------*/
 
-@mixin vendor ($property, $value...) {
-    -webkit-#{$property}:$value;
-    -moz-#{$property}:$value;
-    -ms-#{$property}:$value;
-    -o-#{$property}:$value;
-    #{$property}:$value;
+@mixin vendor($property, $value...) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+  #{$property}: $value;
 }
-
 
 //----------------------------------*\
 // THEMIFY - OLD
 //----------------------------------*/
 /*Usage  @include themi { background-color: themi-variable('sidebar-menu-bg');}*/
-@mixin themi ($theme-collection: $theme-collection) {
+@mixin themi($theme-collection: $theme-collection) {
   @each $theme, $map in $theme-collection {
     .theme-#{$theme} & {
       /*Define theme color*/
-      $theme-map : (
-          color-alpha: blue
+      $theme-map: (
+              color-alpha: blue
       ) !global;
-      
+
       @each $key, $submap in $map {
         $value: map-fetch($theme-collection, $theme '#{$key}');
         $theme-map: map-merge($theme-map, ($key: $value)) !global;
       }
-      
+
       @content;
       /*Reset theme color to null*/
       $theme-map: null !global;
     }
   }
 }
+
 /*Function*/
 @function map-fetch($map, $keys) {
   $key: nth($keys, 1);
@@ -112,11 +147,11 @@ Usage @include fontSize(16px);*/
 
   @if $value != null {
     @if $length > 1 {
-      $rest: ();     
+      $rest: ();
       @for $i from 2 through $length {
         $rest: append($rest, nth($keys, $i))
       }
-      
+
       @return map-fetch($value, $rest);
     } @else {
       @return $value;
@@ -129,7 +164,6 @@ Usage @include fontSize(16px);*/
 @function themi-variable($key) {
   @return map-get($theme-map, $key);
 }
-
 
 //----------------------------------*\
 // THEMIFY - NEW
@@ -147,7 +181,7 @@ Usage @include fontSize(16px);*/
 @mixin themify($properties, $keys, $transition-duration: $theme-transition-duration, $themes: $theme-collection) {
   /*Iterate over the themes.*/
   @each $theme, $theme-item in $themes {
-   /*Create a selector CLASS -> THEME and also THEME -> CLASS.*/
+    /*Create a selector CLASS -> THEME and also THEME -> CLASS.*/
     &.theme-#{$theme},
     .theme-#{$theme} & {
       /*Iterate over each property-key value.*/
@@ -163,7 +197,6 @@ Usage @include fontSize(16px);*/
   }
 }
 
-
 /* Device specific media query helper.
  @param $materialize-device: device out of mobile, tablet or desktop.
  Usage sample https://www.sassmeister.com/gist/307f690b022e44917704*/
@@ -172,10 +205,16 @@ $materialize-tablet-brkpnt: 992px;
 
 @mixin respond-to($materialize-device) {
   @if $materialize-device == mobile {
-    @media screen and (max-width: $materialize-mobile-brkpnt) { @content; }
+    @media screen and (max-width: $materialize-mobile-brkpnt) {
+      @content;
+    }
   } @else if $materialize-device == tablet {
-    @media screen and (min-width: $materialize-mobile-brkpnt + 1) and (max-width: $materialize-tablet-brkpnt) { @content; }
+    @media screen and (min-width: $materialize-mobile-brkpnt + 1) and (max-width: $materialize-tablet-brkpnt) {
+      @content;
+    }
   } @else if $materialize-device == desktop {
-    @media screen and (min-width: $materialize-tablet-brkpnt + 1) { @content; }
+    @media screen and (min-width: $materialize-tablet-brkpnt + 1) {
+      @content;
+    }
   }
 }

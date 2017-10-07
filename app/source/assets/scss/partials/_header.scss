@@ -9,12 +9,12 @@
 // ================================================================================================
 
 .master-header {
-  @include themify(background-color, color__primary--lighter);
+  @include themify(background-color, color__primary--light);
+  @include transition(left 0.3s ease-out);
   min-height: $header-height;
   position: absolute;
   left: 0;
   right: 0;
-  transition: left 0.3s ease;
   z-index: 10;
   display: flex;
   align-items: center;
