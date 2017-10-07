@@ -71,8 +71,23 @@ $theme-collection: (
 
         default: (
                 'font__primary': ("Source Sans Pro", Arial, sans-serif),
+
                 'color__primary': $midnight-blue,
+                'color__primary--light': lighten($midnight-blue, 10%),
+                'color__primary--lighter': lighten($midnight-blue, 6%),
+                'color__primary--dark': darken($midnight-blue, 10%),
+                'color__primary--darker':darken($midnight-blue, 6%),
+
                 'color__secondary': $abestos,
+                'color__secondary--light': lighten($abestos, 10%),
+                'color__secondary--lighter': lighten($abestos, 6%),
+                'color__secondary--dark': darken($abestos, 10%),
+                'color__secondary--darker':darken($abestos, 6%),
+
+                'color__success': $midnight-blue,
+                'color__info': $midnight-blue,
+                'color__warning': $midnight-blue,
+                'color__danger': $midnight-blue,
 
                 'sidebar--bg': $midnight-blue,
                 'sidebar-menu--bg--hover': darken($midnight-blue, 5%),
@@ -83,22 +98,20 @@ $theme-collection: (
                 'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
                 'sidebar-menu--border--color--hover': lighten($midnight-blue, 20%),
                 'sidebar-menu--border--color--active': lighten($midnight-blue, 50%),
+
         ),
-        blue: (
-                'font__primary': ("Raleway", Arial, sans-serif),
-                'color__primary': #021320,
-                'color__secondary': #0f9962,
-                'sidebar--bg': $midnight-blue,
-                'sidebar-menu--bg--active': darken($midnight-blue, 5%),
-                'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
-                'sidebar-menu--color': lighten($midnight-blue, 90%),
-                'sidebar-menu--color--active': lighten($midnight-blue, 100%),
-                'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
-                'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
-                'sidebar-menu--border--color--hover': lighten($midnight-blue, 90%),
-                'sidebar-menu--border--color--active': lighten($midnight-blue, 50%),
-        ),
+        //blue: (
+        //        'font__primary': ("Raleway", Arial, sans-serif),
+        //        'color__primary': #021320,
+        //        'color__secondary': #0f9962,
+        //        'sidebar--bg': $midnight-blue,
+        //        'sidebar-menu--bg--active': darken($midnight-blue, 5%),
+        //        'sidebar-menu--bg--hover': darken($midnight-blue, 10%),
+        //        'sidebar-menu--color': lighten($midnight-blue, 90%),
+        //        'sidebar-menu--color--active': lighten($midnight-blue, 100%),
+        //        'sidebar-menu--color--hover': lighten($midnight-blue, 100%),
+        //        'sidebar-menu__submenu--bg': darken($midnight-blue, 5%),
+        //        'sidebar-menu--border--color--hover': lighten($midnight-blue, 90%),
+        //        'sidebar-menu--border--color--active': lighten($midnight-blue, 50%),
+        //),
 ) !default;
-
-
-

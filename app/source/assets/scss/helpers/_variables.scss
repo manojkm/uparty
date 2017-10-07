@@ -47,14 +47,14 @@ $sidebar-active-menu-width: $sidebar-width + $sidebar-mini-width;
 //----------------------------------*/
 
 $font-html: (
-  size: 100%, /*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
+        size: 100%, /*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
   //size: 16px
 );
 
 $font: (
-  color: #666,
-  weight: 300,
-  line-height: 1.6
+        color: #666,
+        weight: 300,
+        line-height: 1.6
 );
 
 //----------------------------------*\
@@ -65,9 +65,17 @@ $font: (
 //----------------------------------*\
 // GLOBAL COLORS
 //----------------------------------*/
-$grey: #ccc;
-$light-grey: #fafafa;
-$white: #fff;
+
+//Basic Colors
+$white-color: #FFFFFF; // hex of the white
+$black-color: #000000; // hex of the black
+
+$grey-darker: lighten($black-color, 13.5%); // #222
+$grey-dark: lighten($black-color, 20%); // #333
+$grey: lighten($black-color, 33.5%); // #555
+$grey-light: lighten($black-color, 60%); // #999
+$grey-lighter: lighten($black-color, 93.5%); // #eee
+
 
 //----------------------------------*\
 // SELECTION
@@ -137,12 +145,10 @@ $screen-md-max: ($screen-lg-min - 1) !default;
 // TABLES
 //----------------------------------*/
 
-
 //----------------------------------*\
 // FOOTER
 //----------------------------------*/
 $footer-height: 30px;
-
 
 //----------------------------------*\
 // THEME TRANSITION

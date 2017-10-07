@@ -34,6 +34,7 @@
 
   /*Sidebar brand logo*/
   &__brand {
+    @include themify(background-color, color__primary--lighter);
     padding-left: $sidebar-padding-left;
     height: $header-height;
 
@@ -56,7 +57,7 @@
 
     a {
       @include themify(color, sidebar-menu--color);
-      @include fontSize(16px);
+      @include font-size(16px);
       display: block;
       text-decoration: none;
       transition: 0.3s ease;
@@ -103,7 +104,7 @@
     @include themify(background-color, sidebar-menu__submenu--bg);
 
     a {
-      @include fontSize(13px);
+      @include font-size(13px);
       min-height: 20px;
       line-height: 20px;
       padding: 5px 15px 5px 20px;

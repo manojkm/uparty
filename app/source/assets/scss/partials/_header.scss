@@ -8,9 +8,9 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-.header {
-  background-color: #d7dde4;
-  height: $header-height;
+.master-header {
+  @include themify(background-color, color__primary--lighter);
+  min-height: $header-height;
   position: absolute;
   left: 0;
   right: 0;
@@ -19,6 +19,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  &__wrap {
+    width: 100%;
+  }
 
   .header-fixed & {
     position: fixed;

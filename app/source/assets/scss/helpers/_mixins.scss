@@ -28,10 +28,10 @@
 /*Will convert pixels to ems because who thinks in rem? Adapted from https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
 Usage @include font-size(1.6); */
 
-@mixin font-size($size-value: 1.6) {
-  font-size: ($size-value * 10) + px;
-  font-size: $size-value + rem;
-}
+//@mixin font-size($size-value: 1.6) {
+//  font-size: ($size-value * 10) + px;
+//  font-size: $size-value + rem;
+//}
 
 //----------------------------------*\
 // REM FONT SIZING  - ADVANCED
@@ -39,7 +39,7 @@ Usage @include font-size(1.6); */
 /*Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
 Usage @include fontSize(16px);*/
 
-@mixin fontSize($size) {
+@mixin font-size($size) {
   font-size: $size; //Fallback in px
   font-size: calculateRem($size);
 }
