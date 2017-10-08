@@ -15,7 +15,9 @@ html {
 
 body {
   @include font-size(16px);
-  @include themify(font-family, font__primary);
+  @include themify {
+    font-family: $font__primary;
+  }
   height: 100vh;
   min-height: 100%;
   color: map-get-strict($font, color);
@@ -29,7 +31,9 @@ body {
 
 a {
   &, &:visited {
-    @include themify(color, color__primary);
+    @include themify {
+      color: $color__primary;
+    }
   }
 }
 

@@ -178,7 +178,7 @@ Usage @include fontSize(16px);*/
  @param {List} $keys: Theme items to map properies against to.
  @param $transition-duration: Duration in seconds for transition effect.
  @param {Map} $themes [$themes] - Map of themes to use.*/
-@mixin themify($properties, $keys, $transition-duration: $theme-transition-duration, $themes: $theme-collection) {
+@mixin themify-v($properties, $keys, $transition-duration: $theme-transition-duration, $themes: $theme-collection) {
   /*Iterate over the themes.*/
   @each $theme, $theme-item in $themes {
     /*Create a selector CLASS -> THEME and also THEME -> CLASS.*/
@@ -215,6 +215,65 @@ $materialize-tablet-brkpnt: 992px;
   } @else if $materialize-device == desktop {
     @media screen and (min-width: $materialize-tablet-brkpnt + 1) {
       @content;
+    }
+  }
+}
+
+
+//----------------------------------*\
+// THEMIFY - NEW v1
+//----------------------------------*/
+/*Adapted from https://codepen.io/puglyfe/pen/ZLJmba*/
+
+
+//TO DO: Find a way to replace below list of long keys
+@mixin themify($context: '.color-theme') {
+
+  @each $theme, $theme-item in $color-themes {
+    #{$context}--#{$theme} & {
+
+      $font__primary:                          map-get($theme-item, 'font__primary') !global;
+
+      $color__primary--light:                  map-get($theme-item, 'color__primary--light') !global;
+      $color__primary--x-light:                map-get($theme-item, 'color__primary--x-light') !global;
+      $color__primary--xx-light:               map-get($theme-item, 'color__primary--xx-light') !global;
+      $color__primary:                         map-get($theme-item, 'color__primary') !global;
+      $color__primary--dark:                   map-get($theme-item, 'color__primary--dark') !global;
+      $color__primary--x-dark:                 map-get($theme-item, 'color__primary--x-dark') !global;
+      $color__primary--xx-dark:                map-get($theme-item, 'color__primary--xx-dark') !global;
+      $text--color--primary:                   map-get($theme-item, 'text--color--primary') !global;
+
+      $color__secondary--light:                map-get($theme-item, 'color__secondary--light') !global;
+      $color__secondary--x-light:              map-get($theme-item, 'color__secondary--x-light') !global;
+      $color__secondary--xx-light:             map-get($theme-item, 'color__secondary--xx-light') !global;
+      $color__secondary:                       map-get($theme-item, 'color__secondary') !global;
+      $color__secondary--dark:                 map-get($theme-item, 'color__secondary--dark') !global;
+      $color__secondary--x-dark:               map-get($theme-item, 'color__secondary--x-dark') !global;
+      $color__secondary--xx-dark:              map-get($theme-item, 'color__secondary--xx-dark') !global;
+      $text--color--secondary:                 map-get($theme-item, 'text--color--secondary') !global;
+
+      $color__success:                         map-get($theme-item, 'color__success') !global;
+      $color__info:                            map-get($theme-item, 'color__info') !global;
+      $color__warning:                         map-get($theme-item, 'color__warning') !global;
+      $color__danger:                          map-get($theme-item, 'color__danger') !global;
+
+      $sidebar--bg:                            map-get($theme-item, 'sidebar--bg') !global;
+      $sidebar-menu--color:                    map-get($theme-item, 'sidebar-menu--color') !global;
+
+      $header--bg:                             map-get($theme-item, 'sidebar--bg') !global;
+      $header-menu--color:                     map-get($theme-item, 'sidebar-menu--color') !global;
+
+
+      @content;
+
+      // don't allow these variables to be used outside the context of this mixin.
+      $color-primary:                         null !global;
+      $color-primary-text:                    null !global;
+      $color-secondary:                       null !global;
+      $color-secondary-text:                  null !global;
+      $color-button-primary:                  null !global;
+      $color-button-primary-icon:             null !global;
+      $color-button-secondary:                null !global;
     }
   }
 }

@@ -9,7 +9,11 @@
 // ================================================================================================
 
 .master-header {
-  @include themify(background-color, color__primary--light);
+
+  @include themify {
+    background-color: $header--bg;
+  }
+
   @include transition(left 0.3s ease-out);
   min-height: $header-height;
   position: absolute;

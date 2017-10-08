@@ -13,7 +13,10 @@
 .sidebar {
 
   $s: sidebar;
-  @include themify(background-color, sidebar--bg);
+  @include themify {
+    background-color: $sidebar--bg;
+  }
+
   @include transition(all 0.3s ease-out);
   width: $sidebar-width;
   padding-bottom: 60px;
@@ -34,7 +37,9 @@
 
   /*Sidebar brand logo*/
   &__brand {
-    @include themify(background-color, color__primary--lighter);
+    @include themify {
+      background-color: $sidebar--bg;
+    }
     padding-left: $sidebar-padding-left;
     height: $header-height;
 
@@ -56,8 +61,12 @@
     }
 
     a {
-      @include themify(color, sidebar-menu--color);
-      @include font-size(16px);
+      @include themify {
+        color: $sidebar-menu--color;
+        opacity: .8;
+      }
+
+      @include font-size(15px);
       display: block;
       text-decoration: none;
       transition: 0.3s ease;
@@ -80,20 +89,34 @@
     }
 
     &:hover {
-      @include themify((background-color, border-left-color), (sidebar-menu--bg--hover, sidebar-menu--border--color--hover));
+      @include themify {
+        border-left-color: $color__primary;
+      }
+
       > a {
         &, span {
-          @include themify((background-color, color), (sidebar-menu--bg--hover, sidebar-menu--color--hover));
+          @include themify {
+            color: $sidebar-menu--color;
+            background-color: darken($sidebar--bg, 5%);
+            opacity: 1;
+          }
         }
       }
     }
 
     &.active, &:active, &:focus {
-      @include themify((background-color, border-left-color), (sidebar-menu--bg--active, sidebar-menu--border--color--active));
+      @include themify {
+        background-color: darken($sidebar--bg, 5%);
+        border-left-color: $color__primary;
+      }
       z-index: 1000;
       > a {
         &, span {
-          @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--active));
+          @include themify {
+            background-color: darken($sidebar--bg, 5%);
+            color: $color__primary;
+            opacity: 1;
+          }
         }
       }
     }
@@ -101,7 +124,9 @@
 
   /*Submenu - Level one*/
   &__child {
-    @include themify(background-color, sidebar-menu__submenu--bg);
+    @include themify {
+      background-color: darken($sidebar--bg, 5%);
+    }
 
     a {
       @include font-size(13px);
