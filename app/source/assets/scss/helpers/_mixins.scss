@@ -277,3 +277,18 @@ $materialize-tablet-brkpnt: 992px;
     }
   }
 }
+
+
+
+@mixin themify-test($properties) {
+  /*Iterate over the themes.*/
+  @each $theme, $theme-item in $color-themes {
+    /*Create a selector CLASS -> THEME and also THEME -> CLASS.*/
+    &.theme-#{$theme},
+    .theme-#{$theme} & {
+
+      @content;
+
+    }
+  }
+}
