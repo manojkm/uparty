@@ -82,8 +82,8 @@
           @include themify {
             background-color: darken($sidebar--bg, 5%);
             color: $color__primary;
-            opacity: 1;
           }
+          @include opacity(1);
         }
       }
     }
