@@ -52,7 +52,6 @@
 //----------------------------------*/
 @import
 	'base/reset',
-	'base/typography',
 	'base/base';
 
 //----------------------------------*\
@@ -60,27 +59,44 @@
 //----------------------------------*/
 @import
 	'partials/header',
-	'partials/nav',
+	'partials/header-nav',
 	'partials/sidebar',
+	'partials/sidebar-nav',
 	'partials/main',
-	'partials/footer',
-	'partials/forms';
+	'partials/footer';
+
 
 //----------------------------------*\
 // ENHANCEMENT COMPONENTS
 //----------------------------------*/
 @import
 	'components/app',
+	'components/typography',
 	'components/sections',
 	'components/carousel',
+	'components/forms',
 	'components/buttons',
 	'components/inputs',
 	'components/lists',
 	'components/dropdown',
-	'components/defaults',
+	'components/tables',
+	'components/tooltips-and-popovers',
+	'components/sliders',
+	'components/social',
 	'components/clearfix',
 	'components/breakpoints',
 	'components/cover',
+	'components/checkbox-radio',
+	'components/tags',
+	'components/cards',
+	'components/collapse',
+	'components/labels',
+	'components/progress-bars',
+	'components/spacers',
+	'components/chat-message',
+	'components/alerts',
+	'components/tabs',
+	'components/pagination',
 	'components/scrollbar',
 	'components/print',
     'components/defaults',

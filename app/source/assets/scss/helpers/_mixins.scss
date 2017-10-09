@@ -11,7 +11,10 @@
 //----------------------------------*\
 // WIDTH
 //----------------------------------*/
-/*Usage @include size(10px, 20px), @include size(25px); Adapted from https://bumbu.github.io/sass-width-mixin/*/
+/*Usage @include size(10px, 20px), @include size(25px);
+Adapted from https://bumbu.github.io/sass-width-mixin/
+*/
+
 @mixin size($width, $height...) {
   @if length($height) == 1 {
     height: $height;
@@ -21,17 +24,6 @@
     width: $width;
   }
 }
-
-//----------------------------------*\
-// REM FONT SIZING 
-//----------------------------------*/
-/*Will convert pixels to ems because who thinks in rem? Adapted from https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
-Usage @include font-size(1.6); */
-
-//@mixin font-size($size-value: 1.6) {
-//  font-size: ($size-value * 10) + px;
-//  font-size: $size-value + rem;
-//}
 
 //----------------------------------*\
 // REM FONT SIZING  - ADVANCED
@@ -77,6 +69,17 @@ Usage @include fontSize(16px);*/
 }
 
 //----------------------------------*\
+// OPACITY
+//----------------------------------*/
+/*Usage @include opacity(1);*/
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: #{alpha(opacity=$opacity-ie)};
+}
+
+//----------------------------------*\
 // BORDER
 //----------------------------------*/
 /*Usage
@@ -104,7 +107,7 @@ Usage @include fontSize(16px);*/
 }
 
 //----------------------------------*\
-// NO IDEAAAAAAAAA
+// VENDOR PREFIX
 //----------------------------------*/
 
 @mixin vendor($property, $value...) {
@@ -241,16 +244,10 @@ $materialize-tablet-brkpnt: 992px;
       $color__primary--dark:                   map-get($theme-item, 'color__primary--dark') !global;
       $color__primary--x-dark:                 map-get($theme-item, 'color__primary--x-dark') !global;
       $color__primary--xx-dark:                map-get($theme-item, 'color__primary--xx-dark') !global;
-      $text--color--primary:                   map-get($theme-item, 'text--color--primary') !global;
+      $font--color--primary:                   map-get($theme-item, 'text--color--primary') !global;
 
-      $color__secondary--light:                map-get($theme-item, 'color__secondary--light') !global;
-      $color__secondary--x-light:              map-get($theme-item, 'color__secondary--x-light') !global;
-      $color__secondary--xx-light:             map-get($theme-item, 'color__secondary--xx-light') !global;
       $color__secondary:                       map-get($theme-item, 'color__secondary') !global;
-      $color__secondary--dark:                 map-get($theme-item, 'color__secondary--dark') !global;
-      $color__secondary--x-dark:               map-get($theme-item, 'color__secondary--x-dark') !global;
-      $color__secondary--xx-dark:              map-get($theme-item, 'color__secondary--xx-dark') !global;
-      $text--color--secondary:                 map-get($theme-item, 'text--color--secondary') !global;
+      $font--color--secondary:                 map-get($theme-item, 'font--color--secondary') !global;
 
       $color__success:                         map-get($theme-item, 'color__success') !global;
       $color__info:                            map-get($theme-item, 'color__info') !global;
@@ -258,11 +255,10 @@ $materialize-tablet-brkpnt: 992px;
       $color__danger:                          map-get($theme-item, 'color__danger') !global;
 
       $sidebar--bg:                            map-get($theme-item, 'sidebar--bg') !global;
-      $sidebar-menu--color:                    map-get($theme-item, 'sidebar-menu--color') !global;
+      $sidebar-menu__font--color:              map-get($theme-item, 'sidebar-menu__font--color') !global;
 
       $header--bg:                             map-get($theme-item, 'sidebar--bg') !global;
-      $header-menu--color:                     map-get($theme-item, 'sidebar-menu--color') !global;
-
+      $header-menu__font--color:               map-get($theme-item, 'header-menu__font--color') !global;
 
       @content;
 

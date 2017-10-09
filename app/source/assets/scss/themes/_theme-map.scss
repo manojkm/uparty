@@ -72,16 +72,10 @@ $color-themes: (
                 'color__primary--dark': darken($turquoise, 6%),
                 'color__primary--x-dark':darken($turquoise, 10%),
                 'color__primary--xx-dark':darken($turquoise, 20%),
-                'text--color--primary': $white-color,
+                'font--color--primary': $white-color,
 
-                'color__secondary--light': lighten($amber, 6%),
-                'color__secondary--x-light': lighten($amber, 10%),
-                'color__secondary--xx-light': lighten($amber, 20%),
                 'color__secondary': $amber,
-                'color__secondary--dark': darken($amber, 6%),
-                'color__secondary--x-dark':darken($amber, 10%),
-                'color__secondary--xx-dark':darken($amber, 20%),
-                'text--color--secondary':  $black-color,
+                'font--color--secondary':  $black-color,
 
                 'color__success': $midnight-blue,
                 'color__info': $midnight-blue,
@@ -89,11 +83,10 @@ $color-themes: (
                 'color__danger': $midnight-blue,
 
                 'sidebar--bg': $midnight-blue,
-                'sidebar-menu--color':#fff,
+                'sidebar-menu__font--color':#fff,
 
                 'header--bg': $midnight-blue,
-                'header-menu--color':#fff,
-
+                'header-menu__font--color':#fff,
         ),
 
 

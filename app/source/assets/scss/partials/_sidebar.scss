@@ -12,7 +12,6 @@
 
 .sidebar {
 
-  $s: sidebar;
   @include themify {
     background-color: $sidebar--bg;
   }
@@ -45,165 +44,12 @@
 
   }
 
-  /*Sidebar navigation*/
-  &__nav {
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    ul {
-      padding: 0;
-      margin: 0;
-      li {
-        list-style: none;
-      }
-    }
-
-    a {
-      @include themify {
-        color: $sidebar-menu--color;
-        opacity: .8;
-      }
-
-      @include font-size(15px);
-      display: block;
-      text-decoration: none;
-      transition: 0.3s ease;
-      padding-left: $sidebar-padding-left;
-      &, span {
-        min-height: 40px;
-        line-height: 40px;
-      }
-    }
-
-  }
-
-  &__item {
-    position: relative;
-    @include add-border(2px, transparent, left);
-    box-sizing: border-box;
-
-    .#{$s}__nav-title {
-      margin-left: 10px;
-    }
-
-    &:hover {
-      @include themify {
-        border-left-color: $color__primary;
-      }
-
-      > a {
-        &, span {
-          @include themify {
-            color: $sidebar-menu--color;
-            background-color: darken($sidebar--bg, 5%);
-            opacity: 1;
-          }
-        }
-      }
-    }
-
-    &.active, &:active, &:focus {
-      @include themify {
-        background-color: darken($sidebar--bg, 5%);
-        border-left-color: $color__primary;
-      }
-      z-index: 1000;
-      > a {
-        &, span {
-          @include themify {
-            background-color: darken($sidebar--bg, 5%);
-            color: $color__primary;
-            opacity: 1;
-          }
-        }
-      }
-    }
-  }
-
-  /*Submenu - Level one*/
-  &__child {
-    @include themify {
-      background-color: darken($sidebar--bg, 5%);
-    }
-
-    a {
-      @include font-size(13px);
-      min-height: 20px;
-      line-height: 20px;
-      padding: 5px 15px 5px 20px;
-    }
-    .#{$s}__item {
-      border: none;
-    }
-
-    /*Submenu - Level two*/
-    .#{$s}__child {
-      a {
-        padding-left: 35px;
-      }
-
-      /*Submenu - Level three*/
-      .#{$s}__child {
-        a {
-          padding-left: 50px;
-        }
-      }
-    }
-
-  }
-
 }
 
 /*Mini sidebar*/
 .sidebar-is-open.sidebar-mini .sidebar {
-  $s: sidebar;
-
   width: $sidebar-mini-width;
   z-index: 1;
-
-  &__nav > ul > .#{$s}__item {
-    position: static;
-
-    > a {
-      min-width: 0;
-      transition: min-width 0.3s ease-out;
-      &::after {
-        opacity: 0;
-      }
-
-      .#{$s}__nav-title {
-        display: none;
-        visibility: hidden;
-        position: absolute;
-      }
-    }
-
-    > .#{$s}__child {
-      position: absolute;
-      min-width: $sidebar-submenu-width + 2; /*Value 2 is to adjust the width to include border of parent li*/
-      left: $sidebar-mini-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
-    }
-
-    &.active {
-      > a {
-        min-width: $sidebar-active-menu-width;
-        position: static;
-
-        .#{$s}__nav-title {
-          display: inline-block;
-          position: absolute;
-          visibility: visible;
-          min-width: $sidebar-width;
-          left: $sidebar-mini-width;
-          margin: 0;
-        }
-
-      }
-    }
-
-  }
 }
 
 .sidebar-is-closed {
