@@ -238,3 +238,15 @@ Usage
   #{$property}: $value;
 }
 
+//----------------------------------*\
+// CLEARFIX FOR IE8 & ABOVE
+//----------------------------------*/
+/*Adapted from http://css-tricks.com/snippets/css/clear-fix/*/
+
+@mixin cf {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

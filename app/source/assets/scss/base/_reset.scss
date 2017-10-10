@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: reset.scss
-// Description: Write any resets in addition to Normalize.css
+// Description: In addition to resets given in normalize-scss.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -22,17 +22,32 @@ blockquote {
   // padding: 0;
 }
 
-
 a,
 input,
 textarea,
 button,
 object,
 embed {
-	 outline: none;
+  outline: none;
   &:hover,
   &:active,
   &:focus {
     outline: none;
   }
+}
+
+/*Set Image and Objects to have a max-width of 100%*/
+embed,
+iframe,
+img,
+object,
+video {
+  max-width: 100%;
+}
+
+/*Set Img height and width to auto for IE8*/
+img {
+  height: auto;
+  width: auto;
+  /* IE8 */
 }

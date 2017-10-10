@@ -8,7 +8,7 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// TO DO: Fill the below comment block with proper text following robust admin theme.
+// TODO: Fill the below comment block with proper text following robust admin theme.
 
 // ================================================================================================
 // WARNING: PLEASE DO NOT CHANGE THIS VARIABLE FILE.
@@ -16,6 +16,28 @@
 // TIP:
 // We suggest you to use this (assets/scss/variables/app-variables.scss) file for overriding app variables.
 // ================================================================================================
+
+
+//----------------------------------*\
+// COLOR PALETTE
+//----------------------------------*/
+/* Theme related color palette can be found in themes/_theme-map.scss*/
+
+//----------------------------------*\
+// GLOBAL COLORS
+//----------------------------------*/
+
+/*Basic Colors*/
+$white-color: #FFFFFF; // hex of the white
+$black-color: #000000; // hex of the black
+
+/*Grayscale*/
+$grey: lighten($black-color, 33.5%); // #555
+$grey-light: lighten($black-color, 60%); // #999
+$grey-x-light: lighten($black-color, 93.5%); // #eee
+$grey-dark: lighten($black-color, 20%); // #333
+$grey-x-dark: lighten($black-color, 13.5%); // #222
+
 
 //----------------------------------*\
 // BODY
@@ -56,25 +78,6 @@ $font: (
         weight: 300,
         line-height: 1.6
 );
-
-//----------------------------------*\
-// COLOR PALETTE
-//----------------------------------*/
-/* Theme related color palette can be found in themes/_theme-map.scss*/
-
-//----------------------------------*\
-// GLOBAL COLORS
-//----------------------------------*/
-
-//Basic Colors
-$white-color: #FFFFFF; // hex of the white
-$black-color: #000000; // hex of the black
-
-$grey-darker: lighten($black-color, 13.5%); // #222
-$grey-dark: lighten($black-color, 20%); // #333
-$grey: lighten($black-color, 33.5%); // #555
-$grey-light: lighten($black-color, 60%); // #999
-$grey-lighter: lighten($black-color, 93.5%); // #eee
 
 //----------------------------------*\
 // SELECTION
@@ -143,6 +146,11 @@ $screen-md-max: ($screen-lg-min - 1) !default;
 //----------------------------------*\
 // TABLES
 //----------------------------------*/
+
+//----------------------------------*\
+// TYPOGRAPHY
+//----------------------------------*/
+
 
 //----------------------------------*\
 // FOOTER

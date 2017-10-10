@@ -1,6 +1,14 @@
 // ================================================================================================
 // File Name: typography.scss
-// Description:
+// Description: This file sets the typography for the rest of the document.
+// Properties that should be present are only:
+// font-family
+// font-size
+// line-height
+// font-weight
+// font-style
+// font-variant
+// ... and other font properties
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -8,14 +16,44 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// ================================================================================================
+// NOTE:
+// This place is for you to output all the typographic elements only. Declare all your variables under
+// variables/typography!
+// ================================================================================================
+
+html {
+  font-size: map-get-strict($font-html, size);
+}
+
+body {
+  @include font-family('primary', 'font');
+  @include font-size(16px);
+
+}
 
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
+  /*Optmizes font rendering for legibility.
+  May break with some browsers, comment out as necessary.*/
   text-rendering: optimizeLegibility;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, a, td{
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, a, td {
 
 }
+
+em {
+  font-style: italic;
+}
+
+pre {
+  white-space: pre;
+}
+
+code {
+  overflow: hidden;
+}
+

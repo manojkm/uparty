@@ -10,12 +10,9 @@
 
 html {
   @include vendor(box-sizing, border-box);
-  font-size: map-get-strict($font-html, size);
 }
 
 body {
-  @include font-family('primary', 'font');
-  @include font-size(16px);
   height: 100vh;
   min-height: 100%;
   color: map-get-strict($font, color);

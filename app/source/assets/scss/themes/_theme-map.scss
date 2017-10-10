@@ -1,7 +1,6 @@
 // ================================================================================================
 // File Name: theme-map.scss
-// Description: Theme instantiations adapted from https://fjcalzado.github.io/DemoSeries-SASS-Easy-Theming/
-// https://stackoverflow.com/questions/18697963/sass-color-theme-without-repeat-elements
+// Description: Themes
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -9,17 +8,15 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-/* !!!!!!!!!!!!!!!!!!!! https://www.sitepoint.com/sass-theming-neverending-story/
-https://zellwk.com/blog/organizing-multiple-theme-styles-with-sass/
-https://codepen.io/celar/pen/dXRNQo
-https://codepen.io/nibi/pen/LbzqPo
-https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
-https://codepen.io/anon/pen/vNXRJW
-https://codepen.io/anon/pen/ZbLoGE
-https://github.com/zellwk/themify/blob/master/_themify.scss
-https://github.com/Kurtz1993/sass-theme-test
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-*/
+// ================================================================================================
+// THEME SWITCHING TIP:
+// This project is shipped with 2 themes out of the box. Light (default) , Dark.
+// To switch theme, change the class attribute on the <body> in the index.html file.
+// For instance, to use the Dark theme change:  <body class="theme-dark">
+// ================================================================================================
+
+// TODO, theme changing tutorial below. Copy paste this in my own doc later and then remove below line.
+//https://github.com/nborracha/plainID-DemoApp/tree/61b66cf018e918bcb17aa87f243fce2bc95d9833
 
 @import "fonts.scss";
 @import "colors.scss";
