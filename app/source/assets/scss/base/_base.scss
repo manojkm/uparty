@@ -9,15 +9,13 @@
 // ================================================================================================
 
 html {
-  font-size: map-get-strict($font-html, size);
   @include vendor(box-sizing, border-box);
+  font-size: map-get-strict($font-html, size);
 }
 
 body {
+  @include font-family('primary', 'font');
   @include font-size(16px);
-  @include themify {
-    font-family: $font__primary;
-  }
   height: 100vh;
   min-height: 100%;
   color: map-get-strict($font, color);
@@ -31,9 +29,7 @@ body {
 
 a {
   &, &:visited {
-    @include themify {
-      color: $color__primary;
-    }
+    @include color('primary', 'base');
   }
 }
 
@@ -41,12 +37,6 @@ a {
 *::before,
 *::after {
   box-sizing: inherit;
-}
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 input, textarea, button {

@@ -10,10 +10,7 @@
 
 .master-header {
 
-  @include themify {
-    background-color: $header--bg;
-  }
-
+  @include background-color('header', 'base');
   @include transition(left 0.3s ease-out);
   min-height: $header-height;
   position: absolute;

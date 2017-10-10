@@ -21,73 +21,56 @@ https://github.com/Kurtz1993/sass-theme-test
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 */
 
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700';
-@import 'https://fonts.googleapis.com/css?family=Raleway:0,600,800';
-@import 'https://fonts.googleapis.com/css?family=Ubuntu:0,600,800';
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:0,600,800';
-@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:0,600,800';
-@import 'https://fonts.googleapis.com/css?family=Montserrat:0,600,800';
-
-//----------------------------------*\
-// COLOR PALETTE
-//----------------------------------*/
-/*Adapted from https://www.materialui.co/metrocolors, https://flatuicolors.com/*/
-
-$lime: 		#a4c400;	$turquoise:		#1abc9c;
-$green: 	#60a917;	$green-sea:		#16a085;
-$emerald: 	#008a00;	$sunflower:		#f1c40f;
-$teal: 		#00aba9;	$nephritis:		#27ae60;
-$cyan: 		#1ba1e2;	$carrot:		#e67e22;
-$cobalt: 	#0050ef;	$pumpkin:		#d35400;
-$indigo: 	#6a00ff;	$peter-river:	#3498db;
-$violet: 	#aa00ff;	$belize-hole:	#2980b9;
-$pink: 		#f472d0;	$alizarin:		#e74c3c;
-$magenta: 	#d80073;	$pomegranate:	#c0392b;
-$crimson: 	#a20025;	$amethyst:		#9b59b6;
-$red: 		#e51400;	$wisteria:		#8e44ad;
-$orange: 	#fa6800;	$clouds:		#ecf0f1;
-$amber : 	#f0a30a;	$silver:		#bdc3c7;
-$yellow: 	#e3c800;	$wet-asphalt:	#34495e;
-$brown: 	#825a2c;	$midnight-blue:	#2c3e50;
-$olive: 	#6d8764;	$concrete:		#95a5a6;
-$steel: 	#647687;	$abestos:		#7f8c8d;
-$mauve: 	#76608a;
-$sienna: 	#a0522d;
+@import "fonts.scss";
+@import "colors.scss";
 
 //----------------------------------*\
 // THEME MAP
 //----------------------------------*/
-/*Adapted from https://codepen.io/puglyfe/pen/ZLJmba*/
+/*
+Adapted from https://github.com/nborracha/plainID-DemoApp/blob/61b66cf018e918bcb17aa87f243fce2bc95d9833/app/styles/mixins.scss
+*/
 
-$color-themes: (
-        'default': (
+$default-theme: (
+        'colors': (
+                'primary': (
+                        'font': ("Source Sans Pro", Arial, sans-serif),
+                        'base': $turquoise,
+                        'light': lighten($turquoise, 6%),
+                        'x-light': lighten($turquoise, 10%),
+                        'xx-light': lighten($turquoise, 20%),
+                        'dark':darken($turquoise, 6%),
+                        'x-dark':darken($turquoise, 10%),
+                        'xx-dark':darken($turquoise, 20%),
+                        'font-color': #fff,
+                ),
+                'secondary': (
+                        'base': $amber,
+                        'font-color': #fff,
+                ),
+                'theme-color': (
+                        'success': $midnight-blue,
+                        'info': $midnight-blue,
+                        'warning': $midnight-blue,
+                        'danger': $midnight-blue,
+                ),
+                'sidebar': (
+                        'base': $midnight-blue,
+                        'light': lighten($midnight-blue, 6%),
+                        'dark':darken($midnight-blue, 6%),
+                        'font-color': #fff,
+                ),
+                'header': (
+                        'base': $midnight-blue,
+                        'font-color': #fff,
+                ),
 
-                'font__primary': ("Source Sans Pro", Arial, sans-serif),
-
-                'color__primary--light': lighten($turquoise, 6%),
-                'color__primary--x-light': lighten($turquoise, 10%),
-                'color__primary--xx-light': lighten($turquoise, 20%),
-                'color__primary': $turquoise,
-                'color__primary--dark': darken($turquoise, 6%),
-                'color__primary--x-dark':darken($turquoise, 10%),
-                'color__primary--xx-dark':darken($turquoise, 20%),
-                'font--color--primary': $white-color,
-
-                'color__secondary': $amber,
-                'font--color--secondary':  $black-color,
-
-                'color__success': $midnight-blue,
-                'color__info': $midnight-blue,
-                'color__warning': $midnight-blue,
-                'color__danger': $midnight-blue,
-
-                'sidebar--bg': $midnight-blue,
-                'sidebar-menu__font--color':#fff,
-
-                'header--bg': $midnight-blue,
-                'header-menu__font--color':#fff,
+                'green': #71d366,
         ),
 
+);
 
-)!default;
+$themes: (
+        'dark': $default-theme,
+        //'light': ()
+) !default;

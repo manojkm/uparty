@@ -29,9 +29,7 @@
     }
 
     a {
-      @include themify {
-        color: $sidebar-menu__font--color;
-        }
+      @include color('sidebar', 'font-color');
       @include opacity(0.8);
       @include font-size(15px);
       display: block;
@@ -56,33 +54,25 @@
     }
 
     &:hover {
-      @include themify {
-        border-left-color: $color__primary;
-      }
-
+      @include border-left-color('primary', 'base');
       > a {
         &, span {
-          @include themify {
-            color: $sidebar-menu__font--color;
-            background-color: darken($sidebar--bg, 5%);
-          }
+          @include color('sidebar', 'font-color');
+          @include background-color('sidebar', 'dark');
           @include opacity(1);
         }
       }
     }
 
     &.active, &:active, &:focus {
-      @include themify {
-        background-color: darken($sidebar--bg, 5%);
-        border-left-color: $color__primary;
-      }
+      @include border-left-color('primary', 'base');
+      @include background-color('sidebar', 'dark');
+
       z-index: 1000;
       > a {
         &, span {
-          @include themify {
-            background-color: darken($sidebar--bg, 5%);
-            color: $color__primary;
-          }
+          @include color('primary', 'base');
+          @include background-color('sidebar', 'dark');
           @include opacity(1);
         }
       }
@@ -91,9 +81,7 @@
 
   /*Submenu - Level one*/
   &__child {
-    @include themify {
-      background-color: darken($sidebar--bg, 5%);
-    }
+    @include background-color('sidebar', 'dark');
 
     a {
       @include font-size(13px);

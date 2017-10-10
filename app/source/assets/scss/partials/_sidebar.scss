@@ -8,24 +8,22 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// TODO, remove the below links.
 // https://gist.github.com/jareware/4738651
+// Header design idea https://uk.pixelz.com/
 
 .sidebar {
 
-  @include themify {
-    background-color: $sidebar--bg;
-  }
-
+  @include background-color('sidebar', 'base');
   @include transition(all 0.3s ease-out);
+  transform: translateX(-100%); /*Hiding sidebar as default*/
   width: $sidebar-width;
   padding-bottom: 60px;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  transition: left 0.3s ease;
   z-index: 20;
-  transform: translateX(-100%); /*Hiding sidebar as default*/
 
   .sidebar-is-open & {
     transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
@@ -36,9 +34,7 @@
 
   /*Sidebar brand logo*/
   &__brand {
-    @include themify {
-      background-color: $sidebar--bg;
-    }
+    @include background-color('sidebar', 'base');
     padding-left: $sidebar-padding-left;
     height: $header-height;
 
