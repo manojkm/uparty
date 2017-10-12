@@ -7,19 +7,18 @@
 // Author: MANOJ
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
-
 // ================================================================================================
 // THEME SWITCHING TIP:
 // This project is shipped with 2 themes out of the box. Light (default) , Dark.
 // To switch theme, change the class attribute on the <body> in the index.html file.
 // For instance, to use the Dark theme change:  <body class="theme-dark">
 // ================================================================================================
-
 // TODO, theme changing tutorial below. Copy paste this in my own doc later and then remove below line.
 //https://github.com/nborracha/plainID-DemoApp/tree/61b66cf018e918bcb17aa87f243fce2bc95d9833
 
-@import "fonts.scss";
-@import "colors.scss";
+
+@import 'fonts';
+@import 'colors';
 
 //----------------------------------*\
 // THEME MAP
@@ -54,20 +53,18 @@ $default-theme: (
                 'sidebar': (
                         'base': $midnight-blue,
                         'light': lighten($midnight-blue, 6%),
-                        'dark':darken($midnight-blue, 6%),
+                        'dark': darken($midnight-blue, 6%),
                         'font-color': #fff,
                 ),
                 'header': (
                         'base': $midnight-blue,
                         'font-color': #fff,
                 ),
-
                 'green': #71d366,
         ),
-
 );
 
 $themes: (
         'dark': $default-theme,
-        //'light': ()
+  //'light': ()
 ) !default;

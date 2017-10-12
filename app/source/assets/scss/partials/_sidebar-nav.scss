@@ -36,7 +36,9 @@
       text-decoration: none;
       transition: 0.3s ease;
       padding-left: $sidebar-padding-left;
-      &, span {
+
+      &,
+      span {
         min-height: 40px;
         line-height: 40px;
       }
@@ -45,8 +47,8 @@
   }
 
   &__item {
-    position: relative;
     @include add-border(2px, transparent, left);
+    position: relative;
     box-sizing: border-box;
 
     .#{$s}__nav-title {
@@ -56,7 +58,8 @@
     &:hover {
       @include border-left-color('primary', 'base');
       > a {
-        &, span {
+        &,
+        span {
           @include color('sidebar', 'font-color');
           @include background-color('sidebar', 'dark');
           @include opacity(1);
@@ -64,13 +67,16 @@
       }
     }
 
-    &.active, &:active, &:focus {
+    &.active,
+    &:active,
+    &:focus {
       @include border-left-color('primary', 'base');
       @include background-color('sidebar', 'dark');
 
       z-index: 1000;
       > a {
-        &, span {
+        &,
+        span {
           @include color('primary', 'base');
           @include background-color('sidebar', 'dark');
           @include opacity(1);
@@ -88,9 +94,10 @@
       min-height: 20px;
       line-height: 20px;
       padding: 5px 15px 5px 20px;
-    }
+      }
+
     .#{$s}__item {
-      border: none;
+      border: 0;
     }
 
     /*Submenu - Level two*/
@@ -121,6 +128,7 @@
     > a {
       min-width: 0;
       transition: min-width 0.3s ease-out;
+
       &::after {
         opacity: 0;
       }
