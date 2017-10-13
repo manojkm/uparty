@@ -24,7 +24,7 @@
 // @import "compass/css3";
 
 //----------------------------------*\
-// HELPERS
+// CONFIGURATION & HELPERS
 //----------------------------------*/
 @import
 	'helpers/variables',
@@ -34,31 +34,33 @@
 	'helpers/placeholders';
 
 //----------------------------------*\
-// THEME MAP
+// THEMES
 //----------------------------------*/
 @import
 	'themes/theme-map';
 
 //----------------------------------*\
-// VENDOR
+// VENDORS & VENDORS EXTENSIONS
 //----------------------------------*/
 // TODO, check what this guy is doing https://github.com/clawfire/Brasserie-Schuman/blob/ac0221058b295dafd1a58644ac9033604c0b639a/_sass/lib/_lib.scss
 @import
-	'vendor/external',
-	'vendor/normalize',
-	'vendor/media-queries';
+	'vendors/external',
+	'vendors/normalize',
+	'vendors/media-queries';
 
 //----------------------------------*\
-// BASE
+// BASE STUFF
 //----------------------------------*/
 @import
+	'base/base',
 	'base/reset',
-	'base/base';
+	'base/typography';
 
 //----------------------------------*\
 // PARTIALS
 //----------------------------------*/
 @import
+	'partials/layout',
 	'partials/header',
 	'partials/header-nav',
 	'partials/sidebar',
@@ -66,13 +68,10 @@
 	'partials/main',
 	'partials/footer';
 
-
 //----------------------------------*\
 // ENHANCEMENT COMPONENTS
 //----------------------------------*/
 @import
-	'components/app',
-	'components/typography',
 	'components/sections',
 	'components/carousel',
 	'components/forms',
@@ -91,6 +90,7 @@
 	'components/tags',
 	'components/cards',
 	'components/collapse',
+	'components/thumbnails',
 	'components/labels',
 	'components/progress-bars',
 	'components/spacers',
@@ -104,7 +104,7 @@
     'components/misc';
 
 //----------------------------------*\
-// PAGES
+// PAGE SPECIFIC STYLES
 //----------------------------------*/
 @import
 	'pages/home',

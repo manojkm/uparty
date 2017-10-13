@@ -25,7 +25,10 @@ body {
 }
 
 a {
-  &, &:visited {
+  &,
+  &:hover,
+  &:focus,
+  &:visited {
     @include color('primary', 'base');
   }
 }
