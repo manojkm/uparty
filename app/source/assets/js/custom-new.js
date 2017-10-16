@@ -4,21 +4,18 @@
  * @author onokumus
  */
 'use strict';
-if (typeof jQuery === 'undefined') {
-    throw new Error('Theme\'s JavaScript requires jQuery');
-}
 
 var appMaster = {
 
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
 
-    responsive: function () {
+    responsive: function() {
         $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed');
     },
 
 
-    sidebar: function () {
+    sidebar: function(){
 
         $('#sidebar-hide').on('click', function (event) {
             event.preventDefault();
@@ -36,30 +33,30 @@ var appMaster = {
 
     },
 
-    _stopMetisMenu: function () {
+    _stopMetisMenu: function(){
         $('.sidebar__nav').find('li').removeClass('active');
         $('.sidebar__nav').find('a').attr('aria-expanded', false);
         // $('.sidebar__nav').find('a').removeClass('has-arrow');
         $('.sidebar__nav').find('ul.collapse').removeClass('in').attr('aria-expanded', false);
     },
 
-    _changeLogo: function () {
+    _changeLogo: function(){
         appMaster._body.hasClass("sidebar-mini") ? appMaster._logo.attr('src', appMaster._logo.data('collapse')) : appMaster._logo.attr('src', appMaster._logo.data('expand'));
     },
 
-    dropdown: function () {
+    dropdown: function(){
         $(".dropdown").hover(
-            function () {
-                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+            function() {
+                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideDown("400");
                 $(this).toggleClass('open');
             },
-            function () {
-                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+            function() {
+                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideUp("400");
                 $(this).toggleClass('open');
             }
         );
     }
-};
+}
 
 
 var Pluggin = {
@@ -81,8 +78,8 @@ $(document).on("chl.plugin", function () {
 }).trigger("chl.plugin");
 
 
-$(document).ready(function () {
+
+
+$(document).ready(function() {
     appMaster.responsive();
-    appMaster.sidebar();
-    appMaster.dropdown();
 });
