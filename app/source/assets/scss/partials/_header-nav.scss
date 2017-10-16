@@ -9,3 +9,30 @@
 // ================================================================================================
 
 //https://medium.com/wdstack/bootstrap-4-custom-navbar-1f6a2da5ed3c
+
+.navbar-custom {
+  min-height: $header-height;
+  /* change the brand and text color */
+  .navbar-brand,
+  .navbar-text{
+    color: rgba(255,255,255,.8);
+  }
+
+  /* change the link color */
+  .navbar-nav{
+    .nav-link {
+      color: rgba(255,255,255,.5);
+    }
+  }
+
+  /* change the color of active or hovered links */
+  .nav-item{
+    &.active,
+    &:hover{
+      .nav-link {
+        color: #ffffff;
+      }
+    }
+  }
+
+}
