@@ -127,7 +127,7 @@
 
     > a {
       min-width: 0;
-      transition: min-width 0.3s ease-out;
+      @include transition(min-width 0.3s ease-out);
 
       &::after {
         opacity: 0;

@@ -17,7 +17,6 @@
 // We suggest you to use this (assets/scss/variables/app-variables.scss) file for overriding app variables.
 // ================================================================================================
 
-
 //----------------------------------*\
 // COLOR PALETTE
 //----------------------------------*/
@@ -38,7 +37,6 @@ $grey-x-light: lighten($black-color, 93.5%); // #eee
 $grey-dark: lighten($black-color, 20%); // #333
 $grey-x-dark: lighten($black-color, 13.5%); // #222
 
-
 //----------------------------------*\
 // BODY
 //----------------------------------*/
@@ -52,7 +50,14 @@ $text-color: #333;
 //----------------------------------*\
 // HEADER
 //----------------------------------*/
-$header-height:30px;
+/*Header color variables can be found in themes/_theme-map.scss*/
+$header-height: 40px;
+$navbar-toggler-bg:;
+$navbar-toggler-border-colour:;
+
+//----------------------------------*\
+// SEARCH
+//----------------------------------*/
 
 //----------------------------------*\
 // SIDEBAR
@@ -63,7 +68,7 @@ $sidebar-padding-left: 10px;
 $sidebar-mini-width: 60px;
 $sidebar-submenu-width: $sidebar-width;
 $sidebar-active-menu-width: $sidebar-width + $sidebar-mini-width;
-$sidebar-brand-height:50px;
+$sidebar-brand-height: 50px;
 
 //----------------------------------*\
 // FONTS
@@ -125,28 +130,39 @@ $path-rel: 'images/';
 // TODO, the below is based on boot3 after reading the below link, so pls update asap.
 // https://www.quackit.com/bootstrap/bootstrap_4/tutorial/bootstrap_grid_system.cfm. So
 
-
-
-/*Extra small screen / phone*/
+/* Extra small devices (portrait phones, 480px and up) */
 $screen-xs: 480px !default;
 $screen-xs-min: $screen-xs !default;
 
-/*Small screen / tablet*/
-$screen-sm: 768px !default;
+/* Small devices (landscape phones, 576px and up) */
+$screen-sm: 576px !default;
 $screen-sm-min: $screen-sm !default;
 
-/*Medium screen / desktop*/
-$screen-md: 992px !default;
+/* Medium devices (tablets, 768px and up) */
+$screen-md: 768px !default;
 $screen-md-min: $screen-md !default;
 
-/*Large screen / wide desktop*/
-$screen-lg: 1200px !default;
+/* Large devices (desktops, 992px and up) */
+$screen-lg: 992px !default;
 $screen-lg-min: $screen-lg !default;
 
+/* Extra large devices (large desktops, 1200px and up)) */
+$screen-xl: 1200px !default;
+$screen-xl-min: $screen-lg !default;
+
 /*So media queries don't overlap when required, provide a maximum*/
-$screen-xs-max: ($screen-sm-min - 1) !default;
-$screen-sm-max: ($screen-md-min - 1) !default;
-$screen-md-max: ($screen-lg-min - 1) !default;
+
+/* Extra small devices (portrait phones, less than 576px) */
+$screen-xs-max: ($screen-sm-min - 1) !default; /*575px*/
+
+/* Small devices (landscape phones, less than 768px) */
+$screen-sm-max: ($screen-md-min - 1) !default; /*767px*/
+
+/* Medium devices (tablets, less than 992px) */
+$screen-md-max: ($screen-lg-min - 1) !default; /*991px*/
+
+/* Large devices (desktops, less than 1200px) */
+$screen-lg-max: ($screen-xl-min - 1) !default; /*1999px*/
 
 //----------------------------------*\
 // TABLES
@@ -155,7 +171,6 @@ $screen-md-max: ($screen-lg-min - 1) !default;
 //----------------------------------*\
 // TYPOGRAPHY
 //----------------------------------*/
-
 
 //----------------------------------*\
 // FOOTER

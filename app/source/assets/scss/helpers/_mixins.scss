@@ -164,7 +164,7 @@ Usage @include fontSize(16px);
 /*
 Usage @include transition(color .3s ease); @include transition;
 */
-@mixin transition($transitionvalue : all .25s ease-in-out) {
+@mixin transition($transitionvalue : all .3s ease-in-out) {
   -webkit-transition: $transitionvalue;
   -o-transition: $transitionvalue;
   -moz-transition: $transitionvalue;

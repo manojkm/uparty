@@ -1,0 +1,209 @@
+// ================================================================================================
+// File Name: togglers.scss
+// Description: Hamburger icons & animations
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+// Adapted from https://codepen.io/jorenerene/pen/vxKbJb?editors=1100
+
+/* HAMBURGER ICON */
+.icon-bar {
+  background-color: #fff;
+  display: block;
+  height: 2px;
+  border-radius: 1px;
+  width: 22px;
+  @include transition(all 0.3s ease);
+
+  + .icon-bar {
+    margin-top: 4px;
+  }
+}
+
+/* ANIMATED X */
+.navbar-toggler.x .icon-bar:nth-of-type(1) {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 10% 10%;
+  -ms-transform-origin: 10% 10%;
+  transform-origin: 10% 10%;
+}
+
+.navbar-toggler.x .icon-bar:nth-of-type(2) {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.navbar-toggler.x .icon-bar:nth-of-type(3) {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 10% 90%;
+  -ms-transform-origin: 10% 90%;
+  transform-origin: 10% 90%;
+}
+
+/* ANIMATED X COLLAPSED */
+.navbar-toggler.x.collapsed .icon-bar:nth-of-type(1) {
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+
+.navbar-toggler.x.collapsed .icon-bar:nth-of-type(2) {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.navbar-toggler.x.collapsed .icon-bar:nth-of-type(3) {
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+/* END ANIMATED X */
+
+/* ANIMATED RIGHT ARROW */
+.navbar-toggler.rarr.collapsed .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,0,0) rotate(0deg);
+  transform-origin: right top;
+  width: 22px;
+}
+
+.navbar-toggler.rarr.collapsed .icon-bar:nth-of-type(2) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.navbar-toggler.rarr.collapsed .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,0,0) rotate(0deg);
+  transform-origin: right bottom;
+  width: 22px;
+}
+
+.navbar-toggler.rarr .icon-bar:nth-of-type(1) {
+  transform: translate3d(11px,6px,0) rotate(45deg);
+  transform-origin: right top;
+  width: 11px;
+}
+
+.navbar-toggler.rarr .icon-bar:nth-of-type(2) {
+  /* transform: scale(0.75); */;
+}
+
+.navbar-toggler.rarr .icon-bar:nth-of-type(3) {
+  transform: translate3d(11px,-6px,0) rotate(-45deg);
+  transform-origin: right bottom;
+  width: 11px;
+}
+/* END ANIMATED RIGHT ARROW */
+
+/* ANIMATED LEFT ARROW */
+.navbar-toggler.larr.collapsed .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,0,0) rotate(0deg);
+  width: 22px;
+}
+
+.navbar-toggler.larr.collapsed .icon-bar:nth-of-type(2) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.navbar-toggler.larr.collapsed .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,0,0) rotate(0deg);
+  width: 22px;
+}
+
+.navbar-toggler.larr .icon-bar:nth-of-type(1) {
+  transform: translate3d(0px,6px,0) rotate(45deg);
+  transform-origin: left top;
+  width: 11px;
+}
+
+.navbar-toggler.larr .icon-bar:nth-of-type(3) {
+  transform: translate3d(0px,-6px,0) rotate(-45deg);
+  transform-origin: left bottom;
+  width: 11px;
+}
+/* END ANIMATED LEFT ARROW */
+
+/* ANIMATED UP ARROW */
+.navbar-toggler.uarr.collapsed .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,0,0) rotate(0deg);
+  width: 22px;
+}
+
+.navbar-toggler.uarr.collapsed .icon-bar:nth-of-type(2) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.navbar-toggler.uarr.collapsed .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,0,0) rotate(0deg);
+  width: 22px;
+}
+
+.navbar-toggler.uarr .icon-bar:nth-of-type(1) {
+  transform: translate3d(1px,0,0) rotate(-45deg);
+  transform-origin: center center;
+  width: 11px;
+}
+
+.navbar-toggler.uarr .icon-bar:nth-of-type(2) {
+  transform: rotate(-90deg);
+  transform-origin: center center;
+}
+
+.navbar-toggler.uarr .icon-bar:nth-of-type(3) {
+  transform: translate3d(0px,-14px,0) rotate(-135deg);
+  transform-origin: right top;
+  width: 11px;
+}
+/* END ANIMATED UP ARROW */
+
+/* ANIMATED PLUS */
+.navbar-toggler.plus.collapsed .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.navbar-toggler.plus.collapsed .icon-bar:nth-of-type(2) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.navbar-toggler.plus.collapsed .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.navbar-toggler.plus .icon-bar:nth-of-type(1) {
+  transform: translate3d(0px,6px,0) rotate(90deg);
+  transform-origin: center center;
+}
+
+.navbar-toggler.plus .icon-bar:nth-of-type(3) {
+  transform: translate3d(0px,-6px,0) rotate(-90deg);
+  transform-origin: center center;
+}
+/* END ANIMATED PLUS */
+
+/* ANIMATED MINUS */
+.navbar-toggler.minus.collapsed .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.navbar-toggler.minus.collapsed .icon-bar:nth-of-type(2) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.navbar-toggler.minus.collapsed .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.navbar-toggler.minus .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,6px,0);
+}
+
+.navbar-toggler.minus .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,-6px,0);
+}
+/* END ANIMATED MINUS */

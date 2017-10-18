@@ -1,12 +1,14 @@
-<nav class="navbar navbar-expand-sm navbar-custom py-0">
+<nav class="navbar navbar-expand-md py-0 master-header__navbar">
 
     <!-- Brand -->
     <a class="navbar-brand" href="#">Logo</a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content"
+    <button class="navbar-toggler minus collapsed" type="button" data-toggle="collapse" data-target="#nav-content"
             aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
-        <!-- To display the "hamburger" -->
-        <span class="navbar-toggler-icon"></span>
+        <!-- To display the "hamburger icon" -->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <!-- /To display the "hamburger icon" -->
     </button>
     <!-- /Brand -->
 
@@ -18,14 +20,16 @@
 
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item py-0 active ">
                 <a class="nav-link" href="#">Link 1</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item py-0">
                 <a class="nav-link" href="#">Link 2</a>
             </li>
-
-            <li class="nav-item dropdown">
+            <li class="nav-item py-0">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item dropdown py-0">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     Dropdown
@@ -43,9 +47,14 @@
         <!-- /Links -->
 
         <!-- Search -->
-        <form class="form-inline" role="search">
+        {{!--<form class="form-inline" >
             <input type="text" class="form-control">
             <button type="submit" class="btn btn-secondary">Search</button>
+        </form>--}}
+
+        <form class="master-header__search" action="" role="search">
+            <input type="text" placeholder="Search here..."/>
+            <span></span>
         </form>
         <!-- /Search -->
 
