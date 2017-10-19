@@ -1,8 +1,4 @@
-/**
- * chl - Bootstrap 3 Based Admin Toolkit
- * @version v0.1.1
- * @author onokumus
- */
+
 'use strict';
 if (typeof jQuery === 'undefined') {
     throw new Error('Theme\'s JavaScript requires jQuery');
@@ -20,14 +16,15 @@ var appMaster = {
 
     sidebar: function () {
 
-        $('#sidebar-hide').on('click', function (event) {
+        $("[data-side='hide']").on('click', function (event) {
             event.preventDefault();
             appMaster._body.toggleClass('sidebar-is-open sidebar-is-closed');
             appMaster._stopMetisMenu();
         });
 
-        $('#sidebar-mini').on('click', function (event) {
+        $("[data-side='mini']").on('click', function (event) {
             event.preventDefault();
+            $(this).toggleClass('collapsed');
             appMaster._body.toggleClass('sidebar-mini');
             appMaster._stopMetisMenu();
             appMaster._changeLogo();

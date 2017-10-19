@@ -10,7 +10,7 @@
 
 //TODO: Fix the lineheight and padding properly
 
-.master-header__navbar{
+.master-header__navbar {
 
   /* Change the brand and text color */
   .navbar-brand {
@@ -29,10 +29,25 @@
     //background-color: $navbar-toggler-bg;
     //border-color: $navbar-toggler-border-colour;
 
+    /* Hamburger icon */
     & .icon-bar {
       @include background-color('primary', 'base');
     }
 
+  }
+  /* Sidebar toggle button */
+  .sidebar-toggler{
+    @include background-color('primary', 'base');
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      @include background-color('primary', 'light');
+    }
+
+    & .icon-bar {
+      @include background-color('header', 'link-color');
+    }
   }
 
   /* Change the link color */
@@ -79,44 +94,13 @@
 
 }
 
-
+/* Header search */
 .master-header__search {
   margin-left: 10px;
 }
 
 @include max-screen($screen-sm-max) {
   .master-header__search {
-    margin-left: 0px;
+    margin-left: 0;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* for dropdown only - change the color of droodown */
-//.navbar-custom .dropdown-menu {
-//  background-color: #ff5500;
-//}
-//.navbar-custom .dropdown-item {
-//  color: #ffffff;
-//}
-//.navbar-custom .dropdown-item:hover,
-//.navbar-custom .dropdown-item:focus {
-//  color: #333333;
-//  background-color: rgba(255,255,255,.5);
-//}
