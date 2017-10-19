@@ -18,6 +18,7 @@ var appMaster = {
 
         $("[data-side='hide']").on('click', function (event) {
             event.preventDefault();
+            $(this).toggleClass('collapsed');
             appMaster._body.toggleClass('sidebar-is-open sidebar-is-closed');
             appMaster._stopMetisMenu();
         });
