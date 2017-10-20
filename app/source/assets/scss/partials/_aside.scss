@@ -8,22 +8,23 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-.sidebar-right{
-  @include background-color('sidebar', 'base');
+
+//https://www.dtelepathy.com/blog/inspiration/23-great-examples-of-innovative-navigation-for-your-inspiration
+
+.aside{
+  @include background-color('aside', 'base');
   @include transition(all 0.3s ease-out);
   transform: translateX(100%); /*Hiding sidebar as default*/
   width: $sidebar-width;
   padding-bottom: $sidebar-footer-height;
   position: absolute;
-  top: 0;
+  top: $header-height;
   right: 0;
   bottom: 0;
 
-
-  .sidebar-right-is-open & {
-    transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
+  .aside-is-open & {
+    transform: translateX(0); /*Showing sidebar if body has .aside-is-open class*/
   }
-
 
   &__wrap {
 

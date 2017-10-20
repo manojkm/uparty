@@ -8,6 +8,7 @@ var appMaster = {
 
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
+    _aside: $("[data-aside='show']"),
 
     responsive: function () {
         $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed');
@@ -19,20 +20,40 @@ var appMaster = {
         $("[data-side='hide']").on('click', function (event) {
             event.preventDefault();
             $(this).toggleClass('collapsed');
-            appMaster._body.toggleClass('sidebar-is-open sidebar-is-closed');
+            appMaster._body.removeClass('sidebar-mini aside-is-open').toggleClass('sidebar-is-open sidebar-is-closed');
+            appMaster._aside.addClass('collapsed');
             appMaster._stopMetisMenu();
         });
 
         $("[data-side='mini']").on('click', function (event) {
             event.preventDefault();
             $(this).toggleClass('collapsed');
-            appMaster._body.toggleClass('sidebar-mini');
+            appMaster._body.toggleClass('sidebar-mini').removeClass('aside-is-open');
+            appMaster._aside.addClass('collapsed');
             appMaster._stopMetisMenu();
             appMaster._changeLogo();
         });
 
-
     },
+
+    aside: function () {
+        appMaster._aside.on('click', function (event) {
+            event.preventDefault();
+            $(this).toggleClass('collapsed');
+
+            if(appMaster._body.hasClass('sidebar-mini') || appMaster._body.hasClass('sidebar-is-closed')){
+                appMaster._body.toggleClass('aside-is-open');
+            }
+
+            else if(!appMaster._body.hasClass('sidebar-mini')  ){
+                appMaster._body.addClass('sidebar-mini');
+                appMaster._body.toggleClass('aside-is-open');
+            }
+
+            appMaster._stopMetisMenu();
+        });
+    },
+
 
     _stopMetisMenu: function () {
         $('.sidebar__nav').find('li').removeClass('active');
@@ -83,4 +104,5 @@ $(document).ready(function () {
     appMaster.responsive();
     appMaster.sidebar();
     appMaster.dropdown();
+    appMaster.aside();
 });
