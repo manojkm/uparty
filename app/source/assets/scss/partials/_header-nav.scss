@@ -26,8 +26,6 @@
   .navbar-toggler {
     position: relative;
     padding: 10px;
-    //background-color: $navbar-toggler-bg;
-    //border-color: $navbar-toggler-border-colour;
 
     /* Hamburger icon */
     & .icon-bar {
@@ -44,7 +42,7 @@
     &:hover {
       @include background-color('primary', 'light');
     }
-
+    /* Hamburger icon */
     & .icon-bar {
       @include background-color('header', 'link-color');
     }
@@ -92,15 +90,4 @@
     margin-top: 0;
   }
 
-}
-
-/* Header search */
-.master-header__search {
-  margin-left: 10px;
-}
-
-@include max-screen($screen-sm-max) {
-  .master-header__search {
-    margin-left: 0;
-  }
 }

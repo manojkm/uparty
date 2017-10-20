@@ -1,0 +1,31 @@
+// ================================================================================================
+// File Name: aside.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.sidebar-right{
+  @include background-color('sidebar', 'base');
+  @include transition(all 0.3s ease-out);
+  transform: translateX(100%); /*Hiding sidebar as default*/
+  width: $sidebar-width;
+  padding-bottom: $sidebar-footer-height;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+
+  .sidebar-right-is-open & {
+    transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
+  }
+
+
+  &__wrap {
+
+  }
+}
