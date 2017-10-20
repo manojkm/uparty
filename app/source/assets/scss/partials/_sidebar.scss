@@ -42,7 +42,8 @@
     overflow-x: hidden;
     overflow-y: auto;
     bottom: $sidebar-footer-height;
-    position: absolute;
+    position: static;
+    height: calc(100vh - 40px);
     top: 0;
 
   }

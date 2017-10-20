@@ -22,34 +22,6 @@
     @include opacity(0.8);
   }
 
-  /* Toggle button */
-  .navbar-toggler {
-    position: relative;
-    padding: 10px;
-    //background-color: $navbar-toggler-bg;
-    //border-color: $navbar-toggler-border-colour;
-
-    /* Hamburger icon */
-    & .icon-bar {
-      @include background-color('primary', 'base');
-    }
-
-  }
-  /* Sidebar toggle button */
-  .sidebar-toggler{
-    @include background-color('primary', 'base');
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    &:hover {
-      @include background-color('primary', 'light');
-    }
-
-    & .icon-bar {
-      @include background-color('header', 'link-color');
-    }
-  }
-
   /* Change the link color */
   .navbar-nav {
     .nav-item {
@@ -59,8 +31,8 @@
         @include font-size(13px);
         @include transition;
         background-color: transparent;
-        padding: 10px 15px;
-        line-height: 20px;
+        padding: 0 15px;
+        line-height:$header-height;
 
         &.disabled {
           @include opacity(0.3);
@@ -82,9 +54,60 @@
           }
         }
       }
+    }
+  }
 
+  /* Navbar toggle button */
+  .navbar-toggler {
+    position: relative;
+    padding: 10px;
+
+    /* Hamburger icon */
+    & .icon-bar {
+      @include background-color('primary', 'base');
     }
 
+  }
+
+  /* Sidebar toggle button */
+  .sidebar-toggler {
+    @include background-color('primary', 'base');
+    padding: 10px;
+    height:$header-height;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      @include background-color('primary', 'light');
+    }
+
+    /* Hamburger icon */
+    & .icon-bar {
+      @include background-color('header', 'link-color');
+    }
+  }
+
+  /* Aside toggle button */
+  .aside-toggler {
+    @include background-color('header', 'base');
+    position: relative;
+    padding: 10px;
+    height:$header-height;
+    border: none;
+    cursor: pointer;
+    @include opacity(0.8);
+    @include transition;
+    &:hover {
+      @include opacity(1);
+    }
+
+    /* Hamburger icon */
+    & .icon-bar {
+      @include background-color('primary', 'base');
+    }
+    &.collapsed .icon-bar {
+      @include background-color('header', 'link-color');
+    }
   }
 
   /* HACK -Overriding bootstrap default value to avoid jerking */
@@ -96,7 +119,7 @@
 
 /* Header search */
 .master-header__search {
-  margin-left: 10px;
+  //margin-left: 10px;
 }
 
 @include max-screen($screen-sm-max) {

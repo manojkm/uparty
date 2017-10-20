@@ -16,6 +16,7 @@
 .master-header__search {
   position: relative;
   display: inline-block;
+  margin-left: 10px;
 
   /* Form text input */
   input[type="text"] {
@@ -88,3 +89,8 @@
   }
 }
 
+@include max-screen($screen-sm-max) {
+  .master-header__search {
+    margin-left: 0;
+  }
+}
