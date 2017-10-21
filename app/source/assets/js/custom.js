@@ -1,4 +1,3 @@
-
 'use strict';
 if (typeof jQuery === 'undefined') {
     throw new Error('Theme\'s JavaScript requires jQuery');
@@ -41,13 +40,12 @@ var appMaster = {
             event.preventDefault();
             $(this).toggleClass('collapsed');
 
-            if(appMaster._body.hasClass('sidebar-mini') || appMaster._body.hasClass('sidebar-is-closed')){
+            if (appMaster._body.hasClass('sidebar-mini') || appMaster._body.hasClass('sidebar-is-closed')) {
                 appMaster._body.toggleClass('aside-is-open');
             }
 
-            else if(!appMaster._body.hasClass('sidebar-mini')  ){
-                appMaster._body.addClass('sidebar-mini');
-                appMaster._body.toggleClass('aside-is-open');
+            else if (!appMaster._body.hasClass('sidebar-mini') || !appMaster._body.hasClass('sidebar-is-open')) {
+                appMaster._body.toggleClass('aside-is-open sidebar-mini');
             }
 
             appMaster._stopMetisMenu();
@@ -92,12 +90,12 @@ var Pluggin = {
 
 };
 
-$(document).on("chl.plugin", function () {
+$(document).on("app.plugin", function () {
     $("[data-plugin]").each(function () {
         Pluggin[$(this).attr("data-plugin")](this);
     });
 
-}).trigger("chl.plugin");
+}).trigger("app.plugin");
 
 
 $(document).ready(function () {

@@ -14,14 +14,15 @@
   position: absolute;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: map-get($zindex, header);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  //justify-content: space-between;
   min-height: $header-height;
 
   &__wrap {
     width: 100%;
+    @include color('header', 'font-color');
   }
 
   .header-fixed & {

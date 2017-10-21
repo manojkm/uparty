@@ -15,6 +15,7 @@
 
   /*Sidebar navigation*/
   &__nav {
+    flex: 1;
     ul {
       padding: 0;
       margin: 0;
@@ -24,60 +25,77 @@
     }
 
     a {
-      @include color('sidebar', 'font-color');
-      @include opacity(0.8);
+      @include color('sidebar', 'link-color');
       @include font-size(15px);
+      transition: 0.3s ease;
       display: block;
       text-decoration: none;
-      transition: 0.3s ease;
       padding-left: $sidebar-padding-left;
+      min-height: 40px;
+      line-height: 40px;
 
-      &,
-      span {
-        min-height: 40px;
-        line-height: 40px;
+      &:hover{
+        @include color('sidebar', 'hover-color');
       }
     }
 
   }
 
+  &__title{
+    @include font-size(12px);
+    @include color('sidebar', 'link-color');
+    padding-left: $sidebar-padding-left;
+    font-weight: 600;
+    text-transform: uppercase;
+    min-height: 30px;
+    line-height: 30px;
+  }
+
+  &__divider{
+    height: 10px;
+  }
+
   &__item {
     @include add-border(2px, transparent, left);
+    @include transition;
     position: relative;
     box-sizing: border-box;
 
-    .#{$s}__nav-title {
-      margin-left: 10px;
+    .#{$s}__item-icon {
+      margin: 0 ($sidebar-padding-left / 2) 0 0;
+      text-align: left;
+      width: $sidebar-icon-width;
+      display: inline-block;
+
+    > i {
+      @include font-size(14px);
+      width: $sidebar-icon-width;
+      }
     }
 
-    &:hover {
-      @include border-left-color('primary', 'base');
-      > a {
-        &,
-        span {
-          @include color('sidebar', 'font-color');
-          @include background-color('sidebar', 'dark');
-          @include opacity(1);
-        }
-      }
+    .#{$s}__item-title{
+      display: inline-block;
+      margin-left: -3px; /*Negative margin trick to remove the spaces between the elements icon & title*/
     }
 
     &.active,
     &:active,
-    &:focus {
+    &:hover {
       @include border-left-color('primary', 'base');
       @include background-color('sidebar', 'dark');
-
-      z-index: 1000;
+    }
+    &.active,
+    &:active,
+    &:focus{
       > a {
-        &,
-        span {
-          @include color('primary', 'base');
+        @include color('sidebar', 'active-color');
+        span{
           @include background-color('sidebar', 'dark');
-          @include opacity(1);
         }
       }
+
     }
+
   }
 
   /*Submenu - Level one*/
@@ -88,7 +106,8 @@
       @include font-size(13px);
       min-height: 20px;
       line-height: 20px;
-      padding: 5px 15px 5px 20px;
+      padding: 5px 15px 5px ($sidebar-icon-width + $sidebar-padding-left);
+      margin: 0 0 0 ($sidebar-padding-left / 2);
       }
 
     .#{$s}__item {
@@ -98,13 +117,13 @@
     /*Submenu - Level two*/
     .#{$s}__child {
       a {
-        padding-left: 35px;
+        padding-left: $sidebar-icon-width + $sidebar-padding-left + 10;
       }
 
       /*Submenu - Level three*/
       .#{$s}__child {
         a {
-          padding-left: 50px;
+          padding-left: $sidebar-icon-width + $sidebar-padding-left + 20;
         }
       }
     }
@@ -117,6 +136,7 @@
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
+  &__title{ display: none;}
   &__nav > ul > .#{$s}__item {
     position: static;
 
@@ -128,7 +148,7 @@
         opacity: 0;
       }
 
-      .#{$s}__nav-title {
+      .#{$s}__item-title{
         display: none;
         visibility: hidden;
         position: absolute;
@@ -146,13 +166,12 @@
         min-width: $sidebar-active-menu-width;
         position: static;
 
-        .#{$s}__nav-title {
+        .#{$s}__item-title{
           display: inline-block;
-          position: absolute;
           visibility: visible;
           min-width: $sidebar-width;
           left: $sidebar-mini-width;
-          margin: 0;
+          margin-left: 0;
         }
 
       }

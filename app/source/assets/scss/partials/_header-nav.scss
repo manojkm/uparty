@@ -11,6 +11,7 @@
 //TODO: Fix the lineheight and padding properly
 
 .master-header__navbar {
+  flex-direction: row;
 
   /* Change the brand and text color */
   .navbar-brand {
@@ -20,39 +21,53 @@
   .navbar-text {
     @include color('header', 'font-color');
     @include opacity(0.8);
+    @include font-size(13px);
+    line-height: $header-height;
   }
 
   /* Change the link color */
   .navbar-nav {
+    align-items: center;
+
     .nav-item {
+      min-width: 50px;
+      text-align: center;
+
+      @include max-screen($screen-sm-max) {
+        min-width: 100%;
+        text-align: left;
+      }
+
       .nav-link {
         @include color('header', 'link-color');
-        @include opacity(0.8);
         @include font-size(13px);
         @include transition;
         background-color: transparent;
-        padding: 0 15px;
-        line-height:$header-height;
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: $header-height;
 
         &.disabled {
           @include opacity(0.3);
           cursor: not-allowed;
         }
-      }
-
-      /* Change the color of active, hovered links etc*/
-      .open,
-      &.active,
-      &:focus,
-      &:hover {
-        .nav-link {
+        /* Change the color of focus, hovered links*/
+        &:focus,
+        &:hover {
           @include background-color('header', 'dark');
-          @include opacity(1);
+          @include color('header', 'hover-color');
           &.disabled {
             @include opacity(0.3);
             background-color: transparent;
           }
         }
+      }
+
+      /* Change the color of open, active links*/
+      &.open > .nav-link,
+      &.active > .nav-link {
+        @include background-color('header', 'dark');
+        @include color('header', 'active-color');
       }
     }
   }
@@ -73,8 +88,8 @@
   .sidebar-toggler {
     @include background-color('primary', 'base');
     padding: 10px;
-    height:$header-height;
-    border: none;
+    height: $header-height;
+    border: 0;
     cursor: pointer;
 
     &:hover {
@@ -83,7 +98,7 @@
 
     /* Hamburger icon */
     & .icon-bar {
-      @include background-color('header', 'link-color');
+      @include background-color('header', 'font-color');
     }
   }
 
@@ -92,21 +107,25 @@
     @include background-color('header', 'base');
     position: relative;
     padding: 10px;
-    height:$header-height;
-    border: none;
+    height: $header-height;
+    border: 0;
     cursor: pointer;
-    @include opacity(0.8);
     @include transition;
-    &:hover {
-      @include opacity(1);
-    }
 
     /* Hamburger icon */
     & .icon-bar {
       @include background-color('primary', 'base');
     }
-    &.collapsed .icon-bar {
-      @include background-color('header', 'link-color');
+
+    &.collapsed {
+      .icon-bar {
+        @include background-color('header', 'link-color');
+      }
+      &:hover{
+        .icon-bar {
+          @include background-color('header', 'hover-color');
+        }
+      }
     }
   }
 

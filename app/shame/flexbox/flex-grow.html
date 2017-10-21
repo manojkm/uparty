@@ -12,20 +12,20 @@
         .flex-container {
             border:1px solid #ccc;
             display: flex;
+            flex-direction: column;
             height: 250px;
         }
-        .flex-item {background-color: #ccc; margin:5px; flex: 1;}
 
         .flex-container2 {
             border:1px solid #ccc;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             height: 250px;
-            width: 520px;
-
         }
-        .flex-item2 { background-color: #ccc; margin:5px; flex: 1;}
 
+
+        .flex-item {flex-grow: 1;background-color: #ccc; }
+        .flex-item3 {flex-grow: 2;background-color: #eee; }
 
     </style>
 </head>
@@ -34,18 +34,20 @@
 
 <div class="flex-container">
     <div class="flex-item">flex-item 1</div>
-    <div class="flex-item">flex-item 2</div>
+    <div class="flex-item3">flex-item 2</div>
     <div class="flex-item">flex-item 3</div>
-    <div class="flex-itemw">flex-item 3</div>
 </div>
 
 
+<br>
 
 <div class="flex-container2">
-    <div class="flex-item2">flex-item 1</div>
-    <div class="flex-item2">flex-item 2</div>
-    <div class="flex-item2">flex-item 3</div>
+    <div class="flex-item">flex-item 1</div>
+    <div class="flex-item3">flex-item 2</div>
+    <div class="flex-item">flex-item 3</div>
 </div>
+
+
 
 <!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

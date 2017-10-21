@@ -70,6 +70,7 @@ $breadcrumb-bg: #fff;
 /*Sidebar color variables can be found in themes/_theme-map.scss*/
 $sidebar-width: 200px;
 $sidebar-padding-left: 10px;
+$sidebar-icon-width: 20px;
 $sidebar-mini-width: 60px;
 $sidebar-submenu-width: $sidebar-width;
 $sidebar-active-menu-width: $sidebar-width + $sidebar-mini-width;
@@ -173,6 +174,18 @@ $screen-lg-max: ($screen-xl-min - 1) !default; /*1999px*/
 //----------------------------------*\
 // TABLES
 //----------------------------------*/
+
+//----------------------------------*\
+// ZINDEX
+//----------------------------------*/
+$zindex: (
+        modal     : 9000,
+        overlay   : 8000,
+        dropdown  : 7000,
+        header    : 6000,
+        footer    : 5000,
+        sidebar   : 5000
+);
 
 //----------------------------------*\
 // TYPOGRAPHY

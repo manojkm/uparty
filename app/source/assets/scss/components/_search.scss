@@ -16,7 +16,7 @@
 .master-header__search {
   position: relative;
   display: inline-block;
-  margin-left: 10px;
+  //margin-left: 10px;
 
   /* Form text input */
   input[type="text"] {
@@ -68,11 +68,11 @@
       border-radius: 25px;
       z-index: -1;
       position: absolute;
-      top: 0;
       width: 25px;
       height: 25px;
       transition: all .25s ease-in .25s;
-      right: 0;
+      top: 0;
+      /* right: 0;*/
 
       &::before {
         @include background-color('header', 'font-color');
@@ -91,6 +91,6 @@
 
 @include max-screen($screen-sm-max) {
   .master-header__search {
-    margin-left: 0;
+    //margin-left: 0;
   }
 }

@@ -12,15 +12,20 @@
 //https://www.dtelepathy.com/blog/inspiration/23-great-examples-of-innovative-navigation-for-your-inspiration
 
 .aside{
-  @include background-color('aside', 'base');
+  @include background-color('aside', 'light');
+  @include color('aside', 'font-color');
   @include transition(all 0.3s ease-out);
   transform: translateX(100%); /*Hiding sidebar as default*/
   width: $sidebar-width;
-  padding-bottom: $sidebar-footer-height;
+  padding-bottom: $footer-height;
   position: absolute;
   top: $header-height;
   right: 0;
   bottom: 0;
+
+  .header-fixed & {
+    position: fixed;
+  }
 
   .aside-is-open & {
     transform: translateX(0); /*Showing sidebar if body has .aside-is-open class*/
