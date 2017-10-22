@@ -1,5 +1,5 @@
 // ================================================================================================
-// File Name: sidebar.scss
+// File Name: sidebar-nav.scss
 // Description:
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
@@ -11,51 +11,13 @@
 // https://gist.github.com/jareware/4738651
 
 .sidebar {
-
   $s: sidebar;
 
-  @include themify(background-color, sidebar--bg);
-  @include transition(all 0.3s ease-out);
-  width: $sidebar-width;
-  padding-bottom: 60px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  transition: left 0.3s ease;
-  z-index: 20;
-  transform: translateX(-100%); /*Hiding sidebar as default*/
-
-  .sidebar-is-open & {
-    transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
-  }
-  .sidebar-fixed & {
-    position: fixed;
-  }
-
-  //&__container {
-  //  position: absolute;
-  //  top: 0;
-  //  bottom: 51px;
-  //  width: 100%;
-  //  left: 0;
-  //  overflow-y: auto;
-  //  overflow-x: hidden;
-  //  &::-webkit-scrollbar-track {
-  //    background-color: darken(#ccc, 6.5%);
-  //  }
-  //}
-
-  &__logo-mini {
-    display: none;
-  }
-
+  /*Sidebar navigation*/
   &__nav {
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     ul {
       padding: 0;
       margin: 0;
@@ -63,69 +25,107 @@
         list-style: none;
       }
     }
+
+    a {
+      @include color('sidebar', 'link-color');
+      @include font-size(15px);
+      @include transition;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding-left: $sidebar-padding-left;
+      min-height: 40px;
+      line-height: 40px;
+
+      &:hover {
+        @include color('sidebar', 'hover-color');
+      }
+    }
+
   }
 
-  a {
-    @include themify(color, sidebar-menu--color);
-    @include font-size(1.6);
-    display: block;
-    text-decoration: none;
-    min-height: 40px;
-    line-height: 40px;
-    padding: 5px 15px;
-    transition: 0.3s ease;
+  &__header {
+    @include add-border(2px, transparent, left);
+    @include font-size(12px);
+    @include color('sidebar', 'link-color');
+    padding-left: $sidebar-padding-left;
+    font-weight: 600;
+    text-transform: uppercase;
+    min-height: 30px;
+    line-height: 30px;
+  }
 
+  &__divider {
+    height: 10px;
   }
 
   &__item {
+    @include add-border(2px, transparent, left);
+    @include transition;
     position: relative;
-    border-left: 2px solid transparent;
     box-sizing: border-box;
 
-    .#{$s}__nav-title {
-      margin-left: 10px;
+    .#{$s}__item-icon {
+      margin: 0 ($sidebar-padding-left / 2) 0 0;
+      text-align: left;
+      width: $sidebar-icon-width;
+      display: inline-block;
+
+      > i {
+        @include font-size(14px);
+        width: $sidebar-icon-width;
+      }
     }
 
+    .#{$s}__item-title {
+      display: inline-block;
+      //margin-left: -3px; /*Negative margin trick to remove the spaces between the elements icon & title* due to display: inline-block */
+    }
+
+    &.active,
+    &:active,
     &:hover {
-      @include themify((background-color, border-left-color), (sidebar-menu--bg--hover, sidebar-menu--border--color--hover));
+      @include border-left-color('primary', 'base');
+      a{
+        @include background-color('sidebar', 'dark');
+      }
+    }
+    &.active,
+    &:active,
+    &:focus {
       > a {
-        @include themify((background-color, color), (sidebar-menu--bg--hover, sidebar-menu--color--hover));
+        @include color('sidebar', 'active-color');
       }
     }
 
-    &.active, &:active, &:focus {
-      @include themify((background-color, border-left-color), (sidebar-menu--bg--active, sidebar-menu--border--color--active));
-      z-index: 1000;
-      > a {
-        @include themify((background-color, color), (sidebar-menu--bg--active, sidebar-menu--color--active));
-      }
-    }
   }
 
   /*Submenu - Level one*/
   &__child {
-    @include themify(background-color, sidebar-menu__submenu--bg);
+    @include background-color('sidebar', 'dark');
 
     a {
-      @include font-size(1.4);
+      @include font-size(13px);
       min-height: 20px;
       line-height: 20px;
-      padding: 5px 15px 5px 20px;
+      padding: 5px 15px 5px ($sidebar-icon-width + $sidebar-padding-left);
+      margin: 0 0 0 ($sidebar-padding-left / 2);
     }
+
     .#{$s}__item {
-      border: none;
+      border: 0;
     }
 
     /*Submenu - Level two*/
     .#{$s}__child {
       a {
-        padding: 5px 15px 5px 35px;
+        padding-left: $sidebar-icon-width + $sidebar-padding-left + 10;
       }
 
       /*Submenu - Level three*/
       .#{$s}__child {
         a {
-          padding: 5px 15px 5px 50px;
+          padding-left: $sidebar-icon-width + $sidebar-padding-left + 20;
         }
       }
     }
@@ -138,103 +138,50 @@
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
-  width: $sidebar-mini-width;
-  z-index: 1;
-
-  &__logo-mini {
-    display: block;
+  &__header {
+    display: none;
   }
+  &__nav > ul > .#{$s}__item {
+    position: static;
 
-  &__item {
-    a {
+    > a {
       min-width: 0;
-      transition: min-width 0.3s ease-out;
+      @include transition(min-width 0.3s ease-out);
+
       &::after {
         opacity: 0;
       }
 
-      .#{$s}__nav-title {
+      .#{$s}__item-title {
         display: none;
         visibility: hidden;
-        left: 0;
+        position: absolute;
       }
     }
 
-    .#{$s}__child {
+    > .#{$s}__child {
       position: absolute;
       min-width: $sidebar-submenu-width + 2; /*Value 2 is to adjust the width to include border of parent li*/
       left: $sidebar-mini-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
     }
 
-  }
-}
+    &.active {
+      > a {
+        min-width: $sidebar-active-menu-width;
+        position: static;
 
-/*Mini sidebar -- Modifiers*/
-.sidebar-is-open.sidebar-mini .sidebar {
+        .#{$s}__item-title {
+          display: inline-block;
+          visibility: visible;
+          min-width: $sidebar-width;
+          left: $sidebar-mini-width;
+          margin-left: 0;
+          @include background-color('sidebar', 'dark');
+        }
 
-  $s: sidebar;
-
-  &__item {
-
-    position: static;
-
-    &.active > a,
-    &:hover > a,
-    &:focus > a {
-      min-width: $sidebar-active-menu-width;
-
-      .#{$s}__nav-title {
-        display: inline-block;
-        position: absolute;
-        visibility: visible;
-        left: $sidebar-mini-width;
-      }
-      &::after {
-        opacity: 1;
       }
     }
 
-    &.active > .#{$s}__child {
-      //position: absolute;
-      z-index: 1;
-
-      .#{$s}__item {
-        &.active > a,
-        &:hover > a,
-        &:focus > a {
-          min-width: 100%;
-        }
-
-        a {
-          &::after {
-            opacity: 1;
-          }
-        }
-      }
-
-      .#{$s}__child {
-        position: relative;
-        left: 0;
-        min-width: 100%;
-      }
-    }
   }
 }
 
-.sidebar-is-closed {
-  [data-side="mini"] {
-    display: none !important;
-  }
-}
-
-//TO DO: Fix the bleow later as its current not working well.
-@include max-screen(767px) {
-  .sidebar {
-    overflow-y: auto;
-    position: absolute !important;
-  }
-
-  .sidebar-is-open .sidebar {
-    z-index: 1000;
-  }
-}

@@ -16,6 +16,8 @@
   /*Sidebar navigation*/
   &__nav {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     ul {
       padding: 0;
       margin: 0;
@@ -27,21 +29,25 @@
     a {
       @include color('sidebar', 'link-color');
       @include font-size(15px);
-      transition: 0.3s ease;
+      @include transition;
+      //display: flex;
+      //align-items: center;
+      //flex-direction: row;
       display: block;
       text-decoration: none;
       padding-left: $sidebar-padding-left;
       min-height: 40px;
       line-height: 40px;
 
-      &:hover{
+      &:hover {
         @include color('sidebar', 'hover-color');
       }
     }
 
   }
 
-  &__title{
+  &__header {
+    @include add-border(2px, transparent, left);
     @include font-size(12px);
     @include color('sidebar', 'link-color');
     padding-left: $sidebar-padding-left;
@@ -49,17 +55,18 @@
     text-transform: uppercase;
     min-height: 30px;
     line-height: 30px;
+    white-space: nowrap;
   }
 
-  &__divider{
-    height: 10px;
+  &__divider {
+    min-height: 10px;
   }
 
   &__item {
     @include add-border(2px, transparent, left);
-    @include transition;
     position: relative;
     box-sizing: border-box;
+    white-space: nowrap;
 
     .#{$s}__item-icon {
       margin: 0 ($sidebar-padding-left / 2) 0 0;
@@ -67,33 +74,31 @@
       width: $sidebar-icon-width;
       display: inline-block;
 
-    > i {
-      @include font-size(14px);
-      width: $sidebar-icon-width;
+      > i {
+        @include font-size(14px);
+        width: $sidebar-icon-width;
       }
     }
 
-    .#{$s}__item-title{
+    .#{$s}__item-title {
       display: inline-block;
-      margin-left: -3px; /*Negative margin trick to remove the spaces between the elements icon & title*/
+      //margin-left: -3px; /*Negative margin trick to remove the spaces between the elements icon & title* due to display: inline-block */
     }
 
     &.active,
     &:active,
     &:hover {
       @include border-left-color('primary', 'base');
-      @include background-color('sidebar', 'dark');
+      a {
+        @include background-color('sidebar', 'dark');
+      }
     }
     &.active,
     &:active,
-    &:focus{
+    &:focus {
       > a {
         @include color('sidebar', 'active-color');
-        span{
-          @include background-color('sidebar', 'dark');
-        }
       }
-
     }
 
   }
@@ -102,16 +107,16 @@
   &__child {
     @include background-color('sidebar', 'dark');
 
+    .#{$s}__item {
+      border: 0;
+    }
+
     a {
       @include font-size(13px);
       min-height: 20px;
       line-height: 20px;
       padding: 5px 15px 5px ($sidebar-icon-width + $sidebar-padding-left);
       margin: 0 0 0 ($sidebar-padding-left / 2);
-      }
-
-    .#{$s}__item {
-      border: 0;
     }
 
     /*Submenu - Level two*/
@@ -136,45 +141,79 @@
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
-  &__title{ display: none;}
+  &__header,
+  &__divider {
+    display: none;
+    min-height: 0;
+  }
+
   &__nav > ul > .#{$s}__item {
     position: static;
+    width: $sidebar-mini-width;
 
     > a {
-      min-width: 0;
-      @include transition(min-width 0.3s ease-out);
+      padding-left: 0;
+      width: $sidebar-mini-width - 4;
 
       &::after {
-        opacity: 0;
+        //display: none;
       }
 
-      .#{$s}__item-title{
-        display: none;
-        visibility: hidden;
+      .#{$s}__item-icon {
+        margin: 0;
+        text-align: center;
+        width: $sidebar-mini-width - 4;
+      }
+
+      .#{$s}__item-title {
+        @include background-color('sidebar', 'dark');
         position: absolute;
+        display: none;
+        min-width: $sidebar-width;
+        left: $sidebar-mini-width;
+        margin-left: 0;
+        padding-left: $sidebar-padding-left;
+
+      }
+    }
+
+    &.active,
+    &:hover{
+      > a {
+        width: $sidebar-active-menu-width;
+        position: static;
+
+        .#{$s}__item-title {
+          display: inline-block;
+        }
+
       }
     }
 
     > .#{$s}__child {
       position: absolute;
-      min-width: $sidebar-submenu-width + 2; /*Value 2 is to adjust the width to include border of parent li*/
-      left: $sidebar-mini-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
-    }
+      min-width: $sidebar-submenu-width;
+      left: $sidebar-mini-width;
 
-    &.active {
-      > a {
-        min-width: $sidebar-active-menu-width;
-        position: static;
+      a {
+        padding-left: $sidebar-padding-left;
+        margin: 0;
+      }
 
-        .#{$s}__item-title{
-          display: inline-block;
-          visibility: visible;
-          min-width: $sidebar-width;
-          left: $sidebar-mini-width;
-          margin-left: 0;
+      /*Submenu - Level two*/
+      .#{$s}__child {
+        a {
+          padding-left: $sidebar-padding-left + 10;
         }
 
+        /*Submenu - Level three*/
+        .#{$s}__child {
+          a {
+            padding-left: $sidebar-padding-left + 20;
+          }
+        }
       }
+
     }
 
   }
