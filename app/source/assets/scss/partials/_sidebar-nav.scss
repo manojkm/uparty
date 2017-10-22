@@ -30,10 +30,9 @@
       @include color('sidebar', 'link-color');
       @include font-size(15px);
       @include transition;
-      //display: flex;
-      //align-items: center;
-      //flex-direction: row;
-      display: block;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
       text-decoration: none;
       padding-left: $sidebar-padding-left;
       min-height: 40px;
@@ -156,7 +155,7 @@
       width: $sidebar-mini-width - 4;
 
       &::after {
-        //display: none;
+        display: none;
       }
 
       .#{$s}__item-icon {
@@ -167,24 +166,34 @@
 
       .#{$s}__item-title {
         @include background-color('sidebar', 'dark');
-        position: absolute;
+        //@include transition;
+
+        //position: absolute;
+        position: fixed;
         display: none;
         min-width: $sidebar-width;
         left: $sidebar-mini-width;
         margin-left: 0;
         padding-left: $sidebar-padding-left;
 
+        /*visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s linear 300ms, opacity 300ms;*/
       }
     }
 
-    &.active,
-    &:hover{
+    &.active/*,
+    &:hover*/{
       > a {
         width: $sidebar-active-menu-width;
         position: static;
 
         .#{$s}__item-title {
           display: inline-block;
+         /* visibility: visible;
+          opacity: 1;
+          transition: visibility 0s linear 0s, opacity 300ms;*/
+
         }
 
       }
