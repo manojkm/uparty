@@ -8,6 +8,7 @@ var appMaster = {
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
     _aside: $("[data-aside='show']"),
+    _mini: $("[data-side='mini']"),
 
     responsive: function () {
         $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed');
@@ -21,6 +22,7 @@ var appMaster = {
             $(this).toggleClass('collapsed');
             appMaster._body.removeClass('sidebar-mini aside-is-open').toggleClass('sidebar-is-open sidebar-is-closed');
             appMaster._aside.addClass('collapsed');
+            appMaster._mini.removeClass('collapsed');
             appMaster._stopMetisMenu();
         });
 

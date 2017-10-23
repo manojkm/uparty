@@ -207,3 +207,42 @@
   transform: translate3d(0,-6px,0);
 }
 /* END ANIMATED MINUS */
+
+
+
+/* ANIMATED MINI */
+/*
+.mini.collapsed .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.mini.collapsed .icon-bar:nth-of-type(2) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+
+.mini.collapsed .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,0,0) rotate(0deg);
+}
+*/
+
+
+.mini.collapsed .icon-bar:nth-of-type(1) {
+  transform: translate3d(0px,6px,0) rotate(90deg);
+  transform-origin: center center;
+}
+
+.mini.collapsed .icon-bar:nth-of-type(3) {
+  transform: translate3d(0px,-6px,0) rotate(-90deg);
+  transform-origin: center center;
+}
+
+
+
+.mini .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,6px,0);
+}
+
+.mini .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,-6px,0);
+}
+/* END ANIMATED MINI */

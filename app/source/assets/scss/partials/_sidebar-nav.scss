@@ -29,7 +29,8 @@
     a {
       @include color('sidebar', 'link-color');
       @include font-size(15px);
-      @include transition;
+      @include transition(color 0.3s ease-in-out);
+      @include transition(background-color 0.3s ease-in-out);
       display: flex;
       align-items: center;
       flex-direction: row;
@@ -52,13 +53,18 @@
     padding-left: $sidebar-padding-left;
     font-weight: 600;
     text-transform: uppercase;
+    white-space: nowrap;
     min-height: 30px;
     line-height: 30px;
-    white-space: nowrap;
+    opacity: 1;
+    visibility: visible;
   }
 
   &__divider {
     min-height: 10px;
+    line-height: 10px;
+    opacity: 1;
+    visibility: visible;
   }
 
   &__item {
@@ -87,6 +93,7 @@
     &.active,
     &:active,
     &:hover {
+
       @include border-left-color('primary', 'base');
       a {
         @include background-color('sidebar', 'dark');
@@ -136,14 +143,49 @@
 
 }
 
+
+/* Sidebar mini toggle button */
+.sidebar-mini-toggler {
+  @include background-color('header', 'base');
+  position: relative;
+  padding: 10px;
+  height: $header-height;
+  border: 0;
+  cursor: pointer;
+  @include transition;
+
+  /* Hamburger icon */
+  & .icon-bar {
+    @include background-color('sidebar', 'link-color');
+  }
+
+  &:hover{
+    .icon-bar {
+      @include background-color('sidebar', 'hover-color');
+    }
+  }
+
+  &.collapsed {
+    .icon-bar {
+      @include background-color('primary', 'base');
+    }
+
+  }
+}
+
+
+
 /*Mini sidebar*/
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
   &__header,
   &__divider {
-    display: none;
+    @include transition;
+    opacity: 0;
+    visibility: hidden;
     min-height: 0;
+    line-height: 0;
   }
 
   &__nav > ul > .#{$s}__item {
@@ -167,8 +209,6 @@
       .#{$s}__item-title {
         @include background-color('sidebar', 'dark');
         //@include transition;
-
-        //position: absolute;
         position: fixed;
         display: none;
         min-width: $sidebar-width;
@@ -176,23 +216,17 @@
         margin-left: 0;
         padding-left: $sidebar-padding-left;
 
-        /*visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s linear 300ms, opacity 300ms;*/
       }
     }
 
     &.active/*,
     &:hover*/{
       > a {
-        width: $sidebar-active-menu-width;
+        width: $sidebar-active-menu-width - 2; /*Value 2 is to adjust the width to include border of parent li*/;
         position: static;
 
         .#{$s}__item-title {
           display: inline-block;
-         /* visibility: visible;
-          opacity: 1;
-          transition: visibility 0s linear 0s, opacity 300ms;*/
 
         }
 
@@ -226,5 +260,10 @@
     }
 
   }
+
+  .sidebar-mini-toggler{
+   //padding: 10px 15px;
+  }
 }
+
 
