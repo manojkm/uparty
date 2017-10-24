@@ -30,11 +30,11 @@
   flex-direction: column;
   z-index: map-get($zindex, sidebar);
 
-  .sidebar-is-open & {
+  &-is-open & {
     transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
   }
 
-  .sidebar-fixed & {
+  &-fixed & {
     position: fixed;
   }
 
@@ -77,8 +77,10 @@
 
   }
 
+  /* Sidebar footer links and mini toggle button common styles*/
   &__footer__item,
   &__footer__item--toggler {
+    @include transition;
     @include background-color('sidebar', 'base');
     @include color('sidebar', 'link-color');
     border: 0;
@@ -93,16 +95,19 @@
     justify-content: center;
     width: 100vw;
 
+    &.active,
+    &:active,
+    &:focus,
     &:hover {
       @include background-color('sidebar', 'dark');
       @include color('sidebar', 'hover-color');
     }
+
   }
 
   /* Sidebar mini toggle button */
   &__footer__item--toggler {
     position: relative;
-    @include transition;
 
     /* Hamburger icon */
     & .icon-bar {
@@ -116,11 +121,12 @@
     }
 
     &.collapsed {
+      @include background-color('sidebar', 'dark');
       .icon-bar {
         @include background-color('primary', 'base');
       }
-
     }
+
   }
 
 }
@@ -128,12 +134,14 @@
 /* Mini sidebar */
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
-
   width: $sidebar-mini-width;
 
-  .#{$s}-mini-toggler {
-    width: $sidebar-mini-width;
-    margin: 0 auto;
+  /* Sidebar footer links */
+  .sidebar__footer__item
+  {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
   }
 
 }

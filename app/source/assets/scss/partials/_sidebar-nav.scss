@@ -92,16 +92,16 @@
 
     &.active,
     &:active,
-    &:hover {
-
+    &:hover,
+    &:focus{
       @include border-left-color('primary', 'base');
       a {
         @include background-color('sidebar', 'dark');
       }
     }
-    &.active,
+    &.active/*,
     &:active,
-    &:focus {
+    &:focus */{
       > a {
         @include color('sidebar', 'active-color');
       }
