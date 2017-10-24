@@ -144,37 +144,6 @@
 }
 
 
-/* Sidebar mini toggle button */
-.sidebar-mini-toggler {
-  @include background-color('header', 'base');
-  position: relative;
-  padding: 10px;
-  height: $header-height;
-  border: 0;
-  cursor: pointer;
-  @include transition;
-
-  /* Hamburger icon */
-  & .icon-bar {
-    @include background-color('sidebar', 'link-color');
-  }
-
-  &:hover{
-    .icon-bar {
-      @include background-color('sidebar', 'hover-color');
-    }
-  }
-
-  &.collapsed {
-    .icon-bar {
-      @include background-color('primary', 'base');
-    }
-
-  }
-}
-
-
-
 /*Mini sidebar*/
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
@@ -186,6 +155,7 @@
     visibility: hidden;
     min-height: 0;
     line-height: 0;
+
   }
 
   &__nav > ul > .#{$s}__item {
@@ -261,9 +231,6 @@
 
   }
 
-  .sidebar-mini-toggler{
-   //padding: 10px 15px;
-  }
 }
 
 
