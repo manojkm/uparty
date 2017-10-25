@@ -48,6 +48,7 @@ var appMaster = {
 
             else if (!appMaster._body.hasClass('sidebar-mini') || !appMaster._body.hasClass('sidebar-is-open')) {
                 appMaster._body.toggleClass('aside-is-open sidebar-mini');
+                appMaster._mini.addClass('collapsed');
             }
 
             appMaster._stopMetisMenu();

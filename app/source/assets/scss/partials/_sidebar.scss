@@ -16,10 +16,11 @@
 // https://forums.imore.com/iphone-6s-plus/361561-photos-emailed-upside-down.html
 
 .sidebar {
-
+  $s: sidebar;
   @include background-color('sidebar', 'base');
   @include transition(all 0.3s ease-out);
-  transform: translateX(-100%); /*Hiding sidebar as default*/
+  /* Hiding sidebar as default */
+  transform: translateX(-100%);
   width: $sidebar-width;
   padding-bottom: $sidebar-footer-height;
   position: absolute;
@@ -30,10 +31,12 @@
   flex-direction: column;
   z-index: map-get($zindex, sidebar);
 
+  /* Showing sidebar if body has .sidebar-is-open class */
   &-is-open & {
-    transform: translateX(0); /*Showing sidebar if body has .sidebar-is-open class*/
+    transform: translateX(0);
   }
 
+  /* Fixed sidebar */
   &-fixed & {
     position: fixed;
   }
@@ -75,73 +78,86 @@
     align-items: center;
     justify-content: center;
 
-  }
+    /* Sidebar footer links and mini toggle button common styles*/
+    .#{$s}__item {
+      @include transition;
+      @include background-color('sidebar', 'base');
+      @include color('sidebar', 'link-color');
+      border: 0;
+      cursor: pointer;
+      height: $sidebar-footer-height;
+      text-decoration: none;
+      opacity: 1;
+      visibility: visible;
+      width: 100vw;
 
-  /* Sidebar footer links and mini toggle button common styles*/
-  &__footer__item,
-  &__footer__item--toggler {
-    @include transition;
-    @include background-color('sidebar', 'base');
-    @include color('sidebar', 'link-color');
-    border: 0;
-    cursor: pointer;
-    height: $sidebar-footer-height;
-    text-decoration: none;
+      /* flexbox */
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
 
-    /* flexbox */
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    width: 100vw;
-
-    &.active,
-    &:active,
-    &:focus,
-    &:hover {
-      @include background-color('sidebar', 'dark');
-      @include color('sidebar', 'hover-color');
-    }
-
-  }
-
-  /* Sidebar mini toggle button */
-  &__footer__item--toggler {
-    position: relative;
-
-    /* Hamburger icon */
-    & .icon-bar {
-      @include background-color('sidebar', 'link-color');
-    }
-
-    &:hover {
-      .icon-bar {
-        @include background-color('primary', 'base');
+      &.active,
+      &:active,
+      &:focus,
+      &:hover {
+        @include background-color('sidebar', 'dark');
+        @include color('sidebar', 'hover-color');
       }
+
     }
 
-    &.collapsed {
-      @include background-color('sidebar', 'dark');
-      .icon-bar {
-        @include background-color('primary', 'base');
+    /* Sidebar mini toggle button */
+    .#{$s}__item--toggler {
+      @extend .#{$s}__item;
+      position: relative;
+
+      /* Hamburger icon */
+      & .icon-bar {
+        @include background-color('sidebar', 'link-color');
       }
+
+      &:hover {
+        .icon-bar {
+          @include background-color('primary', 'base');
+        }
+      }
+
+      &.collapsed {
+        @include background-color('sidebar', 'dark');
+        .icon-bar {
+          @include background-color('primary', 'base');
+        }
+      }
+
     }
 
   }
 
-}
+  /* Mini sidebar modifiers */
+  &-is-open.sidebar-mini & {
+    width: $sidebar-mini-width;
 
-/* Mini sidebar */
-.sidebar-is-open.sidebar-mini .sidebar {
-  $s: sidebar;
-  width: $sidebar-mini-width;
+    .#{$s}__footer {
 
-  /* Sidebar footer links */
-  .sidebar__footer__item
-  {
-    opacity: 0;
-    visibility: hidden;
-    width: 0;
+      /* Hiding Sidebar footer links */
+      .#{$s}__item {
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+        display: none;
+      }
+
+      /* Keep showing sidebar mini toggle button */
+      .#{$s}__item--toggler {
+        opacity: 1;
+        visibility: visible;
+        width: $sidebar-mini-width;
+        display: block;
+      }
+
+    }
+
   }
 
 }
