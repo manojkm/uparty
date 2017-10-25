@@ -75,6 +75,7 @@
 
     /* flexbox */
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
@@ -153,7 +154,7 @@
         opacity: 1;
         visibility: visible;
         width: $sidebar-mini-width;
-        display: block;
+        display: flex;
       }
 
     }
