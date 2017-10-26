@@ -25,8 +25,9 @@
 }
 
 .app {
-  @include transition(left 0.3s ease);
-  @include transition(padding-left 0.3s ease);
+  //@include transition(left 0.3s ease);
+  //@include transition(padding-left 0.3s ease);
+  @include transition;
   position: relative;
   width: 100%;
   padding-left: 0;
