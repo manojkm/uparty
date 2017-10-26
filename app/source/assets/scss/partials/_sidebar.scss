@@ -19,16 +19,18 @@
 .sidebar {
   $s: sidebar;
   @include background-color('sidebar', 'base');
-  @include transition(all 0.3s ease-out);
+  //@include transition(all 0.4s ease);
+  @include transition;
   /* Hiding sidebar as default */
   //transform: translateX(-100%); //Position fixed sidebar footer (.sidebar__footer) doesn't work with transform property. So disabling it until found a fix.
   padding-bottom: $sidebar-footer-height;
   position: absolute;
   top: 0;
-  bottom: 0; // or height: 100%;
+  bottom: 0;
+  height: 100%;
   //width: $sidebar-width;
   //left: 0;
-  left:$sidebar-width;
+  left: $sidebar-width;
   margin-left: -$sidebar-width;
   width: 0;
   z-index: map-get($zindex, sidebar);
@@ -41,7 +43,6 @@
     //transform: translateX(0); // Position fixed sidebar footer (.sidebar__footer) doesn't work with transform property. So disabling it until found a fix.
     width: $sidebar-width;
   }
-
 
   /* Fixed sidebar */
   &-fixed & {
@@ -83,6 +84,8 @@
     left: 0;
     width: $sidebar-width;
     height: $sidebar-footer-height;
+    opacity: 1;
+    visibility: visible;
 
     /* flexbox */
     display: flex;
@@ -101,8 +104,6 @@
       cursor: pointer;
       height: $sidebar-footer-height;
       text-decoration: none;
-      opacity: 1;
-      visibility: visible;
       //width: 100vw;
 
       /* flexbox */
@@ -150,12 +151,10 @@
   }
 
 
-
-
   /* Mini sidebar modifiers */
   &-is-open.sidebar-mini & {
     @include transition;
-    left:$sidebar-mini-width;
+    left: $sidebar-mini-width;
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
 
@@ -192,6 +191,8 @@
     .#{$s}__footer {
       width: 0;
       overflow-x: hidden;
+      opacity: 0;
+      visibility: hidden;
       //position: static;
     }
   }

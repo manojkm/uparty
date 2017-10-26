@@ -14,7 +14,7 @@
 .aside{
   @include background-color('aside', 'light');
   @include color('aside', 'font-color');
-  @include transition(all 0.3s ease-out);
+  @include transition;
   transform: translateX(100%); /*Hiding sidebar as default*/
   width: $sidebar-width;
   padding-bottom: $footer-height;

@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     ul {
+      outline: 0;
       padding: 0;
       margin: 0;
       li {
@@ -36,8 +37,6 @@
       flex-direction: row;
       text-decoration: none;
       padding-left: $sidebar-padding-left;
-      min-height: 40px;
-      line-height: 40px;
 
       &:hover {
         @include color('sidebar', 'hover-color');
@@ -46,32 +45,53 @@
 
   }
 
+  &-is-closed {
+    // Adapted from https://codepen.io/tonkec/pen/gryZmg
+    .#{$s}__item,
+    .#{$s}__header,
+    .#{$s}__divider
+    {
+      @include transition;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+
   &__header {
     @include add-border(2px, transparent, left);
     @include font-size(12px);
     @include color('sidebar', 'link-color');
+    @include transition;
     padding-left: $sidebar-padding-left;
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
-    min-height: 30px;
-    line-height: 30px;
+    min-height: $sidebar-header-height;
+    line-height: $sidebar-header-height;
     opacity: 1;
     visibility: visible;
+    transform: translateY(0px);
   }
 
   &__divider {
-    min-height: 10px;
-    line-height: 10px;
+    @include transition;
+    min-height: $sidebar-divider-height;
+    line-height: $sidebar-divider-height;
     opacity: 1;
     visibility: visible;
+    transform: translateY(0px);
   }
 
   &__item {
     @include add-border(2px, transparent, left);
+    @include transition;
     position: relative;
     box-sizing: border-box;
     white-space: nowrap;
+    min-height: $sidebar-item-height;
+    line-height: $sidebar-item-height;
+    opacity: 1;
+    transform: translateY(0px);
 
     .#{$s}__item-icon {
       margin: 0 ($sidebar-padding-left / 2) 0 0;
@@ -87,6 +107,7 @@
 
     .#{$s}__item-title {
       display: inline-block;
+      flex: 1;
       //margin-left: -3px; /*Negative margin trick to remove the spaces between the elements icon & title* due to display: inline-block */
     }
 
@@ -110,32 +131,35 @@
 
   }
 
-  /*Submenu - Level one*/
+    /*Submenu - Level one*/
   &__child {
     @include background-color('sidebar', 'dark');
 
     .#{$s}__item {
       border: 0;
+      min-height: $sidebar-submenu-item-height;
+      line-height: $sidebar-submenu-item-height;
     }
 
     a {
       @include font-size(13px);
-      min-height: 20px;
-      line-height: 20px;
-      padding: 5px 15px 5px ($sidebar-icon-width + $sidebar-padding-left);
+      //padding: 5px 15px 5px ($sidebar-icon-width + $sidebar-padding-left);
+      text-indent: $sidebar-icon-width;
       margin: 0 0 0 ($sidebar-padding-left / 2);
     }
 
     /*Submenu - Level two*/
     .#{$s}__child {
       a {
-        padding-left: $sidebar-icon-width + $sidebar-padding-left + 10;
+        //padding-left: $sidebar-icon-width + $sidebar-padding-left + 10;
+        text-indent: $sidebar-icon-width + 15;
       }
 
       /*Submenu - Level three*/
       .#{$s}__child {
         a {
-          padding-left: $sidebar-icon-width + $sidebar-padding-left + 20;
+          //padding-left: $sidebar-icon-width + $sidebar-padding-left + 20;
+          text-indent: $sidebar-icon-width + 30;
         }
       }
     }
@@ -194,7 +218,6 @@
     {
       > a {
         width: $sidebar-active-menu-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
-      ;
         position: static;
 
         .#{$s}__item-title {
@@ -212,19 +235,20 @@
 
       a {
         padding-left: $sidebar-padding-left;
+        text-indent: 0;
         margin: 0;
       }
 
       /*Submenu - Level two*/
       .#{$s}__child {
         a {
-          padding-left: $sidebar-padding-left + 10;
+          text-indent: $sidebar-icon-width;
         }
 
         /*Submenu - Level three*/
         .#{$s}__child {
           a {
-            padding-left: $sidebar-padding-left + 20;
+            text-indent: $sidebar-icon-width + 15;
           }
         }
       }
