@@ -38,18 +38,6 @@
   display: flex;
   flex-direction: column;
 
-  /* Showing sidebar if body has .sidebar-is-open class */
-  &-is-open & {
-    //transform: translateX(0); // Position fixed sidebar footer (.sidebar__footer) doesn't work with transform property. So disabling it until found a fix.
-    width: $sidebar-width;
-  }
-
-  /* Fixed sidebar */
-  &-fixed & {
-    position: fixed;
-  }
-
-
   /* Sidebar wrapper*/
   &__wrap {
     @include color('sidebar', 'font-color');
@@ -82,51 +70,70 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: $sidebar-width;
-    height: $sidebar-footer-height;
+    width: 0;
     opacity: 1;
     visibility: visible;
+    min-height: $sidebar-footer-height;
 
-    /* flexbox */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    .#{$s}__footer-nav {
+      ///* flexbox */
+      //display: flex;
+      //align-items: center;
+      //flex-direction: column;
+    }
 
-    /* Sidebar footer links and mini toggle button common styles*/
-    .#{$s}__item,
-    .#{$s}__item--toggler
-    {
-      @include transition;
-      @include background-color('sidebar', 'base');
-      @include color('sidebar', 'link-color');
-      border: 0;
-      cursor: pointer;
-      height: $sidebar-footer-height;
-      text-decoration: none;
-      //width: 100vw;
-
-      /* flexbox */
+    .#{$s}__footer-list {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      /* Flexbox */
       display: flex;
+      flex-direction: row;
       flex: 1;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
+    }
 
-      &.active,
-      &:active,
-      &:focus,
-      &:hover {
-        @include background-color('sidebar', 'dark');
-        @include color('sidebar', 'hover-color');
+    .#{$s}__footer-item {
+      @include transition;
+      opacity: 1;
+      visibility: visible;
+      /* Flexbox */
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      flex: 1;
+      a {
+        @include transition;
+        @include color('sidebar', 'link-color');
+        justify-content: center;
+        height: $sidebar-footer-height;
+        /* Flexbox */
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+
+        &.active,
+        &:active,
+        &:focus,
+        &:hover {
+          @include background-color('sidebar', 'dark');
+          @include color('sidebar', 'hover-color');
+        }
       }
 
     }
 
+
     /* Sidebar mini toggle button */
-    .#{$s}__item--toggler {
-      //@extend .#{$s}__item;
+    .#{$s}__footer--toggler {
+      @include background-color('sidebar', 'base');
       position: relative;
+      border: 0;
+      cursor: pointer;
+      height: $sidebar-footer-height;
+      /* Flexbox */
+      flex: 1;
 
       /* Hamburger icon */
       & .icon-bar {
@@ -134,6 +141,7 @@
       }
 
       &:hover {
+        @include background-color('sidebar', 'dark');
         .icon-bar {
           @include background-color('primary', 'base');
         }
@@ -150,7 +158,6 @@
 
   }
 
-
   /* Mini sidebar modifiers */
   &-is-open.sidebar-mini & {
     @include transition;
@@ -162,15 +169,15 @@
       width: $sidebar-mini-width;
 
       /* Hiding Sidebar footer links */
-      .#{$s}__item {
+      .#{$s}__footer-item {
         opacity: 0;
         visibility: hidden;
         width: 0;
-        display: none;
+        flex: auto;
       }
 
       /* Keep showing sidebar mini toggle button */
-      .#{$s}__item--toggler {
+      .#{$s}__footer-item.mini {
         opacity: 1;
         visibility: visible;
         width: $sidebar-mini-width;
@@ -181,26 +188,38 @@
 
   }
 
+  /* Showing sidebar and its footer if body has .sidebar-is-open class */
+  &-is-open & {
+    //transform: translateX(0); // Position fixed sidebar footer (.sidebar__footer) doesn't work with transform property. So disabling it until found a fix.
+    width: $sidebar-width;
 
-  &-is-closed & {
-
-    [data-side="mini"] {
-      display: none;
+    .#{$s}__footer {
+      width: $sidebar-width;
     }
+  }
+
+  /* Fixed sidebar */
+  &-fixed & {
+    position: fixed;
+  }
+
+  /* Closed sidebar */
+  &-is-closed & {
+    width: 0;
+    //
+    //[data-side="mini"] {
+    //  display: none;
+    //}
 
     .#{$s}__footer {
       width: 0;
       overflow-x: hidden;
       opacity: 0;
       visibility: hidden;
-      //position: static;
     }
   }
 
-
 }
-
-
 
 //TODO: Fix the below later as its current not working well.
 @include max-screen(767px) {
@@ -213,4 +232,3 @@
     //z-index: 1000;
   }
 }
-

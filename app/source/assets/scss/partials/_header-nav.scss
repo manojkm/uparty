@@ -73,7 +73,7 @@
   }
 
   /* Navbar toggle button */
-  .navbar-toggler {
+  .navbar--toggler {
     position: relative;
     padding: 10px;
 
@@ -85,7 +85,7 @@
   }
 
   /* Sidebar toggle button */
-  .sidebar-toggler {
+  .sidebar--toggler {
     @include background-color('primary', 'base');
     padding: 10px;
     height: $header-height;
@@ -94,6 +94,17 @@
 
     &:hover {
       @include background-color('primary', 'light');
+
+    }
+
+    &.collapsed {
+      &:hover {
+        .icon-bar {
+          + .icon-bar {
+            margin-top: 6px;
+          }
+        }
+      }
     }
 
     /* Hamburger icon */
@@ -103,7 +114,7 @@
   }
 
   /* Aside toggle button */
-  .aside-toggler {
+  .aside--toggler {
     @include background-color('header', 'base');
     position: relative;
     padding: 10px;
@@ -124,6 +135,9 @@
       &:hover{
         .icon-bar {
           @include background-color('header', 'hover-color');
+          + .icon-bar {
+            margin-top: 6px;
+          }
         }
       }
     }

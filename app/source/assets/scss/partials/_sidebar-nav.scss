@@ -49,11 +49,10 @@
     // Adapted from https://codepen.io/tonkec/pen/gryZmg
     .#{$s}__item,
     .#{$s}__header,
-    .#{$s}__divider
-    {
+    .#{$s}__divider {
       @include transition;
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translateX(-100px);
     }
   }
 
@@ -69,8 +68,8 @@
     min-height: $sidebar-header-height;
     line-height: $sidebar-header-height;
     opacity: 1;
-    visibility: visible;
-    transform: translateY(0px);
+    //visibility: visible;
+    //transform: translateY(0px);
   }
 
   &__divider {
@@ -78,8 +77,7 @@
     min-height: $sidebar-divider-height;
     line-height: $sidebar-divider-height;
     opacity: 1;
-    visibility: visible;
-    transform: translateY(0px);
+
   }
 
   &__item {
@@ -91,7 +89,6 @@
     min-height: $sidebar-item-height;
     line-height: $sidebar-item-height;
     opacity: 1;
-    transform: translateY(0px);
 
     .#{$s}__item-icon {
       margin: 0 ($sidebar-padding-left / 2) 0 0;
@@ -131,7 +128,7 @@
 
   }
 
-    /*Submenu - Level one*/
+  /*Submenu - Level one*/
   &__child {
     @include background-color('sidebar', 'dark');
 

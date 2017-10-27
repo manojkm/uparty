@@ -12,7 +12,7 @@
 //https://www.dtelepathy.com/blog/inspiration/23-great-examples-of-innovative-navigation-for-your-inspiration
 
 .aside{
-  @include background-color('aside', 'light');
+  @include background-color('aside', 'base');
   @include color('aside', 'font-color');
   @include transition;
   transform: translateX(100%); /*Hiding sidebar as default*/
@@ -22,6 +22,7 @@
   top: $header-height;
   right: 0;
   bottom: 0;
+  z-index: map-get($zindex, aside);
 
   .header-fixed & {
     position: fixed;
