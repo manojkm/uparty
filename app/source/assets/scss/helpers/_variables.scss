@@ -73,13 +73,17 @@ $sidebar-padding-left: 10px;
 $sidebar-icon-width: 20px;
 $sidebar-mini-width: 60px;
 $sidebar-item-height: 40px;
-$sidebar-submenu-item-height: 30px;
 $sidebar-header-height: 30px;
 $sidebar-divider-height: 10px;
+$sidebar-submenu-item-height: 30px;
 $sidebar-submenu-width: $sidebar-width;
+$sidebar-submenu-padding-x:0;
+$sidebar-submenu-padding-y:10px;
+
 $sidebar-active-menu-width: $sidebar-width + $sidebar-mini-width;
 $sidebar-brand-height: 50px;
 $sidebar-footer-height: 40px;
+
 
 //----------------------------------*\
 // FONTS
@@ -184,12 +188,12 @@ $screen-lg-max: ($screen-xl-min - 1) !default; /*1999px*/
 //----------------------------------*/
 $zindex: (
         modal     : 9000,
-        overlay   : 7000,
-        dropdown  : 7000,
-        header    : 9000,
-        footer    : 5000,
-        sidebar   : 5000,
-        aside     : 8000
+        overlay   : 1200,
+        dropdown  : 1000,
+        header    : 1300,
+        footer    : 1000,
+        sidebar   : 1000,
+        aside     : 1300
 );
 
 //----------------------------------*\

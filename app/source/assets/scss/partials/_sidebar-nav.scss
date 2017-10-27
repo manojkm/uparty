@@ -136,6 +136,10 @@
       border: 0;
       min-height: $sidebar-submenu-item-height;
       line-height: $sidebar-submenu-item-height;
+
+      &:last-of-type  {
+        padding-bottom: $sidebar-submenu-padding-y;
+      }
     }
 
     a {
@@ -147,6 +151,11 @@
 
     /*Submenu - Level two*/
     .#{$s}__child {
+      .#{$s}__item {
+        &:last-of-type{
+          padding-bottom: 0;
+        }
+      }
       a {
         //padding-left: $sidebar-icon-width + $sidebar-padding-left + 10;
         text-indent: $sidebar-icon-width + 15;

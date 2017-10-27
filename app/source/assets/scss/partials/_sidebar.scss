@@ -132,8 +132,8 @@
     .#{$s}__footer-child {
       @include background-color('sidebar', 'dark');
       @include border-top-color('primary', 'base');
-      border-top: 1px solid;
       padding: 0;
+      border-top: 1px solid;
       position: absolute;
       width: $sidebar-width;
       bottom: $sidebar-footer-height;
@@ -142,10 +142,16 @@
         min-height: $sidebar-submenu-item-height;
         line-height: $sidebar-submenu-item-height;
 
-        a{
+        a {
           @include font-size(13px);
-          align-items: left;
+          align-items: flex-start;
           text-indent: $sidebar-icon-width;
+        }
+        &:first-of-type {
+          padding-top: $sidebar-submenu-padding-y;
+        }
+        &:last-of-type {
+          padding-bottom: $sidebar-submenu-padding-y;
         }
       }
     }

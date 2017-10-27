@@ -13,6 +13,7 @@ var appMaster = {
     _mini: $("[data-side='mini']"),
     _hide: $("[data-side='hide']"),
     _overlay: $('.overlay'),
+    _tooltip:$("[data-toggle='tooltip']"),
 
     responsive: function () {
         $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed');
@@ -98,7 +99,16 @@ var appMaster = {
                 $(this).toggleClass('open');
             }
         );
+    },
+
+    tooltip: function () {
+        $(appMaster._tooltip).tooltip({ trigger: "hover" });
+        $(appMaster._tooltip).on('click', function () {
+            $(this).tooltip('hide');
+        });
     }
+
+
 };
 
 
@@ -126,4 +136,6 @@ $(document).ready(function () {
     appMaster.sidebar();
     appMaster.dropdown();
     appMaster.aside();
+    appMaster.tooltip();
 });
+
