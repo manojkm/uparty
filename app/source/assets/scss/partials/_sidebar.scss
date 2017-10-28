@@ -28,8 +28,6 @@
   top: 0;
   bottom: 0;
   height: 100%;
-  //width: $sidebar-width;
-  //left: 0;
   left: $sidebar-width;
   margin-left: -$sidebar-width;
   width: 0;
@@ -94,6 +92,7 @@
 
     .#{$s}__footer-item {
       @include transition;
+      position: relative;
       opacity: 1;
       visibility: visible;
       /* Flexbox */
@@ -111,7 +110,6 @@
         /* Flexbox */
         display: flex;
         align-items: center;
-        flex-direction: column;
         flex: 1;
 
         &:active,
@@ -122,8 +120,9 @@
       }
 
       &.active {
-        a {
+        > a {
           @include background-color('sidebar', 'dark');
+          @include color('primary', 'base');
 
         }
       }
@@ -133,7 +132,7 @@
       @include background-color('sidebar', 'dark');
       @include border-top-color('primary', 'base');
       padding: 0;
-      border-top: 1px solid;
+      border-top: 2px solid;
       position: absolute;
       width: $sidebar-width;
       bottom: $sidebar-footer-height;
@@ -144,8 +143,10 @@
 
         a {
           @include font-size(13px);
-          align-items: flex-start;
           text-indent: $sidebar-icon-width;
+          /* Flexbox */
+          align-items: flex-start;
+          justify-content: flex-start;
         }
         &:first-of-type {
           padding-top: $sidebar-submenu-padding-y;

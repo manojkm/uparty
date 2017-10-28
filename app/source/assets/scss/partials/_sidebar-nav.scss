@@ -30,8 +30,9 @@
     a {
       @include color('sidebar', 'link-color');
       @include font-size(15px);
-      @include transition(color 0.3s ease-in-out);
-      @include transition(background-color 0.3s ease-in-out);
+      @include transition;
+      //@include transition(color 0.3s ease-in-out);
+      //@include transition(background-color 0.3s ease-in-out);
       display: flex;
       align-items: center;
       flex-direction: row;
@@ -46,7 +47,7 @@
   }
 
   &-is-closed {
-    // Adapted from https://codepen.io/tonkec/pen/gryZmg
+    // TODO Adapted from https://codepen.io/tonkec/pen/gryZmg
     .#{$s}__item,
     .#{$s}__header,
     .#{$s}__divider {

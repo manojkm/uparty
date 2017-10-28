@@ -89,7 +89,9 @@ var appMaster = {
     },
 
     dropdown: function () {
-        $(".dropdown").hover(
+
+        // On HOver
+       /* $(".dropdown").hover(
             function () {
                 $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
                 $(this).toggleClass('open');
@@ -98,7 +100,18 @@ var appMaster = {
                 $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
                 $(this).toggleClass('open');
             }
-        );
+        );*/
+
+        // On click Adapted from https://codepen.io/adammacias/pen/dozPVQ
+        $('.dropdown').on('show.bs.dropdown', function(e){
+            $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+        });
+
+        $('.dropdown').on('hide.bs.dropdown', function(e){
+            $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+        });
+
+
     },
 
     tooltip: function () {
