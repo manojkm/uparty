@@ -182,8 +182,7 @@
   &__header,
   &__divider {
     @include transition;
-    opacity: 0;
-    visibility: hidden;
+    @extend %o-v-none;
     min-height: 0;
     line-height: 0;
 

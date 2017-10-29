@@ -8,7 +8,7 @@ var appMaster = {
 
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
-    _side_nav: $('.sidebar__nav'),
+    _side_nav: $('.sidebar__nav , .sidebar__footer-nav'),
     _aside: $("[data-aside='show']"),
     _mini: $("[data-side='mini']"),
     _hide: $("[data-side='hide']"),
@@ -80,7 +80,6 @@ var appMaster = {
     _stopMetisMenu: function () {
         $(appMaster._side_nav).find('li').removeClass('active');
         $(appMaster._side_nav).find('a').attr('aria-expanded', false);
-        // $('.sidebar__nav').find('a').removeClass('has-arrow');
         $(appMaster._side_nav).find('ul.collapse').removeClass('in').attr('aria-expanded', false);
     },
 
@@ -105,13 +104,28 @@ var appMaster = {
         // On click Adapted from https://codepen.io/adammacias/pen/dozPVQ
         $('.dropdown').on('show.bs.dropdown', function(e){
             $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+
         });
 
         $('.dropdown').on('hide.bs.dropdown', function(e){
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
         });
 
+        // Sub menu
 
+        $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+            if (!$(this).next().hasClass('show')) {
+                $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+            }
+            var $subMenu = $(this).next(".dropdown-menu");
+            $subMenu.toggleClass('show');
+
+            $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+                $('.dropdown-submenu .show').removeClass("show");
+            });
+
+            return false;
+        });
     },
 
     tooltip: function () {
@@ -151,4 +165,5 @@ $(document).ready(function () {
     appMaster.aside();
     appMaster.tooltip();
 });
+
 

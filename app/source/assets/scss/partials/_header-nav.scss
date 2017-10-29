@@ -68,15 +68,14 @@
           @include font-size(10px);
           font-weight: normal;
           position: absolute;
-          top: 50%;
-          left: 50%;
-          margin-top: -16px;
-          margin-left: 0;
+          right: 4px;
+          top: 8px;
         }
       }
 
-      /* Change the color of open, active links*/
+      /* Change the color of open, show, active links*/
       &.open > .nav-link,
+      &.show > .nav-link,
       &.active > .nav-link {
         @include background-color('header', 'dark');
         @include color('header', 'active-color');

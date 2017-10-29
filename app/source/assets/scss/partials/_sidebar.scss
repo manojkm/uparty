@@ -64,13 +64,12 @@
     @include background-color('sidebar', 'base');
     @include border-top-color('sidebar', 'light');
     @include transition;
+    @extend %o-v-show;
     border-top: 1px solid;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 0;
-    opacity: 1;
-    visibility: visible;
     min-height: $sidebar-footer-height;
 
     .#{$s}__footer-nav {
@@ -93,8 +92,7 @@
     .#{$s}__footer-item {
       @include transition;
       position: relative;
-      opacity: 1;
-      visibility: visible;
+      @extend %o-v-show;
       /* Flexbox */
       display: flex;
       align-items: center;
@@ -202,16 +200,14 @@
 
       /* Hiding Sidebar footer links */
       .#{$s}__footer-item {
-        opacity: 0;
-        visibility: hidden;
+        @extend %o-v-none;
         width: 0;
         flex: auto;
       }
 
       /* Keep showing sidebar mini toggle button */
       .#{$s}__footer-item.mini {
-        opacity: 1;
-        visibility: visible;
+        @extend %o-v-show;
         width: $sidebar-mini-width;
         display: flex;
       }
@@ -244,10 +240,9 @@
     //}
 
     .#{$s}__footer {
+      @extend %o-v-none;
       width: 0;
       overflow-x: hidden;
-      opacity: 0;
-      visibility: hidden;
     }
   }
 
