@@ -31,17 +31,21 @@ $white-color: #fff; // hex of the white
 $black-color: #000; // hex of the black
 
 /*Grayscale*/
+
+
 $grey: lighten($black-color, 33.5%); // #555
 $grey-light: lighten($black-color, 60%); // #999
 $grey-x-light: lighten($black-color, 93.5%); // #eee
+$grey-xx-light: lighten($black-color, 97.5%);
 $grey-dark: lighten($black-color, 20%); // #333
 $grey-x-dark: lighten($black-color, 13.5%); // #222
+$grey-xx-dark: lighten($black-color, 9.5%); //
 
 //----------------------------------*\
 // BODY
 //----------------------------------*/
-$body-bg-color: #fff;
-$text-color: #333;
+$body-bg-color: $white-color;
+$text-color: $grey-dark;
 
 //----------------------------------*\
 // LINKS
@@ -54,6 +58,23 @@ $text-color: #333;
 $header-height: 40px;
 $navbar-toggler-bg:;
 $navbar-toggler-border-colour:;
+
+//----------------------------------*\
+// DROPDOWNS
+//----------------------------------*/
+$dropdown-padding-y: 5px;
+$dropdown-padding-x: 0px;
+$dropdown-item-padding-y: 8px;
+$dropdown-item-padding-x: 15px;
+$dropdown-bg : $white-color;
+$dropdown-link-color:$grey-xx-dark;
+$dropdown-link-hover-color: $grey-xx-dark;
+$dropdown-link-hover-bg: $grey-xx-light;
+
+$dropdown-link-active-color: $grey-xx-dark;
+$dropdown-link-active-bg: $grey-x-light;
+$dropdown-link-disabled-color:$grey-light;
+
 
 //----------------------------------*\
 // SEARCH

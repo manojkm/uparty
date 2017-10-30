@@ -50,12 +50,12 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle  px-3" href="#" id="navbarDropdownMenuLink"
+                <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdownMenuLink"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown link
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu extended" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="#">Action</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
 
@@ -84,16 +84,23 @@
 
             <!-- Inbox Dropdown -->
             <li class="nav-item dropdown">
-                <a class="nav-link px-3 dropdown-toggle info-number" href="#" id="navbarDropdownInbox"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link px-3 dropdown-toggle no-arr" href="#" id="navbarDropdownInbox"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
                     <span class="badge badge-pill badge-danger">5</span>
                 </a>
-                <ul class="dropdown-menu list-unstyled extended inbox" aria-labelledby="navbarDropdownInbox">
-                    <li><h6 class="dropdown-header">Dropdown header</h6></li>
+                <ul class="dropdown-menu dropdown-menu-right list-unstyled extended inbox" aria-labelledby="navbarDropdownInbox">
+                    <li><div class="dropdown-header">Dropdown header</div></li>
                     <li><a class="dropdown-item" href="#">Action</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                            <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-item disabled" href="#">Disabled link</a></li>
+                    <li><div class="dropdown-divider"></div></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                 </ul>
             </li>

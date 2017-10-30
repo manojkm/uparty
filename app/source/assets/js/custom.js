@@ -114,14 +114,19 @@ var appMaster = {
         // Sub menu
 
         $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+
             if (!$(this).next().hasClass('show')) {
-                $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+                $(this).parents('.dropdown-menu').first().find('.show').removeClass("show").prev('.dropdown-toggle').toggleClass('active');
             }
+
+
             var $subMenu = $(this).next(".dropdown-menu");
-            $subMenu.toggleClass('show');
+            $subMenu.toggleClass('show').prev('.dropdown-toggle').toggleClass('active');
+            // $(this).toggleClass('active');
 
             $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
                 $('.dropdown-submenu .show').removeClass("show");
+                $('.dropdown-menu a.dropdown-toggle').removeClass("active");
             });
 
             return false;
