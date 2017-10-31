@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: dropdown.scss
-// Description:
+// Description: Bootstrap dropdowns to active on hover/click and provide a nice user experience.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -8,15 +8,11 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-/* Remove the arrow in dropdown to replace with Icon*/
-.dropdown-toggle.no-arr {
-  &:after {
-    //display: none;
-    content: none;
-  }
-}
-
+//----------------------------------*\
+// BOOTSTRAP DROPDOWN MENU - EXTENDED
+//----------------------------------*/
 // TODO Adapted from https://codepen.io/pawelwojtas/pen/rGPpbd
+
 .dropdown-menu.extended,
 .dropdown-menu.extended .dropdown-menu {
   width: 200px;
@@ -24,15 +20,15 @@
   min-width: 160px;
   padding: $dropdown-padding-y $dropdown-padding-x;
   background-color: $dropdown-bg;
-  //top: 42px;
-  //left: -10px;
 
+  /* Dropdown header */
   .dropdown-header {
     @include font-size(12px);
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     white-space: nowrap;
   }
 
+  /* Dropdown menu links */
   .dropdown-item {
     @include font-size(14px);
     @include transition;
@@ -45,6 +41,24 @@
 
     // TODO Adapted from https://github.com/sagaio/user-dropdown-menu/blob/master/trunk/css/dropdown.css
 
+    /* Showing left border styling on hover for better highlighting */
+    &::before {
+      @include transition;
+      @include background-color('primary', 'base');
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      top: 0;
+      width: 2px;
+      opacity: 0;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    /* Selects the hover, focus, active state links for better highlighting */
     &:hover,
     &:focus {
       color: $dropdown-link-hover-color;
@@ -72,22 +86,6 @@
       filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)";
     }
 
-    &::before {
-      @include transition;
-      @include background-color('primary', 'base');
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      top: 0;
-      width: 2px;
-      opacity: 0;
-    }
-
-    &:hover::before {
-      opacity: 1;
-    }
-
   }
 
   &:before {
@@ -113,8 +111,7 @@
   }
 
 
-
-
+  /* Positioning submenu layout to left */
   &.dropdown-menu-right {
     &:before {
       right: 16px;
@@ -126,7 +123,9 @@
       right: 14px;
     }
 
+    /* Second, Third and more levels */
     & .dropdown-menu {
+      top: 0;
       left: -100%;
       margin-left: .1rem;
       margin-right: .1rem;
@@ -136,7 +135,12 @@
 
 }
 
+//----------------------------------*\
+// DROPDOWN SUBMENU
+//----------------------------------*/
+// The styles below are applicable for both extended and default bootstrap dropdown
 // TODO Adapted from https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation/45755948#45755948
+
 .dropdown-submenu {
   position: relative;
 
@@ -144,9 +148,10 @@
     transform: rotate(-90deg);
     position: absolute;
     right: 6px;
-    top: .8em;
+    top: 1.2em;
   }
 
+  /* Second, Third and more levels */
   & .dropdown-menu {
     top: 0;
     left: 100%;
@@ -160,16 +165,10 @@
   }
 }
 
-//.dropdown-submenu a::after {
-//  transform: rotate(-90deg);
-//  position: absolute;
-//  right: 6px;
-//  top: .8em;
-//}
-
-//.dropdown-submenu .dropdown-menu {
-//  top: 0;
-//  left: 100%;
-//  margin-left: .1rem;
-//  margin-right: .1rem;
-//}
+/* Remove the arrow in dropdown to replace with Icon */
+.dropdown-toggle.no-arr {
+  &:after {
+    //display: none;
+    content: none;
+  }
+}

@@ -15,7 +15,8 @@
   @include background-color('aside', 'base');
   @include color('aside', 'font-color');
   @include transition;
-  transform: translateX(100%); /*Hiding sidebar as default*/
+  /*Hiding sidebar as default*/
+  transform: translateX(100%);
   width: $sidebar-width;
   padding-bottom: $footer-height;
   position: absolute;
@@ -28,8 +29,9 @@
     position: fixed;
   }
 
+  /* Showing sidebar if body has .aside-is-open class */
   .aside-is-open & {
-    transform: translateX(0); /*Showing sidebar if body has .aside-is-open class*/
+    transform: translateX(0);
   }
 
   &__wrap {
