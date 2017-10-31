@@ -103,7 +103,7 @@ var appMaster = {
 
         // On click Adapted from https://codepen.io/adammacias/pen/dozPVQ
         $('.dropdown').on('show.bs.dropdown', function(e){
-            $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+            $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);  // fade fadeOut(), fadeIn()
 
         });
 
@@ -118,7 +118,6 @@ var appMaster = {
             if (!$(this).next().hasClass('show')) {
                 $(this).parents('.dropdown-menu').first().find('.show').removeClass("show").prev('.dropdown-toggle').toggleClass('active');
             }
-
 
             var $subMenu = $(this).next(".dropdown-menu");
             $subMenu.toggleClass('show').prev('.dropdown-toggle').toggleClass('active');

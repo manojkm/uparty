@@ -29,8 +29,9 @@ body {
 a {
   &,
   &:hover,
-  &:focus/*,
-  &:visited*/ {
+  &:focus /*,
+  &:visited*/
+  {
     @include color('primary', 'base');
     text-decoration: none;
   }

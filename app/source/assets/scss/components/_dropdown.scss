@@ -31,6 +31,7 @@
   /* Dropdown menu links */
   .dropdown-item {
     @include font-size(14px);
+    //@include add-border(2px, transparent, left);
     @include transition;
     clear: both;
     width: 100%;
@@ -39,39 +40,55 @@
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     color: $dropdown-link-color;
 
+    /* Flexbox */
+    display: flex;
+    align-items: center;
+
+    i {
+      @include font-size(14px);
+      width: $dropdown-icon-width;
+      display: inline-block;
+      margin: 0 $dropdown-item-padding-x 0 0;
+      color: $dropdown-link-color;
+      text-align: center;
+    }
+
     // TODO Adapted from https://github.com/sagaio/user-dropdown-menu/blob/master/trunk/css/dropdown.css
 
     /* Showing left border styling on hover for better highlighting */
-    &::before {
-      @include transition;
-      @include background-color('primary', 'base');
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      top: 0;
-      width: 2px;
-      opacity: 0;
-    }
+    /* &::before {
+       @include transition;
+       @include background-color('primary', 'base');
+       content: '';
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       top: 0;
+       width: 2px;
+       opacity: 0;
+     }
 
-    &:hover::before {
-      opacity: 1;
-    }
+     &:hover::before
+     {
+       opacity: 1;
+     }*/
 
     /* Selects the hover, focus, active state links for better highlighting */
     &:hover,
     &:focus {
       color: $dropdown-link-hover-color;
       background: $dropdown-link-hover-bg;
+      //@include border-left-color('primary', 'base');
     }
 
     &.active,
     &.active:focus,
     &.active:hover,
     &:active {
+      //@include border-left-color('primary', 'base');
       color: $dropdown-link-active-color;
-      text-decoration: none;
       background-color: $dropdown-link-active-bg;
+      text-decoration: none;
 
     }
 
@@ -79,6 +96,7 @@
     &.disabled:focus,
     &.disabled:hover,
     &:disabled {
+      //@include add-border(2px, transparent, left);
       color: $dropdown-link-disabled-color;
       background-color: transparent;
       cursor: not-allowed;
@@ -90,28 +108,30 @@
 
   &:before {
     content: "";
-    border-bottom: 8px solid #fff;
-    border-right: 8px solid transparent;
-    border-left: 8px solid transparent;
+    border-bottom: 6px solid #fff;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
     position: absolute;
-    top: -8px;
+    top: -6px;
     left: 16px;
     z-index: 10;
   }
 
   &:after {
     content: "";
-    border-bottom: 10px solid #ccc;
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
+    border-bottom: 8px solid #ccc;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
     position: absolute;
-    top: -10px;
+    top: -8px;
     left: 14px;
     z-index: 9;
   }
 
+  /* Positioning submenu layout.
+     Add extra class to `.dropdown-menu` to flip the alignment of the dropdown.
+   */
 
-  /* Positioning submenu layout to left */
   &.dropdown-menu-right {
     &:before {
       right: 16px;
@@ -144,6 +164,7 @@
 .dropdown-submenu {
   position: relative;
 
+  /* Arrow icon */
   > a:after {
     transform: rotate(-90deg);
     position: absolute;
@@ -171,4 +192,66 @@
     //display: none;
     content: none;
   }
+}
+
+//----------------------------------*\
+// BOOTSTRAP DROPDOWN MENU - EXTENDED - THEMED
+//----------------------------------*/
+.dropdown-menu.extended.themed,
+.dropdown-menu.extended.themed .dropdown-menu {
+  @include background-color('header', 'base');
+  border: 0;
+
+  /* Dropdown header */
+  .dropdown-header {
+    @include color('header', 'link-color');
+  }
+
+  /* Dropdown menu links */
+  .dropdown-item {
+
+    &,
+    i {
+      @include color('header', 'link-color');
+    }
+
+    /* Selects the hover, focus, active state links for better highlighting */
+    &:hover,
+    &:focus {
+      @include color('header', 'hover-color');
+      @include background-color('header', 'dark');
+    }
+
+    &.active,
+    &.active:focus,
+    &.active:hover,
+    &:active {
+      @include color('header', 'active-color');
+      @include background-color('header', 'dark');
+
+    }
+
+    &.disabled,
+    &.disabled:focus,
+    &.disabled:hover,
+    &:disabled {
+      background-color: transparent;
+      opacity: 0.6;
+    }
+
+  }
+
+  &:before {
+    @include border-bottom-color('header', 'base');
+  }
+
+  &:after {
+    @include border-bottom-color('header', 'light');
+  }
+
+}
+
+/* Positioning first level dropdown menu */
+.dropdown-menu.extended.themed {
+  top: 50px;
 }

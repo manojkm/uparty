@@ -64,7 +64,7 @@
     @include background-color('sidebar', 'base');
     @include border-top-color('sidebar', 'light');
     @include transition;
-    @extend %o-v-show;
+    @extend %o-v-none;
     border-top: 1px solid;
     position: fixed;
     bottom: 0;
@@ -91,8 +91,8 @@
 
     .#{$s}__footer-item {
       @include transition;
+      @extend %o-v-none;
       position: relative;
-      @extend %o-v-show;
       /* Flexbox */
       display: flex;
       align-items: center;
@@ -223,6 +223,12 @@
 
     .#{$s}__footer {
       width: $sidebar-width;
+      @extend %o-v-show;
+
+      .#{$s}__footer-item {
+        @extend %o-v-show;
+      }
+
     }
   }
 
@@ -234,12 +240,9 @@
   /* Closed sidebar */
   &-is-closed & {
     width: 0;
-    //
-    //[data-side="mini"] {
-    //  display: none;
-    //}
 
     .#{$s}__footer {
+      @include transition;
       @extend %o-v-none;
       width: 0;
       overflow-x: hidden;
