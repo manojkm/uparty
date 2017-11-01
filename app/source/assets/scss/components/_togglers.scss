@@ -8,6 +8,88 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+
+/* Navbar toggle button - Bootstrap default class name .navbar-toggler */
+.navbar-toggler {
+  position: relative;
+  padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
+
+  /* Hamburger icon */
+  & .icon-bar {
+    @include background-color('primary', 'base');
+  }
+  &.collapsed {
+    &:hover {
+      .icon-bar {
+        + .icon-bar {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
+}
+
+/* Sidebar toggle button */
+.sidebar--toggler {
+  @include background-color('primary', 'base');
+  padding: $sidebar-toggler-padding-y $sidebar-toggler-padding-x;
+  height: $sidebar-toggler-height;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    @include background-color('primary', 'light');
+
+  }
+
+  &.collapsed {
+    &:hover {
+      .icon-bar {
+        + .icon-bar {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
+  /* Hamburger icon */
+  & .icon-bar {
+    @include background-color('header', 'font-color');
+  }
+}
+
+/* Aside toggle button */
+.aside--toggler {
+  @include background-color('header', 'base');
+  @include transition;
+  position: relative;
+  padding: $aside-toggler-padding-y $aside-toggler-padding-x;
+  height: $aside-toggler-height;
+  border: 0;
+  cursor: pointer;
+
+  /* Hamburger icon */
+  & .icon-bar {
+    @include background-color('primary', 'base');
+  }
+
+  &.collapsed {
+    .icon-bar {
+      @include background-color('header', 'link-color');
+    }
+    &:hover {
+      .icon-bar {
+        @include background-color('header', 'hover-color');
+        + .icon-bar {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+}
+
+
 // Adapted from https://codepen.io/jorenerene/pen/vxKbJb?editors=1100
 
 /* HAMBURGER ICON */
@@ -222,8 +304,6 @@
   transform: translate3d(0px,-6px,0) rotate(-90deg);
   transform-origin: center center;
 }
-
-
 
 .mini .icon-bar:nth-of-type(1) {
   transform: translate3d(0,6px,0);

@@ -31,8 +31,6 @@ $white-color: #fff; // hex of the white
 $black-color: #000; // hex of the black
 
 /*Grayscale*/
-
-
 $grey: lighten($black-color, 33.5%); // #555
 $grey-light: lighten($black-color, 60%); // #999
 $grey-x-light: lighten($black-color, 93.5%); // #eee
@@ -52,40 +50,69 @@ $text-color: $grey-dark;
 //----------------------------------*/
 
 //----------------------------------*\
-// HEADER
+// HEADER, NAVBAR
 //----------------------------------*/
-/*Header color variables can be found in themes/_theme-map.scss*/
+/* Header color variables can be found in themes/_theme-map.scss */
 $header-height: 40px;
+$navbar-font-size: 13px;
+$navbar-text-font-size: $navbar-font-size;
+$navlink-padding-y: 0px;
+$navlink-padding-x: 0px;
 $navbar-toggler-bg:;
 $navbar-toggler-border-colour:;
 
 //----------------------------------*\
 // BOOTSTRAP DROPDOWN MENU - EXTENDED
 //----------------------------------*/
+$dropdown-bg: $white-color;
+
+$dropdown-font-size: 13px;
+$dropdown-header-font-size: $dropdown-font-size;
+
+$dropdown-margin-top: 10px;
+
 $dropdown-padding-y: 5px;
 $dropdown-padding-x: 0px;
 $dropdown-item-padding-y: 8px;
 $dropdown-item-padding-x: 12px;
-$dropdown-bg : $white-color;
-$dropdown-link-color:$grey-xx-dark;
+
+$dropdown-link-color: $grey-xx-dark;
 $dropdown-link-hover-color: $grey-xx-dark;
 $dropdown-link-hover-bg: $grey-xx-light;
 
 $dropdown-link-active-color: $grey-xx-dark;
 $dropdown-link-active-bg: $grey-x-light;
-$dropdown-link-disabled-color:$grey-light;
+$dropdown-link-disabled-color: $grey-light;
+$dropdown-divider-color: $grey-x-light;
 
 $dropdown-icon-width: 20px;
 
 //----------------------------------*\
 // BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED
 //----------------------------------*/
-
-
+/* Themed dropdown styles are based on header map that
+   can be found in themes/_theme-map.scss*/
 
 //----------------------------------*\
 // SEARCH
 //----------------------------------*/
+
+//----------------------------------*\
+// TOGGLERS
+//----------------------------------*/
+/* Navbar toggle button */
+$navbar-toggler-padding-y: 10px;
+$navbar-toggler-padding-x: 10px;
+
+/* Sidebar toggle button */
+$sidebar-toggler-height: $header-height;
+$sidebar-toggler-padding-y: 10px;
+$sidebar-toggler-padding-x: 10px;
+
+/* Aside toggle button */
+$aside-toggler-height: $header-height;
+$aside-toggler-padding-y: 10px;
+$aside-toggler-padding-x: 10px;
 
 //----------------------------------*\
 // BREADCRUMBS
@@ -95,23 +122,37 @@ $breadcrumb-bg: #fff;
 //----------------------------------*\
 // SIDEBAR
 //----------------------------------*/
-/*Sidebar color variables can be found in themes/_theme-map.scss*/
+/* Sidebar color variables can be found in themes/_theme-map.scss */
+
+$sidebar-brand-height: 50px;
+
+$sidebar-font-size: 15px;
+$sidebar-icon-font-size: $sidebar-font-size;
+$sidebar-header-font-size: 10px;
+$sidebar-header-height: 30px;
+
 $sidebar-width: 200px;
 $sidebar-padding-left: 10px;
 $sidebar-icon-width: 20px;
-$sidebar-mini-width: 60px;
+
 $sidebar-item-height: 40px;
-$sidebar-header-height: 30px;
 $sidebar-divider-height: 10px;
+
+$sidebar-submenu-font-size: 13px;
 $sidebar-submenu-item-height: 30px;
 $sidebar-submenu-width: $sidebar-width;
-$sidebar-submenu-padding-x:0;
-$sidebar-submenu-padding-y:10px;
 
-$sidebar-active-menu-width: $sidebar-width + $sidebar-mini-width;
-$sidebar-brand-height: 50px;
+$sidebar-mini-width: 60px;
+$sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
+
+
+/* Sidebar footer */
+$sidebar-footer-item-height: $sidebar-item-height;
+$sidebar-footer-child-item-height: $sidebar-submenu-item-height;
+$sidebar-footer-width:$sidebar-width;
+$sidebar-footer-font-size: $sidebar-submenu-font-size;
+$sidebar-footer-icon-font-size: 15px;
 $sidebar-footer-height: 40px;
-
 
 //----------------------------------*\
 // FONTS
@@ -220,20 +261,19 @@ $screen-lg-max: ($screen-xl-min - 1) !default; /*1999px*/
 // BADGES
 //----------------------------------*/
 /* Including relevant variables from bootstrap variables.scss */
-$badge-pill-border-radius:    10rem !default;
-
+$badge-pill-border-radius: 10rem !default;
 
 //----------------------------------*\
 // ZINDEX
 //----------------------------------*/
 $zindex: (
-        modal     : 9000,
-        overlay   : 1200,
-        dropdown  : 1000,
-        header    : 1300,
-        footer    : 1000,
-        sidebar   : 1000,
-        aside     : 1300
+        modal : 9000,
+        overlay : 1200,
+        dropdown : 1000,
+        header : 1300,
+        footer : 1000,
+        sidebar : 1000,
+        aside : 1300
 );
 
 //----------------------------------*\

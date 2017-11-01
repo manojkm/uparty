@@ -19,33 +19,32 @@
   max-width: 320px;
   min-width: 160px;
   padding: $dropdown-padding-y $dropdown-padding-x;
+  margin-top: $dropdown-margin-top; /* Positioning first level dropdown menu */
   background-color: $dropdown-bg;
 
+
   /* Dropdown header */
-  .dropdown-header {
-    @include font-size(12px);
+  & .dropdown-header {
+    @include font-size($dropdown-header-font-size);
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     white-space: nowrap;
   }
 
   /* Dropdown menu links */
-  .dropdown-item {
-    @include font-size(14px);
+  & .dropdown-item {
+    @include font-size($dropdown-font-size);
     //@include add-border(2px, transparent, left);
     @include transition;
     clear: both;
-    width: 100%;
-    white-space: nowrap;
     position: relative;
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     color: $dropdown-link-color;
-
     /* Flexbox */
     display: flex;
     align-items: center;
 
     i {
-      @include font-size(14px);
+      @include font-size($dropdown-font-size);
       width: $dropdown-icon-width;
       display: inline-block;
       margin: 0 $dropdown-item-padding-x 0 0;
@@ -106,6 +105,7 @@
 
   }
 
+  /* Dropdown top arrow */
   &:before {
     content: "";
     border-bottom: 6px solid #fff;
@@ -128,9 +128,11 @@
     z-index: 9;
   }
 
-  /* Positioning submenu layout.
-     Add extra class to `.dropdown-menu` to flip the alignment of the dropdown.
-   */
+  & .dropdown-divider {
+    border-top: 1px solid $dropdown-divider-color;
+  }
+
+  /* Positioning submenu layout. Add extra class to `.dropdown-menu` to flip the alignment of the dropdown. */
 
   &.dropdown-menu-right {
     &:before {
@@ -147,8 +149,8 @@
     & .dropdown-menu {
       top: 0;
       left: -100%;
-      margin-left: .1rem;
-      margin-right: .1rem;
+      margin-left: -1px;
+      //margin-right: .1rem;
     }
 
   }
@@ -176,21 +178,12 @@
   & .dropdown-menu {
     top: 0;
     left: 100%;
-    margin-left: .1rem;
-    margin-right: .1rem;
+    margin-left: 1px;
 
     &:before,
     &:after {
       display: none;
     }
-  }
-}
-
-/* Remove the arrow in dropdown to replace with Icon */
-.dropdown-toggle.no-arr {
-  &:after {
-    //display: none;
-    content: none;
   }
 }
 
@@ -215,7 +208,7 @@
       @include color('header', 'link-color');
     }
 
-    /* Selects the hover, focus, active state links for better highlighting */
+    /* Change the hover, focus, active state links for better highlighting */
     &:hover,
     &:focus {
       @include color('header', 'hover-color');
@@ -241,6 +234,11 @@
 
   }
 
+  & .dropdown-divider {
+    @include border-top-color('header', 'light');
+    border-top: 1px solid;
+  }
+
   &:before {
     @include border-bottom-color('header', 'base');
   }
@@ -252,6 +250,14 @@
 }
 
 /* Positioning first level dropdown menu */
-.dropdown-menu.extended.themed {
-  top: 50px;
+//.dropdown-menu.extended.themed {
+//  margin-top: $dropdown-extended-themed-margin-top;
+//}
+
+/* Remove the arrow in dropdown to replace with Icon */
+.dropdown-toggle.no-arr {
+  &:after {
+    //display: none;
+    content: none;
+  }
 }

@@ -22,11 +22,10 @@
   .navbar-text {
     @include color('header', 'font-color');
     @include opacity(0.8);
-    @include font-size(13px);
+    @include font-size($navbar-text-font-size);
     line-height: $header-height;
   }
 
-  /* Change the link color */
   .navbar-nav {
     align-items: center;
 
@@ -40,23 +39,25 @@
         text-align: left;
       }
 
+      /* Navbar menu links */
       .nav-link {
         @include color('header', 'link-color');
-        @include font-size(13px);
+        @include font-size($navbar-font-size);
         @include transition;
+        padding: $navlink-padding-y $navlink-padding-x;
         background-color: transparent;
-        padding-top: 0;
-        padding-bottom: 0;
         line-height: $header-height;
 
         &.disabled {
           @include opacity(0.3);
           cursor: not-allowed;
         }
-        /* Change the color of focus, hovered links*/
+        /* Change the hover, focus, active state links for better highlighting */
         &:focus,
+        &:active,
         &:hover {
           @include background-color('header', 'dark');
+          //background-color: transparent;
           @include color('header', 'hover-color');
           &.disabled {
             @include opacity(0.3);
@@ -65,15 +66,13 @@
         }
 
         .badge {
-          @include font-size(10px);
-          font-weight: normal;
           position: absolute;
           right: 4px;
           top: 8px;
         }
       }
 
-      /* Change the color of open, show, active links*/
+      /* Change the color of open, show, active links for better highlighting */
       &.open > .nav-link,
       &.show > .nav-link,
       &.active > .nav-link {
@@ -83,81 +82,10 @@
     }
   }
 
-  /* Navbar toggle button */
-  .navbar--toggler {
-    position: relative;
-    padding: 10px;
-
-    /* Hamburger icon */
-    & .icon-bar {
-      @include background-color('primary', 'base');
-    }
-
-  }
-
-  /* Sidebar toggle button */
-  .sidebar--toggler {
-    @include background-color('primary', 'base');
-    padding: 10px;
-    height: $header-height;
-    border: 0;
-    cursor: pointer;
-
-    &:hover {
-      @include background-color('primary', 'light');
-
-    }
-
-    &.collapsed {
-      &:hover {
-        .icon-bar {
-          + .icon-bar {
-            margin-top: 6px;
-          }
-        }
-      }
-    }
-
-    /* Hamburger icon */
-    & .icon-bar {
-      @include background-color('header', 'font-color');
-    }
-  }
-
-  /* Aside toggle button */
-  .aside--toggler {
-    @include background-color('header', 'base');
-    position: relative;
-    padding: 10px;
-    height: $header-height;
-    border: 0;
-    cursor: pointer;
-    @include transition;
-
-    /* Hamburger icon */
-    & .icon-bar {
-      @include background-color('primary', 'base');
-    }
-
-    &.collapsed {
-      .icon-bar {
-        @include background-color('header', 'link-color');
-      }
-      &:hover{
-        .icon-bar {
-          @include background-color('header', 'hover-color');
-          + .icon-bar {
-            margin-top: 6px;
-          }
-        }
-      }
-    }
-  }
-
-  /* HACK -Overriding bootstrap default value to avoid jerking */
-  .dropdown-menu {
+  /* HACK - Overriding bootstrap default value to avoid jerking */
+  /*.dropdown-menu {
     margin-top: 0;
-  }
+  }*/
 
 }
 

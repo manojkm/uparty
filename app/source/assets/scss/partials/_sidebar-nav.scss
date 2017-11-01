@@ -29,7 +29,7 @@
 
     a {
       @include color('sidebar', 'link-color');
-      @include font-size(15px);
+      @include font-size($sidebar-font-size);
       @include transition;
       //@include transition(color 0.3s ease-in-out);
       //@include transition(background-color 0.3s ease-in-out);
@@ -60,7 +60,7 @@
 
   &__header {
     @include add-border(2px, transparent, left);
-    @include font-size(12px);
+    @include font-size($sidebar-header-font-size);
     @include color('sidebar', 'link-color');
     @include transition;
     padding-left: $sidebar-padding-left;
@@ -99,7 +99,7 @@
       display: inline-block;
 
       > i {
-        @include font-size(14px);
+        @include font-size($sidebar-icon-font-size);
         width: $sidebar-icon-width;
       }
     }
@@ -140,12 +140,12 @@
       line-height: $sidebar-submenu-item-height;
 
       &:last-of-type  {
-        padding-bottom: $sidebar-submenu-padding-y;
+        padding-bottom: 10px;
       }
     }
 
     a {
-      @include font-size(13px);
+      @include font-size($sidebar-submenu-font-size);
       //padding: 5px 15px 5px ($sidebar-icon-width + $sidebar-padding-left);
       text-indent: $sidebar-icon-width;
       margin: 0 0 0 ($sidebar-padding-left / 2);
@@ -224,7 +224,7 @@
     &:hover*/
     {
       > a {
-        width: $sidebar-active-menu-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
+        width: $sidebar-mini-active-menu-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
         position: static;
 
         .#{$s}__item-title {

@@ -14,42 +14,58 @@
 
 // TODO Adapted from https://codepen.io/uimax/pen/kkadmY
 .badge {
-/*  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 6px;
-  border: 1px solid transparent;
-  min-width: 10px;
-  line-height: 1;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  border-radius: 99999px*/
+
+  &.badge-primary {
+    //background-color: #2196F3
+  }
+
+  &.badge-secondary {
+    //background-color: #323a45
+  }
+
+  &.badge-success {
+    //background-color: #64DD17
+  }
+
+  &.badge-danger {
+    //background-color: #ef1c1c
+  }
+
+  &.badge-warning {
+    //background-color: #FFD600
+  }
+
+  &.badge-info {
+    //background-color: #29B6F6
+  }
+
+
+  // TODO Remove the below later
+/*
+// Refer nice ui
+  &.badge-xs {
+    padding: $badge-xs-padding;
+    font-size: $badge-xs-font-size;
+    line-height: $badge-xs-line-height;
+  }
+  &.badge-sm {
+    padding: $badge-sm-padding;
+    font-size: $badge-sm-font-size;
+    line-height: $badge-sm-line-height;
+  }
+  &.badge-md {
+    padding: $badge-padding;
+    font-size: $badge-font-size;
+    line-height: $badge-line-height;
+  }
+  &.badge-lg {
+    padding: $badge-lg-padding;
+    font-size: $badge-lg-font-size;
+    line-height: $badge-lg-line-height;
+  }*/
+
+
 }
 
 
-.badge.badge-primary {
-  background-color: #2196F3
-}
-
-.badge.badge-secondary {
-  background-color: #323a45
-}
-
-.badge.badge-success {
-  background-color: #64DD17
-}
-
-.badge.badge-danger {
-  background-color: #ef1c1c
-}
-
-.badge.badge-warning {
-  background-color: #FFD600
-}
-
-.badge.badge-info {
-  background-color: #29B6F6
-}
 
