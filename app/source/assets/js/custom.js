@@ -8,7 +8,7 @@ var appMaster = {
 
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
-    _side_nav: $('.sidebar__nav , .sidebar__footer-nav'),
+    _side_nav: $('.sidebar__nav, .sidebar__footer-nav'),
     _aside: $("[data-aside='show']"),
     _mini: $("[data-side='mini']"),
     _hide: $("[data-side='hide']"),

@@ -23,18 +23,27 @@
     @include color('header', 'font-color');
     @include opacity(0.8);
     @include font-size($navbar-text-font-size);
-    line-height: $header-height;
+    //min-height: $header-height;
+    /* Flexbox */
+    display: flex;
+    align-items: center;
   }
 
   .navbar-nav {
     align-items: center;
+    min-height: $header-height;
+    /* Flexbox */
+    display: flex;
+    align-items: stretch;
 
     .nav-item {
       position: relative;
-      min-width: 50px;
       text-align: center;
+      /* Flexbox */
+      display: flex;
+      align-items: stretch;
 
-      @include max-screen($screen-sm-max) {
+      @include max-screen($screen-md-max) {
         min-width: 100%;
         text-align: left;
       }
@@ -46,12 +55,15 @@
         @include transition;
         padding: $navlink-padding-y $navlink-padding-x;
         background-color: transparent;
-        line-height: $header-height;
+        /* Flexbox */
+        display: flex;
+        align-items: center;
 
         &.disabled {
           @include opacity(0.3);
           cursor: not-allowed;
         }
+
         /* Change the hover, focus, active state links for better highlighting */
         &:focus,
         &:active,
@@ -68,7 +80,8 @@
         .badge {
           position: absolute;
           right: 4px;
-          top: 8px;
+          //top: 8px;
+          margin-top: -5px;
         }
       }
 
@@ -81,11 +94,6 @@
       }
     }
   }
-
-  /* HACK - Overriding bootstrap default value to avoid jerking */
-  /*.dropdown-menu {
-    margin-top: 0;
-  }*/
 
 }
 

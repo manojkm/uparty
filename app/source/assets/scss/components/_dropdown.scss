@@ -8,9 +8,9 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//--------------------------------------------------------------*\
-// BOOTSTRAP DROPDOWN MENU - EXTENDED (.dropdown-menu.extended")
-//--------------------------------------------------------------*/
+//----------------------------------*\
+// BOOTSTRAP DROPDOWN MENU - EXTENDED
+//----------------------------------*/
 // TODO Adapted from https://codepen.io/pawelwojtas/pen/rGPpbd
 
 .dropdown-menu.extended {
@@ -23,6 +23,29 @@
     padding: $dropdown-padding-y $dropdown-padding-x;
     margin-top: $dropdown-margin-top; /* Positioning first level dropdown menu */
     background-color: $dropdown-bg;
+  }
+
+  /* Dropdown top arrow */
+  &:before {
+    content: "";
+    border-bottom: 6px solid #fff;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    position: absolute;
+    top: -6px;
+    left: 16px;
+    z-index: 10;
+  }
+
+  &:after {
+    content: "";
+    border-bottom: 8px solid #ccc;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    position: absolute;
+    top: -8px;
+    left: 14px;
+    z-index: 9;
   }
 
   /* Dropdown header */
@@ -74,7 +97,7 @@
        opacity: 1;
      }*/
 
-    /* Selects the hover, focus, active state links for better highlighting */
+    /* Change the hover, focus, active state links for better highlighting */
     &:hover,
     &:focus {
       color: $dropdown-link-hover-color;
@@ -105,29 +128,6 @@
       filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)";
     }
 
-  }
-
-  /* Dropdown top arrow */
-  &:before {
-    content: "";
-    border-bottom: 6px solid #fff;
-    border-right: 6px solid transparent;
-    border-left: 6px solid transparent;
-    position: absolute;
-    top: -6px;
-    left: 16px;
-    z-index: 10;
-  }
-
-  &:after {
-    content: "";
-    border-bottom: 8px solid #ccc;
-    border-right: 8px solid transparent;
-    border-left: 8px solid transparent;
-    position: absolute;
-    top: -8px;
-    left: 14px;
-    z-index: 9;
   }
 
   & .dropdown-divider {
@@ -188,9 +188,9 @@
   }
 }
 
-//-----------------------------------------------------------------------------*\
-// BOOTSTRAP DROPDOWN MENU - EXTENDED - THEMED (.dropdown-menu.extended.themed")
-//-----------------------------------------------------------------------------*/
+//-------------------------------------------*\
+// BOOTSTRAP DROPDOWN MENU - EXTENDED - THEMED
+//-------------------------------------------*/
 .dropdown-menu.extended.themed {
 
   &,

@@ -36,7 +36,7 @@ $text-color: $grey-dark;
 // HEADER, NAVBAR
 //----------------------------------*/
 /* Header color variables can be found in themes/_theme-map.scss */
-$header-height: 40px;
+$header-height: 50px;
 $navbar-font-size: 13px;
 $navbar-text-font-size: $navbar-font-size;
 $navlink-padding-y: 0px;
@@ -76,10 +76,6 @@ $dropdown-icon-width: 20px;
 /* Themed dropdown styles are based on header map that can be found in themes/_theme-map.scss */
 
 //----------------------------------*\
-// SEARCH
-//----------------------------------*/
-
-//----------------------------------*\
 // TOGGLERS
 //----------------------------------*/
 /* Navbar toggle button */
@@ -87,14 +83,21 @@ $navbar-toggler-padding-y: 10px;
 $navbar-toggler-padding-x: 10px;
 
 /* Sidebar toggle button */
-$sidebar-toggler-height: $header-height;
-$sidebar-toggler-padding-y: 10px;
+$sidebar-toggler-height: $header-height - 10;
+$sidebar-toggler-padding-y: 0px;
 $sidebar-toggler-padding-x: 10px;
 
 /* Aside toggle button */
 $aside-toggler-height: $header-height;
 $aside-toggler-padding-y: 10px;
 $aside-toggler-padding-x: 10px;
+
+//----------------------------------*\
+// SEARCH
+//----------------------------------*/
+
+
+
 
 //----------------------------------*\
 // BREADCRUMBS
@@ -220,7 +223,7 @@ $screen-lg-min: $screen-lg !default;
 $screen-xl: 1200px !default;
 $screen-xl-min: $screen-lg !default;
 
-/*So media queries don't overlap when required, provide a maximum*/
+/* So media queries don't overlap when required, provide a maximum */
 
 /* Extra small devices (portrait phones, less than 576px) */
 $screen-xs-max: ($screen-sm-min - 1) !default; /*575px*/

@@ -82,6 +82,7 @@
 
   }
 
+  /* Sidebar menu */
   &__item {
     @include add-border(2px, transparent, left);
     @include transition;
@@ -92,6 +93,7 @@
     line-height: $sidebar-item-height;
     opacity: 1;
 
+    /* Sidebar menu icon*/
     .#{$s}__item-icon {
       margin: 0 ($sidebar-padding-left / 2) 0 0;
       text-align: left;
@@ -104,16 +106,18 @@
       }
     }
 
+    /* Sidebar menu title */
     .#{$s}__item-title {
       display: inline-block;
       flex: 1;
       //margin-left: -3px; /*Negative margin trick to remove the spaces between the elements icon & title* due to display: inline-block */
     }
 
-    &.active,
-    &:active,
+    /* Change the hover, focus, active state links for better highlighting */
     &:hover,
-    &:focus {
+    &:focus,
+    &.active,
+    &:active {
       @include border-left-color('primary', 'base');
       a {
         @include background-color('sidebar', 'dark');
@@ -130,7 +134,7 @@
 
   }
 
-  /*Submenu - Level one*/
+  /* Submenu - First level */
   &__child {
     @include background-color('sidebar', 'dark');
 
@@ -139,7 +143,7 @@
       min-height: $sidebar-submenu-item-height;
       line-height: $sidebar-submenu-item-height;
 
-      &:last-of-type  {
+      &:last-of-type {
         padding-bottom: 10px;
       }
     }
@@ -151,22 +155,20 @@
       margin: 0 0 0 ($sidebar-padding-left / 2);
     }
 
-    /*Submenu - Level two*/
+    /* Second level */
     .#{$s}__child {
       .#{$s}__item {
-        &:last-of-type{
+        &:last-of-type {
           padding-bottom: 0;
         }
       }
       a {
-        //padding-left: $sidebar-icon-width + $sidebar-padding-left + 10;
         text-indent: $sidebar-icon-width + 15;
       }
 
-      /*Submenu - Level three*/
+      /* Third level */
       .#{$s}__child {
         a {
-          //padding-left: $sidebar-icon-width + $sidebar-padding-left + 20;
           text-indent: $sidebar-icon-width + 30;
         }
       }
@@ -176,10 +178,11 @@
 
 }
 
-/*Mini sidebar*/
+/* Mini sidebar */
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
+  /* Hiding headers, dividers */
   &__header,
   &__divider {
     @include transition;
@@ -224,17 +227,17 @@
     &:hover*/
     {
       > a {
-        width: $sidebar-mini-active-menu-width - 2; /*Value 2 is to adjust the width to include border of parent li*/
+        width: $sidebar-mini-active-menu-width - 2; /* Value 2 is to adjust the width to include border of parent li */
         position: static;
 
         .#{$s}__item-title {
           display: inline-block;
-
         }
 
       }
     }
 
+    /* Submenu - First level */
     > .#{$s}__child {
       position: absolute;
       min-width: $sidebar-submenu-width;
@@ -246,13 +249,13 @@
         margin: 0;
       }
 
-      /*Submenu - Level two*/
+      /* Second level */
       .#{$s}__child {
         a {
           text-indent: $sidebar-icon-width;
         }
 
-        /*Submenu - Level three*/
+        /* Third level */
         .#{$s}__child {
           a {
             text-indent: $sidebar-icon-width + 15;
@@ -261,9 +264,5 @@
       }
 
     }
-
   }
-
 }
-
-
