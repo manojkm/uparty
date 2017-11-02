@@ -8,20 +8,22 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
-// BOOTSTRAP DROPDOWN MENU - EXTENDED
-//----------------------------------*/
+//--------------------------------------------------------------*\
+// BOOTSTRAP DROPDOWN MENU - EXTENDED (.dropdown-menu.extended")
+//--------------------------------------------------------------*/
 // TODO Adapted from https://codepen.io/pawelwojtas/pen/rGPpbd
 
-.dropdown-menu.extended,
-.dropdown-menu.extended .dropdown-menu {
-  width: 200px;
-  max-width: 320px;
-  min-width: 160px;
-  padding: $dropdown-padding-y $dropdown-padding-x;
-  margin-top: $dropdown-margin-top; /* Positioning first level dropdown menu */
-  background-color: $dropdown-bg;
+.dropdown-menu.extended {
 
+  &,
+  .dropdown-menu {
+    width: 200px;
+    max-width: 320px;
+    min-width: 160px;
+    padding: $dropdown-padding-y $dropdown-padding-x;
+    margin-top: $dropdown-margin-top; /* Positioning first level dropdown menu */
+    background-color: $dropdown-bg;
+  }
 
   /* Dropdown header */
   & .dropdown-header {
@@ -133,7 +135,6 @@
   }
 
   /* Positioning submenu layout. Add extra class to `.dropdown-menu` to flip the alignment of the dropdown. */
-
   &.dropdown-menu-right {
     &:before {
       right: 16px;
@@ -167,11 +168,11 @@
   position: relative;
 
   /* Arrow icon */
-  > a:after {
+  .dropdown-toggle:after {
     transform: rotate(-90deg);
     position: absolute;
     right: 6px;
-    top: 1.2em;
+    top: 50%;
   }
 
   /* Second, Third and more levels */
@@ -187,13 +188,16 @@
   }
 }
 
-//----------------------------------*\
-// BOOTSTRAP DROPDOWN MENU - EXTENDED - THEMED
-//----------------------------------*/
-.dropdown-menu.extended.themed,
-.dropdown-menu.extended.themed .dropdown-menu {
-  @include background-color('header', 'base');
-  border: 0;
+//-----------------------------------------------------------------------------*\
+// BOOTSTRAP DROPDOWN MENU - EXTENDED - THEMED (.dropdown-menu.extended.themed")
+//-----------------------------------------------------------------------------*/
+.dropdown-menu.extended.themed {
+
+  &,
+  .dropdown-menu {
+    @include background-color('header', 'base');
+    border: 0;
+  }
 
   /* Dropdown header */
   .dropdown-header {
@@ -239,6 +243,7 @@
     border-top: 1px solid;
   }
 
+  /* Dropdown top arrow colors */
   &:before {
     @include border-bottom-color('header', 'base');
   }
@@ -248,11 +253,6 @@
   }
 
 }
-
-/* Positioning first level dropdown menu */
-//.dropdown-menu.extended.themed {
-//  margin-top: $dropdown-extended-themed-margin-top;
-//}
 
 /* Remove the arrow in dropdown to replace with Icon */
 .dropdown-toggle.no-arr {

@@ -20,24 +20,7 @@
 //----------------------------------*\
 // COLOR PALETTE
 //----------------------------------*/
-/* Theme related color palette can be found in themes/_theme-map.scss*/
-
-//----------------------------------*\
-// GLOBAL COLORS
-//----------------------------------*/
-
-/*Basic Colors*/
-$white-color: #fff; // hex of the white
-$black-color: #000; // hex of the black
-
-/*Grayscale*/
-$grey: lighten($black-color, 33.5%); // #555
-$grey-light: lighten($black-color, 60%); // #999
-$grey-x-light: lighten($black-color, 93.5%); // #eee
-$grey-xx-light: lighten($black-color, 97.5%);
-$grey-dark: lighten($black-color, 20%); // #333
-$grey-x-dark: lighten($black-color, 13.5%); // #222
-$grey-xx-dark: lighten($black-color, 9.5%); //
+/* Looking for color palette? Please check themes/_theme-map.scss */
 
 //----------------------------------*\
 // BODY
@@ -62,14 +45,14 @@ $navbar-toggler-bg:;
 $navbar-toggler-border-colour:;
 
 //----------------------------------*\
-// BOOTSTRAP DROPDOWN MENU - EXTENDED
+// BOOTSTRAP DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 //----------------------------------*/
 $dropdown-bg: $white-color;
 
 $dropdown-font-size: 13px;
 $dropdown-header-font-size: $dropdown-font-size;
 
-$dropdown-margin-top: 10px;
+$dropdown-margin-top: 10px; /* Positioning first level dropdown menu */
 
 $dropdown-padding-y: 5px;
 $dropdown-padding-x: 0px;
@@ -88,10 +71,9 @@ $dropdown-divider-color: $grey-x-light;
 $dropdown-icon-width: 20px;
 
 //----------------------------------*\
-// BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED
+// BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 //----------------------------------*/
-/* Themed dropdown styles are based on header map that
-   can be found in themes/_theme-map.scss*/
+/* Themed dropdown styles are based on header map that can be found in themes/_theme-map.scss */
 
 //----------------------------------*\
 // SEARCH
@@ -145,11 +127,10 @@ $sidebar-submenu-width: $sidebar-width;
 $sidebar-mini-width: 60px;
 $sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
 
-
 /* Sidebar footer */
 $sidebar-footer-item-height: $sidebar-item-height;
 $sidebar-footer-child-item-height: $sidebar-submenu-item-height;
-$sidebar-footer-width:$sidebar-width;
+$sidebar-footer-width: $sidebar-width;
 $sidebar-footer-font-size: $sidebar-submenu-font-size;
 $sidebar-footer-icon-font-size: 15px;
 $sidebar-footer-height: 40px;
@@ -160,7 +141,7 @@ $sidebar-footer-height: 40px;
 
 $font-html: (
         size: 100%, /*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
-  //size: 16px
+        //size: 16px
 );
 
 $font: (

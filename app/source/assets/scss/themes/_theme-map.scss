@@ -17,6 +17,10 @@
 //https://github.com/nborracha/plainID-DemoApp/tree/61b66cf018e918bcb17aa87f243fce2bc95d9833
 
 
+//----------------------------------*\
+// FONT & COLORS
+//----------------------------------*/
+
 @import 'fonts';
 @import 'colors';
 
@@ -38,7 +42,7 @@ $default-theme: (
                         'font-color': #fff,
                 ),
                 'secondary': (
-                        'base': $amber,
+                        'base': $mauve,
                         'font-color': #fff,
                 ),
                 'header': (
@@ -69,12 +73,12 @@ $default-theme: (
                         'active-color': #fff,
                 ),
                 'contextual': (
-                        'success': $midnight-blue,
-                        'danger': $midnight-blue,
-                        'warning': $midnight-blue,
-                        'info': $midnight-blue,
-                        //'light': $midnight-blue,
-                        //'dark': $midnight-blue,
+                        'success': $grass-dark,
+                        'danger': $grapefruit-dark,
+                        'warning': $sunflower-dark,
+                        'info': $mint-dark,
+                        'light': $light,
+                        'dark': $dark,
                 ),
                 'green': #71d366,
         ),

@@ -49,7 +49,7 @@
     }
 
     /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
-    &.theme-#{$themeName},
+   /* &.theme-#{$themeName},*/
     .theme-#{$themeName} & {
       // Output the declaration
       #{$property}: $color;
@@ -244,7 +244,7 @@ Usage
 //----------------------------------*\
 // CLEARFIX FOR IE8 & ABOVE
 //----------------------------------*/
-/*Adapted from http://css-tricks.com/snippets/css/clear-fix/*/
+/* Adapted from http://css-tricks.com/snippets/css/clear-fix/ */
 
 @mixin cf {
   &:after {

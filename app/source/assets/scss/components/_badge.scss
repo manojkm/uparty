@@ -8,6 +8,7 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+/* Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false) */
 .badge-pill {
   border-radius: $badge-pill-border-radius;
 }
@@ -16,54 +17,68 @@
 .badge {
 
   &.badge-primary {
-    //background-color: #2196F3
+    @include background-color('primary', 'base');
+    @include color('primary', 'font-color');
   }
 
   &.badge-secondary {
-    //background-color: #323a45
+    @include background-color('secondary', 'base');
+    @include color('secondary', 'font-color');
   }
 
   &.badge-success {
-    //background-color: #64DD17
+    @include background-color('contextual', 'success');
+    color: $white-color;
   }
 
   &.badge-danger {
-    //background-color: #ef1c1c
+    @include background-color('contextual', 'danger');
+    color: $white-color;
   }
 
   &.badge-warning {
-    //background-color: #FFD600
+    @include background-color('contextual', 'warning');
+    color: $grey-xx-dark;
   }
 
   &.badge-info {
-    //background-color: #29B6F6
+    @include background-color('contextual', 'info');
+    color: $white-color;
   }
 
+  &.badge-light {
+    @include background-color('contextual', 'light');
+    color: $grey-xx-dark;
+  }
 
-  // TODO Remove the below later
-/*
-// Refer nice ui
-  &.badge-xs {
-    padding: $badge-xs-padding;
-    font-size: $badge-xs-font-size;
-    line-height: $badge-xs-line-height;
+  &.badge-dark {
+    @include background-color('contextual', 'dark');
+    color: $white-color;
   }
-  &.badge-sm {
-    padding: $badge-sm-padding;
-    font-size: $badge-sm-font-size;
-    line-height: $badge-sm-line-height;
-  }
-  &.badge-md {
-    padding: $badge-padding;
-    font-size: $badge-font-size;
-    line-height: $badge-line-height;
-  }
-  &.badge-lg {
-    padding: $badge-lg-padding;
-    font-size: $badge-lg-font-size;
-    line-height: $badge-lg-line-height;
-  }*/
 
+  // TODO Remove the below later if required
+  /*
+  // Refer nice ui
+    &.badge-xs {
+      padding: $badge-xs-padding;
+      font-size: $badge-xs-font-size;
+      line-height: $badge-xs-line-height;
+    }
+    &.badge-sm {
+      padding: $badge-sm-padding;
+      font-size: $badge-sm-font-size;
+      line-height: $badge-sm-line-height;
+    }
+    &.badge-md {
+      padding: $badge-padding;
+      font-size: $badge-font-size;
+      line-height: $badge-line-height;
+    }
+    &.badge-lg {
+      padding: $badge-lg-padding;
+      font-size: $badge-lg-font-size;
+      line-height: $badge-lg-line-height;
+    }*/
 
 }
 
