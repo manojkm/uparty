@@ -18,6 +18,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+
     ul {
       outline: 0;
       padding: 0;
@@ -31,18 +32,22 @@
       @include color('sidebar', 'link-color');
       @include font-size($sidebar-font-size);
       @include transition;
-      //@include transition(color 0.3s ease-in-out);
-      //@include transition(background-color 0.3s ease-in-out);
+      text-decoration: none;
+      padding: $sidebar-item-padding-y $sidebar-item-padding-x;
+
       /* Flexbox */
       display: flex;
       align-items: center;
       flex-direction: row;
-      text-decoration: none;
-      padding-left: $sidebar-padding-left;
 
       &:hover {
         @include color('sidebar', 'hover-color');
       }
+
+      &.has-arrow::after {
+        right: 10px;
+      }
+
     }
 
   }
@@ -53,7 +58,7 @@
     .#{$s}__header,
     .#{$s}__divider {
       @include transition;
-      opacity: 0;
+      @extend %o-v-none;
       transform: translateX(-100px);
     }
   }
@@ -63,35 +68,35 @@
     @include font-size($sidebar-header-font-size);
     @include color('sidebar', 'link-color');
     @include transition;
+    @extend %o-v-show;
     padding-left: $sidebar-padding-left;
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
     min-height: $sidebar-header-height;
     line-height: $sidebar-header-height;
-    opacity: 1;
     //visibility: visible;
     //transform: translateY(0px);
   }
 
   &__divider {
     @include transition;
+    @extend %o-v-show;
     min-height: $sidebar-divider-height;
     line-height: $sidebar-divider-height;
-    opacity: 1;
 
   }
 
   /* Sidebar menu */
   &__item {
     @include add-border(2px, transparent, left);
+    @extend %o-v-show;
     @include transition;
     position: relative;
     box-sizing: border-box;
     white-space: nowrap;
     min-height: $sidebar-item-height;
     line-height: $sidebar-item-height;
-    opacity: 1;
 
     /* Sidebar menu icon*/
     .#{$s}__item-icon {
@@ -200,6 +205,7 @@
       padding-left: 0;
       width: $sidebar-mini-width - 4;
 
+      .badge,
       &::after {
         display: none;
       }

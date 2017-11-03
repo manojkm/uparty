@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg px-0 py-0 master-header__navbar">
 
     <!-- Mobile sidebar toggle button -->
-    <button class="sidebar--toggler collapsed mr-3 d-lg-none" type="button" data-side="hide">
+    <button class="sidebar--toggler collapsed d-lg-none" type="button" data-side="hide">
         <!-- To display the "hamburger icon" -->
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -17,7 +17,7 @@
 
 
     <!-- Sidebar toggle button -->
-    <button class="sidebar--toggler collapsed rarr mr-3 d-none d-lg-block" type="button" data-side="hide">
+    <button class="sidebar--toggler collapsed rarr d-none d-lg-block" type="button" data-side="hide">
         <!-- To display the "hamburger icon" -->
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -42,13 +42,13 @@
     <div class="collapse navbar-collapse justify-content-start" id="nav-content">
 
         <!-- Welcome text -->
-        <span class="navbar-text py-0 mr-3"> Welcome text goes here </span>
+        <span class="navbar-text py-2 px-3 d-lg-none d-xl-block"> Welcome text goes here </span>
         <!-- /Welcome text -->
 
         <!-- Header left navigation -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link px-3 py-0" href="#">Link left 1</a>
+                <a class="nav-link px-3 py-2" href="#">Link left 1</a>
             </li>
         </ul>
         <!-- /Header left navigation -->
@@ -56,14 +56,14 @@
         <!-- Header right navigation -->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link px-3 py-0" href="#">Link 1</a>
+                <a class="nav-link px-3 py-2" href="#">Link 1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link px-3 py-0" href="#">Link 2</a>
+                <a class="nav-link px-3 py-2" href="#">Link 2</a>
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle px-3 py-0" href="#" id="navbarDropdownMenuLink"
+                <a class="nav-link dropdown-toggle px-3 py-2" href="#" id="navbarDropdownMenuLink"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Themed Dropdown link
                 </a>
@@ -75,14 +75,14 @@
                         <span class="ml-auto badge badge-secondary">42</span></a></li>
                     <li><a class="dropdown-item disabled" href="#"><i class="fa fa-comments"></i>Disabled link
                         <span class="ml-auto badge badge-primary">42</span></a></li>
-                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#"><i
-                            class="fa fa-tasks"></i>Submenu</a>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks"></i>Submenu</a>
 
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Submenu action</a></li>
                             <li><a class="dropdown-item" href="#">Another submenu action</a></li>
-                            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle"
-                                                            href="#">Subsubmenu</a>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
                                     <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
@@ -107,7 +107,7 @@
 
             <!-- Inbox Dropdown -->
             <li class="nav-item dropdown">
-                <a class="nav-link px-3 py-0 dropdown-toggle no-arr" href="#" id="navbarDropdownInbox"
+                <a class="nav-link px-3 py-2 dropdown-toggle no-arr" href="#" id="navbarDropdownInbox"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
                     <span class="badge badge-pill badge-danger">5</span>
@@ -136,10 +136,10 @@
             </li>
             <!-- /Inbox Dropdown -->
             <li class="nav-item ">
-                <a class="nav-link px-3 py-0 disabled" href="#">Disabled</a>
+                <a class="nav-link px-3 py-2 disabled" href="#">Disabled</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link px-3 py-0 dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown"
+                <a class="nav-link px-3 py-2 dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     Dropdown
                 </a>
