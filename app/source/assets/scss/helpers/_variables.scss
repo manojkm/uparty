@@ -36,8 +36,11 @@ $text-color: $grey-dark;
 // HEADER, NAVBAR
 //----------------------------------*/
 /* Header color variables can be found in themes/_theme-map.scss */
-$header-height: 55px;
+$header-height: 50px;
 $navbar-font-size: 13px;
+$navbar-link-height:$header-height;
+$navbar-link-md-height:$header-height - 10;
+
 $navbar-text-font-size: $navbar-font-size;
 //$navlink-padding-y: 0px;
 //$navlink-padding-x: 0px;
@@ -96,8 +99,10 @@ $aside-toggler-padding-x: 10px;
 // SEARCH
 //----------------------------------*/
 
-
-
+//----------------------------------*\
+// SHADOWS
+//----------------------------------*/
+$container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
 
 //----------------------------------*\
 // BREADCRUMBS
@@ -124,7 +129,7 @@ $sidebar-item-height: 40px;
 $sidebar-item-padding-y: 0px;
 $sidebar-item-padding-x: $sidebar-padding-left;
 
-$sidebar-divider-height: 10px;
+$sidebar-divider-height: 20px;
 
 $sidebar-submenu-font-size: 13px;
 $sidebar-submenu-item-height: 30px;
