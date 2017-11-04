@@ -12,26 +12,12 @@
 <!--Sidebar navigation-->
 <nav class="sidebar__nav">
     <ul class="sidebar__list metismenu list-unstyled" data-plugin="metismenu">
-        <li class="sidebar__item">
-            <a href="#">
-                <span class="sidebar__item-icon"><i class="fa fa-camera-retro"></i></span>
-                <span class="sidebar__item-title">Menu 1</span>
-            </a>
-        </li>
-        <li class="sidebar__divider"></li>
-        <li class="sidebar__header">
-            UI Elements
-        </li>
+        <li class="sidebar__header">UI Elements</li>
         <li class="sidebar__item active">
             <a href="#" class="has-arrow">
                 <span class="sidebar__item-icon"><i class="fa fa-camera-retro"></i></span>
                 <span class="sidebar__item-title">Menu 2</span>
-
                 <span class="ml-auto mr-3 badge badge-info">42</span>
-
-                {{!--<span class="nav-tools">
-                      <i class="fa fa-fw arrow"></i>
-                    </span>--}}
             </a>
             <ul class="sidebar__child">
                 <li class="sidebar__item"><a href="#">Level One</a></li>
@@ -49,7 +35,6 @@
                         <li class="sidebar__item"><a href="#">Level Two</a></li>
                     </ul>
                 </li>
-
                 <li class="sidebar__item"><a href="#">Level One</a></li>
             </ul>
         </li>
@@ -65,24 +50,23 @@
                 <li class="sidebar__item"><a href="#">Level One</a></li>
             </ul>
         </li>
-        <li class="sidebar__divider"></li>
-        <li class="sidebar__header">
-            Extras
-        </li>
+    </ul>
+    <div class="sidebar__divider"></div>
+    <ul class="sidebar__list metismenu list-unstyled" data-plugin="metismenu">
+        <li class="sidebar__header">Extras</li>
         <li class="sidebar__item">
             <a href="#">
                 <span class="sidebar__item-icon"><i class="fa fa-camera-retro"></i></span>
                 <span class="sidebar__item-title">Menu 1</span>
             </a>
         </li>
-
-        <li class="sidebar__header">
-            Action
-        </li>
-        <li class="sidebar__item">
+    </ul>
+    <div class="sidebar__divider"></div>
+    <ul class="sidebar__list metismenu list-unstyled" data-plugin="metismenu">
+        <li class="sidebar__header">Action</li>
+        <li class="sidebar__item has-children">
             <a class="btn btn-primary" href="#" role="button">Link</a>
         </li>
-
     </ul>
 
     <ul class="sidebar__list metismenu list-unstyled mt-auto" data-plugin="metismenu">
@@ -122,7 +106,8 @@
                 </ul>
 
                 <!-- TODO Tooltip styling https://codepen.io/andreivictor/pen/MpNQNL -->
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Settings" data-trigger="click"><i class="fa fa-trash"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Settings" data-trigger="click"><i
+                        class="fa fa-trash"></i></a>
             </li>
 
             <li class="sidebar__footer-item">

@@ -170,10 +170,12 @@
 
   /* Arrow icon */
   .dropdown-toggle:after {
+    @include center(y);
+    //top: 50%;
     transform: rotate(-90deg);
     position: absolute;
     right: 6px;
-    top: 50%;
+
   }
 
   /* Second, Third and more levels */

@@ -13,7 +13,7 @@
 .sidebar {
   $s: sidebar;
 
-  /*Sidebar navigation*/
+  /* Sidebar navigation */
   &__nav {
     flex: 1;
     display: flex;
@@ -25,36 +25,16 @@
       margin: 0;
       li {
         list-style: none;
+        text-align: left;
       }
-    }
-
-    a {
-      @include color('sidebar', 'link-color');
-      @include font-size($sidebar-font-size);
-      @include transition;
-      text-decoration: none;
-      padding: $sidebar-item-padding-y $sidebar-item-padding-x;
-
-      /* Flexbox */
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-
-      &:hover {
-        @include color('sidebar', 'hover-color');
-      }
-
-      &.has-arrow::after {
-        right: 10px;
-      }
-
     }
 
   }
-
+  /* Hiding sidebar if body has class (.sidebar-is-closed) */
   &-is-closed {
     // TODO Adapted from https://codepen.io/tonkec/pen/gryZmg
-    .#{$s}__item,
+    .#{$s}__item:not(.has-children),
+    .#{$s}__item.has-children,
     .#{$s}__header,
     .#{$s}__divider {
       @include transition;
@@ -66,41 +46,69 @@
   &__header {
     @include add-border(2px, transparent, left);
     @include font-size($sidebar-header-font-size);
-    @include color('sidebar', 'link-color');
+    @include color('sidebar', 'font-color');
     @include transition;
-    @extend %o-v-show;
-    padding-left: $sidebar-padding-left;
+    @extend %o-v-show; /* Reset style */
+    padding: $sidebar-padding-y $sidebar-padding-x;
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
     min-height: $sidebar-header-height;
     line-height: $sidebar-header-height;
-    //visibility: visible;
-    //transform: translateY(0px);
+    letter-spacing: .1em;
   }
 
   &__divider {
-    @include transition;
-    @extend %o-v-show;
-    min-height: $sidebar-divider-height;
-    line-height: $sidebar-divider-height;
+    @if bool($sidebar-divider-border) == true {
+      @include border-top-color('sidebar', 'light');
+      border-top: 1px solid;
+    } @else {
+     border: 0;
+    }
 
+    @include transition;
+    @extend %o-v-show; /* Reset style */
+    height: $sidebar-divider-height;
+    margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
   }
 
   /* Sidebar menu */
-  &__item {
+  &__item:not(.has-children) {
     @include add-border(2px, transparent, left);
-    @extend %o-v-show;
+    @extend %o-v-show; /* Reset style */
     @include transition;
     position: relative;
     box-sizing: border-box;
     white-space: nowrap;
     min-height: $sidebar-item-height;
     line-height: $sidebar-item-height;
+    /* Flexbox */
+    display: flex;
+    flex-direction:column;
 
-    /* Sidebar menu icon*/
+    /* Sidebar menu links */
+    a {
+      @include color('sidebar', 'link-color');
+      @include font-size($sidebar-font-size);
+      @include transition;
+      text-decoration: none;
+      padding: $sidebar-padding-y $sidebar-padding-x;
+      /* Flexbox */
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+
+      &:hover {
+        @include color('sidebar', 'hover-color');
+      }
+      &.has-arrow::after {
+        right: 10px;
+      }
+    }
+
+    /* Sidebar menu icon before item title */
     .#{$s}__item-icon {
-      margin: 0 ($sidebar-padding-left / 2) 0 0;
+      margin-right: $sidebar-icon-margin-right;
       text-align: left;
       width: $sidebar-icon-width;
       display: inline-block;
@@ -111,38 +119,38 @@
       }
     }
 
-    /* Sidebar menu title */
+    /* Sidebar menu item title */
     .#{$s}__item-title {
       display: inline-block;
       flex: 1;
       //margin-left: -3px; /*Negative margin trick to remove the spaces between the elements icon & title* due to display: inline-block */
     }
 
+    /* Sidebar menu notification badge */
     .badge {
       animation: animationFrames ease 1s;
       animation-iteration-count: 1;
       transform-origin: 50% 50%;
-      animation-fill-mode:forwards; /*when the spec is finished*/
+      animation-fill-mode: forwards; /*when the spec is finished*/
 
-      @keyframes animationFrames{
+      @keyframes animationFrames {
         0% {
-          opacity:0;
-          transform:  translate(-1500px,0px)  ;
+          opacity: 0;
+          transform: translate(-1500px, 0px);
         }
         60% {
-          opacity:1;
-          transform:  translate(30px,0px)  ;
+          opacity: 1;
+          transform: translate(30px, 0px);
         }
         80% {
-          transform:  translate(-10px,0px)  ;
+          transform: translate(-10px, 0px);
         }
         100% {
-          opacity:1;
-          transform:  translate(0px,0px)  ;
+          opacity: 1;
+          transform: translate(0px, 0px);
         }
       }
     }
-
 
     /* Change the hover, focus, active state links for better highlighting */
     &:hover,
@@ -154,6 +162,7 @@
         @include background-color('sidebar', 'dark');
       }
     }
+    /* Current item */
     &.active /*,
     &:active,
     &:focus */
@@ -165,6 +174,11 @@
 
   }
 
+  &__item.has-children {
+      @include transition;
+      @extend %o-v-show; /* Reset style */
+      padding: $sidebar-padding-y $sidebar-padding-x;
+  }
   /* Submenu - First level */
   &__child {
     @include background-color('sidebar', 'dark');
@@ -177,18 +191,15 @@
          @include color('sidebar', 'light');
          content:"•";
          position: absolute;
-         padding-left:$sidebar-padding-left;
        }*/
       &:last-of-type {
         padding-bottom: 10px;
       }
-    }
-
-    a {
-      @include font-size($sidebar-submenu-font-size);
-      //padding: 5px 15px 5px ($sidebar-icon-width + $sidebar-padding-left);
-      text-indent: $sidebar-icon-width;
-      margin: 0 0 0 ($sidebar-padding-left / 2);
+      a {
+        @include font-size($sidebar-submenu-font-size);
+        text-indent: $sidebar-icon-width;
+        margin: 0 0 0 $sidebar-icon-margin-right;
+      }
     }
 
     /* Second level */
@@ -197,15 +208,17 @@
         &:last-of-type {
           padding-bottom: 0;
         }
-      }
-      a {
-        text-indent: $sidebar-icon-width + 15;
+        a {
+          text-indent: $sidebar-icon-width + 15;
+        }
       }
 
       /* Third level */
       .#{$s}__child {
-        a {
-          text-indent: $sidebar-icon-width + 30;
+        .#{$s}__item {
+          a {
+            text-indent: $sidebar-icon-width + 30;
+          }
         }
       }
     }
@@ -214,23 +227,26 @@
 
 }
 
-/* Mini sidebar */
+/* Mini sidebar menu */
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
-  /* Hiding headers, dividers */
+  /* Hiding headers, dividers etc */
+  &__item.has-children,
   &__header,
   &__divider {
     @include transition;
     @extend %o-v-none;
     min-height: 0;
     line-height: 0;
-
+    margin: 0;
   }
 
-  &__nav > ul > .#{$s}__item {
+  &__nav > ul > .#{$s}__item:not(.has-children) {
+    @include transition;
     position: static;
     width: $sidebar-mini-width;
+    display: block;
 
     > a {
       padding: 0;
@@ -255,11 +271,12 @@
         min-width: $sidebar-width;
         left: $sidebar-mini-width;
         margin-left: 0;
-        padding-left: $sidebar-padding-left;
+        padding: $sidebar-padding-y $sidebar-padding-x;
 
       }
     }
 
+    /* Show submenu item title on active */
     &.active /*,
     &:hover*/
     {
@@ -281,7 +298,6 @@
       left: $sidebar-mini-width;
 
       a {
-        padding-left: $sidebar-padding-left;
         text-indent: 0;
         margin: 0;
       }

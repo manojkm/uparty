@@ -90,6 +90,36 @@
 }
 
 
+/* Sidebar mini toggle button */
+.sidebar__footer--toggler {
+  @include background-color('sidebar', 'base');
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  height: $sidebar-footer-height;
+  /* Flexbox */
+  flex: 1;
+
+  /* Hamburger icon */
+  & .icon-bar {
+    @include background-color('sidebar', 'link-color');
+  }
+
+  &:hover {
+    @include background-color('sidebar', 'dark');
+    .icon-bar {
+      @include background-color('primary', 'base');
+    }
+  }
+
+  &.collapsed {
+    @include background-color('sidebar', 'dark');
+    .icon-bar {
+      @include background-color('primary', 'base');
+    }
+  }
+}
+
 // Adapted from https://codepen.io/jorenerene/pen/vxKbJb?editors=1100
 
 /* HAMBURGER ICON */

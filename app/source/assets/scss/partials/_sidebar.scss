@@ -54,7 +54,7 @@
 
   /* Sidebar brand logo */
   &__brand {
-    padding-left: $sidebar-padding-left;
+    padding: $sidebar-padding-y $sidebar-padding-x;
     height: $sidebar-brand-height;
   }
 
@@ -158,38 +158,6 @@
         }
       }
     }
-
-    /* Sidebar mini toggle button */
-    .#{$s}__footer--toggler {
-      @include background-color('sidebar', 'base');
-      position: relative;
-      border: 0;
-      cursor: pointer;
-      height: $sidebar-footer-height;
-      /* Flexbox */
-      flex: 1;
-
-      /* Hamburger icon */
-      & .icon-bar {
-        @include background-color('sidebar', 'link-color');
-      }
-
-      &:hover {
-        @include background-color('sidebar', 'dark');
-        .icon-bar {
-          @include background-color('primary', 'base');
-        }
-      }
-
-      &.collapsed {
-        @include background-color('sidebar', 'dark');
-        .icon-bar {
-          @include background-color('primary', 'base');
-        }
-      }
-
-    }
-
   }
 
   /* Mini sidebar modifiers */
@@ -220,7 +188,7 @@
 
   }
 
-  /* Showing sidebar and its footer if body has .sidebar-is-open class */
+  /* Showing sidebar and its footer if body has class (.sidebar-is-open)*/
   &-is-open & {
     //transform: translateX(0); // Position fixed sidebar footer (.sidebar__footer) doesn't work with transform property. So disabling it until found a fix.
     width: $sidebar-width;

@@ -33,7 +33,7 @@ $text-color: $grey-dark;
 //----------------------------------*/
 
 //----------------------------------*\
-// HEADER, NAVBAR
+// HEADER & NAVBAR
 //----------------------------------*/
 /* Header color variables can be found in themes/_theme-map.scss */
 $header-height: 50px;
@@ -103,6 +103,7 @@ $aside-toggler-padding-x: 10px;
 // SHADOWS
 //----------------------------------*/
 $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
+$header-shadow: 0 1px 3px rgba(#000, .2);
 
 //----------------------------------*\
 // BREADCRUMBS
@@ -114,22 +115,26 @@ $breadcrumb-bg: #fff;
 //----------------------------------*/
 /* Sidebar color variables can be found in themes/_theme-map.scss */
 
+$sidebar-width: 200px;
 $sidebar-brand-height: 50px;
 
 $sidebar-font-size: 15px;
+
+$sidebar-icon-width: 20px;
 $sidebar-icon-font-size: $sidebar-font-size;
-$sidebar-header-font-size: 10px;
+$sidebar-icon-margin-right:5px;
+
+$sidebar-header-font-size: 12px;
 $sidebar-header-height: 30px;
 
-$sidebar-width: 200px;
-$sidebar-padding-left: 10px;
-$sidebar-icon-width: 20px;
-
 $sidebar-item-height: 40px;
-$sidebar-item-padding-y: 0px;
-$sidebar-item-padding-x: $sidebar-padding-left;
+$sidebar-padding-x: 10px;
+$sidebar-padding-y: 0px;
 
-$sidebar-divider-height: 20px;
+$sidebar-divider-height:0px;
+$sidebar-divider-margin-y:0.5rem;
+$sidebar-divider-margin-x:0px;
+$sidebar-divider-border: false;
 
 $sidebar-submenu-font-size: 13px;
 $sidebar-submenu-item-height: 30px;

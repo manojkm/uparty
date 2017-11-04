@@ -9,7 +9,6 @@
 'use strict';
 
 module.exports = function(grunt) {
-
     var path = require('path');
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks
@@ -26,7 +25,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // path to task.js files, defaults to grunt dir
+        // path to task.js files, defaults to grunt dir.
         configPath: path.join(process.cwd(), 'grunt'),
         // ...
         data: { //data passed into config.  Can use with <%= test %>

@@ -2,9 +2,9 @@ task_css:
 #  - 'scsslint:files'
   - 'sass:dev'
   - 'copy:css'
-  - 'csslint'
   - 'autoprefixer'
   - 'cssmin'
+  - 'csslint'
   - 'notify:css'
 task_js:
   - 'copy:js'
@@ -47,9 +47,9 @@ default:
 
 dev:
   - 'default'
-  - 'browserSync'
+  - 'browserSync:server'
   - 'concurrent:watch'
 deploy:
   - 'default'
-  - 'browserSync'
+  - 'browserSync:server'
   - 'concurrent:watch'

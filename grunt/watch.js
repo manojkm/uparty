@@ -1,7 +1,16 @@
 module.exports = {
+
+    configFiles: {
+        files: [ '../Gruntfile.js', '../_config.yml' ],
+        options: {
+            reload: true
+        }
+    },
+
     options: {
         spawn: false,
         debounceDelay: 250,
+        interrupt: true
     },
 
     sass_css: {
@@ -19,7 +28,6 @@ module.exports = {
         tasks: ['concurrent:task_html']
     },
 
-
     images: {
         files: ['<%= site.src_assets %>/img/**/*.{png,jpg,gif}'],
         tasks: ['concurrent:task_img'],
@@ -29,6 +37,5 @@ module.exports = {
         files: ['<%= site.dev %>/**/*.php'],
         tasks: ['concurrent:task_wp_theme_php_flies']
     },
-
 
 };
