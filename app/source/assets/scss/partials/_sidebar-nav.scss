@@ -9,11 +9,13 @@
 // ================================================================================================
 
 // https://gist.github.com/jareware/4738651
-
+//----------------------------------*\
+// SIDEBAR MENU
+//----------------------------------*/
 .sidebar {
   $s: sidebar;
 
-  /* Sidebar navigation */
+  /* Sidebar menu navigation */
   &__nav {
     flex: 1;
     display: flex;
@@ -30,32 +32,45 @@
     }
 
   }
+
   /* Hiding sidebar if body has class (.sidebar-is-closed) */
   &-is-closed {
     // TODO Adapted from https://codepen.io/tonkec/pen/gryZmg
-    .#{$s}__item:not(.has-children),
-    .#{$s}__item.has-children,
-    .#{$s}__header,
-    .#{$s}__divider {
+    /*    .#{$s}__item:not(.has-children),
+        .#{$s}__item.has-children,
+        .#{$s}__header,
+        .#{$s}__divider {
+          @include transition;
+          @extend %o-v-none;
+          transform: translateX(-100px);
+        }*/
+    .#{$s}__wrap * {
       @include transition;
       @extend %o-v-none;
       transform: translateX(-100px);
     }
   }
-
+  /* Hiding sidebar if body has class (.sidebar-is-open) */
+  &-is-open {
+    .#{$s}__wrap * {
+      //@include transition;
+      @extend %o-v-show;
+      //transform: translateX(0);
+    }
+  }
   &__header {
     @include add-border(2px, transparent, left);
     @include font-size($sidebar-header-font-size);
     @include color('sidebar', 'font-color');
     @include transition;
-    @extend %o-v-show; /* Reset style */
+    //@extend %o-v-show; /* Reset style */
     padding: $sidebar-padding-y $sidebar-padding-x;
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
     min-height: $sidebar-header-height;
     line-height: $sidebar-header-height;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 
   &__divider {
@@ -63,19 +78,18 @@
       @include border-top-color('sidebar', 'light');
       border-top: 1px solid;
     } @else {
-     border: 0;
+      border: 0;
     }
-
     @include transition;
-    @extend %o-v-show; /* Reset style */
+    //@extend %o-v-show; /* Reset style */
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
   }
 
   /* Sidebar menu */
-  &__item:not(.has-children) {
-    @include add-border(2px, transparent, left);
-    @extend %o-v-show; /* Reset style */
+  &__item:not(.has-button) {
+    @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
+    //@extend %o-v-show; /* Reset style */
     @include transition;
     position: relative;
     box-sizing: border-box;
@@ -84,7 +98,7 @@
     line-height: $sidebar-item-height;
     /* Flexbox */
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
 
     /* Sidebar menu links */
     a {
@@ -155,29 +169,24 @@
     /* Change the hover, focus, active state links for better highlighting */
     &:hover,
     &:focus,
-    &.active,
-    &:active {
-      @include border-left-color('primary', 'base');
-      a {
-        @include background-color('sidebar', 'dark');
-      }
+    &:active,
+    &.active {
+      @include border-left-color('primary', 'base'); // Make borders visible
+      @include background-color('sidebar', 'dark');
     }
     /* Current item */
-    &.active /*,
-    &:active,
-    &:focus */
-    {
+    &.active {
+      @include background-color('sidebar', 'dark');
       > a {
         @include color('sidebar', 'active-color');
       }
     }
-
   }
 
-  &__item.has-children {
-      @include transition;
-      @extend %o-v-show; /* Reset style */
-      padding: $sidebar-padding-y $sidebar-padding-x;
+  &__item.has-button {
+    @include transition;
+    //@extend %o-v-show; /* Reset style */
+    padding: $sidebar-padding-y $sidebar-padding-x;
   }
   /* Submenu - First level */
   &__child {
@@ -193,7 +202,7 @@
          position: absolute;
        }*/
       &:last-of-type {
-        padding-bottom: 10px;
+        margin-bottom: 10px;
       }
       a {
         @include font-size($sidebar-submenu-font-size);
@@ -206,7 +215,7 @@
     .#{$s}__child {
       .#{$s}__item {
         &:last-of-type {
-          padding-bottom: 0;
+          margin-bottom: 0px;
         }
         a {
           text-indent: $sidebar-icon-width + 15;
@@ -227,22 +236,26 @@
 
 }
 
-/* Mini sidebar menu */
+//----------------------------------*\
+// MINI SIDEBAR MENU & MODIFIERS
+//----------------------------------*/
+
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
 
   /* Hiding headers, dividers etc */
-  &__item.has-children,
+  &__item.has-button,
   &__header,
   &__divider {
     @include transition;
     @extend %o-v-none;
     min-height: 0;
+    height: 0;
     line-height: 0;
     margin: 0;
   }
 
-  &__nav > ul > .#{$s}__item:not(.has-children) {
+  &__nav > ul > .#{$s}__item:not(.has-button) {
     @include transition;
     position: static;
     width: $sidebar-mini-width;
@@ -254,6 +267,7 @@
 
       .badge,
       &::after {
+        @extend %o-v-none;
         display: none;
       }
 
@@ -265,7 +279,6 @@
 
       .#{$s}__item-title {
         @include background-color('sidebar', 'dark');
-        //@include transition;
         position: fixed;
         display: none;
         min-width: $sidebar-width;
@@ -296,6 +309,7 @@
       position: absolute;
       min-width: $sidebar-submenu-width;
       left: $sidebar-mini-width;
+      box-shadow: $header-shadow;
 
       a {
         text-indent: 0;

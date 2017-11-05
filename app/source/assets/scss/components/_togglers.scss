@@ -92,7 +92,8 @@
 
 /* Sidebar mini toggle button */
 .sidebar__footer--toggler {
-  @include background-color('sidebar', 'base');
+  //@include background-color('sidebar', 'base');
+  background: transparent;
   position: relative;
   border: 0;
   cursor: pointer;

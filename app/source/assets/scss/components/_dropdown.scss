@@ -24,6 +24,12 @@
     margin-top: $dropdown-margin-top; /* Positioning first level dropdown menu */
     background-color: $dropdown-bg;
     box-shadow: $container-shadow;
+    @include max-screen($screen-md-max) {
+      width: 100%;
+      max-width: 90%;
+      box-shadow: none;
+      margin: $dropdown-margin-top auto;
+    }
   }
 
   /* Dropdown top arrow */
@@ -49,11 +55,21 @@
     z-index: 9;
   }
 
+  @include max-screen($screen-md-max) {
+    &:before,
+    &:after{
+      display: none;
+    }
+  }
+
   /* Dropdown header */
   & .dropdown-header {
     @include font-size($dropdown-header-font-size);
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
   }
 
   /* Dropdown menu links */
@@ -174,8 +190,10 @@
     //top: 50%;
     transform: rotate(-90deg);
     position: absolute;
-    right: 6px;
-
+    right: 1em;
+    @include max-screen($screen-md-max) {
+      transform: rotate(0deg);
+    }
   }
 
   /* Second, Third and more levels */
@@ -202,9 +220,19 @@
     border: 0;
   }
 
+  /* Dropdown top arrow colors */
+  &:before {
+    @include border-bottom-color('header', 'base');
+  }
+
+  &:after {
+    @include border-bottom-color('header', 'dark');
+    display: none;
+  }
+
   /* Dropdown header */
   .dropdown-header {
-    @include color('header', 'link-color');
+    @include color('header', 'font-color');
   }
 
   /* Dropdown menu links */
@@ -219,7 +247,7 @@
     &:hover,
     &:focus {
       @include color('header', 'hover-color');
-      @include background-color('header', 'dark');
+      @include background-color('header', 'light');
     }
 
     &.active,
@@ -227,7 +255,7 @@
     &.active:hover,
     &:active {
       @include color('header', 'active-color');
-      @include background-color('header', 'dark');
+      @include background-color('header', 'light');
 
     }
 
@@ -246,18 +274,10 @@
     border-top: 1px solid;
   }
 
-  /* Dropdown top arrow colors */
-  &:before {
-    @include border-bottom-color('header', 'base');
-  }
-
-  &:after {
-    @include border-bottom-color('header', 'light');
-  }
 
 }
 
-/* Remove the arrow in dropdown to replace with Icon */
+/* Remove the arrow in dropdown to replace with Icon (.no-arr) */
 .dropdown-toggle.no-arr {
   &:after {
     //display: none;

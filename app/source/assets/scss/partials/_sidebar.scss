@@ -62,7 +62,7 @@
   // Adapted from https://codepen.io/JonBergman/pen/pJmejw, https://codepen.io/addjones/pen/yJEPER TODO: Remove this line later
   &__footer {
     @include background-color('sidebar', 'base');
-    @include border-top-color('sidebar', 'light');
+    @include border-top-color('sidebar', 'dark');
     @include transition;
     @extend %o-v-none;
     border-top: 1px solid;
@@ -71,8 +71,10 @@
     left: 0;
     width: 0;
     min-height: $sidebar-footer-height;
+    box-shadow: $sidebar-footer-shadow;
 
     .#{$s}__footer-nav {
+
       ///* flexbox */
       //display: flex;
       //align-items: center;
@@ -82,7 +84,7 @@
     .#{$s}__footer-list {
       width: 100%;
       padding: 0;
-      margin: 0;
+      margin: 1px 0 0 0;
       /* Flexbox */
       display: flex;
       flex-direction: row;

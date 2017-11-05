@@ -1,0 +1,51 @@
+// ================================================================================================
+// File Name: buttons.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+button {
+  cursor: pointer;
+}
+
+.btn,
+.navbar .navbar-nav > a.btn {
+  border: 0;
+  margin: 5px 1px;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    @include opacity(1);
+    outline: 0;
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    box-shadow: none;
+    outline: 0;
+  }
+}
+
+.btn {
+  &.btn-primary {
+    @include btn-styles(primary, $primary-states-color);
+  }
+  &.btn-success {
+    @include btn-styles(success, $primary-states-color);
+  }
+
+}
+
+.btn {
+  &:disabled,
+  &[disabled],
+  &.disabled {
+    @include opacity(0.5);
+  }
+}
