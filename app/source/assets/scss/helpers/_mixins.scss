@@ -283,7 +283,11 @@ Usage
 // TODO: http://demos.creative-tim.com/now-ui-kit/documentation/tutorial-components.html?ref=nuk-free-doc#buttons-row
 @mixin btn-styles($theme-color, $btn-states-color) {
 
-  @if $theme-color == success or
+  @if map-has-key($contextual, $theme-color) {
+    background-color: map-get-strict($contextual, $theme-color);
+    color: $white-color;
+  }
+ /* @if $theme-color == success or
       $theme-color == danger or
       $theme-color == warning or
       $theme-color == info or
@@ -293,7 +297,7 @@ Usage
         background-color: map-get-strict($contextual, $theme-color);
         color: $white-color;
 
-  } @else {
+  }*/ @else {
     @include background-color($theme-color, 'base');
     @include color($theme-color, 'font-color');
   }
