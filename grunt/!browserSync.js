@@ -1,14 +1,14 @@
 
 module.exports = {
     server: {
-              bsFiles: {
-         src: [
-         '<%= site.dev_assets %>/**',
-         '<%= site.dev %>/vendor/!**',
-         '<%= site.dev %>/!*.php',
-         '<%= site.dev %>/!*.html'
-         ]
-         },
+  /*      bsFiles: {
+            src: [
+                '<%= site.dev_assets %>/!**',
+                '<%= site.dev %>/vendor/!**',
+                '<%= site.dev %>/!*.php',
+                '<%= site.dev %>/!*.html'
+            ]
+        },*/
         options: {
             watchTask: true, //Option 'false' will open browser directly without watching grunt tasks.
             open: false,
@@ -23,7 +23,6 @@ module.exports = {
             },
 
             ghostMode: {
-                clicks: true,
                 scroll: true,
                 links: true,
                 forms: true
@@ -56,4 +55,7 @@ module.exports = {
             }
         }
     }
+
+
+
 };

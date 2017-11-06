@@ -49,7 +49,7 @@
     }
 
     /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
-   /* &.theme-#{$themeName},*/
+    /* &.theme-#{$themeName},*/
     .theme-#{$themeName} & {
       // Output the declaration
       #{$property}: $color;
@@ -246,10 +246,96 @@ Usage
 //----------------------------------*/
 /* Adapted from http://css-tricks.com/snippets/css/clear-fix/ */
 
-@mixin cf {
+@mixin clearfix {
   &:after {
     content: "";
     display: table;
     clear: both;
   }
+}
+
+//----------------------------------*\
+// CENTERING
+//----------------------------------*/
+/* Center vertically and/or horizontally an absolute positioned element */
+
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  } @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  } @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+
+//----------------------------------*\
+// BUTTONS
+//----------------------------------*/
+// TODO: http://demos.creative-tim.com/now-ui-kit/documentation/tutorial-components.html?ref=nuk-free-doc#buttons-row
+@mixin btn-styles($theme-color, $btn-states-color) {
+
+  @if map-has-key($contextual, $theme-color) {
+    background-color: map-get-strict($contextual, $theme-color);
+    color: $white-color;
+  }
+ /* @if $theme-color == success or
+      $theme-color == danger or
+      $theme-color == warning or
+      $theme-color == info or
+      $theme-color == light or
+      $theme-color == dark {
+
+        background-color: map-get-strict($contextual, $theme-color);
+        color: $white-color;
+
+  }*/ @else {
+    @include background-color($theme-color, 'base');
+    @include color($theme-color, 'font-color');
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &:active:focus,
+  &:active:hover,
+  &.active:focus,
+  &.active:hover,
+  .show > &.dropdown-toggle,
+  .show > &.dropdown-toggle:focus,
+  .show > &.dropdown-toggle:hover {
+/*    @include background-color($theme-color, 'dark');
+    @include color($theme-color, 'font-color');*/
+    box-shadow: none;
+    outline: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+  }
+
+  &.disabled,
+  &:disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      //@include background-color($theme-color, 'base');
+      border-color: $theme-color;
+    }
+  }
+
 }

@@ -31,11 +31,13 @@ body {
   @include font-size(16px);
 }
 
+
 * {
+  /* Antialiasing mode font rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
-  /*Optmizes font rendering for legibility.
+  /* Optmizes font rendering for legibility.
   May break with some browsers, comment out as necessary.*/
   text-rendering: optimizeLegibility;
 }

@@ -22,6 +22,15 @@
 //----------------------------------*/
 /* Looking for color palette? Please check themes/_theme-map.scss */
 
+$contextual: (
+        success: $grass-dark,
+        danger: $grapefruit-dark,
+        warning: $sunflower-dark,
+        info: $mint-dark,
+        light: $light,
+        dark: $dark,
+);
+
 //----------------------------------*\
 // BODY
 //----------------------------------*/
@@ -33,16 +42,20 @@ $text-color: $grey-dark;
 //----------------------------------*/
 
 //----------------------------------*\
-// HEADER, NAVBAR
+// HEADER & NAVBAR
 //----------------------------------*/
 /* Header color variables can be found in themes/_theme-map.scss */
-$header-height: 55px;
+$header-height: 50px;
 $navbar-font-size: 13px;
+$navbar-link-height: $header-height;
+$navbar-link-md-height: $header-height - 10;
+
 $navbar-text-font-size: $navbar-font-size;
 //$navlink-padding-y: 0px;
 //$navlink-padding-x: 0px;
 $navbar-toggler-bg:;
 $navbar-toggler-border-colour:;
+$navbar-item-mobile-bottom-border: true;
 
 //----------------------------------*\
 // BOOTSTRAP DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
@@ -50,22 +63,26 @@ $navbar-toggler-border-colour:;
 $dropdown-bg: $white-color;
 
 $dropdown-font-size: 13px;
-$dropdown-header-font-size: $dropdown-font-size;
+$dropdown-header-font-size: 11px;
 
-$dropdown-margin-top: 10px; /* Positioning first level dropdown menu */
+$dropdown-margin-top: 15px; /* Positioning first level dropdown menu */
 
 $dropdown-padding-y: 5px;
 $dropdown-padding-x: 0px;
+
 $dropdown-item-padding-y: 8px;
 $dropdown-item-padding-x: 12px;
 
 $dropdown-link-color: $grey-xx-dark;
+
 $dropdown-link-hover-color: $grey-xx-dark;
 $dropdown-link-hover-bg: $grey-xx-light;
 
 $dropdown-link-active-color: $grey-xx-dark;
 $dropdown-link-active-bg: $grey-x-light;
+
 $dropdown-link-disabled-color: $grey-light;
+
 $dropdown-divider-color: $grey-x-light;
 
 $dropdown-icon-width: 20px;
@@ -73,7 +90,7 @@ $dropdown-icon-width: 20px;
 //----------------------------------*\
 // BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 //----------------------------------*/
-/* Themed dropdown styles are based on header map that can be found in themes/_theme-map.scss */
+/* Themed dropdown styles are automatic based on header map that can be found in themes/_theme-map.scss */
 
 //----------------------------------*\
 // TOGGLERS
@@ -96,8 +113,12 @@ $aside-toggler-padding-x: 10px;
 // SEARCH
 //----------------------------------*/
 
-
-
+//----------------------------------*\
+// SHADOWS
+//----------------------------------*/
+$container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
+$header-shadow: 0 1px 3px rgba(#000, .2);
+$sidebar-footer-shadow: 0 1px 10px rgba(#000, 0.3), inset 0 1px 0 rgba(#fff, 0.08);
 
 //----------------------------------*\
 // BREADCRUMBS
@@ -109,27 +130,32 @@ $breadcrumb-bg: #fff;
 //----------------------------------*/
 /* Sidebar color variables can be found in themes/_theme-map.scss */
 
+$sidebar-width: 200px;
 $sidebar-brand-height: 50px;
 
 $sidebar-font-size: 15px;
+
+$sidebar-icon-width: 20px;
 $sidebar-icon-font-size: $sidebar-font-size;
-$sidebar-header-font-size: 10px;
+$sidebar-icon-margin-right: 5px;
+
+$sidebar-header-font-size: 11px;
 $sidebar-header-height: 30px;
 
-$sidebar-width: 200px;
-$sidebar-padding-left: 10px;
-$sidebar-icon-width: 20px;
-
 $sidebar-item-height: 40px;
-$sidebar-item-padding-y: 0px;
-$sidebar-item-padding-x: $sidebar-padding-left;
+$sidebar-padding-x: 10px;
+$sidebar-padding-y: 0px;
 
-$sidebar-divider-height: 10px;
+$sidebar-divider-border: false;
+$sidebar-divider-height: 0px;
+$sidebar-divider-margin-y: 0.5rem;
+$sidebar-divider-margin-x: 0px;
 
 $sidebar-submenu-font-size: 13px;
 $sidebar-submenu-item-height: 30px;
 $sidebar-submenu-width: $sidebar-width;
 
+/* Mini Sidebar */
 $sidebar-mini-width: 60px;
 $sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
 
@@ -147,7 +173,7 @@ $sidebar-footer-height: 40px;
 
 $font-html: (
         size: 100%, /*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
-        //size: 16px
+  //size: 16px
 );
 
 $font: (
@@ -165,11 +191,18 @@ $selection-bg: #f9f6f0;
 //----------------------------------*\
 // BUTTONS
 //----------------------------------*/
-
+$primary-color: $turquoise;
+$primary-states-color: lighten($primary-color, 6%) !default;
 //----------------------------------*\
 // BORDERS
 //----------------------------------*/
-$border-radius-base: 4px !default;
+//$border-radius-base: 4px !default;
+$border: 1px solid !default;
+$border-radius-xs: 0.125rem !default; /*2px*/
+$border-radius-sm: 0.1875rem !default; /*3px*/
+$border-radius-md: 0.25rem !default; /*4px*/
+$border-radius-lg: 0.3125rem !default; /*5px*/
+$border-radius-xl: 0.375rem !default; /*6px*/
 
 //----------------------------------*\
 // NAVBAR

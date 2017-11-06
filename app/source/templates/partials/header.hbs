@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg px-0 py-0 master-header__navbar">
 
-    <!-- Mobile sidebar toggle button -->
+    <!-- Mobile sidebar toggle button -  visible on mobile devices only -->
     <button class="sidebar--toggler collapsed d-lg-none" type="button" data-side="hide">
         <!-- To display the "hamburger icon" -->
         <span class="icon-bar"></span>
@@ -8,8 +8,7 @@
         <span class="icon-bar"></span>
         <!-- /To display the "hamburger icon" -->
     </button>
-    <!-- /Mobile Sidebar toggle button -->
-
+    <!-- /Mobile Sidebar toggle button -  visible on mobile devices only -->
 
     <!-- Brand -->
     <a class="navbar-brand" href="#">Logo</a>
@@ -55,7 +54,7 @@
 
         <!-- Header right navigation -->
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link px-3 py-2" href="#">Link 1</a>
             </li>
             <li class="nav-item">
@@ -65,10 +64,14 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle px-3 py-2" href="#" id="navbarDropdownMenuLink"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Themed Dropdown link
+                    <i class="fa fa-envelope-o"></i>Themed Dropdown link
                 </a>
 
                 <ul class="dropdown-menu extended themed" aria-labelledby="navbarDropdownMenuLink">
+                    <li>
+                        <div class="dropdown-header">Dropdown header</div>
+                    </li>
+
                     <li><a class="dropdown-item" href="#"><i class=" fa fa-suitcase"></i>Action
                         <span class="ml-auto badge badge-info">42</span></a></li>
                     <li><a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i>Another action

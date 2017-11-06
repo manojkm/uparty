@@ -48,7 +48,7 @@
       padding: 0 10px;
       outline: none;
       background: none;
-      @include color('header', 'font-color');
+      @include color('header', 'link-color');
       @include opacity(1);
 
       + span {
@@ -63,7 +63,7 @@
     }
 
     + span {
-      @include border-color('header', 'font-color');
+      @include border-color('header', 'link-color');
       border: 2px solid;
       border-radius: 25px;
       z-index: -1;
@@ -75,7 +75,7 @@
       /* right: 0;*/
 
       &::before {
-        @include background-color('header', 'font-color');
+        @include background-color('header', 'link-color');
         transition: all .25s ease-in .5s;
         transform-origin: left top;
         content: '';
