@@ -282,16 +282,35 @@ Usage
 //----------------------------------*/
 
 // TODO: http://demos.creative-tim.com/now-ui-kit/documentation/tutorial-components.html?ref=nuk-free-doc#buttons-row
-@mixin btn-styles($theme-color, $tone:base, $tone-hover:dark, $font-color:font-color ) {
 
-  @if map-has-key($contextual, $theme-color) {
-    /* Contextual variations like Success, Danger, Warning, Info, Light and  Dark*/
-    background-color: setcolor($theme-color, $tone);
-    color: setcolor($theme-color, $font-color);
-  } @else {
-    /* Theme variations like Primary and Secondary */
-    @include background-color($theme-color, $tone);
-    @include color($theme-color, $font-color);
+@mixin btn-styles($theme-color, $bg:fill, $tone:base, $tone-hover:dark, $font-color:font-color) {
+
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    border-color: setcolor($theme-color, $tone);
+    /* Filled button */
+    @if $bg == fill {
+      background-color: setcolor($theme-color, $tone);
+      color: setcolor($theme-color, $font-color);
+    }
+    /* Outline button */
+    @if $bg == outline {
+      background-color: transparent;
+      color: setcolor($theme-color, $tone);
+    }
+
+  } @else { /* Theme variations*/
+    @include border-color($theme-color, $tone);
+    /* Filled button */
+    @if $bg == fill {
+      @include background-color($theme-color, $tone);
+      @include color($theme-color, $font-color);
+    }
+    /* Outline button */
+    @if $bg == outline {
+      background-color: transparent;
+      @include color($theme-color, $tone);
+    }
+
   }
 
   &:hover,
@@ -306,12 +325,12 @@ Usage
   .show > &.dropdown-toggle:focus,
   .show > &.dropdown-toggle:hover {
 
-    @if map-has-key($contextual, $theme-color) {
-      /* Contextual variations */
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      border-color: setcolor($theme-color, $tone-hover);
       background-color: setcolor($theme-color, $tone-hover);
       color: setcolor($theme-color, $font-color);
-    } @else {
-      /* Theme variations */
+    } @else { /* Theme variations */
+      @include border-color($theme-color, $tone-hover);
       @include background-color($theme-color, $tone-hover);
       @include color($theme-color, $font-color);
     }
@@ -335,15 +354,31 @@ Usage
     &:active,
     &.active {
 
-      @if map-has-key($contextual, $theme-color) {
-        /* Contextual variations */
-        background-color: setcolor($theme-color, $tone);
+      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
         border-color: setcolor($theme-color, $tone);
+        /* Filled button */
+        @if $bg == fill {
+          background-color: setcolor($theme-color, $tone);
+          color: setcolor($theme-color, $font-color);
+        }
+        /* Outline button */
+        @if $bg == outline {
+          background-color: transparent;
+          color: setcolor($theme-color, $tone);
+        }
 
-      } @else {
-        /* Theme variations */
-        @include background-color($theme-color, $tone);
+      } @else { /* Theme variations*/
         @include border-color($theme-color, $tone);
+        /* Filled button */
+        @if $bg == fill {
+          @include background-color($theme-color, $tone);
+          @include color($theme-color, $font-color);
+        }
+        /* Outline button */
+        @if $bg == outline {
+          background-color: transparent;
+          @include color($theme-color, $tone);
+        }
 
       }
 
@@ -351,16 +386,25 @@ Usage
   }
 
   &.btn-link {
-    @if map-has-key($contextual, $theme-color) {
+    background-color: transparent;
+
+    @if map-has-key($contextual, $theme-color) {/* Contextual variations */
       color: setcolor($theme-color, $tone);
-    } @else {
+    } @else { /* Theme variations */
       @include color($theme-color, $tone);
     }
-    background-color: transparent;
 
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &.active,
+    &:active:focus,
+    &:active:hover,
+    &.active:focus,
+    &.active:hover,
+    .show > &.dropdown-toggle,
+    .show > &.dropdown-toggle:focus,
+    .show > &.dropdown-toggle:hover {
       background-color: transparent;
       text-decoration: none;
       box-shadow: none;
@@ -370,9 +414,30 @@ Usage
       } @else {
         @include color($theme-color, $tone-hover);
       }
+    }
+
+    &.disabled,
+    &:disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        background-color: transparent;
+        text-decoration: none;
+        box-shadow: none;
+        @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+          color: setcolor($theme-color, $tone);
+        } @else {/* Theme variations */
+          @include color($theme-color, $tone);
+        }
+
+      }
 
     }
 
   }
-
 }
