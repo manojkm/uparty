@@ -43,6 +43,8 @@ $default-theme: (
                 ),
                 'secondary': (
                         'base': $mauve,
+                        'light': lighten($mauve, 6%),
+                        'dark':darken($mauve, 6%),
                         'font-color': #fff,
                 ),
                 'header': (
@@ -71,14 +73,6 @@ $default-theme: (
                         'link-color': #fff,
                         'hover-color': #fff,
                         'active-color': #fff,
-                ),
-                'contextual': (
-                        'success': $grass-dark,
-                        'danger': $grapefruit-dark,
-                        'warning': $sunflower-dark,
-                        'info': $mint-dark,
-                        'light': $light,
-                        'dark': $dark,
                 ),
                 'green': #71d366,
         ),

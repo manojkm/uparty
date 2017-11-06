@@ -20,15 +20,46 @@
 //----------------------------------*\
 // COLOR PALETTE
 //----------------------------------*/
-/* Looking for color palette? Please check themes/_theme-map.scss */
+/* Looking for theme color palette? Please check themes/_theme-map.scss */
 
+/* Contextual colors */
 $contextual: (
-        success: $grass-dark,
-        danger: $grapefruit-dark,
-        warning: $sunflower-dark,
-        info: $mint-dark,
-        light: $light,
-        dark: $dark,
+        'success': (
+                'base': $grass,
+                'light': lighten($grass, 6%),
+                'dark': darken($grass, 6%),
+                'font-color': #fff,
+        ),
+        'danger': (
+                'base': $grapefruit,
+                'light': lighten($grapefruit, 6%),
+                'dark': darken($grapefruit, 6%),
+                'font-color': #fff,
+        ),
+        'warning': (
+                'base': $sunflower,
+                'light': lighten($sunflower, 6%),
+                'dark': darken($sunflower, 6%),
+                'font-color': #fff,
+        ),
+        'info': (
+                'base': $mint,
+                'light': lighten($mint, 6%),
+                'dark': darken($mint, 6%),
+                'font-color': #fff,
+        ),
+        'light': (
+                'base': $light,
+                'light': lighten($light, 6%),
+                'dark': darken($light, 6%),
+                'font-color': #000,
+        ),
+        'dark': (
+                'base': $dark,
+                'light': lighten($dark, 6%),
+                'dark': darken($dark, 6%),
+                'font-color': #fff,
+        ),
 );
 
 //----------------------------------*\
@@ -178,9 +209,17 @@ $font-html: (
 
 $font: (
         color: #666,
-        weight: 300,
+        weight-light: 300,
+        weight-normal: 400,
+        weight-semi: 600,
+        weight-bold: 700,
         line-height: 1.5
 );
+
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-semi: 600 !default;
+$font-weight-bold: 700 !default;
 
 //----------------------------------*\
 // SELECTION
@@ -193,6 +232,10 @@ $selection-bg: #f9f6f0;
 //----------------------------------*/
 $primary-color: $turquoise;
 $primary-states-color: lighten($primary-color, 6%) !default;
+$btn-padding-y: 10px;
+$btn-padding-x: 20px !default;
+$btn-font-size: 13px;
+
 //----------------------------------*\
 // BORDERS
 //----------------------------------*/

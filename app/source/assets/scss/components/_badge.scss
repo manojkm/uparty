@@ -26,33 +26,34 @@
     @include color('secondary', 'font-color');
   }
 
+  /* Contextual */
   &.badge-success {
-    @include background-color('contextual', 'success');
+    background-color: setcolor(success, base);
     color: $white-color;
   }
 
   &.badge-danger {
-    @include background-color('contextual', 'danger');
+    background-color: setcolor(danger, base);
     color: $white-color;
   }
 
   &.badge-warning {
-    @include background-color('contextual', 'warning');
+    background-color: setcolor(warning, base);
     color: $grey-xx-dark;
   }
 
   &.badge-info {
-    @include background-color('contextual', 'info');
+    background-color: setcolor(info, base);
     color: $white-color;
   }
 
   &.badge-light {
-    @include background-color('contextual', 'light');
+    background-color: setcolor(light, base);
     color: $grey-xx-dark;
   }
 
   &.badge-dark {
-    @include background-color('contextual', 'dark');
+    background-color: setcolor(dark, base);
     color: $white-color;
   }
 

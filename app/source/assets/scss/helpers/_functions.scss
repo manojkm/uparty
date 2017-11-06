@@ -12,7 +12,7 @@
 //----------------------------------*\
 // MAP GET ERROR HANDLING
 //----------------------------------*/
-// Usage map-get-strict($font-html, size);
+/* Usage map-get-strict($font-html, size); */
 
 @function map-get-strict($map, $key) {
     @if map-has-key($map, $key) {
@@ -27,7 +27,7 @@
 //----------------------------------*\
 // REM FONT SIZE CALCULATING
 //----------------------------------*/
-/*Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/*/
+/* Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/ */
 
 @function calculateRem($size) {
   $remSize: $size / 16px;
@@ -46,4 +46,13 @@
     @return false;
   }
   @return true;
+}
+
+//----------------------------------*\
+// SET CONTEXTUAL COLORS
+//----------------------------------*/
+/* Adapted from https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184 */
+/* Our function for shorter usage of map-get(); */
+@function setcolor($scheme, $tone) {
+  @return map-get(map-get($contextual, $scheme), $tone);
 }

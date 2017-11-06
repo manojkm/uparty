@@ -14,10 +14,14 @@ button {
 
 .btn,
 .navbar .navbar-nav > a.btn {
+  @include font-size($btn-font-size);
+  font-weight: map-get-strict($font, weight-normal);
+  line-height: map-get-strict($font, line-height);
   border: 0;
   margin: 5px 1px;
   border-radius: $border-radius-sm;
   cursor: pointer;
+  padding: $btn-padding-y $btn-padding-x;
 
   &:hover,
   &:focus {
@@ -32,14 +36,34 @@ button {
   }
 }
 
+
+
+/* Apply the mixin to the buttons */
 .btn {
   &.btn-primary {
-    @include btn-styles(primary, $primary-states-color);
+    @include btn-styles(primary);
+  }
+  &.btn-secondary {
+    @include btn-styles(secondary);
   }
   &.btn-success {
-    @include btn-styles(success, $primary-states-color);
+    @include btn-styles(success);
   }
-
+  &.btn-danger {
+    @include btn-styles(danger);
+  }
+  &.btn-warning {
+    @include btn-styles(warning);
+  }
+  &.btn-info {
+    @include btn-styles(info);
+  }
+  &.btn-light {
+    @include btn-styles(light);
+  }
+  &.btn-dark {
+    @include btn-styles(dark);
+  }
 }
 
 .btn {
@@ -48,4 +72,26 @@ button {
   &.disabled {
     @include opacity(0.5);
   }
+}
+
+.btn-link{
+  &.disabled,
+  &:disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: transparent;
+    }
+  }
+}
+
+
+.btn-link{
+  border: 0;
+  background-color: transparent;
 }
