@@ -12,16 +12,20 @@ button, .button {
   cursor: pointer;
 }
 
+/* Regular button and base styling */
+
 .btn,
 .navbar .navbar-nav > a.btn {
   @include font-size($btn-font-size);
-  @include border-radius($btn-radius-default);
+  @include border-radius($btn-radius);
   border-width: $border-thin;
   font-weight: map-get-strict($font, weight-normal);
   line-height: map-get-strict($font, line-height);
   padding: $btn-padding-y $btn-padding-x;
   margin: 5px 1px;
   cursor: pointer;
+  min-width: $btn-min-width;
+  min-height: $btn-min-height;
 
   &:hover,
   &:focus {
@@ -33,6 +37,38 @@ button, .button {
   .open > &.dropdown-toggle {
     box-shadow: none;
     outline: 0;
+  }
+
+  &.btn-icon {
+    min-width: $btn-icon-size;
+    min-height: $btn-icon-size;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    line-height: normal;
+
+    i.fa {
+      font-size: $btn-icon-font-size;
+    }
+
+    &.btn-sm {
+      min-width: $btn-icon-size-sm;
+      min-height: $btn-icon-size-sm;
+
+      i.fa {
+        font-size: $btn-icon-font-size-sm;
+      }
+    }
+
+    &.btn-lg {
+      min-width: $btn-icon-size-lg;
+      min-height: $btn-icon-size-lg;
+
+      i.fa {
+        font-size: $btn-icon-font-size-lg;
+      }
+    }
+
   }
 }
 
@@ -65,6 +101,7 @@ and disabled options for all buttons.
 .btn-dark {@include btn-theme(dark);}
 .btn-outline-dark {@include btn-theme(dark, outline);}
 
+/* Disabled button */
 .btn {
   &:disabled,
   &[disabled],
@@ -78,6 +115,17 @@ and disabled options for all buttons.
   background-color: transparent;
 }
 
+/* Large button */
+.btn-lg{
+  @include btn-size($btn-min-width-lg, $btn-min-height-lg, $btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-radius-lg);
+}
+/* Small button */
+.btn-sm{
+  @include btn-size($btn-min-width-sm, $btn-min-height-sm, $btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-radius-sm);
+}
+
+/* Round button */
 .btn-round {
+  //border-radius: 30px !important;
   @include border-radius($btn-radius-round);
 }

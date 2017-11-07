@@ -80,11 +80,6 @@ $font: (
         line-height: 1.5,
 );
 
-$font-weight-light: 300 !default;
-$font-weight-normal: 400 !default;
-$font-weight-semi: 600 !default;
-$font-weight-bold: 700 !default;
-
 //----------------------------------*\
 // SELECTION
 //----------------------------------*/
@@ -191,8 +186,8 @@ $aside-toggler-padding-x: 10px;
 // SHADOWS
 //----------------------------------*/
 $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
-$header-shadow: 0 1px 3px rgba(#000, .2);
-$sidebar-footer-shadow: 0 1px 10px rgba(#000, 0.3), inset 0 1px 0 rgba(#fff, 0.08);
+$header-shadow: 0 1px 3px rgba($black-color, .2);
+$sidebar-footer-shadow: 0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
 
 //----------------------------------*\
 // BREADCRUMBS
@@ -234,7 +229,7 @@ $sidebar-mini-width: 60px;
 $sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
 
 /* Sidebar footer */
-$sidebar-footer-height:40px;
+$sidebar-footer-height: 40px;
 $sidebar-footer-item-height: $sidebar-item-height;
 $sidebar-footer-child-item-height: $sidebar-submenu-item-height;
 $sidebar-footer-width: $sidebar-width;
@@ -245,11 +240,44 @@ $sidebar-footer-icon-font-size: 15px;
 // BUTTONS
 //----------------------------------*/
 
-$btn-font-size: 14px;
-$btn-padding-y: 0.5rem;
-$btn-padding-x: 1.5rem;
+/* Small button (.btn-sm) */
+$btn-font-size-sm: 12px !default;
+$btn-padding-y-sm: 5px !default;
+$btn-padding-x-sm: 15px !default;
+$btn-min-width-sm: 70px !default;
+$btn-min-height-sm: 30px !default;
+$btn-radius-sm: $border-radius-sm;
+
+/* Regular button (.btn) */
+$btn-font-size: 16px !default;
+$btn-padding-y: 8px !default;
+$btn-padding-x: 25px !default;
+$btn-min-width: 100px !default;
+$btn-min-height: 40px !default;
+$btn-radius: $border-radius-md;
+
+/* Large button (.btn-lg) */
+$btn-font-size-lg: 18px !default;
+$btn-padding-y-lg: 13px !default;
+$btn-padding-x-lg: 35px !default;
+$btn-min-width-lg: 120px !default;
+$btn-min-height-lg: 55px !default;
+$btn-radius-lg: $border-radius-lg;
+
+/* Round button radius (.btn-round) */
 $btn-radius-round: 30px;
-$btn-radius-default: $border-radius-sm;
+
+/* Small icon button (.btn-sm.btn-icon.btn-round) */
+$btn-icon-size-sm: $btn-min-height-sm !default;
+$btn-icon-font-size-sm: 12px !default;
+
+/* Regular icon button (.btn-icon.btn-round) */
+$btn-icon-size: $btn-min-height !default;
+$btn-icon-font-size: 16px !default;
+
+/* Large icon button (.btn-lg.btn-icon.btn-round) */
+$btn-icon-size-lg: $btn-min-height-lg !default;
+$btn-icon-font-size-lg: 20px !default;
 
 //----------------------------------*\
 // NAVBAR

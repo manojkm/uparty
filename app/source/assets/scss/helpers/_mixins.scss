@@ -452,3 +452,13 @@ Usage
 
   }
 }
+
+
+@mixin btn-size($min-width, $min-height, $padding-y, $padding-x, $font-size, $border){
+  @include font-size($font-size);
+  @include border-radius($border);
+  padding: $padding-y $padding-x;
+  min-width: $min-width;
+  min-height: $min-height;
+
+}
