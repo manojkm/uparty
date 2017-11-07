@@ -283,7 +283,7 @@ Usage
 
 // TODO: http://demos.creative-tim.com/now-ui-kit/documentation/tutorial-components.html?ref=nuk-free-doc#buttons-row
 
-@mixin btn-styles($theme-color, $bg:fill, $tone:base, $tone-hover:dark, $font-color:font-color) {
+@mixin btn-theme($theme-color, $bg:fill, $tone:base, $tone-hover:dark, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
     border-color: setcolor($theme-color, $tone);
@@ -298,7 +298,7 @@ Usage
       color: setcolor($theme-color, $tone);
     }
 
-  } @else { /* Theme variations*/
+  } @else { /* Theme variations */
     @include border-color($theme-color, $tone);
     /* Filled button */
     @if $bg == fill {
@@ -315,6 +315,7 @@ Usage
 
   &:hover,
   &:focus,
+  &.focus,
   &:active,
   &.active,
   &:active:focus,
@@ -341,6 +342,7 @@ Usage
 
   &:hover {
     //box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+    //box-shadow: 0 .125em $off-wht, inset 0 .063em $off-wht;
   }
 
   &.disabled,
@@ -352,7 +354,11 @@ Usage
     &:focus,
     &.focus,
     &:active,
-    &.active {
+    &.active,
+    &:active:focus,
+    &:active:hover,
+    &.active:focus,
+    &.active:hover {
 
       @if map-has-key($contextual, $theme-color) { /* Contextual variations */
         border-color: setcolor($theme-color, $tone);
@@ -367,7 +373,7 @@ Usage
           color: setcolor($theme-color, $tone);
         }
 
-      } @else { /* Theme variations*/
+      } @else { /* Theme variations */
         @include border-color($theme-color, $tone);
         /* Filled button */
         @if $bg == fill {
@@ -388,7 +394,7 @@ Usage
   &.btn-link {
     background-color: transparent;
 
-    @if map-has-key($contextual, $theme-color) {/* Contextual variations */
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
       color: setcolor($theme-color, $tone);
     } @else { /* Theme variations */
       @include color($theme-color, $tone);
@@ -396,6 +402,7 @@ Usage
 
     &:hover,
     &:focus,
+    &.focus,
     &:active,
     &.active,
     &:active:focus,
@@ -425,13 +432,17 @@ Usage
       &:focus,
       &.focus,
       &:active,
-      &.active {
+      &.active,
+      &:active:focus,
+      &:active:hover,
+      &.active:focus,
+      &.active:hover {
         background-color: transparent;
         text-decoration: none;
         box-shadow: none;
         @if map-has-key($contextual, $theme-color) { /* Contextual variations */
           color: setcolor($theme-color, $tone);
-        } @else {/* Theme variations */
+        } @else { /* Theme variations */
           @include color($theme-color, $tone);
         }
 

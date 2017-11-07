@@ -8,17 +8,17 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-button {
+button, .button {
   cursor: pointer;
 }
 
 .btn,
 .navbar .navbar-nav > a.btn {
   @include font-size($btn-font-size);
+  @include border-radius($btn-radius-default);
+  border-width: $border-thin;
   font-weight: map-get-strict($font, weight-normal);
   line-height: map-get-strict($font, line-height);
-  border-radius: $btn-radius-default;
-  border-width: $border-thin;
   padding: $btn-padding-y $btn-padding-x;
   margin: 5px 1px;
   cursor: pointer;
@@ -36,31 +36,34 @@ button {
   }
 }
 
-/* Apply the mixin to the buttons */
+/* Apply the mixin to the button variants.
+Easily pump out default styles, as well as :hover, :focus, :active,
+and disabled options for all buttons.
+*/
 
-.btn-primary { @include btn-styles(primary); }
-.btn-outline-primary { @include btn-styles(primary, outline); }
+.btn-primary { @include btn-theme(primary); }
+.btn-outline-primary { @include btn-theme(primary, outline); }
 
-.btn-secondary { @include btn-styles(secondary); }
-.btn-outline-secondary { @include btn-styles(secondary, outline); }
+.btn-secondary { @include btn-theme(secondary); }
+.btn-outline-secondary { @include btn-theme(secondary, outline); }
 
-.btn-success { @include btn-styles(success); }
-.btn-outline-success {@include btn-styles(success, outline);}
+.btn-success { @include btn-theme(success); }
+.btn-outline-success {@include btn-theme(success, outline);}
 
-.btn-danger {@include btn-styles(danger);}
-.btn-outline-danger {@include btn-styles(danger, outline);}
+.btn-danger {@include btn-theme(danger);}
+.btn-outline-danger {@include btn-theme(danger, outline);}
 
-.btn-warning {@include btn-styles(warning);}
-.btn-outline-warning {@include btn-styles(warning, outline);}
+.btn-warning {@include btn-theme(warning);}
+.btn-outline-warning {@include btn-theme(warning, outline);}
 
-.btn-info {@include btn-styles(info);}
-.btn-outline-info {@include btn-styles(info, outline);}
+.btn-info {@include btn-theme(info);}
+.btn-outline-info {@include btn-theme(info, outline);}
 
-.btn-light {@include btn-styles(light);}
-.btn-outline-light {@include btn-styles(light, outline);}
+.btn-light {@include btn-theme(light);}
+.btn-outline-light {@include btn-theme(light, outline);}
 
-.btn-dark {@include btn-styles(dark);}
-.btn-outline-dark {@include btn-styles(dark, outline);}
+.btn-dark {@include btn-theme(dark);}
+.btn-outline-dark {@include btn-theme(dark, outline);}
 
 .btn {
   &:disabled,
@@ -76,5 +79,5 @@ button {
 }
 
 .btn-round {
-  border-radius: $btn-radius-round !important;
+  @include border-radius($btn-radius-round);
 }
