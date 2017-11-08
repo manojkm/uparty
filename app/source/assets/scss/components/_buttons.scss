@@ -106,7 +106,7 @@ and disabled options for all buttons.
   &:disabled,
   &[disabled],
   &.disabled {
-    @include opacity(0.5);
+    @include opacity($btn-disabled-opacity);
   }
 }
 

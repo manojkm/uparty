@@ -63,7 +63,7 @@
   }
 
   /* Dropdown header */
-  & .dropdown-header {
+  & .dropdown-header:not([href]):not([tabindex]){
     @include font-size($dropdown-header-font-size);
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     white-space: nowrap;
@@ -155,11 +155,11 @@
   &.dropdown-menu-right {
     &:before {
       right: 16px;
-      left: inherit;
+      left: auto;
     }
 
     &:after {
-      left: inherit;
+      left: auto;
       right: 14px;
     }
 

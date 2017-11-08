@@ -313,15 +313,7 @@ Usage
 
   }
 
-  &:hover,
-  &:focus,
-  &.focus,
-  &:active,
-  &.active,
-  &:active:focus,
-  &:active:hover,
-  &.active:focus,
-  &.active:hover,
+  #{$a-tags},
   .show > &.dropdown-toggle,
   .show > &.dropdown-toggle:focus,
   .show > &.dropdown-toggle:hover {
@@ -350,15 +342,7 @@ Usage
   &[disabled],
   fieldset[disabled] & {
     &,
-    &:hover,
-    &:focus,
-    &.focus,
-    &:active,
-    &.active,
-    &:active:focus,
-    &:active:hover,
-    &.active:focus,
-    &.active:hover {
+    #{$a-tags} {
 
       @if map-has-key($contextual, $theme-color) { /* Contextual variations */
         border-color: setcolor($theme-color, $tone);
@@ -400,15 +384,7 @@ Usage
       @include color($theme-color, $tone);
     }
 
-    &:hover,
-    &:focus,
-    &.focus,
-    &:active,
-    &.active,
-    &:active:focus,
-    &:active:hover,
-    &.active:focus,
-    &.active:hover,
+    #{$a-tags},
     .show > &.dropdown-toggle,
     .show > &.dropdown-toggle:focus,
     .show > &.dropdown-toggle:hover {
@@ -428,15 +404,7 @@ Usage
     &[disabled],
     fieldset[disabled] & {
       &,
-      &:hover,
-      &:focus,
-      &.focus,
-      &:active,
-      &.active,
-      &:active:focus,
-      &:active:hover,
-      &.active:focus,
-      &.active:hover {
+      #{$a-tags} {
         background-color: transparent;
         text-decoration: none;
         box-shadow: none;
@@ -453,12 +421,101 @@ Usage
   }
 }
 
+//----------------------------------*\
+// BUTTONS SIZES
+//----------------------------------*/
 
-@mixin btn-size($min-width, $min-height, $padding-y, $padding-x, $font-size, $border){
+@mixin btn-size($min-width, $min-height, $padding-y, $padding-x, $font-size, $border) {
   @include font-size($font-size);
   @include border-radius($border);
   padding: $padding-y $padding-x;
   min-width: $min-width;
   min-height: $min-height;
+}
 
+//----------------------------------*\
+// BADGES
+//----------------------------------*/
+
+@mixin badges-theme($theme-color, $bg:fill, $tone:base, $tone-hover:dark, $font-color:font-color) {
+
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    /* Filled button */
+    @if $bg == fill {
+      background-color: setcolor($theme-color, $tone);
+      color: setcolor($theme-color, $font-color);
+    }
+    /* Outline button */
+    @if $bg == outline {
+      background-color: transparent;
+      color: setcolor($theme-color, $tone);
+    }
+
+  } @else { /* Theme variations */
+    @include border-color($theme-color, $tone);
+    /* Filled button */
+    @if $bg == fill {
+      @include background-color($theme-color, $tone);
+      @include color($theme-color, $font-color);
+    }
+    /* Outline button */
+    @if $bg == outline {
+      background-color: transparent;
+      @include color($theme-color, $tone);
+    }
+
+  }
+
+  #{$a-href-tags} {
+
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      background-color: setcolor($theme-color, $tone-hover);
+      color: setcolor($theme-color, $font-color);
+    } @else { /* Theme variations */
+      @include background-color($theme-color, $tone-hover);
+      @include color($theme-color, $font-color);
+    }
+
+  }
+
+  &:hover {
+    //box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+    //box-shadow: 0 .125em $off-wht, inset 0 .063em $off-wht;
+  }
+
+  &.disabled,
+  &:disabled,
+  &[disabled] {
+    &,
+    #{$a-href-tags} {
+
+      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+        /* Filled button */
+        @if $bg == fill {
+          background-color: setcolor($theme-color, $tone);
+          color: setcolor($theme-color, $font-color);
+        }
+        /* Outline button */
+        @if $bg == outline {
+          background-color: transparent;
+          color: setcolor($theme-color, $tone);
+        }
+
+      } @else { /* Theme variations */
+        @include border-color($theme-color, $tone);
+        /* Filled button */
+        @if $bg == fill {
+          @include background-color($theme-color, $tone);
+          @include color($theme-color, $font-color);
+        }
+        /* Outline button */
+        @if $bg == outline {
+          background-color: transparent;
+          @include color($theme-color, $tone);
+        }
+
+      }
+
+    }
+  }
 }

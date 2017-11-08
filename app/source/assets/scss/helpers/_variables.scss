@@ -78,6 +78,12 @@ $font: (
         weight-semi: 600,
         weight-bold: 700,
         line-height: 1.5,
+/*        size-xs: 10px,
+        size-sm: 12px,
+        size-md: 14px,
+        size-lg: 16px,
+        size-xl: 18px,*/
+
 );
 
 //----------------------------------*\
@@ -183,6 +189,22 @@ $aside-toggler-padding-x: 10px;
 //----------------------------------*/
 
 //----------------------------------*\
+// PADDINGS
+//----------------------------------*/
+
+$padding-base-y: .5rem !default;
+$padding-base-x: .7rem !default;
+
+$padding-simple-y: 10px !default;
+$padding-simple-x: 17px !default;
+
+$padding-large-y: 15px !default;
+$padding-large-x: 48px !default;
+
+$padding-small-y: 5px !default;
+$padding-small-x: 15px !default;
+
+//----------------------------------*\
 // SHADOWS
 //----------------------------------*/
 $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
@@ -215,7 +237,7 @@ $sidebar-item-height: 40px;
 $sidebar-padding-x: 10px;
 $sidebar-padding-y: 0px;
 
-$sidebar-divider-border: false;
+$sidebar-divider-border: true;
 $sidebar-divider-height: 0px;
 $sidebar-divider-margin-y: 0.5rem;
 $sidebar-divider-margin-x: 0px;
@@ -279,6 +301,9 @@ $btn-icon-font-size: 16px !default;
 $btn-icon-size-lg: $btn-min-height-lg !default;
 $btn-icon-font-size-lg: 20px !default;
 
+/* Disabled button opacity */
+$btn-disabled-opacity: 0.5;
+
 //----------------------------------*\
 // NAVBAR
 //----------------------------------*/
@@ -314,10 +339,20 @@ $path-rel: 'images/';
 //----------------------------------*/
 /* Including relevant variables from bootstrap variables.scss */
 $badge-pill-border-radius: 10rem !default;
+$badge-disabled-opacity: 0.5;
 
 //----------------------------------*\
 // TYPOGRAPHY
 //----------------------------------*/
+
+//----------------------------------*\
+// TOOLTIPS
+//----------------------------------*/
+$tooltip-background-color: $grey-x-dark !default;
+$tooltip-font-color: $white-color !default;
+$tooltip-padding-y: $padding-base-y !default;
+$tooltip-padding-x: $padding-base-x !default;
+$tooltip-font-size: 12px;
 
 //----------------------------------*\
 // FOOTER
@@ -384,4 +419,28 @@ $screen-md-max: ($screen-lg-min - 1) !default; /*991px*/
 
 /* Large devices (desktops, less than 1200px) */
 $screen-lg-max: ($screen-xl-min - 1) !default; /*1999px*/
+
+//----------------------------------*\
+// LINK SELECTORS
+//----------------------------------*/
+/* Adapted from https://css-tricks.com/snippets/sass/sass-things-links/ */
+$a-href-tags: '&[href]:hover,
+        &[href]:focus,
+        &[href].focus,
+        &[href]:active,
+        &[href].active,
+        &[href]:active:focus,
+        &[href]:active:hover,
+        &[href].active:focus,
+        &[href].active:hover ';
+
+$a-tags: '&:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  &:active:focus,
+  &:active:hover,
+  &.active:focus,
+  &.active:hover';
 
