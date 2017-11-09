@@ -519,3 +519,72 @@ Usage
     }
   }
 }
+
+//----------------------------------*\
+// POPOVERS
+//----------------------------------*/
+
+@mixin popover-theme($theme-color, $tone:base, $header-tone:base, $border-tone:dark, $font-color:font-color) {
+
+
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    background-color: setcolor($theme-color, $tone);
+    border-color: setcolor($theme-color, $border-tone);
+  } @else { /* Theme variations */
+    @include background-color($theme-color, $tone);
+    @include border-color($theme-color, $border-tone);
+  }
+
+  .popover-body {
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      color: setcolor($theme-color, $font-color);
+    } @else { /* Theme variations */
+      @include color($theme-color, $font-color);
+    }
+  }
+
+  &.bs-popover-right .arrow:after {
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      border-right-color: setcolor($theme-color, $tone);
+    } @else { /* Theme variations */
+      @include border-right-color($theme-color, $tone);
+    }
+  }
+
+  &.bs-popover-top .arrow:after {
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      border-top-color: setcolor($theme-color, $tone);
+    } @else { /* Theme variations */
+      @include border-top-color($theme-color, $tone);
+    }
+  }
+
+  &.bs-popover-bottom .arrow:after {
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      border-bottom-color: setcolor($theme-color, $tone);
+    } @else { /* Theme variations */
+      @include border-bottom-color($theme-color, $tone);
+    }
+  }
+
+  &.bs-popover-left .arrow:after {
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      border-left-color: setcolor($theme-color, $tone);
+    } @else { /* Theme variations */
+      @include border-left-color($theme-color, $tone);
+    }
+  }
+
+  .popover-header {
+    border: 0;
+    margin-top: 5px;
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      color: setcolor($theme-color, $font-color);
+      background-color: setcolor($theme-color, $header-tone);
+
+    } @else { /* Theme variations */
+      @include background-color($theme-color, $header-tone);
+      @include color($theme-color, $font-color);
+    }
+  }
+}

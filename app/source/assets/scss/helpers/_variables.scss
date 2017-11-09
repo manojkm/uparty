@@ -209,6 +209,7 @@ $padding-small-x: 15px !default;
 //----------------------------------*/
 $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
 $header-shadow: 0 1px 3px rgba($black-color, .2);
+$popover-shadow: 0 5px 10px rgba($black-color, .1);
 $sidebar-footer-shadow: 0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
 
 //----------------------------------*\
@@ -305,6 +306,13 @@ $btn-icon-font-size-lg: 20px !default;
 $btn-disabled-opacity: 0.5;
 
 //----------------------------------*\
+// POPOVERS
+//----------------------------------*/
+$popover-header-font-size: 14px !default;
+$popover-font-size: 13px !default;
+
+
+//----------------------------------*\
 // NAVBAR
 //----------------------------------*/
 
@@ -350,8 +358,8 @@ $badge-disabled-opacity: 0.5;
 //----------------------------------*/
 $tooltip-background-color: $grey-x-dark !default;
 $tooltip-font-color: $white-color !default;
-$tooltip-padding-y: $padding-base-y !default;
-$tooltip-padding-x: $padding-base-x !default;
+/*$tooltip-padding-y: $padding-base-y !default;
+$tooltip-padding-x: $padding-base-x !default;*/
 $tooltip-font-size: 12px;
 
 //----------------------------------*\
@@ -374,7 +382,9 @@ $zindex: (
         header : 1300,
         footer : 1000,
         sidebar : 1000,
-        aside : 1300
+        aside : 1300,
+        popover: 1060,
+
 );
 
 //----------------------------------*\

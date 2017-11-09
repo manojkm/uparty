@@ -14,6 +14,7 @@ var appMaster = {
     _hide: $("[data-side='hide']"),
     _overlay: $('.overlay'),
     _tooltip:$("[data-toggle='tooltip']"),
+    _popover:$("[data-toggle='popover']"),
 
     responsive: function () {
         $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed');
@@ -137,11 +138,20 @@ var appMaster = {
         $(appMaster._tooltip).on('click', function () {
             $(this).tooltip('hide');
         });
+    },
+
+
+    popover: function () {
+        //TODO close button https://jsfiddle.net/vivekkupadhyay/bdkbq5sd/10/
+        $(appMaster._popover).each(function() {
+            var color = $(this).data('color');
+            $(this).popover({
+                template: '<div class="popover popover-' + color + '" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+            });
+        });
     }
 
-
 };
-
 
 var Pluggin = {
     metismenu: function metismenu(element) {
@@ -168,6 +178,7 @@ $(document).ready(function () {
     appMaster.dropdown();
     appMaster.aside();
     appMaster.tooltip();
+    appMaster.popover();
 });
 
 

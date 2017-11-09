@@ -8,30 +8,97 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+//----------------------------------*\
+// TOOLTIP
+//----------------------------------*/
+
 .tooltip {
 
+  /* Tooltip inner */
   @at-root &-inner {
     @include font-size($tooltip-font-size);
-    padding: $tooltip-padding-y $tooltip-padding-x;
+    font-weight: map-get-strict($font, weight-normal);
+    //padding: $tooltip-padding-y $tooltip-padding-x;
     color: $tooltip-font-color;
+
     background-color: $tooltip-background-color;
     //box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
   }
 
+  /* Right tooltip */
   &.bs-tooltip-right .arrow:before {
     border-right-color: $tooltip-background-color;
   }
 
+  /* Top tooltip */
   &.bs-tooltip-top .arrow:before {
     border-top-color: $tooltip-background-color;
   }
-
+  /* Bottom tooltip */
   &.bs-tooltip-bottom .arrow:before {
     border-bottom-color: $tooltip-background-color;
   }
 
+  /* Left tooltip */
   &.bs-tooltip-left .arrow:before {
     border-left-color: $tooltip-background-color;
   }
+}
+
+//----------------------------------*\
+// POPOVERS
+//----------------------------------*/
+
+.popover {
+  font-size: $popover-font-size;
+  max-width: 276px;
+  box-shadow: $popover-shadow;
+  z-index: map-get($zindex, popover);
+  text-align: left;
+  white-space: normal;
+
+  &.bs-popover-top .arrow:before,
+  &.bs-popover-left .arrow:before,
+  &.bs-popover-right .arrow:before,
+  &.bs-popover-bottom .arrow:before {
+    //border-top-color: transparent;
+    //border-left-color: transparent;
+    //border-right-color: transparent;
+    //border-bottom-color: transparent;
+  }
+
+  .popover-header {
+    font-size: $popover-header-font-size;
+    text-transform: capitalize;
+    font-weight: map-get-strict($font, weight-bold);
+  }
+
+  /* Apply the mixin to the popover variants. */
+
+  &.popover-primary {
+    @include popover-theme(primary);
+  }
+  &.popover-secondary {
+    @include popover-theme(secondary);
+  }
+  &.popover-success {
+    @include popover-theme(success);
+  }
+  &.popover-danger {
+    @include popover-theme(danger);
+  }
+  &.popover-warning{
+    @include popover-theme(warning);
+  }
+  &.popover-info {
+    @include popover-theme(info);
+  }
+  &.popover-light{
+    @include popover-theme(light);
+  }
+  &.popover-dark {
+    @include popover-theme(dark);
+  }
+
 }
 
