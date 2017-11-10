@@ -425,10 +425,10 @@ Usage
 // BUTTONS SIZES
 //----------------------------------*/
 
-@mixin btn-size($min-width, $min-height, $padding-y, $padding-x, $font-size, $border) {
+@mixin btn-size($min-width, $min-height, $font-size, $border) {
   @include font-size($font-size);
   @include border-radius($border);
-  padding: $padding-y $padding-x;
+  //padding: $padding-y $padding-x;
   min-width: $min-width;
   min-height: $min-height;
 }
@@ -524,7 +524,7 @@ Usage
 // POPOVERS
 //----------------------------------*/
 
-@mixin popover-theme($theme-color, $tone:base, $header-tone:base, $border-tone:dark, $font-color:font-color) {
+@mixin popover-theme($theme-color, $tone:base, $header-tone:dark, $border-tone:dark, $font-color:font-color) {
 
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
@@ -576,14 +576,16 @@ Usage
   }
 
   .popover-header {
-    border: 0;
-    margin-top: 5px;
+    //border: 0;
+    //margin-top: 5px;
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
       color: setcolor($theme-color, $font-color);
       background-color: setcolor($theme-color, $header-tone);
+      border-color: setcolor($theme-color, $header-tone);
 
     } @else { /* Theme variations */
       @include background-color($theme-color, $header-tone);
+      @include border-color($theme-color, $header-tone);
       @include color($theme-color, $font-color);
     }
   }

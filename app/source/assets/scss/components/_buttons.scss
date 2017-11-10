@@ -20,9 +20,10 @@ button, .button {
   @include border-radius($btn-radius);
   border-width: $border-thin;
   font-weight: map-get-strict($font, weight-normal);
-  line-height: map-get-strict($font, line-height);
-  padding: $btn-padding-y $btn-padding-x;
-  margin: 5px 1px;
+  //line-height: map-get-strict($font, line-height);
+  //padding: $btn-padding-y $btn-padding-x;
+  //margin-top: 5px;
+  //margin-bottom: 5px;
   cursor: pointer;
   min-width: $btn-min-width;
   min-height: $btn-min-height;
@@ -77,29 +78,69 @@ Easily pump out default styles, as well as :hover, :focus, :active,
 and disabled options for all buttons.
 */
 
-.btn-primary { @include btn-theme(primary); }
-.btn-outline-primary { @include btn-theme(primary, outline); }
+.btn-primary {
+  @include btn-theme(primary);
+}
 
-.btn-secondary { @include btn-theme(secondary); }
-.btn-outline-secondary { @include btn-theme(secondary, outline); }
+.btn-outline-primary {
+  @include btn-theme(primary, outline);
+}
 
-.btn-success { @include btn-theme(success); }
-.btn-outline-success {@include btn-theme(success, outline);}
+.btn-secondary {
+  @include btn-theme(secondary);
+}
 
-.btn-danger {@include btn-theme(danger);}
-.btn-outline-danger {@include btn-theme(danger, outline);}
+.btn-outline-secondary {
+  @include btn-theme(secondary, outline);
+}
 
-.btn-warning {@include btn-theme(warning);}
-.btn-outline-warning {@include btn-theme(warning, outline);}
+.btn-success {
+  @include btn-theme(success);
+}
 
-.btn-info {@include btn-theme(info);}
-.btn-outline-info {@include btn-theme(info, outline);}
+.btn-outline-success {
+  @include btn-theme(success, outline);
+}
 
-.btn-light {@include btn-theme(light);}
-.btn-outline-light {@include btn-theme(light, outline);}
+.btn-danger {
+  @include btn-theme(danger);
+}
 
-.btn-dark {@include btn-theme(dark);}
-.btn-outline-dark {@include btn-theme(dark, outline);}
+.btn-outline-danger {
+  @include btn-theme(danger, outline);
+}
+
+.btn-warning {
+  @include btn-theme(warning);
+}
+
+.btn-outline-warning {
+  @include btn-theme(warning, outline);
+}
+
+.btn-info {
+  @include btn-theme(info);
+}
+
+.btn-outline-info {
+  @include btn-theme(info, outline);
+}
+
+.btn-light {
+  @include btn-theme(light);
+}
+
+.btn-outline-light {
+  @include btn-theme(light, outline);
+}
+
+.btn-dark {
+  @include btn-theme(dark);
+}
+
+.btn-outline-dark {
+  @include btn-theme(dark, outline);
+}
 
 /* Disabled button */
 .btn {
@@ -116,15 +157,25 @@ and disabled options for all buttons.
 }
 
 /* Large button */
-.btn-lg{
-  @include btn-size($btn-min-width-lg, $btn-min-height-lg, $btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-radius-lg);
+.btn-group.btn-group-lg .btn,
+.btn-lg {
+  @include btn-size($btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg);
 }
+
 /* Small button */
-.btn-sm{
-  @include btn-size($btn-min-width-sm, $btn-min-height-sm, $btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-radius-sm);
+.btn-group.btn-group-sm .btn,
+.btn-sm {
+  @include btn-size($btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-radius-sm);
 }
 
 /* Round button */
 .btn-round {
   @include border-radius($btn-radius-round);
+}
+
+/* Button group */
+.btn-group {
+  .btn {
+    min-width: 0!important;
+  }
 }
