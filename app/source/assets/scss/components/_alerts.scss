@@ -1,0 +1,58 @@
+// ================================================================================================
+// File Name: alert.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//TODO https://codepen.io/simeonoff/pen/QKYwba
+.alert {
+  @include border-radius($alert-border-radius);
+  @include font-size($alert-font-size);
+  @if bool($alert-border) == true {
+    border-width: $alert-border-thick;
+  } @else {
+    border: 0;
+  }
+  font-weight: map-get-strict($font, weight-normal);
+  position: relative;
+
+  /* Theme variations */
+
+  &.alert-primary {
+    @include alert-theme(primary);
+  }
+  &.alert-secondary {
+    @include alert-theme(secondary);
+  }
+
+  /* Contextual variations */
+
+  &.alert-success {
+    @include alert-theme(success);
+  }
+
+  &.alert-danger {
+    @include alert-theme(danger);
+  }
+
+  &.alert-warning {
+    @include alert-theme(warning);
+  }
+
+  &.alert-info {
+    @include alert-theme(info);
+  }
+
+  &.alert-light {
+    @include alert-theme(light);
+  }
+
+  &.alert-dark {
+    @include alert-theme(dark);
+  }
+}
+

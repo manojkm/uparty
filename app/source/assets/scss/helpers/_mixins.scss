@@ -526,7 +526,6 @@ Usage
 
 @mixin popover-theme($theme-color, $tone:base, $header-tone:dark, $border-tone:dark, $font-color:font-color) {
 
-
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
     background-color: setcolor($theme-color, $tone);
     border-color: setcolor($theme-color, $border-tone);
@@ -589,4 +588,21 @@ Usage
       @include color($theme-color, $font-color);
     }
   }
+}
+
+//----------------------------------*\
+// ALERT
+//----------------------------------*/
+@mixin alert-theme($theme-color, $tone:base, $border-tone:dark, $font-color:font-color) {
+
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    background-color: setcolor($theme-color, $tone);
+    border-color: setcolor($theme-color, $border-tone);
+    color: setcolor($theme-color, $font-color);
+  } @else { /* Theme variations */
+    @include background-color($theme-color, $tone);
+    @include border-color($theme-color, $border-tone);
+    @include color($theme-color, $font-color);
+  }
+
 }

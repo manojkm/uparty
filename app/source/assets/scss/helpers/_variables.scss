@@ -23,8 +23,6 @@
 //----------------------------------*/
 /* Looking for theme color palette? Please check themes/_theme-map.scss */
 
-
-
 /* Contextual colors */
 $contextual: (
         'success': (
@@ -81,12 +79,11 @@ $font: (
         weight-semi: 600,
         weight-bold: 700,
         line-height: 1.5,
-/*        size-xs: 10px,
-        size-sm: 12px,
-        size-md: 14px,
-        size-lg: 16px,
-        size-xl: 18px,*/
-
+  /*        size-xs: 10px,
+          size-sm: 12px,
+          size-md: 14px,
+          size-lg: 16px,
+          size-xl: 18px,*/
 );
 
 //----------------------------------*\
@@ -314,6 +311,13 @@ $btn-disabled-opacity: 0.5;
 $popover-header-font-size: 14px !default;
 $popover-font-size: 13px !default;
 
+//----------------------------------*\
+// ALERT
+//----------------------------------*/
+$alert-border: false;
+$alert-border-radius: $border-radius-lg;
+$alert-border-thick: $border-thin;
+$alert-font-size: 16px !default;
 
 //----------------------------------*\
 // NAVBAR
@@ -387,7 +391,6 @@ $zindex: (
         sidebar : 1000,
         aside : 1300,
         popover: 1060,
-
 );
 
 //----------------------------------*\

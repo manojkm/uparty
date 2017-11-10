@@ -78,6 +78,8 @@ Easily pump out default styles, as well as :hover, :focus, :active,
 and disabled options for all buttons.
 */
 
+/* Theme variations */
+
 .btn-primary {
   @include btn-theme(primary);
 }
@@ -93,6 +95,8 @@ and disabled options for all buttons.
 .btn-outline-secondary {
   @include btn-theme(secondary, outline);
 }
+
+/* Contextual variations */
 
 .btn-success {
   @include btn-theme(success);
@@ -176,6 +180,6 @@ and disabled options for all buttons.
 /* Button group */
 .btn-group {
   .btn {
-    min-width: 0!important;
+    min-width: 0 !important;
   }
 }
