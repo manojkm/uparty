@@ -44,9 +44,9 @@ $contextual: (
                 'font-color': #fff,
         ),
         'info': (
-                'base': $mint,
-                'light': lighten($mint, 6%),
-                'dark': darken($mint, 6%),
+                'base': $aqua,
+                'light': lighten($aqua, 6%),
+                'dark': darken($aqua, 6%),
                 'font-color': #fff,
         ),
         'light': (
@@ -73,7 +73,7 @@ $font-html: (
 );
 
 $font: (
-        color: #666, /* Global text color on <body> */
+        color: $grey-x-dark, /* Global text color on <body> */
         weight-light: 300,
         weight-normal: 400,
         weight-semi: 600,
@@ -314,9 +314,9 @@ $popover-font-size: 13px !default;
 //----------------------------------*\
 // ALERT
 //----------------------------------*/
-$alert-border: false;
-$alert-border-radius: $border-radius-lg;
-$alert-border-thick: $border-thin;
+$alert-border: true;
+$alert-border-radius: $border-radius-md;
+$alert-border-size: $border-thin;
 $alert-font-size: 16px !default;
 
 //----------------------------------*\
@@ -344,6 +344,15 @@ $path-rel: 'images/';
 //----------------------------------*\
 // FORMS
 //----------------------------------*/
+$input-bg: #fff;
+$input-font-size: 15px;
+$input-color: $grey-dark;
+$input-color-placeholder: $grey-dark;
+$input-bg-disabled: $grey-x-light;
+$input-border: $grey-light;
+$input-border-disabled: $grey-x-light;
+$input-border-radius: $border-radius-md;
+$input-border-size: $border-thin;
 
 //----------------------------------*\
 // TABLES
@@ -355,6 +364,7 @@ $path-rel: 'images/';
 /* Including relevant variables from bootstrap variables.scss */
 $badge-pill-border-radius: 10rem !default;
 $badge-disabled-opacity: 0.5;
+$badge-border-size: $border-thin;
 
 //----------------------------------*\
 // TYPOGRAPHY

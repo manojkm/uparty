@@ -13,41 +13,68 @@
   border-radius: $badge-pill-border-radius;
 }
 
+
 // TODO Adapted from https://codepen.io/uimax/pen/kkadmY
 .badge {
-
+  $b: badge;
+  border: $badge-border-size solid transparent;
   /* Theme variations */
-  &.badge-primary {
+  &.#{$b}-primary {
     @include badges-theme(primary);
   }
+  &.#{$b}-outline-primary {
+    @include badges-theme(primary, outline);
+  }
 
-  &.badge-secondary {
+  &.#{$b}-secondary {
     @include badges-theme(secondary);
   }
 
+  &.#{$b}-outline-secondary {
+    @include badges-theme(secondary, outline);
+  }
   /* Contextual variations */
-  &.badge-success {
+  &.#{$b}-success {
     @include badges-theme(success);
   }
+  &.#{$b}-outline-success {
+    @include badges-theme(success, outline);
+  }
 
-  &.badge-danger {
+  &.#{$b}-danger {
     @include badges-theme(danger);
   }
+  &.#{$b}-outline-danger {
+    @include badges-theme(danger, outline);
+  }
 
-  &.badge-warning {
+  &.#{$b}-warning {
     @include badges-theme(warning);
   }
-
-  &.badge-info {
-    @include badges-theme(info)
+  &.#{$b}-outline-warning {
+    @include badges-theme(warning, outline);
   }
 
-  &.badge-light {
+  &.#{$b}-info {
+    @include badges-theme(info)
+  }
+  &.#{$b}-outline-info {
+    @include badges-theme(info, outline)
+  }
+
+  &.#{$b}-light {
     @include badges-theme(light)
   }
 
-  &.badge-dark {
+  &.#{$b}-outline-light {
+    @include badges-theme(light, outline)
+  }
+
+  &.#{$b}-dark {
     @include badges-theme(dark);
+  }
+  &.#{$b}-outline-dark {
+    @include badges-theme(dark, outline);
   }
 
   /* Disabled badge */
@@ -58,6 +85,9 @@
   }
 
 }
-
-
+/* Link Badges */
+a.badge{
+  cursor: pointer;
+  text-decoration: none;
+}
 

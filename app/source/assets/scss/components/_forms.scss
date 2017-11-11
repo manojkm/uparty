@@ -1,0 +1,34 @@
+// ================================================================================================
+// File Name: forms.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.form-control {
+  color: $input-color;
+  border-color: $input-border;
+  border-width: $input-border-size;
+  @include font-size($input-font-size);
+  @include border-radius($input-border-radius);
+
+  &:focus {
+    @include border-color('primary', 'light');
+  }
+
+  &::-moz-placeholder,
+  &:-ms-input-placeholder,
+  &::-webkit-input-placeholder {
+    color: $input-color-placeholder;
+  }
+
+  &.disabled,
+  &[disabled] {
+    border-color: $input-border-disabled;
+    background-color: $input-bg-disabled;
+  }
+
+}

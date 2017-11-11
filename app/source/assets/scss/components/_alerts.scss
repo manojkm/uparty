@@ -10,49 +10,62 @@
 
 //TODO https://codepen.io/simeonoff/pen/QKYwba
 .alert {
+  $a: alert;
   @include border-radius($alert-border-radius);
   @include font-size($alert-font-size);
   @if bool($alert-border) == true {
-    border-width: $alert-border-thick;
+    border-width: $alert-border-size;
   } @else {
     border: 0;
   }
   font-weight: map-get-strict($font, weight-normal);
   position: relative;
 
-  /* Theme variations */
 
-  &.alert-primary {
+    /* Theme variations */
+
+  &.#{$a}-primary {
     @include alert-theme(primary);
   }
-  &.alert-secondary {
+  &.#{$a}-secondary {
     @include alert-theme(secondary);
   }
 
   /* Contextual variations */
 
-  &.alert-success {
+  &.#{$a}-success {
     @include alert-theme(success);
   }
 
-  &.alert-danger {
+  &.#{$a}-danger {
     @include alert-theme(danger);
   }
 
-  &.alert-warning {
+  &.#{$a}-warning {
     @include alert-theme(warning);
   }
 
-  &.alert-info {
+  &.#{$a}-info {
     @include alert-theme(info);
   }
 
-  &.alert-light {
+  &.#{$a}-light {
     @include alert-theme(light);
   }
 
-  &.alert-dark {
+  &.#{$a}-dark {
     @include alert-theme(dark);
+  }
+
+  /* Links (.alert-link) */
+  & .#{$a}-link {
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover,
+    &:hover {
+      @include opacity(0.9);
+      text-decoration: none;
+    }
   }
 }
 

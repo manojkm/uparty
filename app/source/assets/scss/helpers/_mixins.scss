@@ -440,6 +440,7 @@ Usage
 @mixin badges-theme($theme-color, $bg:fill, $tone:base, $tone-hover:dark, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    border-color: setcolor($theme-color, $tone);
     /* Filled button */
     @if $bg == fill {
       background-color: setcolor($theme-color, $tone);
@@ -465,9 +466,8 @@ Usage
     }
 
   }
-
+  /* Link Badges */
   #{$a-href-tags} {
-
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
       background-color: setcolor($theme-color, $tone-hover);
       color: setcolor($theme-color, $font-color);
@@ -593,16 +593,43 @@ Usage
 //----------------------------------*\
 // ALERT
 //----------------------------------*/
-@mixin alert-theme($theme-color, $tone:base, $border-tone:dark, $font-color:font-color) {
+@mixin alert-theme($theme-color, $tone:base, $tone-hover:light, $tone-border:base, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
     background-color: setcolor($theme-color, $tone);
-    border-color: setcolor($theme-color, $border-tone);
+    border-color: setcolor($theme-color, $tone-border);
     color: setcolor($theme-color, $font-color);
   } @else { /* Theme variations */
     @include background-color($theme-color, $tone);
-    @include border-color($theme-color, $border-tone);
+    @include border-color($theme-color, $tone-border);
     @include color($theme-color, $font-color);
   }
+  /*  &:hover {
+      @if map-has-key($contextual, $theme-color) { !* Contextual variations *!
+        background-color: setcolor($theme-color, $tone-hover);
+      } @else { !* Theme variations *!
+        @include background-color($theme-color, $tone-hover);
+      }
+    }*/
 
+  /* Close button */
+  @at-root &.alert-dismissible > .close {
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      color: setcolor($theme-color, $font-color);
+    } @else { /* Theme variations */
+      @include color($theme-color, $font-color);
+    }
+  }
+
+  /* Link color */
+  & .alert-link {
+    &,
+    #{$a-tags} {
+      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+        color: setcolor($theme-color, $font-color);
+      } @else { /* Theme variations */
+        @include color($theme-color, $font-color);
+      }
+    }
+  }
 }
