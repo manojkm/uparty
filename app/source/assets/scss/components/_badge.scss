@@ -17,7 +17,9 @@
 // TODO Adapted from https://codepen.io/uimax/pen/kkadmY
 .badge {
   $b: badge;
+  @include border-radius($badge-border-radius);
   border: $badge-border-size solid transparent;
+
   /* Theme variations */
   &.#{$b}-primary {
     @include badges-theme(primary);
