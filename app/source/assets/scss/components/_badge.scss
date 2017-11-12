@@ -8,12 +8,6 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-/* Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false) */
-.badge-pill {
-  border-radius: $badge-pill-border-radius;
-}
-
-
 // TODO Adapted from https://codepen.io/uimax/pen/kkadmY
 .badge {
   $b: badge;
@@ -93,3 +87,8 @@ a.badge{
   text-decoration: none;
 }
 
+
+/* Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false) */
+.badge-pill {
+  border-radius: $badge-pill-border-radius;
+}
