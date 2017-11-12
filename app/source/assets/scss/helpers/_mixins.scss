@@ -427,7 +427,11 @@ Usage
 
 @mixin btn-size($min-width, $min-height, $font-size, $border) {
   @include font-size($font-size);
-  @include border-radius($border);
+  @if bool($enable-rounded) == true {
+    @include border-radius($border);
+  } @else {
+    border-radius: 0;
+  }
   //padding: $padding-y $padding-x;
   min-width: $min-width;
   min-height: $min-height;
@@ -593,7 +597,7 @@ Usage
 //----------------------------------*\
 // ALERT
 //----------------------------------*/
-@mixin alert-theme($theme-color, $tone:base, $tone-hover:light, $tone-border:base, $font-color:font-color) {
+@mixin alert-theme($theme-color, $tone:base, $tone-hover:light, $tone-border:dark, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
     background-color: setcolor($theme-color, $tone);

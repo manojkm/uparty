@@ -5,6 +5,17 @@ title: Test page title
 
 Forms
 <br>
+<form class="form-inline">
+    <div class="form-group">
+        <label for="staticEmail2" class="sr-only">Email</label>
+        <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+    </div>
+    <div class="form-group mx-sm-3">
+        <label for="inputPassword2" class="sr-only">Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm identity</button>
+</form>
 
 <div class="card card-outline-secondary">
     <div class="card-header">
@@ -16,6 +27,13 @@ Forms
                 <label for="uname1">Username</label>
                 <input class="form-control" id="uname1" name="uname1" required="" type="text">
             </div>
+            <div class="form-group">
+                <label for="disabledSelect">Disabled select menu</label>
+                <select id="disabledSelect" class="form-control" >
+                    <option>Disabled select</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label>Password</label>
                 <input autocomplete="new-password" class="form-control" id="pwd1" required="" type="password">
@@ -30,35 +48,6 @@ Forms
         </form>
     </div><!--/card-block-->
 </div><!-- /form card login -->
-
-
-<form class="container" novalidate>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="email" class="form-control is-info" id="username" required placeholder="user@hotnail.con" />
-        <div class="info-feedback">Did you mean user@hotmail.com?</div>
-    </div>
-
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control is-warning" id="password" pattern=".{5,}" required placeholder="*****" />
-        <div class="invalid-feedback">Please fill out this field</div>
-        <div class="invalid-feedback">Should be at least 5 characters long</div>
-        <div class="warning-feedback">Should contain numbers</div>
-        <!--<div class="warning-feedback">Should contain small letters</div>-->
-        <div class="warning-feedback">Should contain capital letters</div>
-        <div class="warning-feedback">Should contain special characters</div>
-    </div>
-
-    <div class="form-group">
-        <label for="password-confirm">Confirm Password</label>
-        <input type="password" class="form-control is-invalid" id="password-confirm" required />
-        <div class="invalid-feedback">Please fill out this field</div>
-        <div class="invalid-feedback">Not the same password</div>
-    </div>
-
-    <button class="btn btn-primary">Submit</button>
-</form>
 
 
 <br><br>

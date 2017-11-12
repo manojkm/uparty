@@ -8,37 +8,52 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+/* Textual form controls */
 .form-control {
+  @include transition;
   color: $input-color;
-  border-color: $input-border;
-  border-width: $input-border-size;
+  border: $input-border-size solid $input-border-color;
   //@include font-size($input-font-size);
-  @include border-radius($input-border-radius);
+  @if bool($enable-rounded) == true {
+    @include border-radius($input-border-radius);
+  } @else {
+    border-radius: 0;
+  }
 
+  &:hover {
+    border-color: $input-hover-border-color;
+  }
   &:focus {
     @include border-color('primary', 'light');
   }
 
-  &::-moz-placeholder,
-  &:-ms-input-placeholder,
-  &::-webkit-input-placeholder {
+  &::placeholder {
     color: $input-color-placeholder;
   }
 
   &.disabled,
-  &[disabled] {
+  &[disabled],
+  &[readonly]{
     border-color: $input-border-disabled;
     background-color: $input-bg-disabled;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
+
+/* Select */
+select.form-control:hover {
+  cursor: pointer;
+}
+
+/* Labels */
+/* Set uniform font-sizes for labels, col-form-labels and legends. */
+form {
+  label,
+  .col-form-label,
+  .col-form-legend {
+    @include font-size($form-labels-font-size);
   }
 
-}
-
-
-.warning-feedback {
-  margin-top: .25rem;
-  font-size: .875rem;
-}
-.info-feedback {
-  margin-top: .25rem;
-  font-size: .875rem;
 }

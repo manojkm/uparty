@@ -17,7 +17,11 @@ button, .button {
 .btn,
 .navbar .navbar-nav > a.btn {
   @include font-size($btn-font-size);
-  @include border-radius($btn-radius);
+  @if bool($enable-rounded) == true {
+    @include border-radius($btn-radius);
+  } @else {
+    border-radius: 0;
+  }
   border-width: $border-thin;
   font-weight: map-get-strict($font, weight-normal);
   //line-height: map-get-strict($font, line-height);
