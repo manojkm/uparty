@@ -11,9 +11,12 @@
 /* Textual form controls */
 .form-control {
   @include transition;
+  font-size: $input-font-size;
+  //@include font-size($input-font-size);
+  padding: $btn-padding-y $btn-padding-x;
   color: $input-color;
   border: $input-border-size solid $input-border-color;
-  //@include font-size($input-font-size);
+  line-height: $btn-line-height;
   @if bool($enable-rounded) == true {
     @include border-radius($input-border-radius);
   } @else {
@@ -25,6 +28,12 @@
   }
   &:focus {
     @include border-color('primary', 'light');
+    color: $input-color;
+
+    & + .input-group-addon,
+    & ~ .input-group-addon {
+      @include border-color('primary', 'light');
+    }
   }
 
   &::placeholder {
@@ -33,12 +42,29 @@
 
   &.disabled,
   &[disabled],
-  &[readonly]{
+  &[readonly] {
     border-color: $input-border-disabled;
     background-color: $input-bg-disabled;
     &:hover {
       cursor: not-allowed;
     }
+  }
+}
+
+.input-group-addon {
+  background-color: $input-addon-background-color;
+  border: $input-border-size solid $input-border-color;
+  color: $input-addon-color;
+
+  @if bool($enable-rounded) == true {
+    @include border-radius($input-border-radius);
+  } @else {
+    border-radius: 0;
+  }
+
+  & .radio,
+  & .checkbox {
+    margin: -3px 0 -4px !important;
   }
 }
 
@@ -57,3 +83,75 @@ form {
   }
 
 }
+
+// For use with horizontal and inline forms, when you need the label text to
+// align with the form controls.
+.col-form-label {
+  padding-top: calc(#{$input-btn-padding-y} - #{$input-border-size} * 2);
+  padding-bottom: calc(#{$input-btn-padding-y} - #{$input-border-size} * 2);
+}
+
+.col-form-label-lg {
+  padding-top: calc(#{$btn-padding-y-lg} - #{$input-border-size} * 2);
+  padding-bottom: calc(#{$btn-padding-y-lg} - #{$input-border-size} * 2);
+  //font-size: $font-size-lg;
+}
+
+.col-form-label-sm {
+  padding-top: calc(#{$btn-padding-y-sm} - #{$input-border-size} * 2);
+  padding-bottom: calc(#{$btn-padding-y-sm} - #{$input-border-size} * 2);
+  //font-size: $font-size-sm;
+}
+
+//
+// Legends
+//
+
+// For use with horizontal and inline forms, when you need the legend text to
+// be the same size as regular labels, and to align with the form controls.
+.col-form-legend {
+  padding-top: $input-btn-padding-y;
+  padding-bottom: $input-btn-padding-y;
+}
+
+// Readonly controls as plain text
+.form-control-plaintext {
+  padding-top: $input-btn-padding-y;
+  padding-bottom: $input-btn-padding-y;
+  line-height: $input-btn-line-height;
+  font-weight: map-get-strict($font, weight-normal);
+}
+
+// Form control sizing
+//
+// Augments Bootstrap's `.form-control` with modifier classes for small and large
+// form control elements. As mentioned in Bootstrap, the `.form-group-* form-control`
+// variations are sadly duplicated to avoid the issue documented in:
+// https://github.com/twbs/bootstrap/issues/15074.
+
+.form-control-sm {
+  padding: $btn-padding-y-sm $btn-padding-x-sm;
+  font-size: $font-size-sm;
+  @include border-radius($border-radius-sm);
+}
+
+select.form-control-sm {
+  &:not([size]):not([multiple]) {
+    height: $input-height-sm;
+  }
+}
+
+.form-control-lg {
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  font-size: $font-size-lg;
+  @include border-radius($border-radius-lg);
+}
+
+select.form-control-lg {
+  &:not([size]):not([multiple]) {
+    height: $input-height-lg;
+  }
+}
+
+
+

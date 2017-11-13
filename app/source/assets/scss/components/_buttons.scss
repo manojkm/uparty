@@ -16,7 +16,8 @@ button, .button {
 
 .btn,
 .navbar .navbar-nav > a.btn {
-  @include font-size($btn-font-size);
+  //@include font-size($btn-font-size);
+  font-size: $btn-font-size;
   @if bool($enable-rounded) == true {
     @include border-radius($btn-radius);
   } @else {
@@ -24,13 +25,11 @@ button, .button {
   }
   border-width: $border-thin;
   font-weight: map-get-strict($font, weight-normal);
-  //line-height: map-get-strict($font, line-height);
-  //padding: $btn-padding-y $btn-padding-x;
-  //margin-top: 5px;
-  //margin-bottom: 5px;
-  cursor: pointer;
+  padding: $btn-padding-y $btn-padding-x;
+  line-height: $btn-line-height;
   min-width: $btn-min-width;
   min-height: $btn-min-height;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -167,13 +166,13 @@ and disabled options for all buttons.
 /* Large button */
 .btn-group.btn-group-lg .btn,
 .btn-lg {
-  @include btn-size($btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg);
+  @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
 }
 
 /* Small button */
 .btn-group.btn-group-sm .btn,
 .btn-sm {
-  @include btn-size($btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-radius-sm);
+  @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-radius-sm,$btn-line-height-sm);
 }
 
 /* Round button */

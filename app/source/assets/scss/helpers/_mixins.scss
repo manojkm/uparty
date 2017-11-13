@@ -425,16 +425,18 @@ Usage
 // BUTTONS SIZES
 //----------------------------------*/
 
-@mixin btn-size($min-width, $min-height, $font-size, $border) {
-  @include font-size($font-size);
+@mixin btn-size($padding-y, $padding-x, $min-width, $min-height, $font-size, $border, $line-height) {
+  //@include font-size($font-size);
+  font-size: $font-size;
   @if bool($enable-rounded) == true {
     @include border-radius($border);
   } @else {
     border-radius: 0;
   }
-  //padding: $padding-y $padding-x;
+  padding: $padding-y $padding-x;
   min-width: $min-width;
   min-height: $min-height;
+  line-height: $line-height;
 }
 
 //----------------------------------*\
