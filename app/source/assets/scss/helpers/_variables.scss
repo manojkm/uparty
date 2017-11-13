@@ -79,16 +79,18 @@ $font: (
         weight-semi: 600,
         weight-bold: 700,
         line-height: 1.5,
-  /*        size-xs: 10px,
-          size-sm: 12px,
-          size-md: 14px,
-          size-lg: 16px,
-          size-xl: 18px,*/
+        size-xs: 0.75rem, /*12px*/
+        size-sm: 0.875rem,  /*14px*/
+        size-md: 1rem, /*16px*/
+        size-lg: 1.125rem, /*18px*/
+        size-xl: 1.25rem /*20px*/
 );
 
-$font-size-base: 1rem !default;
-$font-size-lg:   $font-size-base !default;
-$font-size-sm:   .875rem !default;
+$font-size-xs: font-size(size-xs) !default; /*12px*/
+$font-size-sm: font-size(size-sm) !default;  /*14px*/
+$font-size-base: font-size(size-md) !default; // Assumes the browser default, typically `16px`
+$font-size-lg: font-size(size-lg); /*18px*/
+$font-size-xl: font-size(size-xl);/*20px*/
 
 //----------------------------------*\
 // OPTIONS
@@ -104,11 +106,11 @@ $selection-bg: #f9f6f0;
 //----------------------------------*\
 // BORDERS
 //----------------------------------*/
-//$border-radius-base: 4px !default;
 $none: 0 !default;
 $border-thin: 1px !default;
 $border-thick: 2px !default;
 $border: 1px solid !default;
+/* Border radius */
 $border-radius-xs: 0.125rem !default; /*2px*/
 $border-radius-sm: 0.1875rem !default; /*3px*/
 $border-radius-md: 0.25rem !default; /*4px*/
@@ -273,37 +275,33 @@ $sidebar-footer-icon-font-size: 15px;
 // BUTTONS
 //----------------------------------*/
 
-$input-btn-padding-x:       1rem !default;
-$input-btn-padding-y:       .664rem !default;
-$input-btn-line-height:     1.1 !default;
-
-
+$btn-border-size: $border-thin;
 
 /* Small button (.btn-sm) */
-$btn-font-size-sm:  0.75rem !default;
-$btn-padding-y-sm: .35rem !default;
-$btn-padding-x-sm: 1rem !default;
+$btn-font-size-sm: $font-size-sm;
+$btn-padding-y-sm: .25rem !default;
+$btn-padding-x-sm: 0.5rem !default;
 $btn-min-width-sm: 80px !default;
 $btn-min-height-sm: 0px !default;
-$btn-line-height-sm:  1.5 !default;
+$btn-line-height-sm: 1.5 !default;
 $btn-radius-sm: $border-radius-sm;
 
 /* Regular button (.btn) */
-$btn-font-size: .875rem !default;
-$btn-padding-y: .75rem !default;
-$btn-padding-x: 1.25rem !default;
+$btn-font-size: $font-size-base !default;
+$btn-padding-y: .5rem !default;
+$btn-padding-x: .75rem !default;
 $btn-min-width: 100px !default;
-$btn-min-height:  0px !default;
-$btn-line-height:  1.1 !default;
+$btn-min-height: 0px !default;
+$btn-line-height: 1.25 !default;
 $btn-radius: $border-radius-md;
 
 /* Large button (.btn-lg) */
-$btn-font-size-lg:  1.125rem !default;
-$btn-padding-y-lg: .75rem !default;
-$btn-padding-x-lg:  1.75rem !default;
+$btn-font-size-lg: $font-size-lg !default;
+$btn-padding-y-lg: .5rem !default;
+$btn-padding-x-lg: 1rem !default;
 $btn-min-width-lg: 120px !default;
 $btn-min-height-lg: 0px !default;
-$btn-line-height-lg:  1.5 !default;
+$btn-line-height-lg: 1.5 !default;
 $btn-radius-lg: $border-radius-lg;
 
 /* Round button radius (.btn-round) */
@@ -319,10 +317,62 @@ $btn-icon-font-size: $btn-font-size;
 
 /* Large icon button (.btn-lg.btn-icon.btn-round) */
 $btn-icon-size-lg: $btn-min-height-lg !default;
-$btn-icon-font-size-lg:$btn-font-size-lg;
+$btn-icon-font-size-lg: $btn-font-size-lg;
 
 /* Disabled button opacity */
 $btn-disabled-opacity: 0.5;
+
+//----------------------------------*\
+// FORMS
+//----------------------------------*/
+
+$input-bg: $white-color;
+$input-bg-disabled: $grey-x-light;
+
+$input-color: $grey-dark;
+$input-color-placeholder: $grey-light;
+
+$input-addon-color: $grey-light;
+$input-addon-background-color: $grey-x-light;
+
+$input-border-hover-color: $grey;
+$input-border-color: $grey-light;
+$input-border-disabled: $grey-x-light;
+$input-border-size: $border-thin;
+$form-labels-font-size: $font-size-sm;
+
+/* Small */
+$input-font-size-sm: $font-size-sm !default;
+$input-border-radius-sm: $border-radius-sm;
+
+/* Regular */
+$input-font-size: $font-size-base !default;
+$input-border-radius: $border-radius-md;
+
+/* Large */
+$input-font-size-lg: $font-size-lg !default;
+$input-border-radius-lg: $border-radius-lg;
+
+
+
+$input-height-border: $input-border-size * 2 !default;
+
+/*
+
+$input-btn-padding-x: 1rem !default;
+$input-btn-padding-y: .664rem !default;
+$input-btn-line-height: 1.1 !default;
+*/
+
+
+$input-height-inner: ($font-size-base * $btn-line-height) + ($btn-padding-y * 2) !default;
+$input-height: calc(#{$input-height-inner} + #{$input-height-border}) !default;
+
+$input-height-inner-sm: ($font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
+$input-height-sm: calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
+
+$input-height-inner-lg: ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
+$input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
 
 //----------------------------------*\
 // POPOVERS
@@ -358,37 +408,6 @@ $overlay: rgba(0, 0, 0, .3);
 // PATHS
 //----------------------------------*/
 $path-rel: 'images/';
-
-//----------------------------------*\
-// FORMS
-//----------------------------------*/
-
-$input-bg: $white-color;
-$input-color: $grey-dark;
-$input-color-placeholder: $grey-light;
-$input-addon-color: $grey-light;
-$input-addon-background-color: $grey-x-light;
-
-$input-bg-disabled: $grey-x-light;
-$input-border-color: $grey-light;
-$input-hover-border-color: $grey;
-$input-border-disabled: $grey-x-light;
-$input-border-radius: $border-radius-md;
-$input-border-size: $border-thin;
-$form-labels-font-size: 14px;
-$input-font-size: .875rem !default;
-
-$input-height-border:           $input-border-size * 2 !default;
-
-$input-height-inner:            ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
-$input-height:                  calc(#{$input-height-inner} + #{$input-height-border}) !default;
-
-$input-height-inner-sm:         ($font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
-$input-height-sm:               calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
-
-$input-height-inner-lg:         ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
-$input-height-lg:               calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
-
 
 //----------------------------------*\
 // TABLES

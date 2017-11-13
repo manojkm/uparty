@@ -61,3 +61,10 @@
     @warn "Make sure you pass a valid color for '#{$tone}' in Theme/Contextual Sass maps";
   }
 }
+
+//----------------------------------*\
+// RETRIEVE FONT SIZE SASS MAPS
+//----------------------------------*/
+@function font-size($key: size-md) {
+  @return map-get-strict($font, $key);
+}

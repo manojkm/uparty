@@ -12,11 +12,12 @@
 .form-control {
   @include transition;
   font-size: $input-font-size;
-  //@include font-size($input-font-size);
-  padding: $btn-padding-y $btn-padding-x;
-  color: $input-color;
   border: $input-border-size solid $input-border-color;
+  font-weight: map-get-strict($font, weight-normal);
+  padding: $btn-padding-y $btn-padding-x;
   line-height: $btn-line-height;
+  background-color: $input-bg;
+  color: $input-color;
   @if bool($enable-rounded) == true {
     @include border-radius($input-border-radius);
   } @else {
@@ -24,7 +25,7 @@
   }
 
   &:hover {
-    border-color: $input-hover-border-color;
+    border-color: $input-border-hover-color;
   }
   &:focus {
     @include border-color('primary', 'light');
@@ -69,8 +70,18 @@
 }
 
 /* Select */
-select.form-control:hover {
-  cursor: pointer;
+select.form-control {
+  &:not([size]):not([multiple]) {
+    height: $input-height;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    color: $input-color;
+    background-color: $input-bg;
+  }
 }
 
 /* Labels */
@@ -79,7 +90,7 @@ form {
   label,
   .col-form-label,
   .col-form-legend {
-    @include font-size($form-labels-font-size);
+    font-size: $input-font-size;
   }
 
 }
@@ -87,20 +98,20 @@ form {
 // For use with horizontal and inline forms, when you need the label text to
 // align with the form controls.
 .col-form-label {
-  padding-top: calc(#{$input-btn-padding-y} - #{$input-border-size} * 2);
-  padding-bottom: calc(#{$input-btn-padding-y} - #{$input-border-size} * 2);
+  padding-top: calc(#{$btn-padding-y} - #{$input-border-size} * 2);
+  padding-bottom: calc(#{$btn-padding-y} - #{$input-border-size} * 2);
 }
 
 .col-form-label-lg {
   padding-top: calc(#{$btn-padding-y-lg} - #{$input-border-size} * 2);
   padding-bottom: calc(#{$btn-padding-y-lg} - #{$input-border-size} * 2);
-  //font-size: $font-size-lg;
+  font-size: $input-font-size-lg;
 }
 
 .col-form-label-sm {
   padding-top: calc(#{$btn-padding-y-sm} - #{$input-border-size} * 2);
   padding-bottom: calc(#{$btn-padding-y-sm} - #{$input-border-size} * 2);
-  //font-size: $font-size-sm;
+  font-size: $input-font-size-sm;
 }
 
 //
@@ -110,16 +121,17 @@ form {
 // For use with horizontal and inline forms, when you need the legend text to
 // be the same size as regular labels, and to align with the form controls.
 .col-form-legend {
-  padding-top: $input-btn-padding-y;
-  padding-bottom: $input-btn-padding-y;
+  padding-top: $btn-padding-y;
+  padding-bottom: $btn-padding-y;
 }
 
 // Readonly controls as plain text
 .form-control-plaintext {
-  padding-top: $input-btn-padding-y;
-  padding-bottom: $input-btn-padding-y;
-  line-height: $input-btn-line-height;
+  padding-top: $btn-padding-y;
+  padding-bottom: $btn-padding-y;
+  line-height: $btn-line-height;
   font-weight: map-get-strict($font, weight-normal);
+  border-width: $input-border-size 0;
 }
 
 // Form control sizing
@@ -131,8 +143,9 @@ form {
 
 .form-control-sm {
   padding: $btn-padding-y-sm $btn-padding-x-sm;
-  font-size: $font-size-sm;
-  @include border-radius($border-radius-sm);
+  font-size: $input-font-size-sm;
+  line-height: $btn-line-height-sm;
+  @include border-radius($input-border-radius-sm);
 }
 
 select.form-control-sm {
@@ -143,8 +156,9 @@ select.form-control-sm {
 
 .form-control-lg {
   padding: $btn-padding-y-lg $btn-padding-x-lg;
-  font-size: $font-size-lg;
-  @include border-radius($border-radius-lg);
+  font-size: $input-font-size-lg;
+  line-height: $btn-line-height-lg;
+  @include border-radius($input-border-radius-lg);
 }
 
 select.form-control-lg {
@@ -153,5 +167,7 @@ select.form-control-lg {
   }
 }
 
-
-
+// Form validation
+.invalid-feedback {
+  color: setcolor(danger, base);
+}
