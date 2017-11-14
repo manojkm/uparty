@@ -167,7 +167,7 @@ Usage @include fontSize(16px);
 /*
 Usage @include transition(color .3s ease); @include transition;
 */
-@mixin transition($transitionvalue : all 0.5s ease) {
+@mixin transition($transitionvalue : all $general-transition-time ease) {
   -webkit-transition: $transitionvalue;
   -o-transition: $transitionvalue;
   -moz-transition: $transitionvalue;
@@ -286,16 +286,16 @@ Usage
 @mixin btn-theme($theme-color, $bg:fill, $tone:base, $tone-hover:dark, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    border-color: setcolor($theme-color, $tone);
+    border-color: contextual-color($theme-color, $tone);
     /* Filled button */
     @if $bg == fill {
-      background-color: setcolor($theme-color, $tone);
-      color: setcolor($theme-color, $font-color);
+      background-color: contextual-color($theme-color, $tone);
+      color: contextual-color($theme-color, $font-color);
     }
     /* Outline button */
     @if $bg == outline {
       background-color: transparent;
-      color: setcolor($theme-color, $tone);
+      color: contextual-color($theme-color, $tone);
     }
 
   } @else { /* Theme variations */
@@ -319,9 +319,9 @@ Usage
   .show > &.dropdown-toggle:hover {
 
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-color: setcolor($theme-color, $tone-hover);
-      background-color: setcolor($theme-color, $tone-hover);
-      color: setcolor($theme-color, $font-color);
+      border-color: contextual-color($theme-color, $tone-hover);
+      background-color: contextual-color($theme-color, $tone-hover);
+      color: contextual-color($theme-color, $font-color);
     } @else { /* Theme variations */
       @include border-color($theme-color, $tone-hover);
       @include background-color($theme-color, $tone-hover);
@@ -345,16 +345,16 @@ Usage
     #{$a-tags} {
 
       @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-        border-color: setcolor($theme-color, $tone);
+        border-color: contextual-color($theme-color, $tone);
         /* Filled button */
         @if $bg == fill {
-          background-color: setcolor($theme-color, $tone);
-          color: setcolor($theme-color, $font-color);
+          background-color: contextual-color($theme-color, $tone);
+          color: contextual-color($theme-color, $font-color);
         }
         /* Outline button */
         @if $bg == outline {
           background-color: transparent;
-          color: setcolor($theme-color, $tone);
+          color: contextual-color($theme-color, $tone);
         }
 
       } @else { /* Theme variations */
@@ -379,7 +379,7 @@ Usage
     background-color: transparent;
 
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      color: setcolor($theme-color, $tone);
+      color: contextual-color($theme-color, $tone);
     } @else { /* Theme variations */
       @include color($theme-color, $tone);
     }
@@ -393,7 +393,7 @@ Usage
       box-shadow: none;
 
       @if map-has-key($contextual, $theme-color) {
-        color: setcolor($theme-color, $tone-hover);
+        color: contextual-color($theme-color, $tone-hover);
       } @else {
         @include color($theme-color, $tone-hover);
       }
@@ -409,7 +409,7 @@ Usage
         text-decoration: none;
         box-shadow: none;
         @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-          color: setcolor($theme-color, $tone);
+          color: contextual-color($theme-color, $tone);
         } @else { /* Theme variations */
           @include color($theme-color, $tone);
         }
@@ -446,16 +446,16 @@ Usage
 @mixin badges-theme($theme-color, $bg:fill, $tone:base, $tone-hover:dark, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    border-color: setcolor($theme-color, $tone);
+    border-color: contextual-color($theme-color, $tone);
     /* Filled button */
     @if $bg == fill {
-      background-color: setcolor($theme-color, $tone);
-      color: setcolor($theme-color, $font-color);
+      background-color: contextual-color($theme-color, $tone);
+      color: contextual-color($theme-color, $font-color);
     }
     /* Outline button */
     @if $bg == outline {
       background-color: transparent;
-      color: setcolor($theme-color, $tone);
+      color: contextual-color($theme-color, $tone);
     }
 
   } @else { /* Theme variations */
@@ -475,8 +475,8 @@ Usage
   /* Link Badges */
   #{$a-href-tags} {
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      background-color: setcolor($theme-color, $tone-hover);
-      color: setcolor($theme-color, $font-color);
+      background-color: contextual-color($theme-color, $tone-hover);
+      color: contextual-color($theme-color, $font-color);
     } @else { /* Theme variations */
       @include background-color($theme-color, $tone-hover);
       @include color($theme-color, $font-color);
@@ -498,13 +498,13 @@ Usage
       @if map-has-key($contextual, $theme-color) { /* Contextual variations */
         /* Filled button */
         @if $bg == fill {
-          background-color: setcolor($theme-color, $tone);
-          color: setcolor($theme-color, $font-color);
+          background-color: contextual-color($theme-color, $tone);
+          color: contextual-color($theme-color, $font-color);
         }
         /* Outline button */
         @if $bg == outline {
           background-color: transparent;
-          color: setcolor($theme-color, $tone);
+          color: contextual-color($theme-color, $tone);
         }
 
       } @else { /* Theme variations */
@@ -533,8 +533,8 @@ Usage
 @mixin popover-theme($theme-color, $tone:base, $header-tone:dark, $border-tone:dark, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    background-color: setcolor($theme-color, $tone);
-    border-color: setcolor($theme-color, $border-tone);
+    background-color: contextual-color($theme-color, $tone);
+    border-color: contextual-color($theme-color, $border-tone);
   } @else { /* Theme variations */
     @include background-color($theme-color, $tone);
     @include border-color($theme-color, $border-tone);
@@ -542,7 +542,7 @@ Usage
 
   .popover-body {
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      color: setcolor($theme-color, $font-color);
+      color: contextual-color($theme-color, $font-color);
     } @else { /* Theme variations */
       @include color($theme-color, $font-color);
     }
@@ -550,7 +550,7 @@ Usage
 
   &.bs-popover-right .arrow:after {
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-right-color: setcolor($theme-color, $tone);
+      border-right-color: contextual-color($theme-color, $tone);
     } @else { /* Theme variations */
       @include border-right-color($theme-color, $tone);
     }
@@ -558,7 +558,7 @@ Usage
 
   &.bs-popover-top .arrow:after {
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-top-color: setcolor($theme-color, $tone);
+      border-top-color: contextual-color($theme-color, $tone);
     } @else { /* Theme variations */
       @include border-top-color($theme-color, $tone);
     }
@@ -566,7 +566,7 @@ Usage
 
   &.bs-popover-bottom .arrow:after {
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-bottom-color: setcolor($theme-color, $tone);
+      border-bottom-color: contextual-color($theme-color, $tone);
     } @else { /* Theme variations */
       @include border-bottom-color($theme-color, $tone);
     }
@@ -574,7 +574,7 @@ Usage
 
   &.bs-popover-left .arrow:after {
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-left-color: setcolor($theme-color, $tone);
+      border-left-color: contextual-color($theme-color, $tone);
     } @else { /* Theme variations */
       @include border-left-color($theme-color, $tone);
     }
@@ -584,9 +584,9 @@ Usage
     //border: 0;
     //margin-top: 5px;
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      color: setcolor($theme-color, $font-color);
-      background-color: setcolor($theme-color, $header-tone);
-      border-color: setcolor($theme-color, $header-tone);
+      color: contextual-color($theme-color, $font-color);
+      background-color: contextual-color($theme-color, $header-tone);
+      border-color: contextual-color($theme-color, $header-tone);
 
     } @else { /* Theme variations */
       @include background-color($theme-color, $header-tone);
@@ -602,9 +602,9 @@ Usage
 @mixin alert-theme($theme-color, $tone:base, $tone-hover:light, $tone-border:dark, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    background-color: setcolor($theme-color, $tone);
-    border-color: setcolor($theme-color, $tone-border);
-    color: setcolor($theme-color, $font-color);
+    background-color: contextual-color($theme-color, $tone);
+    border-color: contextual-color($theme-color, $tone-border);
+    color: contextual-color($theme-color, $font-color);
   } @else { /* Theme variations */
     @include background-color($theme-color, $tone);
     @include border-color($theme-color, $tone-border);
@@ -612,7 +612,7 @@ Usage
   }
   /*  &:hover {
       @if map-has-key($contextual, $theme-color) { !* Contextual variations *!
-        background-color: setcolor($theme-color, $tone-hover);
+        background-color: contextual-color($theme-color, $tone-hover);
       } @else { !* Theme variations *!
         @include background-color($theme-color, $tone-hover);
       }
@@ -621,7 +621,7 @@ Usage
   /* Close button */
   @at-root &.alert-dismissible > .close {
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      color: setcolor($theme-color, $font-color);
+      color: contextual-color($theme-color, $font-color);
     } @else { /* Theme variations */
       @include color($theme-color, $font-color);
     }
@@ -632,7 +632,7 @@ Usage
     &,
     #{$a-tags} {
       @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-        color: setcolor($theme-color, $font-color);
+        color: contextual-color($theme-color, $font-color);
       } @else { /* Theme variations */
         @include color($theme-color, $font-color);
       }

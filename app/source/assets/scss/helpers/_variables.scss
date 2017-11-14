@@ -67,30 +67,38 @@ $contextual: (
 // FONTS
 //----------------------------------*/
 
+/*
 $font-html: (
-        size: 100%, /*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
+        size: 100%, !*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css!*!
   //size: 16px
-);
+);*/
 
 $font: (
-        color: $grey-x-dark, /* Global text color on <body> */
+        color: $gray-900, /* Global text color on <body> */
         weight-light: 300,
         weight-normal: 400,
         weight-semi: 600,
         weight-bold: 700,
         line-height: 1.5,
+        size-100: 100%, /* Font size of the <html> element */
         size-xs: 0.75rem, /*12px*/
-        size-sm: 0.875rem,  /*14px*/
+        size-sm: 0.875rem, /*14px*/
         size-md: 1rem, /*16px*/
         size-lg: 1.125rem, /*18px*/
         size-xl: 1.25rem /*20px*/
 );
 
+$font-size-100: font-size(size-100) !default; /*100%*/
 $font-size-xs: font-size(size-xs) !default; /*12px*/
-$font-size-sm: font-size(size-sm) !default;  /*14px*/
-$font-size-base: font-size(size-md) !default; // Assumes the browser default, typically `16px`
+$font-size-sm: font-size(size-sm) !default; /*14px*/
+$font-size-base: font-size(size-md) !default; /* Assumes the browser default, typically `16px` */
 $font-size-lg: font-size(size-lg); /*18px*/
-$font-size-xl: font-size(size-xl);/*20px*/
+$font-size-xl: font-size(size-xl); /*20px*/
+
+$font-wh-light: font-weight(weight-light) !default; /*300*/
+$font-wh-normal: font-weight(weight-normal) !default; /*400*/
+$font-wh-semi: font-weight(weight-semi) !default; /*600*/
+$font-wh-bold: font-weight(weight-bold) !default; /*700*/
 
 //----------------------------------*\
 // OPTIONS
@@ -107,9 +115,11 @@ $selection-bg: #f9f6f0;
 // BORDERS
 //----------------------------------*/
 $none: 0 !default;
+$border: 1px solid !default;
 $border-thin: 1px !default;
 $border-thick: 2px !default;
-$border: 1px solid !default;
+$border-thicker: 4px !default;
+
 /* Border radius */
 $border-radius-xs: 0.125rem !default; /*2px*/
 $border-radius-sm: 0.1875rem !default; /*3px*/
@@ -276,6 +286,7 @@ $sidebar-footer-icon-font-size: 15px;
 //----------------------------------*/
 
 $btn-border-size: $border-thin;
+$btn-font-weight: $font-wh-normal !default;
 
 /* Small button (.btn-sm) */
 $btn-font-size-sm: $font-size-sm;
@@ -329,7 +340,7 @@ $btn-disabled-opacity: 0.5;
 $input-bg: $white-color;
 $input-bg-disabled: $grey-x-light;
 
-$input-color: $grey-dark;
+$input-color: $gray-800;
 $input-color-placeholder: $grey-light;
 
 $input-addon-color: $grey-light;
@@ -353,17 +364,7 @@ $input-border-radius: $border-radius-md;
 $input-font-size-lg: $font-size-lg !default;
 $input-border-radius-lg: $border-radius-lg;
 
-
-
 $input-height-border: $input-border-size * 2 !default;
-
-/*
-
-$input-btn-padding-x: 1rem !default;
-$input-btn-padding-y: .664rem !default;
-$input-btn-line-height: 1.1 !default;
-*/
-
 
 $input-height-inner: ($font-size-base * $btn-line-height) + ($btn-padding-y * 2) !default;
 $input-height: calc(#{$input-height-inner} + #{$input-height-border}) !default;
@@ -385,7 +386,7 @@ $popover-font-size: 13px !default;
 //----------------------------------*/
 $alert-border-radius: $border-radius-md;
 $alert-border-size: $border-thin;
-$alert-font-size: 16px !default;
+$alert-font-size: $font-size-sm;
 
 //----------------------------------*\
 // NAVBAR
@@ -443,7 +444,8 @@ $footer-height: 30px;
 //----------------------------------*\
 // THEME TRANSITION
 //----------------------------------*/
-$theme-transition-duration: 1.5s;
+$theme-transition-duration: 1.5s; // TODO, delete this if not using.
+$general-transition-time: 0.5s !default;
 
 //----------------------------------*\
 // ZINDEX

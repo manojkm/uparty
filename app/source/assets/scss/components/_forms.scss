@@ -70,7 +70,8 @@
 }
 
 /* Select */
-select.form-control {
+select.form-control
+{
   &:not([size]):not([multiple]) {
     height: $input-height;
   }
@@ -88,8 +89,9 @@ select.form-control {
 /* Set uniform font-sizes for labels, col-form-labels and legends. */
 form {
   label,
-  .col-form-label,
-  .col-form-legend {
+  .col-form-legend
+  {
+    color: $input-color;
     font-size: $input-font-size;
   }
 
@@ -100,6 +102,7 @@ form {
 .col-form-label {
   padding-top: calc(#{$btn-padding-y} - #{$input-border-size} * 2);
   padding-bottom: calc(#{$btn-padding-y} - #{$input-border-size} * 2);
+  font-size: $input-font-size;
 }
 
 .col-form-label-lg {
@@ -127,6 +130,8 @@ form {
 
 // Readonly controls as plain text
 .form-control-plaintext {
+  color: $input-color;
+  background: transparent;
   padding-top: $btn-padding-y;
   padding-bottom: $btn-padding-y;
   line-height: $btn-line-height;
@@ -169,5 +174,5 @@ select.form-control-lg {
 
 // Form validation
 .invalid-feedback {
-  color: setcolor(danger, base);
+  color: contextual-color(danger, base);
 }
