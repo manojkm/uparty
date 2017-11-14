@@ -11,16 +11,11 @@
 //TODO https://codepen.io/simeonoff/pen/QKYwba
 .alert {
   $a: alert;
-  //@include font-size($alert-font-size);
+  @include set-border-radius($alert-border-radius);
   font-size: $alert-font-size;
   border-width: $alert-border-size;
   font-weight: $font-wh-normal;
   position: relative;
-  @if bool($enable-rounded) == true {
-    @include border-radius($alert-border-radius);
-  } @else {
-    border-radius: 0;
-  }
 
   /* Theme variations */
 

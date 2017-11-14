@@ -11,12 +11,7 @@
 // TODO Adapted from https://codepen.io/uimax/pen/kkadmY
 .badge {
   $b: badge;
-  @if bool($enable-rounded) == true {
-    @include border-radius($badge-border-radius);
-  } @else {
-    border-radius: 0;
-  }
-
+  @include set-border-radius($badge-border-radius);
   border: $badge-border-size solid transparent;
 
   /* Theme variations */

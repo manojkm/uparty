@@ -11,29 +11,26 @@
 /* Textual form controls */
 .form-control {
   @include transition;
+  @include set-border-radius($input-border-radius);
   font-size: $input-font-size;
   border: $input-border-size solid $input-border-color;
-  font-weight: map-get-strict($font, weight-normal);
+  font-weight: $btn-font-weight;
   padding: $btn-padding-y $btn-padding-x;
   line-height: $btn-line-height;
   background-color: $input-bg;
   color: $input-color;
-  @if bool($enable-rounded) == true {
-    @include border-radius($input-border-radius);
-  } @else {
-    border-radius: 0;
-  }
+
 
   &:hover {
     border-color: $input-border-hover-color;
   }
   &:focus {
-    @include border-color('primary', 'light');
+    border-color: $input-border-hover-color;
     color: $input-color;
 
     & + .input-group-addon,
     & ~ .input-group-addon {
-      @include border-color('primary', 'light');
+      border-color: $input-border-hover-color;
     }
   }
 
@@ -52,22 +49,7 @@
   }
 }
 
-.input-group-addon {
-  background-color: $input-addon-background-color;
-  border: $input-border-size solid $input-border-color;
-  color: $input-addon-color;
 
-  @if bool($enable-rounded) == true {
-    @include border-radius($input-border-radius);
-  } @else {
-    border-radius: 0;
-  }
-
-  & .radio,
-  & .checkbox {
-    margin: -3px 0 -4px !important;
-  }
-}
 
 /* Select */
 select.form-control
@@ -135,7 +117,7 @@ form {
   padding-top: $btn-padding-y;
   padding-bottom: $btn-padding-y;
   line-height: $btn-line-height;
-  font-weight: map-get-strict($font, weight-normal);
+  font-weight: $btn-font-weight;
   border-width: $input-border-size 0;
 }
 
@@ -147,10 +129,10 @@ form {
 // https://github.com/twbs/bootstrap/issues/15074.
 
 .form-control-sm {
+  @include set-border-radius($input-border-radius-sm);
   padding: $btn-padding-y-sm $btn-padding-x-sm;
   font-size: $input-font-size-sm;
   line-height: $btn-line-height-sm;
-  @include border-radius($input-border-radius-sm);
 }
 
 select.form-control-sm {
@@ -160,10 +142,10 @@ select.form-control-sm {
 }
 
 .form-control-lg {
+  @include set-border-radius($input-border-radius-lg);
   padding: $btn-padding-y-lg $btn-padding-x-lg;
   font-size: $input-font-size-lg;
   line-height: $btn-line-height-lg;
-  @include border-radius($input-border-radius-lg);
 }
 
 select.form-control-lg {

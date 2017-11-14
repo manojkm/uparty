@@ -16,6 +16,7 @@ button, .button {
 
 .btn,
 .navbar .navbar-nav > a.btn {
+  @include set-border-radius($btn-radius);
   font-size: $btn-font-size;
   border-width: $btn-border-size;
   font-weight: $btn-font-weight;
@@ -24,11 +25,6 @@ button, .button {
   min-width: $btn-min-width;
   min-height: $btn-min-height;
   cursor: pointer;
-  @if bool($enable-rounded) == true {
-    @include border-radius($btn-radius);
-  } @else {
-    border-radius: 0;
-  }
 
   &:hover,
   &:focus {

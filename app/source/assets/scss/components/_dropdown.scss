@@ -17,6 +17,7 @@
 
   &,
   .dropdown-menu {
+    @include set-border-radius($dropdown-border-radius);
     width: 200px;
     max-width: 320px;
     min-width: 160px;
@@ -24,6 +25,7 @@
     margin-top: $dropdown-margin-top; /* Positioning first level dropdown menu */
     background-color: $dropdown-bg;
     box-shadow: $container-shadow;
+
     @include max-screen($screen-md-max) {
       width: 100%;
       max-width: 90%;
