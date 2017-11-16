@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: input-group.scss
-// Description:
+// Description: Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -9,23 +9,19 @@
 // ================================================================================================
 
 
+//----------------------------------*\
+// BASE STYLES FOR INPUT GROUP BUTTONS AND ADDONS
+//----------------------------------*/
+
 .input-group-addon,
 .input-group-btn,
 .input-group .form-control {
-  // Vertically centers the content of the addons within the input group
-  display: flex;
-  align-items: center;
-
   &:not(:first-child):not(:last-child) {
     @include border-radius(0);
   }
 }
 
-// Sizing options
-//
-// Remix the default form control sizing classes into new ones for easier
-// manipulation.
-
+/* Sizing options */
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
@@ -38,6 +34,7 @@
 }
 
 .input-group-addon {
+  @include set-border-radius($input-border-radius);
   padding: $btn-padding-y $btn-padding-x;
   margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
   font-size: $input-font-size; // Match inputs
@@ -47,19 +44,18 @@
   text-align: center;
   background-color: $input-addon-background-color;
   border: $input-border-size solid $input-border-color;
-  @include set-border-radius($input-border-radius);
 
   // Sizing
   &.form-control-sm {
+    @include set-border-radius($input-border-radius-sm);
     padding: $btn-padding-y-sm $btn-padding-x-sm;
     font-size: $input-font-size-sm;
-    @include set-border-radius($input-border-radius-sm);
   }
 
   &.form-control-lg {
+    @include set-border-radius($input-border-radius-lg);
     padding: $btn-padding-y-lg $btn-padding-x-lg;
     font-size: $input-font-size-lg;
-    @include set-border-radius($input-border-radius-lg);
   }
 
   // scss-lint:disable QualifyingElement
@@ -71,10 +67,7 @@
   // scss-lint:enable QualifyingElement
 }
 
-//
-// Reset rounded corners
-//
-
+/* Reset rounded corners */
 .input-group .form-control:not(:last-child),
 .input-group-addon:not(:last-child),
 .input-group-btn:not(:last-child) > .btn,
@@ -100,10 +93,9 @@
   border-left: 0;
 }
 
-
-//
-// Button input groups
-//
+//----------------------------------*\
+// BUTTON INPUT GROUPS
+//----------------------------------*/
 
 .input-group-btn {
   .btn{

@@ -15,6 +15,45 @@ Forms
         <form>
             <div class="row">
                 <div class="col-lg-6">
+
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
+                        </label>
+                    </div>
+
+                    <br>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="checkbox" checked autocomplete="off"> Checkbox 1 (pre-checked)
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="checkbox" autocomplete="off"> Checkbox 2
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="checkbox" autocomplete="off"> Checkbox 3
+                        </label>
+                    </div>
+
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            This dropdown's menu is right-aligned
+                        </button>
+                        <div class="dropdown-menu extended themed dropdown-menu-right">
+                            <button class="dropdown-item" type="button">Action</button>
+                            <button class="dropdown-item" type="button">Another action</button>
+                            <button class="dropdown-item" type="button">Something else here</button>
+                        </div>
+                    </div>
+
+
                     <div class="input-group">
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-secondary">Action</button>

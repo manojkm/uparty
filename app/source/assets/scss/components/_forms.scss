@@ -8,7 +8,10 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-/* Textual form controls */
+//----------------------------------*\
+// TEXTUAL FORM CONTROLS
+//----------------------------------*/
+
 .form-control {
   @include transition;
   @include set-border-radius($input-border-radius);
@@ -19,7 +22,6 @@
   line-height: $btn-line-height;
   background-color: $input-bg;
   color: $input-color;
-
 
   &:hover {
     border-color: $input-border-hover-color;
@@ -49,11 +51,11 @@
   }
 }
 
+//----------------------------------*\
+// SELECT
+//----------------------------------*/
 
-
-/* Select */
-select.form-control
-{
+select.form-control {
   &:not([size]):not([multiple]) {
     height: $input-height;
   }
@@ -67,20 +69,22 @@ select.form-control
   }
 }
 
-/* Labels */
-/* Set uniform font-sizes for labels, col-form-labels and legends. */
+/* Set uniform font-sizes for labels and legends. */
 form {
   label,
-  .col-form-legend
-  {
+  .col-form-legend {
     color: $input-color;
     font-size: $input-font-size;
   }
 
 }
 
-// For use with horizontal and inline forms, when you need the label text to
-// align with the form controls.
+//----------------------------------*\
+// LABEL SIZING
+//----------------------------------*/
+/* For use with horizontal and inline forms, when you need the label text to
+align with the form controls. */
+
 .col-form-label {
   padding-top: calc(#{$btn-padding-y} - #{$input-border-size} * 2);
   padding-bottom: calc(#{$btn-padding-y} - #{$input-border-size} * 2);
@@ -99,18 +103,19 @@ form {
   font-size: $input-font-size-sm;
 }
 
-//
-// Legends
-//
+//----------------------------------*\
+// LEGENDS
+//----------------------------------*/
 
-// For use with horizontal and inline forms, when you need the legend text to
-// be the same size as regular labels, and to align with the form controls.
+/* For use with horizontal and inline forms, when you need the legend text to
+be the same size as regular labels, and to align with the form controls. */
 .col-form-legend {
   padding-top: $btn-padding-y;
   padding-bottom: $btn-padding-y;
+  font-size: $input-font-size;
 }
 
-// Readonly controls as plain text
+/* Readonly controls as plain text */
 .form-control-plaintext {
   color: $input-color;
   background: transparent;
@@ -121,12 +126,9 @@ form {
   border-width: $input-border-size 0;
 }
 
-// Form control sizing
-//
-// Augments Bootstrap's `.form-control` with modifier classes for small and large
-// form control elements. As mentioned in Bootstrap, the `.form-group-* form-control`
-// variations are sadly duplicated to avoid the issue documented in:
-// https://github.com/twbs/bootstrap/issues/15074.
+//----------------------------------*\
+// FORM CONTROL SIZING
+//----------------------------------*/
 
 .form-control-sm {
   @include set-border-radius($input-border-radius-sm);
@@ -154,7 +156,9 @@ select.form-control-lg {
   }
 }
 
-// Form validation
+//----------------------------------*\
+// FORM VALIDATION
+//----------------------------------*/
 .invalid-feedback {
   color: contextual-color(danger, base);
 }
