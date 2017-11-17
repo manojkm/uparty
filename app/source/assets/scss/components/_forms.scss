@@ -162,3 +162,21 @@ select.form-control-lg {
 .invalid-feedback {
   color: contextual-color(danger, base);
 }
+
+
+//----------------------------------*\
+// CUSTOM FORMS
+//----------------------------------*/
+
+.custom-control {
+  min-height: (1rem * map-get-strict($font, line-height));
+
+  .custom-control-description {
+    @include transition(color $general-transition-time $ease-in-out-circ)
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+

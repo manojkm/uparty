@@ -27,7 +27,8 @@ button, .button {
   cursor: pointer;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.focus{
     @include opacity(1);
     outline: 0;
     box-shadow: none;

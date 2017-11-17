@@ -444,10 +444,16 @@ $tooltip-font-size: 12px;
 $footer-height: 30px;
 
 //----------------------------------*\
-// THEME TRANSITION
+// TRANSITION
 //----------------------------------*/
 $theme-transition-duration: 1.5s; // TODO, delete this if not using.
 $general-transition-time: 0.5s !default;
+
+//----------------------------------*\
+// EASING
+//----------------------------------*/
+$ease-in-out-circ: cubic-bezier(.27,.01,.38,1.06);
+
 
 //----------------------------------*\
 // ZINDEX
@@ -522,7 +528,6 @@ $a-href-tags: '&[href]:hover,
 
 $a-tags: '&:hover,
   &:focus,
-  &.focus,
   &:active,
   &.active,
   &:active:focus,
