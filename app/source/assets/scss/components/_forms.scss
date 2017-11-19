@@ -23,13 +23,11 @@
   background-color: $input-bg;
   color: $input-color;
 
-  &:hover {
-    border-color: $input-border-hover-color;
-  }
-  &:focus {
-    border-color: $input-border-hover-color;
-    color: $input-color;
+  @include form-control-hover();
+  @include form-control-focus();
 
+
+  &:focus {
     & + .input-group-addon,
     & ~ .input-group-addon {
       border-color: $input-border-hover-color;
@@ -40,15 +38,8 @@
     color: $input-color-placeholder;
   }
 
-  &.disabled,
-  &[disabled],
-  &[readonly] {
-    border-color: $input-border-disabled;
-    background-color: $input-bg-disabled;
-    &:hover {
-      cursor: not-allowed;
-    }
-  }
+  @include form-control-disabled();
+
 }
 
 //----------------------------------*\
@@ -163,7 +154,6 @@ select.form-control-lg {
   color: contextual-color(danger, base);
 }
 
-
 //----------------------------------*\
 // CUSTOM FORMS
 //----------------------------------*/
@@ -180,3 +170,171 @@ select.form-control-lg {
   }
 }
 
+.custom-control-input {
+  $cci: custom-control;
+  &:checked ~ .#{$cci}-indicator {
+    @include background-color('primary', 'base');
+    color: $custom-control-indicator-color;
+    box-shadow: none;
+    border-color: transparent;
+  }
+
+  &:focus ~ .#{$cci}-indicator {
+    box-shadow: none;
+  }
+
+  &:active ~ .#{$cci}-indicator {
+    @include background-color('primary', 'light');
+    color: $custom-control-indicator-active-color;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    ~ .#{$cci}-indicator {
+      background-color: $custom-control-indicator-disabled-bg !important;
+    }
+    ~ .#{$cci}-description {
+      color: $custom-control-description-disabled-color;
+    }
+
+  }
+}
+
+//
+// Custom indicator
+//
+
+.custom-control-indicator {
+  @include transition;
+  top: (($lh-base - $custom-control-indicator-size) / 2);
+  width: $custom-control-indicator-size;
+  height: $custom-control-indicator-size;
+  background-color: $custom-control-indicator-bg;
+  border: $custom-control-indicator-border-size solid $custom-control-indicator-border-color;
+}
+
+//----------------------------------*\
+// CHECKBOXES
+//----------------------------------*/
+
+.custom-checkbox {
+  $cci: custom-control;
+
+  .#{$cci}-indicator {
+    @include set-border-radius($custom-checkbox-indicator-border-radius);
+
+    &:after {
+      @include transition;
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      width: 5px;
+      height: 11px;
+      opacity: 0;
+      transform: rotate(45deg) scale(0);
+      border-right: 2px solid $white-color;
+      border-bottom: 2px solid $white-color;
+    }
+  }
+
+  .#{$cci}-input:checked ~ .#{$cci}-indicator {
+    background-image: none;
+
+    &:after {
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
+    }
+  }
+
+  .#{$cci}-input:indeterminate ~ .#{$cci}-indicator {
+    @include background-color('primary', 'base');
+    box-shadow: none;
+  }
+
+  .#{$cci}-input:focus ~ .#{$cci}-indicator {
+    box-shadow: none;
+  }
+
+  .#{$cci}-input:disabled ~ .#{$cci}-indicator {
+    border-color: $custom-control-indicator-disabled-border-color;
+
+    &:after {
+      border-color: $custom-control-indicator-disabled-color;
+    }
+  }
+
+}
+
+//----------------------------------*\
+// RADIOS
+//----------------------------------*/
+
+.custom-radio {
+  $cci: custom-control;
+
+  .#{$cci}-indicator {
+    @include set-border-radius($custom-radio-indicator-border-radius);
+    &:after {
+      @include transition;
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: $white-color;
+      width: $custom-control-indicator-size;
+      height: $custom-control-indicator-size;
+      top: -1px;
+      left: -1px;
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+  .#{$cci}-input:checked ~ .#{$cci}-indicator {
+    background-image: none;
+    &:after {
+      opacity: 1;
+      transform: scale(0.4);
+    }
+  }
+
+  .#{$cci}-input:focus ~ .#{$cci}-indicator {
+    box-shadow: none;
+  }
+
+  .#{$cci}-input:disabled ~ .#{$cci}-indicator {
+    border-color: $custom-control-indicator-disabled-border-color;
+    &:after {
+      background: $custom-control-indicator-disabled-color;
+    }
+  }
+
+}
+
+//----------------------------------*\
+// SELECT
+//----------------------------------*/
+
+.custom-select {
+  @include transition;
+  @include set-border-radius($input-border-radius);
+  height: $input-height;
+  line-height: $btn-line-height;
+  color: $custom-select-color;
+  font-size: $custom-select-font-size;
+  font-weight: $custom-select-font-weight;
+  border: $custom-select-border-width solid $custom-select-border-color;
+
+  @include form-control-hover();
+  @include form-control-focus();
+
+  &:focus {
+    // For visual consistency with IE.
+    &::-ms-value {
+      color: $input-color;
+      background-color: $input-bg;
+    }
+  }
+
+  @include form-control-disabled();
+
+}

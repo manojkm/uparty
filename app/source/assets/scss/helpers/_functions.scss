@@ -76,3 +76,12 @@
 @function font-weight($key: weight-normal) {
   @return map-get-strict($font, $key);
 }
+
+
+//----------------------------------*\
+// RETRIEVE LINE HEIGHT SASS MAPS
+//----------------------------------*/
+@function line-height($key: line-height) {
+  @return map-get-strict($font, $key);
+}
+

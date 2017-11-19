@@ -8,7 +8,6 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
 //----------------------------------*\
 // BASE STYLES FOR INPUT GROUP BUTTONS AND ADDONS
 //----------------------------------*/
@@ -27,6 +26,7 @@
 .input-group-lg > .input-group-btn > .btn {
   @extend .form-control-lg;
 }
+
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
@@ -77,9 +77,11 @@
 .input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn {
   @include border-right-radius(0);
 }
+
 .input-group-addon:not(:last-child) {
   border-right: 0;
 }
+
 .input-group .form-control:not(:first-child),
 .input-group-addon:not(:first-child),
 .input-group-btn:not(:first-child) > .btn,
@@ -89,6 +91,7 @@
 .input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .btn {
   @include border-left-radius(0);
 }
+
 .form-control + .input-group-addon:not(:first-child) {
   border-left: 0;
 }
@@ -96,9 +99,19 @@
 //----------------------------------*\
 // BUTTON INPUT GROUPS
 //----------------------------------*/
+/* Tweaking width for buttons and addons. */
+
+.input-group-addon {
+  min-width: 40px;
+  justify-content: center;
+}
 
 .input-group-btn {
-  .btn{
+  justify-content: center;
+  .btn {
+    min-width: 40px;
+  }
+  .dropdown-toggle {
     min-width: 0;
   }
 }

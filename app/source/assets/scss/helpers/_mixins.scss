@@ -645,3 +645,41 @@ Usage
     }
   }
 }
+
+//----------------------------------*\
+// FORMS
+//----------------------------------*/
+
+// Form control focus state
+@mixin form-control-focus() {
+  &:focus {
+    color: $input-focus-color;
+    border-color: $input-focus-border-color;
+    box-shadow: none;
+
+    &:hover {
+      border-color: $input-focus-border-color;
+    }
+  }
+}
+
+// Form control hover state.
+@mixin form-control-hover() {
+  &:hover {
+    border-color: $input-border-hover-color;
+  }
+}
+
+@mixin form-control-disabled() {
+  &.disabled,
+  &[disabled],
+  &[readonly] {
+    border-color: $input-border-disabled;
+    background-color: $input-bg-disabled;
+    color: $input-color-disabled;
+    opacity: 0.8;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
