@@ -26,12 +26,12 @@
   @include form-control-hover();
   @include form-control-focus();
 
-  &:focus {
-    & + .input-group-addon,
-    & ~ .input-group-addon {
-      border-color: $input-hover-border-color;
-    }
-  }
+  //&:focus {
+  //  & + .input-group-addon,
+  //  & ~ .input-group-addon {
+  //    border-color: $input-focus-border-color;
+  //  }
+  //}
 
   &::placeholder {
     color: $input-color-placeholder;
@@ -399,6 +399,13 @@ select.form-control-lg {
     background-color: $input-bg-disabled;
     color: $input-color-disabled;
     opacity: 0.8;
+
+    &:before {
+      //background: $input-bg-disabled;
+      border-color: $input-border-disabled;
+    }
+
+
     &:hover {
       cursor: not-allowed;
     }

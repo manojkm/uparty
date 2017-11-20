@@ -653,12 +653,22 @@ Usage
 // Form control focus state
 @mixin form-control-focus() {
   &:focus {
+    @include transition;
     color: $input-focus-color;
     border-color: $input-focus-border-color;
     box-shadow: none;
 
+   /* & + .input-group-addon,
+    & ~ .input-group-addon {
+      border-color: $input-focus-border-color;
+    }*/
+
     &:hover {
       border-color: $input-focus-border-color;
+  /*    & + .input-group-addon,
+      & ~ .input-group-addon {
+        border-color: $input-focus-border-color;
+      }*/
     }
   }
 }
@@ -667,6 +677,10 @@ Usage
 @mixin form-control-hover() {
   &:hover {
     border-color: $input-hover-border-color;
+/*    & + .input-group-addon,
+    & ~ .input-group-addon {
+      border-color: $input-hover-border-color;
+    }*/
   }
 }
 
@@ -677,9 +691,12 @@ Usage
     border-color: $input-border-disabled;
     background-color: $input-bg-disabled;
     color: $input-color-disabled;
-    opacity: 0.8;
+    //opacity: 0.8;
     &:hover {
       cursor: not-allowed;
+    }
+    &::placeholder {
+      color: $input-color-disabled;
     }
   }
 }
