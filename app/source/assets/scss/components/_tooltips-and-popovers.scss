@@ -51,11 +51,12 @@
 
 .popover {
   font-size: $popover-font-size;
-  max-width: 276px;
+  max-width: $popover-max-width;
   box-shadow: $popover-shadow;
   z-index: map-get($zindex, popover);
   text-align: left;
   white-space: normal;
+  @include set-border-radius($popover-border-radius);
 
   &.bs-popover-top .arrow:before,
   &.bs-popover-left .arrow:before,
@@ -68,9 +69,12 @@
   }
 
   .popover-header {
+    @include set-border-radius($popover-border-radius);
     font-size: $popover-header-font-size;
     text-transform: capitalize;
     font-weight: map-get-strict($font, weight-bold);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
   /* Apply the mixin to the popover variants. */

@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: forms.scss
-// Description:
+// Description: Form control styles, layout options, and custom components for creating a wide variety of forms
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -26,11 +26,10 @@
   @include form-control-hover();
   @include form-control-focus();
 
-
   &:focus {
     & + .input-group-addon,
     & ~ .input-group-addon {
-      border-color: $input-border-hover-color;
+      border-color: $input-hover-border-color;
     }
   }
 
@@ -74,7 +73,7 @@ form {
 // LABEL SIZING
 //----------------------------------*/
 /* For use with horizontal and inline forms, when you need the label text to
-align with the form controls. */
+   align with the form controls. */
 
 .col-form-label {
   padding-top: calc(#{$btn-padding-y} - #{$input-border-size} * 2);
@@ -99,7 +98,8 @@ align with the form controls. */
 //----------------------------------*/
 
 /* For use with horizontal and inline forms, when you need the legend text to
-be the same size as regular labels, and to align with the form controls. */
+   be the same size as regular labels, and to align with the form controls. */
+
 .col-form-legend {
   padding-top: $btn-padding-y;
   padding-bottom: $btn-padding-y;
@@ -200,10 +200,7 @@ select.form-control-lg {
   }
 }
 
-//
-// Custom indicator
-//
-
+/* Custom indicator */
 .custom-control-indicator {
   @include transition;
   top: (($lh-base - $custom-control-indicator-size) / 2);
@@ -274,12 +271,13 @@ select.form-control-lg {
   $cci: custom-control;
 
   .#{$cci}-indicator {
-    @include set-border-radius($custom-radio-indicator-border-radius);
+    //@include set-border-radius($custom-radio-indicator-border-radius);
+    border-radius: $custom-radio-indicator-border-radius;
     &:after {
       @include transition;
       content: '';
       position: absolute;
-      border-radius: 50%;
+      border-radius: $custom-radio-indicator-border-radius;
       background: $white-color;
       width: $custom-control-indicator-size;
       height: $custom-control-indicator-size;
@@ -311,18 +309,19 @@ select.form-control-lg {
 }
 
 //----------------------------------*\
-// SELECT
+// CUSTOM SELECT
 //----------------------------------*/
 
 .custom-select {
   @include transition;
   @include set-border-radius($input-border-radius);
   height: $input-height;
-  line-height: $btn-line-height;
+  line-height: $custom-select-line-height;
   color: $custom-select-color;
   font-size: $custom-select-font-size;
   font-weight: $custom-select-font-weight;
   border: $custom-select-border-width solid $custom-select-border-color;
+  padding: $btn-padding-y ($btn-padding-x + $custom-select-indicator-padding) $btn-padding-y $btn-padding-x;
 
   @include form-control-hover();
   @include form-control-focus();
@@ -337,4 +336,219 @@ select.form-control-lg {
 
   @include form-control-disabled();
 
+}
+
+//----------------------------------*\
+// CUSTOM SELECT SIZING
+//----------------------------------*/
+
+.custom-select-sm {
+  height: $input-height-sm;
+  padding: $btn-padding-y-sm ($btn-padding-x-sm + $custom-select-indicator-padding) $btn-padding-y-sm $btn-padding-x-sm;
+  font-size: $input-font-size-sm;
+  line-height: $btn-line-height-sm;
+}
+
+.custom-select-lg {
+  height: $input-height-lg;
+  padding: $btn-padding-y-lg ($btn-padding-x-lg + $custom-select-indicator-padding) $btn-padding-y-lg $btn-padding-x-lg;
+  font-size: $input-font-size-lg;
+  line-height: $btn-line-height-lg;
+}
+
+//----------------------------------*\
+// FILE INPUT
+//----------------------------------*/
+
+.custom-file {
+  @include transition;
+  height: $input-height;
+  font-size: $input-font-size;
+}
+
+.custom-file-input {
+  height: $input-height;
+
+  &:focus ~ .custom-file-control {
+    @include transition;
+    color: $input-focus-color;
+    border-color: $input-focus-border-color;
+    box-shadow: none;
+
+    &:before {
+      background: $custom-file-button-focus-bg;
+      border-color: $input-focus-border-color;
+    }
+
+    /* Set the border color to the focused state border color when the input is also hovered. */
+    &:hover {
+      border-color: $input-focus-border-color;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    & ~ .custom-file-control,
+    & ~ .custom-file-control:before {
+      border-color: $input-hover-border-color;
+    }
+  }
+
+  &:disabled + .custom-file-control {
+    border-color: $input-border-disabled;
+    background-color: $input-bg-disabled;
+    color: $input-color-disabled;
+    opacity: 0.8;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+}
+
+.custom-file-control {
+  @include transition;
+  @include set-border-radius($input-border-radius);
+  height: $input-height;
+  line-height: $btn-line-height;
+  padding: $btn-padding-y $btn-padding-x;
+  color: $input-color;
+  font-weight: $btn-font-weight;
+  font-size: $input-font-size;
+  border: $input-border-size solid $input-border-color;
+
+  &::before {
+    @include transition;
+    @include set-border-radius($input-border-radius);
+    top: -$input-border-size;
+    right: -$input-border-size;
+    bottom: -$input-border-size;
+    height: $input-height;
+    padding: $btn-padding-y $btn-padding-x;
+    line-height: $btn-line-height;
+    color: $input-color;
+    border: $input-border-size solid $input-border-color;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: $custom-file-button-bg;
+  }
+}
+
+//----------------------------------*\
+// FILE INPUT SIZING
+//----------------------------------*/
+.custom-file-sm {
+  height: $input-height-sm;
+  font-size: $input-font-size-sm;
+
+  .custom-file-input {
+    height: $input-height-sm;
+  }
+
+  .custom-file-control {
+    height: $input-height-sm;
+    line-height: $btn-line-height-sm;
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
+    font-size: $input-font-size-sm;
+    &::before {
+      height: $input-height-sm;
+      line-height: $btn-line-height-sm;
+      padding: $btn-padding-y-sm $btn-padding-x-sm;
+    }
+  }
+}
+
+.custom-file-lg {
+  height: $input-height-lg;
+  font-size: $input-font-size-lg;
+
+  .custom-file-input {
+    height: $input-height-lg;
+  }
+
+  .custom-file-control {
+    height: $input-height-lg;
+    line-height: $btn-line-height-lg;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    font-size: $input-font-size-lg;
+    &::before {
+      height: $input-height-lg;
+      line-height: $btn-line-height-lg;
+      padding: $btn-padding-y-lg $btn-padding-x-lg;
+    }
+  }
+}
+
+//----------------------------------*\
+// TOGGLE SWITCH
+//----------------------------------*/
+
+.custom-toggle {
+  padding-left: ($custom-toggle-width + 10px);
+
+  .custom-control-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $custom-toggle-width;
+    height: $custom-toggle-height;
+    background: $custom-toggle-background-color;
+    display: block;
+    border-radius: $custom-toggle-border-radius;
+    border: $custom-toggle-border;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:after {
+      @include transition;
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: $custom-toggle-knob-width;
+      height: $custom-toggle-knob-height;
+      background: $input-border-color;
+      border-radius: $custom-toggle-knob-border-radius;
+    }
+  }
+
+  .custom-control-input:disabled:active + .custom-control-indicator:after {
+    width: $custom-toggle-knob-width;
+  }
+
+  .custom-control-input:disabled:checked + .custom-control-indicator,
+  .custom-control-input:disabled:active + .custom-control-indicator {
+    background-color: $custom-control-indicator-disabled-bg;
+  }
+
+  .custom-control-input:active + .custom-control-indicator {
+    background-color: $custom-toggle-background-color;
+  }
+
+  .custom-control-input:checked + .custom-control-indicator {
+    @include background-color('primary', 'base');
+
+    &:after {
+      background: $custom-toggle-checked-knob-background;
+    }
+  }
+
+  .custom-control-input:checked + .custom-control-indicator:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+  }
+
+  .custom-control-input:active + .custom-control-indicator:after {
+    width: $custom-toggle-knob-active-width;
+  }
+
+  .custom-control-input:disabled:checked + .custom-control-indicator {
+    border-color: $input-border-color;
+
+    &:after {
+      background: $input-border-color;
+    }
+  }
 }

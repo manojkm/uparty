@@ -347,23 +347,23 @@ $btn-disabled-opacity: 0.5;
 
 $input-bg: $white-color;
 
-
 $input-color: $gray-800;
 $input-color-placeholder: $gray-500;
 
 $input-focus-color: $gray-800;
-$input-focus-border-color: $gray-800;
+$input-focus-border-color: $gray-600;
+
+$input-hover-border-color: $gray-600;
 
 $input-addon-color: $gray-600;
 $input-addon-background-color: $gray-100;
 
-$input-border-color: $gray-500;
-$input-border-hover-color: $gray-600;
+$input-border-color: $gray-400;
 $input-border-size: $border-thin;
 
 /* Disabled state */
 $input-color-disabled: $gray-700;
-$input-border-disabled: $gray-500;
+$input-border-disabled: $gray-400;
 $input-bg-disabled: $gray-300;
 
 /* Small */
@@ -424,12 +424,36 @@ $custom-select-font-size: $input-font-size;
 $custom-select-font-weight: $btn-font-weight;
 $custom-select-border-width: $input-border-size;
 $custom-select-border-color: $input-border-color;
+$custom-select-indicator-padding: 1rem !default; // Extra padding to account for the presence of the background-image based indicator
+
+/* File input */
+$custom-file-button-bg: $gray-200 !default;
+$custom-file-button-focus-bg: $gray-300 !default;
+
+
+// Custom toggle
+$custom-toggle-width: 50px;
+$custom-toggle-height: 28px;
+$custom-toggle-border: $input-border-size solid $input-border-color;
+$custom-toggle-background-color: $white-color;
+$custom-toggle-border-radius: 100px;
+
+$custom-toggle-checked-knob-background: $white-color;
+
+$custom-toggle-knob-width: 20px;
+$custom-toggle-knob-height: 20px;
+$custom-toggle-knob-background: $white-color;
+$custom-toggle-knob-border-radius: 100px;
+$custom-toggle-knob-active-width: 26px;
+
 
 //----------------------------------*\
 // POPOVERS
 //----------------------------------*/
 $popover-header-font-size: 14px !default;
 $popover-font-size: 13px !default;
+$popover-max-width: 276px;
+$popover-border-radius: $border-radius-md;
 
 //----------------------------------*\
 // ALERT
