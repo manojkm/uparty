@@ -12,6 +12,14 @@
 // BASE STYLES FOR INPUT GROUP BUTTONS AND ADDONS
 //----------------------------------*/
 
+.input-group {
+  &[class*="with-addon-icon"] {
+    .input-group-addon {
+
+    }
+  }
+}
+
 .input-group-addon,
 .input-group-btn,
 .input-group .form-control {
