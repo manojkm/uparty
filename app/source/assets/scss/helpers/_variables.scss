@@ -391,12 +391,19 @@ $input-height-sm: calc(#{$input-height-inner-sm} + #{$input-height-border}) !def
 $input-height-inner-lg: ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
 
+/* Validation */
+$form-feedback-valid-color: contextual-color(success, base);
+$form-feedback-invalid-color: contextual-color(danger, base);
+
+
 //----------------------------------*\
 // CUSTOM FORMS
 //----------------------------------*/
 
 $custom-control-indicator-color: $white-color;
 $custom-control-indicator-active-color: $white-color;
+$custom-control-indicator-checked-bg: contextual-color(success, base);
+$custom-control-indicator-active-bg: lighten(contextual-color(success, base), 25%) !default;
 
 $custom-control-indicator-size: 1.125rem !default;
 $custom-control-indicator-bg: $white-color !default;
@@ -439,6 +446,7 @@ $custom-toggle-border: $input-border-size solid $input-border-color;
 $custom-toggle-background-color: $white-color;
 $custom-toggle-border-radius: 100px;
 
+$custom-toggle-checked-background: contextual-color(success, base);;
 $custom-toggle-checked-knob-background: $white-color;
 
 $custom-toggle-knob-width: 20px;

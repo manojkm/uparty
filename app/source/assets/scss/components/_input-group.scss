@@ -15,7 +15,21 @@
 .input-group {
   &[class*="with-addon-icon"] {
     .input-group-addon {
+      background: transparent;
+    }
+  }
 
+  &.with-addon-icon-left {
+    .form-control {
+      padding-left: 0;
+      @include add-border(0, transparent, left);
+    }
+  }
+
+  &.with-addon-icon-right {
+    .form-control {
+      padding-right: 0;
+      @include add-border(0, transparent, right);
     }
   }
 }
@@ -114,5 +128,16 @@
   }
   .dropdown-toggle {
     min-width: 0;
+  }
+}
+
+//----------------------------------*\
+// SHOWING BORDER ON FOCUS AND HOVER
+//----------------------------------*/
+/* Add/Remove below classes to input group element with javascript. */
+.input-group-hover,
+.input-group-focus {
+  .input-group-addon {
+    border-color: $input-focus-border-color;
   }
 }

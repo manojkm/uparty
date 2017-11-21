@@ -26,19 +26,11 @@
   @include form-control-hover();
   @include form-control-focus();
 
-  //&:focus {
-  //  & + .input-group-addon,
-  //  & ~ .input-group-addon {
-  //    border-color: $input-focus-border-color;
-  //  }
-  //}
-
   &::placeholder {
     color: $input-color-placeholder;
   }
 
   @include form-control-disabled();
-
 }
 
 //----------------------------------*\
@@ -147,12 +139,7 @@ select.form-control-lg {
   }
 }
 
-//----------------------------------*\
-// FORM VALIDATION
-//----------------------------------*/
-.invalid-feedback {
-  color: contextual-color(danger, base);
-}
+
 
 //----------------------------------*\
 // CUSTOM FORMS
@@ -171,29 +158,31 @@ select.form-control-lg {
 }
 
 .custom-control-input {
-  $cci: custom-control;
-  &:checked ~ .#{$cci}-indicator {
-    @include background-color('primary', 'base');
+  $cc: custom-control;
+  &:checked ~ .#{$cc}-indicator {
+    //@include background-color('primary', 'base');
+    background-color: $custom-control-indicator-checked-bg;
     color: $custom-control-indicator-color;
     box-shadow: none;
     border-color: transparent;
   }
 
-  &:focus ~ .#{$cci}-indicator {
+  &:focus ~ .#{$cc}-indicator {
     box-shadow: none;
   }
 
-  &:active ~ .#{$cci}-indicator {
-    @include background-color('primary', 'light');
+  &:active ~ .#{$cc}-indicator {
+    //@include background-color('primary', 'light');
     color: $custom-control-indicator-active-color;
+    background-color: $custom-control-indicator-active-bg;
     box-shadow: none;
   }
 
   &:disabled {
-    ~ .#{$cci}-indicator {
+    ~ .#{$cc}-indicator {
       background-color: $custom-control-indicator-disabled-bg !important;
     }
-    ~ .#{$cci}-description {
+    ~ .#{$cc}-description {
       color: $custom-control-description-disabled-color;
     }
 
@@ -215,9 +204,9 @@ select.form-control-lg {
 //----------------------------------*/
 
 .custom-checkbox {
-  $cci: custom-control;
+  $cc: custom-control;
 
-  .#{$cci}-indicator {
+  .#{$cc}-indicator {
     @include set-border-radius($custom-checkbox-indicator-border-radius);
 
     &:after {
@@ -235,7 +224,7 @@ select.form-control-lg {
     }
   }
 
-  .#{$cci}-input:checked ~ .#{$cci}-indicator {
+  .#{$cc}-input:checked ~ .#{$cc}-indicator {
     background-image: none;
 
     &:after {
@@ -244,16 +233,16 @@ select.form-control-lg {
     }
   }
 
-  .#{$cci}-input:indeterminate ~ .#{$cci}-indicator {
+  .#{$cc}-input:indeterminate ~ .#{$cc}-indicator {
     @include background-color('primary', 'base');
     box-shadow: none;
   }
 
-  .#{$cci}-input:focus ~ .#{$cci}-indicator {
+  .#{$cc}-input:focus ~ .#{$cc}-indicator {
     box-shadow: none;
   }
 
-  .#{$cci}-input:disabled ~ .#{$cci}-indicator {
+  .#{$cc}-input:disabled ~ .#{$cc}-indicator {
     border-color: $custom-control-indicator-disabled-border-color;
 
     &:after {
@@ -268,9 +257,9 @@ select.form-control-lg {
 //----------------------------------*/
 
 .custom-radio {
-  $cci: custom-control;
+  $cc: custom-control;
 
-  .#{$cci}-indicator {
+  .#{$cc}-indicator {
     //@include set-border-radius($custom-radio-indicator-border-radius);
     border-radius: $custom-radio-indicator-border-radius;
     &:after {
@@ -287,7 +276,7 @@ select.form-control-lg {
       transform: scale(0);
     }
   }
-  .#{$cci}-input:checked ~ .#{$cci}-indicator {
+  .#{$cc}-input:checked ~ .#{$cc}-indicator {
     background-image: none;
     &:after {
       opacity: 1;
@@ -295,11 +284,11 @@ select.form-control-lg {
     }
   }
 
-  .#{$cci}-input:focus ~ .#{$cci}-indicator {
+  .#{$cc}-input:focus ~ .#{$cc}-indicator {
     box-shadow: none;
   }
 
-  .#{$cci}-input:disabled ~ .#{$cci}-indicator {
+  .#{$cc}-input:disabled ~ .#{$cc}-indicator {
     border-color: $custom-control-indicator-disabled-border-color;
     &:after {
       background: $custom-control-indicator-disabled-color;
@@ -405,7 +394,6 @@ select.form-control-lg {
       border-color: $input-border-disabled;
     }
 
-
     &:hover {
       cursor: not-allowed;
     }
@@ -491,9 +479,12 @@ select.form-control-lg {
 //----------------------------------*/
 
 .custom-toggle {
+  $cci: custom-control-input;
+  $ccind: custom-control-indicator;
+
   padding-left: ($custom-toggle-width + 10px);
 
-  .custom-control-indicator {
+  .#{$ccind}{
     position: absolute;
     top: 0;
     left: 0;
@@ -521,37 +512,38 @@ select.form-control-lg {
     }
   }
 
-  .custom-control-input:disabled:active + .custom-control-indicator:after {
+  .#{$cci}:disabled:active + .#{$ccind}:after {
     width: $custom-toggle-knob-width;
   }
 
-  .custom-control-input:disabled:checked + .custom-control-indicator,
-  .custom-control-input:disabled:active + .custom-control-indicator {
+  .#{$cci}:disabled:checked + .#{$ccind},
+  .#{$cci}:disabled:active + .#{$ccind} {
     background-color: $custom-control-indicator-disabled-bg;
   }
 
-  .custom-control-input:active + .custom-control-indicator {
+  .#{$cci}:active + .#{$ccind} {
     background-color: $custom-toggle-background-color;
   }
 
-  .custom-control-input:checked + .custom-control-indicator {
-    @include background-color('primary', 'base');
+  .#{$cci}:checked + .#{$ccind} {
+    background: $custom-toggle-checked-background;
+    //@include background-color('primary', 'base');
 
     &:after {
       background: $custom-toggle-checked-knob-background;
     }
   }
 
-  .custom-control-input:checked + .custom-control-indicator:after {
+  .#{$cci}:checked + .#{$ccind}:after {
     left: calc(100% - 3px);
     transform: translateX(-100%);
   }
 
-  .custom-control-input:active + .custom-control-indicator:after {
+  .#{$cci}:active + .#{$ccind}:after {
     width: $custom-toggle-knob-active-width;
   }
 
-  .custom-control-input:disabled:checked + .custom-control-indicator {
+  .#{$cci}:disabled:checked + .#{$ccind} {
     border-color: $input-border-color;
 
     &:after {
@@ -559,3 +551,17 @@ select.form-control-lg {
     }
   }
 }
+
+//----------------------------------*\
+// FORM VALIDATION
+//----------------------------------*/
+.invalid-feedback {
+  color: $form-feedback-invalid-color
+}
+
+.invalid-tooltip {
+  background-color: rgba($form-feedback-invalid-color,.8);
+}
+
+@include form-validation-state("valid", $form-feedback-valid-color);
+@include form-validation-state("invalid", $form-feedback-invalid-color);

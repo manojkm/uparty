@@ -13,8 +13,10 @@ var appMaster = {
     _mini: $("[data-side='mini']"),
     _hide: $("[data-side='hide']"),
     _overlay: $('.overlay'),
-    _tooltip:$("[data-toggle='tooltip']"),
-    _popover:$("[data-toggle='popover']"),
+    _tooltip: $("[data-toggle='tooltip']"),
+    _popover: $("[data-toggle='popover']"),
+    _formctrl: $('.form-control'),
+
 
     responsive: function () {
         $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed');
@@ -52,7 +54,7 @@ var appMaster = {
             $(this).toggleClass('collapsed');
             // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
             if (asideisOpen == false) {
-                appMaster._body.addClass('aside-is-open sidebar-mini' );
+                appMaster._body.addClass('aside-is-open sidebar-mini');
                 appMaster._mini.addClass('collapsed');
                 appMaster._overlay.show();
                 asideisOpen = true;
@@ -91,30 +93,30 @@ var appMaster = {
     dropdown: function () {
 
         // On HOver
-       /* $(".dropdown").hover(
-            function () {
-                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
-                $(this).toggleClass('open');
-            },
-            function () {
-                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
-                $(this).toggleClass('open');
-            }
-        );*/
+        /* $(".dropdown").hover(
+         function () {
+         $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+         $(this).toggleClass('open');
+         },
+         function () {
+         $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+         $(this).toggleClass('open');
+         }
+         );*/
 
         // On click Adapted from https://codepen.io/adammacias/pen/dozPVQ
-        $('.dropdown').on('show.bs.dropdown', function(e){
+        $('.dropdown').on('show.bs.dropdown', function (e) {
             $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);  // fade fadeOut(), fadeIn()
 
         });
 
-        $('.dropdown').on('hide.bs.dropdown', function(e){
+        $('.dropdown').on('hide.bs.dropdown', function (e) {
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
         });
 
         // Sub menu
 
-        $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+        $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
 
             if (!$(this).next().hasClass('show')) {
                 $(this).parents('.dropdown-menu').first().find('.show').removeClass("show").prev('.dropdown-toggle').toggleClass('active');
@@ -124,7 +126,7 @@ var appMaster = {
             $subMenu.toggleClass('show').prev('.dropdown-toggle').toggleClass('active');
             // $(this).toggleClass('active');
 
-            $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+            $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
                 $('.dropdown-submenu .show').removeClass("show");
                 $('.dropdown-menu a.dropdown-toggle').removeClass("active");
             });
@@ -134,7 +136,7 @@ var appMaster = {
     },
 
     tooltip: function () {
-        $(appMaster._tooltip).tooltip({ trigger: "hover" });
+        $(appMaster._tooltip).tooltip({trigger: "hover"});
         $(appMaster._tooltip).on('click', function () {
             $(this).tooltip('hide');
         });
@@ -143,13 +145,27 @@ var appMaster = {
 
     popover: function () {
         //TODO close button https://jsfiddle.net/vivekkupadhyay/bdkbq5sd/10/
-        $(appMaster._popover).each(function() {
+        $(appMaster._popover).each(function () {
             var color = $(this).data('color');
             $(this).popover({
                 template: '<div class="popover popover-' + color + '" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
             });
         });
+    },
+
+    input_group_focus: function () {
+
+        $(appMaster._formctrl).on('mouseover', function () {
+            $(this).parent('.input-group').addClass("input-group-hover");
+        }).on('mouseout', function () {
+            $(this).parent(".input-group").removeClass("input-group-hover");
+        }).on('focus', function () {
+            $(this).parent('.input-group').addClass("input-group-focus");
+        }).on('blur', function () {
+            $(this).parent('.input-group').removeClass("input-group-focus");
+        });
     }
+
 
 };
 
@@ -179,6 +195,7 @@ $(document).ready(function () {
     appMaster.aside();
     appMaster.tooltip();
     appMaster.popover();
+    appMaster.input_group_focus();
 });
 
 
