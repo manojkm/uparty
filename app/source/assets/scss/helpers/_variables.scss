@@ -348,13 +348,14 @@ $btn-disabled-opacity: 0.5;
 
 $input-bg: $white-color;
 
-$input-color: $gray-800;
+$input-color: $gray-700;
+$input-label-color: $gray-800;
 $input-color-placeholder: $gray-500;
 
 $input-border-color: $gray-500;
 $input-border-size: $border-thin;
 
-$input-focus-color: $gray-800;
+$input-focus-color: $gray-700;
 $input-focus-border-color: $gray-600;
 
 $input-hover-border-color: $gray-600;
@@ -411,8 +412,8 @@ $custom-control-indicator-bg-size: 50% 50% !default;
 $custom-control-indicator-border-size: $border-thin;
 $custom-control-indicator-border-color: $gray-500;
 
-/* Description*/
-$custom-control-description-disabled-color: $gray-600 !default;
+/* Description */
+$custom-control-description-disabled-color: lighten($input-label-color, 25%) !default;
 
 /* Disabled state */
 $custom-control-indicator-disabled-bg: $gray-200 !default;
@@ -435,8 +436,8 @@ $custom-select-border-color: $input-border-color;
 $custom-select-indicator-padding: 1rem !default; // Extra padding to account for the presence of the background-image based indicator
 
 /* File input */
-$custom-file-button-bg: $gray-200 !default;
-$custom-file-button-focus-bg: $gray-300 !default;
+$custom-file-button-bg: $gray-100 !default;
+$custom-file-button-focus-bg: $gray-200 !default;
 
 
 /* Custom toggle switch */
@@ -469,7 +470,7 @@ $popover-border-radius: $border-radius-md;
 //----------------------------------*/
 $alert-border-radius: $border-radius-md;
 $alert-border-size: $border-thin;
-$alert-font-size: $font-size-sm;
+$alert-font-size: $font-size-base;
 
 //----------------------------------*\
 // NAVBAR

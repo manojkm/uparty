@@ -658,17 +658,17 @@ Usage
     border-color: $input-focus-border-color;
     box-shadow: none;
 
-   /* & + .input-group-addon,
-    & ~ .input-group-addon {
-      border-color: $input-focus-border-color;
-    }*/
+    /* & + .input-group-addon,
+     & ~ .input-group-addon {
+       border-color: $input-focus-border-color;
+     }*/
 
     &:hover {
       border-color: $input-focus-border-color;
-  /*    & + .input-group-addon,
-      & ~ .input-group-addon {
-        border-color: $input-focus-border-color;
-      }*/
+      /*    & + .input-group-addon,
+          & ~ .input-group-addon {
+            border-color: $input-focus-border-color;
+          }*/
     }
   }
 }
@@ -677,12 +677,13 @@ Usage
 @mixin form-control-hover() {
   &:hover {
     border-color: $input-hover-border-color;
-/*    & + .input-group-addon,
-    & ~ .input-group-addon {
-      border-color: $input-hover-border-color;
-    }*/
+    /*    & + .input-group-addon,
+        & ~ .input-group-addon {
+          border-color: $input-hover-border-color;
+        }*/
   }
 }
+
 /* Form control  disabled state. */
 @mixin form-control-disabled() {
   &.disabled,
@@ -708,10 +709,12 @@ Usage
     .was-validated &:#{$state},
     &.is-#{$state} {
       border-color: $color;
+      box-shadow: none;
       //box-shadow:(0 5px 11.5px rgba($color, .1));
 
       &:focus {
-        box-shadow: 0 0 0 .2rem rgba($color,.25);
+        box-shadow: none;
+        //box-shadow: 0 0 0 .2rem rgba($color,.25);
 
         &:hover {
           border-color: $color;
@@ -733,8 +736,11 @@ Usage
     .was-validated &:#{$state},
     &.is-#{$state} {
       ~ .custom-control-indicator {
-        background-color: lighten($color, 20);
-        border-color: lighten($color, 10);
+        /* background-color: lighten($color, 20);
+         border-color: lighten($color, 10);*/
+        background-color: $color;
+        border-color: $color;
+
       }
       ~ .custom-control-description {
         color: $color;
@@ -756,7 +762,8 @@ Usage
       .was-validated &:#{$state},
       &.is-#{$state} {
         ~ .custom-file-control {
-          box-shadow: 0 5px 11.5px rgba($color, .1), 0 1px 1px .1rem rgba($color, .2);
+          //box-shadow: 0 5px 11.5px rgba($color, .1), 0 1px 1px .1rem rgba($color, .2);
+          box-shadow: none;
         }
       }
     }
@@ -765,12 +772,13 @@ Usage
     &.is-#{$state} {
       ~ .custom-file-control {
         border-color: $color;
-        box-shadow: 0 5px 11.5px rgba($color, .1);
+        box-shadow: none;
+        //box-shadow: 0 5px 11.5px rgba($color, .1);
 
         &::before {
           //border-color: inherit;
           background-color: lighten($color, 40);
-          border-color: lighten($color, 10);
+          border-color: $color;
           color: $color;
         }
 
@@ -781,7 +789,7 @@ Usage
     }
   }
 
-  // Custom toggles
+ /* Custom toggles */
   .custom-toggle .custom-control-input {
 
     &:checked {
@@ -805,11 +813,9 @@ Usage
         background: $white-color;
 
         &:after {
-          background: #eb8c95;
+          background: $color;
         }
       }
-
     }
   }
-
 }
