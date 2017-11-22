@@ -242,6 +242,7 @@ $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
 $header-shadow: 0 1px 3px rgba($black-color, .2);
 $popover-shadow: 0 5px 10px rgba($black-color, .1);
 $sidebar-footer-shadow: 0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
+$progress-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 
 //----------------------------------*\
 // BREADCRUMBS
@@ -321,7 +322,7 @@ $btn-padding-y-lg: .5rem !default;
 $btn-padding-x-lg: 1rem !default;
 $btn-min-width-lg: 120px !default;
 $btn-min-height-lg: 0px !default;
-$btn-line-height-lg: $lh-base!default;
+$btn-line-height-lg: $lh-base !default;
 $btn-radius-lg: $border-radius-lg;
 
 /* Round button radius (.btn-round) */
@@ -396,7 +397,6 @@ $input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border}) !def
 $form-feedback-valid-color: contextual-color(success, base);
 $form-feedback-invalid-color: contextual-color(danger, base);
 
-
 //----------------------------------*\
 // CUSTOM FORMS
 //----------------------------------*/
@@ -439,7 +439,6 @@ $custom-select-indicator-padding: 1rem !default; // Extra padding to account for
 $custom-file-button-bg: $gray-100 !default;
 $custom-file-button-focus-bg: $gray-200 !default;
 
-
 /* Custom toggle switch */
 $custom-toggle-width: 50px;
 $custom-toggle-height: 28px;
@@ -447,7 +446,8 @@ $custom-toggle-border: $input-border-size solid $input-border-color;
 $custom-toggle-background-color: $white-color;
 $custom-toggle-border-radius: 100px;
 
-$custom-toggle-checked-background: contextual-color(success, base);;
+$custom-toggle-checked-background: contextual-color(success, base);
+;
 $custom-toggle-checked-knob-background: $white-color;
 
 $custom-toggle-knob-width: 20px;
@@ -455,7 +455,6 @@ $custom-toggle-knob-height: 20px;
 $custom-toggle-knob-background: $white-color;
 $custom-toggle-knob-border-radius: 100px;
 $custom-toggle-knob-active-width: 26px;
-
 
 //----------------------------------*\
 // POPOVERS
@@ -488,6 +487,19 @@ $overlay: rgba(0, 0, 0, .3);
 //----------------------------------*\
 // PROGRESS
 //----------------------------------*/
+
+$progress-font-size: $font-size-xs !default;
+$progress-bg: $gray-200 !default;
+$progress-border-radius: $border-radius-xxl;
+
+/* Small */
+$progress-sm-height: .3125rem !default;
+
+/* Regular */
+$progress-height: .625rem !default;
+
+/* Large */
+$progress-lg-height: .9375rem !default;
 
 //----------------------------------*\
 // PATHS

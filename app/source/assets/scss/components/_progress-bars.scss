@@ -1,0 +1,45 @@
+// ================================================================================================
+// File Name: progress-bars.scss
+// Description: Custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.progress {
+  @include set-border-radius($progress-border-radius);
+  box-shadow: $progress-box-shadow;
+  font-size: $progress-font-size;
+  line-height: $progress-height;
+  background-color: $progress-bg;
+
+  /* Small */
+  &-sm {
+    height: $progress-sm-height;
+  }
+
+  /* Large */
+  &-lg {
+    height: $progress-lg-height;
+    .progress-bar {
+      height: $progress-lg-height;
+    }
+  }
+
+  /* Progressbar */
+  &-bar {
+    @include transition;
+    @include background-theme(primary); /* Theme variation. Default is primary */
+    height: $progress-height;
+    line-height: $progress-height;
+  }
+
+  &-bar-striped {
+    background-size: $progress-height $progress-height;
+  }
+
+}
+
+

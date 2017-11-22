@@ -432,7 +432,7 @@ Usage
 }
 
 //----------------------------------*\
-// BUTTONS SIZES
+// BUTTON SIZES
 //----------------------------------*/
 
 @mixin btn-size($padding-y, $padding-x, $min-width, $min-height, $font-size, $border, $line-height) {
@@ -647,6 +647,20 @@ Usage
 }
 
 //----------------------------------*\
+// CONTEXTUAL & THEME BACKGROUNDS
+//----------------------------------*/
+@mixin background-theme($theme-color, $tone:base, $font-color:font-color) {
+
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    background-color: contextual-color($theme-color, $tone) !important;
+    color: contextual-color($theme-color, $font-color) !important;
+  } @else { /* Theme variations */
+    @include background-color($theme-color, $tone);
+    @include color($theme-color, $font-color);
+  }
+}
+
+//----------------------------------*\
 // FORMS
 //----------------------------------*/
 
@@ -789,7 +803,7 @@ Usage
     }
   }
 
- /* Custom toggles */
+  /* Custom toggles */
   .custom-toggle .custom-control-input {
 
     &:checked {

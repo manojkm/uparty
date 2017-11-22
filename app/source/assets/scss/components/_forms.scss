@@ -563,5 +563,8 @@ select.form-control-lg {
   background-color: rgba($form-feedback-invalid-color,.8);
 }
 
+/* Valid */
 @include form-validation-state("valid", $form-feedback-valid-color);
+
+/* In valid */
 @include form-validation-state("invalid", $form-feedback-invalid-color);

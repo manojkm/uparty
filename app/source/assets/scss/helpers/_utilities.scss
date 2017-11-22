@@ -1,0 +1,45 @@
+// ================================================================================================
+// File Name: utilities.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//--------------------------------------------*\
+// CONTEXTUAL & THEME BACKGROUNDS WITH TEXT COLOR
+//--------------------------------------------*/
+
+.bg-primary {
+  @include background-theme(primary);
+}
+
+.bg-secondary {
+  @include background-theme(success);
+}
+
+.bg-success {
+  @include background-theme(success);
+}
+
+.bg-danger {
+  @include background-theme(danger);
+}
+
+.bg-warning {
+  @include background-theme(warning);
+}
+
+.bg-info {
+  @include background-theme(info);
+}
+
+.bg-light {
+  @include background-theme(light);
+}
+
+.bg-dark {
+  @include background-theme(dark);
+}
