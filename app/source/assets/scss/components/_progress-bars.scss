@@ -8,6 +8,10 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+//-------------------------------------------*\
+// PROGRESS BAR
+//-------------------------------------------*/
+
 .progress {
   @include set-border-radius($progress-border-radius);
   box-shadow: $progress-box-shadow;
@@ -15,9 +19,20 @@
   line-height: $progress-height;
   background-color: $progress-bg;
 
+  &-bar {
+    @include transition;
+    @include background-theme(primary); /* Theme variation. Default is primary */
+    height: $progress-height;
+    line-height: $progress-height;
+    position: relative;
+  }
+
   /* Small */
   &-sm {
     height: $progress-sm-height;
+    .progress-bar {
+      height: $progress-sm-height;
+    }
   }
 
   /* Large */
@@ -28,18 +43,69 @@
     }
   }
 
-  /* Progressbar */
-  &-bar {
-    @include transition;
-    @include background-theme(primary); /* Theme variation. Default is primary */
-    height: $progress-height;
-    line-height: $progress-height;
-  }
-
   &-bar-striped {
     background-size: $progress-height $progress-height;
   }
 
 }
 
+//-------------------------------------------*\
+// PROGRESS BAR EXTENDED
+//-------------------------------------------*/
 
+.progress {
+
+  &.extended {
+    overflow: visible;
+
+    & .progress-bar {
+      @include set-border-radius($progress-border-radius);
+      position: relative;
+
+      span {
+        @include background-theme(primary);
+        @include set-border-radius($border-radius-sm);
+        font-size: $progress-font-size;
+        line-height: $progress-height;
+        position: absolute;
+        bottom: -25px;
+        padding: 4px;
+        right: -1.4em;
+
+        &::after {
+          @include border-bottom-color('primary', 'base');
+          border: 5px solid transparent;
+          content: "";
+          bottom: 100%;
+          left: 50%;
+          margin-left: -5px;
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+      }
+    }
+
+    & .bg-secondary {
+      @include progress-bar-theme(secondary);
+    }
+
+    & .bg-success {
+      @include progress-bar-theme(success);
+    }
+
+    & .bg-danger{
+      @include progress-bar-theme(danger);
+    }
+
+    & .bg-warning{
+      @include progress-bar-theme(warning);
+    }
+
+    & .bg-info{
+      @include progress-bar-theme(info);
+    }
+
+  }
+}

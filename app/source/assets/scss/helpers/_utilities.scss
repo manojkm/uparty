@@ -13,11 +13,11 @@
 //--------------------------------------------*/
 
 .bg-primary {
-  @include background-theme(primary);
+  @include background-theme(primary, !important);
 }
 
 .bg-secondary {
-  @include background-theme(success);
+  @include background-theme(secondary, !important);
 }
 
 .bg-success {

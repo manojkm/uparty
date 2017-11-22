@@ -20,7 +20,7 @@
 @param {String} $key - Key color to use from theme
 @param {Map} $themes [$themes] - Map of themes to use
 */
-@mixin themify($property, $key, $color-variant:null, $themes: $themes, $default-theme: $default-theme) {
+@mixin themify($property, $key, $color-variant:null, $sledge-hammer:'', $themes: $themes, $default-theme: $default-theme) {
   // Iterate over the themes
 
   /// We'll be setting a default color for the selector incase no theme was set.
@@ -42,17 +42,17 @@
       $default-color: map-get-strict($default-colors, $key);
     }
 
-    /// Create fallback color based on the default theme
-    & {
-      // Output the declaration
-      #{$property}: $default-color;
-    }
+    /* Create fallback color based on the default theme */
+    /* & {
+       // Output the declaration
+       #{$property}: $default-color #{$sledge-hammer};
+     }*/
 
     /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
     /* &.theme-#{$themeName},*/
     .theme-#{$themeName} & {
       // Output the declaration
-      #{$property}: $color;
+      #{$property}: $color #{$sledge-hammer};
     }
   }
 }
@@ -649,14 +649,30 @@ Usage
 //----------------------------------*\
 // CONTEXTUAL & THEME BACKGROUNDS
 //----------------------------------*/
-@mixin background-theme($theme-color, $tone:base, $font-color:font-color) {
+@mixin background-theme($theme-color, $sledge-hammer:'', $tone:base, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
     background-color: contextual-color($theme-color, $tone) !important;
     color: contextual-color($theme-color, $font-color) !important;
   } @else { /* Theme variations */
-    @include background-color($theme-color, $tone);
-    @include color($theme-color, $font-color);
+    @include background-color($theme-color, $tone, $sledge-hammer);
+    @include color($theme-color, $font-color, $sledge-hammer);
+  }
+}
+
+//----------------------------------*\
+// PROGRESS BARS
+//----------------------------------*/
+@mixin progress-bar-theme($theme-color, $tone:base, $font-color:font-color) {
+  span {
+    @include background-theme($theme-color);
+    &::after {
+      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+        border-bottom-color: contextual-color($theme-color, $tone) !important;
+      } @else { /* Theme variations */
+        @include border-bottom-color($theme-color, $tone);
+      }
+    }
   }
 }
 
