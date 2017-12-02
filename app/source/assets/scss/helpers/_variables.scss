@@ -108,6 +108,7 @@ $lh-base: line-height(line-height) !default;
 //----------------------------------*\
 // OPTIONS
 //----------------------------------*/
+/* Handle rounded corners */
 $enable-rounded: true !default;
 
 //----------------------------------*\
@@ -329,16 +330,19 @@ $btn-radius-lg: $border-radius-lg;
 $btn-radius-round: 30px;
 
 /* Small icon button (.btn-sm.btn-icon.btn-round) */
-$btn-icon-size-sm: $btn-min-height-sm !default;
 $btn-icon-font-size-sm: $btn-font-size-sm;
+$btn-icon-size-sm-inner: ($btn-icon-font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
+$btn-icon-size-sm: calc(#{$btn-icon-size-sm-inner} + #{$btn-border-size * 2}) !default;
 
 /* Regular icon button (.btn-icon.btn-round) */
-$btn-icon-size: $btn-min-height !default;
 $btn-icon-font-size: $btn-font-size;
+$btn-icon-size-inner: ($btn-icon-font-size * $btn-line-height) + ($btn-padding-y * 2) !default;
+$btn-icon-size: calc(#{$btn-icon-size-inner} + #{$btn-border-size *2 }) !default;
 
 /* Large icon button (.btn-lg.btn-icon.btn-round) */
-$btn-icon-size-lg: $btn-min-height-lg !default;
 $btn-icon-font-size-lg: $btn-font-size-lg;
+$btn-icon-size-lg-inner: ($btn-icon-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
+$btn-icon-size-lg: calc(#{$btn-icon-size-lg-inner} + #{$btn-border-size * 2}) !default;
 
 /* Disabled button opacity */
 $btn-disabled-opacity: 0.5;
@@ -447,7 +451,7 @@ $custom-toggle-background-color: $white-color;
 $custom-toggle-border-radius: 100px;
 
 $custom-toggle-checked-background: contextual-color(success, base);
-;
+
 $custom-toggle-checked-knob-background: $white-color;
 
 $custom-toggle-knob-width: 20px;
@@ -476,6 +480,17 @@ $alert-font-size: $font-size-base;
 //----------------------------------*/
 
 //----------------------------------*\
+// CARDS
+//----------------------------------*/
+$card-background: $white-color;
+$card-border-radius: $border-radius-xxl;
+$card-border-size: $border-thin;
+$card-border-color: rgba($black-color, .155) !default;
+$card-header-bg: rgba($black-color, .03) !default;
+$card-footer-bg: $card-header-bg;
+$card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !default;
+
+//----------------------------------*\
 // OVERLAY
 //----------------------------------*/
 $overlay: rgba(0, 0, 0, .3);
@@ -485,7 +500,7 @@ $overlay: rgba(0, 0, 0, .3);
 //----------------------------------*/
 
 //----------------------------------*\
-// PROGRESS
+// PROGRESS BAR
 //----------------------------------*/
 
 $progress-font-size: $font-size-xs !default;

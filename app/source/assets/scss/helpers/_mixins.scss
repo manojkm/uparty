@@ -196,18 +196,6 @@ Usage @include border-radius(4px);
   }
 }
 
-//----------------------------------*\
-// OPACITY
-//----------------------------------*/
-/*
-Usage @include opacity(1);
-*/
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  // IE8 filter
-  $opacity-ie: ($opacity * 100);
-  filter: #{alpha(opacity=$opacity-ie)};
-}
 
 //----------------------------------*\
 // BORDER
@@ -237,6 +225,20 @@ Usage
     border-right: $size solid $color;
   }
 }
+
+//----------------------------------*\
+// OPACITY
+//----------------------------------*/
+/*
+Usage @include opacity(1);
+*/
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: #{alpha(opacity=$opacity-ie)};
+}
+
 
 //----------------------------------*\
 // VENDOR PREFIX
@@ -646,9 +648,9 @@ Usage
   }
 }
 
-//----------------------------------*\
-// CONTEXTUAL & THEME BACKGROUNDS
-//----------------------------------*/
+//------------------------------------------------------*\
+// CONTEXTUAL & THEME BACKGROUND VARIANTS WITH TEXT COLOR
+//------------------------------------------------------*/
 @mixin background-theme($theme-color, $sledge-hammer:'', $tone:base, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
@@ -658,6 +660,43 @@ Usage
     @include background-color($theme-color, $tone, $sledge-hammer);
     @include color($theme-color, $font-color, $sledge-hammer);
   }
+}
+
+//----------------------------------*\
+// CONTEXTUAL & THEME BORDER VARIANTS
+//----------------------------------*/
+@mixin border-theme($theme-color, $sledge-hammer:'', $tone:base) {
+
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    border-color: contextual-color($theme-color, $tone) !important;
+  } @else { /* Theme variations */
+    @include border-color($theme-color, $tone, $sledge-hammer);
+  }
+}
+
+//----------------------------------*\
+// CONTEXTUAL & THEME TEXT VARIANTS
+//----------------------------------*/
+@mixin text-theme($theme-color, $font-color:base, $hover-color:dark, $sledge-hammer:null) {
+
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    color: contextual-color($theme-color, $font-color) !important;
+  } @else { /* Theme variations */
+    @include color($theme-color, $font-color, $sledge-hammer);
+  }
+
+  @at-root a#{&} {
+    #{$a-tags} {
+      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+        color: contextual-color($theme-color, $hover-color) !important;
+      } @else { /* Theme variations */
+        @include color($theme-color, $hover-color, $sledge-hammer);
+      }
+
+    }
+
+  }
+
 }
 
 //----------------------------------*\

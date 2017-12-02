@@ -1,0 +1,75 @@
+// ================================================================================================
+// File Name: cards.scss
+// Description: Cards provide a flexible and extensible content container with multiple variants and options.
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+/* TODO https://codepen.io/ibanez182/pen/qZOvNj*/
+
+.card {
+  @include set-border-radius($card-border-radius);
+  @include add-border($card-border-size, $card-border-color, all);
+  background-color: $card-background;
+  position: relative;
+}
+
+.card {
+  > .list-group:first-child {
+    .list-group-item:first-child {
+      @include border-top-radius($card-border-radius);
+    }
+  }
+
+  > .list-group:last-child {
+    .list-group-item:last-child {
+      @include border-bottom-radius($card-border-radius);
+    }
+  }
+}
+
+.card-header {
+  background-color: $card-header-bg;
+  @include add-border($card-border-size, $card-border-color, bottom);
+
+  &:first-child {
+    @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
+  }
+}
+
+.card-footer {
+  background-color: $card-footer-bg;
+  @include add-border($card-border-size, $card-border-color, top);
+
+  &:last-child {
+    @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
+  }
+}
+
+.card-img {
+  @include border-radius($card-inner-border-radius);
+}
+
+.card-img-top {
+  @include border-top-radius($card-inner-border-radius);
+}
+
+.card-img-bottom {
+  @include border-bottom-radius($card-inner-border-radius);
+}
+
+//-------------------------------------------*\
+// CARD EXTENDED
+//-------------------------------------------*/
+.card {
+  &.extended {
+    & .card-body{
+      position: relative;
+    }
+
+
+  }
+}

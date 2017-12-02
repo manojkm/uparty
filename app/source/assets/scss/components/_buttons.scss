@@ -42,11 +42,16 @@ button, .button {
 
   &.btn-icon {
     min-width: $btn-icon-size;
+    width: $btn-icon-size;
     min-height: $btn-icon-size;
     padding: 0;
     overflow: hidden;
     position: relative;
-    line-height: normal;
+    line-height: $btn-line-height;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
     i.fa {
       font-size: $btn-icon-font-size;
@@ -54,6 +59,7 @@ button, .button {
 
     &.btn-sm {
       min-width: $btn-icon-size-sm;
+      width: $btn-icon-size-sm;
       min-height: $btn-icon-size-sm;
 
       i.fa {
@@ -63,6 +69,7 @@ button, .button {
 
     &.btn-lg {
       min-width: $btn-icon-size-lg;
+      width: $btn-icon-size-lg;
       min-height: $btn-icon-size-lg;
 
       i.fa {

@@ -9,7 +9,7 @@
 // ================================================================================================
 
 //--------------------------------------------*\
-// CONTEXTUAL & THEME BACKGROUNDS WITH TEXT COLOR
+// CONTEXTUAL & THEME BACKGROUND VARIANTS WITH TEXT COLOR
 //--------------------------------------------*/
 
 .bg-primary {
@@ -42,4 +42,76 @@
 
 .bg-dark {
   @include background-theme(dark);
+}
+
+//----------------------------------*\
+// CONTEXTUAL & THEME BORDER VARIANTS
+//----------------------------------*/
+
+.border-primary {
+  @include border-theme(primary, !important);
+}
+
+.border-secondary {
+  @include border-theme(secondary, !important);
+}
+
+.border-success {
+  @include border-theme(success);
+}
+
+.border-danger {
+  @include border-theme(danger);
+}
+
+.border-warning {
+  @include border-theme(warning);
+}
+
+.border-info {
+  @include border-theme(info);
+}
+
+.border-light {
+  @include border-theme(light);
+}
+
+.border-dark {
+  @include border-theme(dark);
+}
+
+//----------------------------------*\
+// CONTEXTUAL & THEME TEXT VARIANTS
+//----------------------------------*/
+
+.text-primary {
+  @include text-theme(primary, $sledge-hammer:!important);
+}
+
+.text-secondary {
+  @include text-theme(secondary, $sledge-hammer:!important);
+}
+
+.text-success {
+  @include text-theme(success);
+}
+
+.text-danger {
+  @include text-theme(danger);
+}
+
+.text-warning {
+  @include text-theme(warning);
+}
+
+.text-info {
+  @include text-theme(info);
+}
+
+.text-light {
+  @include text-theme(light);
+}
+
+.text-dark {
+  @include text-theme(dark);
 }

@@ -57,6 +57,7 @@
 
 .input-group-addon {
   @include set-border-radius($input-border-radius);
+  @include add-border($input-border-size, $input-border-color, all);
   padding: $btn-padding-y $btn-padding-x;
   margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
   font-size: $input-font-size; // Match inputs
@@ -65,7 +66,7 @@
   color: $input-addon-color;
   text-align: center;
   background-color: $input-addon-background-color;
-  border: $input-border-size solid $input-border-color;
+  //border: $input-border-size solid $input-border-color;
 
   // Sizing
   &.form-control-sm {
