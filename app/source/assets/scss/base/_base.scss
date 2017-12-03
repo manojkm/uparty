@@ -32,7 +32,7 @@ a {
   &:focus /*,
   &:visited*/
   {
-    @include color('primary', 'base');
+    //@include color('primary', 'base');
     text-decoration: none;
   }
 }
@@ -44,5 +44,5 @@ a {
 }
 
 input, textarea, button {
-  @include border-radius(0px);
+  @include border-radius(0);
 }

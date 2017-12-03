@@ -1,0 +1,54 @@
+// ================================================================================================
+// File Name: nav.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.nav {
+  font-size: $nav-tabs-font-size;
+  font-weight: $nav-tabs-font-weight;
+}
+
+.nav-link {
+  @include transition;
+  padding: $nav-link-padding-y $nav-link-padding-x;
+
+  /* Disabled state lightens text */
+  &.disabled {
+    color: $nav-link-disabled-color;
+  }
+}
+
+.nav-tabs {
+  @include add-border($nav-tabs-border-width, $nav-tabs-border-color, bottom);
+
+  .nav-link {
+    @include set-border-radius($nav-tabs-border-radius);
+    @include add-border($nav-tabs-border-width, transparent, all);
+    @include border-bottom-radius(0);
+    color: $nav-tabs-link-color;
+
+    &:hover,
+    &:focus {
+      border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+    }
+
+    &.disabled {
+      color: $nav-link-disabled-color;
+    }
+
+  }
+
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    //color: $nav-tabs-link-active-color;
+    @include color($nav-tabs-link-active-theme-color, $nav-tabs-link-active-theme-color-tone);
+    background-color: $nav-tabs-link-active-bg;
+    border-color: $nav-tabs-link-active-border-color $nav-tabs-link-active-border-color $nav-tabs-link-active-bg;
+  }
+
+}

@@ -14,8 +14,26 @@ Forms
     </div>
     <div class="card-body">
 
+       <h3>Navs</h3>
 
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">HomeHomeHome</div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">ProfileProfileProfile</div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">ContactContactContact</div>
+        </div>
 
+        <br>
         <div class="card text-center">
             <div class="card-header">
                 <ul class="nav nav-pills card-header-pills">
@@ -189,68 +207,6 @@ Forms
         </div>
 
         <br><br>
-        <div class="card-group">
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-        </div>
-
-        <br><br>
-        <div class="card-group">
-            <div class="card">
-                <img class="card-img-top" src="https://source.unsplash.com/category/nature/800x400" alt="Card image cap">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="https://source.unsplash.com/category/nature/800x400" alt="Card image cap">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="https://source.unsplash.com/category/nature/800x400" alt="Card image cap">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-
-        <br><br>
 
         <div class="card">
             <h6 class="card-header">
@@ -285,46 +241,31 @@ Forms
 
         <br><br>
 
-        <div class="card extended w-25">
-            <img class="card-img-top" src="https://source.unsplash.com/category/nature/800x400" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                <a href="#" class="btn btn-primary btn-lg btn-icon btn-round">
-                    <i class="fa fa-camera-retro"></i>
-                </a>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/category/nature/800x400" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-block btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card extended">
+                    <img class="card-img-top" src="https://source.unsplash.com/category/nature/800x400" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Card extended</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary btn-lg btn-icon btn-round">
+                            <i class="fa fa-camera-retro"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="card w-25">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <br><br>
 
@@ -1296,7 +1237,7 @@ Forms
         <button type="button" class="btn btn-primary btn-icon btn-round"><i class="fa fa-paper-plane"></i></button>
         <br>
         <button type="button" class="btn btn-primary btn-lg">Primary</button>
-        
+
         <button type="button" class="btn btn-primary btn-lg btn-icon btn-round"><i class="fa fa-camera-retro"></i></button>
         <a href="#" class="btn btn-primary btn-lg btn-icon btn-round"><i class="fa fa-camera-retro"></i></a>
         <br>

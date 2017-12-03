@@ -8,7 +8,6 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-/* TODO https://codepen.io/ibanez182/pen/qZOvNj*/
 
 .card {
   @include set-border-radius($card-border-radius);
@@ -64,12 +63,18 @@
 //-------------------------------------------*\
 // CARD EXTENDED
 //-------------------------------------------*/
+
+/* TODO https://codepen.io/ibanez182/pen/qZOvNj*/
 .card {
   &.extended {
     & .card-body{
       position: relative;
     }
-
-
+    & .btn {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }

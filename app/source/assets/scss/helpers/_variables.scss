@@ -483,12 +483,33 @@ $alert-font-size: $font-size-base;
 // CARDS
 //----------------------------------*/
 $card-background: $white-color;
-$card-border-radius: $border-radius-xxl;
+$card-border-radius: $border-radius-md;
 $card-border-size: $border-thin;
 $card-border-color: rgba($black-color, .155) !default;
 $card-header-bg: rgba($black-color, .03) !default;
 $card-footer-bg: $card-header-bg;
 $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !default;
+
+//----------------------------------*\
+// NAVS
+//----------------------------------*/
+
+/* Tabs */
+$nav-link-padding-y: .5rem !default;
+$nav-link-padding-x: 1.5rem !default;
+$nav-link-disabled-color: $gray-600 !default;
+
+$nav-tabs-font-size: $font-size-base !default;
+$nav-tabs-font-weight: $font-wh-normal !default;
+$nav-tabs-border-color: $gray-800 !default;
+$nav-tabs-border-width: $border-thin !default;
+$nav-tabs-border-radius: $border-radius-xxl !default;
+$nav-tabs-link-hover-border-color: $gray-600 !default;
+$nav-tabs-link-color: $gray-600 !default;
+$nav-tabs-link-active-theme-color: primary !default;
+$nav-tabs-link-active-theme-color-tone: base !default;
+$nav-tabs-link-active-bg: $white-color !default;
+$nav-tabs-link-active-border-color: $gray-800 !default;
 
 //----------------------------------*\
 // OVERLAY
