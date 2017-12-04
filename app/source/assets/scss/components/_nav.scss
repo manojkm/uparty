@@ -8,13 +8,15 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+/* TODO: https://codepen.io/CodeBoomer/pen/WwqXWw?editors=1100*/
+
 .nav {
   font-size: $nav-tabs-font-size;
   font-weight: $nav-tabs-font-weight;
 }
 
 .nav-link {
-  @include transition;
+  //@include transition;
   padding: $nav-link-padding-y $nav-link-padding-x;
 
   /* Disabled state lightens text */
@@ -35,6 +37,7 @@
     &:hover,
     &:focus {
       border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+      background-color: $nav-tabs-link-hover-bg;
     }
 
     &.disabled {
@@ -50,5 +53,12 @@
     background-color: $nav-tabs-link-active-bg;
     border-color: $nav-tabs-link-active-border-color $nav-tabs-link-active-border-color $nav-tabs-link-active-bg;
   }
+
+}
+
+.tab-content {
+  margin-top: -1px;
+  background: $tab-content-bg;
+  @include add-border($nav-tabs-border-width, $nav-tabs-border-color, all);
 
 }

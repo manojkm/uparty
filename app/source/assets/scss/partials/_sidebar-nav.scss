@@ -179,6 +179,9 @@
       @include background-color('sidebar', 'dark');
       > a {
         @include color('sidebar', 'active-color');
+        .#{$s}__item-title {
+          @include background-color('sidebar', 'dark');
+        }
       }
     }
   }
