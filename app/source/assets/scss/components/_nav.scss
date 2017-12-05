@@ -22,6 +22,14 @@
   /* Disabled state lightens text */
   &.disabled {
     color: $nav-link-disabled-color;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      border-color: transparent !important;
+      color: $nav-link-disabled-color !important;
+      background-color: transparent !important;
+    }
   }
 }
 
@@ -61,9 +69,14 @@
 }
 
 .tab-content {
-  margin-top: -1px;
-  background: $tab-content-bg;
-  @include add-border($nav-tabs-border-width, $nav-tabs-border-color, all);
+
+  &.hasborder{
+    margin-top: -1px;
+    background: $tab-content-bg;
+    @include add-border($nav-tabs-border-width, $nav-tabs-border-color, all);
+  }
+
+
 
 }
 
@@ -104,7 +117,6 @@
 
 }
 
-
 //-------------------------------------------*\
 // TAB EXTENDED - COVER
 //-------------------------------------------*/
@@ -115,10 +127,8 @@
     @include set-border-radius($nav-tabs-border-radius);
     @include border-bottom-radius(0);
     background-color: $nav-tabs-cover-bg;
-    padding: 5px 5px 0 5px;
-
+    padding: 5px 5px 0;
   }
-
 }
 
 .tab-content {
@@ -182,8 +192,36 @@
 }
 
 .tab-content {
-  &.extended-arrow  {
+  &.extended-arrow {
     margin-top: 0;
     @include add-border(0, transparent, all);
+  }
+}
+
+//-------------------------------------------*\
+// PILLS
+//-------------------------------------------*/
+
+.nav-pills {
+  .nav-item {
+
+  }
+  .nav-link {
+    @include set-border-radius($nav-pills-border-radius);
+    margin: 0 5px 3px 0;
+
+    &.active,
+    &.active:hover,
+    .show > & {
+      @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-theme-color-tone);
+      @include background-color('primary', 'base');
+    }
+
+    &:hover {
+      @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-theme-color-tone);
+      @include background-color('primary', 'light');
+    }
+
+
   }
 }

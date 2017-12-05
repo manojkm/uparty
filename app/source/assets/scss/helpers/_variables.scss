@@ -498,7 +498,7 @@ $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !
 /* Tabs */
 $nav-link-padding-y: .5rem !default;
 $nav-link-padding-x: 1rem !default;
-$nav-link-disabled-color: $gray-300 !default;
+$nav-link-disabled-color: $gray-400 !default;
 
 $nav-tabs-font-size: $font-size-base !default;
 $nav-tabs-font-weight: $font-wh-normal !default;
@@ -506,7 +506,7 @@ $nav-tabs-border-color: $gray-400 !default;
 $nav-tabs-border-width: $border-thin !default;
 $nav-tabs-border-radius: $border-radius-md !default;
 $nav-tabs-link-hover-border-color: $gray-300 !default;
-$nav-tabs-link-hover-bg:$gray-100 !default;
+$nav-tabs-link-hover-bg: $gray-100 !default;
 $nav-tabs-link-color: $gray-600 !default;
 $nav-tabs-link-active-theme-color: primary !default;
 $nav-tabs-link-active-theme-color-tone: base !default;
@@ -516,15 +516,20 @@ $nav-tabs-link-active-border-color: $nav-tabs-border-color !default;
 $tab-content-bg: $white-color !default;
 
 /* Tabs Extended */
-$nav-tabs-line-link-hover-bg:$white-color !default;
+$nav-tabs-line-link-hover-bg: $white-color !default;
 $nav-tabs-line-link-active-border-theme-color: primary !default;
 $nav-tabs-line-link-active-border-tone-color: base !default;
-
 
 /* Tabs Extended - Cover */
 $nav-tabs-cover-bg: $gray-200 !default;
 
+/* Pills */
 
+$nav-pills-border-radius: $border-radius-md !default;
+$nav-pills-link-active-theme-color: primary !default;
+$nav-pills-link-active-theme-color-tone: font-color !default;
+//$nav-pills-link-active-color: $component-active-color !default;
+//$nav-pills-link-active-bg:    $component-active-bg !default;
 
 //----------------------------------*\
 // OVERLAY
