@@ -1,0 +1,60 @@
+// ================================================================================================
+// File Name: modals.scss
+// Description: Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes,
+// user notifications, or completely custom content.
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.modal {
+  z-index: map-get($zindex, modal);
+
+  &-content {
+    @include set-border-radius($modal-border-radius);
+    //@include add-border($modal-content-border-width, $modal-content-border-color, all);
+    @include add-border(0, transparent, all);
+    background-color: $modal-content-bg;
+  }
+
+  &-header {
+    padding: $modal-header-padding;
+    @include add-border($modal-header-border-width, $modal-header-border-color, bottom);
+  }
+  &-body {
+    padding: $modal-body-padding;
+  }
+  &-footer {
+    @include add-border($modal-footer-border-width, $modal-footer-border-color, top);
+    padding: $modal-footer-padding;
+  }
+}
+
+.model-primary {
+  @include model-theme(primary);
+}
+
+.model-secondary {
+  @include model-theme(secondary);
+}
+
+.model-success {
+  @include model-theme(success);
+}
+.model-danger {
+  @include model-theme(danger);
+}
+.model-warning{
+  @include model-theme(warning);
+}
+.model-info {
+  @include model-theme(info);
+}
+.model-light{
+  @include model-theme(light);
+}
+.model-dark {
+  @include model-theme(dark);
+}

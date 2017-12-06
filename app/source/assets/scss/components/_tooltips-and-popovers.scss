@@ -13,7 +13,7 @@
 //----------------------------------*/
 
 .tooltip {
-
+  z-index: map-get($zindex, tooltip);
   /* Tooltip inner */
   @at-root &-inner {
     @include font-size($tooltip-font-size);
@@ -50,13 +50,13 @@
 //----------------------------------*/
 
 .popover {
+  @include set-border-radius($popover-border-radius);
   font-size: $popover-font-size;
   max-width: $popover-max-width;
   box-shadow: $popover-shadow;
   z-index: map-get($zindex, popover);
   text-align: left;
   white-space: normal;
-  @include set-border-radius($popover-border-radius);
 
   &.bs-popover-top .arrow:before,
   &.bs-popover-left .arrow:before,

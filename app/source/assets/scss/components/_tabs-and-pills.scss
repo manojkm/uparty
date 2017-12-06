@@ -8,7 +8,7 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-/* TODO:  Responsive bootstrap tabs https://codepen.io/devben/pen/EaLdeJ*/
+/* TODO:  Responsive bootstrap tabs https://codepen.io/devben/pen/EaLdeJ */
 
 //-------------------------------------------*\
 // TAB
@@ -47,13 +47,11 @@
 
 .tab-content {
 
-  &.hasborder{
+  &.hasborder {
     margin-top: -1px;
     background: $tab-content-bg;
     @include add-border($nav-tabs-border-width, $nav-tabs-border-color, all);
   }
-
-
 
 }
 
@@ -180,25 +178,23 @@
 //-------------------------------------------*/
 
 .nav-pills {
-  .nav-item {
 
-  }
   .nav-link {
+    @include transition;
     @include set-border-radius($nav-pills-border-radius);
     margin: 0 5px 3px 0;
+    @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
 
     &.active,
     &.active:hover,
     .show > & {
-      @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-theme-color-tone);
-      @include background-color('primary', 'base');
+      @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-font-theme-color-tone);
+      @include background-color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
     }
 
     &:hover {
-      @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-theme-color-tone);
-      @include background-color('primary', 'light');
+      @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-font-theme-color-tone);
+      @include background-color($nav-pills-link-active-theme-color, $nav-pills-link-hover-bg-theme-color-tone);
     }
-
-
   }
 }

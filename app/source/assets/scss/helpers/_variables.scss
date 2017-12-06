@@ -492,7 +492,7 @@ $card-footer-bg: $card-header-bg;
 $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !default;
 
 //----------------------------------*\
-// NAVS
+// NAVS / TABS / PILLS
 //----------------------------------*/
 
 /* Tabs */
@@ -527,9 +527,71 @@ $nav-tabs-cover-bg: $gray-200 !default;
 
 $nav-pills-border-radius: $border-radius-md !default;
 $nav-pills-link-active-theme-color: primary !default;
-$nav-pills-link-active-theme-color-tone: font-color !default;
-//$nav-pills-link-active-color: $component-active-color !default;
-//$nav-pills-link-active-bg:    $component-active-bg !default;
+$nav-pills-link-active-bg-theme-color-tone: base !default;
+$nav-pills-link-hover-bg-theme-color-tone: light !default;
+$nav-pills-link-active-font-theme-color-tone: font-color !default;
+
+//----------------------------------*\
+// MODAL
+//----------------------------------*/
+
+$modal-content-bg: $white-color !default;
+$modal-content-border-width: $border-thin !default;
+$modal-content-border-color: $gray-400 !default;
+$modal-border-radius: $border-radius-md !default;
+$modal-header-border-width: $border-thin !default;
+$modal-header-border-color: $modal-content-border-color;
+$modal-footer-border-width: $border-thin !default;
+$modal-footer-border-color: $modal-content-border-color;
+$modal-body-padding: 15px 25px !default;
+$modal-header-padding: 10px 25px !default;
+$modal-footer-padding: 15px 25px !default;
+
+//----------------------------------*\
+// PAGINATION
+//----------------------------------*/
+
+$pagination-bg: $white-color !default;
+
+$pagination-border-width: $btn-border-size !default;
+$pagination-border-color: $gray-400 !default;
+
+$pagination-font-weight: $btn-font-weight !default;
+
+$pagination-link-theme-color: primary !default;
+$pagination-link-theme-color-tone: base !default;
+
+$pagination-active-bg-theme-color: primary !default;
+$pagination-active-bg-theme-color-tone: base !default;
+$pagination-active-font-theme-color-tone: font-color !default;
+
+$pagination-disabled-color: $gray-400 !default;
+$pagination-disabled-bg: $white-color !default;
+$pagination-disabled-border-color: $gray-200 !default;
+
+$pagination-hover-bg: $gray-100 !default;
+$pagination-hover-border-color: $pagination-border-color;
+
+/* Small size */
+$pagination-font-size-sm: $btn-font-size-sm !default;
+$pagination-padding-y-sm: $btn-padding-y-sm !default;
+$pagination-padding-x-sm: $btn-padding-x-sm !default;
+$pagination-line-height-sm: $btn-line-height-sm !default;
+$pagination-border-radius-sm: $btn-radius-sm !default;
+
+/* Regular size */
+$pagination-font-size: $btn-font-size !default;
+$pagination-padding-y: $btn-padding-y !default;
+$pagination-padding-x: $btn-padding-x !default;
+$pagination-line-height: $btn-line-height !default;
+$pagination-border-radius: $btn-radius !default;
+
+/* Large size */
+$pagination-font-size-lg: $btn-font-size-lg !default;
+$pagination-padding-y-lg: $btn-padding-y-lg !default;
+$pagination-padding-x-lg: $btn-padding-x-lg !default;
+$pagination-line-height-lg: $btn-line-height-lg !default;
+$pagination-border-radius-lg: $btn-radius-lg !default;
 
 //----------------------------------*\
 // OVERLAY
@@ -608,14 +670,15 @@ $ease-in-out-circ: cubic-bezier(.27, .01, .38, 1.06);
 // ZINDEX
 //----------------------------------*/
 $zindex: (
-        modal : 9000,
-        overlay : 1200,
+        overlay : 800,
+        footer : 800,
+        sidebar :800,
+        aside : 850,
+        header : 860,
         dropdown : 1000,
-        header : 1300,
-        footer : 1000,
-        sidebar : 1000,
-        aside : 1300,
+        modal : 1050,
         popover: 1060,
+        tooltip: 1070,
 );
 
 //----------------------------------*\

@@ -1,0 +1,69 @@
+// ================================================================================================
+// File Name: pagination.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.page-item {
+  &:first-child {
+    .page-link {
+      @include set-border-radius($pagination-border-radius);
+      @include border-right-radius(0);
+    }
+  }
+  &:last-child {
+    .page-link {
+      @include set-border-radius($pagination-border-radius);
+      @include border-left-radius(0);
+    }
+  }
+
+  &.active .page-link {
+    @include background-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
+    @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
+    @include color($pagination-active-bg-theme-color, $pagination-active-font-theme-color-tone);
+  }
+
+  /* Disabled pagination */
+  &.disabled {
+    cursor: not-allowed;
+
+    &.page-link {
+      color: $pagination-disabled-color;
+      background-color: $pagination-disabled-bg;
+      border-color: $pagination-disabled-border-color;
+    }
+  }
+
+}
+
+.page-link {
+  @include add-border($pagination-border-width, $pagination-border-color, all);
+  @include color($pagination-link-theme-color, $pagination-link-theme-color-tone);
+  line-height: $pagination-line-height;
+  padding: $pagination-padding-y $pagination-padding-x;
+  font-size: $pagination-font-size;
+  font-weight: $pagination-font-weight;
+  background-color: $pagination-bg;
+
+  &:focus,
+  &:hover {
+    @include color($pagination-link-theme-color, $pagination-link-theme-color-tone);
+    background-color: $pagination-hover-bg;
+    border-color: $pagination-hover-border-color;
+  }
+}
+
+/* Large pagination */
+.pagination-lg {
+  @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $pagination-font-size-lg, $pagination-line-height-lg, $border-radius-lg);
+}
+
+/* Small pagination */
+.pagination-sm {
+  @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $pagination-font-size-sm, $pagination-line-height-sm, $border-radius-sm);
+}
