@@ -594,6 +594,32 @@ $pagination-line-height-lg: $btn-line-height-lg !default;
 $pagination-border-radius-lg: $btn-radius-lg !default;
 
 //----------------------------------*\
+// PAGINATION EXTENDED
+//----------------------------------*/
+
+$pagination-extended-radius-round: $border-radius-100 !default;
+
+/* Extended - Border */
+$pagination-radius-round-width: 3px;
+
+
+/* Small size */
+$pagination-extended-border-width-sm: $pagination-border-width * 2 !default;
+$pagination-extended-inner-sm: ($pagination-font-size-sm * $pagination-line-height-sm) + ($pagination-padding-y-sm * 2) !default;
+$pagination-extended-size-sm: calc(#{$pagination-extended-inner-sm} + #{$pagination-extended-border-width-sm}) !default;
+
+/* Regular size */
+$pagination-extended-border-width: $pagination-border-width * 2 !default;
+$pagination-extended-inner: ($pagination-font-size * $pagination-line-height) + ($pagination-padding-y * 2) !default;
+$pagination-extended-size: calc(#{$pagination-extended-inner} + #{$pagination-extended-border-width}) !default;
+
+/* Large size */
+$pagination-extended-border-width-lg: $pagination-border-width * 2 !default;
+$pagination-extended-inner-lg: ($pagination-font-size-lg * $pagination-line-height-lg) + ($pagination-padding-y-lg * 2) !default;
+$pagination-extended-size-lg: calc(#{$pagination-extended-inner-lg} + #{$pagination-extended-border-width-lg}) !default;
+
+
+//----------------------------------*\
 // OVERLAY
 //----------------------------------*/
 $overlay: rgba(0, 0, 0, .3);
