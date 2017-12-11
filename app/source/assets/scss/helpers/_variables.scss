@@ -599,10 +599,6 @@ $pagination-border-radius-lg: $btn-radius-lg !default;
 
 $pagination-extended-radius-round: $border-radius-100 !default;
 
-/* Extended - Border */
-$pagination-radius-round-width: 3px;
-
-
 /* Small size */
 $pagination-extended-border-width-sm: $pagination-border-width * 2 !default;
 $pagination-extended-inner-sm: ($pagination-font-size-sm * $pagination-line-height-sm) + ($pagination-padding-y-sm * 2) !default;
@@ -617,6 +613,9 @@ $pagination-extended-size: calc(#{$pagination-extended-inner} + #{$pagination-ex
 $pagination-extended-border-width-lg: $pagination-border-width * 2 !default;
 $pagination-extended-inner-lg: ($pagination-font-size-lg * $pagination-line-height-lg) + ($pagination-padding-y-lg * 2) !default;
 $pagination-extended-size-lg: calc(#{$pagination-extended-inner-lg} + #{$pagination-extended-border-width-lg}) !default;
+
+/* Extended - Border */
+$pagination-border-round-width: 3px;
 
 
 //----------------------------------*\
