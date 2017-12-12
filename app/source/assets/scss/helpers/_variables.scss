@@ -483,6 +483,9 @@ $alert-font-size: $font-size-base;
 //----------------------------------*\
 // CARDS
 //----------------------------------*/
+$card-spacer-y:            .75rem !default;
+$card-spacer-x:            1.25rem !default;
+
 $card-background: $white-color;
 $card-border-radius: $border-radius-md;
 $card-border-size: $border-thin;
@@ -490,6 +493,23 @@ $card-border-color: rgba($black-color, .155) !default;
 $card-header-bg: rgba($black-color, .03) !default;
 $card-footer-bg: $card-header-bg;
 $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !default;
+
+//----------------------------------*\
+// ACCORDION
+//----------------------------------*/
+$accordion-title-color: $gray-700 !default;
+$accordion-title-hover-color: $gray-800 !default;
+$accordion-title-active-color: red !default;
+
+$accordion-title-active-theme-color: primary !default;
+$accordion-title-active-theme-color-tone: base !default;
+
+$accordion-header-hover-bg: rgba($black-color, .05) !default;
+$accordion-left-icon-margin:10px;
+
+$accordion-active-theme-color: primary !default;
+$accordion-active-theme-color-tone: base !default;
+$accordion-active-color-theme-color-tone: font-color !default;
 
 //----------------------------------*\
 // NAVS / TABS / PILLS

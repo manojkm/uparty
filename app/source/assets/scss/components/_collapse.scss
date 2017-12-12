@@ -1,0 +1,102 @@
+// ================================================================================================
+// File Name: collapse.scss
+// Description: Toggle the visibility of content.
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//-------------------------------------------*\
+// ACCORDION
+//-------------------------------------------*/
+
+/* https://www.codeply.com/go/506qHaPe9M */
+
+.accordion {
+
+  .card-header {
+    position: relative;
+
+    /* Left icon */
+    > i {
+      float: left;
+      margin-right: $accordion-left-icon-margin;
+    }
+
+    &:hover {
+      background-color: $accordion-header-hover-bg;
+
+      > [data-toggle="collapse"].collapsed {
+        color: $accordion-title-hover-color;
+      }
+    }
+  }
+
+  [data-toggle="collapse"] {
+    @include transition;
+    @include color($accordion-title-active-theme-color, $accordion-title-active-theme-color-tone);
+    display: block;
+
+    &:after {
+      /* symbol for "collapsed" panels */
+      @include center(y);
+      font-family: 'FontAwesome';
+      font-style: normal;
+      content: "\f107";
+      float: right;
+      font-size: 20px;
+      line-height: 1;
+      width: 22px;
+      display: inline-block;
+      speak: none;
+      text-align: center;
+      position: absolute;
+      right: $card-spacer-x;
+    }
+
+    &.collapsed {
+      color: $accordion-title-color;
+      &:after {
+        content: "\f105";
+      }
+    }
+
+  }
+
+}
+
+//-------------------------------------------*\
+// EXTENDED - GROUP
+//-------------------------------------------*/
+
+.accordion {
+  &.extended {
+
+    .card {
+      @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+    }
+
+    & [data-toggle="collapse"] {
+      @include add-border($card-border-size, transparent, top);
+      @include add-border(0, transparent, bottom);
+      @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+      @include background-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+      @include color($accordion-active-theme-color, $accordion-active-color-theme-color-tone);
+      display: block;
+      cursor: pointer;
+
+      &.collapsed {
+        background-color: transparent;
+        color: $accordion-title-color;
+      }
+
+      &:first-child {
+        border-top: none;
+      }
+
+    }
+
+  }
+}

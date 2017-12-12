@@ -8,7 +8,6 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
 .card {
   @include set-border-radius($card-border-radius);
   @include add-border($card-border-size, $card-border-color, all);
@@ -31,8 +30,10 @@
 }
 
 .card-header {
-  background-color: $card-header-bg;
   @include add-border($card-border-size, $card-border-color, bottom);
+  background-color: $card-header-bg;
+  padding: $card-spacer-y $card-spacer-x;
+  //color: $card-header-color;
 
   &:first-child {
     @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
@@ -67,7 +68,7 @@
 /* TODO https://codepen.io/ibanez182/pen/qZOvNj*/
 .card {
   &.extended {
-    & .card-body{
+    & .card-body {
       position: relative;
     }
     & .btn {
@@ -77,16 +78,4 @@
       transform: translate(-50%, -50%);
     }
   }
-}
-
-/*collapsed" panels */
-
-.accordion .card-header:after {
-  font-family: 'FontAwesome';
-  content: "\f068";
-  float: right;
-}
-
-.accordion .card-header.collapsed:after {
-  content: "\f067";
 }

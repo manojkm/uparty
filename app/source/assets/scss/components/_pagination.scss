@@ -209,6 +209,13 @@
         @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
       }
 
+      &.disabled {
+
+        & .page-link {
+          border-color: $pagination-disabled-border-color !important;
+        }
+      }
+
     }
 
   }
@@ -226,7 +233,7 @@
     & .page-link {
       color: $pagination-disabled-color !important;
       background-color: $pagination-disabled-bg !important;
-      border-color: $pagination-disabled-border-color !important;
+      //border-color: $pagination-disabled-border-color !important;
     }
   }
 
