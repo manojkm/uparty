@@ -12,7 +12,7 @@
 // MAIN WRAPPERS
 //----------------------------------*/
 
-/*Sidebar needs this particular environment*/
+/* Sidebar needs this particular environment */
 .main-wrap {
   width: 100%;
   //position: absolute;
@@ -49,8 +49,8 @@
     padding-left: $sidebar-mini-width;
   }
 
-  section.content {
-    &__wrap {
+  main.content {
+    .content__wrap {
       padding: $header-height + 20px 20px $footer-height + 20px;
       min-height: 100vh;
     }

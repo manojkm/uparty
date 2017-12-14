@@ -52,3 +52,22 @@
   position: absolute;
   right: $card-spacer-x;
 }
+
+//----------------------------------*\
+// BREADCRUMB EXTENDED ARROW PSEUDO
+//----------------------------------*/
+%abreadcrumb-ext-arrow-pseudo {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: $breadcrumb-ext-border-top-bottom-size solid transparent;
+  border-bottom: $breadcrumb-ext-border-top-bottom-size solid transparent;
+  border-left: $breadcrumb-ext-border-left-size solid transparent;
+  position: absolute;
+  top:0;
+  //top: 50%;
+  //margin-top: -$breadcrumb-ext-border-top-bottom-size;
+  left: 100%;
+  z-index: 3;
+}

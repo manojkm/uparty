@@ -36,8 +36,9 @@
   //color: $card-header-color;
 
   &:first-child {
-    @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
+    //@include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
     @include set-border-radius($card-inner-border-radius);
+    @include border-bottom-radius(0);
 
   }
 }

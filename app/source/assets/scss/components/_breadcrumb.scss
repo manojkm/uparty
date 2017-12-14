@@ -1,1 +1,146 @@
+// ================================================================================================
+// File Name: breadcrumb.scss
+// Description: Indicate the current page's location within a navigational hierarchy that
+// automatically adds separators via CSS.
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
 
+.breadcrumb {
+  @include set-border-radius($breadcrumb-border-radius);
+  background-color: $breadcrumb-bg;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  font-size: $breadcrumb-font-size;
+  line-height: $breadcrumb-line-height;
+}
+
+.breadcrumb-item {
+  color: $breadcrumb-font-color;
+
+  + .breadcrumb-item::before {
+    color: $breadcrumb-divider-color;
+  }
+
+  & a {
+    @include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+    &:hover {
+      @include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+    }
+  }
+
+  &.active {
+    color: $breadcrumb-active-color;
+  }
+}
+
+//-------------------------------------------*\
+// BREADCRUMB EXTENDED
+//-------------------------------------------*/
+.breadcrumb {
+
+  &.extended-arrow {
+    @include add-border($breadcrumb-border-size, $breadcrumb-ext-border-color, all);
+    background-color: $breadcrumb-ext-bg;
+    padding: 0;
+
+    & .breadcrumb-item {
+      position: relative;
+      padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 24px;
+
+      &:first-child {
+        @include set-border-radius($breadcrumb-border-radius);
+        @include border-right-radius(0);
+        padding: $breadcrumb-padding-y 5px $breadcrumb-padding-y 12px !important;
+      }
+
+      &:last-child {
+        padding: $breadcrumb-padding-y 0 $breadcrumb-padding-y 24px;
+        &:before {
+          display: none;
+        }
+      }
+
+      &:not(:last-child):after {
+        @extend %abreadcrumb-ext-arrow-pseudo;
+      }
+
+      &:not(:last-child):before {
+        @extend %abreadcrumb-ext-arrow-pseudo;
+        margin-left: 1px;
+      }
+
+    }
+
+    .breadcrumb-item:hover:not(:last-child) {
+      background-color: $breadcrumb-ext-item-hover-bg
+    }
+
+    .breadcrumb-item:not(:last-child):after {
+      @include add-border($breadcrumb-ext-border-left-size, $breadcrumb-ext-item-bg, left);
+    }
+    .breadcrumb-item:hover:not(:last-child):after {
+      @include add-border($breadcrumb-ext-border-left-size, $breadcrumb-ext-item-hover-bg, left);
+    }
+
+    .breadcrumb-item:not(:last-child):before {
+      @include add-border($breadcrumb-ext-border-left-size, $breadcrumb-ext-border-color, left);
+    }
+    .breadcrumb-item:hover:not(:last-child):before {
+      @include add-border($breadcrumb-ext-border-left-size, $breadcrumb-ext-border-hover-color, left);
+    }
+
+  }
+
+}
+
+//-------------------------------------------*\
+// BREADCRUMB EXTENDED - WIZARD
+//-------------------------------------------*/
+
+.breadcrumb.extended-arrow {
+  &.wizard {
+
+    & .breadcrumb-item {
+
+      &:first-child {
+        padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 24px !important;
+      }
+
+      &:last-child {
+        padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 24px;
+        &:before {
+          display: none;
+        }
+      }
+
+      &:after {
+        @extend %abreadcrumb-ext-arrow-pseudo;
+      }
+
+      &:before {
+        @extend %abreadcrumb-ext-arrow-pseudo;
+        margin-left: 1px;
+      }
+
+    }
+
+    & .completed {
+      @include breadcrumb-wizard-status(primary);
+    }
+    & .active {
+      @include breadcrumb-wizard-status(secondary);
+    }
+
+    & .incomplete {
+      &,
+      a {
+        color: $breadcrumb-ext-incomplete-color;
+      }
+
+    }
+
+  }
+}

@@ -533,6 +533,40 @@ Usage @include opacity(1);
 }
 
 //----------------------------------*\
+// BREADCRUMB EXTENDED - WIZARD
+//----------------------------------*/
+@mixin breadcrumb-wizard-status($theme-color, $tone:base, $tone-hover:dark, $tone-border:x-dark, $font-color:font-color) {
+
+
+  @include background-color($theme-color, $tone);
+
+  & a {
+    @include color($theme-color, $font-color);
+  }
+
+  &:hover {
+    @include background-color($theme-color, $tone-hover);
+  }
+
+  &:after {
+    @include border-left-color($theme-color, $tone);
+  }
+
+  &:hover:after {
+    @include border-left-color($theme-color, $tone-hover);
+  }
+
+  &:before {
+    @include border-left-color($theme-color, $tone-border);
+  }
+
+  &:hover:before {
+    @include border-left-color($theme-color, $tone-border);
+  }
+
+
+}
+//----------------------------------*\
 // POPOVERS
 //----------------------------------*/
 
