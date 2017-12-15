@@ -128,10 +128,10 @@
     }
 
     & .completed {
-      @include breadcrumb-wizard-status(primary);
+      @include breadcrumb-wizard-status(primary, $breadcrumb-link-theme-color-tone);
     }
     & .active {
-      @include breadcrumb-wizard-status(secondary);
+      @include breadcrumb-wizard-status(secondary, $breadcrumb-link-theme-color-tone);
     }
 
     & .incomplete {
@@ -142,5 +142,92 @@
 
     }
 
+  }
+}
+
+//-------------------------------------------*\
+// BREADCRUMB EXTENDED - WRAP
+//-------------------------------------------*/
+/* TODO https://codepen.io/xhepigerta/pen/XKmZKN*/
+.breadcrumb {
+  &.extended-arrow-wrap {
+    @include set-border-radius(0);
+    padding: 0;
+    display: inline-table;
+    background: transparent;
+
+    & .breadcrumb-item {
+      display: inline;
+
+      &:before {
+        display: none;
+      }
+
+      a {
+        display: block;
+        background: $breadcrumb-ext-wrap-bg;
+        padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 24px;
+        position: relative;
+        margin: 0 10px 0 0;
+        color: $breadcrumb-ext-wrap-font-color;
+
+        /* Right arrow tip */
+        &:after {
+          content: "";
+          border-top: $breadcrumb-ext-border-top-bottom-size solid transparent;
+          border-bottom: $breadcrumb-ext-border-top-bottom-size solid transparent;
+          border-left: $breadcrumb-ext-border-left-size solid $breadcrumb-ext-wrap-bg;
+          position: absolute;
+          left: 100%;
+          top: 0;
+          z-index: 1;
+        }
+
+        /* Left inset arrow */
+        &:before {
+          content: "";
+          border-top: $breadcrumb-ext-border-top-bottom-size solid transparent;
+          border-bottom: $breadcrumb-ext-border-top-bottom-size solid transparent;
+          border-left: $breadcrumb-ext-border-left-size solid $breadcrumb-ext-wrap-border-left-color;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        &:hover {
+          @include color($breadcrumb-link-theme-color, $breadcrumb-link-font-theme-color-tone);
+          @include background-color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+        }
+        &:hover:after {
+          @include border-left-color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+        }
+
+      }
+
+      &.active {
+        /* Highlight the active child */
+        a {
+          @include color($breadcrumb-link-theme-color, $breadcrumb-link-font-theme-color-tone);
+          @include background-color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+          &:after {
+            @include border-left-color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+          }
+        }
+
+      }
+
+      &:first-child {
+        a {
+          @include set-border-radius($breadcrumb-border-radius);
+          @include border-right-radius(0);
+
+          /* The first item has no inset arrow */
+          &:before {
+            display: none;
+          }
+        }
+      }
+
+    }
   }
 }
