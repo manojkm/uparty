@@ -49,6 +49,9 @@
   }
 
   .breadcrumb__wrap {
+    @if bool($enable-breadcrumb) == false {
+      display: none;
+    }
     padding-top: $header-height;
 
     .breadcrumb {
@@ -66,7 +69,11 @@
 
   .content {
     &__wrap {
-      padding: 0 20px $footer-height + 20px;
+      @if bool($enable-breadcrumb) == true {
+        padding: 0 20px $footer-height + 20px;
+      } @else {
+        padding: $header-height + 20px 20px $footer-height + 20px;
+      }
       min-height: 100vh;
     }
   }

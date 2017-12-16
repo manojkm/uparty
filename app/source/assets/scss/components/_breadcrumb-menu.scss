@@ -19,7 +19,8 @@
     @include add-border($breadcrumb-border-size, $breadcrumb-border-color, left);
   }
   .nav-link {
-    @include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+    //@include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+    color: $breadcrumb-menu-color;
     line-height: $breadcrumb-line-height;
     padding: $breadcrumb-padding-y 0;
 
@@ -27,7 +28,8 @@
     &:focus,
     &:active,
     &:hover{
-      @include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+      //@include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+      color: $breadcrumb-menu-hover-color;
     }
 
   }

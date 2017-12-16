@@ -112,6 +112,9 @@ $lh-base: line-height(line-height) !default;
 /* Handle rounded corners */
 $enable-rounded: true !default;
 
+/* Breadcrumb */
+$enable-breadcrumb: true !default;
+
 //----------------------------------*\
 // SELECTION
 //----------------------------------*/
@@ -253,7 +256,7 @@ $breadcrumb-bg:$white-color !default;
 $breadcrumb-border-radius: $border-radius-md !default;
 $breadcrumb-border-size: $border-thin;
 
-$breadcrumb-border-color: $gray-300 !default;
+$breadcrumb-border-color: $gray-400 !default;
 
 $breadcrumb-padding-y: .40rem !default;
 $breadcrumb-padding-x: .85rem !default;
@@ -294,6 +297,9 @@ $breadcrumb-ext-wrap-item-bg: $gray-200 !default;
 $breadcrumb-ext-wrap-font-color: $gray-600 !default;
 $breadcrumb-ext-wrap-border-left-color: $white-color!default;
 
+/* Breadcrumb Menu */
+$breadcrumb-menu-color: $gray-700 !default;
+$breadcrumb-menu-hover-color: $gray-900 !default;
 
 //----------------------------------*\
 // SIDEBAR
