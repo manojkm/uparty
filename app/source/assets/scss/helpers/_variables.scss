@@ -249,15 +249,17 @@ $progress-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 //----------------------------------*\
 // BREADCRUMB
 //----------------------------------*/
-$breadcrumb-bg: $gray-100 !default;
+$breadcrumb-bg:$white-color !default;
 $breadcrumb-border-radius: $border-radius-md !default;
-$breadcrumb-padding-y: .50rem !default;
+$breadcrumb-border-size: $border-thin;
+
+$breadcrumb-border-color: $gray-300 !default;
+
+$breadcrumb-padding-y: .40rem !default;
 $breadcrumb-padding-x: .85rem !default;
 
 $breadcrumb-font-size: $font-size-sm !default;
 $breadcrumb-line-height: $lh-base !default;
-
-$breadcrumb-border-size: $border-thin;
 
 $breadcrumb-font-color: $gray-700 !default;
 $breadcrumb-active-color: $gray-600 !default;
@@ -273,23 +275,25 @@ $breadcrumb-size-inner: ($breadcrumb-font-size * $breadcrumb-line-height) + ($br
 $breadcrumb-size: calc((#{$breadcrumb-size-inner} + #{$breadcrumb-border-size}) / 2) !default;
 
 /* Breadcrumb Extended - Arrow */
-$breadcrumb-ext-border-color: $gray-300 !default;
-$breadcrumb-ext-border-hover-color: $gray-400 !default;
-$breadcrumb-ext-border-top-bottom-size: $breadcrumb-size;
-$breadcrumb-ext-border-left-size: 10px;
-
 $breadcrumb-ext-bg: $white-color !default;
 
 $breadcrumb-ext-item-bg: $white-color !default;
 $breadcrumb-ext-item-hover-bg: $gray-200 !default;
 
+$breadcrumb-ext-border-color: $gray-300 !default;
+$breadcrumb-ext-border-hover-color: $gray-400 !default;
+$breadcrumb-ext-border-top-bottom-size: $breadcrumb-size;
+$breadcrumb-ext-border-left-size: 10px;
+
 /* Breadcrumb Extended - Arrow Wizard */
 $breadcrumb-ext-incomplete-color: $gray-600 !default;
 
 /* Breadcrumb Extended - Arrow Wrap */
-$breadcrumb-ext-wrap-bg: $gray-200 !default;
+$breadcrumb-ext-wrap-bg: $white-color !default;
+$breadcrumb-ext-wrap-item-bg: $gray-200 !default;
 $breadcrumb-ext-wrap-font-color: $gray-600 !default;
 $breadcrumb-ext-wrap-border-left-color: $white-color!default;
+
 
 //----------------------------------*\
 // SIDEBAR

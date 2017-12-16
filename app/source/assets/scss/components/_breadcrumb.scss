@@ -11,13 +11,19 @@
 
 .breadcrumb {
   @include set-border-radius($breadcrumb-border-radius);
+  @include add-border($breadcrumb-border-size, $breadcrumb-border-color, all);
   background-color: $breadcrumb-bg;
-  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  padding: 0 $breadcrumb-padding-x;
   font-size: $breadcrumb-font-size;
   line-height: $breadcrumb-line-height;
+
+  /* Flexbox */
+  display: flex;
+
 }
 
 .breadcrumb-item {
+  padding: $breadcrumb-padding-y 0;
   color: $breadcrumb-font-color;
 
   + .breadcrumb-item::before {
@@ -26,6 +32,8 @@
 
   & a {
     @include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+    &:focus,
+    &:active,
     &:hover {
       @include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
     }
@@ -106,7 +114,7 @@
     & .breadcrumb-item {
 
       &:first-child {
-        padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 24px !important;
+        padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 12px !important;
       }
 
       &:last-child {
@@ -152,12 +160,13 @@
 .breadcrumb {
   &.extended-arrow-wrap {
     @include set-border-radius(0);
+    background-color: $breadcrumb-ext-wrap-bg;
     padding: 0;
-    display: inline-table;
-    background: transparent;
+    border: 0;
 
     & .breadcrumb-item {
       display: inline;
+      padding: 0;
 
       &:before {
         display: none;
@@ -165,7 +174,7 @@
 
       a {
         display: block;
-        background: $breadcrumb-ext-wrap-bg;
+        background: $breadcrumb-ext-wrap-item-bg;
         padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 24px;
         position: relative;
         margin: 0 10px 0 0;
@@ -176,7 +185,7 @@
           content: "";
           border-top: $breadcrumb-ext-border-top-bottom-size solid transparent;
           border-bottom: $breadcrumb-ext-border-top-bottom-size solid transparent;
-          border-left: $breadcrumb-ext-border-left-size solid $breadcrumb-ext-wrap-bg;
+          border-left: $breadcrumb-ext-border-left-size solid $breadcrumb-ext-wrap-item-bg;
           position: absolute;
           left: 100%;
           top: 0;
@@ -220,6 +229,7 @@
         a {
           @include set-border-radius($breadcrumb-border-radius);
           @include border-right-radius(0);
+          padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 12px;
 
           /* The first item has no inset arrow */
           &:before {

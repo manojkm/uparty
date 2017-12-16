@@ -28,7 +28,18 @@
     @include color($pagination-active-bg-theme-color, $pagination-active-font-theme-color-tone);
   }
 
-}
+  /* Disabled pagination */
+  &.disabled {
+    cursor: not-allowed;
+
+    &.page-link {
+      color: $pagination-disabled-color;
+      background-color: $pagination-disabled-bg;
+      border-color: $pagination-disabled-border-color;
+    }
+  }
+
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
 .page-link {
   @include add-border($pagination-border-width, $pagination-border-color, all);
@@ -47,10 +58,6 @@
   }
 }
 
-//-------------------------------------------*\
-// PAGINATION SIZES
-//-------------------------------------------*/
-
 /* Large pagination */
 .pagination-lg {
   @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $pagination-font-size-lg, $pagination-line-height-lg, $border-radius-lg);
@@ -59,182 +66,4 @@
 /* Small pagination */
 .pagination-sm {
   @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $pagination-font-size-sm, $pagination-line-height-sm, $border-radius-sm);
-}
-
-//-------------------------------------------*\
-// PAGINATION EXTENDED
-//-------------------------------------------*/
-
-.pagination {
-
-  &.extended {
-
-    .page-item {
-      margin: 0 2px;
-    }
-
-    .page-link {
-      @include add-border(0, transparent, all);
-      @include set-border-radius($pagination-extended-radius-round);
-      min-width: $pagination-extended-size;
-      height: $pagination-extended-size;
-      line-height: $pagination-extended-size;
-      padding: 0;
-      text-align: center;
-    }
-
-    &.pagination-lg {
-      .page-link {
-        @include add-border(0, transparent, all);
-        @include set-border-radius($pagination-extended-radius-round);
-        min-width: $pagination-extended-size-lg;
-        height: $pagination-extended-size-lg;
-        line-height: $pagination-extended-size-lg;
-      }
-
-    }
-
-    &.pagination-sm {
-      .page-link {
-        @include add-border(0, transparent, all);
-        @include set-border-radius($pagination-extended-radius-round);
-        min-width: $pagination-extended-size-sm;
-        height: $pagination-extended-size-sm;
-        line-height: $pagination-extended-size-sm;
-      }
-
-    }
-
-  }
-
-}
-
-//-------------------------------------------*\
-// PAGINATION EXTENDED - BORDER
-//-------------------------------------------*/
-.pagination {
-
-  &.extended-border {
-
-    .page-item {
-      margin: 0 2px;
-    }
-
-    .page-link {
-      @include add-border($pagination-border-round-width, transparent, all);
-      @include set-border-radius($pagination-extended-radius-round);
-      min-width: $pagination-extended-size;
-      height: $pagination-extended-size;
-      padding: 0;
-      text-align: center;
-      box-sizing: border-box;
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-    .page-item {
-      &.active .page-link {
-        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
-        @include color($pagination-link-theme-color, $pagination-link-theme-color-tone);
-        background-color: $pagination-bg;
-      }
-    }
-
-    &.pagination-lg {
-      .page-link {
-        @include set-border-radius($pagination-extended-radius-round);
-        min-width: $pagination-extended-size-lg;
-        height: $pagination-extended-size-lg;
-      }
-
-    }
-
-    &.pagination-sm {
-      .page-link {
-        @include set-border-radius($pagination-extended-radius-round);
-        min-width: $pagination-extended-size-sm;
-        height: $pagination-extended-size-sm;
-      }
-
-    }
-
-  }
-
-}
-
-//-------------------------------------------*\
-// PAGINATION EXTENDED - SQUARE
-//-------------------------------------------*/
-
-.pagination {
-
-  &.extended-square {
-
-    .page-link {
-      @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
-      @include set-border-radius($pagination-border-radius);
-      min-width: $pagination-extended-size;
-      height: $pagination-extended-size;
-      padding: 0;
-      text-align: center;
-      box-sizing: border-box;
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-    &.pagination-lg {
-      .page-link {
-        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
-        @include set-border-radius($pagination-border-radius-lg);
-        min-width: $pagination-extended-size-lg;
-        height: $pagination-extended-size-lg;
-      }
-
-    }
-
-    &.pagination-sm {
-      .page-link {
-        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
-        @include set-border-radius($pagination-border-radius-sm);
-        min-width: $pagination-extended-size-sm;
-        height: $pagination-extended-size-sm;
-      }
-
-    }
-
-    .page-item {
-      margin: 0 2px;
-
-      &.active .page-link {
-        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
-      }
-
-      &.disabled {
-
-        & .page-link {
-          border-color: $pagination-disabled-border-color !important;
-        }
-      }
-
-    }
-
-  }
-
-}
-
-//-------------------------------------------*\
-// DISABLED PAGINATION
-//-------------------------------------------*/
-
-.page-item {
-  &.disabled {
-    cursor: not-allowed;
-
-    & .page-link {
-      color: $pagination-disabled-color !important;
-      background-color: $pagination-disabled-bg !important;
-      //border-color: $pagination-disabled-border-color !important;
-    }
-  }
-
 }

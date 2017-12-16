@@ -1,0 +1,35 @@
+// ================================================================================================
+// File Name: breadcrumb-menu.scss
+// Description:
+// automatically adds separators via CSS.
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.breadcrumb.has-menu {
+  padding-right: 0;
+
+  .nav {
+    font-size: $breadcrumb-font-size;
+  }
+  .nav-item {
+    @include add-border($breadcrumb-border-size, $breadcrumb-border-color, left);
+  }
+  .nav-link {
+    @include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+    line-height: $breadcrumb-line-height;
+    padding: $breadcrumb-padding-y 0;
+
+    /* Change the hover, focus, active state links for better highlighting */
+    &:focus,
+    &:active,
+    &:hover{
+      @include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+    }
+
+  }
+
+}

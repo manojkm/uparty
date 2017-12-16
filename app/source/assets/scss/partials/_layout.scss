@@ -24,7 +24,6 @@
   //overflow-x: hidden;
 }
 
-
 .app {
   //@include transition(left 0.3s ease);
   //@include transition(padding-left 0.3s ease);
@@ -35,7 +34,7 @@
   min-height: 100vh;
   margin: 0 auto;
   left: 0;
-  background-color: $grey-x-light;
+  background-color: $gray-200;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -49,9 +48,25 @@
     padding-left: $sidebar-mini-width;
   }
 
-  main.content {
-    .content__wrap {
-      padding: $header-height + 20px 20px $footer-height + 20px;
+  .breadcrumb__wrap {
+    padding-top: $header-height;
+
+    .breadcrumb {
+      @include add-border($breadcrumb-border-size, $breadcrumb-border-color, bottom);
+      &,
+      & .breadcrumb-item {
+        &:first-child,
+        &:first-child a {
+          @include set-border-radius(0);
+        }
+      }
+
+    }
+  }
+
+  .content {
+    &__wrap {
+      padding: 0 20px $footer-height + 20px;
       min-height: 100vh;
     }
   }
