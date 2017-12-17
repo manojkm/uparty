@@ -16,19 +16,22 @@
         </header>
         <!-- /Header -->
 
-        <!--Breadcrumb-->
-        <section class="breadcrumb__wrap">{{> breadcrumb }}</section>
-        <!--/Breadcrumb-->
-
         <!-- Sidebar -->
         <section class="sidebar">
             <div class="sidebar__wrap">{{> sidebar }}</div>
         </section>
         <!-- /Sidebar -->
 
+        <!--Breadcrumb-->
+        <section class="breadcrumb__wrap">{{> breadcrumb }}</section>
+        <!--/Breadcrumb-->
+
         <!--Main content-->
         <main class="content">
-            <section class="content__wrap">{{> body }}</section>
+            <section class="content__wrap">
+                {{> page-title }}
+                {{> body }}
+            </section>
         </main>
         <!-- /Main content-->
 

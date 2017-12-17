@@ -11,22 +11,17 @@
 //----------------------------------*\
 // MAIN WRAPPERS
 //----------------------------------*/
+/* The page layout is as follows: */
 
-/* Sidebar needs this particular environment */
 .main-wrap {
+  /* Sidebar needs this particular environment */
   width: 100%;
-  //position: absolute;
-  //height: 100%;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  //overflow-y: auto;
-  //overflow-x: hidden;
 }
 
 .app {
-  //@include transition(left 0.3s ease);
-  //@include transition(padding-left 0.3s ease);
   @include transition;
   position: relative;
   width: 100%;
@@ -40,6 +35,7 @@
   flex-direction: column;
   flex-grow: 1;
 
+  /* Adjusting sidebar */
   .sidebar-is-open & {
     padding-left: $sidebar-width;
   }
@@ -48,33 +44,56 @@
     padding-left: $sidebar-mini-width;
   }
 
-  .breadcrumb__wrap {
-    @if bool($enable-breadcrumb) == false {
-      display: none;
-    }
-    padding-top: $header-height;
+}
 
-    .breadcrumb {
-      @include add-border($breadcrumb-border-size, $breadcrumb-border-color, bottom);
-      &,
-      & .breadcrumb-item {
-        &:first-child,
-        &:first-child a {
-          @include set-border-radius(0);
-        }
-      }
+/* Header */
+/* Header styles can found in header.scss */
 
-    }
+/* Sidebar */
+/* Sidebar styles can found in sidebar.scss */
+
+/* Breadcrumb */
+.breadcrumb__wrap {
+  @if bool($enable-breadcrumb) == false {
+    display: none;
   }
+  padding-top: $header-height;
 
-  .content {
-    &__wrap {
-      @if bool($enable-breadcrumb) == true {
-        padding: 0 20px $footer-height + 20px;
-      } @else {
-        padding: $header-height + 20px 20px $footer-height + 20px;
+  .breadcrumb {
+    @include add-border($breadcrumb-border-size, $breadcrumb-border-color, bottom);
+    margin: 0;
+    &,
+    & .breadcrumb-item {
+      &:first-child,
+      &:first-child a {
+        @include set-border-radius(0);
       }
-      min-height: 100vh;
     }
+
   }
 }
+
+/* Main content */
+.content {
+  &__wrap {
+    @if bool($enable-breadcrumb) == true {
+      padding: 20px 20px $footer-height + 20px;
+    } @else {
+      padding: $header-height + 20px 20px $footer-height + 20px;
+    }
+    min-height: 100vh;
+  }
+
+  /* Page title */
+  &__page-title {
+    //margin: 0 -20px;
+    padding-bottom: 20px
+  }
+
+}
+
+/* Aside */
+/* Aside styles can found in aside.scss */
+
+/* Footer */
+/* Footer styles can found in footer.scss */

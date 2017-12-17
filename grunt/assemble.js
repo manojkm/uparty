@@ -2,6 +2,19 @@
 module.exports = {
     // Task-level options
     options: {
+
+        collections: [
+            {
+                name: 'components',
+                sortby: 'posted',
+                sortorder: 'descending'
+            },
+            {
+                name: 'dashboard',
+                sortby: 'posted',
+                sortorder: 'descending'
+            }],
+
         flatten: true,
         layoutext: '.hbs',
         assets: '<%= site.dev_assets %>',
