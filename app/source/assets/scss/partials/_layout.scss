@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: app.scss
-// Description: This file is supposed to hold the main layout wrappers.
+// Description: The page layout is as follows:
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -11,7 +11,6 @@
 //----------------------------------*\
 // MAIN WRAPPERS
 //----------------------------------*/
-/* The page layout is as follows: */
 
 .main-wrap {
   /* Sidebar needs this particular environment */
@@ -46,13 +45,19 @@
 
 }
 
-/* Header */
+//----------------------------------*\
+// HEADER WRAPPERS
+//----------------------------------*/
 /* Header styles can found in header.scss */
 
-/* Sidebar */
+//----------------------------------*\
+// SIDEBAR WRAPPERS
+//----------------------------------*/
 /* Sidebar styles can found in sidebar.scss */
 
-/* Breadcrumb */
+//----------------------------------*\
+// BREADCRUMB WRAPPERS
+//----------------------------------*/
 .breadcrumb__wrap {
   @if bool($enable-breadcrumb) == false {
     display: none;
@@ -73,27 +78,35 @@
   }
 }
 
+//----------------------------------*\
+// MAIN CONTENT WRAPPERS
+//----------------------------------*/
+
 /* Main content */
 .content {
   &__wrap {
     @if bool($enable-breadcrumb) == true {
-      padding: 20px 20px $footer-height + 20px;
+      padding: $main-content-padding-y $main-content-padding-x ($footer-height + $main-content-padding-y);
     } @else {
-      padding: $header-height + 20px 20px $footer-height + 20px;
+      padding: ($header-height + $main-content-padding-y) $main-content-padding-x ($footer-height + $main-content-padding-y);
     }
     min-height: 100vh;
   }
 
   /* Page title */
   &__page-title {
-    //margin: 0 -20px;
-    padding-bottom: 20px
+    margin-top:-$main-content-padding-y;
+    padding:$page-title-padding-y $page-title-padding-x;
   }
 
 }
 
-/* Aside */
+//----------------------------------*\
+// ASIDE WRAPPERS
+//----------------------------------*/
 /* Aside styles can found in aside.scss */
 
-/* Footer */
+//----------------------------------*\
+// FOOTER WRAPPERS
+//----------------------------------*/
 /* Footer styles can found in footer.scss */
