@@ -28,7 +28,8 @@ html {
 
 body {
   font-family: map-get-strict($font, font); /* Assign all elements new font */
-  @include font-size(16px);
+  font-size: $font-size-sm;
+  //@include font-size(16px);
 }
 
 
@@ -43,7 +44,7 @@ body {
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, a, td {
-
+  color: map-get-strict($font, color);
 }
 
 em {
