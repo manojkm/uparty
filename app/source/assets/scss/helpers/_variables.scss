@@ -252,7 +252,7 @@ $progress-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 //----------------------------------*\
 // BREADCRUMB
 //----------------------------------*/
-$breadcrumb-bg:$white-color !default;
+$breadcrumb-bg: $white-color !default;
 $breadcrumb-border-radius: $border-radius-md !default;
 $breadcrumb-border-size: $border-thin;
 
@@ -295,7 +295,7 @@ $breadcrumb-ext-incomplete-color: $gray-600 !default;
 $breadcrumb-ext-wrap-bg: $white-color !default;
 $breadcrumb-ext-wrap-item-bg: $gray-200 !default;
 $breadcrumb-ext-wrap-font-color: $gray-600 !default;
-$breadcrumb-ext-wrap-border-left-color: $white-color!default;
+$breadcrumb-ext-wrap-border-left-color: $white-color !default;
 
 /* Breadcrumb Menu */
 $breadcrumb-menu-color: $gray-700 !default;
@@ -304,16 +304,15 @@ $breadcrumb-menu-hover-color: $gray-900 !default;
 //----------------------------------*\
 // MAIN CONTENT WRAPPERS
 //----------------------------------*/
-$main-content-padding-y:20px;
-$main-content-padding-x:0;
+$main-content-padding-y: 20px;
+$main-content-padding-x: 0;
 
 //----------------------------------*\
 // PAGE TITLE WRAPPERS
 //----------------------------------*/
 
 $page-title-padding-y: 20px;
-$page-title-padding-x:0;
-
+$page-title-padding-x: 0;
 
 //----------------------------------*\
 // SIDEBAR
@@ -558,6 +557,13 @@ $card-border-color: rgba($black-color, .155) !default;
 $card-header-bg: rgba($black-color, .03) !default;
 $card-footer-bg: $card-header-bg;
 $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !default;
+
+/* Card tools */
+$card-tools-color: $gray-600 !default;
+$card-tools-hover-color: $gray-800 !default;
+$card-tools-font-size: $font-size-xs !default;
+$card-tools-icon-height: 20px;
+$card-tools-icon-width: 25px;
 
 //----------------------------------*\
 // ACCORDION

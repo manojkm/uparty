@@ -222,6 +222,9 @@ Usage
   } @else if $position == 'right-left' {
     border-left: $size solid $color;
     border-right: $size solid $color;
+  } @else if $position == 'left-bottom' {
+    border-left: $size solid $color;
+    border-bottom: $size solid $color;
   }
 }
 

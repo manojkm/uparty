@@ -16,6 +16,8 @@ var appMaster = {
     _tooltip: $("[data-toggle='tooltip']"),
     _popover: $("[data-toggle='popover']"),
     _formctrl: $('.form-control'),
+    _card_close: $("[data-card='close']"),
+    _card_collapse: $("[data-card='collapse']"),
 
 
     responsive: function () {
@@ -43,6 +45,31 @@ var appMaster = {
             appMaster._changeLogo();
         });
 
+    },
+
+    card: function () {
+        $(appMaster._card_close).on('click', function (event) {
+            event.preventDefault();
+            // $(this).closest(".card").hide("slow");
+            $(this).closest(".card").fadeOut();
+        });
+
+        $(appMaster._card_collapse).on('click', function (event) {
+            event.preventDefault();
+
+            var $this = $(this);
+            if (!$this.hasClass('card-collapsed')) {
+                $this.parents('.card').find('.card-body').slideUp();
+                $this.addClass('card-collapsed');
+                $this.find('i').removeClass('fa fa-chevron-up').addClass('fa fa-chevron-down');
+            } else {
+                $this.parents('.card').find('.card-body').slideDown();
+                $this.removeClass('card-collapsed');
+                $this.find('i').removeClass('fa fa-chevron-down').addClass('fa fa-chevron-up');
+            }
+
+
+        });
     },
 
     aside: function () {
@@ -164,7 +191,7 @@ var appMaster = {
         }).on('blur', function () {
             $(this).parent('.input-group').removeClass("input-group-focus");
         });
-    }
+    },
 
 
 };
@@ -183,6 +210,8 @@ var Pluggin = {
 $(document).on("app.plugin", function () {
     $("[data-plugin]").each(function () {
         Pluggin[$(this).attr("data-plugin")](this);
+        // console.log($(this));
+        // console.log(this);
     });
 
 }).trigger("app.plugin");
@@ -196,6 +225,7 @@ $(document).ready(function () {
     appMaster.tooltip();
     appMaster.popover();
     appMaster.input_group_focus();
+    appMaster.card();
 });
 
 

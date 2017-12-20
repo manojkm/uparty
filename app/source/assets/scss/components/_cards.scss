@@ -13,7 +13,7 @@
   @include add-border($card-border-size, $card-border-color, all);
   background-color: $card-background;
   position: relative;
-  margin-bottom:$card-margin-bottom;
+  margin-bottom: $card-margin-bottom;
 }
 
 .card {
@@ -34,7 +34,13 @@
   @include add-border($card-border-size, $card-border-color, bottom);
   background-color: $card-header-bg;
   padding: $card-spacer-y $card-spacer-x;
+  position: relative;
   //color: $card-header-color;
+
+  /* Flexbox */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 
   &:first-child {
     //@include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
@@ -42,6 +48,51 @@
     @include border-bottom-radius(0);
 
   }
+}
+
+.card-tools {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  & .tool-item {
+    @include transition;
+    color: $card-tools-color;
+    margin-left: 10px;
+    font-size: $card-tools-font-size;
+    text-decoration: none;
+
+    &:hover{
+      color: $card-tools-hover-color;
+    }
+  }
+
+  &.window{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @include set-border-radius($card-border-radius);
+    @include add-border($card-border-size, $card-border-color, left-bottom);
+    @include border-top-radius(0);
+    @include border-right-radius(0);
+
+    & .tool-item{
+
+      height: $card-tools-icon-height;
+      width: $card-tools-icon-width;
+      margin:0;
+
+      /* Flexbox */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+  }
+
+
 }
 
 .card-footer {
