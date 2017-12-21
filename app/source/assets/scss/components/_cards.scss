@@ -9,14 +9,32 @@
 // ================================================================================================
 
 .card {
+  @include transition;
   @include set-border-radius($card-border-radius);
   @include add-border($card-border-size, $card-border-color, all);
   background-color: $card-background;
   position: relative;
   margin-bottom: $card-margin-bottom;
-}
 
-.card {
+
+  &-fullscreen {
+    @include transition;
+    z-index: map-get($zindex, fullscreen_card);
+    position: fixed;
+    //display: block;
+    width:99%;
+    //height: 95%;
+    top:2%;
+    right: 0;
+    left: 0;
+    bottom:2%;
+    margin: 0 auto;
+
+    .card-body{
+      overflow-y: auto;
+    }
+  }
+
   > .list-group:first-child {
     .list-group-item:first-child {
       @include border-top-radius($card-border-radius);
@@ -50,25 +68,27 @@
   }
 }
 
-.card-tools {
+.card__actions {
+
+  $ca: card__actions;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: flex-end;
 
-  & .tool-item {
+  &-item {
     @include transition;
     color: $card-tools-color;
     margin-left: 10px;
     font-size: $card-tools-font-size;
     text-decoration: none;
 
-    &:hover{
+    &:hover {
       color: $card-tools-hover-color;
     }
   }
 
-  &.window{
+  &.window {
     position: absolute;
     right: 0;
     top: 0;
@@ -78,11 +98,11 @@
     @include border-top-radius(0);
     @include border-right-radius(0);
 
-    & .tool-item{
+    & .#{$ca}-item {
 
       height: $card-tools-icon-height;
       width: $card-tools-icon-width;
-      margin:0;
+      margin: 0;
 
       /* Flexbox */
       display: flex;
@@ -91,7 +111,6 @@
 
     }
   }
-
 
 }
 

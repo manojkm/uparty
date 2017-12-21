@@ -18,6 +18,7 @@ var appMaster = {
     _formctrl: $('.form-control'),
     _card_close: $("[data-card='close']"),
     _card_collapse: $("[data-card='collapse']"),
+    _card_fullscreen: $("[data-card='fullscreen']"),
 
 
     responsive: function () {
@@ -51,7 +52,25 @@ var appMaster = {
         $(appMaster._card_close).on('click', function (event) {
             event.preventDefault();
             // $(this).closest(".card").hide("slow");
-            $(this).closest(".card").fadeOut();
+            // $(this).closest(".card").fadeOut();
+            $(this).closest(".card").addClass('animated fadeOut').animate({
+                height: 0,
+                opacity: 0,
+                margin: 0,
+                padding: 0
+            }).fadeToggle(500, "swing", function () {
+                this.remove();
+            });
+
+            // $(this).closest(".card").animate({
+            //     height: 0,
+            //     opacity: 0,
+            //     margin: 0,
+            //     padding: 0
+            // }, 'slow', function(){
+            //     $(this).hide();
+            // });
+
         });
 
         $(appMaster._card_collapse).on('click', function (event) {
@@ -67,9 +86,43 @@ var appMaster = {
                 $this.removeClass('card-collapsed');
                 $this.find('i').removeClass('fa fa-chevron-down').addClass('fa fa-chevron-up');
             }
+        });
 
+        $(appMaster._card_fullscreen).on('click', function (event) {
+            event.preventDefault();
+            var $this = $(this);
+
+            if (!$this.hasClass('fullscreen-enabled')) {
+                $this.parents('.card').addClass('card-fullscreen animated fadeIn');
+                $this.parents('.card').find('.card-body').slideDown();
+                $this.addClass('fullscreen-enabled');
+                $this.find('i').removeClass('fa fa-expand').addClass('fa fa-compress');
+                // $this.parents('.card').find("[data-card=close], [data-card=collapse], [data-toggle=dropdown]").addClass('d-none');
+                $this.parents('.card').find('.card__actions').children('a.card__actions-item:not([data-card=fullscreen])').addClass('d-none');
+            } else {
+                $this.parents('.card').removeClass('card-fullscreen animated fadeIn');
+                $this.removeClass('fullscreen-enabled');
+                $this.find('i').removeClass('fa fa-compress').addClass('fa fa-expand');
+                // $this.parents('.card').find("[data-card=close], [data-card=collapse], [data-toggle=dropdown]").removeClass('d-none');
+                $this.parents('.card').find('.card__actions').children('a.card__actions-item').removeClass('d-none');
+            }
+
+
+            // if ($this.children('i').hasClass('fa-expand'))
+            // {
+            //     $this.children('i').removeClass('fa-expand');
+            //     $this.children('i').addClass('fa-compress');
+            // }
+            // else if ($this.children('i').hasClass('fa-compress'))
+            // {
+            //     $this.children('i').removeClass('fa-compress');
+            //     $this.children('i').addClass('fa-expand');
+            // }
+            // $(this).closest('.card').toggleClass('card-fullscreen animated fadeIn');
 
         });
+
+
     },
 
     aside: function () {
