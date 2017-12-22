@@ -79,6 +79,10 @@ button, .button {
     }
 
   }
+
+  &:not(.btn-icon) i.fa{
+    padding: 0 $btn-icon-padding-right 0 0 ;
+  }
 }
 
 /* Apply the mixin to the button variants.
@@ -160,6 +164,7 @@ and disabled options for all buttons.
   &[disabled],
   &.disabled {
     @include opacity($btn-disabled-opacity);
+    cursor: not-allowed;
   }
 }
 
