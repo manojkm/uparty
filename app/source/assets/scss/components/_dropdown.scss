@@ -99,7 +99,8 @@
     // TODO Adapted from https://github.com/sagaio/user-dropdown-menu/blob/master/trunk/css/dropdown.css
 
     /* Showing left border styling on hover for better highlighting */
-    /* &::before {
+
+     &::before {
        @include transition;
        @include background-color('primary', 'base');
        content: '';
@@ -107,14 +108,15 @@
        bottom: 0;
        left: 0;
        top: 0;
-       width: 2px;
+       width: 3px;
        opacity: 0;
      }
 
-     &:hover::before
+     &:hover::before,
+     &.active::before
      {
        opacity: 1;
-     }*/
+     }
 
     /* Change the hover, focus, active state links for better highlighting */
     &:hover,
@@ -132,7 +134,6 @@
       color: $dropdown-link-active-color;
       background-color: $dropdown-link-active-bg;
       text-decoration: none;
-
     }
 
     &.disabled,
@@ -140,12 +141,14 @@
     &.disabled:hover,
     &:disabled {
       //@include add-border(2px, transparent, left);
-      color: $dropdown-link-disabled-color;
+      //color: $dropdown-link-disabled-color;
       background-color: transparent;
       cursor: not-allowed;
       background-image: none;
+      opacity: 0.6;
       filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)";
     }
+
 
   }
 
@@ -175,6 +178,26 @@
 
   }
 
+}
+
+//----------------------------------*\
+// DROPUP VARIATION
+//----------------------------------*/
+.dropup {
+  .dropdown-menu.extended {
+    /* Dropdown bottom arrow */
+    &:before {
+      bottom: -6px;
+      top: unset;
+      transform: rotate(180deg);
+    }
+
+    &:after {
+      bottom: -8px;
+      top: unset;
+      transform: rotate(180deg);
+    }
+  }
 }
 
 //----------------------------------*\

@@ -28,7 +28,7 @@ button, .button {
 
   &:hover,
   &:focus,
-  &.focus{
+  &.focus {
     @include opacity(1);
     outline: 0;
     box-shadow: none;
@@ -44,7 +44,7 @@ button, .button {
     min-width: $btn-icon-size;
     width: $btn-icon-size;
     min-height: $btn-icon-size;
-    padding: 0;
+    //padding: 0;
     overflow: hidden;
     position: relative;
     line-height: $btn-line-height;
@@ -78,10 +78,16 @@ button, .button {
       }
     }
 
+    &.has-dropdown{
+      width: auto;
+      min-width: 0;
+      display: table;
+    }
+
   }
 
-  &:not(.btn-icon) i.fa{
-    padding: 0 $btn-icon-padding-right 0 0 ;
+  &:not(.btn-icon) i.fa {
+    padding: 0 $btn-icon-padding-right 0 0;
   }
 }
 
@@ -157,6 +163,108 @@ and disabled options for all buttons.
 .btn-outline-dark {
   @include btn-theme(dark, outline);
 }
+
+
+/* Social button */
+
+
+.btn-facebook {
+  $tone: $facebook;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color);
+}
+
+.btn-outline-facebook {
+  $tone: $facebook;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
+}
+
+
+.btn-twitter {
+  $tone: $twitter;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color);
+}
+
+.btn-outline-twitter {
+  $tone: $twitter;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
+}
+
+.btn-google-plus {
+  $tone: $google-plus;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color);
+}
+
+.btn-outline-google-plus {
+  $tone: $google-plus;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
+}
+
+.btn-linkedin {
+  $tone: $linkedin;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color);
+}
+
+.btn-outline-linkedin {
+  $tone: $linkedin;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
+}
+
+.btn-instagram {
+  $tone: $instagram;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color);
+}
+
+.btn-outline-instagram {
+  $tone: $instagram;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
+}
+
+.btn-pinterest {
+  $tone: $pinterest;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color);
+}
+
+.btn-outline-pinterest {
+  $tone: $pinterest;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
+}
+
+.btn-dribbble {
+  $tone: $dribbble;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color);
+}
+
+.btn-outline-dribbble {
+  $tone: $dribbble;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
+}
+
+.btn-youtube {
+  $tone: $youtube;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color);
+}
+
+.btn-outline-youtube {
+  $tone: $youtube;
+  $tone-hover: darken($tone, 6%);
+  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
+}
+
 
 /* Disabled button */
 .btn {

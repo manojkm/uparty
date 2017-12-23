@@ -561,6 +561,8 @@ $card-header-bg: rgba($black-color, .03) !default;
 $card-footer-bg: $card-header-bg;
 $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !default;
 
+$card-title-font-size:$font-size-base!default;
+
 /* Card tools */
 $card-tools-color: $gray-600 !default;
 $card-tools-hover-color: $gray-800 !default;
@@ -868,4 +870,6 @@ $a-tags: '&:hover,
   &:active:hover,
   &.active:focus,
   &.active:hover';
+
+
 

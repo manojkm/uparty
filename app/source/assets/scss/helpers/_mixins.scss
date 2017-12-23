@@ -434,6 +434,100 @@ Usage @include opacity(1);
   }
 }
 
+
+
+//----------------------------------*\
+// SOCIAL BUTTONS
+//----------------------------------*/
+
+@mixin btn-social-theme($tone:base, $tone-hover:dark, $font-color:font-color, $bg:fill) {
+
+    border-color: $tone;
+    /* Filled button */
+    @if $bg == fill {
+      background-color: $tone;
+      color: $font-color;
+    }
+    /* Outline button */
+    @if $bg == outline {
+      background-color: transparent;
+      color: $tone
+    }
+
+
+  #{$a-tags},
+  .show > &.dropdown-toggle,
+  .show > &.dropdown-toggle:focus,
+  .show > &.dropdown-toggle:hover {
+
+    border-color: $tone-hover;
+    background-color: $tone-hover;
+    color: $font-color;
+    box-shadow: none;
+    outline: 0;
+  }
+
+  &:hover {
+    //box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+    //box-shadow: 0 .125em $off-wht, inset 0 .063em $off-wht;
+  }
+
+  &.disabled,
+  &:disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    #{$a-tags} {
+
+        border-color: $tone;
+        /* Filled button */
+        @if $bg == fill {
+          background-color: $tone;
+          color: $font-color;
+        }
+        /* Outline button */
+        @if $bg == outline {
+          background-color: transparent;
+          color: $tone;
+        }
+
+
+    }
+  }
+
+  &.btn-link {
+      background-color: transparent;
+      color: $tone;
+
+    #{$a-tags},
+    &.focus,
+    .show > &.dropdown-toggle,
+    .show > &.dropdown-toggle:focus,
+    .show > &.dropdown-toggle:hover {
+      background-color: transparent;
+      text-decoration: none;
+      box-shadow: none;
+      color: $tone-hover;
+    }
+
+    &.disabled,
+    &:disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      &,
+      #{$a-tags} {
+        background-color: transparent;
+        text-decoration: none;
+        box-shadow: none;
+        color: $tone;
+      }
+
+    }
+
+  }
+}
+
+
 //----------------------------------*\
 // BUTTON SIZES
 //----------------------------------*/
