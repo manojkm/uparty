@@ -13,6 +13,11 @@
   $b: badge;
   @include set-border-radius($badge-border-radius);
   border: $badge-border-size solid transparent;
+  padding: $badge-padding-y $badge-padding-x;
+
+  > i{
+    margin-right:5px;
+  }
 
   /* Theme variations */
   &.#{$b}-primary {
@@ -90,5 +95,30 @@ a.badge{
 
 /* Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false) */
 .badge-pill {
-  border-radius: $badge-pill-border-radius;
+  @include border-radius($badge-pill-border-radius);
+}
+
+/* Round badges */
+.badge-round {
+  @include border-radius($badge-radius-round);
+  width: $badge-round-size;
+  height:$badge-round-size;
+  padding:$badge-round-padding;
+  line-height: $badge-round-line-height;
+  text-align: center;
+  /* Flex */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &.empty{
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    width: $badge-empty-size;
+    height: $badge-empty-size;
+    padding: $badge-empty-size;
+    vertical-align: baseline;
+    display: inline-block;
+  }
 }

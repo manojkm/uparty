@@ -2,7 +2,7 @@
 title: "Alerts"
 subtitle: Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 components: true
-posted: 2017-12-24
+posted: 2017-12-26
 ---
 
 <!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
@@ -19,31 +19,47 @@ posted: 2017-12-24
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="alert alert-primary" role="alert">
-                        <strong>Primary:</strong> Welcome back! Go to your special offers page to see now.
-                    </div>
-                    <div class="alert alert-secondary" role="alert">
-                        <strong>Secondary:</strong> Holy guacamole! You should check in on some of those fields below.
-                    </div>
-                    <div class="alert alert-success" role="alert">
-                        <strong>Success:</strong> Well done! You successfully read this important alert message.
-                    </div>
-                    <div class="alert alert-info" role="alert">
-                        <strong>Info:</strong> Heads up! This alert needs your attention, but it's not super important.
-                    </div>
-                    <div class="alert alert-warning" role="alert">
-                        <strong>Warning:</strong>  Better check yourself, you're not looking too good.
-                    </div>
-                    <div class="alert alert-danger" role="alert">
-                        <strong>Danger:</strong> Oh snap! Change a few things up and try submitting again.
-                    </div>
-                    <div class="alert alert-light" role="alert">
-                        <strong>Light:</strong> Holy guacamole! Best check yo self, you're not looking too good.
-                    </div>
-                    <div class="alert alert-dark" role="alert">
-                        <strong>Dark:</strong> Your server is working at optimum speed.
-                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <h6>Primary alert</h6>
+                            <div class="alert alert-primary" role="alert">
+                                <i class="fa fa-thumbs-up mr-2"></i> Welcome back! Go to your special offers page to see now.  <a href="#" class="alert-link">Alert link</a>
+                            </div>
 
+                            <h6>Secondary alert</h6>
+                            <div class="alert alert-secondary" role="alert">
+                                <i class="fa fa-eye mr-2"></i> Holy guacamole! You should check in on some of those fields below. <a href="#" class="alert-link">Alert link</a>
+                            </div>
+
+                            <h6>Success alert</h6>
+                            <div class="alert alert-success" role="alert">
+                                <i class="fa fa-check mr-2"></i> Yay! Everything is fine! <a href="#" class="alert-link">Alert link</a>
+                            </div>
+                            <h6>Info alert</h6>
+                            <div class="alert alert-info" role="alert">
+                                <i class="fa fa-info mr-2"></i> Heads up! This alert needs your attention, but it's not super important. <a href="#" class="alert-link">Alert link</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md">
+                            <h6>Warning alert</h6>
+                            <div class="alert alert-warning" role="alert">
+                                <i class="fa fa-warning mr-2"></i>  Oops! Something might be wrong. <a href="#" class="alert-link">Alert link</a>
+                            </div>
+                            <h6>Danger alert</h6>
+                            <div class="alert alert-danger" role="alert">
+                                <i class="fa fa-exclamation-circle mr-2"></i> On no! Something really bad happened! <a href="#" class="alert-link">Alert link</a>
+                            </div>
+                            <h6>Light alert</h6>
+                            <div class="alert alert-light" role="alert">
+                                <i class="fa fa-eye-slash mr-2"></i> Holy guacamole! Best check yo self, you're not looking too good. <a href="#" class="alert-link">Alert link</a>
+                            </div>
+                            <h6>Dark alert</h6>
+                            <div class="alert alert-dark" role="alert">
+                                <i class="fa fa-dashboard mr-2"></i> Your server is working at optimum speed. <a href="#" class="alert-link">Alert link</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -53,7 +69,7 @@ posted: 2017-12-24
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h6 class="card-title">Alert styles</h6>
+                    <h6 class="card-title">Dismissable Alert</h6>
                     <div class="card__actions window ml-auto">
                         <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
                         <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
@@ -61,8 +77,15 @@ posted: 2017-12-24
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                        <strong>Primary:</strong> Welcome back! Go to your special offers page to see now.
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fa fa-check mr-2"></i> Yay! Everything is fine! <a href="#" class="alert-link">Alert link</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="fa fa-exclamation-circle mr-2"></i> On no! Something really bad happened! <a href="#" class="alert-link">Alert link</a>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -73,4 +96,30 @@ posted: 2017-12-24
         </div>
 
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">Additional content</h6>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading"> <i class="fa fa-thumbs-up mr-2"></i> Well done!</h4>
+                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                        <hr>
+                        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 </div>

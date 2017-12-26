@@ -13,9 +13,14 @@
   $a: alert;
   @include set-border-radius($alert-border-radius);
   font-size: $alert-font-size;
-  border-width: $alert-border-size;
   font-weight: $font-wh-normal;
   position: relative;
+
+  @if bool($alert-border) == true {
+    border: $alert-border-size solid;
+  } @else {
+    border: 0;
+  }
 
   /* Theme variations */
 
@@ -56,6 +61,7 @@
   & .#{$a}-link {
     cursor: pointer;
     text-decoration: underline;
+    font-weight: $font-wh-normal;
     &:hover,
     &:hover {
       @include opacity(0.9);
@@ -64,3 +70,27 @@
   }
 }
 
+/* Dismissible alerts */
+
+.alert-dismissible > .close {
+  opacity: .7;
+
+  > span:not(.sr-only) {
+    background-color: rgba(255, 255, 255, .3);
+    line-height: 19px;
+    height: 20px;
+    width: 20px;
+    border-radius: $border-radius-100;
+    font-size: 1.1rem;
+    display: block
+  }
+
+  &:focus,
+  &:hover {
+    span:not(.sr-only) {
+      background-color: rgba(255, 255, 255, .4)
+    }
+
+  }
+
+}

@@ -364,7 +364,7 @@ $btn-border-size: $border-thin;
 $btn-font-weight: $font-wh-normal !default;
 
 /* Button with icon */
-$btn-icon-padding-right:5px !default;
+$btn-icon-padding-right: 5px !default;
 
 /* Small button (.btn-sm) */
 $btn-font-size-sm: $font-size-sm;
@@ -538,6 +538,7 @@ $popover-border-radius: $border-radius-md;
 //----------------------------------*\
 // ALERT
 //----------------------------------*/
+$alert-border: false;
 $alert-border-radius: $border-radius-md;
 $alert-border-size: $border-thin;
 $alert-font-size: $font-size-base;
@@ -561,7 +562,7 @@ $card-header-bg: rgba($black-color, .03) !default;
 $card-footer-bg: $card-header-bg;
 $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !default;
 
-$card-title-font-size:$font-size-base!default;
+$card-title-font-size: $font-size-base !default;
 
 /* Card tools */
 $card-tools-color: $gray-600 !default;
@@ -756,10 +757,21 @@ $path-rel: 'images/';
 //----------------------------------*/
 /* Including relevant variables from bootstrap variables.scss */
 $badge-pill-border-radius: 10rem !default;
+
 $badge-disabled-opacity: 0.5;
 $badge-border-radius: $border-radius-sm;
 $badge-border-size: $border-thin;
+$badge-padding-y: .25em !default;
+$badge-padding-x: .4em !default;
 
+/* Round badges */
+$badge-radius-round: $border-radius-100;
+$badge-round-size:1.5em;
+$badge-round-padding:0.75em;
+$badge-round-line-height:1em;
+
+/* Empty badges */
+$badge-empty-size:.5em;
 //----------------------------------*\
 // TYPOGRAPHY
 //----------------------------------*/
