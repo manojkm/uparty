@@ -54,7 +54,11 @@
                     {{#each pages }}
                         <li {{#is ../../page.dest this.dest}}
                         class="sidebar__item active" {{ else }} class="sidebar__item"{{/is}}><a
-                                href="{{ replaceStr dest 'app/development/' '' }}">{{ data.title }}</a>
+                                href="{{ replaceStr dest 'app/development/' '' }}">{{ data.title }}
+                        {{#is data.title "Badges"}}
+                            <span class="ml-auto badge badge-round badge-primary">4</span>
+                        {{/is}}
+                        </a>
                         </li>
                     {{/each}}
                 {{/withSort}}

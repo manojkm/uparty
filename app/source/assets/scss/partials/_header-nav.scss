@@ -60,6 +60,7 @@
         @include color('header', 'link-color');
         @include font-size($navbar-font-size);
         @include transition;
+        position: relative;
         //padding: $navlink-padding-y $navlink-padding-x;
         background-color: transparent;
         //min-height: $navbar-link-height;
@@ -97,9 +98,12 @@
 
         /* Navbar menu notification badge */
         .badge {
-          position: absolute;
+         /* position: absolute;
           right: 0.33rem;
-          margin-top: -0.33rem;
+          margin-top: -0.33rem;*/
+          left: auto;
+          top:0;
+          right: 0.33rem;
           @include max-screen($screen-md-max) {
             margin-top: 0;
             right: 1em;

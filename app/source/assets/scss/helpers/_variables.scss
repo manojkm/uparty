@@ -761,17 +761,27 @@ $badge-pill-border-radius: 10rem !default;
 $badge-disabled-opacity: 0.5;
 $badge-border-radius: $border-radius-sm;
 $badge-border-size: $border-thin;
-$badge-padding-y: .25em !default;
-$badge-padding-x: .4em !default;
+$badge-padding-y: .18rem !default;
+$badge-padding-x: .3rem !default;
 
 /* Round badges */
 $badge-radius-round: $border-radius-100;
 $badge-round-size:1.5em;
-$badge-round-padding:0.75em;
+$badge-round-padding:0.70em;
 $badge-round-line-height:1em;
 
 /* Empty badges */
 $badge-empty-size:.5em;
+
+
+/* Images badges */
+
+$badge-image-font-size: $font-size-sm;
+$badge-image-font-weight: $font-wh-normal !default;
+$badge-image-line-height:1.25;
+$badge-inner: ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
+$badge-size: calc(#{$badge-inner}) !default;
+
 //----------------------------------*\
 // TYPOGRAPHY
 //----------------------------------*/

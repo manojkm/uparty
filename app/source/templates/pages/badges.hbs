@@ -50,6 +50,43 @@ posted: 2017-12-26
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
+                            <h6 class="card-title">Pointed Badges</h6>
+                            <div class="card__actions window ml-auto">
+                                <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
+                                <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
+                                <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-primary pointed arrow-left">Primary</span>
+                            <span class="badge badge-secondary pointed arrow-top">Secondary</span>
+                            <span class="badge badge-success pointed arrow-bottom">Success</span>
+                            <span class="badge badge-danger pointed arrow-right mr-3">Danger</span>
+                            <span class="badge badge-warning pointed arrow-left">Warning</span>
+                            <span class="badge badge-info pointed arrow-top">Info</span>
+                            <span class="badge badge-light pointed arrow-bottom">Light</span>
+                            <span class="badge badge-dark pointed arrow-right">Dark</span>
+
+                            <p></p>
+                            <h6 class="card-title">Outline Pointed badges</h6>
+                            <span class="badge badge-outline-primary pointed arrow-top">Primary</span>
+                            <span class="badge badge-outline-secondary pointed arrow-bottom">Secondary</span>
+                            <span class="badge badge-outline-success pointed arrow-right mr-3">Success</span>
+                            <span class="badge badge-outline-danger pointed arrow-left">Danger</span>
+                            <span class="badge badge-outline-warning pointed arrow-top">Warning</span>
+                            <span class="badge badge-outline-info pointed arrow-bottom">Info</span>
+                            <span class="badge badge-outline-light pointed arrow-right">Light</span>
+                            <span class="badge badge-outline-dark pointed arrow-left">Dark</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
                             <h6 class="card-title">Pill Badges</h6>
                             <div class="card__actions window ml-auto">
                                 <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
@@ -140,20 +177,22 @@ posted: 2017-12-26
                         </div>
                         <div class="card-body">
 
-                            <p class="mb-0">Badges with icon</p>
+                            <h6 class="card-title">Badges with icon</h6>
                             <a href="#" class="badge badge-primary"><i class="fa fa-envelope"></i> 23</a>
                             <a href="#" class="badge badge-secondary"><i class="fa fa-bell"></i> 23</a>
                             <a href="#" class="badge badge-info"><i class="fa fa-comment"></i> 23</a>
 
+                            <span class="badge badge-primary"><i class="fa fa-envelope"></i>23<a href="" class="ml-2">View email</a></span>
+
                             <p></p>
-                            <p class="mb-0">Round badges</p>
+                            <h6 class="card-title">Round badges</h6>
                             <span class="badge badge-round badge-primary">5</span>
                             <span class="badge badge-round badge-secondary">5</span>
                             <span class="badge badge-round badge-success">5</span>
                             <span class="badge badge-round badge-danger">5</span>
 
                             <p></p>
-                            <p class="mb-0">Empty badges</p>
+                            <h6 class="card-title">Empty badges</h6>
                             <a href="#" class="badge badge-round empty badge-primary"></a>
                             <a href="#" class="badge badge-round empty badge-secondary"></a>
                             <a href="#" class="badge badge-round empty badge-success"></a>
@@ -164,6 +203,28 @@ posted: 2017-12-26
                             <a href="#" class="badge badge-round empty badge-dark"></a>
 
                             <p></p>
+                            <h6 class="card-title">Notifications using badges</h6>
+                            <a href="#" class="text-info"><i class="fa fa-envelope"></i></a><span class="badge badge-info pointed arrow-left ml-2">You have a new message</span>
+                            <p></p>
+                            <a href="#" class="text-primary">New vistors</a><span class="badge badge-primary pointed arrow-left ml-2">0</span>
+                            <p></p>
+                            <a href="#" style="position: relative" class="mr-4">Messages<span class="badge badge-round badge-danger floating">5</span></a>
+                            <a href="#" style="position: relative" class="mr-4">Notification<span class="badge badge-info floating">5</span></a>
+                            <p></p>
+                            <button type="button" class="btn btn-outline-primary btn-icon btn-round mr-4">
+                                <i class="fa fa fa-envelope"></i><span class="badge badge-round badge-primary floating">5</span>
+                            </button>
+
+                            <button type="button" class="btn btn-warning btn-icon mr-4">
+                                <i class="fa fa-bell"></i><span class="badge badge-round badge-danger floating">5</span>
+                            </button>
+
+                            <p></p>
+                            <h6 class="card-title">Image badges</h6>
+                            <span class="badge badge-primary image"><img src="https://semantic-ui.com/images/avatar/small/joe.jpg" alt="">Setvie</span>
+                            <a href="#" class="badge badge-secondary image"><img src="https://semantic-ui.com/images/avatar/small/elliot.jpg" alt="">Elliot</a>
+                            <p></p>
+
                             <p class="mb-0">Badges can be used as part of links or buttons to provide a counter.</p>
                             <button type="button" class="btn btn-sm btn-primary">
                                 Notifications <span class="badge badge-danger ml-1">4</span>
@@ -201,7 +262,14 @@ posted: 2017-12-26
                             <h4>Example heading <span class="badge badge-secondary">New</span></h4>
                             <h5>Example heading <span class="badge badge-secondary">New</span></h5>
                             <h6>Example heading <span class="badge badge-secondary">New</span></h6>
+                            <p></p>
 
+                            <span class="badge badge-primary"><h6 class="m-0 p-0">Heading</h6></span>
+                            <span class="badge badge-primary"><h5 class="m-0 p-0">Heading</h5></span>
+                            <span class="badge badge-primary"><h4 class="m-0 p-0">Heading</h4></span>
+                            <span class="badge badge-primary"><h3 class="m-0 p-0">Heading</h3></span>
+                            <span class="badge badge-primary"><h2 class="m-0 p-0">Heading</h2></span>
+                            <span class="badge badge-primary"><h1 class="m-0 p-0">Heading</h1></span>
                         </div>
                     </div>
                 </div>

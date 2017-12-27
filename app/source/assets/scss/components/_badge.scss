@@ -14,68 +14,70 @@
   @include set-border-radius($badge-border-radius);
   border: $badge-border-size solid transparent;
   padding: $badge-padding-y $badge-padding-x;
+  position: relative;
+  text-indent: 0;
 
-  > i{
-    margin-right:5px;
+  > i {
+    margin-right: 5px;
   }
 
   /* Theme variations */
   &.#{$b}-primary {
-    @include badges-theme(primary);
+    @include badges-theme(primary, $sledge-hammer: !important);
   }
   &.#{$b}-outline-primary {
-    @include badges-theme(primary, outline);
+    @include badges-theme(primary, outline, $sledge-hammer: !important);
   }
 
   &.#{$b}-secondary {
-    @include badges-theme(secondary);
+    @include badges-theme(secondary, $sledge-hammer: !important);
   }
 
   &.#{$b}-outline-secondary {
-    @include badges-theme(secondary, outline);
+    @include badges-theme(secondary, outline, $sledge-hammer: !important);
   }
   /* Contextual variations */
   &.#{$b}-success {
-    @include badges-theme(success);
+    @include badges-theme(success, $sledge-hammer: !important);
   }
   &.#{$b}-outline-success {
-    @include badges-theme(success, outline);
+    @include badges-theme(success, outline, $sledge-hammer: !important);
   }
 
   &.#{$b}-danger {
-    @include badges-theme(danger);
+    @include badges-theme(danger, $sledge-hammer: !important);
   }
   &.#{$b}-outline-danger {
-    @include badges-theme(danger, outline);
+    @include badges-theme(danger, outline, $sledge-hammer: !important);
   }
 
   &.#{$b}-warning {
-    @include badges-theme(warning);
+    @include badges-theme(warning, $sledge-hammer: !important);
   }
   &.#{$b}-outline-warning {
-    @include badges-theme(warning, outline);
+    @include badges-theme(warning, outline, $sledge-hammer: !important);
   }
 
   &.#{$b}-info {
-    @include badges-theme(info)
+    @include badges-theme(info, $sledge-hammer: !important)
   }
   &.#{$b}-outline-info {
-    @include badges-theme(info, outline)
+    @include badges-theme(info, outline, $sledge-hammer: !important)
   }
 
   &.#{$b}-light {
-    @include badges-theme(light)
+    @include badges-theme(light, $sledge-hammer: !important)
   }
 
   &.#{$b}-outline-light {
-    @include badges-theme(light, outline)
+    @include badges-theme(light, outline, $sledge-hammer: !important)
   }
 
   &.#{$b}-dark {
-    @include badges-theme(dark);
+    @include badges-theme(dark, $sledge-hammer: !important);
   }
   &.#{$b}-outline-dark {
-    @include badges-theme(dark, outline);
+    @include badges-theme(dark, outline, $sledge-hammer: !important);
   }
 
   /* Disabled badge */
@@ -85,40 +87,145 @@
     @include opacity($badge-disabled-opacity);
   }
 
+  /* Floating badges */
+  &.floating {
+    position: absolute;
+    top: -0.45rem;
+    left: 100%;
+    margin: 0 0 0 -0.40rem !important;
+
+  }
+
+  &.image {
+    border: 0;
+    font-size: $badge-image-font-size;
+    font-weight: $badge-image-font-weight;
+    line-height: $badge-image-line-height;
+
+    /* Flex */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    > img {
+      @include border-left-radius($badge-border-radius);
+      vertical-align: top;
+      max-width: 100%;
+      width: auto !important;
+      height: $badge-size;
+      margin: (-$badge-padding-y) 0.4rem (-$badge-padding-y) (-$badge-padding-x);
+    }
+  }
+
+  /* Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false) */
+  &.badge-pill {
+    @include border-radius($badge-pill-border-radius);
+  }
+
+  /* Round badges */
+  &.badge-round {
+    @include border-radius($badge-radius-round);
+    width: $badge-round-size;
+    height: $badge-round-size;
+    padding: $badge-round-padding;
+    line-height: $badge-round-line-height;
+    text-align: center;
+    /* Flex */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &.empty {
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      width: $badge-empty-size;
+      height: $badge-empty-size;
+      padding: $badge-empty-size;
+      vertical-align: baseline;
+      display: inline-block;
+    }
+  }
+
+  &.pointed {
+    background-color: #fff;
+
+    /*    &::before {
+          border-color: inherit;
+          background-color: inherit;
+          border-style: solid;
+          position: absolute;
+          content: '';
+          background-image: none;
+          z-index: 2;
+          width: .6666em;
+          height: .6666em;
+          border-width: 1px 0 0 1px;
+          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+          top: 0;
+          left: 50%;
+          margin-top: -1px
+        }*/
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: .6666em;
+      height: .6666em;
+      border: 1px solid;
+      border-color: inherit;
+      background-color: inherit;
+
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+
+    &::before {
+      z-index: -1;
+    }
+
+    &.arrow-top:before,
+    &.arrow-top:after {
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: -6px;
+      border-bottom: 0;
+      border-right: 0;
+    }
+    &.arrow-bottom:before,
+    &.arrow-bottom:after {
+      top: 100%;
+      left: 50%;
+      margin-top: 1px;
+      border-top: 0;
+      border-left: 0;
+    }
+
+    &.arrow-right:before,
+    &.arrow-right:after {
+      top: 50%;
+      left: 100%;
+      margin-left: 1px;
+      border-bottom: 0;
+      border-left: 0;
+    }
+
+    &.arrow-left:before,
+    &.arrow-left:after {
+      top: 50%;
+      left: 0;
+      margin-left: -1px;
+      border-top: 0;
+      border-right: 0;
+    }
+
+  }
+
 }
+
 /* Link Badges */
-a.badge{
+a.badge {
   cursor: pointer;
   text-decoration: none;
-}
-
-
-/* Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false) */
-.badge-pill {
-  @include border-radius($badge-pill-border-radius);
-}
-
-/* Round badges */
-.badge-round {
-  @include border-radius($badge-radius-round);
-  width: $badge-round-size;
-  height:$badge-round-size;
-  padding:$badge-round-padding;
-  line-height: $badge-round-line-height;
-  text-align: center;
-  /* Flex */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  &.empty{
-    min-width: 0;
-    min-height: 0;
-    overflow: hidden;
-    width: $badge-empty-size;
-    height: $badge-empty-size;
-    padding: $badge-empty-size;
-    vertical-align: baseline;
-    display: inline-block;
-  }
 }
