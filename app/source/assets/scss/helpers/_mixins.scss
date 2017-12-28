@@ -585,10 +585,10 @@ Usage @include opacity(1);
   /* Link Badges */
   #{$a-href-tags} {
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      background-color: contextual-color($theme-color, $tone-hover);
+      background-color: contextual-color($theme-color, $tone-hover)!important;
       color: contextual-color($theme-color, $font-color);
     } @else { /* Theme variations */
-      @include background-color($theme-color, $tone-hover);
+      @include background-color($theme-color, $tone-hover, $sledge-hammer);
       @include color($theme-color, $font-color);
     }
 
@@ -648,7 +648,7 @@ Usage @include opacity(1);
   }
 
   &:hover {
-    @include background-color($theme-color, $tone-hover);
+    @include background-color($theme-color, $tone);
   }
 
   &:after {
@@ -656,7 +656,7 @@ Usage @include opacity(1);
   }
 
   &:hover:after {
-    @include border-left-color($theme-color, $tone-hover);
+    @include border-left-color($theme-color, $tone);
   }
 
   &:before {

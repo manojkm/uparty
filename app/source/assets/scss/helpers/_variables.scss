@@ -267,7 +267,12 @@ $breadcrumb-line-height: $lh-base !default;
 $breadcrumb-font-color: $gray-700 !default;
 $breadcrumb-active-color: $gray-600 !default;
 
-$breadcrumb-divider-color: $gray-600 !default;
+$breadcrumb-divider-color: $gray-500 !default;
+
+$breadcrumb-divider:  "/" !default;
+$breadcrumb-divider-angle-right: "\f105" !default;
+$breadcrumb-divider-angle-double-right: "\f101" !default;
+$breadcrumb-divider-caret-right: "\f0da" !default;
 
 $breadcrumb-link-theme-color: primary !default;
 $breadcrumb-link-theme-color-tone: base !default;
@@ -281,21 +286,26 @@ $breadcrumb-size: calc((#{$breadcrumb-size-inner} + #{$breadcrumb-border-size}) 
 $breadcrumb-ext-bg: $white-color !default;
 
 $breadcrumb-ext-item-bg: $white-color !default;
-$breadcrumb-ext-item-hover-bg: $gray-200 !default;
+$breadcrumb-ext-item-hover-bg: $gray-100 !default;
 
 $breadcrumb-ext-border-color: $gray-300 !default;
 $breadcrumb-ext-border-hover-color: $gray-400 !default;
 $breadcrumb-ext-border-top-bottom-size: $breadcrumb-size;
 $breadcrumb-ext-border-left-size: 10px;
 
-/* Breadcrumb Extended - Arrow Wizard */
-$breadcrumb-ext-incomplete-color: $gray-600 !default;
-
 /* Breadcrumb Extended - Arrow Wrap */
 $breadcrumb-ext-wrap-bg: $white-color !default;
 $breadcrumb-ext-wrap-item-bg: $gray-200 !default;
 $breadcrumb-ext-wrap-font-color: $gray-600 !default;
 $breadcrumb-ext-wrap-border-left-color: $white-color !default;
+
+
+/* Breadcrumb Extended - Arrow Wizard */
+$breadcrumb-wizard-completed-theme-color: primary !default;
+$breadcrumb-wizard-active-theme-color: secondary !default;
+$breadcrumb-wizard-incomplete-bg: $gray-200 !default;
+$breadcrumb-wizard-incomplete-color: $gray-600 !default;
+
 
 /* Breadcrumb Menu */
 $breadcrumb-menu-color: $gray-700 !default;

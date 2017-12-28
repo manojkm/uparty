@@ -27,7 +27,11 @@
   color: $breadcrumb-font-color;
 
   + .breadcrumb-item::before {
+    font-family: 'FontAwesome';
+    font-style: normal;
     color: $breadcrumb-divider-color;
+    content: "#{$breadcrumb-divider}";
+
   }
 
   & a {
@@ -136,16 +140,24 @@
     }
 
     & .completed {
-      @include breadcrumb-wizard-status(primary, $breadcrumb-link-theme-color-tone);
+      @include breadcrumb-wizard-status($breadcrumb-wizard-completed-theme-color, $breadcrumb-link-theme-color-tone);
     }
     & .active {
-      @include breadcrumb-wizard-status(secondary, $breadcrumb-link-theme-color-tone);
+      @include breadcrumb-wizard-status($breadcrumb-wizard-active-theme-color, $breadcrumb-link-theme-color-tone);
     }
 
     & .incomplete {
       &,
-      a {
-        color: $breadcrumb-ext-incomplete-color;
+      a,
+      a:hover {
+        color: $breadcrumb-wizard-incomplete-color;
+      }
+
+      &:hover {
+        background-color: $white-color;
+      }
+      &:hover:after {
+        border-left-color: $white-color;
       }
 
     }
@@ -240,4 +252,81 @@
 
     }
   }
+}
+
+//-------------------------------------------*\
+// BREADCRUMB EXTENDED - WRAP WIZARD
+//-------------------------------------------*/
+.breadcrumb.extended-arrow-wrap.wizard {
+
+  & .breadcrumb-item {
+    a {
+      color: $breadcrumb-wizard-incomplete-color;
+    }
+  }
+
+  & .completed {
+    a {
+      @include color($breadcrumb-wizard-completed-theme-color, $breadcrumb-link-font-theme-color-tone);
+      @include background-color($breadcrumb-wizard-completed-theme-color, $breadcrumb-link-theme-color-tone);
+      &:after {
+        @include border-left-color($breadcrumb-wizard-completed-theme-color, $breadcrumb-link-theme-color-tone);
+      }
+    }
+  }
+
+  & .active {
+    /* Highlight the active child */
+    a {
+      @include color($breadcrumb-wizard-active-theme-color, $breadcrumb-link-font-theme-color-tone);
+      @include background-color($breadcrumb-wizard-active-theme-color, $breadcrumb-link-theme-color-tone);
+      &:after {
+        @include border-left-color($breadcrumb-wizard-active-theme-color, $breadcrumb-link-theme-color-tone);
+      }
+    }
+
+  }
+
+  & .incomplete {
+    a,
+    a:hover {
+      color: $breadcrumb-wizard-incomplete-color;
+      background-color: $breadcrumb-wizard-incomplete-bg;
+      &:after {
+        border-left-color: $breadcrumb-wizard-incomplete-bg;
+      }
+
+    }
+  }
+
+}
+
+//-------------------------------------------*\
+// BREADCRUMB DIVIDERS
+//-------------------------------------------*/
+
+.breadcrumb {
+  &.divider-angle-right {
+    .breadcrumb-item {
+      + .breadcrumb-item::before {
+        content: "#{$breadcrumb-divider-angle-right}";
+      }
+    }
+  }
+
+  &.divider-angle-double-right {
+    .breadcrumb-item {
+      + .breadcrumb-item::before {
+        content: "#{$breadcrumb-divider-angle-double-right}";
+      }
+    }
+  }
+  &.divider-caret-right {
+    .breadcrumb-item {
+      + .breadcrumb-item::before {
+        content: "#{$breadcrumb-divider-caret-right}";
+      }
+    }
+  }
+
 }
