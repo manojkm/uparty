@@ -36,11 +36,27 @@
 
   & a {
     @include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+
     &:focus,
     &:active,
     &:hover {
       @include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
     }
+   &.collapsed{
+     @include transition;
+     width: 50px;
+     overflow: hidden;
+     -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+     display: inline-block;
+     white-space: nowrap;
+     vertical-align: top;
+     &:hover{
+       @include transition;
+       width: auto;
+     }
+   }
+
   }
 
   &.active {

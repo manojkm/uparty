@@ -60,14 +60,80 @@ posted: 2017-12-26
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h6 class="card-title">Breadcrumb with menu</h6>
+                    <h6 class="card-title">Breadcrumb with actions</h6>
                     <div class="card__actions window ml-auto">
                         <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
                         <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
                         <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
                     </div>
                 </div>
-                <div class="card-body"> </div>
+                <div class="card-body">
+
+                    <nav aria-label="breadcrumb" role="navigation">
+                        <ol class="breadcrumb has-menu">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#">Library 2</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            <li class="breadcrumb-menu ml-auto">
+                                <ul class="nav justify-content-end">
+                                    <li class="nav-item">
+                                        <a class="nav-link dropdown-toggle px-3" href="#"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu
+                                        </a>
+                                        <div class="dropdown-menu extended dropdown-menu-right">
+                                            <div class="dropdown-header">Dropdown header</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-3" href="#">Share</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-3" href="#">Email</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </nav>
+                    <nav aria-label="breadcrumb" role="navigation">
+                        <ol class="breadcrumb extended-arrow  has-menu">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            <li class="breadcrumb-menu ml-auto">
+                                <ul class="nav justify-content-end">
+                                    <li class="nav-item">
+                                        <a class="nav-link dropdown-toggle px-3" href="#"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-navicon"></i>
+                                        </a>
+                                        <div class="dropdown-menu extended dropdown-menu-right">
+                                            <div class="dropdown-header">Dropdown header</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-3" href="#"><i class="fa fa-share"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-3" href="#"><i class="fa fa-envelope"></i><span class="badge badge-primary pointed arrow-left ml-2">5</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </nav>
+
+
+                </div>
             </div>
         </div>
 
@@ -121,7 +187,67 @@ posted: 2017-12-26
         </div>
 
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">Auto Hidden</h6>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <nav aria-label="breadcrumb" role="navigation">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#" class="collapsed">Registration</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="collapsed">Personal Information</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                        </ol>
+                    </nav>
 
+                    <nav aria-label="breadcrumb" role="navigation">
+                        <ol class="breadcrumb extended-arrow  has-menu">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#" class="collapsed">Registration</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="collapsed">Personal Information</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            <li class="breadcrumb-menu ml-auto">
+                                <ul class="nav justify-content-end">
+                                    <li class="nav-item">
+                                        <a class="nav-link dropdown-toggle px-3" href="#"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-navicon"></i>
+                                        </a>
+                                        <div class="dropdown-menu extended dropdown-menu-right">
+                                            <div class="dropdown-header">Dropdown header</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-3" href="#"><i class="fa fa-share"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-3" href="#"><i class="fa fa-envelope"></i><span class="badge badge-primary pointed arrow-left ml-2">5</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </nav>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="card">

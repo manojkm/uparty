@@ -16,10 +16,12 @@
   left: 0;
   right: 0;
   z-index: map-get($zindex, header);
-  display: flex;
-  align-items: center;
   min-height: $header-height;
   box-shadow: $header-shadow;
+
+  /* Flexbox */
+  display: flex;
+  align-items: center;
 
   &__wrap {
     width: 100%;

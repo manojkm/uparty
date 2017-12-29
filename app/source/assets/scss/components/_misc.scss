@@ -1,3 +1,17 @@
+// ================================================================================================
+// File Name: misc.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//----------------------------------*\
+// SELECTION
+//----------------------------------*/
+
 ::-webkit-selection {
     color: $selection-color;
     background: $selection-bg;
@@ -11,4 +25,28 @@
 ::selection {
     color: $selection-color;
     background: $selection-bg;
+}
+
+
+//----------------------------------*\
+// DUMMY PLACEHOLDERS
+//----------------------------------*/
+/* Adapted from https://codepen.io/p-dg/pen/ezYmYz?editors=1100 */
+
+span.placeholder,
+span.placeholder a {
+    background: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 90%);
+    line-height:1.70rem;
+}
+hr.placeholder {
+    border: 0;
+    height: .25em;
+    background: hsla(0, 0%, 80%, .25);
+    margin: 2rem 0;
+}
+button span.placeholder,
+button span.placeholder a {
+    background: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 100%);
 }

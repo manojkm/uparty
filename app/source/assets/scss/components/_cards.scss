@@ -124,6 +124,10 @@
   background-color: $card-footer-bg;
   @include add-border($card-border-size, $card-border-color, top);
 
+  /* Flexbox */
+  display: flex;
+  align-items: center;
+
   &:last-child {
     @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
   }
