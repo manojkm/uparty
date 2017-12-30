@@ -78,11 +78,11 @@ var appMaster = {
 
             var $this = $(this);
             if (!$this.hasClass('card-collapsed')) {
-                $this.parents('.card').find('.card-body').slideUp();
+                $this.parents('.card').find('.card-body, .card-footer').slideUp();
                 $this.addClass('card-collapsed');
                 $this.find('i').removeClass('fa fa-chevron-up').addClass('fa fa-chevron-down');
             } else {
-                $this.parents('.card').find('.card-body').slideDown();
+                $this.parents('.card').find('.card-body, .card-footer').slideDown();
                 $this.removeClass('card-collapsed');
                 $this.find('i').removeClass('fa fa-chevron-down').addClass('fa fa-chevron-up');
             }
