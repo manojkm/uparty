@@ -9,6 +9,7 @@ var appMaster = {
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
     _side_nav: $('.sidebar__nav, .sidebar__footer-nav'),
+    _side_item: $('.sidebar__item'),
     _aside: $("[data-aside='show']"),
     _mini: $("[data-side='mini']"),
     _hide: $("[data-side='hide']"),
@@ -34,7 +35,7 @@ var appMaster = {
             appMaster._body.removeClass('sidebar-mini aside-is-open').toggleClass('sidebar-is-open sidebar-is-closed');
             appMaster._aside.addClass('collapsed');
             appMaster._mini.removeClass('collapsed');
-            appMaster._stopMetisMenu();
+            // appMaster._stopMetisMenu();
         });
 
         $(appMaster._mini).on('click', function (event) {
@@ -42,8 +43,14 @@ var appMaster = {
             $(this).toggleClass('collapsed');
             appMaster._body.toggleClass('sidebar-mini').removeClass('aside-is-open');
             appMaster._aside.addClass('collapsed');
-            appMaster._stopMetisMenu();
+            // appMaster._stopMetisMenu();
             appMaster._changeLogo();
+        });
+
+        $(appMaster._side_item).on('mouseover', function () {
+            $(this).addClass("show");
+        }).on('mouseout', function () {
+            $(this).removeClass("show");
         });
 
     },

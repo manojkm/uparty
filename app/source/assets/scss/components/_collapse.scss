@@ -81,6 +81,7 @@ a.accordion{
 
   &:before {
     /* symbol for "collapsed" panels */
+    @include transition;
     @extend %acc-pseudo;
     left: 0;
     content: "\f0d7";

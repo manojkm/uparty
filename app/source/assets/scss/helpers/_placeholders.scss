@@ -45,12 +45,17 @@
   float: right;
   font-size: 20px;
   line-height: 1;
-  display: inline-block;
   speak: none;
-/*  width: 22px;
-  text-align: center;*/
+  width: 15px;
+  height: 15px;
+  text-align: center;
   position: absolute;
   right: $card-spacer-x;
+
+  /* Flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 //----------------------------------*\

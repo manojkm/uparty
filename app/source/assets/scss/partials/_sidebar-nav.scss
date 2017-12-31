@@ -183,12 +183,14 @@
     &:hover,
     &:focus,
     &:active,
-    &.active {
+    &.active
+    {
       @include border-left-color('primary', 'base'); // Make borders visible
       @include background-color('sidebar', 'dark');
     }
     /* Current item */
-    &.active {
+    &.active,
+    &.show{
       @include background-color('sidebar', 'dark');
       > a {
         @include color('sidebar', 'active-color');
@@ -224,6 +226,9 @@
         @include font-size($sidebar-submenu-font-size);
         text-indent: $sidebar-icon-width;
         margin: 0 0 0 $sidebar-icon-margin-right;
+        *{
+          text-indent:0;
+        }
       }
     }
 
@@ -275,6 +280,7 @@
     opacity: 0 !important;
   }
 
+
   &__nav > ul > .#{$s}__item:not(.has-button) {
     @include transition;
     position: static;
@@ -309,8 +315,12 @@
       }
     }
 
+    > .#{$s}__child  {
+      @extend %o-v-none;
+      display: none;
+    }
     /* Show submenu item title on active */
-    &.active /*,
+    &.show/*,
     &:hover*/
     {
       > a {
@@ -321,6 +331,11 @@
           display: inline-block;
         }
 
+      }
+
+      > .#{$s}__child {
+        @extend %o-v-show;
+        display: block;
       }
     }
 

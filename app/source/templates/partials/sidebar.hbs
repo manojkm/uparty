@@ -55,9 +55,12 @@
                         <li {{#is ../../page.dest this.dest}}
                         class="sidebar__item active" {{ else }} class="sidebar__item"{{/is}}><a
                                 href="{{ replaceStr dest 'app/development/' '' }}">{{ data.title }}
-                        {{#is data.title "Badges"}}
-                            <span class="ml-auto badge badge-round badge-primary">4</span>
-                        {{/is}}
+                                    {{#is data.title "Badges"}}
+                                    <span class="ml-auto badge badge-round badge-primary">4</span>
+                                    {{/is}}
+                                    {{#is data.title "Modals"}}
+                                    <i class="fa fa-paper-plane ml-2"></i>
+                                    {{/is}}
                         </a>
                         </li>
                     {{/each}}
@@ -91,6 +94,9 @@
                 <li class="sidebar__item"><a href="#">Level 1.3</a></li>
             </ul>
         </li>
+
+
+
         <li class="sidebar__divider"></li>
         <!--/Navigation-->
 
