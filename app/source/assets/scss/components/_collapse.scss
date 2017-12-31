@@ -29,9 +29,31 @@
 
   [data-toggle="collapse"] {
     @include transition;
-    @include color($accordion-title-active-theme-color, $accordion-title-active-theme-color-tone);
-    display: block;
+    //@include color($accordion-title-active-theme-color, $accordion-title-active-theme-color-tone);
+    color: $accordion-title-active-color;
+
+    @include add-border($card-border-size, transparent, top);
+    @include add-border(0, transparent, bottom);
+
+    border-color: $card-border-color;
+
+    &:first-child {
+      border-top: none;
+    }
+
     cursor: pointer;
+
+    /* Flexbox */
+    display: flex;
+    align-items: flex-start;
+
+    & .card-title,
+    & .card-subtitle {
+      color: inherit
+    }
+    & .card-subtitle {
+      opacity: 0.8;
+    }
 
     &:after {
       /* symbol for "collapsed" panels */
@@ -42,7 +64,7 @@
       color: $accordion-title-color;
 
       &:after {
-        content: "\f105";
+        content: $accordion-header-active-icon-right;
       }
 
       &:hover {
@@ -54,25 +76,59 @@
   }
 
 }
+a.accordion{
+  position: relative;
+
+  &:before {
+    /* symbol for "collapsed" panels */
+    @extend %acc-pseudo;
+    left: 0;
+    content: "\f0d7";
+    font-size: inherit;
+  }
+
+  &.collapsed {
+    &:before {
+      content: "\f0da";
+    }
+  }
+}
 
 //-------------------------------------------*\
 // EXTENDED
 //-------------------------------------------*/
 
-.accordion {
-  &.extended {
+.accordion.extended {
 
-    .card {
-      @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+  .card {
+    @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+  }
+
+  & [data-toggle="collapse"] {
+    @include add-border($card-border-size, transparent, top);
+    @include add-border(0, transparent, bottom);
+    @include border-color($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
+    @include background-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+    @include color($accordion-active-theme-color, $accordion-active-color-theme-color-tone);
+
+    &.collapsed {
+      /*    background-color: transparent;
+          color: $accordion-title-color;
+    */
+      &:hover {
+        @include background-color($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
+      }
 
     }
 
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  &.outline {
     & [data-toggle="collapse"] {
-      @include add-border($card-border-size, transparent, top);
-      @include add-border(0, transparent, bottom);
       @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
-      @include background-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
-      @include color($accordion-active-theme-color, $accordion-active-color-theme-color-tone);
 
       &.collapsed {
         background-color: transparent;
@@ -82,15 +138,8 @@
           background-color: $accordion-header-hover-bg;
           color: $accordion-title-hover-color;
         }
-
       }
-
-      &:first-child {
-        border-top: none;
-      }
-
     }
-
   }
 }
 

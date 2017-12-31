@@ -34,11 +34,19 @@
 /* Adapted from https://codepen.io/p-dg/pen/ezYmYz?editors=1100 */
 
 span.placeholder,
+span.placeholder code,
 span.placeholder a {
     background: hsl(0, 0%, 90%);
     color: hsl(0, 0%, 90%);
     line-height:1.70rem;
 }
+
+span.placeholder code{
+  padding-top:0;
+  padding-bottom:0;
+}
+
+
 hr.placeholder {
     border: 0;
     height: .25em;

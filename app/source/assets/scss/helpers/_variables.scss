@@ -572,7 +572,7 @@ $card-header-bg: rgba($black-color, .03) !default;
 $card-footer-bg: $card-header-bg;
 $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !default;
 
-$card-title-font-size: $font-size-base !default;
+//$card-title-font-size: $font-size-base !default;
 $card-link-color: $gray-600 !default;
 $card-link-hover-color: $gray-800;
 
@@ -601,17 +601,22 @@ $sizes: (
 // ACCORDION
 //----------------------------------*/
 $accordion-title-color: $gray-700 !default;
+$accordion-title-active-color: $gray-900 !default;
 $accordion-title-hover-color: $gray-900 !default;
 
-$accordion-title-active-theme-color: primary !default;
-$accordion-title-active-theme-color-tone: base !default;
+/*$accordion-title-active-theme-color: primary !default;
+$accordion-title-active-theme-color-tone: base !default;*/
 
 $accordion-header-hover-bg: rgba($black-color, .05) !default;
 $accordion-left-icon-margin: 10px;
 
 $accordion-active-theme-color: primary !default;
 $accordion-active-theme-color-tone: base !default;
+$accordion-active-theme-hover-color-tone: dark !default;
 $accordion-active-color-theme-color-tone: font-color !default;
+
+$accordion-header-icon-right: "\f106" !default;
+$accordion-header-active-icon-right: "\f107" !default;
 
 /* Accordion Extended - Underline */
 $accordion-underline-border-size: $border-thick;
