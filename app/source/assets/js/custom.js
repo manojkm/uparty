@@ -9,7 +9,7 @@ var appMaster = {
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
     _side_nav: $('.sidebar__nav, .sidebar__footer-nav'),
-    _side_item: $('.sidebar__item'),
+    _side_item: $('.sidebar__list > .sidebar__item'),
     _aside: $("[data-aside='show']"),
     _mini: $("[data-side='mini']"),
     _hide: $("[data-side='hide']"),
@@ -50,8 +50,9 @@ var appMaster = {
         $(appMaster._side_item).on('mouseover', function () {
             $(this).addClass("show");
         }).on('mouseout', function () {
-            $(this).removeClass("show");
+            $(this).removeClass('show');
         });
+
 
     },
 
