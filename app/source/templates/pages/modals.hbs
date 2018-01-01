@@ -99,7 +99,7 @@ posted: 2017-12-26
                     <a href="#" class="btn btn-link btn-primary" role="button" data-toggle="modal" data-target="#exampleModal"> A standard modal</a>
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                          aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -325,7 +325,47 @@ posted: 2017-12-26
 
     </div>
     <div class="row">
-        <div class="col-md-12">
+
+
+        <div class="col-md-3 pr-2">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">Vertically centered</h6>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Default modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-eg13">
+                        Launch vertically centered modal
+                    </button>
+                    <div class="modal fade" id="exampleModal-eg13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-eg13"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-primary" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel-eg13">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    asd
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 px-2">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Sizes</h6>
@@ -336,7 +376,7 @@ posted: 2017-12-26
                     </div>
                 </div>
                 <div class="card-body">
-                    <p>A modal can vary in size</p>
+                    {{!--<p>A modal can vary in size</p>--}}
                     <!-- Default modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-eg10">
                         Default modal
@@ -414,6 +454,99 @@ posted: 2017-12-26
                 </div>
             </div>
         </div>
+        <div class="col-md-5 pl-2">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">Options</h6>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Backdrop disabled -->
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal-eg14">
+                        Backdrop disabled
+                    </button>
+                    <div class="modal fade" id="exampleModal-eg14" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-eg14"
+                         aria-hidden="true" data-backdrop="false" >
+                        <div class="modal-dialog modal-dialog-centered modal-secondary" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel-eg14">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    asd
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ignore backdrop click -->
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal-eg15">
+                        Ignore backdrop click
+                    </button>
+                    <div class="modal fade" id="exampleModal-eg15" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-eg15"
+                         aria-hidden="true" data-backdrop="static" >
+                        <div class="modal-dialog modal-dialog-centered modal-secondary" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel-eg15">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    asd
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Keyboard disabled -->
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal-eg16">
+                        Keyboard disabled
+                    </button>
+                    <div class="modal fade" id="exampleModal-eg16" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-eg16"
+                         aria-hidden="true" data-keyboard="false">
+                        <div class="modal-dialog modal-dialog-centered modal-secondary" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel-eg16">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    asd
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
 
     </div>
 

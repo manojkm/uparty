@@ -248,6 +248,7 @@ $header-shadow: 0 1px 3px rgba($black-color, .2);
 $popover-shadow: 0 5px 10px rgba($black-color, .1);
 $sidebar-footer-shadow: 0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
 $progress-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
+$modal-content-box-shadow-xs:  0 5px 10px rgba($black-color, .1);
 
 //----------------------------------*\
 // BREADCRUMB
@@ -269,7 +270,7 @@ $breadcrumb-active-color: $gray-600 !default;
 
 $breadcrumb-divider-color: $gray-500 !default;
 
-$breadcrumb-divider:  "/" !default;
+$breadcrumb-divider: "/" !default;
 $breadcrumb-divider-angle-right: "\f105" !default;
 $breadcrumb-divider-angle-double-right: "\f101" !default;
 $breadcrumb-divider-caret-right: "\f0da" !default;
@@ -299,13 +300,11 @@ $breadcrumb-ext-wrap-item-bg: $gray-200 !default;
 $breadcrumb-ext-wrap-font-color: $gray-600 !default;
 $breadcrumb-ext-wrap-border-left-color: $white-color !default;
 
-
 /* Breadcrumb Extended - Arrow Wizard */
 $breadcrumb-wizard-completed-theme-color: primary !default;
 $breadcrumb-wizard-active-theme-color: secondary !default;
 $breadcrumb-wizard-incomplete-bg: $gray-200 !default;
 $breadcrumb-wizard-incomplete-color: $gray-600 !default;
-
 
 /* Breadcrumb Menu */
 $breadcrumb-menu-color: $gray-600 !default;
@@ -541,6 +540,7 @@ $custom-toggle-knob-active-width: 26px;
 // POPOVERS
 //----------------------------------*/
 $popover-header-font-size: 14px !default;
+$popover-header-color:  $gray-700 !default;
 $popover-font-size: 13px !default;
 $popover-max-width: 276px;
 $popover-border-radius: $border-radius-md;
@@ -586,7 +586,6 @@ $card-toolbar-icon-width: 30px;
 /* Card window toolbar */
 $card-toolbar-icon-height: 25px;
 
-
 //----------------------------------*\
 // SIZES
 //----------------------------------*/
@@ -595,7 +594,6 @@ $sizes: (
         10: 10%,
         15: 15%,
 ) !default;
-
 
 //----------------------------------*\
 // ACCORDION
@@ -667,6 +665,8 @@ $nav-pills-link-active-font-theme-color-tone: font-color !default;
 //----------------------------------*/
 
 $modal-content-bg: $white-color !default;
+$modal-backdrop-bg: $black-color !default;
+$modal-backdrop-opacity: .7 !default;
 $modal-content-border-width: $border-thin !default;
 $modal-content-border-color: $gray-400 !default;
 $modal-border-radius: $border-radius-md !default;
@@ -677,6 +677,7 @@ $modal-footer-border-color: $modal-content-border-color;
 $modal-body-padding: 15px 25px !default;
 $modal-header-padding: 10px 25px !default;
 $modal-footer-padding: 15px 25px !default;
+
 
 //----------------------------------*\
 // PAGINATION
@@ -797,19 +798,18 @@ $badge-padding-x: .3rem !default;
 
 /* Round badges */
 $badge-radius-round: $border-radius-100;
-$badge-round-size:1.5em;
-$badge-round-padding:0.70em;
-$badge-round-line-height:1em;
+$badge-round-size: 1.5em;
+$badge-round-padding: 0.70em;
+$badge-round-line-height: 1em;
 
 /* Empty badges */
-$badge-empty-size:.5em;
-
+$badge-empty-size: .5em;
 
 /* Images badges */
 
 $badge-image-font-size: $font-size-sm;
 $badge-image-font-weight: $font-wh-normal !default;
-$badge-image-line-height:1.25;
+$badge-image-line-height: 1.25;
 $badge-inner: ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
 $badge-size: calc(#{$badge-inner}) !default;
 
@@ -852,6 +852,7 @@ $zindex: (
         aside : 850,
         header : 860,
         dropdown : 1000,
+        modal-backdrop:1040,
         modal : 1050,
         popover: 1060,
         tooltip: 1070,

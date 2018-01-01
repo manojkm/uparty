@@ -16,6 +16,7 @@
     @include set-border-radius($modal-border-radius);
     //@include add-border($modal-content-border-width, $modal-content-border-color, all);
     @include add-border(0, transparent, all);
+    box-shadow: $modal-content-box-shadow-xs;
     background-color: $modal-content-bg;
   }
 
@@ -32,6 +33,18 @@
   }
 }
 
+/* Modal background */
+.modal-backdrop {
+  z-index: map-get($zindex, modal-backdrop);
+  background-color: $modal-backdrop-bg;
+  &.fade {
+    opacity: 0;
+  }
+  &.show {
+    opacity: $modal-backdrop-opacity;
+  }
+}
+
 .modal-primary {
   @include modal-theme(primary);
 }
@@ -43,18 +56,23 @@
 .modal-success {
   @include modal-theme(success);
 }
+
 .modal-danger {
   @include modal-theme(danger);
 }
-.modal-warning{
+
+.modal-warning {
   @include modal-theme(warning);
 }
+
 .modal-info {
   @include modal-theme(info);
 }
-.modal-light{
+
+.modal-light {
   @include modal-theme(light);
 }
+
 .modal-dark {
   @include modal-theme(dark);
 }

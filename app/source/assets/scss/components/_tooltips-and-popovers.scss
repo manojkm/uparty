@@ -70,11 +70,11 @@
 
   .popover-header {
     @include set-border-radius($popover-border-radius);
+    @include border-bottom-radius(0);
     font-size: $popover-header-font-size;
-    text-transform: capitalize;
-    font-weight: map-get-strict($font, weight-bold);
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+    //text-transform: capitalize;
+    font-weight: $font-wh-bold;
+    color: $popover-header-color;
   }
 
   /* Apply the mixin to the popover variants. */
@@ -106,3 +106,6 @@
 
 }
 
+img.has-popover{
+  cursor: pointer;
+}
