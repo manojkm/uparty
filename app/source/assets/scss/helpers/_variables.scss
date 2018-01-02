@@ -912,18 +912,26 @@ $a-href-tags: '&[href]:hover,
         &[href]:active,
         &[href].active,
         &[href]:active:focus,
-        &[href]:active:hover,
         &[href].active:focus,
-        &[href].active:hover ';
+        &[href]:active:hover,
+        &[href].active:hover,
+        &[href]:not([disabled]):not(.disabled):active,
+        &[href]:not([disabled]):not(.disabled).active,
+        &[href]:not([disabled]):not(.disabled):active:focus,
+        &[href]:not([disabled]):not(.disabled).active:focus';
 
 $a-tags: '&:hover,
   &:focus,
   &:active,
   &.active,
   &:active:focus,
-  &:active:hover,
   &.active:focus,
-  &.active:hover';
+  &:active:hover,
+  &.active:hover,
+  &:not([disabled]):not(.disabled):active,
+  &:not([disabled]):not(.disabled).active,
+  &:not([disabled]):not(.disabled):active:focus,
+  &:not([disabled]):not(.disabled).active:focus';
 
 
 

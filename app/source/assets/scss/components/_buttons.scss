@@ -26,15 +26,25 @@ button, .button {
   min-height: $btn-min-height;
   cursor: pointer;
 
-  &:hover,
+  /* Beta 3 Migration changes */
+  #{$a-tags} {
+    @include opacity(1);
+    outline: 0;
+    box-shadow: none;
+  }
+
+
+  /*&:hover,
   &:focus,
   &.focus {
     @include opacity(1);
     outline: 0;
     box-shadow: none;
   }
+
   &:active,
   &.active,
+  */
   .open > &.dropdown-toggle {
     box-shadow: none;
     outline: 0;
@@ -263,12 +273,14 @@ and disabled options for all buttons.
 }
 
 /* Disabled button */
+fieldset[disabled] a.btn,
 .btn {
   &:disabled,
   &[disabled],
   &.disabled {
     @include opacity($btn-disabled-opacity);
     cursor: not-allowed;
+    pointer-events: none;
   }
 }
 
