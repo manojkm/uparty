@@ -19,13 +19,13 @@
   .dropdown-menu {
     @include set-border-radius($dropdown-border-radius);
     z-index: map-get($zindex, dropdown);
-    width: 200px;
-    max-width: 320px;
-    min-width: 160px;
+    width: $dropdown-width;
+    max-width: $dropdown-max-width;
+    min-width: $dropdown-min-width;
     padding: $dropdown-padding-y $dropdown-padding-x;
     margin-top: $dropdown-margin-top; /* Positioning first level dropdown menu */
     background-color: $dropdown-bg;
-    box-shadow: $container-shadow;
+    box-shadow: $dropdown-shadow;
 
     @include max-screen($screen-md-max) {
       width: 100%;
@@ -34,7 +34,6 @@
       margin: $dropdown-margin-top auto;
     }
   }
-
 
   /* Dropdown top arrow */
   &:before {
@@ -59,10 +58,8 @@
     z-index: 9;
   }
 
-
   &[x-placement="top-start"],
-  &[x-placement="top-end"]
-  {
+  &[x-placement="top-end"] {
     margin-bottom: 15px;
     &:before {
       bottom: -6px;
@@ -77,23 +74,21 @@
     }
   }
 
-
-
   @include max-screen($screen-md-max) {
     &:before,
-    &:after{
+    &:after {
       display: none;
     }
   }
 
   /* Dropdown header */
-  & .dropdown-header:not([href]):not([tabindex]){
+  & .dropdown-header:not([href]):not([tabindex]) {
     @include font-size($dropdown-header-font-size);
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     white-space: nowrap;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-weight: 600;
+    font-weight: $font-wh-semi;
   }
 
   /* Dropdown menu links */
@@ -109,6 +104,7 @@
     display: flex;
     align-items: center;
 
+    /* Dropdown menu icon */
     i {
       @include font-size($dropdown-font-size);
       width: $dropdown-icon-width;
@@ -121,24 +117,22 @@
     // TODO Adapted from https://github.com/sagaio/user-dropdown-menu/blob/master/trunk/css/dropdown.css
 
     /* Showing left border styling on hover for better highlighting */
+    &::before {
+      @include transition;
+      @include background-color('primary', 'base');
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      top: 0;
+      width: 3px;
+      opacity: 0;
+    }
 
-     &::before {
-       @include transition;
-       @include background-color('primary', 'base');
-       content: '';
-       position: absolute;
-       bottom: 0;
-       left: 0;
-       top: 0;
-       width: 3px;
-       opacity: 0;
-     }
-
-     &:hover::before,
-     &.active::before
-     {
-       opacity: 1;
-     }
+    &:hover::before,
+    &.active::before {
+      opacity: 1;
+    }
 
     /* Change the hover, focus, active state links for better highlighting */
     &:hover,
@@ -158,10 +152,7 @@
       text-decoration: none;
     }
 
-    &.disabled,
-    &.disabled:focus,
-    &.disabled:hover,
-    &:disabled {
+    #{$disabled-tags}{
       //@include add-border(2px, transparent, left);
       //color: $dropdown-link-disabled-color;
       background-color: transparent;
@@ -171,11 +162,10 @@
       filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)";
     }
 
-
   }
 
   & .dropdown-divider {
-    border-top: 1px solid $dropdown-divider-color;
+    @include add-border($dropdown-divider-border-width, $dropdown-divider-color, top);
   }
 
   /* Positioning submenu layout. Add extra class to `.dropdown-menu` to flip the alignment of the dropdown. */
@@ -200,26 +190,6 @@
 
   }
 
-}
-
-//----------------------------------*\
-// DROPUP VARIATION
-//----------------------------------*/
-.dropup {
-  .dropdown-menu.extended {
-    /* Dropdown bottom arrow */
-    &:before {
-      bottom: -6px;
-      top: unset;
-      transform: rotate(180deg);
-    }
-
-    &:after {
-      bottom: -8px;
-      top: unset;
-      transform: rotate(180deg);
-    }
-  }
 }
 
 //----------------------------------*\
@@ -321,7 +291,6 @@
     border-top: 1px solid;
   }
 
-
 }
 
 /* Remove the arrow in dropdown to replace with Icon (.no-arr) */
@@ -329,5 +298,69 @@
   &:after {
     //display: none;
     content: none;
+  }
+}
+
+//----------------------------------*\
+// DROPUP VARIATIONS
+//----------------------------------*/
+.dropup {
+  .dropdown-menu.extended {
+    /* Dropdown arrow */
+    &:before {
+      bottom: -6px;
+      top: unset;
+      transform: rotate(180deg);
+    }
+
+    &:after {
+      bottom: -8px;
+      top: unset;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.dropright {
+  .dropdown-menu.extended {
+    margin-top: 0;
+    margin-left: 15px;
+
+    /* Dropdown arrow */
+    &:before {
+      top: 16px;
+      left: -9px;
+      transform: rotate(-90deg);
+    }
+
+    &:after {
+      top: 15px;
+      left: -12px;
+      transform: rotate(-90deg);
+    }
+
+  }
+}
+
+.dropleft {
+  .dropdown-menu.extended {
+    margin-top: 0;
+    margin-right: 15px;
+
+    /* Dropdown arrow */
+    &:before {
+      top: 16px;
+      right: -9px;
+      transform: rotate(90deg);
+      left: unset;
+    }
+
+    &:after {
+      top: 15px;
+      right: -12px;
+      left: unset;
+      transform: rotate(90deg);
+    }
+
   }
 }

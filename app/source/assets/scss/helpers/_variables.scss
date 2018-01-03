@@ -10,6 +10,7 @@
 
 // TODO: Fill the below comment block with proper text following robust admin theme.
 // TODO get variable namings fro https://www.bootstrap-live-customizer.com/.
+// TODO: Remove old grey-xx-xx varialbes.
 
 // ================================================================================================
 // WARNING: PLEASE DO NOT CHANGE THIS VARIABLE FILE.
@@ -169,6 +170,11 @@ $navbar-item-mobile-bottom-border: true;
 //----------------------------------*\
 // BOOTSTRAP DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 //----------------------------------*/
+
+$dropdown-width : 200px;
+$dropdown-min-width : 160px;
+$dropdown-max-width : 320px;
+
 $dropdown-bg: $white-color;
 
 $dropdown-border-radius: $border-radius-md;
@@ -195,6 +201,7 @@ $dropdown-link-active-bg: $grey-x-light;
 $dropdown-link-disabled-color: $grey-light;
 
 $dropdown-divider-color: $grey-x-light;
+$dropdown-divider-border-width:$border-thin !default;
 
 $dropdown-icon-width: 20px;
 
@@ -244,6 +251,7 @@ $padding-small-x: 15px !default;
 // SHADOWS
 //----------------------------------*/
 $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
+$dropdown-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
 $header-shadow: 0 1px 3px rgba($black-color, .2);
 $popover-shadow: 0 5px 10px rgba($black-color, .1);
 $sidebar-footer-shadow: 0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
@@ -920,8 +928,9 @@ $a-href-tags: '&[href]:hover,
         &[href]:not([disabled]):not(.disabled):active:focus,
         &[href]:not([disabled]):not(.disabled).active:focus';
 
+/* Beta 3 Migration changes */
+/* - Removed &:focus, &.focus due to the focus issues on buttons */
 $a-tags: '&:hover,
-  &:focus,
   &:active,
   &.active,
   &:active:focus,
@@ -934,4 +943,8 @@ $a-tags: '&:hover,
   &:not([disabled]):not(.disabled).active:focus';
 
 
-
+$disabled-tags: '&.disabled,
+&.disabled:focus,
+&.disabled:hover,
+&:disabled,
+&[disabled]';

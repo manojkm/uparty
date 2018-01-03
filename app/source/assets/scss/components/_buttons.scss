@@ -27,24 +27,14 @@ button, .button {
   cursor: pointer;
 
   /* Beta 3 Migration changes */
-  #{$a-tags} {
-    @include opacity(1);
-    outline: 0;
-    box-shadow: none;
-  }
-
-
-  /*&:hover,
+  #{$a-tags},
   &:focus,
-  &.focus {
+  &.focus{
     @include opacity(1);
     outline: 0;
     box-shadow: none;
   }
 
-  &:active,
-  &.active,
-  */
   .open > &.dropdown-toggle {
     box-shadow: none;
     outline: 0;
@@ -275,9 +265,9 @@ and disabled options for all buttons.
 /* Disabled button */
 fieldset[disabled] a.btn,
 .btn {
-  &:disabled,
-  &[disabled],
-  &.disabled {
+
+  #{$disabled-tags}
+  {
     @include opacity($btn-disabled-opacity);
     cursor: not-allowed;
     pointer-events: none;
@@ -286,17 +276,14 @@ fieldset[disabled] a.btn,
 
 .btn-link {
   border: 0;
-  background-color: transparent;
 }
 
 /* Large button */
-.btn-group.btn-group-lg .btn,
+
 .btn-lg {
   @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
 }
-
 /* Small button */
-.btn-group.btn-group-sm .btn,
 .btn-sm {
   @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-radius-sm, $btn-line-height-sm);
 }
@@ -306,27 +293,3 @@ fieldset[disabled] a.btn,
   @include border-radius($btn-radius-round);
 }
 
-/* Button group */
-.btn-group {
-  .btn {
-    min-width: 0 !important;
-  }
-  &-justified {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: separate;
-
-    > .btn,
-    > .btn-group {
-      display: table-cell;
-      float: none;
-      width: auto;
-    }
-
-    > .btn-group .btn {
-      width: 100%;
-    }
-  }
-
-}

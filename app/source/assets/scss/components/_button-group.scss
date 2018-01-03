@@ -1,0 +1,58 @@
+// ================================================================================================
+// File Name: buttons.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+
+.btn-group {
+  .btn {
+    min-width: 0 !important;
+  }
+  /* Justified groups */
+  &-justified {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+
+    > .btn,
+    > .btn-group {
+      display: table-cell;
+      float: none;
+      width: auto;
+    }
+
+    > .btn-group .btn {
+      width: 100%;
+    }
+  }
+
+  /* Reset rounded corners */
+  > .btn:not(:last-child):not(.dropdown-toggle),
+  > .btn-group:not(:last-child) > .btn {
+    @include border-right-radius(0);
+  }
+
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) > .btn {
+    @include border-left-radius(0);
+  }
+
+}
+
+/* Large group button */
+.btn-group.btn-group-lg .btn{
+  @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
+}
+
+/* Small group button */
+.btn-group.btn-group-sm .btn{
+  @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-radius-sm, $btn-line-height-sm);
+
+}
+

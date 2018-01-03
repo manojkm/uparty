@@ -81,10 +81,9 @@
   }
 
   /* Disabled badge */
-  &:disabled,
-  &[disabled],
-  &.disabled {
+  #{$disabled-tags} {
     @include opacity($badge-disabled-opacity);
+    pointer-events: none;
   }
 
   /* Floating badges */

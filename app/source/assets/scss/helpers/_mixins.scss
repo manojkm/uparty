@@ -349,9 +349,7 @@ Usage @include opacity(1);
     //box-shadow: 0 .125em $off-wht, inset 0 .063em $off-wht;
   }
 
-  &.disabled,
-  &:disabled,
-  &[disabled],
+  #{$disabled-tags},
   fieldset[disabled] & {
     &,
     #{$a-tags} {
@@ -529,8 +527,8 @@ Usage @include opacity(1);
 
 @mixin btn-size($padding-y, $padding-x, $min-width, $min-height, $font-size, $border, $line-height) {
   //@include font-size($font-size);
-  font-size: $font-size;
   @include set-border-radius($border);
+  font-size: $font-size;
   padding: $padding-y $padding-x;
   min-width: $min-width;
   min-height: $min-height;
