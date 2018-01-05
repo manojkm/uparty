@@ -22,7 +22,9 @@
     }
   }
 
-  &.active .page-link {
+  &.active .page-link,
+  &.active .page-link:focus,
+  &.active .page-link:hover{
     @include background-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
     @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
     @include color($pagination-active-bg-theme-color, $pagination-active-font-theme-color-tone);
@@ -158,6 +160,14 @@
 
     }
 
+    .page-item {
+      &.disabled {
+        & .page-link {
+          border: 0;
+        }
+      }
+    }
+
   }
 
 }
@@ -210,7 +220,52 @@
       }
 
       &.disabled {
+        & .page-link {
+          border-color: $pagination-disabled-border-color !important;
+        }
+      }
 
+    }
+
+  }
+
+}
+
+
+//-------------------------------------------*\
+// PAGINATION EXTENDED - INDICATOR
+//-------------------------------------------*/
+
+.pagination {
+
+  &.extended-indicator {
+
+    .page-link {
+      @include add-border(0, transparent, all);
+      @include set-border-radius($pagination-extended-radius-round);
+      box-shadow: $pagination-extended-indicator-box-shadow;
+      background-color: $pagination-extended-indicator-bg;
+      width: $pagination-extended-indicator-size;
+      height: $pagination-extended-indicator-size;
+      padding: 0;
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+
+      &:focus,
+      &:hover {
+        background-color:$pagination-extended-indicator-hover-bg;
+      }
+    }
+
+    .page-item {
+      margin: 0 $pagination-extended-indicator-margin-x;
+
+      &.active .page-link {
+        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
+      }
+
+      &.disabled {
         & .page-link {
           border-color: $pagination-disabled-border-color !important;
         }
@@ -228,12 +283,12 @@
 
 .page-item {
   &.disabled {
-    cursor: not-allowed;
-
+    //cursor: not-allowed;
+    pointer-events: none;
     & .page-link {
       color: $pagination-disabled-color !important;
       background-color: $pagination-disabled-bg !important;
-      //border-color: $pagination-disabled-border-color !important;
+      border-color: $pagination-disabled-border-color !important;
     }
   }
 
