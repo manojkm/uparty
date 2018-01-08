@@ -224,9 +224,12 @@ var appMaster = {
     },
 
     tooltip: function () {
-        $(appMaster._tooltip).tooltip({trigger: "hover"});
-        $(appMaster._tooltip).on('click', function () {
-            $(this).tooltip('hide');
+        $(appMaster._tooltip).each(function () {
+            var animate = $(this).data('animate');
+            var color = $(this).data('color');
+            $(this).tooltip({
+                template: '<div class="tooltip tooltip-' + color + ' ' + animate + '" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
+            });
         });
     },
 
@@ -278,6 +281,10 @@ $(document).on("app.plugin", function () {
 }).trigger("app.plugin");
 
 
+//----------------------------------*\
+// Initialize respective scripts
+//----------------------------------*/
+
 $(document).ready(function () {
     appMaster.responsive();
     appMaster.sidebar();
@@ -290,3 +297,4 @@ $(document).ready(function () {
 });
 
 
+// TODO, just visit view-source:http://jaybabani.com/complete-admin/v4.2/preview/assets/js/scripts.js

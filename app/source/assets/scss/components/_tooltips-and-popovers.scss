@@ -15,12 +15,13 @@
 .tooltip {
   z-index: map-get($zindex, tooltip);
   /* Tooltip inner */
-  @at-root &-inner {
-    @include font-size($tooltip-font-size);
+  @at-root  &-inner {
+    //@include font-size($tooltip-font-size);
+    font-size: $tooltip-font-size;
     font-weight: map-get-strict($font, weight-normal);
-    //padding: $tooltip-padding-y $tooltip-padding-x;
+    padding: $tooltip-padding-y $tooltip-padding-x;
     color: $tooltip-font-color;
-
+    line-height: $tooltip-line-height;
     background-color: $tooltip-background-color;
     //box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
   }
@@ -43,6 +44,37 @@
   &.bs-tooltip-left .arrow:before {
     border-left-color: $tooltip-background-color;
   }
+
+
+
+  /* Apply the mixin to the tooltip variants. */
+
+  &.tooltip-primary {
+    @include tooltip-theme(primary);
+  }
+  &.tooltip-secondary {
+    @include tooltip-theme(secondary);
+  }
+  &.tooltip-success {
+    @include tooltip-theme(success);
+  }
+  &.tooltip-danger {
+    @include tooltip-theme(danger);
+  }
+  &.tooltip-warning{
+    @include tooltip-theme(warning);
+  }
+  &.tooltip-info {
+    @include tooltip-theme(info);
+  }
+  &.tooltip-light{
+    @include tooltip-theme(light);
+  }
+  &.tooltip-dark {
+    @include tooltip-theme(dark);
+  }
+
+
 }
 
 //----------------------------------*\

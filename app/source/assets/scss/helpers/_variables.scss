@@ -836,11 +836,12 @@ $badge-size: calc(#{$badge-inner}) !default;
 //----------------------------------*\
 // TOOLTIPS
 //----------------------------------*/
-$tooltip-background-color: $grey-x-dark !default;
+$tooltip-background-color:  $gray-900 !default;
 $tooltip-font-color: $white-color !default;
-/*$tooltip-padding-y: $padding-base-y !default;
-$tooltip-padding-x: $padding-base-x !default;*/
-$tooltip-font-size: 12px;
+$tooltip-padding-y: 8px !default;
+$tooltip-padding-x: 10px !default;
+$tooltip-font-size: $font-size-sm;
+$tooltip-line-height: 1.25 !default;
 
 //----------------------------------*\
 // FOOTER
