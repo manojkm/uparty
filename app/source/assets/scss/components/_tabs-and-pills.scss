@@ -1,5 +1,5 @@
 // ================================================================================================
-// File Name: tabs.scss
+// File Name: tabs-and-pills.scss
 // Description:
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
@@ -64,9 +64,7 @@
 
     .nav-link {
       @include set-border-radius(0);
-      @include add-border(0, transparent, top-bottom);
-      @include add-border(0, transparent, right-left);
-      //@include add-border(0px, transparent, bottom);
+      @include add-border(0, transparent, all);
 
       &:hover,
       &:focus {
@@ -82,7 +80,7 @@
       //@include add-border(5px, $nav-tabs-link-active-border-color, bottom);
       //@include border-color($theme-color, $tone);
 
-      @include add-border(5px, transparent, bottom);
+      @include add-border(3px, transparent, bottom);
       //border: 5px solid transparent;
       @include border-bottom-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
 
@@ -98,20 +96,20 @@
 
 .nav-tabs {
 
-  &.extended-cover {
+  &.extended-boxed {
     @include set-border-radius($nav-tabs-border-radius);
     @include border-bottom-radius(0);
-    background-color: $nav-tabs-cover-bg;
+    background-color: $nav-tabs-boxed-bg;
     padding: 5px 5px 0;
+
+    + .tab-content {
+      @include set-border-radius($nav-tabs-border-radius);
+      @include border-top-radius(0);
+    }
   }
 }
 
-.tab-content {
-  &.extended-cover {
-    @include set-border-radius($nav-tabs-border-radius);
-    @include border-top-radius(0);
-  }
-}
+
 
 //-------------------------------------------*\
 // TAB EXTENDED - ARROW
@@ -177,7 +175,6 @@
 // TAB EXTENDED - VERTICAL
 //-------------------------------------------*/
 .extended-vertical {
-  //display: table;
 
   /* Flexbox */
   display: flex;
@@ -222,7 +219,7 @@
     }
   }
 
-  &.wrap {
+  &.outline {
     .nav-link {
       border-width: $nav-tabs-v-wrap-active-border-width;
       @include border-left-radius($nav-tabs-border-radius);
@@ -235,7 +232,7 @@
     }
   }
 
-  &.wrap-primary {
+  &.outline-primary {
 
     .nav-tabs {
       @include border-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
@@ -252,7 +249,7 @@
     }
   }
 
-  &.wrap-primary-filled {
+  &.primary-filled {
 
     .nav-tabs {
       @include border-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
@@ -266,10 +263,6 @@
       @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-font-theme-color-tone);
       @include background-color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
     }
-  }
-
-  ~ .tab-content {
-    display: table-cell;
   }
 
 }

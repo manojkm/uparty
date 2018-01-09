@@ -30,22 +30,19 @@
   [data-toggle="collapse"] {
     @include transition;
     //@include color($accordion-title-active-theme-color, $accordion-title-active-theme-color-tone);
-    color: $accordion-title-active-color;
-
     @include add-border($card-border-size, transparent, top);
     @include add-border(0, transparent, bottom);
-
+    color: $accordion-title-active-color;
     border-color: $card-border-color;
-
-    &:first-child {
-      border-top: none;
-    }
-
     cursor: pointer;
 
     /* Flexbox */
     display: flex;
     align-items: flex-start;
+
+    &:first-child {
+      border-top: none;
+    }
 
     & .card-title,
     & .card-subtitle {
@@ -76,7 +73,8 @@
   }
 
 }
-a.accordion{
+
+a.accordion {
   position: relative;
 
   &:before {
@@ -191,8 +189,8 @@ a.accordion{
 .accordion {
   &.extended-left-line {
     .card {
-      border: 0;
       @include set-border-radius(0);
+      border: 0;
     }
 
     & [data-toggle="collapse"] {
@@ -206,7 +204,6 @@ a.accordion{
         @extend %acc-pseudo;
         right: 0;
         left: 1rem;
-
       }
 
       &:after {
@@ -227,6 +224,5 @@ a.accordion{
       @include add-border($accordion-underline-border-size, transparent, left);
       @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
     }
-
   }
 }
