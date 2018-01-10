@@ -20,6 +20,7 @@
     @include set-border-radius($nav-tabs-border-radius);
     @include add-border($nav-tabs-border-width, transparent, all);
     @include border-bottom-radius(0);
+    position: relative;
     color: $nav-tabs-link-color;
 
     &:hover,
@@ -31,6 +32,16 @@
 
     &.disabled {
       color: $nav-link-disabled-color;
+    }
+
+    /* Teb icon */
+    i {
+     font-size: inherit;
+      width: $tab-icon-width;
+      display: inline-block;
+      margin-right:$tab-icon-margin-right;
+      color: inherit;
+      text-align: center;
     }
 
   }
@@ -69,20 +80,37 @@
       &:hover,
       &:focus {
         @include color($nav-tabs-link-active-theme-color, $nav-tabs-link-active-theme-color-tone);
-        background-color: $nav-tabs-line-link-hover-bg;
+        background-color: transparent;
+      }
+
+      &::before {
+        @include background-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
+        @include transition;
+        content: "";
+        height: 2px;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        transform: scale(0);
       }
     }
 
     .nav-link.active,
     .nav-item.show .nav-link {
+
       //@include add-border(0, transparent, top);
       //@include add-border(0, transparent, right-left);
       //@include add-border(5px, $nav-tabs-link-active-border-color, bottom);
       //@include border-color($theme-color, $tone);
-
-      @include add-border(3px, transparent, bottom);
       //border: 5px solid transparent;
-      @include border-bottom-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
+
+      /* @include add-border(3px, transparent, bottom);
+       @include border-bottom-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
+ */
+      &::before {
+        transform: scale(1)
+      }
 
     }
 
@@ -91,25 +119,79 @@
 }
 
 //-------------------------------------------*\
-// TAB EXTENDED - COVER
+// TAB EXTENDED - BOXED
 //-------------------------------------------*/
 
-.nav-tabs {
+.nav-tabs.extended-boxed {
 
-  &.extended-boxed {
+  @include set-border-radius($nav-tabs-border-radius);
+  @include border-bottom-radius(0);
+  background-color: $nav-tabs-boxed-bg;
+  padding: 0 $nav-tabs-boxed-spacing;
+
+  .nav-item {
+    /* Flexbox */
+    display: flex;
+    align-items: center;
+
+  }
+
+  .nav-link {
+    margin-top: $nav-tabs-boxed-spacing;
+
+    /* &:hover {
+       border-color:transparent;
+       background-color: transparent;
+     }*/
+
+  }
+  + .tab-content {
     @include set-border-radius($nav-tabs-border-radius);
-    @include border-bottom-radius(0);
-    background-color: $nav-tabs-boxed-bg;
-    padding: 5px 5px 0;
+    @include border-top-radius(0);
+  }
 
-    + .tab-content {
-      @include set-border-radius($nav-tabs-border-radius);
-      @include border-top-radius(0);
+  /* Resetting display property to get justified */
+  &.nav-justified {
+    .nav-item {
+      display: unset;
     }
   }
+
+  /* Apply the mixin to the tooltip variants. */
+
+  &.primary-box {
+    @include tab-extended-boxed-theme(primary);
+  }
+
+  &.secondary-box {
+    @include tab-extended-boxed-theme(secondary);
+  }
+
+  &.success-box {
+    @include tab-extended-boxed-theme(success);
+  }
+
+  &.danger-box {
+    @include tab-extended-boxed-theme(danger);
+  }
+
+  &.warning-box {
+    @include tab-extended-boxed-theme(warning);
+  }
+
+  &.info-box {
+    @include tab-extended-boxed-theme(info);
+  }
+
+  &.light-box {
+    @include tab-extended-boxed-theme(light);
+  }
+
+  &.dark-box {
+    @include tab-extended-boxed-theme(dark);
+  }
+
 }
-
-
 
 //-------------------------------------------*\
 // TAB EXTENDED - ARROW
@@ -122,10 +204,11 @@
       @include transition;
       @include add-border(0, transparent, all);
       margin-bottom: 1px;
-      position: relative;
 
       &:after,
       &:before {
+        @include transition;
+        transform: translateY(-10px);
         position: absolute;
         top: 100%;
         left: 50%;
@@ -134,6 +217,15 @@
         border: solid transparent;
         content: '';
         pointer-events: none;
+        @extend %o-v-none;
+      }
+      &:after {
+        margin-left: -10px;
+        border-width: 10px;
+      }
+      &:before {
+        margin-left: -11px;
+        border-width: 11px;
       }
 
       &:hover,
@@ -146,29 +238,35 @@
     .nav-link.active,
     .nav-item.show .nav-link {
 
-      &:after {
-        margin-left: -10px;
-        border-width: 10px;
-        border-top-color: #fff;
+      &:after,
+      &:before {
+        @extend %o-v-show;
+        transform: translateY(0px);
       }
 
+      &:after {
+        border-top-color: #fff;
+      }
       &:before {
-        margin-left: -11px;
-        border-width: 11px;
-        border-top-color: $nav-tabs-border-color
+        border-top-color: $nav-tabs-border-color;
       }
 
     }
 
+    &.filled {
+      .nav-link.active,
+      .nav-item.show .nav-link {
+        @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-font-theme-color-tone);
+        @include background-color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
+        &:after {
+          @include border-top-color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
+        }
+
+      }
+    }
+
   }
 
-}
-
-.tab-content {
-  &.extended-arrow {
-    margin-top: 0;
-    @include add-border(0, transparent, all);
-  }
 }
 
 //-------------------------------------------*\
@@ -212,13 +310,34 @@
 
   }
 
+  /* Right Line */
   &.right-line {
+
+    .nav-link {
+
+      &::before {
+        @include transition;
+        @include background-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
+        content: "";
+        width: 2px;
+        position: absolute;
+        height: 100%;
+        right: -2px;
+        top: 0;
+        transform: scale(0);
+      }
+    }
+
     .nav-link.active,
     .nav-item.show .nav-link {
-      @include border-right-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
+      /*  @include border-right-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);*/
+      &::before {
+        transform: scale(1)
+      }
     }
   }
 
+  /* Outline */
   &.outline {
     .nav-link {
       border-width: $nav-tabs-v-wrap-active-border-width;
@@ -232,6 +351,7 @@
     }
   }
 
+  /* Primary outline */
   &.outline-primary {
 
     .nav-tabs {
@@ -249,6 +369,7 @@
     }
   }
 
+  /* Primary filled */
   &.primary-filled {
 
     .nav-tabs {
@@ -276,7 +397,8 @@
   .nav-link {
     @include transition;
     @include set-border-radius($nav-pills-border-radius);
-    margin: 0 5px 3px 0;
+    //margin: 0 5px 3px 0;
+    margin-right: 5px;
     @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
 
     &.active,

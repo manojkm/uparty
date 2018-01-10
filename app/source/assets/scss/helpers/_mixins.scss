@@ -739,6 +739,46 @@ Usage @include opacity(1);
 
 
 //----------------------------------*\
+// TAB EXTENDED - BOXED
+//----------------------------------*/
+@mixin tab-extended-boxed-theme($theme-color, $tone:base, $font-color:font-color) {
+
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    background-color: contextual-color($theme-color, $tone);
+  } @else { /* Theme variations */
+    @include background-color($theme-color, $tone);
+  }
+
+  .nav-link{
+    opacity: 0.6;
+  }
+  .nav-link,
+  .boxed-tab-title{
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      color: contextual-color($theme-color, $font-color);
+    } @else { /* Theme variations */
+      @include color($theme-color, $font-color);
+    }
+  }
+
+  .nav-link.active,
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-item.show .nav-link {
+    opacity: 1;
+    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      color: contextual-color($theme-color, $tone);
+    } @else { /* Theme variations */
+      @include color($theme-color, $tone);
+    }
+
+  }
+
+
+}
+
+
+//----------------------------------*\
 // TOOLTIP
 //----------------------------------*/
 

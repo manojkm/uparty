@@ -34,4 +34,19 @@
     margin-bottom: 20px
   }
 
+  .list-icon i{
+    @include transition;
+    font-size: 14px;
+    width: 40px;
+    vertical-align: middle;
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+  }
+
+  .list-icon div:hover i {
+    transform: scale(3);
+  }
+
 }

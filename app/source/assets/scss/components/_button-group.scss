@@ -8,7 +8,6 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
 .btn-group {
   .btn {
     min-width: 0 !important;
@@ -32,7 +31,22 @@
     }
   }
 
-  /* Reset rounded corners */
+}
+
+/* Large group button */
+.btn-group.btn-group-lg .btn {
+  @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
+}
+
+/* Small group button */
+.btn-group.btn-group-sm .btn {
+  @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-radius-sm, $btn-line-height-sm);
+
+}
+
+/* Reset rounded corners */
+.btn-group {
+
   > .btn:not(:last-child):not(.dropdown-toggle),
   > .btn-group:not(:last-child) > .btn {
     @include border-right-radius(0);
@@ -42,17 +56,6 @@
   > .btn-group:not(:first-child) > .btn {
     @include border-left-radius(0);
   }
-
-}
-
-/* Large group button */
-.btn-group.btn-group-lg .btn{
-  @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
-}
-
-/* Small group button */
-.btn-group.btn-group-sm .btn{
-  @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-radius-sm, $btn-line-height-sm);
 
 }
 

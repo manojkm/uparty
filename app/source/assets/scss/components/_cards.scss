@@ -68,6 +68,16 @@
   align-items: center;
   flex-direction: row;
 
+  &::before {
+    background:rgba(220,220,220, 0.4);
+    content: "";
+    height: 1px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }
+
   &:first-child {
     //@include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
     @include set-border-radius($card-inner-border-radius);
