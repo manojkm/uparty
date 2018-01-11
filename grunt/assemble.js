@@ -13,6 +13,11 @@ module.exports = {
                 name: 'dashboard',
                 sortby: 'posted',
                 sortorder: 'descending'
+            },
+            {
+                name: 'icons',
+                sortby: 'posted',
+                sortorder: 'descending'
             }],
 
         flatten: true,

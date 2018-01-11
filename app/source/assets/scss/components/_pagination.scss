@@ -107,6 +107,31 @@
 
     }
 
+    &.wizard{
+      .page-link {
+        background-color: $pagination-wizard-bg;
+        color: $pagination-wizard-color;
+
+        &:focus,
+        &:hover {
+          background-color: $pagination-wizard-hover-bg;
+          color: $pagination-wizard-hover-color;
+        }
+      }
+
+      .page-item {
+        &.disabled {
+          & .page-link {
+            background-color: $pagination-wizard-bg!important;;
+            color: $pagination-wizard-color!important;
+            opacity: 0.4;
+          }
+        }
+
+      }
+
+
+    }
   }
 
 }
@@ -283,8 +308,8 @@
 
 .page-item {
   &.disabled {
-    //cursor: not-allowed;
-    pointer-events: none;
+    cursor: not-allowed;
+    //pointer-events: none;
     & .page-link {
       color: $pagination-disabled-color !important;
       background-color: $pagination-disabled-bg !important;
