@@ -15,6 +15,7 @@
   background-color: $card-background;
   position: relative;
   margin-bottom: $card-margin-bottom;
+  box-shadow:$card-box-shadow;
 
   /* Fullscreen Card */
   &-fullscreen {
@@ -61,6 +62,7 @@
   padding: $card-spacer-y $card-spacer-x;
   position: relative;
   text-transform: capitalize;
+  overflow: hidden;
   //color: $card-header-color;
 
   /* Flexbox */
@@ -68,21 +70,23 @@
   align-items: center;
   flex-direction: row;
 
-  &::before {
-    background:rgba(220,220,220, 0.4);
-    content: "";
-    height: 1px;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-  }
+
 
   &:first-child {
     //@include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
     @include set-border-radius($card-inner-border-radius);
     @include border-bottom-radius(0);
-
+    &::before {
+      //background:rgba(255,255,255, 0.9);
+      content: "";
+      //height: 1px;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9)
+    }
   }
 
   & .card-title {

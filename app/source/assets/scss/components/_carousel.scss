@@ -1,0 +1,107 @@
+// ================================================================================================
+// File Name: carousel.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//-------------------------------------------*\
+// CAROUSEL
+//-------------------------------------------*/
+
+.carousel-caption {
+  background-color: rgba(0,0,0,.5);
+
+  * {
+    color: inherit;
+  }
+}
+
+.carousel-indicators {
+  li {
+    cursor: pointer;
+  }
+}
+
+/* Next/Prev icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  @include add-border($carousel-control-border-size, $carousel-control-border-color, all);
+  background-color:$carousel-control-icon-bg;
+  width: $carousel-control-icon-width;
+  height: $carousel-control-icon-width;
+  background-image: none;
+  position: relative;
+  font-size:$carousel-control-icon-font-size;
+
+  &::before {
+    font-family: simple-line-icons;
+    font-size: inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: $carousel-control-prev-icon-text-shadow;
+  }
+}
+
+.carousel-control-next-icon {
+  &::before {
+    content: $carousel-control-next-icon;
+  }
+}
+
+.carousel-control-prev-icon {
+  &::before {
+    content: $carousel-control-prev-icon;
+  }
+}
+
+/* Theming */
+.carousel {
+
+  &.light {
+
+    .carousel-caption {
+      color: rgba(0, 0, 0, .9);
+    }
+
+    .carousel-indicators {
+      li {
+        background-color: rgba($carousel-indicator-light-active-bg, .5);
+      }
+      .active {
+        background-color: $carousel-indicator-light-active-bg;
+      }
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      &::before {
+        color: $carousel-indicator-light-active-bg;
+      }
+    }
+  }
+
+}
+
+//-------------------------------------------*\
+// CAPTIONS ONLY
+//-------------------------------------------*/
+
+.captions-only {
+
+  .carousel-caption {
+    background-color: transparent;
+    position: relative;
+    right: 0;
+    left: 0;
+  }
+
+}
