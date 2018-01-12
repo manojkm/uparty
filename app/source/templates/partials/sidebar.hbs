@@ -87,6 +87,26 @@
 
             </ul>
         </li>
+
+        <li {{#if page.forms}} class="sidebar__item active" {{else}} class="sidebar__item" {{/if}} >
+            <a href="#" class="has-arrow" {{#if page.forms}}
+               aria-expanded="true" {{else}} aria-expanded="false" {{/if}}>
+                <span class="sidebar__item-icon"><i class="icon-vector"></i></span>
+                <span class="sidebar__item-title">Forms UI</span>
+            </a>
+            <ul class="sidebar__child" {{#if page.forms}}
+                aria-expanded="true" {{else}} aria-expanded="false" {{/if}}>
+                {{#withSort forms 'data.posted'}}
+                    {{#each pages }}
+                        <li {{#is ../../page.dest this.dest}}
+                        class="sidebar__item active" {{ else }} class="sidebar__item"{{/is}}>
+                            <a href="{{ replaceStr dest 'app/development/' '' }}">{{ data.title }}</a>
+                        </li>
+                    {{/each}}
+                {{/withSort}}
+
+            </ul>
+        </li>
         <li class="sidebar__divider"></li>
         <!--/UI Elements-->
 

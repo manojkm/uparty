@@ -18,6 +18,11 @@ module.exports = {
                 name: 'icons',
                 sortby: 'posted',
                 sortorder: 'descending'
+            },
+            {
+                name: 'forms',
+                sortby: 'posted',
+                sortorder: 'descending'
             }],
 
         flatten: true,
