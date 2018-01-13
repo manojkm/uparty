@@ -45,7 +45,7 @@ select.form-control {
     cursor: pointer;
   }
 
-  &:focus {
+  &:focus::-ms-value {
     color: $input-color;
     background-color: $input-bg;
   }
@@ -68,21 +68,24 @@ form {
    align with the form controls. */
 
 .col-form-label {
-  padding-top: calc(#{$btn-padding-y} - #{$input-border-size} * 2);
-  padding-bottom: calc(#{$btn-padding-y} - #{$input-border-size} * 2);
+  padding-top: calc(#{$btn-padding-y} + #{$input-border-size});
+  padding-bottom: calc(#{$btn-padding-y} + #{$input-border-size});
   font-size: $input-font-size;
+  line-height: $btn-line-height;
 }
 
 .col-form-label-lg {
-  padding-top: calc(#{$btn-padding-y-lg} - #{$input-border-size} * 2);
-  padding-bottom: calc(#{$btn-padding-y-lg} - #{$input-border-size} * 2);
+  padding-top: calc(#{$btn-padding-y-lg} + #{$input-border-size});
+  padding-bottom: calc(#{$btn-padding-y-lg} + #{$input-border-size});
   font-size: $input-font-size-lg;
+  line-height: $btn-line-height-lg;
 }
 
 .col-form-label-sm {
-  padding-top: calc(#{$btn-padding-y-sm} - #{$input-border-size} * 2);
-  padding-bottom: calc(#{$btn-padding-y-sm} - #{$input-border-size} * 2);
+  padding-top: calc(#{$btn-padding-y-sm} + #{$input-border-size});
+  padding-bottom: calc(#{$btn-padding-y-sm} + #{$input-border-size});
   font-size: $input-font-size-sm;
+  line-height: $btn-line-height-sm;
 }
 
 //----------------------------------*\
@@ -138,8 +141,6 @@ select.form-control-lg {
     height: $input-height-lg;
   }
 }
-
-
 
 //----------------------------------*\
 // CUSTOM FORMS
@@ -484,7 +485,7 @@ select.form-control-lg {
 
   padding-left: ($custom-toggle-width + 10px);
 
-  .#{$ccind}{
+  .#{$ccind} {
     position: absolute;
     top: 0;
     left: 0;
@@ -560,7 +561,7 @@ select.form-control-lg {
 }
 
 .invalid-tooltip {
-  background-color: rgba($form-feedback-invalid-color,.8);
+  background-color: rgba($form-feedback-invalid-color, .8);
 }
 
 /* Valid */

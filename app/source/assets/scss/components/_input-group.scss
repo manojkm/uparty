@@ -64,9 +64,9 @@
   font-weight: $btn-font-weight;
   line-height: $btn-line-height;
   color: $input-addon-color;
-  text-align: center;
   background-color: $input-addon-background-color;
-  min-width: 40px;
+  min-width: $input-addon-min-width;
+  text-align: center;
   justify-content: center;
 }
 
@@ -115,7 +115,7 @@
 .input-group-prepend {
   justify-content: center;
   .btn {
-    min-width: 40px;
+    min-width: $input-addon-min-width;
   }
   .dropdown-toggle {
     min-width: 0;
