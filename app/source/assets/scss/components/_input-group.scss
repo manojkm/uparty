@@ -46,6 +46,20 @@
 
 }
 
+/*  Prepend and append */
+
+
+.input-group-prepend,
+.input-group-append {
+  .btn + .btn,
+  .btn + .input-group-text,
+  .input-group-text + .input-group-text,
+  .input-group-text + .btn {
+    margin-left: -$input-border-size;
+  }
+}
+
+
 .input-group-prepend {
   margin-right: -$input-border-size;
 }

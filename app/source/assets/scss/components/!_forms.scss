@@ -149,26 +149,30 @@ select.form-control-lg {
 .custom-control {
   min-height: (1rem * map-get-strict($font, line-height));
 
-  .custom-control-label {
+  .custom-control-description {
     @include transition(color $general-transition-time $ease-in-out-circ)
   }
 
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .custom-control-input {
   $cc: custom-control;
-  &:checked ~ .#{$cc}-label::before {
+  &:checked ~ .#{$cc}-indicator {
+    //@include background-color('primary', 'base');
     background-color: $custom-control-indicator-checked-bg;
     color: $custom-control-indicator-color;
     box-shadow: none;
     border-color: transparent;
   }
 
-  &:focus ~ .#{$cc}-label::before {
+  &:focus ~ .#{$cc}-indicator {
     box-shadow: none;
   }
 
-  &:active ~ .#{$cc}-label::before {
+  &:active ~ .#{$cc}-indicator {
     //@include background-color('primary', 'light');
     color: $custom-control-indicator-active-color;
     background-color: $custom-control-indicator-active-bg;
@@ -176,35 +180,24 @@ select.form-control-lg {
   }
 
   &:disabled {
-    ~ .#{$cc}-label {
-      color: $custom-control-description-disabled-color;
-
-      &::before {
-        border-color: $custom-control-indicator-disabled-border-color;
-        background-color: $custom-control-indicator-disabled-bg !important;
-      }
+    ~ .#{$cc}-indicator {
+      background-color: $custom-control-indicator-disabled-bg !important;
     }
+    ~ .#{$cc}-description {
+      color: $custom-control-description-disabled-color;
+    }
+
   }
 }
 
-/* Custom Label */
-.custom-control-label {
-  &::before {
-    @include transition;
-    top: (($lh-base - $custom-control-indicator-size) / 2);
-    width: $custom-control-indicator-size;
-    height: $custom-control-indicator-size;
-    background-color: $custom-control-indicator-bg;
-    border: $custom-control-indicator-border-size solid $custom-control-indicator-border-color;
-  }
-
-  &::after {
-    @include transition;
-    top: (($lh-base - $custom-control-indicator-size) / 2);
-    width: $custom-control-indicator-size;
-    height: $custom-control-indicator-size;
-    background-size: $custom-control-indicator-bg-size;
-  }
+/* Custom indicator */
+.custom-control-indicator {
+  @include transition;
+  top: (($lh-base - $custom-control-indicator-size) / 2);
+  width: $custom-control-indicator-size;
+  height: $custom-control-indicator-size;
+  background-color: $custom-control-indicator-bg;
+  border: $custom-control-indicator-border-size solid $custom-control-indicator-border-color;
 }
 
 //----------------------------------*\
@@ -214,30 +207,50 @@ select.form-control-lg {
 .custom-checkbox {
   $cc: custom-control;
 
-  .#{$cc}-label::before {
+  .#{$cc}-indicator {
     @include set-border-radius($custom-checkbox-indicator-border-radius);
-  }
-  .#{$cc}-label::after {
-    //transform: scale(1,1);
-    background-size: 0% 0%;
-    transition: background-size 0.3s ease-in;
+
+    &:after {
+      @include transition;
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      width: 5px;
+      height: 11px;
+      opacity: 0;
+      transform: rotate(45deg) scale(0);
+      border-right: 2px solid $white-color;
+      border-bottom: 2px solid $white-color;
+    }
   }
 
-  .#{$cc}-input:checked ~ .#{$cc}-label {
-    &::before {
-      background-color: $custom-control-indicator-checked-bg;
-    }
-    &::after {
-      //transform: scale(1.5,1.5);
-      background-size: 70% 70%;
+  .#{$cc}-input:checked ~ .#{$cc}-indicator {
+    background-image: none;
+
+    &:after {
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
     }
   }
 
-  .#{$cc}-input:indeterminate ~ .#{$cc}-label {
-    &::before {
-      background-color: $custom-control-indicator-checked-bg;
+  .#{$cc}-input:indeterminate ~ .#{$cc}-indicator {
+    @include background-color('primary', 'base');
+    box-shadow: none;
+  }
+
+  .#{$cc}-input:focus ~ .#{$cc}-indicator {
+    box-shadow: none;
+  }
+
+  .#{$cc}-input:disabled ~ .#{$cc}-indicator {
+    border-color: $custom-control-indicator-disabled-border-color;
+
+    &:after {
+      border-color: $custom-control-indicator-disabled-color;
     }
   }
+
 }
 
 //----------------------------------*\
@@ -247,20 +260,39 @@ select.form-control-lg {
 .custom-radio {
   $cc: custom-control;
 
-  .#{$cc}-label::before {
-    @include set-border-radius($custom-radio-indicator-border-radius);
+  .#{$cc}-indicator {
+    //@include set-border-radius($custom-radio-indicator-border-radius);
+    border-radius: $custom-radio-indicator-border-radius;
+    &:after {
+      @include transition;
+      content: '';
+      position: absolute;
+      border-radius: $custom-radio-indicator-border-radius;
+      background: $white-color;
+      width: $custom-control-indicator-size;
+      height: $custom-control-indicator-size;
+      top: -1px;
+      left: -1px;
+      opacity: 0;
+      transform: scale(0);
+    }
   }
-  .#{$cc}-label::after {
-    background-size: 0% 0%;
-    transition: background-size 0.3s ease-in;
+  .#{$cc}-input:checked ~ .#{$cc}-indicator {
+    background-image: none;
+    &:after {
+      opacity: 1;
+      transform: scale(0.4);
+    }
   }
 
-  .#{$cc}-input:checked ~ .#{$cc}-label {
-    &::before {
-      background-color: $custom-control-indicator-checked-bg;
-    }
-    &::after {
-      background-size: 50% 50%;
+  .#{$cc}-input:focus ~ .#{$cc}-indicator {
+    box-shadow: none;
+  }
+
+  .#{$cc}-input:disabled ~ .#{$cc}-indicator {
+    border-color: $custom-control-indicator-disabled-border-color;
+    &:after {
+      background: $custom-control-indicator-disabled-color;
     }
   }
 
@@ -290,11 +322,6 @@ select.form-control-lg {
       color: $input-color;
       background-color: $input-bg;
     }
-  }
-
-  &[multiple],
-  &[size]:not([size="1"]) {
-    padding-right: $btn-padding-x;
   }
 
   @include form-control-disabled();
@@ -332,7 +359,7 @@ select.form-control-lg {
 .custom-file-input {
   height: $input-height;
 
-  &:focus ~ .custom-file-label {
+  &:focus ~ .custom-file-control {
     @include transition;
     color: $input-focus-color;
     border-color: $input-focus-border-color;
@@ -351,13 +378,13 @@ select.form-control-lg {
 
   &:hover {
     cursor: pointer;
-    & ~ .custom-file-label,
-    & ~ .custom-file-label:after {
+    & ~ .custom-file-control,
+    & ~ .custom-file-control:before {
       border-color: $input-hover-border-color;
     }
   }
 
-  &:disabled + .custom-file-label {
+  &:disabled + .custom-file-control {
     border-color: $input-border-disabled;
     background-color: $input-bg-disabled;
     color: $input-color-disabled;
@@ -375,7 +402,7 @@ select.form-control-lg {
 
 }
 
-.custom-file-label {
+.custom-file-control {
   @include transition;
   @include set-border-radius($input-border-radius);
   height: $input-height;
@@ -386,10 +413,9 @@ select.form-control-lg {
   font-size: $input-font-size;
   border: $input-border-size solid $input-border-color;
 
-  &::after {
+  &::before {
     @include transition;
     @include set-border-radius($input-border-radius);
-    @include border-left-radius(0);
     top: -$input-border-size;
     right: -$input-border-size;
     bottom: -$input-border-size;
@@ -398,6 +424,8 @@ select.form-control-lg {
     line-height: $btn-line-height;
     color: $input-color;
     border: $input-border-size solid $input-border-color;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     background-color: $custom-file-button-bg;
   }
 }
@@ -413,12 +441,12 @@ select.form-control-lg {
     height: $input-height-sm;
   }
 
-  .custom-file-label {
+  .custom-file-control {
     height: $input-height-sm;
     line-height: $btn-line-height-sm;
     padding: $btn-padding-y-sm $btn-padding-x-sm;
     font-size: $input-font-size-sm;
-    &::after {
+    &::before {
       height: $input-height-sm;
       line-height: $btn-line-height-sm;
       padding: $btn-padding-y-sm $btn-padding-x-sm;
@@ -434,12 +462,12 @@ select.form-control-lg {
     height: $input-height-lg;
   }
 
-  .custom-file-label {
+  .custom-file-control {
     height: $input-height-lg;
     line-height: $btn-line-height-lg;
     padding: $btn-padding-y-lg $btn-padding-x-lg;
     font-size: $input-font-size-lg;
-    &::after {
+    &::before {
       height: $input-height-lg;
       line-height: $btn-line-height-lg;
       padding: $btn-padding-y-lg $btn-padding-x-lg;
@@ -529,7 +557,6 @@ select.form-control-lg {
 // FORM VALIDATION
 //----------------------------------*/
 .invalid-feedback {
-  @include transition;
   color: $form-feedback-invalid-color
 }
 
