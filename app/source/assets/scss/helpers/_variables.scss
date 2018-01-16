@@ -171,9 +171,9 @@ $navbar-item-mobile-bottom-border: true;
 // BOOTSTRAP DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 //----------------------------------*/
 
-$dropdown-width : 200px;
-$dropdown-min-width : 160px;
-$dropdown-max-width : 320px;
+$dropdown-width: 200px;
+$dropdown-min-width: 160px;
+$dropdown-max-width: 320px;
 
 $dropdown-bg: $white-color;
 
@@ -201,7 +201,7 @@ $dropdown-link-active-bg: $grey-x-light;
 $dropdown-link-disabled-color: $grey-light;
 
 $dropdown-divider-color: $grey-x-light;
-$dropdown-divider-border-width:$border-thin !default;
+$dropdown-divider-border-width: $border-thin !default;
 
 $dropdown-icon-width: 20px;
 
@@ -256,10 +256,10 @@ $header-shadow: 0 1px 3px rgba($black-color, .2);
 $popover-shadow: 0 5px 10px rgba($black-color, .1);
 $sidebar-footer-shadow: 0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
 $progress-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
-$card-box-shadow:  0 1px 2px rgba(0,0,0,.075)!default;
-$card-box-header-inset-shadow:   inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
+$card-box-shadow: 0 1px 2px rgba(0, 0, 0, .075) !default;
+$card-box-header-inset-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
 $pagination-extended-indicator-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .5) !default;
-$modal-content-box-shadow-xs:  0 5px 10px rgba($black-color, .1);
+$modal-content-box-shadow-xs: 0 5px 10px rgba($black-color, .1);
 
 //----------------------------------*\
 // BREADCRUMB
@@ -444,21 +444,21 @@ $input-color: $gray-700;
 $input-label-color: $gray-800;
 $input-color-placeholder: $gray-500;
 
-$input-border-color: $gray-500;
+$input-border-color: $gray-400;
 $input-border-size: $border-thin;
 
 $input-focus-color: $gray-700;
-$input-focus-border-color: $gray-600;
+$input-focus-border-color: $gray-500;
 
-$input-hover-border-color: $gray-600;
+$input-hover-border-color: $gray-500;
 
-$input-addon-color: $gray-600;
+$input-addon-color: $gray-700;
 $input-addon-background-color: $gray-100;
 $input-addon-min-width: 40px;
 
 /* Disabled state */
 $input-color-disabled: $gray-600;
-$input-border-disabled: $gray-500;
+$input-border-disabled: $gray-300;
 $input-bg-disabled: $gray-200;
 
 /* Small */
@@ -502,21 +502,25 @@ $custom-control-indicator-size: 1rem !default;
 $custom-control-indicator-bg: $white-color !default;
 $custom-control-indicator-bg-size: 50% 50% !default;
 $custom-control-indicator-border-size: $border-thin;
-$custom-control-indicator-border-color: $gray-500;
+$custom-control-indicator-border-color: $input-border-color;
 
 /* Description */
 $custom-control-description-disabled-color: lighten($input-label-color, 25%) !default;
 
 /* Disabled state */
-$custom-control-indicator-disabled-bg: $gray-200 !default;
-$custom-control-indicator-disabled-color: $gray-500;
-$custom-control-indicator-disabled-border-color: $gray-500;
+$custom-control-indicator-disabled-bg: $input-bg-disabled !default;
+$custom-control-indicator-disabled-color: $input-color-disabled;
+$custom-control-indicator-disabled-border-color: $input-border-disabled;
 
 /* Checkbox */
 $custom-checkbox-indicator-border-radius: $border-radius-sm;
+$custom-checkbox-indicator-disabled-checked-color: lighten($input-color-disabled, 15%) !default;
+$custom-checkbox-indicator-disabled-icon-checked: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$custom-checkbox-indicator-disabled-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 /* Radio */
 $custom-radio-indicator-border-radius: $border-radius-50;
+$custom-radio-indicator-disabled-checked-color: lighten($input-color-disabled, 15%) !default;
+$custom-radio-indicator-disabled-icon-checked: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='#{$custom-radio-indicator-disabled-checked-color}'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 /* Select */
 $custom-select-line-height: $btn-line-height;
@@ -528,8 +532,8 @@ $custom-select-border-color: $input-border-color;
 $custom-select-indicator-padding: 1rem !default; // Extra padding to account for the presence of the background-image based indicator
 
 /* File input */
-$custom-file-button-bg: $gray-100 !default;
-$custom-file-button-focus-bg: $gray-200 !default;
+$custom-file-button-bg: $gray-200 !default;
+$custom-file-button-focus-bg: $gray-300 !default;
 
 /* Custom toggle switch */
 $custom-toggle-width: 50px;
@@ -552,7 +556,7 @@ $custom-toggle-knob-active-width: 26px;
 // POPOVERS
 //----------------------------------*/
 $popover-header-font-size: 14px !default;
-$popover-header-color:  $gray-700 !default;
+$popover-header-color: $gray-700 !default;
 $popover-font-size: 13px !default;
 $popover-max-width: 276px;
 $popover-border-radius: $border-radius-md;
@@ -669,12 +673,11 @@ $nav-tabs-boxed-bg: $gray-200 !default;
 $nav-tabs-boxed-spacing: 8px !default;
 
 /* Tabs Extended - Vertical */
-$nav-tabs-v-width:180px !default;
+$nav-tabs-v-width: 180px !default;
 $nav-tabs-v-right-line-active-border-width: 2px !default;
 
 /* Tabs Extended - Vertical */
 $nav-tabs-v-wrap-active-border-width: 1px !default;
-
 
 /* Pills */
 
@@ -702,23 +705,19 @@ $modal-body-padding: 15px 25px !default;
 $modal-header-padding: 10px 25px !default;
 $modal-footer-padding: 15px 25px !default;
 
-
-
 //----------------------------------*\
 // CAROUSEL
 //----------------------------------*/
 $carousel-control-icon-width: 40px !default;
 $carousel-control-icon-font-size: 1.5rem;
-$carousel-control-icon-bg: rgba(0,0,0,.0);
-$carousel-control-next-icon:'\e606';
-$carousel-control-prev-icon:'\e605';
+$carousel-control-icon-bg: rgba(0, 0, 0, .0);
+$carousel-control-next-icon: '\e606';
+$carousel-control-prev-icon: '\e605';
 $carousel-control-prev-icon-text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
 $carousel-control-border-size: $border-thin;
-$carousel-control-border-color:$white-color !default;
+$carousel-control-border-color: $white-color !default;
 
-$carousel-indicator-light-active-bg:$black-color !default;
-
-
+$carousel-indicator-light-active-bg: $black-color !default;
 
 //----------------------------------*\
 // PAGINATION
@@ -788,11 +787,11 @@ $pagination-extended-inner-lg: ($pagination-font-size-lg * $pagination-line-heig
 $pagination-extended-size-lg: calc(#{$pagination-extended-inner-lg} + #{$pagination-extended-border-width-lg}) !default;
 
 /* Extended - Wizard */
-$pagination-wizard-bg:$gray-300 !default;
-$pagination-wizard-color:$gray-600 !default;
+$pagination-wizard-bg: $gray-300 !default;
+$pagination-wizard-color: $gray-600 !default;
 
 $pagination-wizard-hover-bg: $gray-400 !default;
-$pagination-wizard-hover-color:$gray-700 !default;
+$pagination-wizard-hover-color: $gray-700 !default;
 
 $pagination-wizard-disabled-color: $gray-300 !default;
 $pagination-wizard-disabled-bg: $gray-200 !default;
@@ -801,11 +800,10 @@ $pagination-wizard-disabled-bg: $gray-200 !default;
 $pagination-border-round-width: 3px;
 
 /* Extended - indicator */
-$pagination-extended-indicator-bg:  $gray-200 !default;
+$pagination-extended-indicator-bg: $gray-200 !default;
 $pagination-extended-indicator-hover-bg: $gray-400 !default;
 $pagination-extended-indicator-size: 15px;
 $pagination-extended-indicator-margin-x: 4px;
-
 
 //----------------------------------*\
 // OVERLAY
@@ -828,7 +826,7 @@ $progress-border-radius: $border-radius-xxl;
 $progress-sm-height: 0.25rem !default;
 
 /* Regular */
-$progress-height:  0.5rem !default;
+$progress-height: 0.5rem !default;
 
 /* Large */
 $progress-lg-height: 0.75rem !default;
@@ -878,7 +876,7 @@ $badge-size: calc(#{$badge-inner}) !default;
 //----------------------------------*\
 // TOOLTIPS
 //----------------------------------*/
-$tooltip-background-color:  $gray-900 !default;
+$tooltip-background-color: $gray-900 !default;
 $tooltip-font-color: $white-color !default;
 $tooltip-padding-y: 8px !default;
 $tooltip-padding-x: 10px !default;
@@ -992,7 +990,6 @@ $a-tags: '&:hover,
   &:not([disabled]):not(.disabled).active,
   &:not([disabled]):not(.disabled):active:focus,
   &:not([disabled]):not(.disabled).active:focus';
-
 
 $disabled-tags: '&.disabled,
 &.disabled:focus,

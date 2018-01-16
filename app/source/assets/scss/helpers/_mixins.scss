@@ -1051,8 +1051,8 @@ Usage @include opacity(1);
 
 /* Form control  disabled state. */
 @mixin form-control-disabled() {
-  &.disabled,
-  &[disabled],
+
+  #{$disabled-tags},
   &[readonly] {
     border-color: $input-border-disabled;
     background-color: $input-bg-disabled;

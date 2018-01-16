@@ -176,8 +176,10 @@ select.form-control-lg {
   }
 
   &:disabled {
+
     ~ .#{$cc}-label {
       color: $custom-control-description-disabled-color;
+      cursor: not-allowed;
 
       &::before {
         border-color: $custom-control-indicator-disabled-border-color;
@@ -229,7 +231,13 @@ select.form-control-lg {
     }
     &::after {
       //transform: scale(1.5,1.5);
-      background-size: 70% 70%;
+      background-size: 65% 65%;
+    }
+  }
+
+  .#{$cc}-input:disabled ~ .#{$cc}-label {
+    &::after {
+      background-image: $custom-checkbox-indicator-disabled-icon-checked;
     }
   }
 
@@ -253,6 +261,12 @@ select.form-control-lg {
   .#{$cc}-label::after {
     background-size: 0% 0%;
     transition: background-size 0.3s ease-in;
+  }
+
+  .#{$cc}-input:disabled ~ .#{$cc}-label {
+    &::after {
+      background-image: $custom-radio-indicator-disabled-icon-checked;
+    }
   }
 
   .#{$cc}-input:checked ~ .#{$cc}-label {
@@ -338,7 +352,7 @@ select.form-control-lg {
     border-color: $input-focus-border-color;
     box-shadow: none;
 
-    &:before {
+    &:after {
       background: $custom-file-button-focus-bg;
       border-color: $input-focus-border-color;
     }
@@ -357,6 +371,10 @@ select.form-control-lg {
     }
   }
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   &:disabled + .custom-file-label {
     border-color: $input-border-disabled;
     background-color: $input-bg-disabled;
@@ -368,9 +386,6 @@ select.form-control-lg {
       border-color: $input-border-disabled;
     }
 
-    &:hover {
-      cursor: not-allowed;
-    }
   }
 
 }
