@@ -6,11 +6,12 @@ posted: 2018-01-09
 ---
 
 <div class="container-fluid">
+
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Basic form</h5>
+                    <h5 class="card-title">Input Text</h5>
                     <div class="card__actions window ml-auto">
                         <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
                         <a href="#" class="card__actions-item" data-card="fullscreen"><i
@@ -20,79 +21,59 @@ posted: 2018-01-09
                 </div>
                 <div class="card-body">
                     <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.
-                            </small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                   placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlFile1">File input</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                        </div>
-
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Horizontal Form</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <form>
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <label for="inputNormal" class="col-sm-2 col-form-label text-right ">Normal input
+                                text</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                <small class="form-text text-muted">We'll never share your email with anyone
-                                    else.
-                                </small>
+                                <input type="text" class="form-control" id="inputNormal" placeholder="Normal">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                            <label for="inputIconic" class="col-sm-2 col-form-label text-right ">Iconic</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-10 offset-sm-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                    <label class="form-check-label" for="gridCheck1">
-                                        Remember me
-                                    </label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="icon-user"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="inputIconic" placeholder="Username">
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="inputIconic2"
+                                           placeholder="Password">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="icon-lock"></i></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-10 offset-sm-2">
-                                <button type="submit" class="btn btn-secondary">Sign in</button>
+                            <label for="inputNormal" class="col-sm-2 col-form-label text-right ">Seamless iconic</label>
+                            <div class="col-sm-10">
+                                <div class="input-group with-addon-icon-left mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="icon-user"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="inputIconic4" placeholder="Username">
+                                </div>
+
+                                <div class="input-group with-addon-icon-right">
+                                    <input type="password" class="form-control" id="inputIconic3"
+                                           placeholder="Password">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="icon-lock"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPassword5" class="col-sm-2 col-form-label text-right">Help text</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword5" placeholder="Password">
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                </small>
                             </div>
                         </div>
                     </form>
@@ -100,14 +81,13 @@ posted: 2018-01-09
 
                 </div>
             </div>
-
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Inline form</h5>
+                    <h5 class="card-title">Input Text Types</h5>
                     <div class="card__actions window ml-auto">
                         <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
                         <a href="#" class="card__actions-item" data-card="fullscreen"><i
@@ -116,31 +96,26 @@ posted: 2018-01-09
                     </div>
                 </div>
                 <div class="card-body">
-                    <form class="form-inline">
-                        <label class="sr-only" for="inlineFormInputName2">Name</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
-
-                        <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-
-                        <div class="input-group mb-2 mr-sm-2">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputEmail" class="col-sm-2 col-form-label text-right ">Email</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="email" value="bootstrap@example.com" placeholder="Email" id="inputEmail">
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
                         </div>
 
-                        <div class="form-check mb-2 mr-sm-2">
-                            <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-                            <label class="form-check-label" for="inlineFormCheck">
-                                Remember me
-                            </label>
+                        <div class="form-group row">
+                            <label for="inputURL" class="col-sm-2 col-form-label text-right ">URL</label>
+                            <div class="col-sm-10">
+                            <input class="form-control" type="url" value="https://getbootstrap.com" placeholder="URL" id="inputURL">                            </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
+
+
 </div>
