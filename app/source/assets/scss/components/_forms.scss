@@ -22,6 +22,7 @@
   line-height: $btn-line-height;
   background-color: $input-bg;
   color: $input-color;
+  height: $input-height;
 
   @include form-control-hover();
   @include form-control-focus();
@@ -121,6 +122,7 @@ form {
   padding: $btn-padding-y-sm $btn-padding-x-sm;
   font-size: $input-font-size-sm;
   line-height: $btn-line-height-sm;
+  height: $input-height-sm;
 }
 
 select.form-control-sm {
@@ -134,6 +136,7 @@ select.form-control-sm {
   padding: $btn-padding-y-lg $btn-padding-x-lg;
   font-size: $input-font-size-lg;
   line-height: $btn-line-height-lg;
+  height: $input-height-lg;
 }
 
 select.form-control-lg {

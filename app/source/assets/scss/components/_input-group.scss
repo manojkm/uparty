@@ -16,7 +16,7 @@
 .input-group {
   &[class*="with-addon-icon"] {
     .input-group-text {
-      background: transparent;
+      background:$white-color;
     }
   }
 
@@ -70,6 +70,7 @@
 
 /* Textual addons */
 .input-group-text {
+  @include transition;
   @include set-border-radius($input-border-radius);
   @include add-border($input-border-size, $input-border-color, all);
   padding: $btn-padding-y $btn-padding-x;
@@ -81,7 +82,10 @@
   background-color: $input-addon-background-color;
   min-width: $input-addon-min-width;
   text-align: center;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  height: $input-height;
 }
 
 /* Sizing options */
@@ -143,6 +147,8 @@
 .input-group-hover,
 .input-group-focus {
   .input-group-text {
+    @include transition;
     border-color: $input-focus-border-color;
+    color: $input-addon-hover-focus-color;
   }
 }
