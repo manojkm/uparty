@@ -1081,7 +1081,8 @@ Usage @include opacity(1);
   .custom-select {
     .was-validated &:#{$state},
     &.is-#{$state} {
-      border-color: $color;
+      border-color: rgba($color, .6);
+      background-color: rgba($color, .1);
       box-shadow: none;
 
       &:focus {
@@ -1135,20 +1136,24 @@ Usage @include opacity(1);
     .was-validated &:#{$state},
     &.is-#{$state} {
       ~ .custom-file-label {
-        border-color: $color;
+        border-color: rgba($color, .6);
         box-shadow: none;
         color: $color;
 
         &::after {
-          background-color: lighten($color, 40);
+          background-color: rgba($color, .1);
+          border-color: rgba($color, .6);
           color: $color;
-          border-color: $color;
         }
       }
 
       &:focus {
         ~ .custom-file-label {
           box-shadow: none;
+          border-color: $color;
+          &::after {
+            border-color: $color;
+          }
         }
       }
     }

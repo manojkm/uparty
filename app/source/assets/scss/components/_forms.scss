@@ -32,6 +32,10 @@
   }
 
   @include form-control-disabled();
+
+  &.input-round {
+    @include border-radius($input-radius-round);
+  }
 }
 
 //----------------------------------*\
@@ -87,6 +91,20 @@ form {
   padding-bottom: calc(#{$btn-padding-y-sm} + #{$input-border-size});
   font-size: $input-font-size-sm;
   line-height: $btn-line-height-sm;
+}
+
+//----------------------------------*\
+// REQUIRED FIELD LABEL
+//----------------------------------*/
+.required-field {
+
+    &::after {
+      margin: -.2em 0 0 .2em;
+      content: '*';
+      color: #db2828;
+      top: 0;
+      left: 100%;
+  }
 }
 
 //----------------------------------*\

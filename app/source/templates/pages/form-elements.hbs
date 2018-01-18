@@ -93,6 +93,22 @@ posted: 2018-01-09
                         </div>
 
                         <div class="form-group row">
+                            <label for="inputRequired" class="col-sm-2 col-form-label text-right required-field">Required</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputRequired" placeholder="Required"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputRound" class="col-sm-2 col-form-label text-right ">Rounded</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control input-round" id="inputRound"
+                                       placeholder="Rounded input">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="disabledTextInput" class="col-sm-2 col-form-label text-right ">Disabled</label>
                             <div class="col-sm-10">
                                 <input type="text" id="disabledTextInput" class="form-control"
@@ -141,17 +157,43 @@ posted: 2018-01-09
                         <div class="form-group row">
                             <label for="InputSizing" class="col-sm-2 col-form-label text-right ">Column sizing</label>
                             <div class="col-sm-10">
-                                <div class="form-row">
-                                    <div class="col-7">
-                                        <input type="text" class="form-control" placeholder="City">
+                                <div class="form-row mb-2">
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="4 Wide">
                                     </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="State">
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="4 Wide">
                                     </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Zip">
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="4 Wide">
                                     </div>
                                 </div>
+
+                                <div class="form-row mb-2">
+                                    <div class="col-2">
+                                        <input type="text" class="form-control" placeholder="2 Wide">
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" placeholder="8 Wide">
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="text" class="form-control" placeholder="2 Wide">
+                                    </div>
+                                </div>
+
+                                <div class="form-row mb-2">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="6 Wide">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" class="form-control" placeholder="3 Wide">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" class="form-control" placeholder="3 Wide">
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
 
@@ -328,5 +370,83 @@ posted: 2018-01-09
         </div>
     </div>
 
-
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Input Text Masking</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">Date</label>
+                                <input class="form-control" data-mask="00/00/0000" placeholder="eg: 23/01/2018" autocomplete="off" maxlength="10" type="text">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">Time</label>
+                                <input class="form-control" data-mask="00:00:00" placeholder="eg: 23:06:55" autocomplete="off" maxlength="8" type="text">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">Date and time</label>
+                                <input class="form-control input-mask" data-mask="00/00/0000 00:00:00" placeholder="eg: 00/00/0000 00:00:00" autocomplete="off" maxlength="19" type="text">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">CEP</label>
+                                <input class="form-control input-mask" data-mask="00000-000" placeholder="eg: 00000-000" autocomplete="off" maxlength="9" type="text">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">Phone number</label>
+                                <input class="form-control input-mask" data-mask="000-00-0000000" placeholder="eg: 000-00-0000000" autocomplete="off" maxlength="14" type="text">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">Phone with odd</label>
+                                <input class="form-control input-mask" data-mask="(00) 0000-0000" placeholder="eg: (00) 0000-0000" autocomplete="off" maxlength="14" type="text">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">US phone number</label>
+                                <input class="form-control input-mask" data-mask="(000) 000-0000" placeholder="eg: (000) 000-0000" autocomplete="off" maxlength="14" type="text">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">CPF</label>
+                                <input class="form-control input-mask" data-mask="000.000.000-00" placeholder="eg: 000.000.000-00" autocomplete="off" maxlength="14" type="text">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">Money</label>
+                                <input class="form-control input-mask" data-mask="000.000.000.000.000,00" placeholder="eg: 000.000.000.000.000,00" autocomplete="off" maxlength="22" type="text">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">IP address</label>
+                                <input class="form-control input-mask" data-mask="000.000.000.000" placeholder="eg: 000.000.000.000" autocomplete="off" maxlength="15" type="text">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">Percentage</label>
+                                <input class="form-control input-mask" data-mask="00000,00%" placeholder="eg: 00000,00%" autocomplete="off" maxlength="9" type="text">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-sm">Credit card</label>
+                                <input class="form-control input-mask" data-mask="0000 0000 0000 0000" placeholder="eg: 0000 0000 0000 0000" autocomplete="off" maxlength="19" type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
