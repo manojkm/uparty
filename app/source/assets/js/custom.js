@@ -16,6 +16,7 @@ var appMaster = {
     _overlay: $('.overlay'),
     _tooltip: $("[data-toggle='tooltip']"),
     _popover: $("[data-toggle='popover']"),
+    _textarea_counter: $("[data-toggle='counter']"),
     _formctrl: $('.form-control'),
     _card_close: $("[data-card='close']"),
     _card_collapse: $("[data-card='collapse']"),
@@ -244,6 +245,18 @@ var appMaster = {
         });
     },
 
+    textarea_counter: function () {
+        $(appMaster._textarea_counter).keyup(function () {
+            var a = 125,
+                b = $(this).val().length;
+            if (b >= a) $(".character-remaining").text(" You have reached the limit");
+            else {
+                var c = a - b;
+                $(".character-remaining").text(c + " characters left")
+            }
+        });
+    },
+
     input_group_focus: function () {
 
         $(appMaster._formctrl).on('mouseover', function () {
@@ -264,10 +277,18 @@ var Pluggin = {
     metismenu: function metismenu(element) {
         if ($.fn.metisMenu) {
             $(element).metisMenu();
+
         } else {
-            throw new Error('First install metisMenu plugin! https://github.com/onokumus/metisMenu');
+            throw new Error('Please install metisMenu plugin! https://github.com/onokumus/metisMenu');
         }
-    }
+    },
+    autosize: function(element) {
+        if (window.autosize !== undefined) {
+            autosize($(element));
+        } else {
+            throw new Error('Please install autosize plugin! http://www.jacklmoore.com/autosize/');
+        }
+    },
 
 };
 
@@ -294,6 +315,7 @@ $(document).ready(function () {
     appMaster.popover();
     appMaster.input_group_focus();
     appMaster.card();
+    appMaster.textarea_counter();
 });
 
 

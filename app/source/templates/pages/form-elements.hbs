@@ -116,6 +116,18 @@ posted: 2018-01-09
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="inputPopover" class="col-sm-2 col-form-label text-right ">Popover input</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="inputPopover" class="form-control"
+                                       placeholder="Input focus trigger popover" data-container="body"
+                                       data-toggle="popover" data-trigger="focus" data-placement="right"
+                                       data-content="And here's some amazing content. <b>It's very engaging</b>. Right?"
+                                       data-original-title="Popover">
+
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="inputReadonly" class="col-sm-2 col-form-label text-right ">Readonly</label>
@@ -192,14 +204,9 @@ posted: 2018-01-09
                                         <input type="text" class="form-control" placeholder="3 Wide">
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
-
                     </form>
-
-
                 </div>
             </div>
         </div>
@@ -387,64 +394,233 @@ posted: 2018-01-09
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">Date</label>
-                                <input class="form-control" data-mask="00/00/0000" placeholder="eg: 23/01/2018" autocomplete="off" maxlength="10" type="text">
+                                <input class="form-control" data-mask="00/00/0000" placeholder="eg: 23/01/2018"
+                                       autocomplete="off" maxlength="10" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">Time</label>
-                                <input class="form-control" data-mask="00:00:00" placeholder="eg: 23:06:55" autocomplete="off" maxlength="8" type="text">
+                                <input class="form-control" data-mask="00:00:00" placeholder="eg: 23:06:55"
+                                       autocomplete="off" maxlength="8" type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">Date and time</label>
-                                <input class="form-control input-mask" data-mask="00/00/0000 00:00:00" placeholder="eg: 00/00/0000 00:00:00" autocomplete="off" maxlength="19" type="text">
+                                <input class="form-control" data-mask="00/00/0000 00:00:00"
+                                       placeholder="eg: 00/00/0000 00:00:00" autocomplete="off" maxlength="19"
+                                       type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">CEP</label>
-                                <input class="form-control input-mask" data-mask="00000-000" placeholder="eg: 00000-000" autocomplete="off" maxlength="9" type="text">
+                                <input class="form-control" data-mask="00000-000" placeholder="eg: 00000-000"
+                                       autocomplete="off" maxlength="9" type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">Phone number</label>
-                                <input class="form-control input-mask" data-mask="000-00-0000000" placeholder="eg: 000-00-0000000" autocomplete="off" maxlength="14" type="text">
+                                <input class="form-control" data-mask="000-00-0000000"
+                                       placeholder="eg: 000-00-0000000" autocomplete="off" maxlength="14" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">Phone with odd</label>
-                                <input class="form-control input-mask" data-mask="(00) 0000-0000" placeholder="eg: (00) 0000-0000" autocomplete="off" maxlength="14" type="text">
+                                <input class="form-control" data-mask="(00) 0000-0000"
+                                       placeholder="eg: (00) 0000-0000" autocomplete="off" maxlength="14" type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">US phone number</label>
-                                <input class="form-control input-mask" data-mask="(000) 000-0000" placeholder="eg: (000) 000-0000" autocomplete="off" maxlength="14" type="text">
+                                <input class="form-control" data-mask="(000) 000-0000"
+                                       placeholder="eg: (000) 000-0000" autocomplete="off" maxlength="14" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">CPF</label>
-                                <input class="form-control input-mask" data-mask="000.000.000-00" placeholder="eg: 000.000.000-00" autocomplete="off" maxlength="14" type="text">
+                                <input class="form-control" data-mask="000.000.000-00"
+                                       placeholder="eg: 000.000.000-00" autocomplete="off" maxlength="14" type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">Money</label>
-                                <input class="form-control input-mask" data-mask="000.000.000.000.000,00" placeholder="eg: 000.000.000.000.000,00" autocomplete="off" maxlength="22" type="text">
+                                <input class="form-control" data-mask="000.000.000.000.000,00"
+                                       placeholder="eg: 000.000.000.000.000,00" autocomplete="off" maxlength="22"
+                                       type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">IP address</label>
-                                <input class="form-control input-mask" data-mask="000.000.000.000" placeholder="eg: 000.000.000.000" autocomplete="off" maxlength="15" type="text">
+                                <input class="form-control" data-mask="000.000.000.000"
+                                       placeholder="eg: 000.000.000.000" autocomplete="off" maxlength="15" type="text">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">Percentage</label>
-                                <input class="form-control input-mask" data-mask="00000,00%" placeholder="eg: 00000,00%" autocomplete="off" maxlength="9" type="text">
+                                <input class="form-control" data-mask="00000,00%" placeholder="eg: 00000,00%"
+                                       autocomplete="off" maxlength="9" type="text">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-sm">Credit card</label>
-                                <input class="form-control input-mask" data-mask="0000 0000 0000 0000" placeholder="eg: 0000 0000 0000 0000" autocomplete="off" maxlength="19" type="text">
+                                <input class="form-control" data-mask="0000 0000 0000 0000"
+                                       placeholder="eg: 0000 0000 0000 0000" autocomplete="off" maxlength="19"
+                                       type="text">
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Textarea</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="textareaNormal">Normal</label>
+                            <textarea class="form-control" id="textareaNormal" rows="3"
+                                      placeholder="Let us type some lorem ipsum...."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textareaHeightAutosize">Height Auto Resize</label>
+                            <textarea class="form-control" id="textareaHeightAutosize" data-plugin="autosize"
+                                      placeholder="Start pressing Enter to see growing..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textareaNoResize">No resize</label>
+                            <textarea class="form-control textarea-no-resize" id="textareaNoResize" rows="3"
+                                      placeholder="Let us type some lorem ipsum...."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textareaCounter">Character counter</label>
+                            <textarea rows="3" class="form-control" data-toggle="counter" id="textareaCounter"
+                                      placeholder="Let us type some lorem ipsum...."></textarea>
+                            <small class="character-remaining">
+                                125 characters left
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textareaDisabled">Disabled</label>
+                            <textarea class="form-control" id="textareaDisabled" placeholder="Disabled textarea"
+                                      disabled></textarea>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Select</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="selectNormal" class="col-sm-2 col-form-label text-right">Select</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="selectNormal">
+                                    <option value="">Choose One</option>
+                                    <option value="1">California</option>
+                                    <option value="2">Virginia</option>
+                                    <option value="3">Texas</option>
+                                    <option value="4">Florida</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="selectMultiple" class="col-sm-2 col-form-label text-right">Multiple
+                                select</label>
+                            <div class="col-sm-10">
+                                <select multiple class="form-control" id="selectMultiple">
+                                    <option value="1">California</option>
+                                    <option value="2">Virginia</option>
+                                    <option value="3">Texas</option>
+                                    <option value="4">Florida</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="selectDisabled" class="col-sm-2 col-form-label text-right">Disabled</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="selectDisabled" disabled>
+                                    <option value="">Choose One</option>
+                                    <option value="1">California</option>
+                                    <option value="2">Virginia</option>
+                                    <option value="3">Texas</option>
+                                    <option value="4">Florida</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="selectSizingSmall"
+                                   class="col-sm-2 col-form-label col-form-label-sm text-right ">Sizing</label>
+                            <div class="col-sm-10">
+                                <select class="form-control form-control-sm" id="selectSizingSmall">
+                                    <option value="">Choose One</option>
+                                    <option value="1">California</option>
+                                    <option value="2">Virginia</option>
+                                    <option value="3">Texas</option>
+                                    <option value="4">Florida</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="selectSizing" class="col-sm-2 col-form-label text-right ">Sizing</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="selectSizing">
+                                    <option value="">Choose One</option>
+                                    <option value="1">California</option>
+                                    <option value="2">Virginia</option>
+                                    <option value="3">Texas</option>
+                                    <option value="4">Florida</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="selectSizingSmallLarge"
+                                   class="col-sm-2 col-form-label col-form-label-lg text-right ">Sizing</label>
+                            <div class="col-sm-10">
+                                <select class="form-control form-control-lg" id="selectSizingSmallLarge">
+                                    <option value="">Choose One</option>
+                                    <option value="1">California</option>
+                                    <option value="2">Virginia</option>
+                                    <option value="3">Texas</option>
+                                    <option value="4">Florida</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </form>
+
                 </div>
             </div>
         </div>

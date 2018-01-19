@@ -38,6 +38,17 @@
   }
 }
 
+
+//----------------------------------*\
+// TEXTAREA
+//----------------------------------*/
+textarea.form-control {
+  height: auto;
+}
+textarea.textarea-no-resize {
+  resize: none;
+}
+
 //----------------------------------*\
 // SELECT
 //----------------------------------*/
@@ -46,8 +57,12 @@ select.form-control {
   &:not([size]):not([multiple]) {
     height: $input-height;
   }
+
   &:hover {
     cursor: pointer;
+  }
+  &[multiple]{
+    height: auto;
   }
 
   &:focus::-ms-value {

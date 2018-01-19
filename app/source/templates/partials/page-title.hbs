@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="content__page-title">
+            <div {{#is page.title "Basic Form Elements"}} class="content__page-title text-center" {{ else }} class="content__page-title" {{/is}}>
                 <h3 class="mb-0">{{ page.title }}
                     <small class="text-muted font-italic h6">{{ page.subtitle }}</small>
                 </h3>
