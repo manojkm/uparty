@@ -82,6 +82,12 @@
 .custom-checkbox {
   $cc: custom-control;
 
+  &.rounded{
+    .#{$cc}-label::before {
+      @include set-border-radius($custom-checkbox-rounded-indicator-border-radius);
+    }
+  }
+
   .#{$cc}-label::before {
     @include set-border-radius($custom-checkbox-indicator-border-radius);
   }
