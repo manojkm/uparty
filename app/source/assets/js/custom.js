@@ -282,6 +282,14 @@ var Pluggin = {
             throw new Error('Please install metisMenu plugin! https://github.com/onokumus/metisMenu');
         }
     },
+    chosen: function chosen(element) {
+        if ($.fn.chosen) {
+            $(element).chosen({width: "100%"});
+
+        } else {
+            throw new Error('Please install Chosen plugin! https://github.com/harvesthq/chosen');
+        }
+    },
     autosize: function(element) {
         if (window.autosize !== undefined) {
             autosize($(element));

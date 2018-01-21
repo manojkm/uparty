@@ -568,6 +568,40 @@ posted: 2018-01-09
                                         <option>Toilet Paper</option>
                                     </optgroup>
                                 </select>
+
+                                <select data-placeholder="Your Favorite Type of Bear" data-plugin="chosen"  tabindex="7">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option selected>Sloth Bear</option>
+                                    <option disabled>Sun Bear</option>
+                                    <option>Polar Bear</option>
+                                    <option disabled>Spectacled Bear</option>
+                                </select>
+
+                                <select name="" multiple data-placeholder="Click to see available options..."  data-plugin="chosen" class="form-control">
+                                    <optgroup label="Option group 1">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                    </optgroup>
+                                    <optgroup label="Option group 2">
+                                        <option>Option 5</option>
+                                        <option>Option 6</option>
+                                        <option>Option 7</option>
+                                        <option>Option 8</option>
+                                    </optgroup>
+                                    <optgroup label="Option group 3">
+                                        <option>Option 9</option>
+                                        <option>Option 10</option>
+                                        <option>Option 11</option>
+                                        <option>Option 12</option>
+                                    </optgroup>
+                                </select>
+
                             </div>
                         </div>
 
@@ -860,7 +894,7 @@ posted: 2018-01-09
                                     <input class="form-check-input" type="radio" name="exampleRadios2"
                                            id="exampleRadios4" value="" disabled checked>
                                     <label class="form-check-label" for="exampleRadios4">
-                                        Checked and disabled
+                                        Checked + disabled
                                     </label>
                                 </div>
 
@@ -884,7 +918,7 @@ posted: 2018-01-09
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
                                            id="inlineRadio4" value="option4" disabled checked>
-                                    <label class="form-check-label" for="inlineRadio4"> Checked and disabled</label>
+                                    <label class="form-check-label" for="inlineRadio4"> Checked + disabled</label>
                                 </div>
 
 
@@ -894,7 +928,7 @@ posted: 2018-01-09
 
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio1" name="customRadio"
-                                           class="custom-control-input" >
+                                           class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio1">Pizza</label>
                                 </div>
                                 <div class="custom-control custom-radio">
@@ -910,12 +944,12 @@ posted: 2018-01-09
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio4" name="customRadio2"
                                            class="custom-control-input" disabled checked>
-                                    <label class="custom-control-label" for="customRadio2">Checked and disabled</label>
+                                    <label class="custom-control-label" for="customRadio2">Checked + disabled</label>
                                 </div>
                                 <label class="col-form-label mt-4">Custom Inline</label><br>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="customRadioInline1" name="customRadioInline1"
-                                           class="custom-control-input" >
+                                           class="custom-control-input">
                                     <label class="custom-control-label" for="customRadioInline1">Pizza</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
@@ -956,44 +990,570 @@ posted: 2018-01-09
                         <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
                     </div>
                 </div>
-                <div class="card-body"><div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">@</span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputGroupPrepended" class="col-sm-2 col-form-label text-right ">Prepended
+                                text</label>
+                            <div class="col-sm-10">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                           aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              id="basic-addon3">https://example.com/users/</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="basic-url"
+                                           aria-describedby="basic-addon3">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputGroupAppended" class="col-sm-2 col-form-label text-right ">Appended
+                                text</label>
+                            <div class="col-sm-10">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Recipient's username"
+                                           aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">@example.com</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Minimum"
+                                                   aria-label="Minimum">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Units</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-1  text-center">
+                                        <label for="selectSizingSmall" class="col-form-label">To</label>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Maximum"
+                                                   aria-label="Maximum">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Units</span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputGroupAppendedAndPrepended" class="col-sm-2 col-form-label text-right ">Appended
+                                + Prepended</label>
+                            <div class="col-sm-10">
+                                <label class="col-form-label col-form-label-sm">Cost</label>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="input-group ">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Minumum"
+                                                   aria-label="Amount (to the nearest dollar)">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-1  text-center">
+                                        <label for="selectSizingSmall" class="col-form-label">To</label>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="input-group ">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Maximum"
+                                                   aria-label="Amount (to the nearest dollar)">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="inputGroupTextarea"
+                                   class="col-sm-2 col-form-label text-right ">Textarea </label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">With textarea</span>
+                                    </div>
+                                    <textarea class="form-control" rows="3" aria-label="With textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputGroupCheckboxes"
+                                   class="col-sm-2 col-form-label text-right ">Checkboxes</label>
+                            <div class="col-sm-10">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" aria-label="Checkbox for following text input">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck11"
+                                                       checked>
+                                                <label class="custom-control-label" for="customCheck11">Is happy</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputGroupRadios" class="col-sm-2 col-form-label text-right ">Radios</label>
+                            <div class="col-sm-10">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Text input with radio button">
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="customRadio11" name="customRadio"
+                                                       class="custom-control-input" checked>
+                                                <label class="custom-control-label" for="customRadio11">Mr.</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="customRadio12" name="customRadio"
+                                                       class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadio12">Mrs.</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Name"
+                                           aria-label="Text input with radio button">
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputGroupMultipleInputs" class="col-sm-2 col-form-label text-right">Multiple
+                                inputs</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">First and last name</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="First name">
+                                    <input type="text" class="form-control" placeholder="Last name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputGroupMultipleAddons" class="col-sm-2 col-form-label text-right ">Multiple
+                                addons</label>
+                            <div class="col-sm-10">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Discounted price"
+                                           aria-label="Amount (to the nearest dollar)">
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Discounted price"
+                                           aria-label="Amount (to the nearest dollar)">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputGroupButtonAddons" class="col-sm-2 col-form-label text-right">Button
+                                addons</label>
+                            <div class="col-sm-10">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-secondary" type="button">GO</button>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Search for.." aria-label=""
+                                           aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                           aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa fa-check"></i>Save
+                                        </button>
+                                        {{!--<button class="btn btn-secondary" type="button">Save</button>--}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputGroupButtonAddons" class="col-sm-2 col-form-label text-right">Multiple
+                                Button</label>
+                            <div class="col-sm-10">
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-primary" type="button"><i class="fa fa-bold"></i>
+                                        </button>
+                                        <button class="btn btn-secondary" type="button"><i class="fa fa-italic"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="" aria-label=""
+                                           aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                           aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button"><i class="fa fa-edit"></i>Edit
+                                        </button>
+                                        <button class="btn btn-secondary" type="button"><i class="fa fa-check"></i>Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputGroupButtonAddons" class="col-sm-2 col-form-label text-right">Buttons with
+                                dropdowns</label>
+                            <div class="col-sm-10">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-primary dropdown-toggle" type="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-navicon"></i>
+                                        </button>
+                                        <div class="dropdown-menu extended">
+                                            <a class="dropdown-item" href="#">Insert table</a>
+                                            <a class="dropdown-item" href="#">Add row above</a>
+                                            <a class="dropdown-item" href="#">Add row below</a>
+                                            <div role="separator" class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Delete</a>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                           aria-label="Text input with dropdown button">
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control"
+                                           aria-label="Text input with dropdown button">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-navicon"></i>
+                                        </button>
+                                        <div class="dropdown-menu extended">
+                                            <a class="dropdown-item" href="#">Insert table</a>
+                                            <a class="dropdown-item" href="#">Add row above</a>
+                                            <a class="dropdown-item" href="#">Add row below</a>
+                                            <div role="separator" class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputGroupButtonAddons" class="col-sm-2 col-form-label text-right">Sgemented
+                                buttons</label>
+                            <div class="col-sm-10">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button type="button" class="btn btn-outline-secondary">Action</button>
+                                        <button type="button"
+                                                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu extended">
+                                            <a class="dropdown-item" href="#">Insert table</a>
+                                            <a class="dropdown-item" href="#">Add row above</a>
+                                            <a class="dropdown-item" href="#">Add row below</a>
+                                            <div role="separator" class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Delete</a>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                           aria-label="Text input with segmented dropdown button">
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control"
+                                           aria-label="Text input with segmented dropdown button">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-outline-secondary">Action</button>
+                                        <button type="button"
+                                                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu extended">
+                                            <a class="dropdown-item" href="#">Insert table</a>
+                                            <a class="dropdown-item" href="#">Add row above</a>
+                                            <a class="dropdown-item" href="#">Add row below</a>
+                                            <div role="separator" class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputGroupButtonAddons" class="col-sm-2 col-form-label text-right">Custom
+                                select</label>
+                            <div class="col-sm-10">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option selected>Choose...</option>
+                                        <option value="1">California</option>
+                                        <option value="2">Virginia</option>
+                                        <option value="3">Texas</option>
+                                        <option value="4">Florida</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <select class="custom-select" id="inputGroupSelect02">
+                                        <option selected>Choose...</option>
+                                        <option value="1">California</option>
+                                        <option value="2">Virginia</option>
+                                        <option value="3">Texas</option>
+                                        <option value="4">Florida</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                                    </div>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-secondary" type="button">Button</button>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect03">
+                                        <option selected>Choose...</option>
+                                        <option value="1">California</option>
+                                        <option value="2">Virginia</option>
+                                        <option value="3">Texas</option>
+                                        <option value="4">Florida</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <select class="custom-select" id="inputGroupSelect04">
+                                        <option selected>Choose...</option>
+                                        <option value="1">California</option>
+                                        <option value="2">Virginia</option>
+                                        <option value="3">Texas</option>
+                                        <option value="4">Florida</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary" type="button">Button</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputGroupSizingSmall"
+                                   class="col-sm-2 col-form-label col-form-label-sm text-right ">Sizing</label>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Small"
+                                           aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputGroupSizingDefault"
+                                   class="col-sm-2 col-form-label text-right ">Sizing</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Default"
+                                           aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputGroupSizingLarge"
+                                   class="col-sm-2 col-form-label col-form-label-lg text-right ">Sizing</label>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Large"
+                                           aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">@example.com</span>
-                        </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">File browser</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
                     </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputGroupFileBasic" class="col-sm-2 col-form-label text-right ">Basic</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control-file" id="inputGroupFileBasic">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputGroupFileCustom" class="col-sm-2 col-form-label text-right ">Custom</label>
+                            <div class="col-sm-10">
 
-                    <label for="basic-url">Your vanity URL</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-                        </div>
-                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-                    </div>
+                                <div class="custom-file mb-3">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
 
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <div class="input-group-append">
-                            <span class="input-group-text">.00</span>
-                        </div>
-                    </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="icon-cloud-upload"></i></span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+                                </div>
 
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">With textarea</span>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="icon-cloud-upload"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile04">
+                                        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button"><i class="icon-cloud-upload"></i>
+                                            Upload
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
-                    </div></div>
+
+                        <div class="form-group row">
+                            <label for="inputGroupFileSizingSmall"
+                                   class="col-sm-2 col-form-label col-form-label-sm text-right ">Sizing</label>
+                            <div class="col-sm-10">
+                                <div class="custom-file custom-file-sm">
+                                    <input type="file" class="custom-file-input" id="customFile1">
+                                    <label class="custom-file-label" for="customFile1">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputGroupFileSizingDefault"
+                                   class="col-sm-2 col-form-label text-right ">Sizing</label>
+                            <div class="col-sm-10">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile2">
+                                    <label class="custom-file-label" for="customFile2">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputGroupFileSizingLarge"
+                                   class="col-sm-2 col-form-label col-form-label-lg text-right ">Sizing</label>
+                            <div class="col-sm-10">
+                                <div class="custom-file custom-file-lg">
+                                    <input type="file" class="custom-file-input" id="customFile3">
+                                    <label class="custom-file-label" for="customFile3">Choose file</label>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </div>
         </div>
     </div>

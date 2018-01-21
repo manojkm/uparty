@@ -450,11 +450,11 @@ $input-border-color: $gray-400;
 $input-border-size: $border-thin;
 
 $input-focus-color: $gray-700;
-$input-focus-border-color: $gray-500;
+$input-focus-border-color: $gray-600;
 
-$input-hover-border-color: $gray-500;
+$input-hover-border-color: $gray-600;
 
-$input-addon-color: $gray-500;
+$input-addon-color: $gray-700;
 $input-addon-hover-focus-color: $input-focus-color;
 $input-addon-background-color: $gray-100;
 $input-addon-min-width: 40px;
@@ -538,6 +538,11 @@ $custom-select-indicator-padding: 1rem !default; // Extra padding to account for
 /* File input */
 $custom-file-button-bg: $gray-200 !default;
 $custom-file-button-focus-bg: $gray-300 !default;
+
+$custom-file-text: (
+        en: "\f115   Browse"
+) !default;
+
 
 /* Custom toggle switch */
 $custom-toggle-width: 50px;

@@ -13,10 +13,11 @@
 //----------------------------------*/
 
 .custom-control {
-  min-height: (1rem * map-get-strict($font, line-height));
+  min-height: (1rem * $lh-base);
 
   .custom-control-label {
-    @include transition(color $general-transition-time $ease-in-out-circ)
+    @include transition(color $general-transition-time $ease-in-out-circ);
+    line-height: $lh-base;
   }
 
 }
@@ -258,6 +259,14 @@
       border-color: $input-border-disabled;
     }
 
+  }
+
+  @each $lang, $value in $custom-file-text {
+    &:lang(#{$lang}) ~ .custom-file-label::after {
+      //font-family: simple-line-icons, Arial;
+      font-family: 'FontAwesome', map-get-strict($font, font);
+      content: $value;
+    }
   }
 
 }
