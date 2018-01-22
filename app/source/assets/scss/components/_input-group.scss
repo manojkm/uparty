@@ -44,6 +44,12 @@
     }
   }
 
+  .custom-file {
+    &:not(:last-child) .custom-file-label,
+    &:not(:last-child) .custom-file-label::after { @include border-right-radius(0); }
+    &:not(:first-child) .custom-file-label,
+    &:not(:first-child) .custom-file-label::after { @include border-left-radius(0); }
+  }
 }
 
 /*  Prepend and append */
