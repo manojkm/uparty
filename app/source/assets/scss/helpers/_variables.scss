@@ -535,20 +535,16 @@ $custom-select-border-width: $input-border-size;
 $custom-select-border-color: $input-border-color;
 $custom-select-indicator-padding: 1rem !default; // Extra padding to account for the presence of the background-image based indicator
 
-$custom-select-indicator-color:     $gray-800 !default;
-$custom-select-padding-x:          .75rem !default;
-$custom-select-bg-size:             8px 10px !default; // In pixels because image dimensions
-$custom-select-indicator:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default
-
-
-/* File input */
+$custom-select-indicator-color: $gray-800 !default;
+$custom-select-padding-x: .75rem !default;
+$custom-select-bg-size: 8px 10px !default; // In pixels because image dimensions
+$custom-select-indicator: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default/* File input */
 $custom-file-button-bg: $gray-200 !default;
 $custom-file-button-focus-bg: $gray-300 !default;
 
 $custom-file-text: (
         en: "\f115   Browse"
 ) !default;
-
 
 /* Custom toggle switch */
 $custom-toggle-width: 50px;
@@ -566,6 +562,13 @@ $custom-toggle-knob-height: 20px;
 $custom-toggle-knob-background: $white-color;
 $custom-toggle-knob-border-radius: 100px;
 $custom-toggle-knob-active-width: 26px;
+
+
+//----------------------------------*\
+// CHOSEN SELECT
+//----------------------------------*/
+$chosen-search-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M3.5 0c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c.59 0 1.17-.14 1.66-.41a1 1 0 0 0 .13.13l1 1a1.02 1.02 0 1 0 1.44-1.44l-1-1a1 1 0 0 0-.16-.13c.27-.49.44-1.06.44-1.66 0-1.93-1.57-3.5-3.5-3.5zm0 1c1.39 0 2.5 1.11 2.5 2.5 0 .66-.24 1.27-.66 1.72-.01.01-.02.02-.03.03a1 1 0 0 0-.13.13c-.44.4-1.04.63-1.69.63-1.39 0-2.5-1.11-2.5-2.5s1.11-2.5 2.5-2.5z'/%3E%3C/svg%3E"), "#", "%23") !default/* File input */
+
 
 //----------------------------------*\
 // POPOVERS
@@ -924,6 +927,7 @@ $zindex: (
         aside : 850,
         header : 860,
         dropdown : 1000,
+        chosen-drop:1010,
         modal-backdrop:1040,
         modal : 1050,
         popover: 1060,
