@@ -284,7 +284,19 @@ var Pluggin = {
     },
     chosen: function chosen(element) {
         if ($.fn.chosen) {
-            $(element).chosen({width: "100%"});
+            // $(element).chosen({width: "100%"});
+
+            var config = {
+                '.chosen-select'           : {width: '100%'},
+                '.chosen-select-deselect'  : { allow_single_deselect: true, width: '100%' },
+                '.chosen-select-no-single' : { disable_search_threshold: 10 },
+                '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+                '.chosen-select-rtl'       : { rtl: true },
+                '.chosen-select-width'     : { width: '95%' }
+            };
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
 
         } else {
             throw new Error('Please install Chosen plugin! https://github.com/harvesthq/chosen');

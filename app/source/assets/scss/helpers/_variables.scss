@@ -535,6 +535,12 @@ $custom-select-border-width: $input-border-size;
 $custom-select-border-color: $input-border-color;
 $custom-select-indicator-padding: 1rem !default; // Extra padding to account for the presence of the background-image based indicator
 
+$custom-select-indicator-color:     $gray-800 !default;
+$custom-select-padding-x:          .75rem !default;
+$custom-select-bg-size:             8px 10px !default; // In pixels because image dimensions
+$custom-select-indicator:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default
+
+
 /* File input */
 $custom-file-button-bg: $gray-200 !default;
 $custom-file-button-focus-bg: $gray-300 !default;

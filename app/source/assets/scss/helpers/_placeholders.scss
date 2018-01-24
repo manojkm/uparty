@@ -76,3 +76,23 @@
   left: 100%;
   z-index: 3;
 }
+
+//----------------------------------*\
+// CHOSEN SELECT BOX PSEUDO
+//----------------------------------*/
+%chosen-close-pseudo {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  content: "\f00d";
+  font-size:15px;
+  speak: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: $gray-600;
+
+  /* Flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

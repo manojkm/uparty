@@ -569,7 +569,8 @@ posted: 2018-01-09
                                     </optgroup>
                                 </select>
 
-                                <select data-placeholder="Your Favorite Type of Bear" data-plugin="chosen" tabindex="7">
+                                <p>Standard Select</p>
+                                <select data-placeholder="Your Favorite Type of Bear" data-plugin="chosen" tabindex="7" class="chosen-select">
                                     <option value=""></option>
                                     <option>American Black Bear</option>
                                     <option>Asiatic Black Bear</option>
@@ -580,9 +581,10 @@ posted: 2018-01-09
                                     <option>Polar Bear</option>
                                     <option disabled>Spectacled Bear</option>
                                 </select>
+                                <p>Multiple Select</p>
 
                                 <select name="" multiple data-placeholder="Click to see available options..."
-                                        data-plugin="chosen" class="form-control">
+                                        data-plugin="chosen" class="form-control chosen-select">
                                     <optgroup label="Option group 1">
                                         <option>Option 1</option>
                                         <option>Option 2</option>
@@ -601,6 +603,20 @@ posted: 2018-01-09
                                         <option>Option 11</option>
                                         <option>Option 12</option>
                                     </optgroup>
+                                </select>
+
+
+                                <p>Allow Deselect on Single Selects</p>
+                                <select data-placeholder="Your Favorite Type of Bear" data-plugin="chosen" class="chosen-select-deselect" tabindex="12">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option selected>Sloth Bear</option>
+                                    <option>Sun Bear</option>
+                                    <option>Polar Bear</option>
+                                    <option>Spectacled Bear</option>
                                 </select>
 
                             </div>
