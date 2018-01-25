@@ -59,6 +59,25 @@
 }
 
 //----------------------------------*\
+// DROPZONE PSEUDO
+//----------------------------------*/
+%dropzone-pseudo {
+  //@include center(y);
+  font-family: 'simple-line-icons';
+  font-style: normal;
+  content: $dropzone-message-icon;
+  font-size: $dropzone-message-icon-font-size;
+  speak: none;
+  width: 100%;
+  /* Flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+//----------------------------------*\
 // BREADCRUMB EXTENDED ARROW PSEUDO
 //----------------------------------*/
 %abreadcrumb-ext-arrow-pseudo {

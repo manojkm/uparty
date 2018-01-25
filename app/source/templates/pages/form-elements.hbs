@@ -646,6 +646,28 @@ posted: 2018-01-09
                                     <option>Spectacled Bear</option>
                                 </select>
 
+
+                                <p>Right-to-Left Support</p>
+                                <select data-placeholder="Your Favorite Type of Bear" class="chosen-select-rtl" tabindex="13">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option selected>Sloth Bear</option>
+                                    <option>Polar Bear</option>
+                                </select>
+                                <p></p>
+                                <select data-placeholder="Your Favorite Types of Bear" multiple class="chosen-select-rtl" tabindex="14">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option selected>Sloth Bear</option>
+                                    <option selected>Polar Bear</option>
+                                </select>
+
                             </div>
                         </div>
 
@@ -881,7 +903,7 @@ posted: 2018-01-09
                                 <div class="custom-control custom-checkbox custom-control-inline">
                                     <input type="checkbox" class="custom-control-input" id="customCheckboxInline4"
                                            disabled checked>
-                                    <label class="custom-control-label" for="customCheckboxInline4">Pasta</label>
+                                    <label class="custom-control-label" for="customCheckboxInline4">Tacos</label>
                                 </div>
 
                             </div>
@@ -1503,7 +1525,7 @@ posted: 2018-01-09
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">File browser</h5>
+                    <h5 class="card-title">File upload</h5>
                     <div class="card__actions window ml-auto">
                         <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
                         <a href="#" class="card__actions-item" data-card="fullscreen"><i
@@ -1591,12 +1613,196 @@ posted: 2018-01-09
                                     <input type="file" class="custom-file-input" id="customFile3">
                                     <label class="custom-file-label" for="customFile3">Choose file</label>
                                 </div>
-
-
                             </div>
                         </div>
 
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Drag and drop file upload</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">DropzoneJS is an open source library that provides drag'n'drop file uploads with image previews.</p>
+                        <form action="/file-upload" class="dropzone">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Toggle Switch</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <p class="small">Normal state</p>
+                            <fieldset>
+                                <label class="custom-control custom-toggle custom-toggle-primary my-2">
+                                    <input class="custom-control-input" required="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Pizza</span>
+                                </label>
+                            </fieldset>
+
+                        </div>
+                        <div class="form-group col-md-3">
+                            <p class="small">Checked state</p>
+                            <fieldset>
+                                <label class="custom-control custom-toggle custom-toggle-primary">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Pasta</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <p class="small">Disabled state</p>
+                            <fieldset disabled="disabled">
+                                <label class="custom-control custom-toggle custom-toggle-primary">
+                                    <input class="custom-control-input" required="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Burgers</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <p class="small">Checked + Disabled state</p>
+                            <fieldset disabled="disabled">
+                                <label class="custom-control custom-toggle custom-toggle-primary">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Tacos</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <fieldset>
+                                <label class="custom-control custom-toggle custom-toggle-primary mini my-2">
+                                    <input class="custom-control-input" required="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Pizza</span>
+                                </label>
+                            </fieldset>
+
+                        </div>
+                        <div class="form-group col-md-3">
+                            <fieldset>
+                                <label class="custom-control custom-toggle custom-toggle-primary mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Pasta</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <fieldset disabled="disabled">
+                                <label class="custom-control custom-toggle custom-toggle-primary mini">
+                                    <input class="custom-control-input" required="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Burgers</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <fieldset disabled="disabled">
+                                <label class="custom-control custom-toggle custom-toggle-primary mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Tacos</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <h6 class="card-title mt-4">Color variations</h6>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <fieldset>
+                                <label class="custom-control custom-toggle custom-toggle-primary">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Primary</span>
+                                </label>
+                                <label class="custom-control custom-toggle custom-toggle-secondary">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Secondary</span>
+                                </label>
+                            </fieldset>
+
+                        </div>
+                        <div class="form-group col-md-3">
+                            <fieldset>
+                                <label class="custom-control custom-toggle custom-toggle-success">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Success</span>
+                                </label>
+                                <label class="custom-control custom-toggle custom-toggle-danger">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Danger</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <fieldset>
+                                <label class="custom-control custom-toggle custom-toggle-warning">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Warning</span>
+                                </label>
+                                <label class="custom-control custom-toggle custom-toggle-info">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Info</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <fieldset>
+                                <label class="custom-control custom-toggle custom-toggle-light">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Light</span>
+                                </label>
+                                <label class="custom-control custom-toggle custom-toggle-dark">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Dark</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
