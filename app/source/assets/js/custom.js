@@ -282,6 +282,19 @@ var Pluggin = {
             throw new Error('Please install metisMenu plugin! https://github.com/onokumus/metisMenu');
         }
     },
+    multiSelect: function multiSelect(element) {
+        if ($.fn.multiSelect) {
+            $(element).multiSelect();
+
+        } else {
+            throw new Error('Please install multiSelect plugin! https://github.com/lou/multi-select/');
+        }
+    },
+    dropzone: function dropzone(element) {
+        if (typeof dropzone == 'undefined') {
+            throw new Error('Please install Dropzone plugin! https://github.com/enyo/dropzone/');
+        }
+    },
     chosen: function chosen(element) {
         if ($.fn.chosen) {
             // $(element).chosen({width: "100%"});

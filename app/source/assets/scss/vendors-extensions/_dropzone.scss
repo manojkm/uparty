@@ -10,15 +10,15 @@
 
 .dropzone {
   @include transition;
+  @include set-border-radius($dropzone-radius);
   border: 0;
   background-color: $dropzone-bg;
   position: relative;
-  @include set-border-radius($dropzone-radius);
 
   & .dz-message span {
-    @include set-border-radius($dropzone-message-radius);
     @include transition;
-    color:$dropzone-message-color;
+    @include set-border-radius($dropzone-message-radius);
+    color: $dropzone-message-color;
     display: inline-block;
     padding: $dropzone-message-padding-y $dropzone-message-padding-x;
     font-size: $dropzone-message-font-size;
@@ -26,16 +26,15 @@
 
     &:before {
       /* symbol for "collapsed" panels */
-      @include transition;
       @extend %dropzone-pseudo;
     }
   }
 
-  &:hover{
-    background-color:$dropzone-hover-bg;
+  &:hover {
+    background-color: $dropzone-hover-bg;
 
     & .dz-message span {
-      color:$dropzone-message-hover-color;
+      color: $dropzone-message-hover-color;
     }
   }
 

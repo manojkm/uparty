@@ -358,6 +358,7 @@
   //padding-left: ($custom-toggle-width + 10px);
 
   .#{$ccind} {
+    @include transition;
     position: relative;
     top: 0;
     left: 0;
@@ -388,7 +389,7 @@
     @at-root .mini#{&} {
       height: 10px;
       background-color: $custom-toggle-mini-background-color !important;
-      border: $custom-toggle-border!important;
+      border: $custom-toggle-border !important;
       &:after {
         top: -6px;
       }
@@ -398,6 +399,7 @@
   /* Checked state */
   .#{$cci}:checked + .#{$ccind},
   .#{$cci}:checked:active + .#{$ccind} {
+    @include transition;
     //background: $custom-toggle-checked-background;
     //border-color: $custom-toggle-checked-background;
     &:after {

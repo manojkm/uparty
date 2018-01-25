@@ -574,11 +574,11 @@ $chosen-search-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns
 $chosen-search-bg-size:15px 15px;
 
 $chosen-results-margin:0 0px 4px 0;
-$chosen-results-padding: 0 6px;
-$chosen-results-item-padding: 3px 6px;
+$chosen-results-padding: 0 0px;
+$chosen-results-item-padding: 3px $btn-padding-x;
 
-$chosen-results-highlighted-color:$white-color;
-$chosen-results-highlighted-bg:$gray-600;
+$chosen-results-highlighted-color:$gray-900;
+$chosen-results-highlighted-bg:$gray-200;
 
 $chosen-results-no-results-color:$gray-600;
 $chosen-results-no-results-bg:$white-color;
