@@ -1,0 +1,61 @@
+// ================================================================================================
+// File Name: multi-select.scss
+// Description: Custom overrides of Multi-select Plugin (https://github.com/lou/multi-select/blob/master/scss/multi-select.scss)
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.ms-container {
+  width: 500px;
+  background: none;
+  position: relative;
+
+  i.fa{
+    font-size: 20px;
+    line-height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    text-align: center;
+    color: $gray-600;
+  }
+
+  .ms-list {
+    @include set-border-radius($input-border-radius);
+    border: $input-border-size solid $input-border-color;
+    height: 250px;
+    box-shadow: none;
+
+    &.ms-focus {
+      border-color: $input-focus-border-color;
+      box-shadow: $multiple-select-box-shadow;
+    }
+  }
+
+  .ms-selectable li.ms-elem-selectable,
+  .ms-selection li.ms-elem-selection {
+    @include transition;
+    border-bottom: $input-border-size solid $input-border-color;
+    padding: $chosen-results-item-padding;
+    color: $input-color;
+    font-size: $input-font-size;
+  }
+
+  .ms-selectable li.ms-hover,
+  .ms-selection li.ms-hover {
+    background-color: $chosen-results-highlighted-bg;
+    color: $chosen-results-highlighted-color;
+  }
+  .ms-selectable li.disabled,
+  .ms-selection li.disabled {
+    background-color: $input-bg-disabled;
+    color: $input-color-disabled;
+  }
+
+}

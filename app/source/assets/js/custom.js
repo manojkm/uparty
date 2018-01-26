@@ -270,6 +270,50 @@ var appMaster = {
         });
     },
 
+    /* Plugins */
+    multi_select: function () {
+        if ($.fn.multiSelect) {
+            $(".multi-select, #public-methods").multiSelect();
+            $('#select-all').click(function () {
+                $('#public-methods').multiSelect('select_all');
+                return false;
+            });
+            $('#deselect-all').click(function () {
+                $('#public-methods').multiSelect('deselect_all');
+                return false;
+            });
+            $('#refresh').on('click', function(){
+                $('#public-methods').multiSelect('refresh');
+                return false;
+            });
+
+
+            var arr = [];
+
+            for (var i = 0; i < 100; i++) {
+                arr[i] = 'elem_' + (i + 1);
+            }
+
+            $('#select-100').click(function () {
+                $('#public-methods').multiSelect('select', arr);
+                return false;
+            });
+            $('#deselect-100').click(function () {
+                $('#public-methods').multiSelect('deselect', arr);
+                return false;
+            });
+
+            $('#add-option').on('click', function () {
+                $('#public-methods').multiSelect('addOption', {value: 42, text: 'test 42', index: 0});
+                return false;
+            });
+            $(".ms-container").append('<i class="fa fa-exchange"></i>');
+        }
+        else {
+            throw new Error('Please install metisMenu plugin! https://github.com/onokumus/metisMenu');
+        }
+    },
+
 
 };
 
@@ -282,14 +326,6 @@ var Pluggin = {
             throw new Error('Please install metisMenu plugin! https://github.com/onokumus/metisMenu');
         }
     },
-    multiSelect: function multiSelect(element) {
-        if ($.fn.multiSelect) {
-            $(element).multiSelect();
-
-        } else {
-            throw new Error('Please install multiSelect plugin! https://github.com/lou/multi-select/');
-        }
-    },
     dropzone: function dropzone(element) {
         if (typeof dropzone == 'undefined') {
             throw new Error('Please install Dropzone plugin! https://github.com/enyo/dropzone/');
@@ -298,14 +334,14 @@ var Pluggin = {
     chosen: function chosen(element) {
         if ($.fn.chosen) {
             // $(element).chosen({width: "100%"});
-
+            $(".chosen-drop").addClass('animated fadeIn');
             var config = {
-                '.chosen-select'           : {width: '100%'},
-                '.chosen-select-deselect'  : { allow_single_deselect: true, width: '100%' },
-                '.chosen-select-no-single' : { disable_search_threshold: 10, width: '100%'  },
-                '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!', width: '100%' },
-                '.chosen-select-rtl'       : { rtl: true, width: '100%'},
-                '.chosen-select-width'     : { width: '100%' }
+                '.chosen-select': {width: '100%'},
+                '.chosen-select-deselect': {allow_single_deselect: true, width: '100%'},
+                '.chosen-select-no-single': {disable_search_threshold: 10, width: '100%'},
+                '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!', width: '100%'},
+                '.chosen-select-rtl': {rtl: true, width: '100%'},
+                '.chosen-select-width': {width: '100%'}
             };
             for (var selector in config) {
                 $(selector).chosen(config[selector]);
@@ -315,7 +351,7 @@ var Pluggin = {
             throw new Error('Please install Chosen plugin! https://github.com/harvesthq/chosen');
         }
     },
-    autosize: function(element) {
+    autosize: function (element) {
         if (window.autosize !== undefined) {
             autosize($(element));
         } else {
@@ -349,6 +385,7 @@ $(document).ready(function () {
     appMaster.input_group_focus();
     appMaster.card();
     appMaster.textarea_counter();
+    appMaster.multi_select();
 });
 
 

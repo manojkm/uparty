@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: chosen.scss
-// Description: Custom overrides of Chosen.css (https://github.com/harvesthq/chosen/blob/master/sass/chosen.scss)
+// Description: Custom overrides of Chosen Plugin (https://github.com/harvesthq/chosen/blob/master/sass/chosen.scss)
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -20,6 +20,8 @@
   //  box-sizing: border-box;
   //}
   .chosen-drop {
+    animation-duration: 0.5s;
+    animation-delay: 0s;
     //position: absolute;
     //top: 100%;
     //z-index: 1010;
@@ -35,7 +37,7 @@
     border-top: 0;
     background-color: $input-bg;
     //@include set-border-radius($input-border-radius);
-    box-shadow: none;
+    box-shadow: $chosen-select-box-shadow;
 
   }
   &.chosen-with-drop .chosen-drop {

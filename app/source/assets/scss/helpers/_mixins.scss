@@ -340,11 +340,12 @@ Usage @include opacity(1);
       @include color($theme-color, $font-color);
     }
 
-    box-shadow: none;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.125);
     outline: 0;
   }
 
   &:hover {
+    box-shadow:none;
     //box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
     //box-shadow: 0 .125em $off-wht, inset 0 .063em $off-wht;
   }

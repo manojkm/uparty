@@ -668,6 +668,47 @@ posted: 2018-01-09
                                     <option selected>Polar Bear</option>
                                 </select>
 
+<p></p>
+                                <select multiple="multiple" name="my-select[]" class="multi-select" >
+                                    <option value="elem_1" selected>elem 1</option>
+                                    <option value="elem_2" selected>elem 2</option>
+                                    <option value="elem_3">elem 3</option>
+                                    <option value="elem_4" disabled>elem 4</option>
+                                    <option value="elem_5">elem 5</option>
+                                    <option value="elem_6">elem 6</option>
+                                    <option value="elem_7">elem 7</option>
+                                </select>
+
+                                <p></p>
+
+                                <select id="optgroup" multiple="multiple"  class="multi-select">
+                                    <optgroup label="Friends">
+                                        <option value="1">Yoda</option>
+                                        <option value="2" selected>Obiwan</option>
+                                    </optgroup>
+                                    <optgroup label="Enemies">
+                                        <option value="3">Palpatine</option>
+                                        <option value="4" disabled>Darth Vader</option>
+                                    </optgroup>
+                                </select>
+
+                                <p></p>
+
+
+                                <select multiple="multiple" id="public-methods">
+                                    <option value="elem_1">elem 1</option>
+                                    <option value="elem_2" disabled>elem 2</option>
+                                    <option value="elem_3">elem 3</option>
+                                    <option value="elem_4">elem 4</option>
+                                    <option value="elem_1000">elem 100</option>
+                                </select>
+                                <div class="btn-group btn-group-sm my-3" role="group" aria-label="Basic example">
+                                    <button type="button" id="select-all" class="btn btn-outline-secondary">select all</button>
+                                    <button type="button" id="deselect-all" class="btn btn-outline-secondary">deselect all</button>
+                                    <button type="button" id="select-100" class="btn btn-outline-secondary">select 100 elems</button>
+                                    <button type="button" id="deselect-100" class="btn btn-outline-secondary">deselect 100 elems</button>
+                                </div>
+
                             </div>
                         </div>
 
@@ -1657,12 +1698,7 @@ posted: 2018-01-09
                     </div>
                 </div>
                 <div class="card-body">
-                    <select multiple="multiple" name="my-select[]" data-plugin="multiSelect" >
-                        <option value="elem_1">elem 1</option>
-                        <option value="elem_2">elem 2</option>
-                        <option value="elem_3">elem 3</option>
-                        <option value="elem_4">elem 4</option>
-                    </select>
+
 
                     <div class="form-row">
                         <div class="form-group col-md-3">
