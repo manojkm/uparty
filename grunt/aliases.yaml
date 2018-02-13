@@ -31,7 +31,8 @@ task_copy:
   - 'notify:copy'
 task_sync:
   - 'sync'
-
+task_inc:
+    - 'injector'
 #----------------------------------*\
 # FINAL BUILD
 #----------------------------------*\
