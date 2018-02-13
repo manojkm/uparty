@@ -3519,6 +3519,13 @@ grunt-htmlhint@^0.9.13:
   dependencies:
     htmlhint "~0.9.13"
 
+grunt-injector@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/grunt-injector/-/grunt-injector-1.1.0.tgz#5a61113dc879393d7471787471c6e99858f85d1d"
+  dependencies:
+    lodash "~4.15.0"
+    wiredep "~4.0.0"
+
 grunt-known-options@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/grunt-known-options/-/grunt-known-options-1.1.0.tgz#a4274eeb32fa765da5a7a3b1712617ce3b144149"
@@ -5123,6 +5130,10 @@ lodash@^2.4.1, lodash@~2.4.1:
 lodash@^3.10.1, lodash@~3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+
+lodash@~4.15.0:
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.15.0.tgz#3162391d8f0140aa22cf8f6b3c34d6b7f63d3aa9"
 
 lodash@~4.3.0:
   version "4.3.0"
@@ -8140,7 +8151,7 @@ wiredep-cli@^0.1.0:
     minimist "^1.1.0"
     wiredep "*"
 
-wiredep@*, wiredep@^4.0.0:
+wiredep@*, wiredep@^4.0.0, wiredep@~4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/wiredep/-/wiredep-4.0.0.tgz#ee9548a9504dfe7e85401a435dbed2c9b4ea2e44"
   dependencies:
