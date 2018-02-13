@@ -397,8 +397,8 @@
   .nav-link {
     @include transition;
     @include set-border-radius($nav-pills-border-radius);
-    //margin: 0 5px 3px 0;
-    margin-right: 5px;
+    margin: 0 5px 3px 0;
+    //margin-right: 5px;
     @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
 
     &.active,
