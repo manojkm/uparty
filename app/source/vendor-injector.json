@@ -1,11 +1,24 @@
 {
     "css": [
-
+        "<%= site.vendordir %>/metismenu/dist/metisMenu.css",
+        "<%= site.vendordir %>/animate.css/animate.css",
+        "<%= site.vendordir %>/bootstrap/dist/css/bootstrap.css",
+        "<%= site.vendordir %>/simple-line-icons/css/simple-line-icons.css",
+        "<%= site.vendordir %>/chosen-js/chosen.css",
+        "<%= site.vendordir %>/dropzone/dist/min/dropzone.min.css",
+        "<%= site.vendordir %>/multiselect/css/multi-select.css"
     ],
 
     "js": [
-        "node_modules/jquery/dist/jquery.js",
-        "node_modules/metisMenu/dist/metisMenu.js",
-        "node_modules/jquery.nicescroll/jquery.nicescroll.min.js"
+        "<%= site.vendordir %>/jquery/dist/jquery.js",
+        "<%= site.vendordir %>/nicescroll/jquery.nicescroll.js",
+        "<%= site.vendordir %>/metismenu/dist/metisMenu.js",
+        "<%= site.vendordir %>/popper.js/dist/umd/popper.js",
+        "<%= site.vendordir %>/bootstrap/dist/js/bootstrap.js",
+        "<%= site.vendordir %>/jquery-mask-plugin/dist/jquery.mask.js",
+        "<%= site.vendordir %>/autosize/dist/autosize.js",
+        "<%= site.vendordir %>/chosen-js/chosen.jquery.js",
+        "<%= site.vendordir %>/dropzone/dist/dropzone.js",
+        "<%= site.vendordir %>/multiselect/js/jquery.multi-select.js"
     ]
 }

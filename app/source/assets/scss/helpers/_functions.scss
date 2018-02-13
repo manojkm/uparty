@@ -18,7 +18,7 @@
     @if map-has-key($map, $key) {
         @return map-get($map, $key);
     }  @else {
-    @warn 'Unfortunately, no value could be retrieved from '#{$key}'. '
+    @warn 'Unfortunately, no value could be retrieved from "#{$key}". '
         + 'Please make sure it is defined in map.';
   }
 }

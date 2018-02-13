@@ -2,7 +2,7 @@ module.exports = {
 
     options: {
         min: true,
-        prefix:'../',
+        // prefix:'../',
         // relative: true,
         addRootSlash: false,
         // ignorePath: 'node_modules/'
@@ -10,6 +10,7 @@ module.exports = {
 
     vendors_dependencies: {
         files: {
+            '<%= site.src_partialsdir %>/head.hbs': ['<%= vendorInjector.css %>','bower.json'],
             '<%= site.src_partialsdir %>/footer-scripts.hbs': ['<%= vendorInjector.js %>','bower.json']
         }
     }

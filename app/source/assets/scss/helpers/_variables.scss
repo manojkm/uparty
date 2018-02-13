@@ -260,8 +260,8 @@ $card-box-shadow: 0 1px 2px rgba(0, 0, 0, .075) !default;
 $card-box-header-inset-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
 $pagination-extended-indicator-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .5) !default;
 $modal-content-box-shadow-xs: 0 5px 10px rgba($black-color, .1);
-$chosen-select-box-shadow:0 5px 10px rgba($black-color, .1);
-$multiple-select-box-shadow:0 5px 10px rgba($black-color, .1);
+$chosen-select-box-shadow: 0 5px 10px rgba($black-color, .1);
+$multiple-select-box-shadow: 0 5px 10px rgba($black-color, .1);
 
 //----------------------------------*\
 // BREADCRUMB
@@ -540,7 +540,9 @@ $custom-select-indicator-padding: 1rem !default; // Extra padding to account for
 $custom-select-indicator-color: $gray-800 !default;
 $custom-select-padding-x: .75rem !default;
 $custom-select-bg-size: 8px 10px !default; // In pixels because image dimensions
-$custom-select-indicator: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default/* File input */
+$custom-select-indicator: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+/* File input */
 $custom-file-button-bg: $gray-200 !default;
 $custom-file-button-focus-bg: $gray-300 !default;
 
@@ -566,47 +568,49 @@ $custom-toggle-knob-border-radius: 100px;
 $custom-toggle-knob-active-width: 26px;
 
 /* Mini */
-$custom-toggle-mini-background-color:$gray-200 !default;
+$custom-toggle-mini-background-color: $gray-200 !default;
 
 //----------------------------------*\
 // CHOSEN SELECT
 //----------------------------------*/
-$chosen-search-icon-color:$gray-600 !default;
-$chosen-search-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 8 8'%3E%3Cpath fill='#{$chosen-search-icon-color}' d='M3.5 0c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c.59 0 1.17-.14 1.66-.41a1 1 0 0 0 .13.13l1 1a1.02 1.02 0 1 0 1.44-1.44l-1-1a1 1 0 0 0-.16-.13c.27-.49.44-1.06.44-1.66 0-1.93-1.57-3.5-3.5-3.5zm0 1c1.39 0 2.5 1.11 2.5 2.5 0 .66-.24 1.27-.66 1.72-.01.01-.02.02-.03.03a1 1 0 0 0-.13.13c-.44.4-1.04.63-1.69.63-1.39 0-2.5-1.11-2.5-2.5s1.11-2.5 2.5-2.5z'/%3E%3C/svg%3E"), "#", "%23") !default/* File input */
-$chosen-search-bg-size:15px 15px;
+$chosen-search-icon-color: $gray-600 !default;
+$chosen-search-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 8 8'%3E%3Cpath fill='#{$chosen-search-icon-color}' d='M3.5 0c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c.59 0 1.17-.14 1.66-.41a1 1 0 0 0 .13.13l1 1a1.02 1.02 0 1 0 1.44-1.44l-1-1a1 1 0 0 0-.16-.13c.27-.49.44-1.06.44-1.66 0-1.93-1.57-3.5-3.5-3.5zm0 1c1.39 0 2.5 1.11 2.5 2.5 0 .66-.24 1.27-.66 1.72-.01.01-.02.02-.03.03a1 1 0 0 0-.13.13c-.44.4-1.04.63-1.69.63-1.39 0-2.5-1.11-2.5-2.5s1.11-2.5 2.5-2.5z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-$chosen-results-margin:0 0px 4px 0;
+/* File input */
+$chosen-search-bg-size: 15px 15px;
+
+$chosen-results-margin: 0 0px 4px 0;
 $chosen-results-padding: 0 0px;
 $chosen-results-item-padding: 3px $btn-padding-x;
 
-$chosen-results-highlighted-color:$gray-900;
-$chosen-results-highlighted-bg:$gray-400;
+$chosen-results-highlighted-color: $gray-900;
+$chosen-results-highlighted-bg: $gray-400;
 
-$chosen-results-no-results-color:$gray-600;
-$chosen-results-no-results-bg:$white-color;
+$chosen-results-no-results-color: $gray-600;
+$chosen-results-no-results-bg: $white-color;
 
-$chosen-search-multi-search-choice-bg:$gray-200;
-$chosen-search-multi-search-choice-margin:0 2px;
-$chosen-search-multi-search-choice-padding:3px 20px 3px 5px;
-$chosen-search-multi-search-choice-padding-rtl:3px 5px 3px 19px;
+$chosen-search-multi-search-choice-bg: $gray-200;
+$chosen-search-multi-search-choice-margin: 0 2px;
+$chosen-search-multi-search-choice-padding: 3px 20px 3px 5px;
+$chosen-search-multi-search-choice-padding-rtl: 3px 5px 3px 19px;
 
 //----------------------------------*\
 // DROPZONE JS
 //----------------------------------*/
-$dropzone-bg:$gray-200;
-$dropzone-hover-bg:$gray-300;
+$dropzone-bg: $gray-200;
+$dropzone-hover-bg: $gray-300;
 $dropzone-radius: $border-radius-md;
 
-$dropzone-message-color:$gray-500;
-$dropzone-message-hover-color:$gray-700;
+$dropzone-message-color: $gray-500;
+$dropzone-message-hover-color: $gray-700;
 $dropzone-message-radius: $border-radius-md;
-$dropzone-message-padding-y:$btn-padding-y-lg;
-$dropzone-message-padding-x:$btn-padding-x-lg;
-$dropzone-message-font-size:$input-font-size-lg;
-$dropzone-message-line-height:$btn-line-height-lg;
+$dropzone-message-padding-y: $btn-padding-y-lg;
+$dropzone-message-padding-x: $btn-padding-x-lg;
+$dropzone-message-font-size: $input-font-size-lg;
+$dropzone-message-line-height: $btn-line-height-lg;
 
 $dropzone-message-icon: "\e084" !default;
-$dropzone-message-icon-font-size: 2rem!default;
+$dropzone-message-icon-font-size: 2rem !default;
 
 //----------------------------------*\
 // POPOVERS
@@ -1020,36 +1024,10 @@ $screen-lg-max: ($screen-xl-min - 1) !default; /*1999px*/
 // LINK SELECTORS
 //----------------------------------*/
 /* Adapted from https://css-tricks.com/snippets/sass/sass-things-links/ */
-$a-href-tags: '&[href]:hover,
-        &[href]:focus,
-        &[href].focus,
-        &[href]:active,
-        &[href].active,
-        &[href]:active:focus,
-        &[href].active:focus,
-        &[href]:active:hover,
-        &[href].active:hover,
-        &[href]:not([disabled]):not(.disabled):active,
-        &[href]:not([disabled]):not(.disabled).active,
-        &[href]:not([disabled]):not(.disabled):active:focus,
-        &[href]:not([disabled]):not(.disabled).active:focus';
+$a-href-tags: '&[href]:hover, &[href]:focus, &[href].focus, &[href]:active, &[href].active, &[href]:active:focus, &[href].active:focus, &[href]:active:hover, &[href].active:hover, &[href]:not([disabled]):not(.disabled):active, &[href]:not([disabled]):not(.disabled).active, &[href]:not([disabled]):not(.disabled):active:focus, &[href]:not([disabled]):not(.disabled).active:focus';
 
 /* Beta 3 Migration changes */
 /* - Removed &:focus, &.focus due to the focus issues on buttons */
-$a-tags: '&:hover,
-  &:active,
-  &.active,
-  &:active:focus,
-  &.active:focus,
-  &:active:hover,
-  &.active:hover,
-  &:not([disabled]):not(.disabled):active,
-  &:not([disabled]):not(.disabled).active,
-  &:not([disabled]):not(.disabled):active:focus,
-  &:not([disabled]):not(.disabled).active:focus';
+$a-tags: '&:hover, &:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
-$disabled-tags: '&.disabled,
-&.disabled:focus,
-&.disabled:hover,
-&:disabled,
-&[disabled]';
+$disabled-tags: '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';

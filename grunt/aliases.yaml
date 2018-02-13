@@ -8,16 +8,18 @@ task_css:
   - 'notify:css'
 task_js:
   - 'copy:js'
-  - 'bower_concat'
+#  - 'bower_concat'
   - 'concat'
   - 'jshint'
   - 'uglify'
-  - 'wiredep'
+#  - 'wiredep'
   - 'notify:js'
 task_img:
   - 'imagemin'
   - 'sprite'
   - 'notify:img'
+task_injector:
+  - 'injector'
 task_banner:
   - 'usebanner'
   - 'notify:banner'
@@ -31,8 +33,7 @@ task_copy:
   - 'notify:copy'
 task_sync:
   - 'sync'
-task_inc:
-    - 'injector'
+
 #----------------------------------*\
 # FINAL BUILD
 #----------------------------------*\
@@ -41,6 +42,7 @@ default:
   - 'task_css'
   - 'task_js'
   - 'task_img'
+  - 'task_injector'
   - 'task_banner'
   - 'task_html'
   - 'task_copy'

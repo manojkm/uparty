@@ -12,7 +12,12 @@ module.exports = {
 
         // Enble the below if you are using grunt-contrib-sass
         options: {
-            loadPath: require('node-bourbon').includePaths,
+            // loadPath: require('node-bourbon').includePaths,
+            loadPath:[
+                require('node-bourbon').includePaths,
+                '<%= site.vendordir %>/bootstrap/scss',
+            ],
+
             style: 'expanded',
         },
 
