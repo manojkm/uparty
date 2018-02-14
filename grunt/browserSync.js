@@ -1,14 +1,13 @@
-
 module.exports = {
     server: {
-              bsFiles: {
-         src: [
-         '<%= site.dev_assets %>/**',
-         '<%= site.dev %>/vendor/!**',
-         '<%= site.dev %>/!*.php',
-         '<%= site.dev %>/!*.html'
-         ]
-         },
+        bsFiles: {
+            src: [
+                '<%= site.dev_assets %>/**',
+                '<%= site.dev %>/vendor/!**',
+                '<%= site.dev %>/!*.php',
+                '<%= site.dev %>/!*.html'
+            ]
+        },
         options: {
             watchTask: true, //Option 'false' will open browser directly without watching grunt tasks.
             open: false,
@@ -19,7 +18,10 @@ module.exports = {
             notify: true,
             port: '<%= site.dev_port %>',
             server: {
-                baseDir: "<%= site.dev %>"
+                baseDir: '<%= site.dev %>',
+                routes: {
+                    '/vendor': './<%= site.node_dir %>'
+                }
             },
 
             ghostMode: {
@@ -36,7 +38,7 @@ module.exports = {
 
     proxy: {
         files: {
-            src : [
+            src: [
                 '<%= site.dev_assets %>/**',
                 '<%= site.dev %>/vendor/**',
                 '<%= site.dev %>/*.php',

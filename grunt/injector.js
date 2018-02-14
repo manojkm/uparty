@@ -2,13 +2,13 @@ module.exports = {
 
     options: {
         min: true,
-        // prefix:'../',
+        prefix:'<%= site.vendor_dir %>/',
         // relative: true,
         addRootSlash: false,
-        // ignorePath: 'node_modules/'
+        ignorePath: '<%= site.node_dir %>/'
     },
 
-    vendors_dependencies: {
+    vendor_dependencies: {
         files: {
             '<%= site.src_partialsdir %>/head.hbs': ['<%= vendorInjector.css %>','bower.json'],
             '<%= site.src_partialsdir %>/footer-scripts.hbs': ['<%= vendorInjector.js %>','bower.json']

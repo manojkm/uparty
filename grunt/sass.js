@@ -1,21 +1,24 @@
 module.exports = {
     dev: {
         // Enble the below if you are using grunt-sass
-        /* options: {
-         lineNumbers: true,
-         includePaths: require('node-bourbon').includePaths,
-         sourceMap: true,
-         outputStyle: 'expanded' //Values: nested, expanded, compact, compressed
+            /* options: {
+            lineNumbers: true,
+            includePaths:[
+            require('node-bourbon').includePaths,
+            '<%= site.node_dir %>/bootstrap/scss',
+            ],
+            sourceMap: true,
+            outputStyle: 'expanded' //Values: nested, expanded, compact, compressed
 
-         },
-         */
+            },
+            */
 
         // Enble the below if you are using grunt-contrib-sass
         options: {
             // loadPath: require('node-bourbon').includePaths,
             loadPath:[
                 require('node-bourbon').includePaths,
-                '<%= site.vendordir %>/bootstrap/scss',
+                '<%= site.node_dir %>/bootstrap/scss',
             ],
 
             style: 'expanded',

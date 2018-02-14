@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/bin/node /usr/local/bin/yarn add -D grunt-contrib-sass
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @fortawesome\fontawesome
 
 PATH: 
-  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+  C:\Users\user\bin;C:\Program Files (x86)\Git\mingw32\bin;C:\Program Files (x86)\Git\usr\local\bin;C:\Program Files (x86)\Git\usr\bin;C:\Program Files (x86)\Git\usr\bin;C:\Program Files (x86)\Git\mingw32\bin;C:\Program Files (x86)\Git\usr\bin;C:\Users\user\bin;C:\Program Files\ImageMagick-7.0.1-Q16;C:\Ruby23\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32\wbem;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\nodejs;C:\Program Files (x86)\Skype\Phone;C:\Program Files\Git\cmd;C:\Program Files (x86)\Heroku\bin;C:\Program Files (x86)\git\cmd;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\Ampps\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Brackets\command";C:\Program Files (x86)\Ampps\php;C:\Program Files (x86)\Skype\Phone;C:\Program Files (x86)\Yarn\bin;C:\Program Files\nodejs;C:\Users\user\AppData\Roaming\Composer\vendor\bin";C:\Users\user\AppData\Local\Yarn\bin;C:\Users\user\AppData\Roaming\npm;C:\Program Files (x86)\Git\usr\bin\vendor_perl;C:\Program Files (x86)\Git\usr\bin\core_perl
 
 Yarn version: 
   1.3.2
@@ -11,7 +11,7 @@ Node version:
   8.9.4
 
 Platform: 
-  linux x64
+  win32 x64
 
 npm manifest: 
   {
@@ -56,6 +56,7 @@ npm manifest:
       "grunt-contrib-cssmin": "^2.2.1",
       "grunt-contrib-imagemin": "^2.0.1",
       "grunt-contrib-jshint": "^1.1.0",
+      "grunt-contrib-sass": "^1.0.0",
       "grunt-contrib-uglify": "^3.3.0",
       "grunt-contrib-watch": "^1.0.0",
       "grunt-htmlhint": "^0.9.13",
@@ -66,7 +67,6 @@ npm manifest:
       "grunt-scss-lint": "^0.5.0",
       "grunt-spritesmith": "^6.6.0",
       "grunt-sync": "^0.7.0",
-      "grunt-wiredep": "^3.0.1",
       "jit-grunt": "^0.10.0",
       "load-grunt-config": "^0.19.2",
       "load-grunt-tasks": "^3.5.2",
@@ -74,7 +74,20 @@ npm manifest:
       "sass-mediaqueries": "^1.6.1",
       "time-grunt": "^1.4.0"
     },
-    "dependencies": {},
+    "dependencies": {
+      "animate.css": "^3.6.1",
+      "autosize": "^4.0.0",
+      "bootstrap": "^4.0.0",
+      "chosen-js": "^1.8.3",
+      "dropzone": "^5.3.0",
+      "jquery": "^3.3.1",
+      "jquery-mask-plugin": "^1.14.13",
+      "metismenu": "^2.7.2",
+      "multiselect": "^0.9.12",
+      "nicescroll": "^3.7.4",
+      "popper.js": "^1.12.9",
+      "simple-line-icons": "^2.4.1"
+    },
     "engines": {
       "node": ">=4"
     },
@@ -152,6 +165,10 @@ Lockfile:
   amdefine@>=0.0.4:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+  
+  animate.css@^3.6.1:
+    version "3.6.1"
+    resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-3.6.1.tgz#4ea8a48556378bc8d7535224296c4c0dac9229de"
   
   ansi-bgblack@^0.1.1:
     version "0.1.1"
@@ -815,6 +832,10 @@ Lockfile:
       num2fraction "^1.1.0"
       postcss "~4.1.12"
   
+  autosize@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.yarnpkg.com/autosize/-/autosize-4.0.0.tgz#7a0599b1ba84d73bd7589b0d9da3870152c69237"
+  
   aws-sign2@~0.6.0:
     version "0.6.0"
     resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
@@ -1288,6 +1309,10 @@ Lockfile:
     dependencies:
       hoek "4.x.x"
   
+  bootstrap@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0.tgz#ceb03842c145fcc1b9b4e15da2a05656ba68469a"
+  
   bourbon@^4.2.6:
     version "4.3.4"
     resolved "https://registry.yarnpkg.com/bourbon/-/bourbon-4.3.4.tgz#4da380029e92c0c8f9764c779451a134b11e7cc3"
@@ -1555,6 +1580,10 @@ Lockfile:
       readdirp "^2.0.0"
     optionalDependencies:
       fsevents "^1.0.0"
+  
+  chosen-js@^1.8.3:
+    version "1.8.3"
+    resolved "https://registry.yarnpkg.com/chosen-js/-/chosen-js-1.8.3.tgz#1f953aef905d9760c14b5facc839a5f47eb356ec"
   
   clap@^1.0.9:
     version "1.2.3"
@@ -1892,6 +1921,12 @@ Lockfile:
       isobject "^3.0.0"
       lazy-cache "^2.0.2"
   
+  cross-spawn@^0.2.3:
+    version "0.2.9"
+    resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-0.2.9.tgz#bd67f96c07efb6303b7fe94c1e979f88478e0a39"
+    dependencies:
+      lru-cache "^2.5.0"
+  
   cross-spawn@^5.0.1, cross-spawn@^5.1.0:
     version "5.1.0"
     resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -1992,6 +2027,12 @@ Lockfile:
   dargs@^2.0.3:
     version "2.1.0"
     resolved "https://registry.yarnpkg.com/dargs/-/dargs-2.1.0.tgz#46c27ffab1ffb1378ef212597213719fe602bc93"
+  
+  dargs@^4.0.0:
+    version "4.1.0"
+    resolved "https://registry.yarnpkg.com/dargs/-/dargs-4.1.0.tgz#03a9dbb4b5c2f139bf14ae53f0b8a2a6a86f4e17"
+    dependencies:
+      number-is-nan "^1.0.0"
   
   dashdash@^1.12.0:
     version "1.14.1"
@@ -2279,6 +2320,10 @@ Lockfile:
       vinyl "^1.0.0"
       vinyl-fs "^2.2.0"
       ware "^1.2.0"
+  
+  dropzone@^5.3.0:
+    version "5.3.0"
+    resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.3.0.tgz#41c7a8a7cc6d237e3b28664e7a0719660d067edc"
   
   duplexer2@0.0.2, duplexer2@~0.0.2:
     version "0.0.2"
@@ -3553,6 +3598,16 @@ Lockfile:
       hooker "^0.2.3"
       jshint "~2.9.4"
   
+  grunt-contrib-sass@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/grunt-contrib-sass/-/grunt-contrib-sass-1.0.0.tgz#806838251cbc0e1a94d64d515cdd34cf674d701b"
+    dependencies:
+      async "^0.9.0"
+      chalk "^1.0.0"
+      cross-spawn "^0.2.3"
+      dargs "^4.0.0"
+      which "^1.0.5"
+  
   grunt-contrib-uglify@^3.3.0:
     version "3.3.0"
     resolved "https://registry.yarnpkg.com/grunt-contrib-uglify/-/grunt-contrib-uglify-3.3.0.tgz#dcc29bee1dd4768698930e46fb8bff8e8d37fb08"
@@ -3669,12 +3724,6 @@ Lockfile:
       lodash "4.17.4"
       md5-file "2.0.3"
       promised-io "0.3.5"
-  
-  grunt-wiredep@^3.0.1:
-    version "3.0.1"
-    resolved "https://registry.yarnpkg.com/grunt-wiredep/-/grunt-wiredep-3.0.1.tgz#77e75fa70e9cf8ec6a4679d7d79af443a3202f55"
-    dependencies:
-      wiredep "^4.0.0"
   
   grunt@^1.0.1:
     version "1.0.1"
@@ -4637,6 +4686,14 @@ Lockfile:
       bin-wrapper "^3.0.0"
       logalot "^2.0.0"
   
+  jquery-mask-plugin@^1.14.13:
+    version "1.14.13"
+    resolved "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.13.tgz#a80368d3b1d1402e4d6963a8ae7797c49bc21fc6"
+  
+  "jquery@>= 1.7.1", jquery@>=1.8.3, jquery@^3.3.1:
+    version "3.3.1"
+    resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+  
   js-base64@~2.1.8:
     version "2.1.9"
     resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
@@ -5226,7 +5283,7 @@ Lockfile:
       longest "^1.0.0"
       meow "^3.3.0"
   
-  lru-cache@2:
+  lru-cache@2, lru-cache@^2.5.0:
     version "2.7.3"
     resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.7.3.tgz#6d4524e8b955f95d4f5b58851ce21dd72fb4e952"
   
@@ -5417,6 +5474,10 @@ Lockfile:
       mixin-deep "^1.2.0"
       set-value "^2.0.0"
   
+  metismenu@^2.7.2:
+    version "2.7.2"
+    resolved "https://registry.yarnpkg.com/metismenu/-/metismenu-2.7.2.tgz#82495746b0591aaa10aeef3c149c59c3ca02d219"
+  
   micromatch@2.3.11, micromatch@^2.1.5, micromatch@^2.3.10, micromatch@^2.3.11, micromatch@^2.3.7, micromatch@^2.3.8:
     version "2.3.11"
     resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
@@ -5566,6 +5627,12 @@ Lockfile:
     dependencies:
       duplexer2 "0.0.2"
   
+  multiselect@^0.9.12:
+    version "0.9.12"
+    resolved "https://registry.yarnpkg.com/multiselect/-/multiselect-0.9.12.tgz#d15536e986dd6a0029b160d6613bcedf81e4c7ed"
+    dependencies:
+      jquery ">= 1.7.1"
+  
   mute-stream@0.0.5:
     version "0.0.5"
     resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"
@@ -5611,6 +5678,12 @@ Lockfile:
   next-tick@^0.2.2:
     version "0.2.2"
     resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-0.2.2.tgz#75da4a927ee5887e39065880065b7336413b310d"
+  
+  nicescroll@^3.7.4:
+    version "3.7.4"
+    resolved "https://registry.yarnpkg.com/nicescroll/-/nicescroll-3.7.4.tgz#8cfd3b58fb95e7c5cb279e2208fc10ea90e35a18"
+    dependencies:
+      jquery ">=1.8.3"
   
   no-case@^2.2.0:
     version "2.3.2"
@@ -6190,6 +6263,10 @@ Lockfile:
   pngjs@^2.0.0:
     version "2.3.1"
     resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-2.3.1.tgz#11d1e12b9cb64d63e30c143a330f4c1f567da85f"
+  
+  popper.js@^1.12.9:
+    version "1.12.9"
+    resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.9.tgz#0dfbc2dff96c451bb332edcfcfaaf566d331d5b3"
   
   portscanner@2.1.1:
     version "2.1.1"
@@ -6991,6 +7068,10 @@ Lockfile:
   signal-exit@^3.0.0:
     version "3.0.2"
     resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+  
+  simple-line-icons@^2.4.1:
+    version "2.4.1"
+    resolved "https://registry.yarnpkg.com/simple-line-icons/-/simple-line-icons-2.4.1.tgz#b75bc5a0d87e530928c2ccda5735274bb256f234"
   
   sntp@1.x.x:
     version "1.0.9"
@@ -8018,7 +8099,7 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
   
-  which@^1.0.9, which@^1.2.12, which@^1.2.14, which@^1.2.4, which@^1.2.8, which@^1.2.9:
+  which@^1.0.5, which@^1.0.9, which@^1.2.12, which@^1.2.14, which@^1.2.4, which@^1.2.8, which@^1.2.9:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/which/-/which-1.3.0.tgz#ff04bdfc010ee547d780bec38e1ac1c2777d253a"
     dependencies:
@@ -8056,7 +8137,7 @@ Lockfile:
       minimist "^1.1.0"
       wiredep "*"
   
-  wiredep@*, wiredep@^4.0.0, wiredep@~4.0.0:
+  wiredep@*, wiredep@~4.0.0:
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/wiredep/-/wiredep-4.0.0.tgz#ee9548a9504dfe7e85401a435dbed2c9b4ea2e44"
     dependencies:
@@ -8206,7 +8287,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
 
 Trace: 
-  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com:443
-      at Object._errnoException (util.js:1022:11)
-      at errnoException (dns.js:55:15)
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)
+  Error: https://registry.yarnpkg.com/@fortawesome/fontawesome: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:62098:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:123085:22)
+      at emitTwo (events.js:126:13)
+      at Request.emit (events.js:214:7)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:124068:10)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:123988:12)
+      at Object.onceWrapper (events.js:313:30)
+      at emitNone (events.js:111:20)

@@ -8,7 +8,7 @@ module.exports = {
              
         ],
         options: {
-            ignorePath: '../../'
+            ignorePath: '../../../../node_modules/'
 
         }
     }
