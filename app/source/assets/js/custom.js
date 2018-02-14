@@ -287,7 +287,6 @@ var appMaster = {
                 return false;
             });
 
-
             var arr = [];
 
             for (var i = 0; i < 100; i++) {
@@ -307,7 +306,7 @@ var appMaster = {
                 $('#public-methods').multiSelect('addOption', {value: 42, text: 'test 42', index: 0});
                 return false;
             });
-            $(".ms-container").append('<i class="fa fa-exchange"></i>');
+            $(".ms-container").append('<i class="fas fa-exchange-alt"></i>');
         }
         else {
             throw new Error('Please install metisMenu plugin! https://github.com/onokumus/metisMenu');

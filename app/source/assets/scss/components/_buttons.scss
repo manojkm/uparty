@@ -54,7 +54,8 @@ button, .button {
     align-items: center;
     justify-content: center;
 
-    i.fa {
+    #{$icon-tags}
+    {
       font-size: $btn-icon-font-size;
     }
 
@@ -63,7 +64,7 @@ button, .button {
       width: $btn-icon-size-sm;
       min-height: $btn-icon-size-sm;
 
-      i.fa {
+      #{$icon-tags} {
         font-size: $btn-icon-font-size-sm;
       }
     }
@@ -73,7 +74,7 @@ button, .button {
       width: $btn-icon-size-lg;
       min-height: $btn-icon-size-lg;
 
-      i.fa {
+      #{$icon-tags} {
         font-size: $btn-icon-font-size-lg;
       }
     }
@@ -86,8 +87,10 @@ button, .button {
 
   }
 
-  &:not(.btn-icon) i.fa {
+  &:not(.btn-icon) {
+    #{$icon-tags}{
     padding: 0 $btn-icon-padding-right 0 0;
+    }
   }
 }
 

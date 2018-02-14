@@ -19,7 +19,7 @@
         <li {{#if page.dashboard}} class="sidebar__item active" {{else}} class="sidebar__item" {{/if}} >
             <a href="#" class="has-arrow" {{#if page.dashboard}}
                aria-expanded="true" {{else}} aria-expanded="false" {{/if}}>
-                <span class="sidebar__item-icon"><i class="fa fa-dashboard"></i></span>
+                <span class="sidebar__item-icon"><i class="icon-speedometer"></i></span>
                 <span class="sidebar__item-title">Dashboard</span>
                 <span class="ml-auto mr-3 badge badge-info">42</span>
             </a>
@@ -46,7 +46,7 @@
 
             <a href="#" class="has-arrow" {{#if page.components}}
                aria-expanded="true" {{else}} aria-expanded="false" {{/if}}>
-                <span class="sidebar__item-icon"><i class="fa fa-puzzle-piece"></i></span>
+                <span class="sidebar__item-icon"><i class="icon-puzzle"></i></span>
                 <span class="sidebar__item-title">Components</span>
             </a>
             <ul class="sidebar__child" {{#if page.components}}
@@ -56,12 +56,12 @@
                         <li {{#is ../../page.dest this.dest}}
                         class="sidebar__item active" {{ else }} class="sidebar__item"{{/is}}><a
                                 href="{{ replaceStr dest 'app/development/' '' }}">{{ data.title }}
-                                    {{#is data.title "Badges"}}
-                                    <span class="ml-auto badge badge-round badge-primary">4</span>
-                                    {{/is}}
-                                    {{#is data.title "Modals"}}
-                                    <i class="fa fa-paper-plane ml-2"></i>
-                                    {{/is}}
+                            {{#is data.title "Badges"}}
+                                <span class="ml-auto badge badge-round badge-primary">4</span>
+                            {{/is}}
+                            {{#is data.title "Modals"}}
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            {{/is}}
                         </a>
                         </li>
                     {{/each}}
@@ -114,7 +114,7 @@
         <li class="sidebar__header">Navigation</li>
         <li class="sidebar__item">
             <a href="#" class="has-arrow" aria-expanded="false">
-                <span class="sidebar__item-icon"><i class="fa fa-folder-open"></i></span>
+                <span class="sidebar__item-icon"><i class="icon-folder"></i></span>
                 <span class="sidebar__item-title">Menu Levels</span>
             </a>
             <ul class="sidebar__child" aria-expanded="false">
@@ -135,8 +135,6 @@
             </ul>
         </li>
 
-
-
         <li class="sidebar__divider"></li>
         <!--/Navigation-->
 
@@ -144,7 +142,7 @@
         <li class="sidebar__header">Extras</li>
         <li class="sidebar__item">
             <a href="#">
-                <span class="sidebar__item-icon"><i class="fa fa-camera-retro"></i></span>
+                <span class="sidebar__item-icon"><i class="icon-list"></i></span>
                 <span class="sidebar__item-title">Menu 1</span>
             </a>
         </li>
@@ -184,7 +182,8 @@
         <ul class="sidebar__footer-list metismenu list-unstyled" data-plugin="metismenu">
             <li class="sidebar__footer-item mini">
                 <!-- Sidebar mini toggle button -->
-                <button class="sidebar__footer--toggler" data-toggle="tooltip" data-placement="top" title="Collapse" data-animate="animated fadeIn" data-trigger="hover"
+                <button class="sidebar__footer--toggler" data-toggle="tooltip" data-placement="top" title="Collapse"
+                        data-animate="animated fadeIn" data-trigger="hover"
                         type="button" data-side="mini">
                     <!-- To display the "hamburger icon" -->
                     <span class="icon-bar"></span>
@@ -202,7 +201,8 @@
                 </ul>
 
                 <!-- TODO Tooltip styling https://codepen.io/andreivictor/pen/MpNQNL -->
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Settings" data-trigger="hover" data-animate="animated fadeIn"
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Settings" data-trigger="hover"
+                   data-animate="animated fadeIn"
                    aria-expanded="false"><i class="fa fa-trash"></i></a>
             </li>
 
