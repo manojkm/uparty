@@ -11,35 +11,38 @@
 .breadcrumb.has-menu {
   padding-right: 0;
 
-  .nav {
-    font-size: $breadcrumb-font-size;
-  }
-  .nav-item {
-    @include add-border($breadcrumb-border-size, $breadcrumb-border-color, left);
-  }
-  .nav-link {
-    //@include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
-    @include transition;
-    color: $breadcrumb-menu-color;
-    line-height: $breadcrumb-line-height;
-    padding: $breadcrumb-padding-y 0;
-    position: relative;
-    /* Change the hover, focus, active state links for better highlighting */
-    #{$a-tags}
-    {
-      //@include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+  .breadcrumb-menu {
+    display: flex;
 
-      color: $breadcrumb-menu-hover-color;
+    .nav {
+      font-size: $breadcrumb-font-size;
     }
-
-    #{$icon-tags}
-    {
-      top: 1px;
+    .nav-item {
+      @include add-border($breadcrumb-border-size, $breadcrumb-border-color, left);
+      display: flex;
+    }
+    .nav-link {
+      //@include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+      @include transition;
+      color: $breadcrumb-menu-color;
+      line-height: $breadcrumb-line-height;
+      padding: $breadcrumb-padding-y 0;
       position: relative;
-      line-height: 1;
+      display: flex;
+      align-items: center;
+
+      /* Change the hover, focus, active state links for better highlighting */
+      #{$a-tags} {
+        //@include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+        color: $breadcrumb-menu-hover-color;
+      }
+
+      #{$icon-tags} {
+        top: 1px;
+        position: relative;
+        line-height: 1;
+      }
+
     }
-
-
   }
-
 }

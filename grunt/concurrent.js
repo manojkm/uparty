@@ -4,7 +4,7 @@ module.exports = {
     // watch_dev: ['watch:assemble_dev', 'watch:css', 'watch:js', 'watch:images'],
 
     task_css: [
-        ['newer:sass:dev', 'newer:copy:css', 'newer:autoprefixer', 'newer:cssmin', 'newer:csslint', /*'sync',*/ 'notify:css']
+        ['sass:dev', 'newer:copy:css', 'newer:autoprefixer', 'newer:cssmin', 'newer:csslint', /*'sync',*/ 'notify:css']
         // ['scsslint:files','sass:dev', 'newer:copy:css', 'newer:csslint', 'newer:autoprefixer', 'newer:cssmin', 'sync', 'notify:css']
     ],
 

@@ -41,11 +41,17 @@
   font-weight: $pagination-font-weight;
   background-color: $pagination-bg;
 
+  #{$icon-tags} {
+    font-size: $pagination-icon-font-size;
+  }
+
+
   &:focus,
   &:hover {
     @include color($pagination-link-theme-color, $pagination-link-theme-color-tone);
     background-color: $pagination-hover-bg;
     border-color: $pagination-hover-border-color;
+    box-shadow: none;
   }
 }
 
@@ -111,7 +117,8 @@
       .page-link {
         background-color: $pagination-wizard-bg;
         color: $pagination-wizard-color;
-        @include add-border(2px, transparent, all);
+        @include add-border(0, transparent, all);
+
 
         &:focus,
         &:hover {
@@ -130,8 +137,6 @@
         }
 
       }
-
-
     }
   }
 
