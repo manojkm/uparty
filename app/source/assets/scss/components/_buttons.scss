@@ -29,7 +29,7 @@ button, .button {
   /* Beta 3 Migration changes */
   #{$a-tags},
   &:focus,
-  &.focus{
+  &.focus {
     @include opacity(1);
     outline: 0;
     box-shadow: none;
@@ -54,8 +54,7 @@ button, .button {
     align-items: center;
     justify-content: center;
 
-    #{$icon-tags}
-    {
+    #{$icon-tags} {
       font-size: $btn-icon-font-size;
     }
 
@@ -88,8 +87,11 @@ button, .button {
   }
 
   &:not(.btn-icon) {
-    #{$icon-tags}{
-    padding: 0 $btn-icon-padding-right 0 0;
+    #{$icon-tags} {
+      padding: 0 $btn-icon-padding-right 0 0;
+      top: 1px;
+      position: relative;
+      line-height: $btn-icon-lh;
     }
   }
 }
@@ -269,8 +271,7 @@ and disabled options for all buttons.
 fieldset[disabled] a.btn,
 .btn {
 
-  #{$disabled-tags}
-  {
+  #{$disabled-tags} {
     @include opacity($btn-disabled-opacity);
     cursor: not-allowed;
     pointer-events: none;
@@ -286,6 +287,7 @@ fieldset[disabled] a.btn,
 .btn-lg {
   @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
 }
+
 /* Small button */
 .btn-sm {
   @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-radius-sm, $btn-line-height-sm);

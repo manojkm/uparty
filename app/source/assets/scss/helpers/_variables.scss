@@ -284,8 +284,8 @@ $breadcrumb-active-color: $gray-600 !default;
 $breadcrumb-divider-color: $gray-500 !default;
 
 $breadcrumb-divider: "/" !default;
-$breadcrumb-divider-angle-right: "\f105" !default;
-$breadcrumb-divider-angle-double-right: "\f101" !default;
+$breadcrumb-divider-angle-right: "\f054" !default;
+$breadcrumb-divider-angle-double-right: "\f061" !default;
 $breadcrumb-divider-caret-right: "\f0da" !default;
 
 $breadcrumb-link-theme-color: primary !default;
@@ -387,6 +387,7 @@ $btn-font-weight: $font-wh-normal !default;
 
 /* Button with icon */
 $btn-icon-padding-right: 5px !default;
+$btn-icon-lh: 1 !default;
 
 /* Small button (.btn-sm) */
 $btn-font-size-sm: $font-size-sm;
@@ -689,8 +690,9 @@ $accordion-active-theme-color-tone: base !default;
 $accordion-active-theme-hover-color-tone: dark !default;
 $accordion-active-color-theme-color-tone: font-color !default;
 
-$accordion-header-icon-right: "\f106" !default;
-$accordion-header-active-icon-right: "\f107" !default;
+$accordion-icon-color: $gray-700 !default;
+$accordion-collapsed-icon: "\f0d7" !default;
+$accordion-active-icon: "\f0d8" !default;
 
 /* Accordion Extended - Underline */
 $accordion-underline-border-size: $border-thick;

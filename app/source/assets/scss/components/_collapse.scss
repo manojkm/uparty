@@ -61,7 +61,7 @@
       color: $accordion-title-color;
 
       &:after {
-        content: $accordion-header-active-icon-right;
+        content: $accordion-collapsed-icon;
       }
 
       &:hover {
@@ -82,13 +82,13 @@ a.accordion {
     @include transition;
     @extend %acc-pseudo;
     left: 0;
-    content: "\f0d7";
+    //content: "\f0d7";
     font-size: inherit;
   }
 
   &.collapsed {
     &:before {
-      content: "\f0da";
+      content: $accordion-collapsed-icon;
     }
   }
 }
@@ -109,6 +109,10 @@ a.accordion {
     @include border-color($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
     @include background-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
     @include color($accordion-active-theme-color, $accordion-active-color-theme-color-tone);
+
+    &:after {
+      @include color($accordion-active-theme-color, $accordion-active-color-theme-color-tone);
+    }
 
     &.collapsed {
       /*    background-color: transparent;
@@ -171,7 +175,7 @@ a.accordion {
       &.collapsed {
         @include add-border($accordion-underline-border-size, $card-border-color, bottom);
         &:before {
-          content: "\f105";
+          content: $accordion-collapsed-icon;
         }
       }
     }
@@ -214,7 +218,7 @@ a.accordion {
         @include add-border(0, transparent, bottom);
         @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
         &:before {
-          content: "\f105";
+          content: $accordion-collapsed-icon;
         }
       }
     }

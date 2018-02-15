@@ -53,11 +53,10 @@
 }
 
 /*  Prepend and append */
-
-
 .input-group-prepend,
 .input-group-append {
   .btn + .btn,
+  .custom-select + .custom-select,
   .btn + .input-group-text,
   .input-group-text + .input-group-text,
   .input-group-text + .btn {
@@ -114,20 +113,26 @@
 
 /* Reset rounded corners */
 .input-group > .input-group-prepend > .btn,
+.input-group > .input-group-prepend > .custom-select,
 .input-group > .input-group-prepend > .input-group-text,
 .input-group > .input-group-append:not(:last-child) > .btn,
 .input-group > .input-group-append:not(:last-child) > .input-group-text,
+.input-group > .input-group-append:not(:last-child) > .custom-select,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
-.input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
+.input-group > .input-group-append:last-child > .input-group-text:not(:last-child),
+.input-group > .input-group-append:last-child > .custom-select:not(:last-child){
   @include border-right-radius(0);
 }
 
 .input-group > .input-group-append > .btn,
+.input-group > .input-group-append > .custom-select,
 .input-group > .input-group-append > .input-group-text,
 .input-group > .input-group-prepend:not(:first-child) > .btn,
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
+.input-group > .input-group-prepend:not(:first-child) > .custom-select,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
-.input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+.input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child),
+.input-group > .input-group-prepend:first-child > .custom-select:not(:first-child){
   @include border-left-radius(0);
 }
 

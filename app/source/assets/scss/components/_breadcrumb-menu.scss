@@ -19,20 +19,26 @@
   }
   .nav-link {
     //@include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+    @include transition;
     color: $breadcrumb-menu-color;
     line-height: $breadcrumb-line-height;
     padding: $breadcrumb-padding-y 0;
     position: relative;
     /* Change the hover, focus, active state links for better highlighting */
-    //&:focus,
-    //&:active,
-    //&:hover
-
     #{$a-tags}
     {
       //@include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+
       color: $breadcrumb-menu-hover-color;
     }
+
+    #{$icon-tags}
+    {
+      top: 1px;
+      position: relative;
+      line-height: 1;
+    }
+
 
   }
 

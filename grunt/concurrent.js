@@ -4,20 +4,20 @@ module.exports = {
     // watch_dev: ['watch:assemble_dev', 'watch:css', 'watch:js', 'watch:images'],
 
     task_css: [
-        ['sass:dev', 'newer:copy:css', 'newer:autoprefixer', 'newer:cssmin', 'newer:csslint', /*'sync',*/ 'notify:css']
+        ['newer:sass:dev', 'newer:copy:css', 'newer:autoprefixer', 'newer:cssmin', 'newer:csslint', /*'sync',*/ 'notify:css']
         // ['scsslint:files','sass:dev', 'newer:copy:css', 'newer:csslint', 'newer:autoprefixer', 'newer:cssmin', 'sync', 'notify:css']
     ],
 
     task_js: [
-        ['newer:copy:js', 'newer:concat', 'newer:jshint', 'newer:uglify', 'sync', 'notify:js']
+        ['newer:copy:js', 'newer:concat', 'newer:jshint', 'newer:uglify',/* 'sync',*/ 'notify:js']
     ],
 
     task_html: [
-        ['newer:assemble', 'newer:htmlhint', 'newer:prettify', 'sync', 'notify:html']
+        ['newer:assemble', 'newer:htmlhint', 'newer:prettify',/* 'sync',*/ 'notify:html']
     ],
 
     task_img: [
-        ['newer:imagemin', 'newer:sprite', 'sync', 'notify:img']
+        ['newer:imagemin', 'newer:sprite',/* 'sync',*/ 'notify:img']
     ],
 
     task_wp_theme_php_flies: [
