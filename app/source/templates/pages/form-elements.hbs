@@ -109,14 +109,6 @@ posted: 2018-01-09
                         </div>
 
                         <div class="form-group row">
-                            <label for="disabledTextInput" class="col-sm-2 col-form-label text-right ">Disabled</label>
-                            <div class="col-sm-10">
-                                <input type="text" id="disabledTextInput" class="form-control"
-                                       placeholder="Disabled input" disabled>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="inputPopover" class="col-sm-2 col-form-label text-right ">Popover input</label>
                             <div class="col-sm-10">
                                 <input type="text" id="inputPopover" class="form-control"
@@ -124,7 +116,14 @@ posted: 2018-01-09
                                        data-toggle="popover" data-trigger="focus" data-placement="right"
                                        data-content="And here's some amazing content. <b>It's very engaging</b>. Right?"
                                        data-original-title="Popover">
+                            </div>
+                        </div>
 
+                        <div class="form-group row">
+                            <label for="disabledTextInput" class="col-sm-2 col-form-label text-right ">Disabled</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="disabledTextInput" class="form-control"
+                                       placeholder="Disabled input" disabled>
                             </div>
                         </div>
 
@@ -387,100 +386,7 @@ posted: 2018-01-09
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Input Text Masking</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">Date</label>
-                                <input class="form-control" data-mask="00/00/0000" placeholder="eg: 23/01/2018"
-                                       autocomplete="off" maxlength="10" type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">Time</label>
-                                <input class="form-control" data-mask="00:00:00" placeholder="eg: 23:06:55"
-                                       autocomplete="off" maxlength="8" type="text">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">Date and time</label>
-                                <input class="form-control" data-mask="00/00/0000 00:00:00"
-                                       placeholder="eg: 00/00/0000 00:00:00" autocomplete="off" maxlength="19"
-                                       type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">CEP</label>
-                                <input class="form-control" data-mask="00000-000" placeholder="eg: 00000-000"
-                                       autocomplete="off" maxlength="9" type="text">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">Phone number</label>
-                                <input class="form-control" data-mask="000-00-0000000"
-                                       placeholder="eg: 000-00-0000000" autocomplete="off" maxlength="14" type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">Phone with odd</label>
-                                <input class="form-control" data-mask="(00) 0000-0000"
-                                       placeholder="eg: (00) 0000-0000" autocomplete="off" maxlength="14" type="text">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">US phone number</label>
-                                <input class="form-control" data-mask="(000) 000-0000"
-                                       placeholder="eg: (000) 000-0000" autocomplete="off" maxlength="14" type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">CPF</label>
-                                <input class="form-control" data-mask="000.000.000-00"
-                                       placeholder="eg: 000.000.000-00" autocomplete="off" maxlength="14" type="text">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">Money</label>
-                                <input class="form-control" data-mask="000.000.000.000.000,00"
-                                       placeholder="eg: 000.000.000.000.000,00" autocomplete="off" maxlength="22"
-                                       type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">IP address</label>
-                                <input class="form-control" data-mask="000.000.000.000"
-                                       placeholder="eg: 000.000.000.000" autocomplete="off" maxlength="15" type="text">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">Percentage</label>
-                                <input class="form-control" data-mask="00000,00%" placeholder="eg: 00000,00%"
-                                       autocomplete="off" maxlength="9" type="text">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-sm">Credit card</label>
-                                <input class="form-control" data-mask="0000 0000 0000 0000"
-                                       placeholder="eg: 0000 0000 0000 0000" autocomplete="off" maxlength="19"
-                                       type="text">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -563,8 +469,7 @@ posted: 2018-01-09
                         </div>
 
                         <div class="form-group row">
-                            <label for="selectMultiple" class="col-sm-2 col-form-label text-right">Multiple
-                                select</label>
+                            <label for="selectMultiple" class="col-sm-2 col-form-label text-right">Multiple select</label>
                             <div class="col-sm-10">
                                 <select multiple class="form-control" id="selectMultiple">
                                     <optgroup label="Picnic">
@@ -578,157 +483,6 @@ posted: 2018-01-09
                                         <option>Toilet Paper</option>
                                     </optgroup>
                                 </select>
-
-                                <p>Standard Select</p>
-                                <select data-placeholder="Your Favorite Type of Bear" data-plugin="chosen" tabindex="7"
-                                        class="chosen-select">
-                                    <option value=""></option>
-                                    <option>American Black Bear</option>
-                                    <option>Asiatic Black Bear</option>
-                                    <option>Brown Bear</option>
-                                    <option>Giant Panda</option>
-                                    <option selected>Sloth Bear</option>
-                                    <option disabled>Sun Bear</option>
-                                    <option>Polar Bear</option>
-                                    <option disabled>Spectacled Bear</option>
-                                </select>
-                                <p>Multiple Select</p>
-
-                                <select name="" multiple data-placeholder="Click to see available options..."
-                                        data-plugin="chosen" class="form-control chosen-select">
-                                    <optgroup label="Option group 1">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                    </optgroup>
-                                    <optgroup label="Option group 2">
-                                        <option>Option 5</option>
-                                        <option>Option 6</option>
-                                        <option>Option 7</option>
-                                        <option>Option 8</option>
-                                    </optgroup>
-                                    <optgroup label="Option group 3">
-                                        <option>Option 9</option>
-                                        <option>Option 10</option>
-                                        <option>Option 11</option>
-                                        <option>Option 12</option>
-                                    </optgroup>
-                                </select>
-
-
-                                <p>Allow Deselect on Single Selects</p>
-                                <select data-placeholder="Your Favorite Type of Bear" data-plugin="chosen"
-                                        class="chosen-select-deselect" tabindex="12">
-                                    <option value=""></option>
-                                    <option>American Black Bear</option>
-                                    <option>Asiatic Black Bear</option>
-                                    <option>Brown Bear</option>
-                                    <option>Giant Panda</option>
-                                    <option selected>Sloth Bear</option>
-                                    <option>Sun Bear</option>
-                                    <option>Polar Bear</option>
-                                    <option>Spectacled Bear</option>
-                                </select>
-
-                                <p>No Results Text Support</p>
-                                <select data-placeholder="Type &apos;C&apos; to view" class="chosen-select-no-results"
-                                        tabindex="10">
-                                    <option value=""></option>
-                                    <option>American Black Bear</option>
-                                    <option>Asiatic Black Bear</option>
-                                    <option>Brown Bear</option>
-                                    <option>Giant Panda</option>
-                                    <option>Sloth Bear</option>
-                                    <option>Sun Bear</option>
-                                    <option>Polar Bear</option>
-                                    <option>Spectacled Bear</option>
-                                </select>
-                                <p></p>
-                                <select data-placeholder="Type &apos;C&apos; to view" multiple
-                                        class="chosen-select-no-results" tabindex="11">
-                                    <option value=""></option>
-                                    <option disabled>American Black Bear</option>
-                                    <option>Asiatic Black Bear</option>
-                                    <option>Brown Bear</option>
-                                    <option>Giant Panda</option>
-                                    <option>Sloth Bear</option>
-                                    <option>Sun Bear</option>
-                                    <option>Polar Bear</option>
-                                    <option>Spectacled Bear</option>
-                                </select>
-
-
-                                <p>Right-to-Left Support</p>
-                                <select data-placeholder="Your Favorite Type of Bear" class="chosen-select-rtl"
-                                        tabindex="13">
-                                    <option value=""></option>
-                                    <option>American Black Bear</option>
-                                    <option>Asiatic Black Bear</option>
-                                    <option>Brown Bear</option>
-                                    <option>Giant Panda</option>
-                                    <option selected>Sloth Bear</option>
-                                    <option>Polar Bear</option>
-                                </select>
-                                <p></p>
-                                <select data-placeholder="Your Favorite Types of Bear" multiple
-                                        class="chosen-select-rtl" tabindex="14">
-                                    <option value=""></option>
-                                    <option>American Black Bear</option>
-                                    <option>Asiatic Black Bear</option>
-                                    <option>Brown Bear</option>
-                                    <option>Giant Panda</option>
-                                    <option selected>Sloth Bear</option>
-                                    <option selected>Polar Bear</option>
-                                </select>
-
-                                <p></p>
-                                <select multiple="multiple" name="my-select[]" class="multi-select">
-                                    <option value="elem_1" selected>elem 1</option>
-                                    <option value="elem_2" selected>elem 2</option>
-                                    <option value="elem_3">elem 3</option>
-                                    <option value="elem_4" disabled>elem 4</option>
-                                    <option value="elem_5">elem 5</option>
-                                    <option value="elem_6">elem 6</option>
-                                    <option value="elem_7">elem 7</option>
-                                </select>
-
-                                <p></p>
-
-                                <select id="optgroup" multiple="multiple" class="multi-select">
-                                    <optgroup label="Friends">
-                                        <option value="1">Yoda</option>
-                                        <option value="2" selected>Obiwan</option>
-                                    </optgroup>
-                                    <optgroup label="Enemies">
-                                        <option value="3">Palpatine</option>
-                                        <option value="4" disabled>Darth Vader</option>
-                                    </optgroup>
-                                </select>
-
-                                <p></p>
-
-
-                                <select multiple="multiple" id="public-methods">
-                                    <option value="elem_1">elem 1</option>
-                                    <option value="elem_2" disabled>elem 2</option>
-                                    <option value="elem_3">elem 3</option>
-                                    <option value="elem_4">elem 4</option>
-                                    <option value="elem_1000">elem 100</option>
-                                </select>
-                                <div class="btn-group btn-group-sm my-3" role="group" aria-label="Basic example">
-                                    <button type="button" id="select-all" class="btn btn-outline-secondary">select all
-                                    </button>
-                                    <button type="button" id="deselect-all" class="btn btn-outline-secondary">deselect
-                                        all
-                                    </button>
-                                    <button type="button" id="select-100" class="btn btn-outline-secondary">select 100
-                                        elems
-                                    </button>
-                                    <button type="button" id="deselect-100" class="btn btn-outline-secondary">deselect
-                                        100 elems
-                                    </button>
-                                </div>
 
                             </div>
                         </div>
@@ -1714,191 +1468,5 @@ posted: 2018-01-09
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Drag and drop file upload</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="text-muted">DropzoneJS is an open source library that provides drag'n'drop file uploads
-                        with image previews.</p>
-                    <form action="/file-upload" class="dropzone" data-plugin="dropzone">
-                        <div class="fallback">
-                            <input name="file" type="file" multiple/>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Toggle Switch</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
 
-
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <p class="small">Normal state</p>
-                            <fieldset>
-                                <label class="custom-control custom-toggle custom-toggle-primary my-2">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Pizza</span>
-                                </label>
-                            </fieldset>
-
-                        </div>
-                        <div class="form-group col-md-3">
-                            <p class="small">Checked state</p>
-                            <fieldset>
-                                <label class="custom-control custom-toggle custom-toggle-primary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Pasta</span>
-                                </label>
-                            </fieldset>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <p class="small">Disabled state</p>
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle custom-toggle-primary">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Burgers</span>
-                                </label>
-                            </fieldset>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <p class="small">Checked + Disabled state</p>
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle custom-toggle-primary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Tacos</span>
-                                </label>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <fieldset>
-                                <label class="custom-control custom-toggle custom-toggle-primary mini my-2">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Pizza</span>
-                                </label>
-                            </fieldset>
-
-                        </div>
-                        <div class="form-group col-md-3">
-                            <fieldset>
-                                <label class="custom-control custom-toggle custom-toggle-primary mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Pasta</span>
-                                </label>
-                            </fieldset>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle custom-toggle-primary mini">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Burgers</span>
-                                </label>
-                            </fieldset>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle custom-toggle-primary mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Tacos</span>
-                                </label>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <h6 class="card-title mt-4">Color variations</h6>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <fieldset>
-                                <label class="custom-control custom-toggle custom-toggle-primary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Primary</span>
-                                </label>
-                                <label class="custom-control custom-toggle custom-toggle-secondary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Secondary</span>
-                                </label>
-                            </fieldset>
-
-                        </div>
-                        <div class="form-group col-md-3">
-                            <fieldset>
-                                <label class="custom-control custom-toggle custom-toggle-success">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Success</span>
-                                </label>
-                                <label class="custom-control custom-toggle custom-toggle-danger">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Danger</span>
-                                </label>
-                            </fieldset>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <fieldset>
-                                <label class="custom-control custom-toggle custom-toggle-warning">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Warning</span>
-                                </label>
-                                <label class="custom-control custom-toggle custom-toggle-info">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Info</span>
-                                </label>
-                            </fieldset>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <fieldset>
-                                <label class="custom-control custom-toggle custom-toggle-light">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Light</span>
-                                </label>
-                                <label class="custom-control custom-toggle custom-toggle-dark">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Dark</span>
-                                </label>
-                            </fieldset>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
