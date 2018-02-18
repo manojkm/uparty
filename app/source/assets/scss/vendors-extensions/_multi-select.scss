@@ -33,7 +33,8 @@
     box-shadow: none;
 
     &.ms-focus {
-      border-color: $input-focus-border-color;
+      //border-color: $input-focus-border-color;
+      @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
       box-shadow: $multiple-select-box-shadow;
     }
   }

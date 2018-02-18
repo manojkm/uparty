@@ -1,0 +1,58 @@
+// ================================================================================================
+// File Name: bootstrap-datepicker.standalone.scss
+// Description: Custom overrides of bootstrap-datepicker Plugin (https://github.com/uxsolutions/bootstrap-datepicker/blob/master/less/datepicker.less)
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+.datepicker {
+  border-radius: $datepicker-border-radius;
+
+  &-dropdown {
+    padding: $datepicker-dropdown-padding;
+  }
+
+  table {
+    margin: 0;
+    -webkit-touch-callout: none;
+    user-select: none;
+
+    tr {
+      td {
+        border-radius: $datepicker-cell-border-radius;
+      }
+
+      th {
+        border-radius: $datepicker-header-cell-border-radius;
+        font-weight: 500;
+      }
+
+      td,
+      th {
+        @include transition;
+        width: $datepicker-cell-width;
+        height: $datepicker-cell-height;
+        border: none;
+        text-align: center;
+      }
+    }
+  }
+
+  table tr td {
+    &.day.range-start {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &.day.range-end {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &.day.range-start.range-end {
+      border-radius: $datepicker-cell-border-radius;
+    }
+  }
+}

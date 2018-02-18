@@ -156,13 +156,27 @@
 // SHOWING BORDER ON FOCUS AND HOVER
 //----------------------------------*/
 /* Add/Remove below classes to input group element with javascript. */
-.input-group-hover,
-.input-group-focus {
-  .input-group-text {
+.input-group-focus,
+.input-group-hover{
+  .input-group-text,
+  .custom-select{
     @include transition;
-    border-color: $input-focus-border-color;
     color: $input-addon-hover-focus-color;
   }
 }
 
+.input-group-hover{
+  .input-group-text,
+  .custom-select{
+    border-color: $input-hover-border-color;
+  }
+}
+
+.input-group-focus {
+  .input-group-text,
+  .custom-select{
+    //border-color: $input-focus-border-color;
+    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+  }
+}
 

@@ -222,17 +222,20 @@
   &:focus ~ .custom-file-label {
     @include transition;
     color: $input-focus-color;
-    border-color: $input-focus-border-color;
+    //border-color: $input-focus-border-color;
+    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     box-shadow: none;
 
     &:after {
       background: $custom-file-button-focus-bg;
-      border-color: $input-focus-border-color;
+      //border-color: $input-focus-border-color;
     }
+    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
 
     /* Set the border color to the focused state border color when the input is also hovered. */
     &:hover {
-      border-color: $input-focus-border-color;
+      //border-color: $input-focus-border-color;
+      @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     }
   }
 
@@ -354,6 +357,7 @@
   height: $custom-toggle-height;
   display: flex !important;
   align-items: center;
+  padding-left: 0;
 
   //padding-left: ($custom-toggle-width + 10px);
 
@@ -387,7 +391,7 @@
     }
 
     @at-root .mini#{&} {
-      height: 10px;
+      height: $custom-toggle-mini-height;
       background-color: $custom-toggle-mini-background-color !important;
       border: $custom-toggle-border !important;
       &:after {
@@ -400,40 +404,10 @@
   .#{$cci}:checked + .#{$ccind},
   .#{$cci}:checked:active + .#{$ccind} {
     @include transition;
-    //background: $custom-toggle-checked-background;
-    //border-color: $custom-toggle-checked-background;
     &:after {
-      //background: $custom-toggle-checked-knob-background;
       left: calc(100% - 3px);
       transform: translateX(-100%);
     }
-  }
-
-  /* Theme variations */
-  &.#{$ct}-primary {
-    @include custom-toggle(primary);
-  }
-  &.#{$ct}-secondary {
-    @include custom-toggle(secondary);
-  }
-  /* Contextual variations */
-  &.#{$ct}-success {
-    @include custom-toggle(success);
-  }
-  &.#{$ct}-danger {
-    @include custom-toggle(danger);
-  }
-  &.#{$ct}-warning {
-    @include custom-toggle(warning);
-  }
-  &.#{$ct}-info {
-    @include custom-toggle(info);
-  }
-  &.#{$ct}-light {
-    @include custom-toggle(light);
-  }
-  &.#{$ct}-dark {
-    @include custom-toggle(dark);
   }
 
   /* Active state */
@@ -456,11 +430,109 @@
   /* Checked + Disabled state */
   .#{$cci}:disabled:checked + .#{$ccind} {
     opacity: 0.5;
-    //background-color: $custom-control-indicator-disabled-bg !important;
-    //border-color: $input-border-color !important;
-    //&:after {
-    //  background: $input-border-color !important;
-    //}
   }
 
+  /* Theme variations */
+  &.#{$ct}-primary {
+    @include custom-toggle(primary);
+  }
+  &.#{$ct}-secondary {
+    @include custom-toggle(secondary);
+  }
+
+  /* Contextual variations */
+  @each $scheme, $value in $contextual {
+    &.#{$ct}-#{$scheme} {
+      @include custom-toggle($scheme);
+    }
+  }
 }
+
+//----------------------------------*\
+// TOGGLE FLIP SWITCH
+//----------------------------------*/
+
+.custom-toggle-flip {
+  $ctf: custom-toggle-flip;
+  $cci: custom-control-input;
+  $ccind: custom-control-indicator;
+
+  display: flex !important;
+  padding-left: 0;
+
+  .#{$ccind} {
+    position: relative;
+    width: $custom-toggle-flip-width;
+    height: $custom-toggle-flip-height;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    perspective: $custom-toggle-flip-width + $custom-toggle-flip-height;
+    margin-right: 10px;
+    color: $custom-toggle-flip-normal-color;
+
+    &:before, &:after {
+      @include transition;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      line-height: $custom-toggle-flip-height;
+      backface-visibility: hidden;
+      text-align: center;
+      border-radius: 3px;
+    }
+
+    &:before {
+      content: attr(data-toggle-off);
+      background-color: $custom-toggle-flip-normal-background;
+    }
+
+    &:after {
+      content: attr(data-toggle-on);
+      transform: rotateY(-180deg);
+    }
+  }
+
+  /* Checked state */
+  .#{$cci}:checked + .#{$ccind},
+  .#{$cci}:checked:active + .#{$ccind} {
+    @include transition;
+
+    &:before {
+      transform: rotateY(180deg)
+    }
+    &:after {
+      transform: rotateY(0deg)
+    }
+  }
+
+  /* Disabled state */
+  .#{$cci}:disabled + .#{$ccind} {
+    background-color: $custom-control-indicator-disabled-bg;
+    color: $custom-control-indicator-disabled-color;
+    cursor: not-allowed;
+  }
+
+  /* Checked + Disabled state */
+  .#{$cci}:disabled:checked + .#{$ccind} {
+    opacity: 0.5;
+  }
+
+  /* Theme variations */
+  &.#{$ctf}-primary {
+    @include custom-toggle-flip(primary);
+  }
+  &.#{$ctf}-secondary {
+    @include custom-toggle-flip(secondary);
+  }
+
+  /* Contextual variations */
+  @each $scheme, $value in $contextual {
+    &.#{$ctf}-#{$scheme} {
+      @include custom-toggle-flip($scheme);
+    }
+  }
+}
+

@@ -918,18 +918,6 @@ Usage @include opacity(1);
         @include background-color($theme-color, $font-color);
       }
     }
-
-    //@at-root .mini#{&} {
-    //
-    //  &:after {
-    //    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //      background-color: contextual-color($theme-color, $tone);
-    //    } @else { /* Theme variations */
-    //      @include background-color($theme-color, $tone);
-    //    }
-    //  }
-    //}
-
   }
   &.mini .#{$cci}:checked + .#{$ccind},
   &.mini .#{$cci}:checked:active + .#{$ccind} {
@@ -938,10 +926,34 @@ Usage @include opacity(1);
           background-color: contextual-color($theme-color, $tone);
         } @else { /* Theme variations */
           @include background-color($theme-color, $tone);
+
         }
       }
   }
 
+}
+
+
+//----------------------------------*\
+// CUSTOM TOGGLE
+//----------------------------------*/
+@mixin custom-toggle-flip($theme-color, $tone:base, $tone-border:base, $font-color:font-color) {
+
+  $ctf: custom-toggle-flip;
+  $cci: custom-control-input;
+  $ccind: custom-control-indicator;
+
+  .#{$ccind} {
+    &:after {
+      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+        background-color: contextual-color($theme-color, $tone);
+        color: contextual-color($theme-color, $font-color);
+      } @else { /* Theme variations */
+        @include background-color($theme-color, $tone);
+        @include color($theme-color, $font-color);
+      }
+    }
+  }
 
 }
 
@@ -1074,7 +1086,8 @@ Usage @include opacity(1);
   &:focus {
     @include transition;
     color: $input-focus-color;
-    border-color: $input-focus-border-color;
+    //border-color: $input-focus-border-color;
+    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     box-shadow: none;
 
     /* & + .input-group-addon,
@@ -1083,7 +1096,8 @@ Usage @include opacity(1);
      }*/
 
     &:hover {
-      border-color: $input-hover-border-color;
+      //border-color: $input-hover-border-color;
+      @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
       /*    & + .input-group-addon,
           & ~ .input-group-addon {
             border-color: $input-focus-border-color;

@@ -278,34 +278,34 @@ var appMaster = {
             $('.ms-searchable').multiSelect({
                 selectableHeader: "<input type='text' class='form-control search-input mb-1' autocomplete='off' placeholder='search...'>",
                 selectionHeader: "<input type='text' class='form-control search-input mb-1' autocomplete='off' placeholder='search...'>",
-                afterInit: function(ms){
+                afterInit: function (ms) {
                     var that = this,
                         $selectableSearch = that.$selectableUl.prev(),
                         $selectionSearch = that.$selectionUl.prev(),
-                        selectableSearchString = '#'+that.$container.attr('id')+' .ms-elem-selectable:not(.ms-selected)',
-                        selectionSearchString = '#'+that.$container.attr('id')+' .ms-elem-selection.ms-selected';
+                        selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                        selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
 
                     that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
-                        .on('keydown', function(e){
-                            if (e.which === 40){
+                        .on('keydown', function (e) {
+                            if (e.which === 40) {
                                 that.$selectableUl.focus();
                                 return false;
                             }
                         });
 
                     that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
-                        .on('keydown', function(e){
-                            if (e.which == 40){
+                        .on('keydown', function (e) {
+                            if (e.which == 40) {
                                 that.$selectionUl.focus();
                                 return false;
                             }
                         });
                 },
-                afterSelect: function(){
+                afterSelect: function () {
                     this.qs1.cache();
                     this.qs2.cache();
                 },
-                afterDeselect: function(){
+                afterDeselect: function () {
                     this.qs1.cache();
                     this.qs2.cache();
                 }
@@ -319,7 +319,7 @@ var appMaster = {
                 $('#public-methods').multiSelect('deselect_all');
                 return false;
             });
-            $('#refresh').on('click', function(){
+            $('#refresh').on('click', function () {
                 $('#public-methods').multiSelect('refresh');
                 return false;
             });
@@ -374,6 +374,54 @@ var appMaster = {
         }
     },
 
+    datepicker: function () {
+        if ($.fn.datepicker) {
+
+            $('.date-picker').datepicker({
+                todayBtn: "linked",
+                autoclose: true,
+                todayHighlight: true,
+                calendarWeeks: true,
+                forceParse: false
+            });
+
+            $('.date-picker_2').datepicker({
+                startView: 1,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                format: "dd/mm/yyyy"
+            });
+
+            $('.date-picker_3').datepicker({
+                startView: 2,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('.date-picker_4').datepicker({
+                minViewMode: 1,
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            $('.date-range-picker').datepicker({
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+        }
+
+        else {
+            throw new Error('Please install bootstrap-datepicker plugin! https://github.com/uxsolutions/bootstrap-datepicker');
+        }
+    }
+
 };
 
 var Pluggin = {
@@ -427,6 +475,7 @@ $(document).ready(function () {
     appMaster.textarea_counter();
     appMaster.multi_select();
     appMaster.chosen();
+    appMaster.datepicker();
 });
 
 

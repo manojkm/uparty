@@ -453,7 +453,9 @@ $input-border-color: $gray-400;
 $input-border-size: $border-thin;
 
 $input-focus-color: $gray-700;
-$input-focus-border-color: $gray-500;
+//$input-focus-border-color: $gray-500;
+$input-focus-border-theme-color: primary !default;
+$input-focus-border-theme-color-tone: base !default;
 
 $input-hover-border-color: $gray-500;
 
@@ -569,7 +571,17 @@ $custom-toggle-knob-border-radius: 100px;
 $custom-toggle-knob-active-width: 26px;
 
 /* Mini */
+$custom-toggle-mini-height: 10px !default;
 $custom-toggle-mini-background-color: $gray-200 !default;
+
+
+/* Flip */
+$custom-toggle-flip-width: 60px;
+$custom-toggle-flip-height: 30px;
+$custom-toggle-flip-border-radius: $input-border-size;
+$custom-toggle-flip-normal-color: $gray-800 !default;
+$custom-toggle-flip-normal-background: $gray-400 !default;
+
 
 //----------------------------------*\
 // CHOSEN SELECT
@@ -662,6 +674,21 @@ $card-toolbar-icon-width: 30px;
 
 /* Card window toolbar */
 $card-toolbar-icon-height: 25px;
+
+
+//----------------------------------*\
+// BOOTSTRAP DATEPICKER
+//----------------------------------*/
+$datepicker-border-radius :$card-border-radius;
+$datepicker-dropdown-padding: 20px 22px !default;
+
+$datepicker-cell-border-radius: 50% !default;
+$datepicker-header-cell-border-radius: $border-radius-xl !default;
+$datepicker-cell-width: 36px !default;
+$datepicker-cell-height: 36px !default;
+
+
+
 
 //----------------------------------*\
 // SIZES

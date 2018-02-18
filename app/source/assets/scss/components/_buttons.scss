@@ -120,152 +120,36 @@ and disabled options for all buttons.
 }
 
 /* Contextual variations */
-
-.btn-success {
-  @include btn-theme(success);
+@each $scheme, $value in $contextual {
+  .btn-#{$scheme} {
+    @include btn-theme($scheme);
+  }
 }
 
-.btn-outline-success {
-  @include btn-theme(success, outline);
+@each $scheme, $value in $contextual {
+  .btn-outline-#{$scheme} {
+    @include btn-theme($scheme, outline);
+  }
 }
 
-.btn-danger {
-  @include btn-theme(danger);
-}
-
-.btn-outline-danger {
-  @include btn-theme(danger, outline);
-}
-
-.btn-warning {
-  @include btn-theme(warning);
-}
-
-.btn-outline-warning {
-  @include btn-theme(warning, outline);
-}
-
-.btn-info {
-  @include btn-theme(info);
-}
-
-.btn-outline-info {
-  @include btn-theme(info, outline);
-}
-
-.btn-light {
-  @include btn-theme(light);
-}
-
-.btn-outline-light {
-  @include btn-theme(light, outline);
-}
-
-.btn-dark {
-  @include btn-theme(dark);
-}
-
-.btn-outline-dark {
-  @include btn-theme(dark, outline);
-}
 
 /* Social button */
 
-.btn-facebook {
-  $tone: $facebook;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color);
+@each $scheme, $value in $social-colors {
+  $tone-hover: darken($value, 6%);
+  .btn-#{$scheme} {
+    @include btn-social-theme($value, $tone-hover, $white-color);
+  }
 }
 
-.btn-outline-facebook {
-  $tone: $facebook;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
+
+@each $scheme, $value in $social-colors {
+  $tone-hover: darken($value, 6%);
+  .btn-outline-#{$scheme} {
+    @include btn-social-theme($value, $tone-hover, $white-color, outline);
+  }
 }
 
-.btn-twitter {
-  $tone: $twitter;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color);
-}
-
-.btn-outline-twitter {
-  $tone: $twitter;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
-}
-
-.btn-google-plus {
-  $tone: $google-plus;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color);
-}
-
-.btn-outline-google-plus {
-  $tone: $google-plus;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
-}
-
-.btn-linkedin {
-  $tone: $linkedin;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color);
-}
-
-.btn-outline-linkedin {
-  $tone: $linkedin;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
-}
-
-.btn-instagram {
-  $tone: $instagram;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color);
-}
-
-.btn-outline-instagram {
-  $tone: $instagram;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
-}
-
-.btn-pinterest {
-  $tone: $pinterest;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color);
-}
-
-.btn-outline-pinterest {
-  $tone: $pinterest;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
-}
-
-.btn-dribbble {
-  $tone: $dribbble;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color);
-}
-
-.btn-outline-dribbble {
-  $tone: $dribbble;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
-}
-
-.btn-youtube {
-  $tone: $youtube;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color);
-}
-
-.btn-outline-youtube {
-  $tone: $youtube;
-  $tone-hover: darken($tone, 6%);
-  @include btn-social-theme($tone, $tone-hover, $white-color, outline);
-}
 
 /* Disabled button */
 fieldset[disabled] a.btn,
