@@ -22,7 +22,8 @@ posted: 2018-01-09
                 <div class="card-body">
                     <form>
                         <div class="form-group row">
-                            <label for="inputNormal" class="col-sm-2 col-form-label text-right ">Normal input text</label>
+                            <label for="inputNormal" class="col-sm-2 col-form-label text-right ">Normal input
+                                text</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="inputNormal" placeholder="Normal">
                             </div>
@@ -126,12 +127,41 @@ posted: 2018-01-09
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="inputDisabledIconic" class="col-sm-2 col-form-label text-right">Disabled
+                                Iconic</label>
+
+                            <div class="col-sm-10">
+                                <div class="input-group with-addon-icon-right">
+                                    <input type="text" class="form-control" id="inputDisabledIconic"
+                                           placeholder="Disabled input" disabled>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text disabled"><i class="icon-envelope"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
 
                         <div class="form-group row">
-                            <label for="inputReadonly" class="col-sm-2 col-form-label text-right ">Readonly</label>
+                            <label for="inputReadonly" class="col-sm-2 col-form-label text-right">Readonly</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" id="inputReadonly"
                                        placeholder="Readonly input here…" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputReadonlyIconic" class="col-sm-2 col-form-label text-right">Readonly
+                                Iconic</label>
+                            <div class="col-sm-10">
+                                <div class="input-group with-addon-icon-right">
+                                    <input type="text" class="form-control" id="inputReadonlyIconic"
+                                           placeholder="Readonly input here…" readonly>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text readonly"><i class="icon-book-open"></i></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -407,6 +437,17 @@ posted: 2018-01-09
                         </div>
 
                         <div class="form-group">
+                            <label for="textareaNormalIconic">Iconic</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text align-items-start"><i class="icon-note"></i></div>
+                                </div>
+                                <textarea class="form-control" id="textareaNormalIconic" rows="3"
+                                          placeholder="Let us type some lorem ipsum...."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="textareaHeightAutosize">Height Auto Resize</label>
                             <textarea class="form-control" id="textareaHeightAutosize" data-plugin="autosize"
                                       placeholder="Start pressing Enter to see growing..."></textarea>
@@ -467,7 +508,8 @@ posted: 2018-01-09
                         </div>
 
                         <div class="form-group row">
-                            <label for="selectMultiple" class="col-sm-2 col-form-label text-right">Multiple select</label>
+                            <label for="selectMultiple" class="col-sm-2 col-form-label text-right">Multiple
+                                select</label>
                             <div class="col-sm-10">
                                 <select multiple class="form-control" id="selectMultiple">
                                     <optgroup label="Picnic">
@@ -985,11 +1027,13 @@ posted: 2018-01-09
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="input-group ">
-                                            <input type="text" class="input-sm form-control" name="start" placeholder="Start Date">
+                                            <input type="text" class="input-sm form-control" name="start"
+                                                   placeholder="Start Date">
                                             <div class="input-group-prepend input-group-append">
                                                 <div class="input-group-text">to</div>
                                             </div>
-                                            <input type="text" class="input-sm form-control" name="end" placeholder="End Date">
+                                            <input type="text" class="input-sm form-control" name="end"
+                                                   placeholder="End Date">
                                         </div>
                                     </div>
 

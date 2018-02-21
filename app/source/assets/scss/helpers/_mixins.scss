@@ -1084,24 +1084,14 @@ Usage @include opacity(1);
 /* Form control focus state */
 @mixin form-control-focus() {
   &:focus {
-    @include transition;
+    //@include transition;
     color: $input-focus-color;
     //border-color: $input-focus-border-color;
     @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     box-shadow: none;
-
-    /* & + .input-group-addon,
-     & ~ .input-group-addon {
-       border-color: $input-focus-border-color;
-     }*/
-
     &:hover {
       //border-color: $input-hover-border-color;
       @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
-      /*    & + .input-group-addon,
-          & ~ .input-group-addon {
-            border-color: $input-focus-border-color;
-          }*/
     }
   }
 }
@@ -1110,10 +1100,6 @@ Usage @include opacity(1);
 @mixin form-control-hover() {
   &:hover {
     border-color: $input-hover-border-color;
-    /*    & + .input-group-addon,
-        & ~ .input-group-addon {
-          border-color: $input-hover-border-color;
-        }*/
   }
 }
 

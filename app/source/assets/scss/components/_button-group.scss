@@ -1,5 +1,5 @@
 // ================================================================================================
-// File Name: buttons.scss
+// File Name: button-group.scss
 // Description:
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
@@ -32,6 +32,23 @@
   }
 
 }
+
+
+//
+// Vertical button groups
+//
+
+.btn-group-vertical {
+  > .btn + .btn,
+  > .btn + .btn-group,
+  > .btn-group + .btn,
+  > .btn-group + .btn-group {
+    margin-top: -$btn-border-size;
+    margin-left: 0;
+  }
+
+}
+
 
 /* Large group button */
 .btn-group.btn-group-lg .btn {

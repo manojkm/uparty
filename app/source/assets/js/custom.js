@@ -420,6 +420,40 @@ var appMaster = {
         else {
             throw new Error('Please install bootstrap-datepicker plugin! https://github.com/uxsolutions/bootstrap-datepicker');
         }
+    },
+
+
+    number_spinner:function (){
+
+        var action;
+        $(".number-spinner button").mousedown(function () {
+            var btn = $(this);
+            var input = btn.closest('.number-spinner').find('input');
+            btn.closest('.number-spinner').find('button').prop("disabled", false);
+
+            if (btn.attr('data-dir') == 'up') {
+                action = setInterval(function(){
+                    if ( input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max')) ) {
+                        input.val(parseInt(input.val())+1);
+                    }else{
+                        btn.prop("disabled", true);
+                        clearInterval(action);
+                    }
+                }, 50);
+            } else {
+                action = setInterval(function(){
+                    if ( input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min')) ) {
+                        input.val(parseInt(input.val())-1);
+                    }else{
+                        btn.prop("disabled", true);
+                        clearInterval(action);
+                    }
+                }, 50);
+            }
+        }).mouseup(function(){
+            clearInterval(action);
+        });
+
     }
 
 };
@@ -476,6 +510,7 @@ $(document).ready(function () {
     appMaster.multi_select();
     appMaster.chosen();
     appMaster.datepicker();
+    appMaster.number_spinner();
 });
 
 

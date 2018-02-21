@@ -16,7 +16,7 @@
 .input-group {
   &[class*="with-addon-icon"] {
     .input-group-text {
-      background:$white-color;
+      background: $white-color;
     }
   }
 
@@ -46,9 +46,13 @@
 
   .custom-file {
     &:not(:last-child) .custom-file-label,
-    &:not(:last-child) .custom-file-label::after { @include border-right-radius(0); }
+    &:not(:last-child) .custom-file-label::after {
+      @include border-right-radius(0);
+    }
     &:not(:first-child) .custom-file-label,
-    &:not(:first-child) .custom-file-label::after { @include border-left-radius(0); }
+    &:not(:first-child) .custom-file-label::after {
+      @include border-left-radius(0);
+    }
   }
 }
 
@@ -63,7 +67,6 @@
     margin-left: -$input-border-size;
   }
 }
-
 
 .input-group-prepend {
   margin-right: -$input-border-size;
@@ -93,9 +96,9 @@
   //height: $input-height;
   height: 100%;
 
-    #{$icon-tags} {
-      @include transition;
-    }
+  #{$icon-tags} {
+    @include transition;
+  }
 
 }
 
@@ -125,7 +128,7 @@
 .input-group > .input-group-append:not(:last-child) > .custom-select,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .input-group-text:not(:last-child),
-.input-group > .input-group-append:last-child > .custom-select:not(:last-child){
+.input-group > .input-group-append:last-child > .custom-select:not(:last-child) {
   @include border-right-radius(0);
 }
 
@@ -137,7 +140,7 @@
 .input-group > .input-group-prepend:not(:first-child) > .custom-select,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child),
-.input-group > .input-group-prepend:first-child > .custom-select:not(:first-child){
+.input-group > .input-group-prepend:first-child > .custom-select:not(:first-child) {
   @include border-left-radius(0);
 }
 
@@ -162,33 +165,42 @@
 //----------------------------------*/
 /* Add/Remove below classes to input group element with javascript. */
 .input-group-focus,
-.input-group-hover{
+.input-group-hover {
   .input-group-text,
-  .custom-select{
-    @include transition;
+  .custom-select {
+    //@include transition;
     color: $input-addon-hover-focus-color;
   }
 }
 
-.input-group-hover{
+.input-group-hover {
   .input-group-text,
-  .custom-select{
+  .custom-select {
     border-color: $input-hover-border-color;
   }
 }
 
 .input-group-focus {
   .input-group-text,
-  .custom-select{
+  .custom-select {
+    //@include transition;
     //border-color: $input-focus-border-color;
     @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
-    @include color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    //@include color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
   }
-  //.input-group-text{
-  //  > #{$icon-tags} {
-  //    @include color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
-  //  }
-  //}
-
 }
 
+//----------------------------------*\
+// READONLY INPUT GROUP ADDONS
+//----------------------------------*/
+.disabled,
+.readonly {
+  &.input-group-text {
+    border-color: $input-border-disabled;
+    background-color: $input-bg-disabled !important;
+    color: $input-color-disabled;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
