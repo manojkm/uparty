@@ -92,6 +92,11 @@
   align-items: center;
   //height: $input-height;
   height: 100%;
+
+    #{$icon-tags} {
+      @include transition;
+    }
+
 }
 
 /* Sizing options */
@@ -177,6 +182,13 @@
   .custom-select{
     //border-color: $input-focus-border-color;
     @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
   }
+  //.input-group-text{
+  //  > #{$icon-tags} {
+  //    @include color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+  //  }
+  //}
+
 }
 
