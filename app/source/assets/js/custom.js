@@ -422,9 +422,22 @@ var appMaster = {
         }
     },
 
+    wizard_step:function (){
+        $("#wizard").steps({
+            headerTag: "h2",
+            bodyTag: "section",
+            transitionEffect: "slideLeft"
+        });
+
+        $("#wizard-vertical").steps({
+            headerTag: "h2",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            stepsOrientation: "vertical"
+        });
+    },
 
     number_spinner:function (){
-
         var action;
         $(".number-spinner button").mousedown(function () {
             var btn = $(this);
@@ -455,6 +468,7 @@ var appMaster = {
         });
 
     }
+
 
 };
 
@@ -511,6 +525,7 @@ $(document).ready(function () {
     appMaster.chosen();
     appMaster.datepicker();
     appMaster.number_spinner();
+    appMaster.wizard_step();
 });
 
 
