@@ -90,11 +90,13 @@
   background-color: $input-addon-background-color;
   min-width: $input-addon-min-width;
   text-align: center;
+  height: 100%;
+
+  /* Flex */
   display: flex;
   justify-content: center;
   align-items: center;
   //height: $input-height;
-  height: 100%;
 
   #{$icon-tags} {
     @include transition;

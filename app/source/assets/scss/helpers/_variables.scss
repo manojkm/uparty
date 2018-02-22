@@ -427,7 +427,7 @@ $btn-icon-size-sm: calc(#{$btn-icon-size-sm-inner} + #{$btn-border-size * 2}) !d
 /* Regular icon button (.btn-icon.btn-round) */
 $btn-icon-font-size: $btn-font-size;
 $btn-icon-size-inner: ($btn-icon-font-size * $btn-line-height) + ($btn-padding-y * 2) !default;
-$btn-icon-size: calc(#{$btn-icon-size-inner} + #{$btn-border-size *2 }) !default;
+$btn-icon-size: calc(#{$btn-icon-size-inner} + #{$btn-border-size *2}) !default;
 
 /* Large icon button (.btn-lg.btn-icon.btn-round) */
 $btn-icon-font-size-lg: $btn-font-size-lg;
@@ -686,6 +686,14 @@ $datepicker-cell-border-radius: 50% !default;
 $datepicker-header-cell-border-radius: $border-radius-xl !default;
 $datepicker-cell-width: 36px !default;
 $datepicker-cell-height: 36px !default;
+
+
+
+//----------------------------------*\
+// NUMBER SPINNER
+//----------------------------------*/
+$spinner-icon-width:20px;
+$spinner-icon-font-size:$font-size-xs;
 
 //----------------------------------*\
 // SIZES
