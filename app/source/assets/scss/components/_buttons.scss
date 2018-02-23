@@ -14,18 +14,8 @@ button, .button {
 
 /* Regular button and base styling */
 
-.btn,
-.navbar .navbar-nav > a.btn {
-  @include set-border-radius($btn-radius);
-  font-size: $btn-font-size;
-  border-width: $btn-border-size;
-  font-weight: $btn-font-weight;
-  padding: $btn-padding-y $btn-padding-x;
-  line-height: $btn-line-height;
-  min-width: $btn-min-width;
-  min-height: $btn-min-height;
-  cursor: pointer;
-
+.btn{
+  @extend %button;
   /* Beta 3 Migration changes */
   #{$a-tags},
   &:focus,

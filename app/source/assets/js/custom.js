@@ -423,18 +423,56 @@ var appMaster = {
     },
 
     wizard_step:function (){
-        $("#wizard").steps({
-            headerTag: "h2",
-            bodyTag: "section",
-            transitionEffect: "slideLeft"
-        });
 
-        $("#wizard-vertical").steps({
-            headerTag: "h2",
+        $("#wizard").steps({
+            /* Appearance */
+            headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "slideLeft",
-            stepsOrientation: "vertical"
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+
+            /* Templates */
+            titleTemplate: '<span class="number">#index#.</span> #title#',
+
+            onInit	:function (event, currentIndex) {
+
+                //update progress
+                var $total = $(this).find('.steps ul li').length;
+                var $current = currentIndex+1;
+                var $percent = ($current/$total) * 100;
+                $(this).find('.progress-bar').css({width:$percent+'%'}).text("Step"+ $current +" of " + $total);
+                // $(this).find('.progress-bar').text("Step " + step + " of 3");
+            },
+
+            onStepChanged:function (event, currentIndex, priorIndex) {
+
+                //update progress
+                var $total = $(this).find('.steps ul li').length;
+                var $current = currentIndex+1;
+                var $percent = ($current/$total) * 100;
+                $(this).find('.progress-bar').css({width:$percent+'%'}).text("Step"+ $current +" of " + $total);
+            },
+
+            onFinished: function (event, currentIndex)
+            {
+                alert("Submitted!");
+            },
+
+
         });
+
+        $("#wizard-tab").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            enableFinishButton: true,
+            enablePagination: true,
+            enableAllSteps: true,
+            titleTemplate: "#title#",
+            cssClass: "tabcontrol"
+        });
+
     },
 
     number_spinner:function (){

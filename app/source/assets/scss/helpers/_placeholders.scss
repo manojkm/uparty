@@ -8,6 +8,23 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+
+//----------------------------------*\
+// BUTTON
+//----------------------------------*/
+%button {
+  @include set-border-radius($btn-radius);
+  font-size: $btn-font-size;
+  border-width: $btn-border-size;
+  font-weight: $btn-font-weight;
+  padding: $btn-padding-y $btn-padding-x;
+  line-height: $btn-line-height;
+  min-width: $btn-min-width;
+  min-height: $btn-min-height;
+  cursor: pointer;
+}
+
+
 //----------------------------------*\
 // CLEARFIX
 //----------------------------------*/
