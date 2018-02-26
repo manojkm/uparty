@@ -424,42 +424,49 @@ var appMaster = {
 
     wizard_step:function (){
 
+        //update progress
+        function updateProgress(elem,index) {
+            var $total = $(elem).find('.steps ul li').length;
+            var $current = index+1;
+            var $percent = ($current/$total) * 100;
+            $(elem).find('.progress-bar').css({width:$percent+'%'}).text("Step"+ $current +" of " + $total);
+        }
+
+        function addBootstrap(elem,index) {
+            $(elem).children('.steps').find('ul').addClass('nav nav-pills nav-fill').find('li').addClass('nav-item').find('a').addClass('nav-link');
+            $(elem).children('.actions').find('a').addClass('btn btn-primary');
+        }
+
+        // $(function() {
+        //     $("#wizard > .content").appendTo("#ws");
+        //     $("#wizard > .steps").appendTo("#d");
+        // });
+
         $("#wizard").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
-            transitionEffect: "slideLeft",
+            transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-
-            /* Templates */
+            cssClass: "wizard test",
             titleTemplate: '<span class="number">#index#.</span> #title#',
+            loadingTemplate: '<span class="spinner"></span> #text#',
 
             onInit	:function (event, currentIndex) {
-
-                //update progress
-                var $total = $(this).find('.steps ul li').length;
-                var $current = currentIndex+1;
-                var $percent = ($current/$total) * 100;
-                $(this).find('.progress-bar').css({width:$percent+'%'}).text("Step"+ $current +" of " + $total);
-                // $(this).find('.progress-bar').text("Step " + step + " of 3");
+                updateProgress(this, currentIndex);
+                addBootstrap(this, currentIndex);
             },
 
-            onStepChanged:function (event, currentIndex, priorIndex) {
-
-                //update progress
-                var $total = $(this).find('.steps ul li').length;
-                var $current = currentIndex+1;
-                var $percent = ($current/$total) * 100;
-                $(this).find('.progress-bar').css({width:$percent+'%'}).text("Step"+ $current +" of " + $total);
+            onStepChanging:function (event, currentIndex, newIndex) {
+                updateProgress(this, newIndex);
+                return true;
             },
 
             onFinished: function (event, currentIndex)
             {
                 alert("Submitted!");
             },
-
-
         });
 
         $("#wizard-tab").steps({
@@ -473,6 +480,45 @@ var appMaster = {
             cssClass: "tabcontrol"
         });
 
+    },
+
+    smart_wizard:function (){
+
+        // Step show event
+        $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
+            //alert("You are on step "+stepNumber+" now");
+            if(stepPosition === 'first'){
+                $("#prev-btn").addClass('disabled');
+            }else if(stepPosition === 'final'){
+                $("#next-btn").addClass('disabled');
+            }else{
+                $("#prev-btn").removeClass('disabled');
+                $("#next-btn").removeClass('disabled');
+            }
+        });
+
+        // Toolbar extra buttons
+        var btnFinish = $('<button></button>').text('Finish')
+            .addClass('btn btn-info')
+            .on('click', function(){ alert('Finish Clicked'); });
+        var btnCancel = $('<button></button>').text('Cancel')
+            .addClass('btn btn-danger')
+            .on('click', function(){ $('#smartwizard').smartWizard("reset"); });
+
+
+        $('#smartwizard').smartWizard({
+            selected: 0,
+            theme: 'default',
+            transitionEffect: 'fade', // Effect on navigation, none/slide/fade
+            transitionSpeed: '400',
+            showStepURLhash: true,
+            toolbarSettings: {
+                toolbarPosition: 'bottom', // none, top, bottom, both
+                toolbarButtonPosition: 'right', // left, right
+                // toolbarPosition: 'both',
+                toolbarExtraButtons: [btnFinish, btnCancel]
+            }
+        });
     },
 
     number_spinner:function (){
@@ -564,6 +610,7 @@ $(document).ready(function () {
     appMaster.datepicker();
     appMaster.number_spinner();
     appMaster.wizard_step();
+    appMaster.smart_wizard();
 });
 
 
