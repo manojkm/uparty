@@ -422,25 +422,25 @@ var appMaster = {
         }
     },
 
-    wizard_step:function (){
+    wizard_step: function () {
 
         //update progress
-        function updateProgress(elem,index) {
+        function updateProgress(elem, index) {
             var $total = $(elem).find('.steps ul li').length;
-            var $current = index+1;
-            var $percent = ($current/$total) * 100;
-            $(elem).find('.progress-bar').css({width:$percent+'%'}).text("Step"+ $current +" of " + $total);
+            var $current = index + 1;
+            var $percent = ($current / $total) * 100;
+            $(elem).find('.progress-bar').css({width: $percent + '%'}).text("Step" + $current + " of " + $total);
         }
 
-        function addBootstrap(elem,index) {
-            $(elem).children('.steps').find('ul').addClass('nav nav-pills nav-fill').find('li').addClass('nav-item').find('a').addClass('nav-link');
-            $(elem).children('.actions').find('a').addClass('btn btn-primary');
-        }
+        function addBootstrap(elem, index) {
 
-        // $(function() {
-        //     $("#wizard > .content").appendTo("#ws");
-        //     $("#wizard > .steps").appendTo("#d");
-        // });
+            var $this = $(elem);
+            if ($this.hasClass('pills')) {
+                $this.children('.steps').addClass('nav nav-pills nav-fill');
+            }
+            $this.children('.steps').find('ul li').addClass('nav-item').find('a').addClass('nav-link');
+            $this.children('.actions').find('a').addClass('btn btn-primary');
+        }
 
         $("#wizard").steps({
             /* Appearance */
@@ -449,22 +449,23 @@ var appMaster = {
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            cssClass: "wizard test",
+            cssClass: "wizard pills",
             titleTemplate: '<span class="number">#index#.</span> #title#',
             loadingTemplate: '<span class="spinner"></span> #text#',
 
-            onInit	:function (event, currentIndex) {
+            onInit: function (event, currentIndex) {
                 updateProgress(this, currentIndex);
                 addBootstrap(this, currentIndex);
             },
 
-            onStepChanging:function (event, currentIndex, newIndex) {
+            onStepChanging: function (event, currentIndex, newIndex) {
                 updateProgress(this, newIndex);
                 return true;
             },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+            },
 
-            onFinished: function (event, currentIndex)
-            {
+            onFinished: function (event, currentIndex) {
                 alert("Submitted!");
             },
         });
@@ -482,16 +483,16 @@ var appMaster = {
 
     },
 
-    smart_wizard:function (){
+    smart_wizard: function () {
 
         // Step show event
-        $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
+        $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
             //alert("You are on step "+stepNumber+" now");
-            if(stepPosition === 'first'){
+            if (stepPosition === 'first') {
                 $("#prev-btn").addClass('disabled');
-            }else if(stepPosition === 'final'){
+            } else if (stepPosition === 'final') {
                 $("#next-btn").addClass('disabled');
-            }else{
+            } else {
                 $("#prev-btn").removeClass('disabled');
                 $("#next-btn").removeClass('disabled');
             }
@@ -500,10 +501,14 @@ var appMaster = {
         // Toolbar extra buttons
         var btnFinish = $('<button></button>').text('Finish')
             .addClass('btn btn-info')
-            .on('click', function(){ alert('Finish Clicked'); });
+            .on('click', function () {
+                alert('Finish Clicked');
+            });
         var btnCancel = $('<button></button>').text('Cancel')
             .addClass('btn btn-danger')
-            .on('click', function(){ $('#smartwizard').smartWizard("reset"); });
+            .on('click', function () {
+                $('#smartwizard').smartWizard("reset");
+            });
 
 
         $('#smartwizard').smartWizard({
@@ -521,7 +526,7 @@ var appMaster = {
         });
     },
 
-    number_spinner:function (){
+    number_spinner: function () {
         var action;
         $(".number-spinner button").mousedown(function () {
             var btn = $(this);
@@ -529,25 +534,25 @@ var appMaster = {
             btn.closest('.number-spinner').find('button').prop("disabled", false);
 
             if (btn.attr('data-action') == 'increment') {
-                action = setInterval(function(){
-                    if ( input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max')) ) {
-                        input.val(parseInt(input.val())+1);
-                    }else{
+                action = setInterval(function () {
+                    if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {
+                        input.val(parseInt(input.val()) + 1);
+                    } else {
                         btn.prop("disabled", true);
                         clearInterval(action);
                     }
                 }, 50);
-            } else  if (btn.attr('data-action') == 'decrement') {
-                action = setInterval(function(){
-                    if ( input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min')) ) {
-                        input.val(parseInt(input.val())-1);
-                    }else{
+            } else if (btn.attr('data-action') == 'decrement') {
+                action = setInterval(function () {
+                    if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {
+                        input.val(parseInt(input.val()) - 1);
+                    } else {
                         btn.prop("disabled", true);
                         clearInterval(action);
                     }
                 }, 50);
             }
-        }).mouseup(function(){
+        }).mouseup(function () {
             clearInterval(action);
         });
 
