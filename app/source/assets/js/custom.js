@@ -438,6 +438,7 @@ var appMaster = {
             if ($this.hasClass('pills')) {
                 $this.children('.steps').addClass('nav nav-pills nav-fill');
             }
+            // $this.children('.steps').find('ul li.current a').addClass('active');
             $this.children('.steps').find('ul li').addClass('nav-item').find('a').addClass('nav-link');
             $this.children('.actions').find('a').addClass('btn btn-primary');
         }
@@ -463,6 +464,9 @@ var appMaster = {
                 return true;
             },
             onStepChanged: function (event, currentIndex, priorIndex) {
+
+                $('.steps .current').siblings().children().removeClass('active');
+                $('.steps .current a').addClass('active');
             },
 
             onFinished: function (event, currentIndex) {
