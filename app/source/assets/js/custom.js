@@ -433,13 +433,8 @@ var appMaster = {
         }
 
         function addBootstrap(elem, index) {
-
             var $this = $(elem);
-            if ($this.hasClass('pills')) {
-                $this.children('.steps').addClass('nav nav-pills nav-fill');
-            }
-            // $this.children('.steps').find('ul li.current a').addClass('active');
-            $this.children('.steps').find('ul li').addClass('nav-item').find('a').addClass('nav-link');
+            // $this.children('.steps').find('ul li').addClass('nav-item').find('a').addClass('nav-link');
             $this.children('.actions').find('a').addClass('btn btn-primary');
         }
 
@@ -450,7 +445,6 @@ var appMaster = {
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            cssClass: "wizard pills",
             titleTemplate: '<span class="number">#index#.</span> #title#',
             loadingTemplate: '<span class="spinner"></span> #text#',
 

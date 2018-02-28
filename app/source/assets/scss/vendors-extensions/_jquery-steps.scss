@@ -55,56 +55,51 @@
       }
     }
 
-    //> ul > li {
-    //  width: 25%;
-    //  float: left;
-    //}
+    a,
+    a:hover,
+    a:active {
+      @include transition;
+      @extend %button;
+      @extend .btn-lg;
+      display: block;
+      width: auto;
+      margin: 0 0.5em 0 0;
 
-    //a,
-    //a:hover,
-    //a:active {
-    //  @include transition;
-    //  @extend %button;
-    //  @extend .btn-lg;
-    //  display: block;
-    //  width: auto;
-    //  margin: 0 0.5em 0 0;
-    //
-    //}
+    }
 
     .last a {
       margin: 0;
     }
-    //
-    //.disabled a,
-    //.disabled a:hover,
-    //.disabled a:active {
-    //  background: $steps-disabled-bg;
-    //  color: $steps-disabled-color;
-    //  cursor: default;
-    //}
-    //
-    //.current a,
-    //.current a:hover,
-    //.current a:active {
-    //  @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
-    //  @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
-    //  cursor: default;
-    //}
-    //
-    //.done a,
-    //.done a:hover,
-    //.done a:active {
-    //  @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
-    //  @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
-    //  @include opacity($btn-disabled-opacity);
-    //}
-    //.error a,
-    //.error a:hover,
-    //.error a:active {
-    //  background-color: $steps-error-theme-color;
-    //  color: $steps-error-color-theme-color-tone;
-    //}
+
+    .disabled a,
+    .disabled a:hover,
+    .disabled a:active {
+      background: $steps-disabled-bg;
+      color: $steps-disabled-color;
+      cursor: default;
+    }
+
+    .current a,
+    .current a:hover,
+    .current a:active {
+      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      cursor: default;
+    }
+
+    .done a,
+    .done a:hover,
+    .done a:active {
+      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      @include opacity($btn-disabled-opacity);
+    }
+    .error a,
+    .error a:hover,
+    .error a:active {
+      background-color: $steps-error-theme-color;
+      color: $steps-error-color-theme-color-tone;
+    }
 
   }
 
@@ -120,11 +115,11 @@
   position: relative;
   width: auto;
   > .body {
-    float: left;
-    position: absolute;
-    width: 95%;
-    height: 95%;
-    padding: 2.5%;
+    //float: left;
+    //position: absolute;
+    //width: 95%;
+    //height: 95%;
+    //padding: 2.5%;
 
     > iframe {
       border: 0 none;
