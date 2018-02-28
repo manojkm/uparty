@@ -465,8 +465,8 @@ var appMaster = {
             },
             onStepChanged: function (event, currentIndex, priorIndex) {
 
-                $('.steps .current').siblings().children().removeClass('active');
-                $('.steps .current a').addClass('active');
+                // $('.steps .current').siblings().children().removeClass('active');
+                // $('.steps .current a').addClass('active');
             },
 
             onFinished: function (event, currentIndex) {
