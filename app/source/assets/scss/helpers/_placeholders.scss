@@ -15,14 +15,14 @@
 %button {
   @include set-border-radius($btn-radius);
   font-size: $btn-font-size;
-  border-width: $btn-border-size;
+  //border-width: $btn-border-size;
   font-weight: $btn-font-weight;
   padding: $btn-padding-y $btn-padding-x;
   line-height: $btn-line-height;
   min-width: $btn-min-width;
   min-height: $btn-min-height;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: $btn-border-size solid transparent;
 }
 
 

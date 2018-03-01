@@ -429,7 +429,7 @@ var appMaster = {
             var $total = $(elem).find('.steps ul li').length;
             var $current = index + 1;
             var $percent = ($current / $total) * 100;
-            $(elem).find('.progress-bar').css({width: $percent + '%'}).text("Step" + $current + " of " + $total);
+            $(elem).find('.progress-bar').css({width: $percent + '%'}).text("Step " + $current + " of " + $total);
         }
 
         function addBootstrap(elem, index) {
@@ -458,9 +458,33 @@ var appMaster = {
                 return true;
             },
             onStepChanged: function (event, currentIndex, priorIndex) {
-
                 // $('.steps .current').siblings().children().removeClass('active');
                 // $('.steps .current a').addClass('active');
+            },
+
+            onFinished: function (event, currentIndex) {
+                alert("Submitted!");
+            },
+        });
+
+        $("#wizard-vertical").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '<span class="number">#index#.</span> #title#',
+            loadingTemplate: '<span class="spinner"></span> #text#',
+            stepsOrientation: "vertical",
+            onInit: function (event, currentIndex) {
+                updateProgress(this, currentIndex);
+                addBootstrap(this, currentIndex);
+            },
+            onStepChanging: function (event, currentIndex, newIndex) {
+                updateProgress(this, newIndex);
+                return true;
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
             },
 
             onFinished: function (event, currentIndex) {
@@ -479,49 +503,6 @@ var appMaster = {
             cssClass: "tabcontrol"
         });
 
-    },
-
-    smart_wizard: function () {
-
-        // Step show event
-        $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
-            //alert("You are on step "+stepNumber+" now");
-            if (stepPosition === 'first') {
-                $("#prev-btn").addClass('disabled');
-            } else if (stepPosition === 'final') {
-                $("#next-btn").addClass('disabled');
-            } else {
-                $("#prev-btn").removeClass('disabled');
-                $("#next-btn").removeClass('disabled');
-            }
-        });
-
-        // Toolbar extra buttons
-        var btnFinish = $('<button></button>').text('Finish')
-            .addClass('btn btn-info')
-            .on('click', function () {
-                alert('Finish Clicked');
-            });
-        var btnCancel = $('<button></button>').text('Cancel')
-            .addClass('btn btn-danger')
-            .on('click', function () {
-                $('#smartwizard').smartWizard("reset");
-            });
-
-
-        $('#smartwizard').smartWizard({
-            selected: 0,
-            theme: 'default',
-            transitionEffect: 'fade', // Effect on navigation, none/slide/fade
-            transitionSpeed: '400',
-            showStepURLhash: true,
-            toolbarSettings: {
-                toolbarPosition: 'bottom', // none, top, bottom, both
-                toolbarButtonPosition: 'right', // left, right
-                // toolbarPosition: 'both',
-                toolbarExtraButtons: [btnFinish, btnCancel]
-            }
-        });
     },
 
     number_spinner: function () {
