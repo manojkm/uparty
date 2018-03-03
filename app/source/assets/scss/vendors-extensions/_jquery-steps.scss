@@ -8,11 +8,6 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
-//-------------------------------------------*\
-// BASIC WIZARD
-//-------------------------------------------*/
-
 .wizard {
   display: flex;
   flex-direction: column;
@@ -28,25 +23,9 @@
     position: absolute;
     left: -999em;
   }
-}
 
-/* Wizard */
-
-.wizard {
   > .steps {
     position: relative;
-
-    .number {
-      @include border-radius($btn-radius-round);
-      width: $btn-icon-size-sm;
-      height: $btn-icon-size-sm;
-      line-height: $btn-line-height-sm;
-      font-size: $btn-font-size;
-      /* Flex */
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
 
     ul {
       list-style: none !important;
@@ -54,23 +33,122 @@
       margin: 0;
       display: flex;
       flex-direction: row;
+
+      @include max-screen($screen-xs-max) {
+        flex-direction: column;
+      }
+
+
       li {
+        position: relative;
         flex: 1;
         margin: 0 0.5em 0 0;
-        &.last{
+
+        @include max-screen($screen-xs-max) {
+          margin: 0 0 0.5em 0;
+        }
+
+        &:before {
+          @include transition;
+          content: '';
+          display: block;
+          position: absolute;
+          z-index: 9;
+          left: 0;
+        }
+        &:after {
+          @include transition;
+          content: '';
+          display: block;
+          position: absolute;
+          z-index: 9;
+          right: 0;
+        }
+
+        &:first-child:before,
+        &:last-child:after {
+          content: none;
+        }
+        &:last-child {
           margin: 0;
         }
+
       }
     }
 
+  }
+  > .content {
+    @include set-border-radius($card-border-radius);
+    @include add-border($card-border-size, $card-border-color, all);
+    background: $steps-content-bg;
+    margin: 0.5em 0;
+    min-height: 20em;
+    overflow: hidden;
+    position: relative;
+
+    > .body {
+      padding: 1.25rem;
+
+      > iframe {
+        border: 0 none;
+        width: 100%;
+        height: 100%;
+      }
+
+      input.error {
+        background: rgb(251, 227, 228);
+        border: 1px solid #fbc2c4;
+        color: #8a1f11;
+      }
+
+      label.error {
+        color: #8a1f11;
+      }
+
+    }
+  }
+  > .actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none !important;
+      display: flex;
+      flex-direction: row;
+      li {
+        margin: 0 0 0 0.5em;
+      }
+    }
+    .disabled a,
+    .disabled a:hover,
+    .disabled a:active {
+      @include opacity($btn-disabled-opacity);
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+}
+
+//-------------------------------------------*\
+// BASIC WIZARD
+//-------------------------------------------*/
+
+.wizard.basic-wizard {
+  > .steps {
+    .number {
+      margin: 0 5px 0 0;
+    }
     a,
     a:hover,
     a:active {
       @include transition;
       @extend %button;
       @extend .btn-lg;
-      display: block;
-      width: auto;
+      display: flex;
+      //width: auto;
     }
     .disabled a,
     .disabled a:hover,
@@ -98,85 +176,168 @@
     .error a,
     .error a:hover,
     .error a:active {
-      background-color: $steps-error-theme-color;
-      color: $steps-error-color-theme-color-tone;
+      background-color: $steps-error-theme-color !important;
+      color: $steps-error-color-theme-color-tone !important;
     }
 
   }
-  > .content {
-    @include set-border-radius($card-border-radius);
-    @include add-border($card-border-size, $card-border-color, all);
-    background: $steps-content-bg;
-    margin: 0.5em 0;
-    min-height: 20em;
-    overflow: hidden;
-    position: relative;
-    > .body {
-      padding: 1.25rem;
 
-      > iframe {
-        border: 0 none;
-        width: 100%;
-        height: 100%;
-      }
-
-      input.error {
-        background: rgb(251, 227, 228);
-        border: 1px solid #fbc2c4;
-        color: #8a1f11;
-      }
-
-      label.error {
-        color: #8a1f11;
-      }
-
-    }
-  }
-  > .actions{
-    width: 100%;
-    display: flex;
-    justify-content: right;
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none !important;
-      display: flex;
-      flex-direction: row;
-      li{
-        margin: 0 0 0 0.5em;
-      }
-    }
-    .disabled a,
-    .disabled a:hover,
-    .disabled a:active {
-      @include opacity($btn-disabled-opacity);
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-  }
 }
 
-
 //-------------------------------------------*\
-// VERTICAL WIZARD
+// BASIC WIZARD - VERTICAL
 //-------------------------------------------*/
 
-.wizard.vertical{
+.wizard.basic-wizard.vertical {
   flex-direction: row;
+
+  @include max-screen($screen-xs-max) {
+    flex-direction: column;
+  }
   flex-flow: wrap;
+
   > .steps {
     width: 30%;
+    @include max-screen($screen-xs-max) {
+      width: 100%;
+    }
     flex: 1 0 0;
     ul {
       flex-direction: column;
       li {
         margin: 0 0 0.5em 0;
+
       }
     }
   }
-  > .content{
+  > .content {
     margin: 0 0 0.5em 0.5em;
+    @include max-screen($screen-xs-max) {
+      margin: 0 0 0.5em 0;
+    }
     flex: 2 0 0;
+  }
+
+}
+
+//-------------------------------------------*\
+// CIRCLE WIZARD
+//-------------------------------------------*/
+
+.wizard.circle-wizard {
+
+  > .steps {
+    ul {
+      li {
+        margin: 0;
+
+        @include max-screen($screen-xs-max) {
+          margin: 0 0 0.8em 0;
+        }
+
+        &:before,
+        &:after {
+          @include transition;
+          top: calc(#{$steps-circle-size} / 2);
+          width: 50%;
+          height: 2px;
+        }
+      }
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-title {
+      font-size: $steps-circle-title-font-size;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .number {
+      @include transition;
+      @include border-radius($btn-radius-round);
+      width: $steps-circle-size;
+      min-width: $steps-circle-size;
+      min-height: $steps-circle-size;
+      position: relative;
+      line-height: $steps-circle-line-height;
+      font-size: $steps-circle-font-size;
+      z-index: 10;
+
+      /* Flex */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .disabled {
+      .number {
+        @include transition;
+        background: $steps-disabled-bg;
+        color: $steps-disabled-color;
+      }
+      &:before,
+      &:after {
+        @include transition;
+        background: $steps-disabled-bg;
+      }
+      a,
+      a:hover,
+      a:active {
+        color: $steps-disabled-color;
+      }
+    }
+
+    .current,
+    .done {
+      .number {
+        @include transition;
+        @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+        @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      }
+      &:before,
+      &:after {
+        @include transition;
+        @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      }
+      a,
+      a:hover,
+      a:active {
+        color: $steps-circle-title-color;
+      }
+    }
+
+    .done {
+      @include opacity($btn-disabled-opacity);
+    }
+
+    .error {
+      .number {
+        @include transition;
+        background-color: $steps-error-theme-color !important;
+        color: $steps-error-color-theme-color-tone !important;
+      }
+
+      &:before,
+      &:after {
+        @include transition;
+        background-color: $steps-error-theme-color !important;
+      }
+    }
+
+    .disabled,
+    .current {
+      a {
+        cursor: default;
+      }
+    }
+
   }
 
 }

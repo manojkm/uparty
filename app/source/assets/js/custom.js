@@ -434,11 +434,11 @@ var appMaster = {
 
         function addBootstrap(elem, index) {
             var $this = $(elem);
-            // $this.children('.steps').find('ul li').addClass('nav-item').find('a').addClass('nav-link');
+            // $this.children('.steps').find('ul li.current .number').addClass('btn btn-primary btn-icon btn-round btn-lg');
             $this.children('.actions').find('a').addClass('btn btn-primary');
         }
 
-        $("#wizard").steps({
+        $("#wizard-basic").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
@@ -447,6 +447,7 @@ var appMaster = {
             autoFocus: true,
             titleTemplate: '<span class="number">#index#.</span> #title#',
             loadingTemplate: '<span class="spinner"></span> #text#',
+            cssClass: "wizard basic-wizard",
 
             onInit: function (event, currentIndex) {
                 updateProgress(this, currentIndex);
@@ -467,19 +468,49 @@ var appMaster = {
             },
         });
 
-        $("#wizard-vertical").steps({
+        $("#wizard-basic-vertical").steps({
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#.</span> #title#',
+            titleTemplate: '<span class="number">#index#. </span> #title#',
             loadingTemplate: '<span class="spinner"></span> #text#',
+            cssClass: "wizard basic-wizard",
             stepsOrientation: "vertical",
+
             onInit: function (event, currentIndex) {
                 updateProgress(this, currentIndex);
                 addBootstrap(this, currentIndex);
             },
+            onStepChanging: function (event, currentIndex, newIndex) {
+                updateProgress(this, newIndex);
+                return true;
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+            },
+
+            onFinished: function (event, currentIndex) {
+                alert("Submitted!");
+            },
+        });
+
+        $(".circle-wizard").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '<span class="number">#index#</span><span class="step-title">#title#</span>',
+            loadingTemplate: '<span class="spinner"></span> #text#',
+            cssClass: "wizard circle-wizard",
+
+            onInit: function (event, currentIndex) {
+                updateProgress(this, currentIndex);
+                addBootstrap(this, currentIndex);
+            },
+
             onStepChanging: function (event, currentIndex, newIndex) {
                 updateProgress(this, newIndex);
                 return true;
@@ -594,7 +625,6 @@ $(document).ready(function () {
     appMaster.datepicker();
     appMaster.number_spinner();
     appMaster.wizard_step();
-    appMaster.smart_wizard();
 });
 
 
