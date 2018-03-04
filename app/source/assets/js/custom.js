@@ -495,7 +495,11 @@ var appMaster = {
             },
         });
 
-        $(".circle-wizard").steps({
+
+        // Show form
+        var form = $("#circle-wizard").show();
+
+        $("#circle-wizard").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
@@ -505,6 +509,97 @@ var appMaster = {
             titleTemplate: '<span class="number">#index#</span><span class="step-title">#title#</span>',
             loadingTemplate: '<span class="spinner"></span> #text#',
             cssClass: "wizard circle-wizard",
+
+            onInit: function (event, currentIndex) {
+                updateProgress(this, currentIndex);
+                addBootstrap(this, currentIndex);
+            },
+
+            onStepChanging: function (event, currentIndex, newIndex) {
+
+                // Always allow previous action even if the current form is not valid!
+                if (currentIndex > newIndex) {
+                    return true;
+                }
+                // Forbid next action on "Warning" step if the user is to young
+                if (newIndex === 3 && Number($("#age-2").val()) < 18) {
+                    return false;
+                }
+                // Needed in some cases if the user went back (clean up)
+                if (currentIndex < newIndex) {
+                    // To remove error styles
+                    form.find(".body:eq(" + newIndex + ") label.invalid-feedback").remove();
+                    form.find(".body:eq(" + newIndex + ") .is-invalid").removeClass("is-invalid");
+                }
+
+                // Disable validation on fields that are disabled or hidden.
+                form.validate().settings.ignore = ":disabled,:hidden";
+
+                // Start validation; Prevent going forward if false
+                return form.valid();
+
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                updateProgress(this, currentIndex);
+            },
+
+            onFinishing: function (event, currentIndex) {
+                // Disable validation on fields that are disabled.
+                // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                form.validate().settings.ignore = ":disabled";
+
+                // Start validation; Prevent form submission if false
+                return form.valid();
+            },
+
+            onFinished: function (event, currentIndex) {
+                // Submit form input
+                form.submit();
+                // alert("Submitted!");
+            },
+
+        }).validate({  // Initialize validation
+            validClass: 'is-valid',
+            errorClass: 'is-invalid',
+            errorPlacement: function (error, element) {
+                // Add the `help-block` class to the error element
+                error.addClass( "invalid-feedback" );
+
+                // element.before(error);
+
+                if (element.attr("type") == "radio" || element.attr("type") == "checkbox" ) {
+                    error.appendTo( element.parent("div") );
+                } else {
+                    error.insertAfter(element)
+                }
+
+            },
+
+            highlight: function ( element, errorClass, validClass ) {
+                // $( element ).addClass( errorClass ).removeClass(validClass);
+                $( element ).addClass( errorClass );
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                // $( element ).addClass(validClass).removeClass(errorClass);
+                $( element ).removeClass(errorClass);
+            },
+
+            rules: {
+                email: { email: true}
+            }
+        });
+
+        $("#circle-wizard-vertical").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '<span class="number">#index#</span><span class="step-title">#title#</span>',
+            loadingTemplate: '<span class="spinner"></span> #text#',
+            cssClass: "wizard circle-wizard",
+            stepsOrientation: "vertical",
 
             onInit: function (event, currentIndex) {
                 updateProgress(this, currentIndex);
