@@ -453,9 +453,9 @@ var appMaster = {
 
             /* Labels */
             labels: {
-                finish: "Submit",
-                next: "Next Step",
-                previous: "Previous Step",
+                finish: "SUBMIT <i class='icon-check'></i>",
+                next: "NEXT <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK",
             },
 
 
@@ -470,9 +470,8 @@ var appMaster = {
             },
             onStepChanged: function (event, currentIndex, priorIndex) {
                 updateProgress(this, currentIndex);
-                // form.find(".body:eq(" + newIndex + ") .is-invalid").removeClass("is-invalid");
-                $(this).find('.steps ul li.current .number').addClass('animated fadeIn');
-                $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated ").removeClass("animated fadeIn");
+                $(this).find(".steps ul li a:eq(" + currentIndex + ") .number ").addClass("animated bounceIn");
+                $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated ").removeClass("animated bounceIn");
             },
 
             onFinished: function (event, currentIndex) {
