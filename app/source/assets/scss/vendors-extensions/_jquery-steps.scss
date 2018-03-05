@@ -78,6 +78,7 @@
 
   }
   > .content {
+    @include transition;
     @include set-border-radius($card-border-radius);
     @include add-border($card-border-size, $card-border-color, all);
     background: $steps-content-bg;
@@ -130,6 +131,11 @@
     }
   }
 
+  .step-label{
+    font-size: $step-label-font-size;
+    color: $step-label-color;
+  }
+  .spinner{width:50px; height: 50px; background-color: #000}
 }
 
 //-------------------------------------------*\

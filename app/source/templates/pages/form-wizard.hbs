@@ -21,149 +21,187 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                     </div>
                 </div>
                 <div class="card-body">
+                    <p>Allows to build a wizard functionality using buttons to go through the different wizard
+                        steps and using events allows to hook into each step individually.
+                    </p>
+
                     <div id="wizard-basic">
-                        <h3>Keyboard <small>ss</small></h3>
-                        <div class="progress progress-lg mx-3 my-3">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <section>
-                            <p>Try the keyboard navigation by clicking arrow left or right!</p>
-                        </section>
-                        <h3>Effects</h3>
-                        <section>
-                            <p>Wonderful transition effects.</p>
-                        </section>
-                        <h3>Pager</h3>
-                        <section>
-                            <p>The next and previous buttons help you to navigate through your content.</p>
-                        </section>
-                        <h3>Pager</h3>
-                        <section>
-                            <p>The next and previous buttons help you to navigate through your content.</p>
-                        </section>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Circle Wizard</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <form action="#" id="circle-wizard">
-
-                        <h3>Keyboard <small>ss</small></h3>
-                        <div class="progress progress-lg mx-3 my-3">
+                        <!-- Account -->
+                        <h3>Account</h3>
+                        <div class="progress progress-lg mx-3 mt-3">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                  aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <section>
-                            <fieldset>
-                                <div class="form-group">
-                                    <label for="fullName">Full Name :</label>
-                                    <input type="text" class="form-control required" id="fullName" >
+                            <h3 class="d-flex">Account Information<span class="ml-auto step-label animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" placeholder="Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="emailAddress">Email Address</label>
+                                        <input type="text" class="form-control" id="emailAddress" placeholder="Email Address">
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="agree">
+                                        <label class="custom-control-label" for="agree">I agree to the Terms and Conditions</label>
+                                    </div>
                                 </div>
-                            </fieldset>
-
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-                                <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
-                            </div>
-
-
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input type="checkbox" class="custom-control-input"  name="e" required id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">Remember my preference</label>
-                            </div>
-
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1"  value="" name="d" required>
-                                <label class="form-check-label" for="gridCheck1">
-                                    Example checkbox
-                                </label>
-                            </div>
-
-
-                            <div class="form-group">
-                                <select class="custom-select form-control required" id="location" name="location" aria-invalid="true">
-                                    <option value="">Select City</option>
-                                    <option value="Amsterdam">Amsterdam</option>
-                                    <option value="Berlin">Berlin</option>
-                                    <option value="Frankfurt">Frankfurt</option>
-                                </select>
-                            </div>
-
-                        </section>
-                        <h3>Effects</h3>
-                        <section>
-                            <fieldset>
-                                <div class="form-group">
-                                    <label for="emailAddress">Email Address :</label>
-                                    <input type="email" class="form-control required" id="emailAddress" >
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirm Password</label>
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Password">
+                                    </div>
                                 </div>
-                            </fieldset>
-                        </section>
-                        <h3>Pager</h3>
-                        <section>
-                            <p>The next and previous buttons help you to navigate through your content.</p>
-                        </section>
-                        <h3>Pager</h3>
-                        <section>
-                            <p>The next and previous buttons help you to navigate through your content.</p>
+                            </div>
+
+
                         </section>
 
-                        </form>
+                        <!-- Personal -->
+                        <h3>Shipping</h3>
+                        <section>
+                            <h3 class="d-flex">Shipping Information<span class="ml-auto step-label animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNumber">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-9">
+                                            <label for="billingAddress">Billing Address</label>
+                                            <input type="text" class="form-control" id="billingAddress" placeholder="Billing Address">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="zipCode">Zip Code</label>
+                                            <input type="text" class="form-control" id="zipCode" placeholder="Zip Code">
+                                        </div>
+                                    </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Circle vertical wizard</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div id="circle-wizard-vertical">
-                        <h3>Keyboard <small>ss</small></h3>
-                        <div class="progress progress-lg mx-3 my-3">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                 aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <section>
-                            <p>Try the keyboard navigation by clicking arrow left or right!</p>
+                                        <div class="form-group">
+                                            <label for="state">State</label>
+                                            <select class="form-control" id="state">
+                                                <option value="" disabled="" selected="">Select</option>
+                                                <option value="1">California</option>
+                                                <option value="2">Virginia</option>
+                                                <option value="3">Texas</option>
+                                                <option value="4">Florida</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="country">Country</label>
+                                            <select class="form-control" id="country">
+                                                <option value="" disabled="" selected="">Select</option>
+                                                <option value="1">USA</option>
+                                            </select>
+                                        </div>
+
+                                </div>
+                            </div>
                         </section>
-                        <h3>Effects</h3>
+
+                        <!-- Payment -->
+                        <h3>Payment</h3>
                         <section>
-                            <p>Wonderful transition effects.</p>
+                            <h3 class="d-flex">Payment Information<span class="ml-auto step-label animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardType">Card Type</label>
+                                        <select class="form-control" id="cardType">
+                                            <option value="" disabled="" selected="">Select credit card type</option>
+                                            <option value="1">Visa</option>
+                                            <option value="2">American Express</option>
+                                            <option value="3">Discover</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardHolderName">Card Holder Name</label>
+                                        <input type="text" class="form-control" id="cardHolderName" placeholder="Card Holder Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardNumber">Card Number</label>
+                                        <input type="text" class="form-control" id="cardNumber" placeholder="Card #">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="cardCVC">CVC</label>
+                                            <input type="text" class="form-control" id="cardCVC" placeholder="CVC">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="expiryMonth">Expiry Month</label>
+                                            <select id="expiryMonth" class="form-control">
+                                                <option value="" disabled="" selected=""> Month</option>
+                                                <option value="1">01</option>
+                                                <option value="1">02</option>
+                                                <option value="1">03</option>
+                                                <option value="1">04</option>
+                                                <option value="1">05</option>
+                                                <option value="1">06</option>
+                                                <option value="1">07</option>
+                                                <option value="1">08</option>
+                                                <option value="1">09</option>
+                                                <option value="1">10</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="expiryYear">Expiry Year</label>
+                                            <select id="expiryYear" class="form-control">
+                                                <option value="" disabled="" selected="">Year</option>
+                                                <option value="1">2018</option>
+                                                <option value="1">2019</option>
+                                                <option value="1">2020</option>
+                                                <option value="1">2021</option>
+                                                <option value="1">2022</option>
+                                                <option value="1">2023</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </section>
-                        <h3>Pager</h3>
+
+                        <!-- Confirm -->
+                        <h3>Receipt</h3>
                         <section>
-                            <p>The next and previous buttons help you to navigate through your content.</p>
-                        </section>
-                        <h3>Pager</h3>
-                        <section>
-                            <p>The next and previous buttons help you to navigate through your content.</p>
+                            <h3 class="d-flex">Receipt Information<span class="ml-auto step-label animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="sendReceipt">Send Receipt To:</label>
+                                        <small id="sendReceiptHelpBlock" class="form-text text-muted mb-1">
+                                           Enter email address separated by commas.
+                                        </small>
+                                        <input type="text" class="form-control" id="sendReceipt" placeholder="">
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1">Do not include a receipt in the package</label>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
                     </div>
 
@@ -185,7 +223,141 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                 </div>
                 <div class="card-body">
                     <div id="wizard-basic-vertical">
-                        <h3>Keyboard <small>ss</small></h3>
+                        <h3>Keyboard
+                            <small>ss</small>
+                        </h3>
+                        <div class="progress progress-lg mx-3 my-3">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <section>
+                            <p>Try the keyboard navigation by clicking arrow left or right!</p>
+                        </section>
+                        <h3>Effects</h3>
+                        <section>
+                            <p>Wonderful transition effects.</p>
+                        </section>
+                        <h3>Pager</h3>
+                        <section>
+                            <p>The next and previous buttons help you to navigate through your content.</p>
+                        </section>
+                        <h3>Pager</h3>
+                        <section>
+                            <p>The next and previous buttons help you to navigate through your content.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Circle Wizard</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <form action="#" id="circle-wizard">
+
+                        <h3>Keyboard
+                            <small>ss</small>
+                        </h3>
+                        <div class="progress progress-lg mx-3 my-3">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <section>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="fullName">Full Name :</label>
+                                    <input type="text" class="form-control required" id="fullName">
+                                </div>
+                            </fieldset>
+
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="customControlValidation2"
+                                       name="radio-stacked" required>
+                                <label class="custom-control-label" for="customControlValidation2">Toggle this custom
+                                    radio</label>
+                            </div>
+
+
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" name="e" required
+                                       id="customControlAutosizing">
+                                <label class="custom-control-label" for="customControlAutosizing">Remember my
+                                    preference</label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck1" value="" name="d"
+                                       required>
+                                <label class="form-check-label" for="gridCheck1">
+                                    Example checkbox
+                                </label>
+                            </div>
+
+
+                            <div class="form-group">
+                                <select class="custom-select form-control required" id="location" name="location"
+                                        aria-invalid="true">
+                                    <option value="">Select City</option>
+                                    <option value="Amsterdam">Amsterdam</option>
+                                    <option value="Berlin">Berlin</option>
+                                    <option value="Frankfurt">Frankfurt</option>
+                                </select>
+                            </div>
+
+                        </section>
+                        <h3>Effects</h3>
+                        <section>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="emailAddress1">Email Address :</label>
+                                    <input type="email" class="form-control required" id="emailAddress1">
+                                </div>
+                            </fieldset>
+                        </section>
+                        <h3>Pager</h3>
+                        <section>
+                            <p>The next and previous buttons help you to navigate through your content.</p>
+                        </section>
+                        <h3>Pager</h3>
+                        <section>
+                            <p>The next and previous buttons help you to navigate through your content.</p>
+                        </section>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Circle vertical wizard</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="circle-wizard-vertical">
+                        <h3>Keyboard
+                            <small>ss</small>
+                        </h3>
                         <div class="progress progress-lg mx-3 my-3">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                  aria-valuemin="0" aria-valuemax="100"></div>
@@ -207,8 +379,27 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                         </section>
                     </div>
 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Tab wizard</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
                     <div id="wizard-tab">
-                        <h3>Keyboard <small>ss</small></h3>
+                        <h3>Keyboard
+                            <small>ss</small>
+                        </h3>
                         <section>
                             <p>Try the keyboard navigation by clicking arrow left or right!</p>
                         </section>

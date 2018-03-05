@@ -429,7 +429,9 @@ var appMaster = {
             var $total = $(elem).find('.steps ul li').length;
             var $current = index + 1;
             var $percent = ($current / $total) * 100;
-            $(elem).find('.progress-bar').css({width: $percent + '%'}).text("Step " + $current + " of " + $total);
+            $(elem).find('.progress-bar').css({width: $percent + '%'}).text($percent + " % " );
+            $(elem).find('.step-label').text("Step " + $current + " of " + $total);
+
         }
 
         function addBootstrap(elem, index) {
@@ -449,18 +451,28 @@ var appMaster = {
             loadingTemplate: '<span class="spinner"></span> #text#',
             cssClass: "wizard basic-wizard",
 
+            /* Labels */
+            labels: {
+                finish: "Submit",
+                next: "Next Step",
+                previous: "Previous Step",
+            },
+
+
             onInit: function (event, currentIndex) {
                 updateProgress(this, currentIndex);
                 addBootstrap(this, currentIndex);
             },
 
             onStepChanging: function (event, currentIndex, newIndex) {
-                updateProgress(this, newIndex);
+                // updateProgress(this, newIndex);
                 return true;
             },
             onStepChanged: function (event, currentIndex, priorIndex) {
-                // $('.steps .current').siblings().children().removeClass('active');
-                // $('.steps .current a').addClass('active');
+                updateProgress(this, currentIndex);
+                // form.find(".body:eq(" + newIndex + ") .is-invalid").removeClass("is-invalid");
+                $(this).find('.steps ul li.current .number').addClass('animated fadeIn');
+                $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated ").removeClass("animated fadeIn");
             },
 
             onFinished: function (event, currentIndex) {
@@ -521,10 +533,7 @@ var appMaster = {
                 if (currentIndex > newIndex) {
                     return true;
                 }
-                // Forbid next action on "Warning" step if the user is to young
-                if (newIndex === 3 && Number($("#age-2").val()) < 18) {
-                    return false;
-                }
+
                 // Needed in some cases if the user went back (clean up)
                 if (currentIndex < newIndex) {
                     // To remove error styles
@@ -541,6 +550,8 @@ var appMaster = {
             },
             onStepChanged: function (event, currentIndex, priorIndex) {
                 updateProgress(this, currentIndex);
+                $(this).find(".steps ul li a:eq(" + currentIndex + ") .number ").addClass("animated bounceIn");
+                $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated ").removeClass("animated bounceIn");
             },
 
             onFinishing: function (event, currentIndex) {
@@ -562,7 +573,7 @@ var appMaster = {
             validClass: 'is-valid',
             errorClass: 'is-invalid',
             errorPlacement: function (error, element) {
-                // Add the `help-block` class to the error element
+                // Add the `invalid-feedback` class to the error element
                 error.addClass( "invalid-feedback" );
 
                 // element.before(error);
@@ -585,7 +596,10 @@ var appMaster = {
             },
 
             rules: {
-                email: { email: true}
+                email: { email: true},
+                confirm: {
+                    equalTo: "#password"
+                }
             }
         });
 
