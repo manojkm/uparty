@@ -38,7 +38,6 @@
         flex-direction: column;
       }
 
-
       li {
         position: relative;
         flex: 1;
@@ -90,12 +89,6 @@
     > .body {
       padding: 1.25rem;
 
-      > iframe {
-        border: 0 none;
-        width: 100%;
-        height: 100%;
-      }
-
       input.error {
         background: rgb(251, 227, 228);
         border: 1px solid #fbc2c4;
@@ -129,20 +122,23 @@
       cursor: default;
       pointer-events: none;
     }
+    a i {
+      font-size: 80%;
+    }
   }
 
-  .step-label{
+  .step-label {
     font-size: $step-label-font-size;
     color: $step-label-color;
   }
-  .spinner{width:50px; height: 50px; background-color: #000}
+
 }
 
 //-------------------------------------------*\
-// BASIC WIZARD
+// PILLS WIZARD
 //-------------------------------------------*/
 
-.wizard.basic-wizard {
+.wizard.pills-wizard {
   > .steps {
     .number {
       margin: 0 5px 0 0;
@@ -153,9 +149,10 @@
       @include transition;
       @extend %button;
       @extend .btn-lg;
-      display: flex;
-      align-items: baseline;
-      //width: auto;
+      //display: flex;
+      //align-items: baseline;
+      width: 100%;
+      justify-content: flex-start;
     }
     .disabled a,
     .disabled a:hover,
@@ -192,10 +189,10 @@
 }
 
 //-------------------------------------------*\
-// BASIC WIZARD - VERTICAL
+// PILLS WIZARD - VERTICAL
 //-------------------------------------------*/
 
-.wizard.basic-wizard.vertical {
+.wizard.pills-wizard.vertical {
   flex-direction: row;
 
   @include max-screen($screen-xs-max) {
@@ -244,9 +241,9 @@
         &:before,
         &:after {
           @include transition;
-          top: calc(#{$steps-circle-size} / 2);
+          top: 25%;
           width: 50%;
-          height: 2px;
+          height: $steps-circle-line-size
         }
       }
     }
@@ -267,6 +264,7 @@
     .number {
       @include transition;
       @include border-radius($btn-radius-round);
+      border: $steps-circle-border-size solid transparent;
       width: $steps-circle-size;
       min-width: $steps-circle-size;
       min-height: $steps-circle-size;
@@ -274,6 +272,7 @@
       line-height: $steps-circle-line-height;
       font-size: $steps-circle-font-size;
       z-index: 10;
+      box-sizing: content-box;
 
       /* Flex */
       display: inline-flex;
@@ -282,29 +281,12 @@
 
     }
 
-    .disabled {
-      .number {
-        @include transition;
-        background: $steps-disabled-bg;
-        color: $steps-disabled-color;
-      }
-      &:before,
-      &:after {
-        @include transition;
-        background: $steps-disabled-bg;
-      }
-      a,
-      a:hover,
-      a:active {
-        color: $steps-disabled-color;
-      }
-    }
-
     .current,
     .done {
       .number {
         @include transition;
         @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+        @include border-color($steps-active-theme-color, $steps-active-theme-color-tone);
         @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
       }
       &:before,
@@ -323,10 +305,30 @@
       @include opacity($btn-disabled-opacity);
     }
 
+    .disabled {
+      .number {
+        @include transition;
+        background-color: $steps-disabled-bg;
+        border-color: $steps-disabled-bg;
+        color: $steps-disabled-color;
+      }
+      &:before,
+      &:after {
+        @include transition;
+        background: $steps-disabled-bg;
+      }
+      a,
+      a:hover,
+      a:active {
+        color: $steps-disabled-color;
+      }
+    }
+
     .error {
       .number {
         @include transition;
         background-color: $steps-error-theme-color !important;
+        border-color: $steps-error-theme-color !important;
         color: $steps-error-color-theme-color-tone !important;
       }
 
@@ -351,7 +353,8 @@
 //-------------------------------------------*\
 // CIRCLE WIZARD - VERTICAL
 //-------------------------------------------*/
-.wizard.circle-wizard.vertical{
+
+.wizard.circle-wizard.vertical {
   flex-direction: row;
 
   @include max-screen($screen-xs-max) {
@@ -368,7 +371,7 @@
     ul {
       flex-direction: column;
       li {
-        margin: 0 0 0.5em 0;
+        margin: 0 0 0.7em 0;
         &:before,
         &:after {
           content: none;
@@ -385,6 +388,94 @@
   }
 }
 
+//-------------------------------------------*\
+// ARROW WIZARD
+//-------------------------------------------*/
+//https://codepen.io/jonangel247/pen/XKmMVJ
+.wizard.arrow-wizard {
+  > .steps {
+
+    a {
+      @include transition;
+      @extend %button;
+      @extend .btn-lg;
+      width: 100%;
+      justify-content: flex-start;
+
+      &:after,
+      &:before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        right: -17px;
+        width: 0;
+        height: 0;
+        border-top: 19px solid transparent;
+        border-bottom: 17px solid transparent;
+        border-left: 17px solid #ddd;
+        z-index: 20;
+      }
+
+      &:before{
+        right: auto;
+        left: 0;
+        border-left: 17px solid #fff;
+        z-index: 0;
+      }
+    }
+
+
+    .disabled a {
+      background: $steps-disabled-bg;
+      color: $steps-disabled-color;
+      cursor: default;
+    }
+
+    .current a{
+      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      cursor: default;
+      &:after {
+        @include border-left-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      }
+    }
+
+    .done a{
+      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      @include opacity($btn-disabled-opacity);
+      &:after {
+        @include border-left-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      }
+    }
+    .error a{
+      background-color: $steps-error-theme-color !important;
+      color: $steps-error-color-theme-color-tone !important;
+    }
+
+
+
+
+    ul li:first-child{
+      a{ border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;}
+      a:before{ border: none;}
+    }
+
+    ul li:last-child{
+      a{
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+      a:after{ border: none;}
+    }
+
+
+
+
+  }
+
+}
 
 .wizard > .loading {
 }
@@ -408,6 +499,7 @@
   margin: 6px 0 0 0;
   top: 1px;
   z-index: 1;
+  list-style: none !important;
 }
 
 .tabcontrol > .steps > ul > li {

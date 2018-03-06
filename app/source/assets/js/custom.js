@@ -436,11 +436,11 @@ var appMaster = {
 
         function addBootstrap(elem, index) {
             var $this = $(elem);
-            // $this.children('.steps').find('ul li.current .number').addClass('btn btn-primary btn-icon btn-round btn-lg');
             $this.children('.actions').find('a').addClass('btn btn-primary');
         }
 
-        $("#wizard-basic").steps({
+        // Pills wizard
+        $("#pills-wizard").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
@@ -448,16 +448,14 @@ var appMaster = {
             transitionEffectSpeed: 500,
             autoFocus: true,
             titleTemplate: '<span class="number">#index#.</span> #title#',
-            loadingTemplate: '<span class="spinner"></span> #text#',
-            cssClass: "wizard basic-wizard",
+            cssClass: "wizard arrow-wizard",
 
             /* Labels */
             labels: {
                 finish: "SUBMIT <i class='icon-check'></i>",
-                next: "NEXT <i class='icon-arrow-right'></i>",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
                 previous: "<i class='icon-arrow-left'></i>BACK",
             },
-
 
             onInit: function (event, currentIndex) {
                 updateProgress(this, currentIndex);
@@ -465,51 +463,56 @@ var appMaster = {
             },
 
             onStepChanging: function (event, currentIndex, newIndex) {
-                // updateProgress(this, newIndex);
                 return true;
             },
+
             onStepChanged: function (event, currentIndex, priorIndex) {
                 updateProgress(this, currentIndex);
-                $(this).find(".steps ul li a:eq(" + currentIndex + ") .number ").addClass("animated bounceIn");
-                $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated ").removeClass("animated bounceIn");
             },
 
             onFinished: function (event, currentIndex) {
                 alert("Submitted!");
-            },
+            }
         });
 
-        $("#wizard-basic-vertical").steps({
+        // Pills vertical wizard
+        $("#pills-wizard-vertical").steps({
+            /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
             titleTemplate: '<span class="number">#index#. </span> #title#',
-            loadingTemplate: '<span class="spinner"></span> #text#',
-            cssClass: "wizard basic-wizard",
+            cssClass: "wizard pills-wizard",
             stepsOrientation: "vertical",
+
+            /* Labels */
+            labels: {
+                finish: "SUBMIT <i class='icon-check'></i>",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK",
+            },
 
             onInit: function (event, currentIndex) {
                 updateProgress(this, currentIndex);
                 addBootstrap(this, currentIndex);
             },
+
             onStepChanging: function (event, currentIndex, newIndex) {
-                updateProgress(this, newIndex);
                 return true;
             },
+
             onStepChanged: function (event, currentIndex, priorIndex) {
+                updateProgress(this, currentIndex);
             },
 
             onFinished: function (event, currentIndex) {
                 alert("Submitted!");
-            },
+            }
         });
 
-
-        // Show form
-        var form = $("#circle-wizard").show();
-
+        // Circle wizard
         $("#circle-wizard").steps({
             /* Appearance */
             headerTag: "h3",
@@ -518,8 +521,54 @@ var appMaster = {
             transitionEffectSpeed: 500,
             autoFocus: true,
             titleTemplate: '<span class="number">#index#</span><span class="step-title">#title#</span>',
-            loadingTemplate: '<span class="spinner"></span> #text#',
             cssClass: "wizard circle-wizard",
+
+            /* Labels */
+            labels: {
+                finish: "SUBMIT <i class='icon-check'></i>",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK"
+            },
+
+            onInit: function (event, currentIndex) {
+                updateProgress(this, currentIndex);
+                addBootstrap(this, currentIndex);
+            },
+
+            onStepChanging: function (event, currentIndex, newIndex) {
+                return true;
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                updateProgress(this, currentIndex);
+                $(this).find(".steps ul li a:eq(" + currentIndex + ") .number").addClass("animated bounceIn");
+                $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated").removeClass("animated bounceIn");
+            },
+
+            onFinished: function (event, currentIndex) {
+                alert("Submitted!");
+            }
+        });
+
+
+        // Circle wizard with validation
+        var form = $("#circle-wizard-validation").show();
+
+        $("#circle-wizard-validation").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '<span class="number">#index#</span><span class="step-title">#title#</span>',
+            cssClass: "wizard circle-wizard",
+
+            /* Labels */
+            labels: {
+                finish: "SUBMIT <i class='icon-check'></i>",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK"
+            },
 
             onInit: function (event, currentIndex) {
                 updateProgress(this, currentIndex);
@@ -549,8 +598,8 @@ var appMaster = {
             },
             onStepChanged: function (event, currentIndex, priorIndex) {
                 updateProgress(this, currentIndex);
-                $(this).find(".steps ul li a:eq(" + currentIndex + ") .number ").addClass("animated bounceIn");
-                $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated ").removeClass("animated bounceIn");
+                $(this).find(".steps ul li a:eq(" + currentIndex + ") .number").addClass("animated bounceIn");
+                $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated").removeClass("animated bounceIn");
             },
 
             onFinishing: function (event, currentIndex) {
@@ -565,8 +614,7 @@ var appMaster = {
             onFinished: function (event, currentIndex) {
                 // Submit form input
                 form.submit();
-                // alert("Submitted!");
-            },
+            }
 
         }).validate({  // Initialize validation
             validClass: 'is-valid',
@@ -597,11 +645,13 @@ var appMaster = {
             rules: {
                 email: { email: true},
                 confirm: {
-                    equalTo: "#password"
+                    equalTo: "#password-eg3"
                 }
+
             }
         });
 
+        // Circle vertical wizard
         $("#circle-wizard-vertical").steps({
             /* Appearance */
             headerTag: "h3",
@@ -610,9 +660,15 @@ var appMaster = {
             transitionEffectSpeed: 500,
             autoFocus: true,
             titleTemplate: '<span class="number">#index#</span><span class="step-title">#title#</span>',
-            loadingTemplate: '<span class="spinner"></span> #text#',
             cssClass: "wizard circle-wizard",
             stepsOrientation: "vertical",
+
+            /* Labels */
+            labels: {
+                finish: "SUBMIT <i class='icon-check'></i>",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK"
+            },
 
             onInit: function (event, currentIndex) {
                 updateProgress(this, currentIndex);
@@ -620,15 +676,17 @@ var appMaster = {
             },
 
             onStepChanging: function (event, currentIndex, newIndex) {
-                updateProgress(this, newIndex);
                 return true;
             },
             onStepChanged: function (event, currentIndex, priorIndex) {
+                updateProgress(this, currentIndex);
+                $(this).find(".steps ul li a:eq(" + currentIndex + ") .number").addClass("animated bounceIn");
+                $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated").removeClass("animated bounceIn");
             },
 
             onFinished: function (event, currentIndex) {
                 alert("Submitted!");
-            },
+            }
         });
 
         $("#wizard-tab").steps({

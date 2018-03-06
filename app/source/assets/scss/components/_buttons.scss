@@ -78,8 +78,8 @@ button, .button {
 
   &:not(.btn-icon) {
     #{$icon-tags} {
-      padding: 0 $btn-icon-padding-right 0 0;
-      top: 1px;
+      padding: 0 $btn-icon-padding-left-right;
+      //top: 1px;
       position: relative;
       line-height: $btn-icon-lh;
     }

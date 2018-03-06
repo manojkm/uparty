@@ -386,7 +386,7 @@ $btn-border-size: $border-thin;
 $btn-font-weight: $font-wh-normal !default;
 
 /* Button with icon */
-$btn-icon-padding-right: 5px !default;
+$btn-icon-padding-left-right: 3px !default;
 $btn-icon-lh: 1 !default;
 
 /* Small button (.btn-sm) */
@@ -745,12 +745,13 @@ $steps-disabled-color: $gray-500 !default;
 
 $steps-content-bg: $white-color !default;
 
-$step-label-color:$gray-700 !default;
+$step-label-color:$gray-600 !default;
 $step-label-font-size:$font-size-lg !default;
 
 
-
 /* Circle wizard */
+$steps-circle-border-size:5px!default;
+$steps-circle-line-size:3px!default;
 $steps-circle-size: $btn-icon-size-lg !default;
 $steps-circle-line-height: $btn-line-height-lg !default;
 $steps-circle-font-size: $btn-font-size-lg !default;
