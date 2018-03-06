@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: jquery-steps.scss
-// Description: Custom overrides of Multi-select Plugin (https://github.com/lou/multi-select/blob/master/scss/multi-select.scss)
+// Description:
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -26,6 +26,7 @@
 
   > .steps {
     position: relative;
+    margin-bottom: $steps-margin-bottom;
 
     ul {
       list-style: none !important;
@@ -41,10 +42,10 @@
       li {
         position: relative;
         flex: 1;
-        margin: 0 0.5em 0 0;
+        margin: 0 $steps-margin-right 0 0;
 
         @include max-screen($screen-xs-max) {
-          margin: 0 0 0.5em 0;
+          margin: 0 0 $steps-margin-bottom 0;
         }
 
         &:before {
@@ -81,8 +82,7 @@
     @include set-border-radius($card-border-radius);
     @include add-border($card-border-size, $card-border-color, all);
     background: $steps-content-bg;
-    margin: 0.5em 0;
-    min-height: 20em;
+    min-height: 25em;
     overflow: hidden;
     position: relative;
 
@@ -102,6 +102,7 @@
     }
   }
   > .actions {
+    margin-top: $steps-action-margin-top;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -112,7 +113,7 @@
       display: flex;
       flex-direction: row;
       li {
-        margin: 0 0 0 0.5em;
+        margin: 0 0 0 $steps-action-button-margin-left;
       }
     }
     .disabled a,
@@ -135,22 +136,52 @@
 }
 
 //-------------------------------------------*\
+// VERTICAL WIZARD
+//-------------------------------------------*/
+.wizard.vertical {
+  @include max-screen($screen-xs-max) {
+    flex-direction: column;
+  }
+  flex-direction: row;
+  flex-flow: wrap;
+
+  > .steps {
+    @include max-screen($screen-xs-max) {
+      width: 100%;
+    }
+    width: 20%;
+    //flex: 1 0 0;
+
+    ul {
+      flex-direction: column;
+      li {
+        margin: 0 0 $steps-margin-bottom 0;
+      }
+    }
+  }
+
+  > .content {
+    flex: 2 0 0;
+    margin-left: 20px;
+    @include max-screen($screen-xs-max) {
+      margin-left: 0px;
+    }
+  }
+
+}
+
+//-------------------------------------------*\
 // PILLS WIZARD
 //-------------------------------------------*/
 
 .wizard.pills-wizard {
   > .steps {
-    .number {
-      margin: 0 5px 0 0;
-    }
     a,
     a:hover,
     a:active {
       @include transition;
       @extend %button;
       @extend .btn-lg;
-      //display: flex;
-      //align-items: baseline;
       width: 100%;
       justify-content: flex-start;
     }
@@ -173,8 +204,8 @@
     .done a,
     .done a:hover,
     .done a:active {
-      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
-      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
+      @include color($steps-done-theme-color, $steps-done-color-theme-color-tone);
       @include opacity($btn-disabled-opacity);
     }
     .error a,
@@ -193,34 +224,6 @@
 //-------------------------------------------*/
 
 .wizard.pills-wizard.vertical {
-  flex-direction: row;
-
-  @include max-screen($screen-xs-max) {
-    flex-direction: column;
-  }
-  flex-flow: wrap;
-
-  > .steps {
-    width: 30%;
-    @include max-screen($screen-xs-max) {
-      width: 100%;
-    }
-    flex: 1 0 0;
-    ul {
-      flex-direction: column;
-      li {
-        margin: 0 0 0.5em 0;
-
-      }
-    }
-  }
-  > .content {
-    margin: 0 0 0.5em 0.5em;
-    @include max-screen($screen-xs-max) {
-      margin: 0 0 0.5em 0;
-    }
-    flex: 2 0 0;
-  }
 
 }
 
@@ -233,11 +236,7 @@
   > .steps {
     ul {
       li {
-        margin: 0;
-        @include max-screen($screen-xs-max) {
-          margin: 0 0 0.8em 0;
-        }
-
+        margin-right: 0;
         &:before,
         &:after {
           @include transition;
@@ -285,14 +284,14 @@
     .done {
       .number {
         @include transition;
-        @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
-        @include border-color($steps-active-theme-color, $steps-active-theme-color-tone);
-        @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+        @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
+        @include border-color($steps-done-theme-color, $steps-done-theme-color-tone);
+        @include color($steps-done-theme-color, $steps-done-color-theme-color-tone);
       }
       &:before,
       &:after {
         @include transition;
-        @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+        @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
       }
       a,
       a:hover,
@@ -355,43 +354,20 @@
 //-------------------------------------------*/
 
 .wizard.circle-wizard.vertical {
-  flex-direction: row;
-
-  @include max-screen($screen-xs-max) {
-    flex-direction: column;
-  }
-  flex-flow: wrap;
-
   > .steps {
-    width: 10%;
-    @include max-screen($screen-xs-max) {
-      width: 100%;
-    }
-
-    ul {
-      flex-direction: column;
-      li {
-        margin: 0 0 0.7em 0;
-        &:before,
-        &:after {
-          content: none;
-        }
+    ul li {
+      &:before,
+      &:after {
+        content: none;
       }
     }
-  }
-  > .content {
-    margin: 0 0 0.5em 0.5em;
-    @include max-screen($screen-xs-max) {
-      margin: 0 0 0.5em 0;
-    }
-    flex: 2 0 0;
   }
 }
 
 //-------------------------------------------*\
 // ARROW WIZARD
 //-------------------------------------------*/
-//https://codepen.io/jonangel247/pen/XKmMVJ
+//TODO https://codepen.io/jonangel247/pen/XKmMVJ
 .wizard.arrow-wizard {
   > .steps {
 
@@ -400,38 +376,64 @@
       @extend %button;
       @extend .btn-lg;
       width: 100%;
-      justify-content: flex-start;
+      border-radius: 0 !important;
 
       &:after,
       &:before {
+        @include transition;
         content: " ";
         position: absolute;
         top: 0;
-        right: -17px;
+        left: 100%;
         width: 0;
         height: 0;
-        border-top: 19px solid transparent;
-        border-bottom: 17px solid transparent;
-        border-left: 17px solid #ddd;
-        z-index: 20;
+        border-top: $arrow-wizard-size solid transparent;
+        border-bottom: $arrow-wizard-size solid transparent;
+        border-left: $arrow-wizard-size solid transparent;
+        z-index: 2;
       }
 
-      &:before{
-        right: auto;
+      &:before {
         left: 0;
-        border-left: 17px solid #fff;
+        border-left: $arrow-wizard-size solid #fff;
         z-index: 0;
       }
     }
 
+    ul li:first-child {
+      a {
+        @if bool($enable-rounded) == true {
+          border-top-left-radius: $btn-radius-lg !important;
+          border-bottom-left-radius: $btn-radius-lg !important;
+        }
+        &:before {
+          border: none;
+        }
+      }
+    }
+
+    ul li:last-child {
+      a {
+        @if bool($enable-rounded) == true {
+          border-top-right-radius: $btn-radius-lg !important;
+          border-bottom-right-radius: $btn-radius-lg !important;
+        }
+        &:after {
+          border: none;
+        }
+      }
+    }
 
     .disabled a {
       background: $steps-disabled-bg;
       color: $steps-disabled-color;
       cursor: default;
+      &:after {
+        border-left-color: $steps-disabled-bg;
+      }
     }
 
-    .current a{
+    .current a {
       @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
       @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
       cursor: default;
@@ -440,40 +442,29 @@
       }
     }
 
-    .done a{
-      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
-      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
-      @include opacity($btn-disabled-opacity);
+    .done a {
+      @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
+      @include color($steps-done-theme-color, $steps-done-color-theme-color-tone);
       &:after {
-        @include border-left-color($steps-active-theme-color, $steps-active-theme-color-tone);
+        @include border-left-color($steps-done-theme-color, $steps-done-theme-color-tone);
       }
     }
-    .error a{
+    .error a {
       background-color: $steps-error-theme-color !important;
       color: $steps-error-color-theme-color-tone !important;
-    }
-
-
-
-
-    ul li:first-child{
-      a{ border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;}
-      a:before{ border: none;}
-    }
-
-    ul li:last-child{
-      a{
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
+      &:after {
+        border-left-color: $steps-error-theme-color !important;
       }
-      a:after{ border: none;}
     }
-
-
-
 
   }
+
+}
+
+//-------------------------------------------*\
+// ARROW WIZARD - VERTICAL
+//-------------------------------------------*/
+.wizard.arrow-wizard.vertical {
 
 }
 

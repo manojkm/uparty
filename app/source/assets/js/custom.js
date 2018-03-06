@@ -439,6 +439,79 @@ var appMaster = {
             $this.children('.actions').find('a').addClass('btn btn-primary');
         }
 
+        // Arrow wizard
+        $("#arrow-wizard").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '<span class="number">#index#.&nbsp;</span>&nbsp;#title#',
+            cssClass: "wizard arrow-wizard",
+
+            /* Labels */
+            labels: {
+                finish: "SUBMIT <i class='icon-check'></i>",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK",
+            },
+
+            onInit: function (event, currentIndex) {
+                updateProgress(this, currentIndex);
+                addBootstrap(this, currentIndex);
+            },
+
+            onStepChanging: function (event, currentIndex, newIndex) {
+                return true;
+            },
+
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                updateProgress(this, currentIndex);
+            },
+
+            onFinished: function (event, currentIndex) {
+                alert("Submitted!");
+            }
+        });
+
+        // Arrow wizard
+        $("#arrow-wizard-vertical").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '<span class="number">#index#.&nbsp;</span>&nbsp;#title#',
+            cssClass: "wizard arrow-wizard",
+            stepsOrientation: "vertical",
+
+            /* Labels */
+            labels: {
+                finish: "SUBMIT <i class='icon-check'></i>",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK",
+            },
+
+            onInit: function (event, currentIndex) {
+                updateProgress(this, currentIndex);
+                addBootstrap(this, currentIndex);
+            },
+
+            onStepChanging: function (event, currentIndex, newIndex) {
+                return true;
+            },
+
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                updateProgress(this, currentIndex);
+            },
+
+            onFinished: function (event, currentIndex) {
+                alert("Submitted!");
+            }
+        });
+
         // Pills wizard
         $("#pills-wizard").steps({
             /* Appearance */
@@ -447,8 +520,8 @@ var appMaster = {
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#.</span> #title#',
-            cssClass: "wizard arrow-wizard",
+            titleTemplate: '<span class="number">#index#.&nbsp;</span>&nbsp;#title#',
+            cssClass: "wizard pills-wizard",
 
             /* Labels */
             labels: {
@@ -483,7 +556,7 @@ var appMaster = {
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#. </span> #title#',
+            titleTemplate: '<span class="number">#index#.&nbsp;</span>&nbsp;#title#',
             cssClass: "wizard pills-wizard",
             stepsOrientation: "vertical",
 

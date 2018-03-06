@@ -731,11 +731,15 @@ $accordion-underline-border-size: $border-thick;
 $accordion-body-bg: $gray-100 !default;
 
 //----------------------------------*\
-// JQUERY STEPS
+// FORM WIZARD
 //----------------------------------*/
-$steps-active-theme-color: primary !default;
+$steps-active-theme-color: secondary !default;
 $steps-active-theme-color-tone: base !default;
 $steps-active-color-theme-color-tone: font-color !default;
+
+$steps-done-theme-color: primary !default;
+$steps-done-theme-color-tone: base !default;
+$steps-done-color-theme-color-tone: font-color !default;
 
 $steps-error-theme-color: contextual-color(danger, base);
 $steps-error-color-theme-color-tone: contextual-color(danger, font-color);
@@ -748,6 +752,12 @@ $steps-content-bg: $white-color !default;
 $step-label-color:$gray-600 !default;
 $step-label-font-size:$font-size-lg !default;
 
+$steps-margin-right: 15px;
+$steps-margin-bottom: 15px;
+
+$steps-action-margin-top: 15px;
+$steps-action-button-margin-left: 15px;
+
 
 /* Circle wizard */
 $steps-circle-border-size:5px!default;
@@ -758,6 +768,10 @@ $steps-circle-font-size: $btn-font-size-lg !default;
 
 $steps-circle-title-font-size: $font-size-base !default;
 $steps-circle-title-color: $gray-800 !default;
+
+/* Arrow wizard */
+$arrow-wizard-size-inner: ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
+$arrow-wizard-size: calc((#{$arrow-wizard-size-inner} + #{$btn-border-size * 2}) / 2) !default;
 
 
 
