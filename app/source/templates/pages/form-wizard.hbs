@@ -42,10 +42,6 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                         <small id="emailHelp-eg6" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
 
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="agree-eg6" name="agree">
-                                        <label class="custom-control-label" for="agree-eg6">I agree to the Terms and Conditions<span></span></label>
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -55,6 +51,14 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                     <div class="form-group">
                                         <label for="confirmPassword-eg6">Confirm Password</label>
                                         <input type="password" class="form-control" name="confirm" id="confirmPassword-eg6" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="agree-eg6" name="agree">
+                                        <label class="custom-control-label" for="agree-eg6">I agree to the Terms and Conditions</label>
                                     </div>
                                 </div>
                             </div>
@@ -209,6 +213,207 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
+                    <h5 class="card-title">Arrow vertical wizard</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
+                                class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="#" id="arrow-wizard-vertical">
+                        <!-- Account -->
+                        <h3>Account</h3>
+                        <div class="progress progress-lg mx-3 mt-3">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <section>
+                            <h3 class="d-flex mb-3">Account Information<span class="ml-auto step-label animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="username-eg7">Username</label>
+                                        <input type="text" class="form-control" id="username-eg7" placeholder="Username" name="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="emailAddress-eg7">Email Address</label>
+                                        <input type="email" class="form-control" id="emailAddress-eg7" name="email" placeholder="Email Address">
+                                        <small id="emailHelp-eg7" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password-eg7">Password</label>
+                                        <input type="password" class="form-control" name="password" id="password-eg7" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword-eg7">Confirm Password</label>
+                                        <input type="password" class="form-control" name="confirm" id="confirmPassword-eg7" placeholder="Password">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="agree-eg7" name="agree">
+                                        <label class="custom-control-label" for="agree-eg7">I agree to the Terms and Conditions</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Shipping -->
+                        <h3>Shipping</h3>
+                        <section>
+                            <h3 class="d-flex mb-3">Shipping Information<span class="ml-auto step-label animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName-eg7">First Name</label>
+                                        <input type="text" class="form-control" id="firstName-eg7" name="firstname" placeholder="First Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName-eg7">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName-eg7" name="lastname" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNumber-eg7">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phoneNumber-eg7" name="phonenumber" placeholder="Phone Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-9">
+                                            <label for="billingAddress-eg7">Billing Address</label>
+                                            <input type="text" class="form-control" id="billingAddress-eg7" placeholder="Billing Address">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="zipCode-eg7">Zip Code</label>
+                                            <input type="text" class="form-control" id="zipCode-eg7" placeholder="Zip Code">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="state-eg7">State</label>
+                                        <select class="form-control" id="state-eg7" name="state">
+                                            <option value="" disabled="" selected="">Select</option>
+                                            <option value="1">California</option>
+                                            <option value="2">Virginia</option>
+                                            <option value="3">Texas</option>
+                                            <option value="4">Florida</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country-eg7">Country</label>
+                                        <select class="form-control" id="country-eg7" name="country">
+                                            <option value="" disabled="" selected="">Select</option>
+                                            <option value="1">USA</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Payment -->
+                        <h3>Payment</h3>
+                        <section>
+                            <h3 class="d-flex mb-3">Payment Information<span class="ml-auto step-label animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardType-eg7">Card Type</label>
+                                        <select class="form-control" id="cardType-eg7" name="cardtype">
+                                            <option value="" disabled="" selected="">Select credit card type</option>
+                                            <option value="1">Visa</option>
+                                            <option value="2">American Express</option>
+                                            <option value="3">Discover</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardHolderName-eg7">Card Holder Name</label>
+                                        <input type="text" class="form-control" id="cardHolderName-eg7" placeholder="Card Holder Name" name="card-holder-name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardNumber-eg7">Card Number</label>
+                                        <input type="text" class="form-control" id="cardNumber-eg7" placeholder="Card #" name="card-number">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="cardCVC-eg7">CVC</label>
+                                            <input type="text" class="form-control" id="cardCVC-eg7" placeholder="CVC" name="cvc">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="expiryMonth-eg7">Expiry Month</label>
+                                            <select id="expiryMonth-eg7" class="form-control" name="exp-month">
+                                                <option value="" disabled="" selected=""> Month</option>
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="expiryYear-eg7">Expiry Year</label>
+                                            <select id="expiryYear-eg7" class="form-control" name="exp-year">
+                                                <option value="" disabled="" selected="">Year</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Receipt -->
+                        <h3>Receipt</h3>
+                        <section>
+                            <h3 class="d-flex mb-3">Receipt Information<span class="ml-auto step-label animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="sendReceiptHelpBlock-eg7">Send Receipt To:</label>
+                                        <small id="sendReceiptHelpBlock-eg7" class="form-text text-muted mb-1">
+                                            Enter email address separated by commas.
+                                        </small>
+                                        <input type="text" class="form-control" id="sendReceipt-eg7" placeholder="">
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck-eg7">
+                                        <label class="custom-control-label" for="customCheck-eg7">Do not include a receipt in the package</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
                     <h5 class="card-title">Pills Wizard</h5>
                     <div class="card__actions window ml-auto">
                         <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
@@ -218,9 +423,7 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                     </div>
                 </div>
                 <div class="card-body">
-                    {{!--<p>Allows to build a wizard functionality using buttons to go through the different wizard--}}
-                    {{!--steps and using events allows to hook into each step individually.--}}
-                    {{!--</p>--}}
+
                     <form action="#" id="pills-wizard">
                         <!-- Account -->
                         <h3>Account</h3>
@@ -242,10 +445,6 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                         <small id="emailHelp-eg1" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
 
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="agree-eg1" name="agree">
-                                        <label class="custom-control-label" for="agree-eg1">I agree to the Terms and Conditions<span></span></label>
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -255,6 +454,15 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                     <div class="form-group">
                                         <label for="confirmPassword-eg1">Confirm Password</label>
                                         <input type="password" class="form-control" name="confirm" id="confirmPassword-eg1" placeholder="Password">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="agree-eg1" name="agree">
+                                        <label class="custom-control-label" for="agree-eg1">I agree to the Terms and Conditions</label>
                                     </div>
                                 </div>
                             </div>
@@ -438,11 +646,6 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                         <input type="email" class="form-control" id="emailAddress-eg2" name="email" placeholder="Email Address">
                                         <small id="emailHelp-eg2" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
-
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="agree-eg2" name="agree">
-                                        <label class="custom-control-label" for="agree-eg2">I agree to the Terms and Conditions<span></span></label>
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -452,6 +655,14 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                     <div class="form-group">
                                         <label for="confirmPassword-eg2">Confirm Password</label>
                                         <input type="password" class="form-control" name="confirm" id="confirmPassword-eg2" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="agree-eg2" name="agree">
+                                        <label class="custom-control-label" for="agree-eg2">I agree to the Terms and Conditions</label>
                                     </div>
                                 </div>
                             </div>
@@ -602,7 +813,6 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -640,10 +850,6 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                         <small id="emailHelp-eg5" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
 
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="agree-eg5" name="agree">
-                                        <label class="custom-control-label" for="agree-eg5">I agree to the Terms and Conditions<span></span></label>
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -653,6 +859,14 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                     <div class="form-group">
                                         <label for="confirmPassword-eg5">Confirm Password</label>
                                         <input type="password" class="form-control" name="confirm" id="confirmPassword-eg5" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="agree-eg5" name="agree">
+                                        <label class="custom-control-label" for="agree-eg5">I agree to the Terms and Conditions</label>
                                     </div>
                                 </div>
                             </div>
@@ -809,7 +1023,6 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -845,11 +1058,6 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                         <input type="email" class="form-control required" id="emailAddress-eg3" name="email" placeholder="Email Address">
                                         <small id="emailHelp-eg3" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
-
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input required" id="agree-eg3" name="agree">
-                                        <label class="custom-control-label" for="agree-eg3">I agree to the Terms and Conditions<span class="required-field"></span></label>
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -859,6 +1067,14 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                     <div class="form-group">
                                         <label for="confirmPassword-eg3" class="required-field">Confirm Password</label>
                                         <input type="password" class="form-control required" name="confirm" id="confirmPassword-eg3" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input required" id="agree-eg3" name="agree">
+                                        <label class="custom-control-label" for="agree-eg3">I agree to the Terms and Conditions<span class="required-field"></span></label>
                                     </div>
                                 </div>
                             </div>
@@ -1048,11 +1264,6 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                         <input type="email" class="form-control" id="emailAddress-eg4" name="email" placeholder="Email Address">
                                         <small id="emailHelp-eg4" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
-
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="agree-eg4" name="agree">
-                                        <label class="custom-control-label" for="agree-eg4">I agree to the Terms and Conditions<span></span></label>
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -1062,6 +1273,14 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                                     <div class="form-group">
                                         <label for="confirmPassword-eg4">Confirm Password</label>
                                         <input type="password" class="form-control" name="confirm" id="confirmPassword-eg4" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="agree-eg4" name="agree">
+                                        <label class="custom-control-label" for="agree-eg4">I agree to the Terms and Conditions</label>
                                     </div>
                                 </div>
                             </div>
@@ -1217,11 +1436,12 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Tab wizard</h5>
+                    <h5 class="card-title">Tab Wizard</h5>
                     <div class="card__actions window ml-auto">
                         <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
                         <a href="#" class="card__actions-item" data-card="fullscreen"><i
@@ -1230,29 +1450,49 @@ https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="wizard-tab">
-                        <h3>Keyboard
-                            <small>ss</small>
-                        </h3>
+                    <form action="#" id="tab-wizard">
+                        <!-- Home -->
+                        <h3>Home</h3>
                         <section>
-                            <p>Try the keyboard navigation by clicking arrow left or right!</p>
+                            <!--<div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1 class="display-4">Hello from Step1</h1>
+                                <p class="lead">Allows to build a wizard functionality using buttons to go through the different wizard steps and using events allows to hook into each step individually</p>
+                            </div>
+                        </div>-->
+
+                            <h1 class="display-4 text-muted mt-5 pt-5 text-center">Hello from</h1>
+                            <h1 class="display-1 text-muted mb-5 pb-5 text-center">Step1</h1>
+
                         </section>
-                        <h3>Effects</h3>
+
+                        <!-- Design -->
+                        <h3>Design</h3>
                         <section>
-                            <p>Wonderful transition effects.</p>
+                            <h1 class="display-4 text-muted mt-5 pt-5 text-center">Hello from</h1>
+                            <h1 class="display-1 text-muted mb-5 pb-5 text-center">Step2</h1>
                         </section>
-                        <h3>Pager</h3>
+
+                        <!-- Work -->
+                        <h3>Work</h3>
                         <section>
-                            <p>The next and previous buttons help you to navigate through your content.</p>
+                            <h1 class="display-4 text-muted mt-5 pt-5 text-center">Hello from</h1>
+                            <h1 class="display-1 text-muted mb-5 pb-5 text-center">Step3</h1>
                         </section>
-                        <h3>Pager</h3>
+
+                        <!-- Contact -->
+                        <h3>Contact</h3>
                         <section>
-                            <p>The next and previous buttons help you to navigate through your content.</p>
+                            <h1 class="display-4 text-muted mt-5 pt-5 text-center">Hello from</h1>
+                            <h1 class="display-1 text-muted mb-5 pb-5 text-center">Step4</h1>
                         </section>
-                    </div>
+
+                    </form>
 
                 </div>
             </div>
         </div>
     </div>
+
+
 </div>

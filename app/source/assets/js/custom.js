@@ -762,15 +762,28 @@ var appMaster = {
             }
         });
 
-        $("#wizard-tab").steps({
+        // Tab Wizard
+        $("#tab-wizard").steps({
             headerTag: "h3",
             bodyTag: "section",
-            transitionEffect: "slideLeft",
+            transitionEffect: "fade",
             enableFinishButton: true,
             enablePagination: true,
             enableAllSteps: true,
             titleTemplate: "#title#",
-            cssClass: "tabcontrol"
+            cssClass: "wizard tab-wizard",
+
+            /* Labels */
+            labels: {
+                finish: "FINISH",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK"
+            },
+
+            onInit: function (event, currentIndex) {
+                addBootstrap(this, currentIndex);
+            },
+
         });
 
     },

@@ -70,7 +70,7 @@
           content: none;
         }
         &:last-child {
-          margin: 0;
+          margin: 0!important;
         }
 
       }
@@ -119,7 +119,7 @@
     .disabled a,
     .disabled a:hover,
     .disabled a:active {
-      @include opacity($btn-disabled-opacity);
+      @include opacity($steps-disabled-opacity);
       cursor: default;
       pointer-events: none;
     }
@@ -164,7 +164,7 @@
     flex: 2 0 0;
     margin-left: 20px;
     @include max-screen($screen-xs-max) {
-      margin-left: 0px;
+      margin-left: 0;
     }
   }
 
@@ -206,7 +206,7 @@
     .done a:active {
       @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
       @include color($steps-done-theme-color, $steps-done-color-theme-color-tone);
-      @include opacity($btn-disabled-opacity);
+      @include opacity($steps-disabled-opacity);
     }
     .error a,
     .error a:hover,
@@ -279,9 +279,8 @@
       justify-content: center;
 
     }
-
-    .current,
     .done {
+      @include opacity($steps-disabled-opacity);
       .number {
         @include transition;
         @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
@@ -300,8 +299,23 @@
       }
     }
 
-    .done {
-      @include opacity($btn-disabled-opacity);
+    .current {
+      .number {
+        @include transition;
+        @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+        @include border-color($steps-active-theme-color, $steps-active-theme-color-tone);
+        @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      }
+      &:before,
+      &:after {
+        @include transition;
+        @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      }
+      a,
+      a:hover,
+      a:active {
+        color: $steps-circle-title-color;
+      }
     }
 
     .disabled {
@@ -400,6 +414,12 @@
       }
     }
 
+    ul li {
+      margin-right: 1px;
+      @include max-screen($screen-xs-max) {
+        margin-right: 25px;
+      }
+    }
     ul li:first-child {
       a {
         @if bool($enable-rounded) == true {
@@ -424,6 +444,24 @@
       }
     }
 
+    .done a {
+      @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
+      @include color($steps-done-theme-color, $steps-done-color-theme-color-tone);
+      //@include opacity($steps-disabled-opacity);
+      &:after {
+        @include border-left-color($steps-done-theme-color, $steps-done-theme-color-tone);
+      }
+    }
+
+    .current a {
+      @include background-color($steps-active-theme-color, dark);
+      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      cursor: default;
+      &:after {
+        @include border-left-color($steps-active-theme-color, dark);
+      }
+    }
+
     .disabled a {
       background: $steps-disabled-bg;
       color: $steps-disabled-color;
@@ -433,22 +471,6 @@
       }
     }
 
-    .current a {
-      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
-      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
-      cursor: default;
-      &:after {
-        @include border-left-color($steps-active-theme-color, $steps-active-theme-color-tone);
-      }
-    }
-
-    .done a {
-      @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
-      @include color($steps-done-theme-color, $steps-done-color-theme-color-tone);
-      &:after {
-        @include border-left-color($steps-done-theme-color, $steps-done-theme-color-tone);
-      }
-    }
     .error a {
       background-color: $steps-error-theme-color !important;
       color: $steps-error-color-theme-color-tone !important;
@@ -465,100 +487,75 @@
 // ARROW WIZARD - VERTICAL
 //-------------------------------------------*/
 .wizard.arrow-wizard.vertical {
-
+  > .steps {
+    ul li {
+      margin-right: 25px;
+    }
+  }
 }
+
+//-------------------------------------------*\
+// TAB WIZARD
+//-------------------------------------------*/
+
+.wizard.tab-wizard {
+  > .steps {
+    //@include add-border($nav-tabs-border-width, $nav-tabs-border-color, bottom);
+    margin: 0;
+    ul li {
+      margin:0 5px 0 0;
+    }
+
+    a
+    {
+      @include transition;
+      @include set-border-radius($btn-radius-lg);
+      @include border-bottom-radius(0);
+      @include add-border($nav-tabs-border-width, transparent, all);
+      font-size: $btn-font-size-lg;
+      font-weight: $btn-font-weight;
+      padding: $btn-padding-y-lg $btn-padding-x-lg;
+      min-width: $btn-min-width-lg;
+      min-height: $btn-min-height-lg;
+      line-height: $btn-line-height-lg;
+      color: $nav-tabs-link-color;
+      width:100%;
+      /* Flexbox */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover,
+      &:focus {
+        @include color($nav-tabs-link-active-theme-color, $nav-tabs-link-active-theme-color-tone);
+        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+        background-color: $nav-tabs-link-hover-bg;
+      }
+    }
+
+    .current a,
+    .current a:hover,
+    .current a:active {
+      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      @include border-color($steps-active-theme-color, $steps-active-theme-color-tone);
+      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      cursor: default;
+    }
+
+  }
+
+  > .content {
+    @include border-top-radius(0);
+    margin-top: -1px;
+  }
+}
+
+//-------------------------------------------*\
+// MISC
+//-------------------------------------------*/
 
 .wizard > .loading {
 }
 
 .wizard > .loading .spinner {
-
-}
-
-/*
-    Tabcontrol
-*/
-
-.tabcontrol > .steps {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-
-.tabcontrol > .steps > ul {
-  position: relative;
-  margin: 6px 0 0 0;
-  top: 1px;
-  z-index: 1;
-  list-style: none !important;
-}
-
-.tabcontrol > .steps > ul > li {
-  float: left;
-  margin: 5px 2px 0 0;
-  padding: 1px;
-
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.tabcontrol > .steps > ul > li:hover {
-  background: #edecec;
-  border: 1px solid #bbb;
-  padding: 0;
-}
-
-.tabcontrol > .steps > ul > li.current {
-  background: #fff;
-  border: 1px solid #bbb;
-  border-bottom: 0 none;
-  padding: 0 0 1px 0;
-  margin-top: 0;
-}
-
-.tabcontrol > .steps > ul > li > a {
-  color: #5f5f5f;
-  display: inline-block;
-  border: 0 none;
-  margin: 0;
-  padding: 10px 30px;
-  text-decoration: none;
-}
-
-.tabcontrol > .steps > ul > li > a:hover {
-  text-decoration: none;
-}
-
-.tabcontrol > .steps > ul > li.current > a {
-  padding: 15px 30px 10px 30px;
-}
-
-.tabcontrol > .content {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 35em;
-  overflow: hidden;
-  border-top: 1px solid #bbb;
-  padding-top: 20px;
-}
-
-.tabcontrol > .content > .body {
-  float: left;
-  position: absolute;
-  width: 95%;
-  height: 95%;
-  padding: 2.5%;
-}
-
-.tabcontrol > .content > .body ul {
-  list-style: disc !important;
-}
-
-.tabcontrol > .content > .body ul > li {
-  display: list-item;
 }

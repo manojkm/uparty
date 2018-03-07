@@ -733,7 +733,7 @@ $accordion-body-bg: $gray-100 !default;
 //----------------------------------*\
 // FORM WIZARD
 //----------------------------------*/
-$steps-active-theme-color: secondary !default;
+$steps-active-theme-color: primary !default;
 $steps-active-theme-color-tone: base !default;
 $steps-active-color-theme-color-tone: font-color !default;
 
@@ -743,6 +743,8 @@ $steps-done-color-theme-color-tone: font-color !default;
 
 $steps-error-theme-color: contextual-color(danger, base);
 $steps-error-color-theme-color-tone: contextual-color(danger, font-color);
+
+$steps-disabled-opacity:$btn-disabled-opacity!default;
 
 $steps-disabled-bg: $gray-200 !default;
 $steps-disabled-color: $gray-500 !default;
