@@ -63,6 +63,25 @@
 }
 
 //----------------------------------*\
+// SET THEME COLORS
+//----------------------------------*/
+
+@function theme-color($scheme, $tone) {
+
+  @each $themeName, $value in $themes {
+    $colors: map-get-strict($value, 'colors');
+    @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {
+      @return map-get-strict(map-get-strict($colors, $scheme), $tone);
+    }
+    @else {
+      @warn "Make sure you pass a valid color for '#{$tone}' in Theme Sass maps";
+    }
+
+  }
+
+}
+
+//----------------------------------*\
 // RETRIEVE FONT SIZE SASS MAPS
 //----------------------------------*/
 @function font-size($key: size-md) {

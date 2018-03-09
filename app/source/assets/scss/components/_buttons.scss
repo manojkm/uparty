@@ -14,7 +14,7 @@ button, .button {
 
 /* Regular button and base styling */
 
-.btn{
+.btn {
   @extend %button;
   /* Beta 3 Migration changes */
   #{$a-tags},
@@ -34,12 +34,10 @@ button, .button {
     min-width: $btn-icon-size;
     width: $btn-icon-size;
     min-height: $btn-icon-size;
-    //padding: 0;
-    //overflow: hidden;
     position: relative;
     line-height: $btn-line-height;
 
-    /* Flex */
+    /* Flexbox */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -122,16 +120,13 @@ and disabled options for all buttons.
   }
 }
 
-
 /* Social button */
-
 @each $scheme, $value in $social-colors {
   $tone-hover: darken($value, 6%);
   .btn-#{$scheme} {
     @include btn-social-theme($value, $tone-hover, $white-color);
   }
 }
-
 
 @each $scheme, $value in $social-colors {
   $tone-hover: darken($value, 6%);
@@ -140,11 +135,9 @@ and disabled options for all buttons.
   }
 }
 
-
 /* Disabled button */
 fieldset[disabled] a.btn,
 .btn {
-
   #{$disabled-tags} {
     @include opacity($btn-disabled-opacity);
     cursor: not-allowed;
@@ -157,7 +150,6 @@ fieldset[disabled] a.btn,
 }
 
 /* Large button */
-
 .btn-lg {
   @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
 }
@@ -172,3 +164,21 @@ fieldset[disabled] a.btn,
   @include border-radius($btn-radius-round);
 }
 
+.btn-emboss {
+  //&,
+  //#{$a-tags},
+  //&:focus,
+  //&.focus {  transition:none; }
+  &:hover{
+    bottom:2px;
+
+  }
+  &:active,
+  &.active{
+    transition:none;
+    box-shadow: none!important;
+    margin-bottom: -3px;
+    margin-top: 3px;
+    bottom:0px;
+  }
+}
