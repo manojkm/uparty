@@ -439,15 +439,15 @@ var appMaster = {
             $this.children('.actions').find('a').addClass('btn btn-primary');
         }
 
-        // Arrow wizard
-        $("#arrow-wizard").steps({
+        // Arrow form wizard
+        $("#arrow-form-wizard").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#.&nbsp;</span>&nbsp;#title#',
+            titleTemplate: '<span class="step">#index#.&nbsp;</span>&nbsp;#title#',
             cssClass: "wizard arrow-wizard",
 
             /* Labels */
@@ -475,15 +475,15 @@ var appMaster = {
             }
         });
 
-        // Arrow wizard
-        $("#arrow-wizard-vertical").steps({
+        // Arrow form vertical wizard
+        $("#arrow-form-wizard-vertical").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#.&nbsp;</span>&nbsp;#title#',
+            titleTemplate: '<span class="step">#index#.&nbsp;</span>&nbsp;#title#',
             cssClass: "wizard arrow-wizard",
             stepsOrientation: "vertical",
 
@@ -512,15 +512,15 @@ var appMaster = {
             }
         });
 
-        // Pills wizard
-        $("#pills-wizard").steps({
+        // Pills form wizard
+        $("#pills-form-wizard").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#.&nbsp;</span>&nbsp;#title#',
+            titleTemplate: '<span class="step">#index#.&nbsp;</span>&nbsp;#title#',
             cssClass: "wizard pills-wizard",
 
             /* Labels */
@@ -548,15 +548,15 @@ var appMaster = {
             }
         });
 
-        // Pills vertical wizard
-        $("#pills-wizard-vertical").steps({
+        // Pills form vertical wizard
+        $("#pills-form-wizard-vertical").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#.&nbsp;</span>&nbsp;#title#',
+            titleTemplate: '<span class="step">#index#.&nbsp;</span>&nbsp;#title#',
             cssClass: "wizard pills-wizard",
             stepsOrientation: "vertical",
 
@@ -585,15 +585,15 @@ var appMaster = {
             }
         });
 
-        // Circle wizard
-        $("#circle-wizard").steps({
+        // Circle form wizard
+        $("#circle-form-wizard").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#</span><span class="step-title">#title#</span>',
+            titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
             cssClass: "wizard circle-wizard",
 
             /* Labels */
@@ -622,18 +622,17 @@ var appMaster = {
             }
         });
 
+        // Circle form wizard with validation
+        var form = $("#circle-form-wizard-validation").show();
 
-        // Circle wizard with validation
-        var form = $("#circle-wizard-validation").show();
-
-        $("#circle-wizard-validation").steps({
+        $("#circle-form-wizard-validation").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#</span><span class="step-title">#title#</span>',
+            titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
             cssClass: "wizard circle-wizard",
 
             /* Labels */
@@ -724,15 +723,15 @@ var appMaster = {
             }
         });
 
-        // Circle vertical wizard
-        $("#circle-wizard-vertical").steps({
+        // Circle form vertical wizard
+        $("#circle-form-wizard-vertical").steps({
             /* Appearance */
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             transitionEffectSpeed: 500,
             autoFocus: true,
-            titleTemplate: '<span class="number">#index#</span><span class="step-title">#title#</span>',
+            titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
             cssClass: "wizard circle-wizard",
             stepsOrientation: "vertical",
 
@@ -762,7 +761,7 @@ var appMaster = {
             }
         });
 
-        // Tab Wizard
+        // Tab wizard
         $("#tab-wizard").steps({
             headerTag: "h3",
             bodyTag: "section",
@@ -782,13 +781,177 @@ var appMaster = {
 
             onInit: function (event, currentIndex) {
                 addBootstrap(this, currentIndex);
+            }
+
+        });
+
+        // Arrow wizard
+        $("#arrow-wizard").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '#title#',
+            cssClass: "wizard arrow-wizard",
+
+            /* Labels */
+            labels: {
+                finish: "FINISH",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK"
             },
+
+            onInit: function (event, currentIndex) {
+                addBootstrap(this, currentIndex);
+            }
+
+        });
+
+        // Arrow vertical wizard
+        $("#arrow-wizard-vertical").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '#title#',
+            cssClass: "wizard arrow-wizard",
+            stepsOrientation: "vertical",
+
+            /* Labels */
+            labels: {
+                finish: "FINISH",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK"
+            },
+
+            onInit: function (event, currentIndex) {
+                addBootstrap(this, currentIndex);
+            }
+
+        });
+
+        // Pills wizard
+        $("#pills-wizard").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '#title#',
+            cssClass: "wizard pills-wizard",
+
+            /* Labels */
+            labels: {
+                finish: "FINISH <i class='icon-check'></i>",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK",
+            },
+
+            onInit: function (event, currentIndex) {
+                addBootstrap(this, currentIndex);
+            }
+
+        });
+
+        // Pills vertical wizard
+        $("#pills-wizard-vertical").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '#title#',
+            cssClass: "wizard pills-wizard",
+            stepsOrientation: "vertical",
+
+            /* Labels */
+            labels: {
+                finish: "FINISH <i class='icon-check'></i>",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK",
+            },
+
+            onInit: function (event, currentIndex) {
+                addBootstrap(this, currentIndex);
+            }
+
+        });
+
+        // Circle wizard
+        $("#circle-wizard").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
+            cssClass: "wizard circle-wizard",
+
+            /* Labels */
+            labels: {
+                finish: "FINISH",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK"
+            },
+
+            onInit: function (event, currentIndex) {
+                addBootstrap(this, currentIndex);
+
+                $(this).find('.step-title').each(function(){
+                    var $this = $(this);
+                    if($this.siblings('span.step').length > 0){
+                        $this.siblings('span.step').empty();
+                        $this.children('.step-icon').appendTo($this.siblings('span.step'));
+                    }
+                });
+            }
+
+        });
+
+        // Circle vertical wizard
+        $("#circle-wizard-vertical").steps({
+            /* Appearance */
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            transitionEffectSpeed: 500,
+            autoFocus: true,
+            titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
+            cssClass: "wizard circle-wizard",
+            stepsOrientation: "vertical",
+
+            /* Labels */
+            labels: {
+                finish: "FINISH",
+                next: "NEXT  <i class='icon-arrow-right'></i>",
+                previous: "<i class='icon-arrow-left'></i>BACK"
+            },
+
+            onInit: function (event, currentIndex) {
+                addBootstrap(this, currentIndex);
+                $(this).find('.step-title').each(function(){
+                    var $this = $(this);
+                    if($this.siblings('span.step').length > 0){
+                        $this.siblings('span.step').empty();
+                        $this.children('.step-icon').appendTo($this.siblings('span.step'));
+                    }
+                });
+            }
 
         });
 
     },
 
     number_spinner: function () {
+
+
         var action;
         $(".number-spinner button").mousedown(function () {
             var btn = $(this);
