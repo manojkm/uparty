@@ -70,7 +70,7 @@
           content: none;
         }
         &:last-child {
-          margin: 0!important;
+          margin: 0
         }
 
       }
@@ -161,7 +161,7 @@
   }
 
   > .content {
-    flex: 2 0 0;
+    flex: auto;
     margin-left: 20px;
     @include max-screen($screen-xs-max) {
       margin-left: 0;
@@ -426,8 +426,14 @@
           border-top-left-radius: $btn-radius-lg !important;
           border-bottom-left-radius: $btn-radius-lg !important;
         }
+        @include max-screen($screen-xs-max) {
+          border-radius:0 !important;
+        }
         &:before {
-          border: none;
+          display: none;
+          @include max-screen($screen-xs-max) {
+            display: block;
+          }
         }
       }
     }
@@ -438,8 +444,16 @@
           border-top-right-radius: $btn-radius-lg !important;
           border-bottom-right-radius: $btn-radius-lg !important;
         }
+        @include max-screen($screen-xs-max) {
+          border-radius:0 !important;
+        }
         &:after {
-          border: none;
+          display: none;
+
+          @include max-screen($screen-xs-max) {
+            display: block;
+          }
+
         }
       }
     }
@@ -490,6 +504,24 @@
   > .steps {
     ul li {
       margin-right: 25px;
+    }
+
+    ul li:first-child {
+      a {
+        border-radius: 0!important;
+        &:before {
+          display: block;
+        }
+      }
+    }
+
+    ul li:last-child {
+      a {
+        border-radius: 0!important;
+        &:after {
+          display: block;
+        }
+      }
     }
   }
 }
