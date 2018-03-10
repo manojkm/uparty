@@ -951,7 +951,6 @@ var appMaster = {
 
     number_spinner: function () {
 
-
         var action;
         $(".number-spinner button").mousedown(function () {
             var btn = $(this);
@@ -981,8 +980,202 @@ var appMaster = {
             clearInterval(action);
         });
 
-    }
+    },
 
+    form_repeater: function (){
+
+        if ($.fn.repeater) {
+
+            // Default
+            $('.repeater-default').repeater({
+                show: function () {
+                    $(this).slideDown();
+                },
+                hide: function(remove) {
+                    $(this).slideUp(remove);
+                }
+            });
+
+            // Custom Show / Hide Configurations
+            $('.file-repeater').repeater({
+                show: function () {
+                    $(this).slideDown();
+                },
+                hide: function(remove) {
+                    if (confirm('Are you sure you want to remove this item?')) {
+                        $(this).slideUp(remove);
+                    }
+                }
+            });
+
+        } else {
+            throw new Error('Please install Jquery Repeater plugin! https://github.com/DubFriend/jquery.repeater');
+        }
+    },
+
+    max_length: function (){
+
+        if ($.fn.maxlength) {
+        // Default usage
+            $('.basic-maxlength').maxlength({
+                warningClass: "badge badge-success pointed arrow-top",
+                limitReachedClass: "badge badge-danger  pointed arrow-top",
+            });
+
+            // Change the threshold value
+            $('.threshold-maxlength').maxlength({
+                threshold:10,
+                warningClass: "badge badge-success  pointed arrow-top",
+                limitReachedClass: "badge badge-danger pointed arrow-top",
+            });
+
+            // AlwaysShow
+            $('.always-show-maxlength').maxlength({
+                alwaysShow: true,
+                warningClass: "badge badge-success  pointed arrow-top",
+                limitReachedClass: "badge badge-danger  pointed arrow-top",
+            });
+
+            // Change Badge Color using warningClass & limitReachedClass
+            $('.badge-maxlength').maxlength({
+                warningClass: "badge badge-info  pointed arrow-top",
+                limitReachedClass: "badge badge-warning  pointed arrow-top"
+            });
+
+            // Change Badge Format
+            $('.badge-text-maxlength').maxlength({
+                alwaysShow: true,
+                separator: ' of ',
+                preText: 'You have ',
+                postText: ' chars remaining.',
+                validate: true,
+                warningClass: "badge badge-success pointed arrow-top",
+                limitReachedClass: "badge badge-danger  pointed arrow-top",
+            });
+
+
+            // Position
+            $('.position-maxlength').maxlength({
+                alwaysShow: true,
+                warningClass: "badge badge-success pointed arrow-bottom",
+                limitReachedClass: "badge badge-danger pointed arrow-bottom",
+                placement: 'top'
+                // Options : top, bottom, left or right
+                //  bottom-right, top-right, top-left, bottom-left and centered-right.
+            });
+
+            $('.position-corner-maxlength').maxlength({
+                alwaysShow: true,
+                warningClass: "badge badge-success pointed arrow-right",
+                limitReachedClass: "badge badge-danger  pointed arrow-right",
+                placement: 'top-left'
+                //  bottom-right, top-right, top-left, bottom-left and centered-right.
+            });
+
+            $('.position-inside-maxlength').maxlength({
+                alwaysShow: true,
+                warningClass: "badge badge-success pointed arrow-left",
+                limitReachedClass: "badge badge-danger  pointed arrow-left",
+                placement: 'centered-right'
+                // Option : centered-right.
+            });
+
+            $('.featured-maxlength').maxlength({
+                alwaysShow: true,
+                threshold: 10,
+                warningClass: "badge badge-info  pointed arrow-bottom",
+                limitReachedClass: "badge badge-warning  pointed arrow-bottom",
+                placement: 'top',
+                message: 'Used %charsTyped% of %charsTotal% chars.'
+            });
+
+            // Teatarea Maxlength
+            $('.textarea-maxlength').maxlength({
+                alwaysShow: true,
+                warningClass: "badge badge-success pointed arrow-top",
+                limitReachedClass: "badge badge-danger pointed arrow-top",
+            });
+
+        } else {
+            throw new Error('Please install Bootstrap Maxlength plugin! https://github.com/mimo84/bootstrap-maxlength/');
+        }
+    },
+
+    jquery_validation: function (){
+
+        jQuery.validator.addMethod("zipcodeUS", function(value, element) {
+            return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$/.test(value)
+        }, "The specified US ZIP Code is invalid");
+
+        // validate signup form on keyup and submit
+        $("#signupForm").validate({
+
+            validClass: 'is-valid',
+            errorClass: 'is-invalid',
+            errorPlacement: function (error, element) {
+                // Add the `invalid-feedback` class to the error element
+                error.addClass( "invalid-feedback" );
+                if (element.attr("type") == "radio" || element.attr("type") == "checkbox" ) {
+                    error.appendTo( element.parent("div") );
+                } else {
+                    error.insertAfter(element)
+                }
+            },
+
+            highlight: function ( element, errorClass, validClass ) {
+                // $( element ).addClass( errorClass ).removeClass(validClass);
+                $( element ).addClass( errorClass );
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                // $( element ).addClass(validClass).removeClass(errorClass);
+                $( element ).removeClass(errorClass);
+            },
+
+            rules: {
+                username: {
+                    minlength:4
+                },
+                password: {
+                    minlength: 6
+                },
+                confirm_password: {
+                    minlength: 6,
+                    equalTo: "#password"
+                },
+                email: {
+                    email: true
+                },
+                zip: {
+                    zipcodeUS: true
+                },
+                agree: "required"
+            },
+            messages: {
+                firstname: "Please enter your firstname",
+                lastname: "Please enter your lastname",
+                username: {
+                    required: "Please enter a username",
+                    minlength: "Your username must consist of at least 4 characters"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 6 characters long"
+                },
+                confirm_password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 6 characters long",
+                    equalTo: "Please enter the same password as above"
+                },
+                zip: {
+                    required: "Please enter your zip code!"
+                },
+                city: "Please enter your city",
+                state: "Please select your state",
+                email: "Please enter a valid email address",
+                agree: "Please accept our policy"
+            }
+        });
+    }
 
 };
 
@@ -1040,6 +1233,9 @@ $(document).ready(function () {
     appMaster.datepicker();
     appMaster.number_spinner();
     appMaster.wizard_step();
+    appMaster.form_repeater();
+    appMaster.max_length();
+    appMaster.jquery_validation();
 });
 
 

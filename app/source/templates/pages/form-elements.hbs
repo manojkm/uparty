@@ -634,7 +634,7 @@ posted: 2018-01-09
                 <div class="card-body">
                     <form>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-3">
                                 <label class="col-form-label col-form-label-lg">Default</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -663,7 +663,7 @@ posted: 2018-01-09
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-3">
                                 <label class="col-form-label col-form-label-lg">Custom</label>
 
                                 <div class="custom-control custom-checkbox">
@@ -687,7 +687,7 @@ posted: 2018-01-09
                                     <label class="custom-control-label" for="customCheck4">Tacos</label>
                                 </div>
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-3">
                                 <label class="col-form-label col-form-label-lg">Custom circled</label>
 
                                 <div class="custom-control custom-checkbox rounded">
@@ -714,57 +714,79 @@ posted: 2018-01-09
                                 </div>
 
                             </div>
+                            <div class="form-group col-md-3">
+                                <label class="col-form-label col-form-label-lg">Custom right checkbox</label>
 
-                            <div class="form-group col-md-6">
-
-                                <label class="col-form-label">Default Inline</label> <br>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="">
-                                    <label class="form-check-label" for="inlineCheckbox1">Pizza</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value=""
-                                           checked>
-                                    <label class="form-check-label" for="inlineCheckbox2">Pasta</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value=""
-                                           disabled>
-                                    <label class="form-check-label" for="inlineCheckbox3">Burgers</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value=""
-                                           disabled checked>
-                                    <label class="form-check-label" for="inlineCheckbox3">Tacos</label>
+                                <div class="custom-control custom-checkbox right-aligned">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckRight1">
+                                    <label class="custom-control-label" for="customCheckRight1">Pizza</label>
                                 </div>
 
+                                <div class="custom-control custom-checkbox right-aligned">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckRight2" checked>
+                                    <label class="custom-control-label" for="customCheckRight2">Pasta</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox right-aligned">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckRight3" disabled>
+                                    <label class="custom-control-label" for="customCheckRight3">Burgers</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox right-aligned">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckRight4" disabled checked>
+                                    <label class="custom-control-label" for="customCheckRight4">Tacos</label>
+                                </div>
                             </div>
-                            <div class="form-group col-md-6">
+                        </div>
+                        <div class="form-row">
+                        <div class="form-group col-md-6">
 
-                                <label class="col-form-label">Custom Inline</label><br>
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline1">
-                                    <label class="custom-control-label" for="customCheckboxInline1">Pizza</label>
-                                </div>
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline2"
-                                           checked>
-                                    <label class="custom-control-label" for="customCheckboxInline2">Pasta</label>
-                                </div>
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline3"
-                                           disabled>
-                                    <label class="custom-control-label" for="customCheckboxInline3">Burgers</label>
-                                </div>
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline4"
-                                           disabled checked>
-                                    <label class="custom-control-label" for="customCheckboxInline4">Tacos</label>
-                                </div>
-
+                            <label class="col-form-label">Default Inline</label> <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="">
+                                <label class="form-check-label" for="inlineCheckbox1">Pizza</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value=""
+                                       checked>
+                                <label class="form-check-label" for="inlineCheckbox2">Pasta</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value=""
+                                       disabled>
+                                <label class="form-check-label" for="inlineCheckbox3">Burgers</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value=""
+                                       disabled checked>
+                                <label class="form-check-label" for="inlineCheckbox3">Tacos</label>
                             </div>
 
+                        </div>
+                        <div class="form-group col-md-6">
 
+                            <label class="col-form-label">Custom Inline</label><br>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" id="customCheckboxInline1">
+                                <label class="custom-control-label" for="customCheckboxInline1">Pizza</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" id="customCheckboxInline2"
+                                       checked>
+                                <label class="custom-control-label" for="customCheckboxInline2">Pasta</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" id="customCheckboxInline3"
+                                       disabled>
+                                <label class="custom-control-label" for="customCheckboxInline3">Burgers</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" id="customCheckboxInline4"
+                                       disabled checked>
+                                <label class="custom-control-label" for="customCheckboxInline4">Tacos</label>
+                            </div>
+
+                        </div>
                         </div>
                     </form>
                 </div>
@@ -787,7 +809,7 @@ posted: 2018-01-09
 
                     <form>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label class="col-form-label col-form-label-lg">Default</label>
 
                                 <div class="form-check">
@@ -819,9 +841,63 @@ posted: 2018-01-09
                                         Checked + disabled
                                     </label>
                                 </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="col-form-label col-form-label-lg">Custom</label>
 
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio1" name="customRadio"
+                                           class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio1">Pizza</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio2" name="customRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customRadio2">Pasta</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio3" name="customRadio"
+                                           class="custom-control-input" disabled>
+                                    <label class="custom-control-label" for="customRadio3">Burgers</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio4" name="customRadio2"
+                                           class="custom-control-input" disabled checked>
+                                    <label class="custom-control-label" for="customRadio4">Checked + disabled</label>
+                                </div>
 
-                                <label class="col-form-label mt-4">Default Inline</label> <br>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="col-form-label col-form-label-lg">Custom  right radio</label>
+
+                                <div class="custom-control custom-radio right-aligned">
+                                    <input type="radio" id="customRadioRight1" name="customRadio"
+                                           class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadioRight1">Pizza</label>
+                                </div>
+                                <div class="custom-control custom-radio right-aligned">
+                                    <input type="radio" id="customRadioRight2" name="customRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customRadioRight2">Pasta</label>
+                                </div>
+                                <div class="custom-control custom-radio right-aligned">
+                                    <input type="radio" id="customRadioRight3" name="customRadio"
+                                           class="custom-control-input" disabled>
+                                    <label class="custom-control-label" for="customRadioRight3">Burgers</label>
+                                </div>
+                                <div class="custom-control custom-radio right-aligned">
+                                    <input type="radio" id="customRadioRight4" name="customRadio2"
+                                           class="custom-control-input" disabled checked>
+                                    <label class="custom-control-label" for="customRadioRight4">Checked + disabled</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+
+                                <label class="col-form-label">Default Inline</label> <br>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
                                            id="inlineRadio1" value="option1">
@@ -846,29 +922,7 @@ posted: 2018-01-09
 
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-lg">Custom</label>
-
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio"
-                                           class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1">Pizza</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio2" name="customRadio"
-                                           class="custom-control-input" checked>
-                                    <label class="custom-control-label" for="customRadio2">Pasta</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio3" name="customRadio"
-                                           class="custom-control-input" disabled>
-                                    <label class="custom-control-label" for="customRadio2">Burgers</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio4" name="customRadio2"
-                                           class="custom-control-input" disabled checked>
-                                    <label class="custom-control-label" for="customRadio2">Checked + disabled</label>
-                                </div>
-                                <label class="col-form-label mt-4">Custom Inline</label><br>
+                                <label class="col-form-label">Custom Inline</label><br>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="customRadioInline1" name="customRadioInline1"
                                            class="custom-control-input">

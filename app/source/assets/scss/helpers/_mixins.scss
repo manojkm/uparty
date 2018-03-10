@@ -431,14 +431,12 @@ Usage @include opacity(1);
     //}
 
   }
-  &.btn-emboss {
-    transition: box-shadow 0s;
-
+  &.btn-raised {
     @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      box-shadow: 0 3px 0 0 contextual-color($theme-color, $tone-hover);
+      box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 contextual-color($theme-color, $tone-hover);
     } @else { /* Theme variations */
       $box-shadow-color: theme-color($theme-color, $tone-hover);
-      box-shadow: 0 3px 0 0 $box-shadow-color;
+      box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 $box-shadow-color;
     }
 
     #{$a-tags},
@@ -449,13 +447,13 @@ Usage @include opacity(1);
         border-color: contextual-color($theme-color, $tone);
         background-color: contextual-color($theme-color, $tone);
         color: contextual-color($theme-color, $font-color);
-        box-shadow: 0 5px 0 0 contextual-color($theme-color, $tone-hover);
+        box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 contextual-color($theme-color, $tone-hover);
       } @else { /* Theme variations */
         @include border-color($theme-color, $tone);
         @include background-color($theme-color, $tone);
         @include color($theme-color, $font-color);
         $box-shadow-color: theme-color($theme-color, $tone-hover);
-        box-shadow: 0 5px 0 0 $box-shadow-color;
+        box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 $box-shadow-color;
       }
     }
 

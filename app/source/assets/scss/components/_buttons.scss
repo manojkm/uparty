@@ -164,21 +164,18 @@ fieldset[disabled] a.btn,
   @include border-radius($btn-radius-round);
 }
 
-.btn-emboss {
-  //&,
-  //#{$a-tags},
-  //&:focus,
-  //&.focus {  transition:none; }
-  &:hover{
-    bottom:2px;
+.btn-raised {
+  position: relative;
+  transition: box-shadow 0s;
 
+  &:hover{
+    bottom: $btn-raised-box-shadow-y-offset-hover - $btn-raised-box-shadow-y-offset;
   }
   &:active,
   &.active{
-    transition:none;
     box-shadow: none!important;
-    margin-bottom: -3px;
-    margin-top: 3px;
-    bottom:0px;
+    margin-bottom: -$btn-raised-box-shadow-y-offset;
+    margin-top: $btn-raised-box-shadow-y-offset;
+    bottom:0;
   }
 }

@@ -20,6 +20,9 @@
     line-height: $lh-base;
   }
 
+  &.right-aligned{
+    padding-left: 0;
+  }
 }
 
 .custom-control-input {
@@ -73,6 +76,14 @@
     width: $custom-control-indicator-size;
     height: $custom-control-indicator-size;
     background-size: $custom-control-indicator-bg-size;
+  }
+
+  .right-aligned &{
+    &::before,
+    &::after{
+      right: 0;
+      left: auto;
+    }
   }
 }
 
