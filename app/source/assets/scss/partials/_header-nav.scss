@@ -42,7 +42,7 @@
     /* Flexbox */
     display: flex;
     //align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 
     @include max-screen($screen-md-max) {
       @if bool($navbar-item-mobile-bottom-border) == true {
@@ -73,9 +73,7 @@
     font-size: $navbar-font-size;
     font-weight: $navbar-font-weight;
     position: relative;
-    //padding: $navlink-padding-y $navlink-padding-x;
     background-color: transparent;
-    //min-height: $navbar-link-height;
     text-align: center;
     /* Flexbox */
     display: flex;
@@ -93,6 +91,7 @@
     &.disabled {
       @include opacity(0.3);
       cursor: not-allowed;
+      background-color: transparent;
     }
 
     /* Change the hover, focus, active state links for better highlighting */
@@ -106,11 +105,6 @@
     #{$active-tags} {
       @include background-color('header', 'light');
       @include color('header', 'active-color');
-    }
-
-    &.disabled {
-      @include opacity(0.3);
-      background-color: transparent;
     }
 
     /* Navbar menu notification badge */
