@@ -83,8 +83,6 @@
     min-width: 50px;
 
     @include max-screen($screen-md-max) {
-      min-height: $navbar-link-md-height;
-      text-align: left;
       justify-content: flex-start;
     }
 
@@ -148,8 +146,8 @@
 
 @include max-screen($screen-md-max) {
   .navbar-collapse {
-    max-height: 300px;
-    overflow-y: scroll;
+    //max-height: 300px;
+    //overflow-y: scroll;
   }
 }
 
