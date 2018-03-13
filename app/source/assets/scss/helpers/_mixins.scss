@@ -1022,10 +1022,12 @@ Usage @include opacity(1);
 /* Form validation mixin for dynamic states. */
 @mixin form-validation-state($state, $color) {
   .#{$state}-feedback {
+    @include transition;
     color: $color;
   }
 
   .#{$state}-tooltip {
+    @include transition;
     background-color: rgba($color, .8);
   }
 

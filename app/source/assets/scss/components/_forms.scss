@@ -181,14 +181,6 @@ select.form-control-lg {
 //----------------------------------*\
 // FORM VALIDATION
 //----------------------------------*/
-.invalid-feedback {
-  @include transition;
-  color: $form-feedback-invalid-color
-}
-
-.invalid-tooltip {
-  background-color: rgba($form-feedback-invalid-color, .8);
-}
 
 /* Valid */
 @include form-validation-state("valid", $form-feedback-valid-color);

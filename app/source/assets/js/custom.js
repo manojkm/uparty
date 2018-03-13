@@ -1101,7 +1101,7 @@ var appMaster = {
         }
     },
 
-    jquery_validation: function (){
+    jquery_validation_example: function (){
 
         jQuery.validator.addMethod("zipcodeUS", function(value, element) {
             return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$/.test(value)
@@ -1112,6 +1112,7 @@ var appMaster = {
 
             validClass: 'is-valid',
             errorClass: 'is-invalid',
+            //TODO https://stackoverflow.com/questions/4381476/jquery-tooltip-to-display-validator-messages
             errorPlacement: function (error, element) {
                 // Add the `invalid-feedback` class to the error element
                 error.addClass( "invalid-feedback" );
@@ -1173,8 +1174,18 @@ var appMaster = {
                 state: "Please select your state",
                 email: "Please enter a valid email address",
                 agree: "Please accept our policy"
+            },
+
+            submitHandler: function(form) {
+                alert("This is a valid form!");
             }
         });
+
+        // On clicking reset button, every error should be cleared
+        $('#clearform').on('click', function () {
+            $("#signupForm").validate().resetForm();  // clear out the validation errors
+        });
+
     },
 
     set_footer_height: function (){
@@ -1249,7 +1260,7 @@ $(document).ready(function () {
     appMaster.wizard_step();
     appMaster.form_repeater();
     appMaster.max_length();
-    appMaster.jquery_validation();
+    appMaster.jquery_validation_example();
     appMaster.set_footer_height();
 });
 
