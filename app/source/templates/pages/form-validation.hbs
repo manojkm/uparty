@@ -241,7 +241,7 @@ posted: 2018-03-10
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6 pr-2">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">Browser defaults validation</h5>
@@ -296,12 +296,10 @@ posted: 2018-03-10
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6 pl-2">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Tooltips validation</h5>
+                    <h5 class="card-title">Basic validation wth default tooltip</h5>
                     <div class="card__actions window ml-auto">
                         <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
                         <a href="#" class="card__actions-item" data-card="fullscreen"><i
@@ -388,7 +386,7 @@ posted: 2018-03-10
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6 pr-2">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">Advanced validation</h5>
@@ -484,7 +482,110 @@ posted: 2018-03-10
                         <div class="form-group row">
                             <div class="col-sm-10 offset-sm-2">
                                 <button type="submit" class="btn btn-primary">SUBMIT</button>
-                                <button class="btn btn-danger" type="reset" id="clearform">RESET</button>
+                                <button class="btn btn-danger clearform" type="reset">RESET</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 pl-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Advanced validation with tooltip</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="icon-size-fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="#" id="signupFormTooltip">
+                        <div class="form-group row">
+                            <label for="validationFirstName-5" class="col-sm-2 col-form-label required-field">First name</label>
+                            <div class="col-sm-10"><input type="text" class="form-control required"  id="validationFirstName-5" placeholder="First name" name="firstname">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validationLastName-5" class="col-sm-2 col-form-label required-field">Last name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control required" id="validationLastName-5" placeholder="Last name" name="lastname">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validationUsername-5" class="col-sm-2 col-form-label required-field">Username</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control required" id="validationUsername-5" placeholder="Username" name="username">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-5" class="col-sm-2 col-form-label required-field">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control required" id="password-5" name="password" placeholder="Password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validationConfirmPassword-5" class="col-sm-2 col-form-label required-field">Confirm password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control required" id="validationConfirmPassword-5" name="confirm_password" placeholder="Password">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="validationEmailAddress-5" class="col-sm-2 col-form-label required-field">Email address</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control required" id="validationEmailAddress-5" placeholder="Email address" name="email">
+                                <small id="emailHelp-5" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validationCity-5" class="col-sm-2 col-form-label required-field">City</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control required" name="city" id="validationCity-5" placeholder="City">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validationState-5" class="col-sm-2 col-form-label required-field">State</label>
+                            <div class="col-sm-10">
+                                <select class="form-control required" id="validationState-5" name="state">
+                                    <option value="" disabled="" selected="">Select</option>
+                                    <option value="1">California</option>
+                                    <option value="2">Virginia</option>
+                                    <option value="3">Texas</option>
+                                    <option value="4">Florida</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validationZip-5" class="col-sm-2 col-form-label required-field">Zip</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control required" id="validationZip-5" name="zip" placeholder="Zip">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10 offset-sm-2">
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input required" id="validationAgree-5" name="agree">
+                                    <label class="custom-control-label" for="validationAgree-5">I agree to the <a href="#" class="text-info">Terms of Service</a><span class="required-field"></span></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10 offset-sm-2">
+                                <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                <button class="btn btn-danger clearform" type="reset" >RESET</button>
                             </div>
                         </div>
                     </form>
@@ -493,4 +594,5 @@ posted: 2018-03-10
             </div>
         </div>
     </div>
+
 </div>
