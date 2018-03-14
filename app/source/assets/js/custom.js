@@ -1271,8 +1271,10 @@ var appMaster = {
 
         // On clicking reset button, every error should be cleared
         $('.clearform').on('click', function () {
-            $("#signupForm", "#signupFormTooltip").validate().resetForm();  // clear out the validation errors
+            $("#signupForm").validate().resetForm();  // clear out the validation errors
         });
+
+
 
     },
 

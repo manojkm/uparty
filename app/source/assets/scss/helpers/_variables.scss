@@ -549,6 +549,10 @@ $input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border}) !def
 $form-feedback-valid-color: contextual-color(success, base);
 $form-feedback-invalid-color: contextual-color(danger, base);
 
+/* Required field */
+$required-field-color: contextual-color(danger, base);
+
+
 //----------------------------------*\
 // CUSTOM FORMS
 //----------------------------------*/
@@ -697,6 +701,19 @@ $alert-font-size: $font-size-base;
 //----------------------------------*\
 // NAVBAR
 //----------------------------------*/
+
+//----------------------------------*\
+// WHITE OPACITY
+//----------------------------------*/
+$opacity-1:                  rgba(255,255,255, .1) !default;
+$opacity-2:                  rgba(255,255,255, .2) !default;
+$opacity-3:                  rgba(255,255,255, .3) !default;
+$opacity-4:                  rgba(255,255,255, .4) !default;
+$opacity-5:                  rgba(255,255,255, .5) !default;
+$opacity-6:                  rgba(255,255,255, .6) !default;
+$opacity-7:                  rgba(255,255,255, .7) !default;
+$opacity-8:                  rgba(255,255,255, .8) !default;
+
 
 //----------------------------------*\
 // CARDS

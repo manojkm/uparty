@@ -88,7 +88,16 @@
     //white-space: nowrap;
     //line-height: 24px;
 
-    @extend .form-control;
+    @include form-control-hover();
+    @include form-control-focus();
+    font-size: $input-font-size;
+    border: $input-border-size solid $input-border-color;
+    font-weight: $btn-font-weight;
+    padding: $btn-padding-y $btn-padding-x;
+    line-height: $btn-line-height;
+    background-color: $input-bg;
+    color: $input-color;
+
     height: $input-height;
     background-image: none;
     box-shadow: none;
@@ -185,7 +194,19 @@
       //line-height: normal;
       //border-radius: 0;
 
-      @extend .form-control;
+      @include transition;
+      @include set-border-radius($input-border-radius);
+      @include form-control-hover();
+      @include form-control-focus();
+      font-size: $input-font-size;
+      border: $input-border-size solid $input-border-color;
+      font-weight: $btn-font-weight;
+      padding: $btn-padding-y $btn-padding-x;
+      line-height: $btn-line-height;
+      background-color: $input-bg;
+      color: $input-color;
+
+
       background: $input-bg $chosen-search-bg no-repeat right $custom-select-padding-x center;
       background-size: $chosen-search-bg-size;
     }
