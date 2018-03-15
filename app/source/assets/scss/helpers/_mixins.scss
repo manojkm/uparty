@@ -1148,10 +1148,9 @@ Usage @include opacity(1);
 // TRANSPARENT FORMS
 //----------------------------------*/
 
-//----------------------------------*/
 @mixin transparent-forms($background-color,$background-focus-color,$border-color,$border-focus-color,$font-color,$font-focus-color, $placeholder-disable-color) {
 
-  .form-control{
+  %transparent-form-control{
     background-color: $background-color;
     color: $font-color;
     border-color: $border-color;
@@ -1159,8 +1158,8 @@ Usage @include opacity(1);
     &::placeholder {
       color: $placeholder-disable-color;
     }
-    &:hover,
-    &:focus {
+    &:hover:not([disabled]):not([readonly]),
+    &:focus:not([disabled]):not([readonly]) {
       color: $font-focus-color;
       border-color: $border-focus-color;
       background-color: $background-focus-color;
@@ -1174,10 +1173,16 @@ Usage @include opacity(1);
     &:disabled,
     &[readonly] {
       background-color: $background-color;
-      color:  $placeholder-disable-color;
+      color: $font-color;
+      opacity: 0.7;
     }
   }
 
+  .form-control{
+    @extend %transparent-form-control;
+  }
+
+  /* Select */
   select.form-control:not([multiple]) option,
   select.form-control:not([multiple]) optgroup,
   select.custom-select:not([multiple]) option,
@@ -1185,24 +1190,13 @@ Usage @include opacity(1);
     color: $gray-700;
   }
 
+  /* Custom select */
   .custom-select {
-    background-color: $background-color;
-    color: $font-color;
-    border:none;
-    &:hover,
-    &:focus {
-      color: $font-focus-color;
-      border-color: $border-focus-color;
-      background-color: $background-focus-color;
-    }
-
-    &:disabled,
-    &[readonly] {
-      background-color: $background-color;
-      color:$placeholder-disable-color;
-    }
+    @extend %transparent-form-control;
+    border: none;
   }
 
+  /* Custom file input */
   .custom-file-label{
     background-color: $background-color;
     color:  $placeholder-disable-color;
@@ -1215,6 +1209,7 @@ Usage @include opacity(1);
     }
   }
 
+  /* Input group with icon addon */
   .input-group {
     &[class*="with-addon-icon"] {
       .input-group-text {
@@ -1229,8 +1224,8 @@ Usage @include opacity(1);
       }
     }
   }
+
   .input-group-text{
-    //color:$opacity-8;
     color:$font-color;
     background-color: $background-color;
     border:none;
@@ -1256,4 +1251,15 @@ Usage @include opacity(1);
     }
   }
 
+  /* Chosen select*/
+  .chosen-single,
+  .chosen-choices {
+    @extend %transparent-form-control;
+  }
+  .chosen-single div b { background-color: transparent}
+  .chosen-choices {border: none}
+  .chosen-container-multi .chosen-choices li.search-field input[type="text"],
+  .chosen-container-single .chosen-default{
+    color: $placeholder-disable-color !important;
+  }
 }
