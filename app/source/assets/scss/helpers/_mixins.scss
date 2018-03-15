@@ -1142,3 +1142,118 @@ Usage @include opacity(1);
     }
   }
 }
+
+
+//----------------------------------*\
+// TRANSPARENT FORMS
+//----------------------------------*/
+
+//----------------------------------*/
+@mixin transparent-forms($background-color,$background-focus-color,$border-color,$border-focus-color,$font-color,$font-focus-color, $placeholder-disable-color) {
+
+  .form-control{
+    background-color: $background-color;
+    color: $font-color;
+    border-color: $border-color;
+
+    &::placeholder {
+      color: $placeholder-disable-color;
+    }
+    &:hover,
+    &:focus {
+      color: $font-focus-color;
+      border-color: $border-focus-color;
+      background-color: $background-focus-color;
+    }
+    &:focus {
+      &:hover {
+        border-color: $border-focus-color;
+      }
+    }
+
+    &:disabled,
+    &[readonly] {
+      background-color: $background-color;
+      color:  $placeholder-disable-color;
+    }
+  }
+
+  select.form-control:not([multiple]) option,
+  select.form-control:not([multiple]) optgroup,
+  select.custom-select:not([multiple]) option,
+  select.custom-select:not([multiple]) optgroup{
+    color: $gray-700;
+  }
+
+  .custom-select {
+    background-color: $background-color;
+    color: $font-color;
+    border:none;
+    &:hover,
+    &:focus {
+      color: $font-focus-color;
+      border-color: $border-focus-color;
+      background-color: $background-focus-color;
+    }
+
+    &:disabled,
+    &[readonly] {
+      background-color: $background-color;
+      color:$placeholder-disable-color;
+    }
+  }
+
+  .custom-file-label{
+    background-color: $background-color;
+    color:  $placeholder-disable-color;
+    border:none;
+    &::after {
+      background-color: $background-focus-color;
+      color: $font-focus-color;
+      border:none;
+      top:0;
+    }
+  }
+
+  .input-group {
+    &[class*="with-addon-icon"] {
+      .input-group-text {
+        background-color: $background-color;
+      }
+      .input-group-prepend {
+        margin-right: 0;
+      }
+
+      .input-group-append {
+        margin-left: 0;
+      }
+    }
+  }
+  .input-group-text{
+    //color:$opacity-8;
+    color:$font-color;
+    background-color: $background-color;
+    border:none;
+  }
+  .input-group-focus,
+  .input-group-hover {
+    .input-group-text,
+    .custom-select {
+      color: $font-focus-color;
+    }
+    &.input-group[class*="with-addon-icon"]{
+      .input-group-text {
+        background-color: $background-focus-color;
+      }
+    }
+  }
+
+  .disabled,
+  .readonly {
+    &.input-group-text {
+      background-color: $background-color !important;
+      color: $placeholder-disable-color;
+    }
+  }
+
+}
