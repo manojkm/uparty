@@ -1,0 +1,116 @@
+// ================================================================================================
+// File Name: _nouislider.scss
+// Description: Custom overrides of Multi-select Plugin (https://github.com/leongersen/noUiSlider/blob/master/distribute/nouislider.css)
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+.noUi-target {
+  @include set-border-radius($slider-base-border-radius);
+  background: $slider-base-background;
+  box-shadow: $slider-base-box-shadow;
+  margin: $slider-base-margin-top 0;
+  border-color:$slider-base-border-color;
+}
+
+.noUi-handle {
+  @include transition;
+  @include set-border-radius($slider-handle-border-radius);
+  background: $slider-handle-background;
+  box-shadow: $slider-handle-box-shadow;
+  width: $slider-handle-width!important;
+  height: $slider-handle-height!important;;
+
+  &:focus {
+    outline: 0;
+    box-shadow: $slider-handle-focus-box-shadow;
+  }
+
+  // Change the cursor to a grab hand on hover.
+  &:hover {
+    cursor: grab;
+    cursor: -webkit-grab;
+    cursor:-moz-grab;
+  }
+
+  // Change the cursor to a grabbing hand on active.
+  &:active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    cursor:-moz-grabbing;
+  }
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+}
+
+// Slider size and handle placement
+.noUi-horizontal {
+  height: $slider-base-size;
+  .noUi-handle {
+    left: -$slider-handle-width / 2;
+    top: -$slider-base-size * 2;
+  }
+}
+
+html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
+  right: -$slider-handle-width / 2;
+  left: auto;
+}
+
+.noUi-vertical {
+  width: $slider-base-size;
+  .noUi-handle {
+    top: -$slider-handle-width / 2;
+    left: -$slider-base-size * 2;
+  }
+}
+
+.noUi-value-sub {
+  color: $slider-pips-color;
+}
+
+.noUi-pips {
+  color: $slider-pips-color;
+  font-size: $slider-pips-font-size;
+}
+
+// Markings
+.noUi-marker-large {
+  background: $slider-pips-color;
+}
+
+.noUi-tooltip {
+  @include add-border(1px, $slider-tooltip-border-color, all);
+  @include set-border-radius($slider-tooltip-border-radius);
+  background: $slider-tooltip-background;
+  color: $slider-tooltip-color;
+  font-size: $slider-tooltip-font-size;
+  padding: $slider-tooltip-padding;
+  box-shadow: $slider-tooltip-box-shadow;
+}
+
+/* Theme variations */
+.slider-primary {
+  .noUi-connect {@include background-theme(primary); }
+  .noUi-handle {@include border-theme(primary);}
+
+}
+.slider-secondary {
+  .noUi-connect { @include background-theme(secondary);}
+  .noUi-handle {@include border-theme(secondary);}
+}
+
+/* Contextual variations */
+@each $scheme, $value in $contextual {
+  .slider-#{$scheme} {
+    .noUi-connect { @include background-theme($scheme);}
+    .noUi-handle {@include border-theme($scheme);}
+  }
+}

@@ -1274,8 +1274,6 @@ var appMaster = {
             $("#signupForm").validate().resetForm();  // clear out the validation errors
         });
 
-
-
     },
 
     set_footer_height: function (){
@@ -1290,7 +1288,53 @@ var appMaster = {
             set_heights();
         });
 
-    }
+    },
+
+    slider: function (){
+
+        var handlesSlider = document.getElementById('slider-handles');
+        var verticalSlider = document.getElementById('slider-vertical');
+
+        noUiSlider.create(verticalSlider, {
+            start: [25, 50],
+            orientation: 'vertical',
+            direction: 'rtl',
+            tooltips: [true, true],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            pips: {
+                mode: 'positions',
+                values: [0, 25, 50, 75, 100],
+                density: 5
+            }
+        });
+
+
+        noUiSlider.create(handlesSlider, {
+            start: [25, 50],
+            tooltips: [true, true],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            pips: {
+                mode: 'positions',
+                values: [0, 25, 50, 75, 100],
+                density: 5
+            }
+        });
+
+
+        // if ($.fn.noUiSlider) {
+        //
+        // } else {
+        //     throw new Error('Please install noUiSlider plugin! https://github.com/leongersen/noUiSlider/');
+        // }
+    },
 
 };
 
@@ -1352,6 +1396,7 @@ $(document).ready(function () {
     appMaster.max_length();
     appMaster.jquery_validation_example();
     appMaster.set_footer_height();
+    appMaster.slider();
 });
 
 

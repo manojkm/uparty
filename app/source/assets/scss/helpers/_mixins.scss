@@ -840,7 +840,7 @@ Usage @include opacity(1);
 }
 
 //----------------------------------*\
-// CUSTOM TOGGLE
+// CUSTOM TOGGLE FLIP
 //----------------------------------*/
 @mixin custom-toggle-flip($theme-color, $tone:base, $tone-border:base, $font-color:font-color) {
 
@@ -909,9 +909,21 @@ Usage @include opacity(1);
 }
 
 //------------------------------------------------------*\
-// CONTEXTUAL & THEME BACKGROUND VARIANTS WITH TEXT COLOR
+// CONTEXTUAL & THEME BACKGROUND VARIANTS
 //------------------------------------------------------*/
 @mixin background-theme($theme-color, $sledge-hammer:'', $tone:base, $font-color:font-color) {
+
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    background-color: contextual-color($theme-color, $tone) !important;
+  } @else { /* Theme variations */
+    @include background-color($theme-color, $tone, $sledge-hammer);
+  }
+}
+
+//------------------------------------------------------*\
+// CONTEXTUAL & THEME BACKGROUND VARIANTS WITH TEXT COLOR
+//------------------------------------------------------*/
+@mixin background-text-theme($theme-color, $sledge-hammer:'', $tone:base, $font-color:font-color) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
     background-color: contextual-color($theme-color, $tone) !important;
@@ -964,7 +976,7 @@ Usage @include opacity(1);
 //----------------------------------*/
 @mixin progress-bar-theme($theme-color, $tone:base, $font-color:font-color) {
   span {
-    @include background-theme($theme-color);
+    @include background-text-theme($theme-color);
     &::after {
       @if map-has-key($contextual, $theme-color) { /* Contextual variations */
         border-bottom-color: contextual-color($theme-color, $tone) !important;
@@ -1261,5 +1273,10 @@ Usage @include opacity(1);
   .chosen-container-multi .chosen-choices li.search-field input[type="text"],
   .chosen-container-single .chosen-default{
     color: $placeholder-disable-color !important;
+  }
+  .chosen-single abbr {
+    &::after {
+      color:$font-color;
+    }
   }
 }

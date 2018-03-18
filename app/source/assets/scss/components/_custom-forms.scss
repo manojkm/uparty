@@ -495,6 +495,7 @@
       border-radius: 3px;
     }
 
+
     &:before {
       content: attr(data-toggle-off);
       background-color: $custom-toggle-flip-normal-background;
@@ -519,6 +520,7 @@
     }
   }
 
+
   /* Disabled state */
   .#{$cci}:disabled + .#{$ccind} {
     background-color: $custom-control-indicator-disabled-bg;
@@ -528,6 +530,34 @@
 
   /* Checked + Disabled state */
   .#{$cci}:disabled:checked + .#{$ccind} {
+    opacity: 0.5;
+  }
+
+
+  /* YES/NO fliping toggle switch */
+  &.yes-no .#{$ccind} {
+    &:before {
+      background-color: contextual-color(danger, base);
+      color: contextual-color(danger, font-color);
+    }
+    &:after {
+      transform: rotateX(-180deg);
+    }
+  }
+
+  /* YES/NO Checked state */
+  &.yes-no .#{$cci}:checked + .#{$ccind},
+  &.yes-no .#{$cci}:checked:active + .#{$ccind} {
+    &:before {
+      transform: rotateX(180deg)
+    }
+    &:after {
+      transform: rotateX(0deg)
+    }
+  }
+
+  /* YES/NO Disabled state */
+  &.yes-no .#{$cci}:disabled + .#{$ccind} {
     opacity: 0.5;
   }
 
@@ -545,5 +575,7 @@
       @include custom-toggle-flip($scheme);
     }
   }
+
+
 }
 

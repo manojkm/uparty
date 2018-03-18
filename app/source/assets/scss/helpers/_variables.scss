@@ -276,6 +276,7 @@ $pagination-extended-indicator-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .
 $modal-content-box-shadow-xs: 0 5px 10px rgba($black-color, .1);
 $chosen-select-box-shadow: 0 5px 10px rgba($black-color, .1);
 $multiple-select-box-shadow: 0 5px 10px rgba($black-color, .1);
+$slider-base-box-shadow:inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 
 //----------------------------------*\
 // BREADCRUMB
@@ -915,17 +916,17 @@ $nav-pills-link-active-font-theme-color-tone: font-color !default;
 //----------------------------------*/
 
 $modal-content-bg: $white-color !default;
+$modal-border-radius: $border-radius-md !default;
+$modal-body-padding: 15px 25px !default;
 $modal-backdrop-bg: $black-color !default;
 $modal-backdrop-opacity: .7 !default;
 $modal-content-border-width: $border-thin !default;
 $modal-content-border-color: $gray-400 !default;
-$modal-border-radius: $border-radius-md !default;
 $modal-header-border-width: $border-thin !default;
 $modal-header-border-color: $modal-content-border-color;
+$modal-header-padding: 10px 25px !default;
 $modal-footer-border-width: $border-thin !default;
 $modal-footer-border-color: $modal-content-border-color;
-$modal-body-padding: 15px 25px !default;
-$modal-header-padding: 10px 25px !default;
 $modal-footer-padding: 15px 25px !default;
 
 //----------------------------------*\
@@ -942,6 +943,39 @@ $carousel-control-border-color: $white-color !default;
 
 $carousel-indicator-light-active-bg: $black-color !default;
 
+
+//----------------------------------*\
+// SLIDER CONTROL - NOUISLIDER
+//----------------------------------*/
+$slider-base-size: 5px !default;
+$slider-base-background: $gray-200 !default;
+$slider-base-border-color: $gray-400!default;
+$slider-base-border-radius: $border-radius-xxl;
+$slider-base-margin-top: 35px !default;
+
+$slider-handle-border-radius:$border-radius-50;
+$slider-handle-background:$white-color;
+$slider-handle-box-shadow: 0 3px 15px rgba($gray-600, 0.1),
+                           0 2px 3px rgba($gray-600, 0.2) !default;
+
+$slider-handle-focus-box-shadow: 0 3px 15px rgba($gray-800, 0.2),
+                                 0 2px 3px rgba($gray-800, 0.3) !default;
+
+
+$slider-handle-width: 23px !default;
+$slider-handle-height:  23px !default;
+
+$slider-pips-color: $gray-600 !default;
+$slider-pips-font-size: $font-size-base!default;
+
+$slider-tooltip-padding:          3px 10px !default;
+$slider-tooltip-font-size:        $font-size-sm !default;
+$slider-tooltip-background:       $white-color !default;
+$slider-tooltip-border-color:     $gray-400 !default;
+$slider-tooltip-border-radius:    $border-radius-md !default;
+$slider-tooltip-color:            $gray-700 !default;
+$slider-tooltip-box-shadow:       0 3px 15px rgba($gray-400, 0.1),
+                                  0 2px 3px rgba($gray-400, 0.2);
 //----------------------------------*\
 // PAGINATION
 //----------------------------------*/
