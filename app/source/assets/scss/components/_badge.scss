@@ -149,9 +149,9 @@
     }
   }
 
-  &.pointed {
-    background-color: #fff;
+  &[class*="badge-outline-"].pointed{background-color: #fff;}
 
+  &.pointed {
     &::before,
     &::after {
       content: '';
@@ -162,7 +162,6 @@
       border: 1px solid;
       border-color: inherit;
       background-color: inherit;
-
       transform: translateX(-50%) translateY(-50%) rotate(45deg);
     }
 
@@ -206,6 +205,8 @@
     }
 
   }
+
+
 
 }
 
