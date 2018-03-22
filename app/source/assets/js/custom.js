@@ -1292,11 +1292,73 @@ var appMaster = {
 
     slider: function (){
 
-        var handlesSlider = document.getElementById('slider-handles');
-        var verticalSlider = document.getElementById('slider-vertical');
+        var verticalSlider = document.getElementById('sliderVertical');
+        var sliderRegular = document.getElementById('sliderRegular');
+        var sliderRegularValueElement = document.getElementById('sliderRegularValue');
+
+        var sliderMultipleHandles = document.getElementById('sliderMultipleHandles');
+        var sliderMultipleHandlesValueElement = document.getElementById('sliderMultipleHandlesValueElement');
+
+        var sliderTooltips = document.getElementById('sliderTooltips');
+        var sliderPips = document.getElementById('sliderPips');
+
+        var sliderColor = document.getElementsByClassName('sliderColor');
+
+
+        noUiSlider.create(sliderRegular, {
+            start: 50,
+            connect: [true, false],
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
+
+        sliderRegular.noUiSlider.on('update', function( values, handle ) {
+            sliderRegularValueElement.innerHTML = values[handle];
+        });
+
+        noUiSlider.create(sliderMultipleHandles, {
+            start: [25, 75],
+            connect: true,
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
+
+        sliderMultipleHandles.noUiSlider.on('update', function( values, handle ) {
+            sliderMultipleHandlesValueElement.innerHTML = values[handle];
+        });
+
+        noUiSlider.create(sliderTooltips, {
+            start: [10, 90],
+            tooltips: [true, true],
+            connect: true,
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
+
+
+        noUiSlider.create(sliderPips, {
+            start: [25, 75],
+            tooltips: [true, true],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            pips: {
+                mode: 'positions',
+                values: [0, 25, 50, 75, 100],
+                density: 5
+            }
+        });
 
         noUiSlider.create(verticalSlider, {
-            start: [25, 50],
+            start: [25, 75],
             orientation: 'vertical',
             direction: 'rtl',
             tooltips: [true, true],
@@ -1312,21 +1374,19 @@ var appMaster = {
             }
         });
 
+        $(sliderColor).each(function(i, val){
+            noUiSlider.create(sliderColor[i], {
+                start: 50,
+                connect: [true, false],
+                range: {
+                    min: 0,
+                    max: 100
+                }
+            });
+        })
 
-        noUiSlider.create(handlesSlider, {
-            start: [25, 50],
-            tooltips: [true, true],
-            connect: true,
-            range: {
-                'min': 0,
-                'max': 100
-            },
-            pips: {
-                mode: 'positions',
-                values: [0, 25, 50, 75, 100],
-                density: 5
-            }
-        });
+
+
 
 
         // if ($.fn.noUiSlider) {
