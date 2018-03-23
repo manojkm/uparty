@@ -429,7 +429,7 @@ var appMaster = {
             var $total = $(elem).find('.steps ul li').length;
             var $current = index + 1;
             var $percent = ($current / $total) * 100;
-            $(elem).find('.progress-bar').css({width: $percent + '%'}).text($percent + " % " );
+            $(elem).find('.progress-bar').css({width: $percent + '%'}).text($percent + " % ");
             $(elem).find('.step-label').text("Step " + $current + " of " + $total);
 
         }
@@ -693,29 +693,29 @@ var appMaster = {
             errorClass: 'is-invalid',
             errorPlacement: function (error, element) {
                 // Add the `invalid-feedback` class to the error element
-                error.addClass( "invalid-feedback" );
+                error.addClass("invalid-feedback");
 
                 // element.before(error);
 
-                if (element.attr("type") == "radio" || element.attr("type") == "checkbox" ) {
-                    error.appendTo( element.parent("div") );
+                if (element.attr("type") == "radio" || element.attr("type") == "checkbox") {
+                    error.appendTo(element.parent("div"));
                 } else {
                     error.insertAfter(element)
                 }
 
             },
 
-            highlight: function ( element, errorClass, validClass ) {
+            highlight: function (element, errorClass, validClass) {
                 // $( element ).addClass( errorClass ).removeClass(validClass);
-                $( element ).addClass( errorClass );
+                $(element).addClass(errorClass);
             },
             unhighlight: function (element, errorClass, validClass) {
                 // $( element ).addClass(validClass).removeClass(errorClass);
-                $( element ).removeClass(errorClass);
+                $(element).removeClass(errorClass);
             },
 
             rules: {
-                email: { email: true},
+                email: {email: true},
                 confirm: {
                     equalTo: "#password-eg3"
                 }
@@ -904,9 +904,9 @@ var appMaster = {
             onInit: function (event, currentIndex) {
                 addBootstrap(this, currentIndex);
 
-                $(this).find('.step-title').each(function(){
+                $(this).find('.step-title').each(function () {
                     var $this = $(this);
-                    if($this.siblings('span.step').length > 0){
+                    if ($this.siblings('span.step').length > 0) {
                         $this.siblings('span.step').empty();
                         $this.children('.step-icon').appendTo($this.siblings('span.step'));
                     }
@@ -936,9 +936,9 @@ var appMaster = {
 
             onInit: function (event, currentIndex) {
                 addBootstrap(this, currentIndex);
-                $(this).find('.step-title').each(function(){
+                $(this).find('.step-title').each(function () {
                     var $this = $(this);
-                    if($this.siblings('span.step').length > 0){
+                    if ($this.siblings('span.step').length > 0) {
                         $this.siblings('span.step').empty();
                         $this.children('.step-icon').appendTo($this.siblings('span.step'));
                     }
@@ -982,7 +982,7 @@ var appMaster = {
 
     },
 
-    form_repeater: function (){
+    form_repeater: function () {
 
         if ($.fn.repeater) {
 
@@ -991,7 +991,7 @@ var appMaster = {
                 show: function () {
                     $(this).slideDown();
                 },
-                hide: function(remove) {
+                hide: function (remove) {
                     $(this).slideUp(remove);
                 }
             });
@@ -1001,7 +1001,7 @@ var appMaster = {
                 show: function () {
                     $(this).slideDown();
                 },
-                hide: function(remove) {
+                hide: function (remove) {
                     if (confirm('Are you sure you want to remove this item?')) {
                         $(this).slideUp(remove);
                     }
@@ -1013,10 +1013,10 @@ var appMaster = {
         }
     },
 
-    max_length: function (){
+    max_length: function () {
 
         if ($.fn.maxlength) {
-        // Default usage
+            // Default usage
             $('.basic-maxlength').maxlength({
                 warningClass: "badge badge-success pointed arrow-top",
                 limitReachedClass: "badge badge-danger  pointed arrow-top",
@@ -1024,7 +1024,7 @@ var appMaster = {
 
             // Change the threshold value
             $('.threshold-maxlength').maxlength({
-                threshold:10,
+                threshold: 10,
                 warningClass: "badge badge-success  pointed arrow-top",
                 limitReachedClass: "badge badge-danger pointed arrow-top",
             });
@@ -1101,9 +1101,43 @@ var appMaster = {
         }
     },
 
-    jquery_validation_example: function (){
+    raty: function () {
+        if ($.fn.raty) {
+            $.fn.raty.defaults.path = "assets/img/",
+                $("#default-star-rating").raty(),
+                $("#saved-rating").raty({ score: 3 }),
+                $("#no-of-stars").raty({ number: 10 }),
+                $("#read-only-stars").raty({ readOnly: true, score: 3 }),
+                $("#space-star").raty({ space: false }),
+                $("#single-star").raty({ single: true }),
+                $("#half-star").raty({ half: !0 }),
+                $("#custom-icon-heart").raty(
+                    {
+                        starOff: "fas fa-heart mr-1 text-muted",
+                        starOn: "fas fa-heart mr-1 text-danger",
+                        starType: "i",
+                        score: 3
+                    }
+                ),
+                $("#icon-range").raty({
+                    iconRange: [
+                        {range: 1, on: "fas fa-cloud mr-1 text-primary", off: "fas fa-cloud mr-1"},
+                        {range: 2, on: "fas fa-bolt mr-1 text-primary", off: "fas fa-bolt mr-1"},
+                        {range: 3, on: "fas fa-sun mr-1 text-primary", off: "fas fa-sun mr-1"},
+                        {range: 4, on: "fas fa-tint mr-1 text-primary", off: "fas fa-tint mr-1"},
+                        {range: 5, on: "fas fa-snowflake mr-1 text-primary", off: "fas fa-snowflake mr-1"}],
+                    starType: "i"
+                }),
+                $("#cancel-star").raty({ cancel: true })
+        }
+        else {
+            throw new Error('Please install Raty plugin! https://github.com/wbotelhos/raty');
+        }
+    },
 
-        jQuery.validator.addMethod("zipcodeUS", function(value, element) {
+    jquery_validation_example: function () {
+
+        jQuery.validator.addMethod("zipcodeUS", function (value, element) {
             return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$/.test(value)
         }, "The specified US ZIP Code is invalid");
 
@@ -1115,26 +1149,26 @@ var appMaster = {
             //TODO https://stackoverflow.com/questions/4381476/jquery-tooltip-to-display-validator-messages
             errorPlacement: function (error, element) {
                 // Add the `invalid-feedback` class to the error element
-                error.addClass( "invalid-feedback" );
-                if (element.attr("type") == "radio" || element.attr("type") == "checkbox" ) {
-                    error.appendTo( element.parent("div") );
+                error.addClass("invalid-feedback");
+                if (element.attr("type") == "radio" || element.attr("type") == "checkbox") {
+                    error.appendTo(element.parent("div"));
                 } else {
                     error.insertAfter(element)
                 }
             },
 
-            highlight: function ( element, errorClass, validClass ) {
+            highlight: function (element, errorClass, validClass) {
                 // $( element ).addClass( errorClass ).removeClass(validClass);
-                $( element ).addClass( errorClass );
+                $(element).addClass(errorClass);
             },
             unhighlight: function (element, errorClass, validClass) {
                 // $( element ).addClass(validClass).removeClass(errorClass);
-                $( element ).removeClass(errorClass);
+                $(element).removeClass(errorClass);
             },
 
             rules: {
                 username: {
-                    minlength:4
+                    minlength: 4
                 },
                 password: {
                     minlength: 6
@@ -1176,7 +1210,7 @@ var appMaster = {
                 agree: "Please accept our policy"
             },
 
-            submitHandler: function(form) {
+            submitHandler: function (form) {
                 alert("This is a valid form!");
             }
         });
@@ -1184,7 +1218,7 @@ var appMaster = {
         //Advanced validation with tooltip
         $("#signupFormTooltip").validate({
 
-            showErrors: function(errorMap, errorList) {
+            showErrors: function (errorMap, errorList) {
 
                 // Clean up any tooltips for valid elements
                 $.each(this.validElements(), function (index, element) {
@@ -1204,25 +1238,25 @@ var appMaster = {
                         .addClass("is-invalid")
                         .tooltip({
                             // Position of the tooltip on top, bottom, left or the right side of the element:
-                            placement:"top",
-                            template:'<div class="tooltip tooltip-danger" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
+                            placement: "top",
+                            template: '<div class="tooltip tooltip-danger" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
 
                         }); // Create a new tooltip based on the error messsage we just set in the title
                 });
             },
 
-            highlight: function ( element, errorClass, validClass ) {
+            highlight: function (element, errorClass, validClass) {
                 // $( element ).addClass( errorClass ).removeClass(validClass);
-                $( element ).addClass( errorClass );
+                $(element).addClass(errorClass);
             },
             unhighlight: function (element, errorClass, validClass) {
                 // $( element ).addClass(validClass).removeClass(errorClass);
-                $( element ).removeClass(errorClass);
+                $(element).removeClass(errorClass);
             },
 
             rules: {
                 username: {
-                    minlength:4
+                    minlength: 4
                 },
                 password: {
                     minlength: 6
@@ -1264,7 +1298,7 @@ var appMaster = {
                 agree: "Please accept our policy"
             },
 
-            submitHandler: function(form) {
+            submitHandler: function (form) {
                 alert("This is a valid form!");
             }
         });
@@ -1276,21 +1310,22 @@ var appMaster = {
 
     },
 
-    set_footer_height: function (){
+    set_footer_height: function () {
 
         function set_heights() {
             var footerHeight = $('.master-footer').height();
-            $('.content__wrap').css('padding-bottom', footerHeight+'px');
+            $('.content__wrap').css('padding-bottom', footerHeight + 'px');
         }
+
         set_heights();
 
-        $(window).resize(function() {
+        $(window).resize(function () {
             set_heights();
         });
 
     },
 
-    slider: function (){
+    slider: function () {
 
         var verticalSlider = document.getElementById('sliderVertical');
         var sliderRegular = document.getElementById('sliderRegular');
@@ -1299,11 +1334,16 @@ var appMaster = {
         var sliderMultipleHandles = document.getElementById('sliderMultipleHandles');
         var sliderMultipleHandlesValueElement = document.getElementById('sliderMultipleHandlesValueElement');
 
+        var sliderColorVerticalOne = document.getElementById('sliderColorVerticalOne');
+        var sliderColorVerticalTwo = document.getElementById('sliderColorVerticalTwo');
+        var sliderColorVerticalThree = document.getElementById('sliderColorVerticalThree');
+        var sliderColorVerticalFour = document.getElementById('sliderColorVerticalFour');
+        var sliderColorVerticalFive = document.getElementById('sliderColorVerticalFive');
+
         var sliderTooltips = document.getElementById('sliderTooltips');
         var sliderPips = document.getElementById('sliderPips');
 
         var sliderColor = document.getElementsByClassName('sliderColor');
-
 
         noUiSlider.create(sliderRegular, {
             start: 50,
@@ -1314,7 +1354,7 @@ var appMaster = {
             }
         });
 
-        sliderRegular.noUiSlider.on('update', function( values, handle ) {
+        sliderRegular.noUiSlider.on('update', function (values, handle) {
             sliderRegularValueElement.innerHTML = values[handle];
         });
 
@@ -1327,7 +1367,7 @@ var appMaster = {
             }
         });
 
-        sliderMultipleHandles.noUiSlider.on('update', function( values, handle ) {
+        sliderMultipleHandles.noUiSlider.on('update', function (values, handle) {
             sliderMultipleHandlesValueElement.innerHTML = values[handle];
         });
 
@@ -1374,7 +1414,7 @@ var appMaster = {
             }
         });
 
-        $(sliderColor).each(function(i, val){
+        $(sliderColor).each(function (i, val) {
             noUiSlider.create(sliderColor[i], {
                 start: 50,
                 connect: [true, false],
@@ -1383,10 +1423,58 @@ var appMaster = {
                     max: 100
                 }
             });
-        })
+        });
 
-
-
+        noUiSlider.create(sliderColorVerticalOne, {
+            start: 70,
+            orientation: 'vertical',
+            direction: 'rtl',
+            connect: [true, false],
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
+        noUiSlider.create(sliderColorVerticalTwo, {
+            start: 50,
+            orientation: 'vertical',
+            direction: 'rtl',
+            connect: [true, false],
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
+        noUiSlider.create(sliderColorVerticalThree, {
+            start: 70,
+            orientation: 'vertical',
+            direction: 'rtl',
+            connect: [true, false],
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
+        noUiSlider.create(sliderColorVerticalFour, {
+            start: 30,
+            orientation: 'vertical',
+            direction: 'rtl',
+            connect: [true, false],
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
+        noUiSlider.create(sliderColorVerticalFive, {
+            start: 20,
+            orientation: 'vertical',
+            direction: 'rtl',
+            connect: [true, false],
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
 
 
         // if ($.fn.noUiSlider) {
@@ -1395,6 +1483,7 @@ var appMaster = {
         //     throw new Error('Please install noUiSlider plugin! https://github.com/leongersen/noUiSlider/');
         // }
     },
+
 
 };
 
@@ -1457,6 +1546,7 @@ $(document).ready(function () {
     appMaster.jquery_validation_example();
     appMaster.set_footer_height();
     appMaster.slider();
+    appMaster.raty();
 });
 
 
