@@ -21,7 +21,14 @@ posted: 2018-01-08
                 <div class="card-body">
                     <p class="text-muted">Hover over the links below to see tooltips:</p>
 
-                    <p><span class="placeholder small">Tight pants next level keffiyeh</span> <a href="#" data-toggle="tooltip" title="" data-original-title="Default tooltip">you probably</a> <span class="placeholder small">haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel</span> <a href="#" data-toggle="tooltip" title="" data-original-title="Another tooltip">have a</a> <span class="placeholder small">terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan</span> <a href="#" data-toggle="tooltip" title="" data-original-title="Another one here too">whatever keytar</a>, <span class="placeholder small">scenester farm-to-table banksy Austin</span> <a href="#" data-toggle="tooltip" title="" data-original-title="The last tip!">twitter handle</a> <span class="placeholder small">freegan cred raw denim single-origin coffee viral.</span>
+                    <p><span class="placeholder small">Tight pants next level keffiyeh</span> <a href="#" data-toggle="tooltip" title="" data-original-title="Default tooltip">you probably</a> <span
+                            class="placeholder small">haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel</span>
+                        <a href="#" data-toggle="tooltip" title="" data-original-title="Another tooltip">have a</a> <span class="placeholder small">terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan</span>
+                        <a href="#" data-toggle="tooltip" title="" data-original-title="Another one here too">whatever keytar</a>, <span class="placeholder small">scenester farm-to-table banksy Austin</span> <a href="#"
+                                                                                                                                                                                                                   data-toggle="tooltip"
+                                                                                                                                                                                                                   title=""
+                                                                                                                                                                                                                   data-original-title="The last tip!">twitter
+                            handle</a> <span class="placeholder small">freegan cred raw denim single-origin coffee viral.</span>
                     </p>
                 </div>
             </div>
@@ -40,8 +47,8 @@ posted: 2018-01-08
                 </div>
                 <div class="card-body">
                     <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                    Tooltip on top
-                </button>
+                        Tooltip on top
+                    </button>
                     <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
                         Tooltip on right
                     </button>
@@ -65,9 +72,11 @@ posted: 2018-01-08
                         <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
                     </div>
                 </div>
-                <div class="card-body"><button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b> <i class='icon-heart'></i>">
-                    Tooltip with HTML
-                </button></div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b> <i class='icon-heart'></i>">
+                        Tooltip with HTML
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -144,12 +153,81 @@ posted: 2018-01-08
                         On Hover Trigger
                     </button>
 
-
-                    <button type="button" class="btn btn-danger btn-sm"  data-animate=" animated fadeInDown" data-toggle="tooltip" data-original-title="Hover Triggered" data-trigger="hover">
-                       Animation testing.. delete later.. bcoz tooltip is appearing top left
+                    <button type="button" class="btn btn-danger btn-sm" data-animate=" animated fadeInDown" data-toggle="tooltip" data-original-title="Hover Triggered" data-trigger="hover">
+                        Animation testing.. delete later.. bcoz tooltip is appearing top left
                     </button>
 
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-2">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">Multiple events</h6>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <span data-toggle="modal" data-target="#myLeadsModal">
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Tooltip on top">
+                   Tooltip + Modal
+                    <span class="badge badge-danger ml-1">4</span>
+                    </button>
+                    </span>
+
+                    <div class="modal fade" id="myLeadsModal" tabindex="-1" role="dialog" aria-labelledby="myLeadsModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="myLeadsModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    asd
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span  data-toggle="tooltip" data-placement="right" title="Tooltip on top">
+                    <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
+                            data-placement="left" title="Popover on left"
+                            data-content="And here's some amazing content. It's very engaging. Right?">
+                   Tooltip + Popover
+                         <span class="badge badge-info ml-1">4</span>
+                    </button>
+                    </span>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6 pl-2">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">Tooltip Triggers</h6>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="card-body"></div>
             </div>
         </div>
     </div>
