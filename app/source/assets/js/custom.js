@@ -1485,6 +1485,18 @@ var appMaster = {
     },
 
 
+    expand_collapse: function (){
+        $('.expand_all').on('click', function (e) {
+            e.preventDefault();
+            $('#accordion-exp-collapse').find('.multi-collapse').collapse('show');
+        });
+
+        $('.collapse_all').on('click', function (e) {
+            e.preventDefault();
+            $('#accordion-exp-collapse').find('.multi-collapse').collapse('hide');
+        });
+    },
+
 };
 
 var Pluggin = {
@@ -1545,8 +1557,9 @@ $(document).ready(function () {
     appMaster.max_length();
     appMaster.jquery_validation_example();
     appMaster.set_footer_height();
-    appMaster.slider();
+    // appMaster.slider();
     appMaster.raty();
+    appMaster.expand_collapse();
 });
 
 
