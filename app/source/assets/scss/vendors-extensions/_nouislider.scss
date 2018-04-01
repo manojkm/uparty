@@ -55,7 +55,7 @@
   height: $slider-base-size;
   .noUi-handle {
     left: -$slider-handle-width / 2;
-    top: -$slider-base-size * 2;
+    top: $slider-handle-horizontal-top;
   }
 }
 
@@ -68,7 +68,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   width: $slider-base-size;
   .noUi-handle {
     top: -$slider-handle-width / 2;
-    left: -$slider-base-size * 2;
+    left:  $slider-handle-vertical-left;
   }
 }
 
@@ -81,7 +81,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   font-size: $slider-pips-font-size;
 }
 
-// Markings
+/* Markings */
 .noUi-marker-large {
   background: $slider-pips-color;
 }

@@ -149,19 +149,63 @@
 //----------------------------------*\
 // CONTEXTUAL & THEME BORDER VARIANTS
 //----------------------------------*/
-@mixin border-theme($theme-color, $tone:base, $sledge-hammer:null) {
+@mixin border-theme($theme-color, $tone:base, $position:all, $sledge-hammer:null) {
 
-  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    border-color: contextual-color($theme-color, $tone) $sledge-hammer;
+
+   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+
+     @if $position == 'all' {
+       border-color: contextual-color($theme-color, $tone) $sledge-hammer;
+     } @else if $position == 'top' {
+       border-top-color: contextual-color($theme-color, $tone) $sledge-hammer;
+     } @else if $position == 'bottom' {
+       border-bottom-color: contextual-color($theme-color, $tone) $sledge-hammer;
+     } @else if $position == 'right' {
+       border-right-color: contextual-color($theme-color, $tone) $sledge-hammer;
+     } @else if $position == 'left' {
+       border-left-color:contextual-color($theme-color, $tone) $sledge-hammer;
+     } @else if $position == 'top-bottom' {
+       border-top-color:contextual-color($theme-color, $tone) $sledge-hammer;
+       border-bottom-color: contextual-color($theme-color, $tone) $sledge-hammer;
+     } @else if $position == 'right-left' {
+       border-left-color: contextual-color($theme-color, $tone) $sledge-hammer;
+       border-right-color:contextual-color($theme-color, $tone) $sledge-hammer;
+     } @else if $position == 'left-bottom' {
+       border-left-color:contextual-color($theme-color, $tone) $sledge-hammer;
+       border-bottom-color:contextual-color($theme-color, $tone) $sledge-hammer;
+     }
+
+
   } @else { /* Theme variations */
-    @include border-color($theme-color, $tone, $sledge-hammer);
+
+     @if $position == 'all' {
+       @include border-color($theme-color, $tone, $sledge-hammer);
+     } @else if $position == 'top' {
+       @include border-top-color($theme-color, $tone, $sledge-hammer);
+     } @else if $position == 'bottom' {
+       @include border-bottom-color($theme-color, $tone, $sledge-hammer);
+     } @else if $position == 'right' {
+       @include border-right-color($theme-color, $tone, $sledge-hammer);
+     } @else if $position == 'left' {
+       @include border-left-color($theme-color, $tone, $sledge-hammer);
+     } @else if $position == 'top-bottom' {
+       @include border-top-color($theme-color, $tone, $sledge-hammer);
+       @include border-bottom-color($theme-color, $tone, $sledge-hammer);
+     } @else if $position == 'right-left' {
+       @include border-left-color($theme-color, $tone, $sledge-hammer);
+       @include border-right-color($theme-color, $tone, $sledge-hammer);
+     } @else if $position == 'left-bottom' {
+       @include border-left-color($theme-color, $tone, $sledge-hammer);
+       @include border-bottom-color($theme-color, $tone, $sledge-hammer);
+     }
+
   }
 }
 
 //----------------------------------*\
 // CONTEXTUAL & THEME TEXT VARIANTS
 //----------------------------------*/
-@mixin text-theme($theme-color, $font-color:base, $hover-color:dark, $tone-active:x-dark, $sledge-hammer:null) {
+@mixin text-theme($theme-color, $font-color:base, $sledge-hammer:null) {
 
   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
     color: contextual-color($theme-color, $font-color) $sledge-hammer;
@@ -372,48 +416,20 @@ Usage @include opacity(1);
 
 @mixin btn-theme($theme-color, $bg:fill, $tone:base, $tone-hover:dark, $tone-active:x-dark, $font-color:font-color) {
 
-  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    border-color: contextual-color($theme-color, $tone);
-    /* Filled button */
-    @if $bg == fill {
-      background-color: contextual-color($theme-color, $tone);
-      color: contextual-color($theme-color, $font-color);
-    }
-    /* Outline button */
-    @if $bg == outline {
-      background-color: transparent;
-      color: contextual-color($theme-color, $tone);
-    }
+  @include border-theme($theme-color,$tone);
 
-  } @else { /* Theme variations */
-    @include border-color($theme-color, $tone);
-    /* Filled button */
-    @if $bg == fill {
-      @include background-color($theme-color, $tone);
-      @include color($theme-color, $font-color);
-    }
-    /* Outline button */
-    @if $bg == outline {
-      background-color: transparent;
-      @include color($theme-color, $tone);
-    }
+  @if $bg == fill {
+    @include background-text-theme($theme-color,$tone, $font-color);
+  }
 
+  @if $bg == outline {
+    background-color: transparent;
+    @include text-theme($theme-color,$tone);
   }
 
   #{$hover-tags} {
-
     @include border-theme($theme-color,$tone-hover);
     @include background-text-theme($theme-color,$tone-hover, $font-color);
-
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  border-color: contextual-color($theme-color, $tone-hover);
-    //  background-color: contextual-color($theme-color, $tone-hover);
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include border-color($theme-color, $tone-hover);
-    //  @include background-color($theme-color, $tone-hover);
-    //  @include color($theme-color, $font-color);
-    //}
   }
 
   #{$active-tags},
@@ -421,38 +437,15 @@ Usage @include opacity(1);
   .show > &.dropdown-toggle,
   .show > &.dropdown-toggle:focus,
   .show > &.dropdown-toggle:hover {
-
     @include border-theme($theme-color,$tone-active);
     @include background-text-theme($theme-color,$tone-active, $font-color);
-
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  border-color: contextual-color($theme-color, $tone-active);
-    //  background-color: contextual-color($theme-color, $tone-active);
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include border-color($theme-color, $tone-active);
-    //  @include background-color($theme-color, $tone-active);
-    //  @include color($theme-color, $font-color);
-    //}
   }
 
   &.btn-link {
     @include text-theme($theme-color,$tone);
 
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  color: contextual-color($theme-color, $tone);
-    //} @else { /* Theme variations */
-    //  @include color($theme-color, $tone);
-    //}
-
     #{$hover-tags} {
       @include text-theme($theme-color,$tone-hover);
-
-      //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      //  color: contextual-color($theme-color, $tone-hover);
-      //} @else { /* Theme variations */
-      //  @include color($theme-color, $tone-hover);
-      //}
     }
 
     #{$active-tags},
@@ -460,14 +453,7 @@ Usage @include opacity(1);
     .show > &.dropdown-toggle,
     .show > &.dropdown-toggle:focus,
     .show > &.dropdown-toggle:hover {
-
       @include text-theme($theme-color,$tone-active);
-
-      //@if map-has-key($contextual, $theme-color) {
-      //  color: contextual-color($theme-color, $tone-active);
-      //} @else {
-      //  @include color($theme-color, $tone-active);
-      //}
     }
 
   }
@@ -484,21 +470,8 @@ Usage @include opacity(1);
     .show > &.dropdown-toggle,
     .show > &.dropdown-toggle:focus,
     .show > &.dropdown-toggle:hover {
-
       @include border-theme($theme-color,$tone);
       @include background-text-theme($theme-color,$tone, $font-color);
-      //
-      //
-      //
-      //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      //  border-color: contextual-color($theme-color, $tone);
-      //  background-color: contextual-color($theme-color, $tone);
-      //  color: contextual-color($theme-color, $font-color);
-      //} @else { /* Theme variations */
-      //  @include border-color($theme-color, $tone);
-      //  @include background-color($theme-color, $tone);
-      //  @include color($theme-color, $font-color);
-      //}
     }
 
     #{$hover-tags},
@@ -567,7 +540,6 @@ Usage @include opacity(1);
 //----------------------------------*/
 
 @mixin btn-size($padding-y, $padding-x, $min-width, $min-height, $font-size, $border, $line-height) {
-  //@include font-size($font-size);
   @include set-border-radius($border);
   font-size: $font-size;
   padding: $padding-y $padding-x;
@@ -600,49 +572,6 @@ Usage @include opacity(1);
     }
   }
 
-
-  //
-  //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-  //  border-color: contextual-color($theme-color, $tone);
-  //  /* Filled button */
-  //  @if $bg == fill {
-  //    background-color: contextual-color($theme-color, $tone) !important;
-  //    color: contextual-color($theme-color, $font-color);
-  //    * {
-  //      color: contextual-color($theme-color, $font-color) !important;
-  //    }
-  //  }
-  //  /* Outline button */
-  //  @if $bg == outline {
-  //    background-color: transparent;
-  //    color: contextual-color($theme-color, $tone);
-  //    * {
-  //      color: contextual-color($theme-color, $tone) !important;
-  //    }
-  //  }
-  //
-  //} @else { /* Theme variations */
-  //  @include border-color($theme-color, $tone);
-  //  /* Filled button */
-  //  @if $bg == fill {
-  //    @include background-color($theme-color, $tone);
-  //    @include color($theme-color, $font-color);
-  //    * {
-  //      @include color($theme-color, $font-color, $sledge-hammer);
-  //    }
-  //  }
-  //  /* Outline button */
-  //  @if $bg == outline {
-  //    background-color: transparent;
-  //    @include color($theme-color, $tone);
-  //    * {
-  //      @include color($theme-color, $tone, $sledge-hammer);
-  //    }
-  //  }
-  //
-  //}
-
-
   /* Link Badges */
   @at-root a#{&} {
     #{$hover-tags} {
@@ -658,18 +587,6 @@ Usage @include opacity(1);
     }
   }
 
-
-  //#{$a-href-tags} {
-  //  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-  //    background-color: contextual-color($theme-color, $tone-hover) !important;
-  //    color: contextual-color($theme-color, $font-color);
-  //  } @else { /* Theme variations */
-  //    @include background-color($theme-color, $tone-hover, $sledge-hammer);
-  //    @include color($theme-color, $font-color);
-  //  }
-  //
-  //}
-
 }
 
 //----------------------------------*\
@@ -677,30 +594,30 @@ Usage @include opacity(1);
 //----------------------------------*/
 @mixin breadcrumb-wizard-status($theme-color, $tone:base, $tone-hover:dark, $tone-border:x-dark, $font-color:font-color) {
 
-  @include background-color($theme-color, $tone);
+  @include background-theme($theme-color, $tone);
 
   & a {
-    @include color($theme-color, $font-color);
+    @include text-theme($theme-color, $font-color);
   }
 
   &:hover {
-    @include background-color($theme-color, $tone);
+    @include background-theme($theme-color, $tone);
   }
 
   &:after {
-    @include border-left-color($theme-color, $tone);
+    @include border-theme($theme-color, $tone,$position:left);
   }
 
   &:hover:after {
-    @include border-left-color($theme-color, $tone);
+    @include border-theme($theme-color, $tone, $position:left);
   }
 
   &:before {
-    @include border-left-color($theme-color, $tone-border);
+    @include border-theme($theme-color, $tone-border, $position:left);
   }
 
   &:hover:before {
-    @include border-left-color($theme-color, $tone-border);
+    @include border-theme($theme-color, $tone-border, $position:left);
   }
 
 }
@@ -714,72 +631,30 @@ Usage @include opacity(1);
   @include border-theme($theme-color,$border-tone);
   @include background-theme($theme-color,$tone);
 
-  //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-  //  background-color: contextual-color($theme-color, $tone);
-  //  border-color: contextual-color($theme-color, $border-tone);
-  //} @else { /* Theme variations */
-  //  @include background-color($theme-color, $tone);
-  //  @include border-color($theme-color, $border-tone);
-  //}
-
   .popover-body {
     @include text-theme($theme-color,$font-color);
-
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include color($theme-color, $font-color);
-    //}
   }
 
   &.bs-popover-right .arrow:after {
-    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-right-color: contextual-color($theme-color, $tone);
-    } @else { /* Theme variations */
-      @include border-right-color($theme-color, $tone);
-    }
+    @include border-theme($theme-color,$tone, $position:right);
   }
 
   &.bs-popover-top .arrow:after {
-    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-top-color: contextual-color($theme-color, $tone);
-    } @else { /* Theme variations */
-      @include border-top-color($theme-color, $tone);
-    }
+    @include border-theme($theme-color,$tone, $position:top);
   }
 
   &.bs-popover-bottom .arrow:after {
-    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-bottom-color: contextual-color($theme-color, $tone);
-    } @else { /* Theme variations */
-      @include border-bottom-color($theme-color, $tone);
-    }
+    @include border-theme($theme-color,$tone, $position:bottom);
   }
 
   &.bs-popover-left .arrow:after {
-    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-left-color: contextual-color($theme-color, $tone);
-    } @else { /* Theme variations */
-      @include border-left-color($theme-color, $tone);
-    }
+    @include border-theme($theme-color,$tone, $position:left);
   }
 
   .popover-header {
-
     @include border-theme($theme-color,$header-tone);
     @include background-text-theme($theme-color, $header-tone, $font-color);
-    //
-    //
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  color: contextual-color($theme-color, $font-color);
-    //  background-color: contextual-color($theme-color, $header-tone);
-    //  border-color: contextual-color($theme-color, $header-tone);
-    //
-    //} @else { /* Theme variations */
-    //  @include background-color($theme-color, $header-tone);
-    //  @include border-color($theme-color, $header-tone);
-    //  @include color($theme-color, $font-color);
-    //}
+
   }
 }
 
@@ -790,12 +665,6 @@ Usage @include opacity(1);
 
   @include background-theme($theme-color,$tone);
 
-  //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-  //  background-color: contextual-color($theme-color, $tone);
-  //} @else { /* Theme variations */
-  //  @include background-color($theme-color, $tone);
-  //}
-
   .nav-link {
     opacity: 0.6;
   }
@@ -803,11 +672,6 @@ Usage @include opacity(1);
   .boxed-tab-title {
     @include text-theme($theme-color,$font-color);
 
-        //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include color($theme-color, $font-color);
-    //}
   }
 
   .nav-link.active,
@@ -816,12 +680,6 @@ Usage @include opacity(1);
   .nav-item.show .nav-link {
     opacity: 1;
     @include text-theme($theme-color,$tone);
-
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  color: contextual-color($theme-color, $tone);
-    //} @else { /* Theme variations */
-    //  @include color($theme-color, $tone);
-    //}
 
   }
 
@@ -836,48 +694,25 @@ Usage @include opacity(1);
   .tooltip-inner {
     @include background-text-theme($theme-color,$tone, $font-color);
 
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  background-color: contextual-color($theme-color, $tone);
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include background-color($theme-color, $tone);
-    //  @include color($theme-color, $font-color);
-    //}
   }
 
   /* Right tooltip */
   &.bs-tooltip-right .arrow:before {
-    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-right-color: contextual-color($theme-color, $tone);
-    } @else { /* Theme variations */
-      @include border-right-color($theme-color, $tone);
+    @include border-theme($theme-color, $tone, $position:right);
     }
-  }
 
   /* Top tooltip */
   &.bs-tooltip-top .arrow:before {
-    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-top-color: contextual-color($theme-color, $tone);
-    } @else { /* Theme variations */
-      @include border-top-color($theme-color, $tone);
-    }
+    @include border-theme($theme-color, $tone, $position:top);
   }
   /* Bottom tooltip */
   &.bs-tooltip-bottom .arrow:before {
-    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-bottom-color: contextual-color($theme-color, $tone);
-    } @else { /* Theme variations */
-      @include border-bottom-color($theme-color, $tone);
-    }
+    @include border-theme($theme-color, $tone, $position:bottom);
   }
 
   /* Left tooltip */
   &.bs-tooltip-left .arrow:before {
-    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      border-left-color: contextual-color($theme-color, $tone);
-    } @else { /* Theme variations */
-      @include border-left-color($theme-color, $tone);
-    }
+    @include border-theme($theme-color, $tone, $position:left);
   }
 
 }
@@ -912,39 +747,17 @@ Usage @include opacity(1);
 @mixin modal-theme($theme-color, $tone:base, $border-tone:dark, $font-color:font-color) {
 
   .modal-header {
-
     @include border-theme($theme-color,$border-tone);
     @include background-text-theme($theme-color,$tone, $font-color);
-
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  background-color: contextual-color($theme-color, $tone);
-    //  border-color: contextual-color($theme-color, $border-tone);
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include background-color($theme-color, $tone);
-    //  @include border-color($theme-color, $border-tone);
-    //  @include color($theme-color, $font-color);
-    //}
   }
 
   // Title text within header
   .modal-title {
     @include text-theme($theme-color,$font-color);
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include color($theme-color, $font-color);
-    //}
   }
 
   button.close {
     @include text-theme($theme-color,$font-color);
-
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include color($theme-color, $font-color);
-    //}
   }
 }
 
@@ -961,36 +774,15 @@ Usage @include opacity(1);
 
     @include border-theme($theme-color,$tone-border);
     @include background-theme($theme-color,$tone);
-    //
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  background-color: contextual-color($theme-color, $tone);
-    //  border-color: contextual-color($theme-color, $tone-border);
-    //} @else { /* Theme variations */
-    //  @include background-color($theme-color, $tone);
-    //  @include border-color($theme-color, $tone-border);
-    //}
 
     &:after {
       @include background-theme($theme-color,$font-color);
-
-      //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      //  background-color: contextual-color($theme-color, $font-color);
-      //} @else { /* Theme variations */
-      //  @include background-color($theme-color, $font-color);
-      //}
     }
   }
   &.mini .#{$cci}:checked + .#{$ccind},
   &.mini .#{$cci}:checked:active + .#{$ccind} {
     &:after {
       @include background-theme($theme-color,$tone);
-
-      //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      //  background-color: contextual-color($theme-color, $tone);
-      //} @else { /* Theme variations */
-      //  @include background-color($theme-color, $tone);
-      //
-      //}
     }
   }
 
@@ -1008,14 +800,6 @@ Usage @include opacity(1);
   .#{$ccind} {
     &:after {
       @include background-text-theme($theme-color,$tone, $font-color);
-
-      //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      //  background-color: contextual-color($theme-color, $tone);
-      //  color: contextual-color($theme-color, $font-color);
-      //} @else { /* Theme variations */
-      //  @include background-color($theme-color, $tone);
-      //  @include color($theme-color, $font-color);
-      //}
     }
   }
 
@@ -1029,26 +813,10 @@ Usage @include opacity(1);
   @include border-theme($theme-color,$tone-border);
   @include background-text-theme($theme-color,$tone, $font-color);
 
-  //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-  //  background-color: contextual-color($theme-color, $tone);
-  //  border-color: contextual-color($theme-color, $tone-border);
-  //  color: contextual-color($theme-color, $font-color);
-  //} @else { /* Theme variations */
-  //  @include background-color($theme-color, $tone);
-  //  @include border-color($theme-color, $tone-border);
-  //  @include color($theme-color, $font-color);
-  //}
-
   /* Close button */
   @at-root &.alert-dismissible > .close {
-
     @include text-theme($theme-color,$font-color);
 
-    //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include color($theme-color, $font-color);
-    //}
   }
 
   /* Link color */
@@ -1056,23 +824,11 @@ Usage @include opacity(1);
     &,
     #{$a-tags} {
       @include text-theme($theme-color,$font-color);
-
-      //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-      //  color: contextual-color($theme-color, $font-color);
-      //} @else { /* Theme variations */
-      //  @include color($theme-color, $font-color);
-      //}
     }
   }
 
   p {
     @include text-theme($theme-color,$font-color);
-
-        //@if map-has-key($contextual, $theme-color) { /* Contextual variations */
-    //  color: contextual-color($theme-color, $font-color);
-    //} @else { /* Theme variations */
-    //  @include color($theme-color, $font-color);
-    //}
   }
 
 }
@@ -1084,11 +840,7 @@ Usage @include opacity(1);
   span {
     @include background-text-theme($theme-color);
     &::after {
-      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
-        border-bottom-color: contextual-color($theme-color, $tone) !important;
-      } @else { /* Theme variations */
-        @include border-bottom-color($theme-color, $tone);
-      }
+      @include border-theme($theme-color, $tone, $position:bottom);
     }
   }
 }
@@ -1102,12 +854,10 @@ Usage @include opacity(1);
   &:focus {
     //@include transition;
     color: $input-focus-color;
-    //border-color: $input-focus-border-color;
-    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     box-shadow: none;
     &:hover {
-      //border-color: $input-hover-border-color;
-      @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+      @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     }
   }
 }
@@ -1237,7 +987,6 @@ Usage @include opacity(1);
       .was-validated &:#{$state},
       &.is-#{$state} {
         ~ .custom-control-indicator {
-          background: $custom-toggle-checked-background;
           border-color: transparent;
 
           &:after {
@@ -1254,7 +1003,7 @@ Usage @include opacity(1);
         background: $white-color;
 
         &:after {
-          background: $color;
+          background-color: lighten($color, 10%);
         }
       }
     }

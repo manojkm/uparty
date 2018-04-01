@@ -114,9 +114,9 @@ form {
 .required-field {
 
   &::after {
+    @include text-theme($required-field-color);
     margin: -.2em 0 0 .2em;
     content: '*';
-    color: $required-field-color;
     top: 0;
     left: 100%;
   }

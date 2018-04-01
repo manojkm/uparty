@@ -25,7 +25,7 @@
 
     &:hover,
     &:focus {
-      @include color($nav-tabs-link-active-theme-color, $nav-tabs-link-active-theme-color-tone);
+      @include text-theme($nav-tabs-link-active-theme-color);
       border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
       background-color: $nav-tabs-link-hover-bg;
     }
@@ -39,7 +39,6 @@
      font-size: inherit;
       width: $tab-icon-width;
       display: inline-block;
-      //margin-right:$tab-icon-margin-right;
       color: inherit;
       text-align: center;
     }
@@ -48,8 +47,7 @@
 
   .nav-link.active,
   .nav-item.show .nav-link {
-    //color: $nav-tabs-link-active-color;
-    @include color($nav-tabs-link-active-theme-color, $nav-tabs-link-active-theme-color-tone);
+    @include text-theme($nav-tabs-link-active-theme-color);
     background-color: $nav-tabs-link-active-bg;
     border-color: $nav-tabs-link-active-border-color $nav-tabs-link-active-border-color $nav-tabs-link-active-bg;
   }
@@ -79,13 +77,13 @@
 
       &:hover,
       &:focus {
-        @include color($nav-tabs-link-active-theme-color, $nav-tabs-link-active-theme-color-tone);
+        @include text-theme($nav-tabs-link-active-theme-color);
         background-color: transparent;
       }
 
       &::before {
-        @include background-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
         @include transition;
+        @include background-theme($nav-tabs-line-link-active-border-theme-color);
         content: "";
         height: 2px;
         position: absolute;
@@ -98,15 +96,6 @@
 
     .nav-link.active,
     .nav-item.show .nav-link {
-
-      //@include add-border(0, transparent, top);
-      //@include add-border(0, transparent, right-left);
-      //@include add-border(5px, $nav-tabs-link-active-border-color, bottom);
-      //@include border-color($theme-color, $tone);
-      //border: 5px solid transparent;
-
-       //@include add-border(3px, transparent, bottom);
-       //@include border-bottom-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
       &::before {
         transform: scale(1)
       }
@@ -156,8 +145,7 @@
     }
   }
 
-  /* Apply the mixin to the tooltip variants. */
-
+  /* Theme variations */
   &.primary-box {
     @include tab-extended-boxed-theme(primary);
   }
@@ -166,28 +154,11 @@
     @include tab-extended-boxed-theme(secondary);
   }
 
-  &.success-box {
-    @include tab-extended-boxed-theme(success);
-  }
-
-  &.danger-box {
-    @include tab-extended-boxed-theme(danger);
-  }
-
-  &.warning-box {
-    @include tab-extended-boxed-theme(warning);
-  }
-
-  &.info-box {
-    @include tab-extended-boxed-theme(info);
-  }
-
-  &.light-box {
-    @include tab-extended-boxed-theme(light);
-  }
-
-  &.dark-box {
-    @include tab-extended-boxed-theme(dark);
+  /* Contextual variations */
+  @each $scheme, $value in $contextual {
+    &.#{$scheme}-box {
+      @include tab-extended-boxed-theme($scheme);
+    }
   }
 
 }
@@ -229,7 +200,7 @@
 
       &:hover,
       &:focus {
-        @include color($nav-tabs-link-active-theme-color, $nav-tabs-link-active-theme-color-tone);
+        @include text-theme($nav-tabs-link-active-theme-color);
         background-color: $nav-tabs-line-link-hover-bg;
       }
     }
@@ -255,10 +226,9 @@
     &.filled {
       .nav-link.active,
       .nav-item.show .nav-link {
-        @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-font-theme-color-tone);
-        @include background-color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
+        @include background-text-theme($nav-pills-link-active-theme-color);
         &:after {
-          @include border-top-color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
+          @include border-theme($nav-pills-link-active-theme-color, $position:top);
         }
 
       }
@@ -280,8 +250,6 @@
   .nav-tabs {
     @include add-border($nav-tabs-border-width, $nav-tabs-border-color, right);
     border-bottom: none;
-    //display: table-cell;
-    //width: $nav-tabs-v-width;
 
     /* Flexbox */
     flex-direction: column;
@@ -316,7 +284,7 @@
 
       &::before {
         @include transition;
-        @include background-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
+        @include background-theme($nav-tabs-line-link-active-border-theme-color);
         content: "";
         width: 2px;
         position: absolute;
@@ -329,7 +297,6 @@
 
     .nav-link.active,
     .nav-item.show .nav-link {
-      /*  @include border-right-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);*/
       &::before {
         transform: scale(1)
       }
@@ -354,7 +321,7 @@
   &.outline-primary {
 
     .nav-tabs {
-      @include border-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
+      @include border-theme($nav-tabs-line-link-active-border-theme-color);
     }
     .nav-link {
       @include add-border($nav-tabs-v-wrap-active-border-width, transparent, all);
@@ -363,7 +330,7 @@
 
     .nav-link.active,
     .nav-item.show .nav-link {
-      @include border-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
+      @include border-theme($nav-tabs-line-link-active-border-theme-color);
       border-right-color: $nav-tabs-link-active-bg !important;
     }
   }
@@ -372,7 +339,7 @@
   &.primary-filled {
 
     .nav-tabs {
-      @include border-color($nav-tabs-line-link-active-border-theme-color, $nav-tabs-line-link-active-border-tone-color);
+      @include border-theme($nav-tabs-line-link-active-border-theme-color);
     }
     .nav-link {
       @include border-left-radius($nav-tabs-border-radius);
@@ -380,8 +347,7 @@
 
     .nav-link.active,
     .nav-item.show .nav-link {
-      @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-font-theme-color-tone);
-      @include background-color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
+      @include background-text-theme($nav-pills-link-active-theme-color);
     }
   }
 
@@ -396,20 +362,18 @@
   .nav-link {
     @include transition;
     @include set-border-radius($nav-pills-border-radius);
+    @include text-theme($nav-pills-link-active-theme-color);
     margin: 0 5px 3px 0;
-    //margin-right: 5px;
-    @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
+
 
     &.active,
     &.active:hover,
     .show > & {
-      @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-font-theme-color-tone);
-      @include background-color($nav-pills-link-active-theme-color, $nav-pills-link-active-bg-theme-color-tone);
+      @include background-text-theme($nav-pills-link-active-theme-color);
     }
 
     &:hover {
-      @include color($nav-pills-link-active-theme-color, $nav-pills-link-active-font-theme-color-tone);
-      @include background-color($nav-pills-link-active-theme-color, $nav-pills-link-hover-bg-theme-color-tone);
+      @include background-text-theme($nav-pills-link-active-theme-color, $nav-pills-link-hover-bg-theme-color-tone);
     }
   }
 }

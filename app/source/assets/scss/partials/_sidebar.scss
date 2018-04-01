@@ -18,11 +18,8 @@
 
 .sidebar {
   $s: sidebar;
-  @include background-color('sidebar', 'base');
-  //@include transition(all 0.4s ease);
   @include transition;
-  /* Hiding sidebar as default */
-  //transform: translateX(-100%); //Position fixed sidebar footer (.sidebar__footer) doesn't work with transform property. So disabling it until found a fix.
+  @include background-color('sidebar', 'base');
   padding-bottom: $sidebar-footer-height;
   position: absolute;
   top: 0;
@@ -52,6 +49,22 @@
     flex-direction: column;
   }
 
+  /* Hiding sidebar if body has class (.sidebar-is-closed) */
+  &-is-closed {
+    // TODO Adapted from https://codepen.io/tonkec/pen/gryZmg
+    .#{$s}__wrap * {
+      @include transition;
+      @extend %o-v-none;
+      transform: translateX(-100px);
+    }
+  }
+  /* Showing sidebar if body has class (.sidebar-is-open) */
+  &-is-open {
+    .#{$s}__wrap * {
+      @extend %o-v-show;
+    }
+  }
+
   /* Sidebar brand logo */
   &__brand {
     padding: $sidebar-padding-y $sidebar-padding-x;
@@ -61,36 +74,24 @@
   /* Sidebar footer */
   // Adapted from https://codepen.io/JonBergman/pen/pJmejw, https://codepen.io/addjones/pen/yJEPER TODO: Remove this line later
   &__footer {
-    @include background-color('sidebar', 'base');
-    @include border-top-color('sidebar', 'dark');
     @include transition;
     @extend %o-v-none;
+    @include background-color('sidebar', 'base');
+    @include border-top-color('sidebar', 'dark');
     border-top: 1px solid;
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 0;
     min-height: $sidebar-footer-height;
     box-shadow: $sidebar-footer-shadow;
 
-    .#{$s}__footer-nav {
-
-      ///* flexbox */
-      //display: flex;
-      //align-items: center;
-      //flex-direction: column;
-    }
-
     .#{$s}__footer-list {
-      width: 100%;
       padding: 0;
       margin: 1px 0 0 0;
       /* Flexbox */
       display: flex;
-      flex-direction: row;
       flex: 1;
     }
-
     .#{$s}__footer-item {
       @include transition;
       @extend %o-v-none;
@@ -104,12 +105,11 @@
       a {
         @include transition;
         @include color('sidebar', 'link-color');
-        justify-content: center;
-        //min-height: $sidebar-footer-height;
         height: 100%;
         /* Flexbox */
         display: flex;
         align-items: center;
+        justify-content: center;
         flex: 1;
 
         &:active,
@@ -127,7 +127,6 @@
         > a {
           @include background-color('sidebar', 'dark');
           @include color('primary', 'base');
-
         }
       }
 
@@ -183,7 +182,6 @@
       .#{$s}__footer-item.mini {
         @extend %o-v-show;
         width: $sidebar-mini-width;
-        display: flex;
       }
 
     }
@@ -192,13 +190,10 @@
 
   /* Showing sidebar and its footer if body has class (.sidebar-is-open)*/
   &-is-open & {
-    //transform: translateX(0); // Position fixed sidebar footer (.sidebar__footer) doesn't work with transform property. So disabling it until found a fix.
     width: $sidebar-width;
-
     .#{$s}__footer {
       width: $sidebar-footer-width;
       @extend %o-v-show;
-
       .#{$s}__footer-item {
         @extend %o-v-show;
       }

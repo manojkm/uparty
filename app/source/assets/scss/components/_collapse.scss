@@ -29,7 +29,6 @@
 
   [data-toggle="collapse"] {
     @include transition;
-    //@include color($accordion-title-active-theme-color, $accordion-title-active-theme-color-tone);
     @include add-border($card-border-size, transparent, top);
     @include add-border(0, transparent, bottom);
     color: $accordion-title-active-color;
@@ -99,20 +98,16 @@ a.accordion {
 .accordion.extended {
 
   .card {
-    @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+    @include border-theme($accordion-active-theme-color);
   }
 
   & [data-toggle="collapse"] {
     @include add-border($card-border-size, transparent, top);
     @include add-border(0, transparent, bottom);
-    @include border-color($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
-    @include background-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
-    @include color($accordion-active-theme-color, $accordion-active-color-theme-color-tone);
+    @include border-theme($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
+    @include background-text-theme($accordion-active-theme-color);
 
     &.collapsed {
-      /*    background-color: transparent;
-          color: $accordion-title-color;
-    */
       &:hover {
         @include background-color($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
       }
@@ -126,7 +121,7 @@ a.accordion {
 
   &.outline {
     & [data-toggle="collapse"] {
-      @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+      @include border-theme($accordion-active-theme-color);
 
       &.collapsed {
         background-color: transparent;
@@ -152,7 +147,7 @@ a.accordion {
     }
     & [data-toggle="collapse"] {
       @include add-border($accordion-underline-border-size, transparent, bottom);
-      @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+      @include border-theme($accordion-active-theme-color);
       background-color: transparent;
       padding-left: 40px;
       &:before {
@@ -196,7 +191,7 @@ a.accordion {
       @include set-border-radius(0);
       @include add-border($accordion-underline-border-size, transparent, left);
       @include add-border(0, transparent, bottom);
-      @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+      @include border-theme($accordion-active-theme-color);
       padding-left: 40px;
       &:before {
         /* symbol for "collapsed" panels */
@@ -211,17 +206,18 @@ a.accordion {
 
       &.collapsed {
         @include add-border(0, transparent, bottom);
-        @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+        @include border-theme($accordion-active-theme-color);
         &:before {
           content: $accordion-collapsed-icon;
         }
       }
+
     }
 
     & .collapsing,
     & .collapse.show {
       @include add-border($accordion-underline-border-size, transparent, left);
-      @include border-color($accordion-active-theme-color, $accordion-active-theme-color-tone);
+      @include border-theme($accordion-active-theme-color);
     }
   }
 }

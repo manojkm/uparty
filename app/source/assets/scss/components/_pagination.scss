@@ -25,16 +25,15 @@
   &.active .page-link,
   &.active .page-link:focus,
   &.active .page-link:hover{
-    @include background-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
-    @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
-    @include color($pagination-active-bg-theme-color, $pagination-active-font-theme-color-tone);
+    @include background-text-theme($pagination-active-bg-theme-color);
+    @include border-theme($pagination-active-bg-theme-color);
   }
 
 }
 
 .page-link {
   @include add-border($pagination-border-width, $pagination-border-color, all);
-  @include color($pagination-link-theme-color, $pagination-link-theme-color-tone);
+  @include text-theme($pagination-link-theme-color);
   line-height: $pagination-line-height;
   padding: $pagination-padding-y $pagination-padding-x;
   font-size: $pagination-font-size;
@@ -48,7 +47,7 @@
 
   &:focus,
   &:hover {
-    @include color($pagination-link-theme-color, $pagination-link-theme-color-tone);
+    @include text-theme($pagination-link-theme-color);
     background-color: $pagination-hover-bg;
     border-color: $pagination-hover-border-color;
     box-shadow: none;
@@ -115,10 +114,9 @@
 
     &.wizard{
       .page-link {
+        @include add-border(0, transparent, all);
         background-color: $pagination-wizard-bg;
         color: $pagination-wizard-color;
-        @include add-border(0, transparent, all);
-
 
         &:focus,
         &:hover {
@@ -167,8 +165,8 @@
 
     .page-item {
       &.active .page-link {
-        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
-        @include color($pagination-link-theme-color, $pagination-link-theme-color-tone);
+        @include border-theme($pagination-active-bg-theme-color);
+        @include text-theme($pagination-link-theme-color);
         background-color: $pagination-bg;
       }
     }
@@ -212,7 +210,7 @@
   &.extended-square {
 
     .page-link {
-      @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
+      @include border-theme($pagination-active-bg-theme-color);
       @include set-border-radius($pagination-border-radius);
       min-width: $pagination-extended-size;
       height: $pagination-extended-size;
@@ -225,7 +223,7 @@
 
     &.pagination-lg {
       .page-link {
-        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
+        @include border-theme($pagination-active-bg-theme-color);
         @include set-border-radius($pagination-border-radius-lg);
         min-width: $pagination-extended-size-lg;
         height: $pagination-extended-size-lg;
@@ -235,7 +233,7 @@
 
     &.pagination-sm {
       .page-link {
-        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
+        @include border-theme($pagination-active-bg-theme-color);
         @include set-border-radius($pagination-border-radius-sm);
         min-width: $pagination-extended-size-sm;
         height: $pagination-extended-size-sm;
@@ -247,7 +245,7 @@
       margin: 0 2px;
 
       &.active .page-link {
-        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
+        @include border-theme($pagination-active-bg-theme-color);
       }
 
       &.disabled {
@@ -293,7 +291,7 @@
       margin: 0 $pagination-extended-indicator-margin-x;
 
       &.active .page-link {
-        @include border-color($pagination-active-bg-theme-color, $pagination-active-bg-theme-color-tone);
+        @include border-theme($pagination-active-bg-theme-color);
       }
 
       &.disabled {
@@ -303,7 +301,6 @@
       }
 
     }
-
   }
 
 }

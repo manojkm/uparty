@@ -1,0 +1,48 @@
+// ================================================================================================
+// File Name: toastr.scss
+// Description: Custom overrides of Toastr Plugin (https://github.com/CodeSeven/toastr/blob/master/toastr.scss)
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+#toast-container > div {
+  @include set-border-radius($toastr-radius);
+  @include opacity($toastr-opacity);
+  box-shadow: $toastr-box-shadow;
+  &:hover {
+    box-shadow: $toastr-box-shadow;
+    @include opacity(1);
+  }
+}
+
+.toast-success {
+  @include background-theme(success);
+  .toast-title,
+  .toast-message{
+    @include text-theme(success, font-color);
+  }
+}
+.toast-error {
+  @include background-theme(danger);
+  .toast-title,
+  .toast-message{
+    @include text-theme(danger, font-color);
+  }
+}
+.toast-info {
+  @include background-theme(info);
+  .toast-title,
+  .toast-message{
+    @include text-theme(info, font-color);
+  }
+}
+.toast-warning {
+  @include background-theme(warning);
+  .toast-title,
+  .toast-message{
+    @include text-theme(warning, font-color);
+  }
+}

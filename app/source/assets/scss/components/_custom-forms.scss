@@ -28,7 +28,7 @@
 .custom-control-input {
   $cc: custom-control;
   &:checked ~ .#{$cc}-label::before {
-    background-color: $custom-control-indicator-checked-bg;
+    @include background-theme($custom-control-indicator-checked-bg);
     color: $custom-control-indicator-color;
     box-shadow: none;
     border-color: transparent;
@@ -111,7 +111,7 @@
 
   .#{$cc}-input:checked ~ .#{$cc}-label {
     &::before {
-      background-color: $custom-control-indicator-checked-bg;
+      @include background-theme($custom-control-indicator-checked-bg);
     }
     &::after {
       //transform: scale(1.5,1.5);
@@ -127,7 +127,7 @@
 
   .#{$cc}-input:indeterminate ~ .#{$cc}-label {
     &::before {
-      background-color: $custom-control-indicator-checked-bg;
+      @include background-theme($custom-control-indicator-checked-bg);
     }
   }
 }
@@ -155,7 +155,7 @@
 
   .#{$cc}-input:checked ~ .#{$cc}-label {
     &::before {
-      background-color: $custom-control-indicator-checked-bg;
+      @include background-theme($custom-control-indicator-checked-bg);
     }
     &::after {
       background-size: 50% 50%;
@@ -234,19 +234,19 @@
     @include transition;
     color: $input-focus-color;
     //border-color: $input-focus-border-color;
-    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     box-shadow: none;
 
     &:after {
       background: $custom-file-button-focus-bg;
       //border-color: $input-focus-border-color;
     }
-    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
 
     /* Set the border color to the focused state border color when the input is also hovered. */
     &:hover {
       //border-color: $input-focus-border-color;
-      @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+      @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     }
   }
 

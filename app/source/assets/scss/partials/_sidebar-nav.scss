@@ -33,37 +33,11 @@
 
   }
 
-  /* Hiding sidebar if body has class (.sidebar-is-closed) */
-  &-is-closed {
-    // TODO Adapted from https://codepen.io/tonkec/pen/gryZmg
-    /*    .#{$s}__item:not(.has-children),
-        .#{$s}__item.has-children,
-        .#{$s}__header,
-        .#{$s}__divider {
-          @include transition;
-          @extend %o-v-none;
-          transform: translateX(-100px);
-        }*/
-    .#{$s}__wrap * {
-      @include transition;
-      @extend %o-v-none;
-      transform: translateX(-100px);
-    }
-  }
-  /* Hiding sidebar if body has class (.sidebar-is-open) */
-  &-is-open {
-    .#{$s}__wrap * {
-      //@include transition;
-      @extend %o-v-show;
-      //transform: translateX(0);
-    }
-  }
   &__header {
+    @include transition;
     @include add-border(2px, transparent, left);
     @include font-size($sidebar-header-font-size);
     @include color('sidebar', 'link-color');
-    @include transition;
-    //@extend %o-v-show; /* Reset style */
     padding: $sidebar-padding-y $sidebar-padding-x;
     font-weight: 600;
     text-transform: uppercase;
@@ -74,62 +48,59 @@
     opacity: 0.7 !important;
     position: relative;
 
-    &:after{
-    /*  position: absolute;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-      margin: -1px 0 0 5px;
-      content: '';
-      border-bottom: 1px solid;
-      @include border-bottom-color('sidebar', 'light');*/
+    @if bool($sidebar-divider-border) == false {
+      &:after{
+        @include border-bottom-color('sidebar', 'light');
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        margin: -1px 0 0 5px;
+        content: '';
+        border-bottom: 1px solid;
+      }
     }
+
   }
 
   &__divider {
     @if bool($sidebar-divider-border) == true {
       @include border-top-color('sidebar', 'light');
       border-top: 1px solid;
-    } @else {
-      border: 0;
     }
     @include transition;
-    //@extend %o-v-show; /* Reset style */
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
   }
 
   /* Sidebar menu */
-  &__item:not(.has-button) {
-    @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
-    //@extend %o-v-show; /* Reset style */
+  &__item{
     @include transition;
+    @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
     position: relative;
     box-sizing: border-box;
-    white-space: nowrap;
-    min-height: $sidebar-item-height;
-    line-height: $sidebar-item-height;
     /* Flexbox */
     display: flex;
     flex-direction: column;
 
     /* Sidebar menu links */
-    a {
+    > a {
+      @include transition;
       @include color('sidebar', 'link-color');
       @include font-size($sidebar-font-size);
-      @include transition;
       text-decoration: none;
-      padding: $sidebar-padding-y $sidebar-padding-x;
+      padding: $sidebar-item-padding-y ($sidebar-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-item-padding-y  $sidebar-item-padding-x;
+      line-height: $lh-base;
       /* Flexbox */
       display: flex;
       align-items: center;
       flex-direction: row;
 
-      &:hover {
-        @include color('sidebar', 'hover-color');
-      }
+      //&:hover {
+      //  @include color('sidebar', 'hover-color');
+      //}
       &.has-arrow::after {
-        right: 10px;
+        right:$sidebar-item-arrow-margin-right;
       }
     }
 
@@ -150,7 +121,6 @@
     .#{$s}__item-title {
       display: inline-block;
       flex: 1;
-      //margin-left: -3px; /*Negative margin trick to remove the spaces between the elements icon & title* due to display: inline-block */
     }
 
     /* Sidebar menu notification badge */
@@ -180,40 +150,47 @@
     }
 
     /* Change the hover, focus, active state links for better highlighting */
-    &:hover,
-    &:focus,
-    &:active,
-    &.active
+    &:hover
     {
       @include border-left-color('primary', 'base'); // Make borders visible
-      @include background-color('sidebar', 'dark');
-    }
-    /* Current item */
-    &.active,
-    &.show{
-      @include background-color('sidebar', 'dark');
       > a {
-        @include color('sidebar', 'active-color');
+        @include background-color('sidebar', 'dark');
+        @include color('sidebar', 'hover-color');
         .#{$s}__item-title {
+          @include transition;
           @include background-color('sidebar', 'dark');
         }
+      }
+    }
+
+    /* Current item */
+    &:focus,
+    &:active,
+    &.active{
+      @include border-left-color('primary', 'base');
+      > a {
+        @include background-color('sidebar', 'dark');
+        @include color('sidebar', 'active-color');
+        //.#{$s}__item-title {
+        //  @include background-color('sidebar', 'dark');
+        //}
       }
     }
   }
 
   &__item.has-button {
     @include transition;
-    //@extend %o-v-show; /* Reset style */
     padding: $sidebar-padding-y $sidebar-padding-x;
   }
+
   /* Submenu - First level */
   &__child {
     @include background-color('sidebar', 'dark');
 
     .#{$s}__item {
       border: 0;
-      min-height: $sidebar-submenu-item-height;
-      line-height: $sidebar-submenu-item-height;
+      //min-height: $sidebar-submenu-item-height;
+      //line-height: $lh-base;
       /* &:before {
          @include color('sidebar', 'light');
          content:"•";
@@ -226,6 +203,7 @@
         @include font-size($sidebar-submenu-font-size);
         text-indent: $sidebar-icon-width;
         margin: 0 0 0 $sidebar-icon-margin-right;
+        padding: 0;
         *{
           text-indent:0;
         }
@@ -236,7 +214,7 @@
     .#{$s}__child {
       .#{$s}__item {
         &:last-of-type {
-          margin-bottom: 0px;
+          margin-bottom: 0;
         }
         a {
           text-indent: $sidebar-icon-width + 15;
@@ -265,15 +243,18 @@
   $s: sidebar;
 
   /* Hiding headers, dividers etc */
+  &__item .badge,
+  &__item > a::after,
   &__item.has-button,
   &__header,
   &__divider {
-    @include transition;
+    /*@include transition;
     @extend %o-v-none;
     min-height: 0;
     height: 0;
     line-height: 0;
-    margin: 0;
+    margin: 0;*/
+    display: none;
   }
 
   &__header {
@@ -281,60 +262,50 @@
   }
 
 
-  &__nav > ul > .#{$s}__item:not(.has-button) {
-    @include transition;
+ &__item{
+    //@include transition;
     position: static;
-    width: $sidebar-mini-width;
+    //width: $sidebar-mini-width;
     display: block;
 
     > a {
       padding: 0;
-      width: $sidebar-mini-width - 4;
-
-      .badge,
-      &::after {
-        @extend %o-v-none;
-        display: none;
-      }
-
-      .#{$s}__item-icon {
-        margin: 0;
-        text-align: center;
-        width: $sidebar-mini-width - 4;
-      }
-
-      .#{$s}__item-title {
-        @include background-color('sidebar', 'dark');
-        position: fixed;
-        display: none;
-        min-width: $sidebar-width;
-        left: $sidebar-mini-width;
-        margin-left: 0;
-        padding: $sidebar-padding-y $sidebar-padding-x;
-
-      }
+      //width: $sidebar-mini-width - 2;
     }
 
-    > .#{$s}__child  {
+   .#{$s}__item-icon {
+     margin: 0;
+     text-align: center;
+     width: $sidebar-mini-width - 2;
+   }
+
+   .#{$s}__item-title {
+     position: fixed;
+     display: none;
+     min-width: $sidebar-width;
+     left: $sidebar-mini-width;
+     //padding: $sidebar-padding-y $sidebar-padding-x;
+   }
+
+    .#{$s}__child  {
       @extend %o-v-none;
       display: none;
     }
 
+
     /* Show submenu item title on active */
-    &.show/*,
-    &:hover*/
+    //&.show,
+    &:hover
     {
       > a {
         width: $sidebar-mini-active-menu-width - 2; /* Value 2 is to adjust the width to include border of parent li */
         position: static;
-
         .#{$s}__item-title {
           display: inline-block;
         }
-
       }
 
-      > .#{$s}__child {
+    .#{$s}__child {
         @extend %o-v-show;
         display: block;
       }

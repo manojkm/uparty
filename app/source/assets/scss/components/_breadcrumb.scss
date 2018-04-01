@@ -37,12 +37,11 @@
   }
 
   & a {
-    @include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
-
+    @include text-theme($breadcrumb-link-theme-color);
     &:focus,
     &:active,
     &:hover {
-      @include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+      @include text-theme($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
     }
 
    &.collapsed{
@@ -158,10 +157,10 @@
     }
 
     & .completed {
-      @include breadcrumb-wizard-status($breadcrumb-wizard-completed-theme-color, $breadcrumb-link-theme-color-tone);
+      @include breadcrumb-wizard-status($breadcrumb-wizard-completed-theme-color);
     }
     & .active {
-      @include breadcrumb-wizard-status($breadcrumb-wizard-active-theme-color, $breadcrumb-link-theme-color-tone);
+      @include breadcrumb-wizard-status($breadcrumb-wizard-active-theme-color);
     }
 
     & .incomplete {
@@ -234,11 +233,10 @@
         }
 
         &:hover {
-          @include color($breadcrumb-link-theme-color, $breadcrumb-link-font-theme-color-tone);
-          @include background-color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+          @include background-text-theme($breadcrumb-link-theme-color);
         }
         &:hover:after {
-          @include border-left-color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+          @include border-theme($breadcrumb-link-theme-color, $position:left);
         }
 
       }
@@ -246,10 +244,9 @@
       &.active {
         /* Highlight the active child */
         a {
-          @include color($breadcrumb-link-theme-color, $breadcrumb-link-font-theme-color-tone);
-          @include background-color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+          @include background-text-theme($breadcrumb-link-theme-color);
           &:after {
-            @include border-left-color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+            @include border-theme($breadcrumb-link-theme-color, $position:left);
           }
         }
 
@@ -285,10 +282,9 @@
 
   & .completed {
     a {
-      @include color($breadcrumb-wizard-completed-theme-color, $breadcrumb-link-font-theme-color-tone);
-      @include background-color($breadcrumb-wizard-completed-theme-color, $breadcrumb-link-theme-color-tone);
+      @include background-text-theme($breadcrumb-wizard-completed-theme-color);
       &:after {
-        @include border-left-color($breadcrumb-wizard-completed-theme-color, $breadcrumb-link-theme-color-tone);
+        @include border-theme($breadcrumb-wizard-completed-theme-color,$position:left);
       }
     }
   }
@@ -296,10 +292,9 @@
   & .active {
     /* Highlight the active child */
     a {
-      @include color($breadcrumb-wizard-active-theme-color, $breadcrumb-link-font-theme-color-tone);
-      @include background-color($breadcrumb-wizard-active-theme-color, $breadcrumb-link-theme-color-tone);
+      @include background-text-theme($breadcrumb-wizard-active-theme-color);
       &:after {
-        @include border-left-color($breadcrumb-wizard-active-theme-color, $breadcrumb-link-theme-color-tone);
+        @include border-theme($breadcrumb-wizard-active-theme-color, $position:left);
       }
     }
 

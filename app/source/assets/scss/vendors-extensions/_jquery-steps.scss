@@ -196,23 +196,20 @@
     .current a,
     .current a:hover,
     .current a:active {
-      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
-      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      @include background-text-theme($steps-active-theme-color);
       cursor: default;
     }
 
     .done a,
     .done a:hover,
     .done a:active {
-      @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
-      @include color($steps-done-theme-color, $steps-done-color-theme-color-tone);
+      @include background-text-theme($steps-done-theme-color);
       @include opacity($steps-disabled-opacity);
     }
     .error a,
     .error a:hover,
     .error a:active {
-      background-color: $steps-error-theme-color !important;
-      color: $steps-error-color-theme-color-tone !important;
+      @include background-text-theme($steps-error-theme-color, $sledge-hammer:!important);
     }
 
   }
@@ -283,15 +280,14 @@
       @include opacity($steps-disabled-opacity);
       .step {
         @include transition;
-        @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
-        @include border-color($steps-done-theme-color, $steps-done-theme-color-tone);
-        @include color($steps-done-theme-color, $steps-done-color-theme-color-tone);
+        @include background-text-theme($steps-done-theme-color);
+        @include border-theme($steps-done-theme-color);
       }
       &:before,
       &:after {
         @include transition;
-        @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
-      }
+        @include background-theme($steps-done-theme-color);
+           }
       a,
       a:hover,
       a:active {
@@ -302,14 +298,13 @@
     .current {
       .step {
         @include transition;
-        @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
-        @include border-color($steps-active-theme-color, $steps-active-theme-color-tone);
-        @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+        @include background-text-theme($steps-active-theme-color);
+        @include border-theme($steps-active-theme-color);
       }
       &:before,
       &:after {
         @include transition;
-        @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
+        @include background-theme($steps-active-theme-color);
       }
       a,
       a:hover,
@@ -340,15 +335,14 @@
     .error {
       .step {
         @include transition;
-        background-color: $steps-error-theme-color !important;
-        border-color: $steps-error-theme-color !important;
-        color: $steps-error-color-theme-color-tone !important;
+        @include background-text-theme($steps-error-theme-color, $sledge-hammer:!important);
+        @include border-theme($steps-error-theme-color, $sledge-hammer:!important);
       }
 
       &:before,
       &:after {
         @include transition;
-        background-color: $steps-error-theme-color !important;
+        @include background-theme($steps-error-theme-color, $sledge-hammer:!important);
       }
     }
 
@@ -395,21 +389,20 @@
       &:after,
       &:before {
         @include transition;
+        @include add-border($arrow-wizard-size, transparent, top-bottom);
+        @include add-border($arrow-wizard-size, transparent, left);
         content: " ";
         position: absolute;
         top: 0;
         left: 100%;
         width: 0;
         height: 0;
-        border-top: $arrow-wizard-size solid transparent;
-        border-bottom: $arrow-wizard-size solid transparent;
-        border-left: $arrow-wizard-size solid transparent;
         z-index: 2;
       }
 
       &:before {
         left: 0;
-        border-left: $arrow-wizard-size solid #fff;
+        @include add-border($arrow-wizard-size, $white-color, left);
         z-index: 0;
       }
     }
@@ -459,20 +452,17 @@
     }
 
     .done a {
-      @include background-color($steps-done-theme-color, $steps-done-theme-color-tone);
-      @include color($steps-done-theme-color, $steps-done-color-theme-color-tone);
-      //@include opacity($steps-disabled-opacity);
+      @include background-text-theme($steps-done-theme-color);
       &:after {
-        @include border-left-color($steps-done-theme-color, $steps-done-theme-color-tone);
+        @include border-theme($steps-done-theme-color, $position:left);
       }
     }
 
     .current a {
-      @include background-color($steps-active-theme-color, dark);
-      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      @include background-text-theme($steps-active-theme-color, dark);
       cursor: default;
       &:after {
-        @include border-left-color($steps-active-theme-color, dark);
+        @include border-theme($steps-active-theme-color, dark, $position:left);
       }
     }
 
@@ -486,10 +476,9 @@
     }
 
     .error a {
-      background-color: $steps-error-theme-color !important;
-      color: $steps-error-color-theme-color-tone !important;
+      @include background-text-theme($steps-error-theme-color, $sledge-hammer:!important);
       &:after {
-        border-left-color: $steps-error-theme-color !important;
+        @include border-theme($steps-error-theme-color, $position:left, $sledge-hammer:!important);
       }
     }
 
@@ -559,7 +548,7 @@
 
       &:hover,
       &:focus {
-        @include color($nav-tabs-link-active-theme-color, $nav-tabs-link-active-theme-color-tone);
+        @include text-theme($nav-tabs-link-active-theme-color);
         border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
         background-color: $nav-tabs-link-hover-bg;
       }
@@ -568,9 +557,8 @@
     .current a,
     .current a:hover,
     .current a:active {
-      @include background-color($steps-active-theme-color, $steps-active-theme-color-tone);
-      @include border-color($steps-active-theme-color, $steps-active-theme-color-tone);
-      @include color($steps-active-theme-color, $steps-active-color-theme-color-tone);
+      @include background-text-theme($steps-active-theme-color);
+      @include border-theme($steps-active-theme-color);
       cursor: default;
     }
 

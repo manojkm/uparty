@@ -282,31 +282,27 @@ $slider-base-box-shadow:inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 // BREADCRUMB
 //----------------------------------*/
 $breadcrumb-bg: $white-color !default;
+
 $breadcrumb-border-radius: $border-radius-md !default;
 $breadcrumb-border-size: $border-thin;
-
 $breadcrumb-border-color: $gray-400 !default;
 
 $breadcrumb-padding-y: .40rem !default;
 $breadcrumb-padding-x: .85rem !default;
 
 $breadcrumb-font-size: $font-size-sm !default;
-$breadcrumb-line-height: $lh-base !default;
-
 $breadcrumb-font-color: $gray-700 !default;
+$breadcrumb-line-height: $lh-base !default;
 $breadcrumb-active-color: $gray-600 !default;
 
 $breadcrumb-divider-color: $gray-500 !default;
-
 $breadcrumb-divider: "/" !default;
 $breadcrumb-divider-angle-right: "\f054" !default;
 $breadcrumb-divider-angle-double-right: "\f061" !default;
 $breadcrumb-divider-caret-right: "\f0da" !default;
 
 $breadcrumb-link-theme-color: primary !default;
-$breadcrumb-link-theme-color-tone: base !default;
 $breadcrumb-link-hover-theme-color-tone: dark !default;
-$breadcrumb-link-font-theme-color-tone: font-color !default;
 
 $breadcrumb-size-inner: ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-padding-y * 2) !default;
 $breadcrumb-size: calc((#{$breadcrumb-size-inner} + #{$breadcrumb-border-size}) / 2) !default;
@@ -368,11 +364,16 @@ $sidebar-icon-margin-right: 5px;
 $sidebar-header-font-size: 11px;
 $sidebar-header-height: 30px;
 
-$sidebar-item-height: 40px;
 $sidebar-padding-x: 10px;
 $sidebar-padding-y: 0px;
 
-$sidebar-divider-border: true;
+//$sidebar-item-height: 40px;
+$sidebar-item-padding-y: 8px;
+$sidebar-item-padding-x: $sidebar-padding-x;
+
+$sidebar-item-arrow-margin-right: 10px;
+
+$sidebar-divider-border: false;
 $sidebar-divider-height: 0px;
 $sidebar-divider-margin-y: 0.5rem;
 $sidebar-divider-margin-x: 0px;
@@ -387,7 +388,7 @@ $sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
 
 /* Sidebar footer */
 $sidebar-footer-height: 40px;
-$sidebar-footer-item-height: $sidebar-item-height;
+$sidebar-footer-item-height: 40px;
 $sidebar-footer-child-item-height: $sidebar-submenu-item-height;
 $sidebar-footer-width: $sidebar-width;
 $sidebar-footer-font-size: $sidebar-submenu-font-size;
@@ -547,12 +548,11 @@ $input-height-inner-lg: ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-
 $input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
 
 /* Validation */
-$form-feedback-valid-color: contextual-color(success, base);
-$form-feedback-invalid-color: contextual-color(danger, base);
+$form-feedback-valid-color: contextual-color(success);
+$form-feedback-invalid-color: contextual-color(danger);
 
 /* Required field */
-$required-field-color: contextual-color(danger, base);
-
+$required-field-color: danger;
 
 //----------------------------------*\
 // CUSTOM FORMS
@@ -560,8 +560,8 @@ $required-field-color: contextual-color(danger, base);
 
 $custom-control-indicator-color: $white-color;
 $custom-control-indicator-active-color: $white-color;
-$custom-control-indicator-checked-bg: contextual-color(success, base);
-$custom-control-indicator-active-bg: lighten(contextual-color(success, base), 25%) !default;
+$custom-control-indicator-checked-bg: success;
+$custom-control-indicator-active-bg: lighten(contextual-color(success), 25%) !default;
 
 $custom-control-indicator-size: 1rem !default;
 $custom-control-indicator-bg: $white-color !default;
@@ -617,8 +617,6 @@ $custom-toggle-border: $input-border-size solid $input-border-color;
 $custom-toggle-background-color: $white-color;
 $custom-toggle-border-radius: 100px;
 
-$custom-toggle-checked-background: contextual-color(success, base);
-
 $custom-toggle-checked-knob-background: $white-color;
 
 $custom-toggle-knob-width: 20px;
@@ -631,7 +629,6 @@ $custom-toggle-knob-active-width: 26px;
 $custom-toggle-mini-height: 10px !default;
 $custom-toggle-mini-background-color: $gray-200 !default;
 
-
 /* Flip */
 $custom-toggle-flip-width: 60px;
 $custom-toggle-flip-height: 30px;
@@ -639,6 +636,12 @@ $custom-toggle-flip-border-radius: $input-border-size;
 $custom-toggle-flip-normal-color: $gray-800 !default;
 $custom-toggle-flip-normal-background: $gray-400 !default;
 
+//----------------------------------*\
+// TOASTR
+//----------------------------------*/
+$toastr-radius:$btn-radius!default;
+$toastr-box-shadow: 0 5px 10px rgba($black-color, .1);
+$toastr-opacity: 0.9;
 
 //----------------------------------*\
 // CHOSEN SELECT
@@ -794,18 +797,12 @@ $accordion-title-color: $gray-700 !default;
 $accordion-title-active-color: $gray-900 !default;
 $accordion-title-hover-color: $gray-900 !default;
 
-/*$accordion-title-active-theme-color: primary !default;
-$accordion-title-active-theme-color-tone: base !default;*/
-
 $accordion-header-hover-bg: rgba($black-color, .05) !default;
 $accordion-left-icon-margin: 10px;
 
 $accordion-active-theme-color: primary !default;
-$accordion-active-theme-color-tone: base !default;
 $accordion-active-theme-hover-color-tone: dark !default;
-$accordion-active-color-theme-color-tone: font-color !default;
 
-//$accordion-icon-color: $gray-700 !default;
 $accordion-collapsed-icon: "\e604" !default;
 $accordion-active-icon: "\e607" !default;
 
@@ -817,18 +814,10 @@ $accordion-body-bg: $gray-100 !default;
 // FORM WIZARD
 //----------------------------------*/
 $steps-active-theme-color: primary !default;
-$steps-active-theme-color-tone: base !default;
-$steps-active-color-theme-color-tone: font-color !default;
-
 $steps-done-theme-color: primary !default;
-$steps-done-theme-color-tone: base !default;
-$steps-done-color-theme-color-tone: font-color !default;
-
-$steps-error-theme-color: contextual-color(danger, base);
-$steps-error-color-theme-color-tone: contextual-color(danger, font-color);
+$steps-error-theme-color: danger;
 
 $steps-disabled-opacity:$btn-disabled-opacity!default;
-
 $steps-disabled-bg: $gray-200 !default;
 $steps-disabled-color: $gray-500 !default;
 
@@ -878,19 +867,16 @@ $nav-tabs-link-hover-border-color: $gray-300 !default;
 $nav-tabs-link-hover-bg: $gray-100 !default;
 $nav-tabs-link-color: $gray-600 !default;
 $nav-tabs-link-active-theme-color: primary !default;
-$nav-tabs-link-active-theme-color-tone: base !default;
 $nav-tabs-link-active-bg: $white-color !default;
 $nav-tabs-link-active-border-color: $nav-tabs-border-color !default;
 
 $tab-content-bg: $white-color !default;
 
 $tab-icon-width: 20px;
-//$tab-icon-margin-right:0.4rem;
 
 /* Tabs Extended */
 $nav-tabs-line-link-hover-bg: $white-color !default;
 $nav-tabs-line-link-active-border-theme-color: primary !default;
-$nav-tabs-line-link-active-border-tone-color: base !default;
 
 /* Tabs Extended - Boxed */
 $nav-tabs-boxed-bg: $gray-200 !default;
@@ -904,27 +890,28 @@ $nav-tabs-v-right-line-active-border-width: 2px !default;
 $nav-tabs-v-wrap-active-border-width: 1px !default;
 
 /* Pills */
-
 $nav-pills-border-radius: $border-radius-md !default;
 $nav-pills-link-active-theme-color: primary !default;
-$nav-pills-link-active-bg-theme-color-tone: base !default;
 $nav-pills-link-hover-bg-theme-color-tone: light !default;
-$nav-pills-link-active-font-theme-color-tone: font-color !default;
 
 //----------------------------------*\
 // MODAL
 //----------------------------------*/
 
 $modal-content-bg: $white-color !default;
-$modal-border-radius: $border-radius-md !default;
-$modal-body-padding: 15px 25px !default;
-$modal-backdrop-bg: $black-color !default;
-$modal-backdrop-opacity: .7 !default;
 $modal-content-border-width: $border-thin !default;
 $modal-content-border-color: $gray-400 !default;
+
+$modal-border-radius: $border-radius-md !default;
+$modal-body-padding: 15px 25px !default;
+
+$modal-backdrop-bg: $black-color !default;
+$modal-backdrop-opacity: .7 !default;
+
 $modal-header-border-width: $border-thin !default;
 $modal-header-border-color: $modal-content-border-color;
 $modal-header-padding: 10px 25px !default;
+
 $modal-footer-border-width: $border-thin !default;
 $modal-footer-border-color: $modal-content-border-color;
 $modal-footer-padding: 15px 25px !default;
@@ -962,8 +949,12 @@ $slider-handle-focus-box-shadow: 0 3px 15px rgba($gray-800, 0.2),
                                  0 2px 3px rgba($gray-800, 0.3) !default;
 
 
-$slider-handle-width: 23px !default;
-$slider-handle-height:  23px !default;
+$slider-handle-width: 15px !default;
+$slider-handle-height:  15px !default;
+
+$slider-handle-horizontal-top: -6px !default;
+$slider-handle-vertical-left: -6px!default;
+
 
 $slider-pips-color: $gray-600 !default;
 $slider-pips-font-size: $font-size-base!default;
@@ -988,11 +979,7 @@ $pagination-border-color: $gray-400 !default;
 $pagination-font-weight: $btn-font-weight !default;
 
 $pagination-link-theme-color: primary !default;
-$pagination-link-theme-color-tone: base !default;
-
 $pagination-active-bg-theme-color: primary !default;
-$pagination-active-bg-theme-color-tone: base !default;
-$pagination-active-font-theme-color-tone: font-color !default;
 
 $pagination-disabled-color: $gray-400 !default;
 $pagination-disabled-bg: $white-color !default;

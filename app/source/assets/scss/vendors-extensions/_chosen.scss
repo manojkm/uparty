@@ -14,7 +14,7 @@
 
   .chosen-drop {
     @include transition;
-    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     animation-duration: 0.5s;
     animation-delay: 0s;
     z-index: map-get($zindex, chosen-drop);
@@ -396,7 +396,7 @@
     //border: 1px solid #5897fb;
     //box-shadow: 0 0 5px rgba(#000,.3);
     //border-color: $input-focus-border-color;
-    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     box-shadow: none;
 
   }
@@ -411,7 +411,7 @@
       //box-shadow: 0 1px 0 #fff inset;
 
       //border-color: $input-focus-border-color;
-      @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+      @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
       box-shadow: none;
       background-image: none;
     }
@@ -428,7 +428,7 @@
     //border: 1px solid #5897fb;
     //box-shadow: 0 0 5px rgba(#000,.3);
     //border-color: $input-focus-border-color;
-    @include border-color($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
     box-shadow: none;
 
     li.search-field input[type="text"] {
