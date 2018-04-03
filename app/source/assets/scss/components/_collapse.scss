@@ -109,7 +109,7 @@ a.accordion {
 
     &.collapsed {
       &:hover {
-        @include background-color($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
+        @include background-theme($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
       }
 
     }
