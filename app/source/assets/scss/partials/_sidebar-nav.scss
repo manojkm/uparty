@@ -49,7 +49,7 @@
     position: relative;
 
     @if bool($sidebar-divider-border) == false {
-      &:after{
+      &:after {
         @include border-bottom-color('sidebar', 'light');
         position: absolute;
         top: 50%;
@@ -64,24 +64,25 @@
   }
 
   &__divider {
+    @include transition;
+    height: $sidebar-divider-height;
+    margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
+
     @if bool($sidebar-divider-border) == true {
       @include border-top-color('sidebar', 'light');
       border-top: 1px solid;
     }
-    @include transition;
-    height: $sidebar-divider-height;
-    margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
   }
 
   /* Sidebar menu */
-  &__item{
+  &__item {
     @include transition;
     @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
     position: relative;
     box-sizing: border-box;
     /* Flexbox */
-    display: flex;
-    flex-direction: column;
+    //display: flex;
+    //flex-direction: column;
 
     /* Sidebar menu links */
     > a {
@@ -89,7 +90,7 @@
       @include color('sidebar', 'link-color');
       @include font-size($sidebar-font-size);
       text-decoration: none;
-      padding: $sidebar-item-padding-y ($sidebar-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-item-padding-y  $sidebar-item-padding-x;
+      padding: $sidebar-item-padding-y ($sidebar-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-item-padding-y $sidebar-item-padding-x;
       line-height: $lh-base;
       /* Flexbox */
       display: flex;
@@ -100,7 +101,7 @@
       //  @include color('sidebar', 'hover-color');
       //}
       &.has-arrow::after {
-        right:$sidebar-item-arrow-margin-right;
+        right: $sidebar-item-arrow-margin-right;
       }
     }
 
@@ -150,8 +151,7 @@
     }
 
     /* Change the hover, focus, active state links for better highlighting */
-    &:hover
-    {
+    &:hover {
       @include border-left-color('primary', 'base'); // Make borders visible
       > a {
         @include background-color('sidebar', 'dark');
@@ -166,7 +166,7 @@
     /* Current item */
     &:focus,
     &:active,
-    &.active{
+    &.active {
       @include border-left-color('primary', 'base');
       > a {
         @include background-color('sidebar', 'dark');
@@ -197,16 +197,12 @@
          position: absolute;
        }*/
       &:last-of-type {
-        margin-bottom: 10px;
+        padding-bottom: 10px;
       }
       a {
         @include font-size($sidebar-submenu-font-size);
-        text-indent: $sidebar-icon-width;
-        margin: 0 0 0 $sidebar-icon-margin-right;
-        padding: 0;
-        *{
-          text-indent:0;
-        }
+        margin: 0 0 0 ($sidebar-icon-width + $sidebar-icon-margin-right);
+        padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
       }
     }
 
@@ -261,8 +257,7 @@
     opacity: 0 !important;
   }
 
-
- &__item{
+  &__item {
     //@include transition;
     position: static;
     //width: $sidebar-mini-width;
@@ -273,41 +268,41 @@
       //width: $sidebar-mini-width - 2;
     }
 
-   .#{$s}__item-icon {
-     margin: 0;
-     text-align: center;
-     width: $sidebar-mini-width - 2;
-   }
+    .#{$s}__item-icon {
+      margin: 0;
+      text-align: center;
+      width: $sidebar-mini-width - 2;
+    }
 
-   .#{$s}__item-title {
-     position: fixed;
-     display: none;
-     min-width: $sidebar-width;
-     left: $sidebar-mini-width;
-     //padding: $sidebar-padding-y $sidebar-padding-x;
-   }
+    .#{$s}__item-title {
+      position: fixed;
+      display: none;
+      min-width: $sidebar-width;
+      left: $sidebar-mini-width;
+      //padding: $sidebar-padding-y $sidebar-padding-x;
+    }
 
-    .#{$s}__child  {
+    .#{$s}__child {
       @extend %o-v-none;
       display: none;
     }
 
-
     /* Show submenu item title on active */
     //&.show,
-    &:hover
-    {
+    &:hover {
       > a {
         width: $sidebar-mini-active-menu-width - 2; /* Value 2 is to adjust the width to include border of parent li */
         position: static;
         .#{$s}__item-title {
-          display: inline-block;
+          //display: inline-block;
+          display: block;
         }
       }
 
-    .#{$s}__child {
+      .#{$s}__child {
         @extend %o-v-show;
         display: block;
+        height: auto !important;
       }
     }
 
@@ -319,7 +314,6 @@
       box-shadow: $header-shadow;
 
       a {
-        text-indent: 0;
         margin: 0;
       }
 
