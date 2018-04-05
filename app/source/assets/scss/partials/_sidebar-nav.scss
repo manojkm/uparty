@@ -151,7 +151,7 @@
 
     /* Change the hover, focus, active state links for better highlighting */
     &:hover {
-      @include border-left-color('primary', 'base'); // Make borders visible
+      @include border-left-color('sidebar', 'dark'); // Make borders visible
       > a {
         @include background-color('sidebar', 'dark');
         @include color('sidebar', 'hover-color');
@@ -272,9 +272,9 @@
 
       .#{$s}__item-title {
         position: fixed;
-        //display: none;
-        @include transition;
-        transform: translateX(- ($sidebar-submenu-width+$sidebar-mini-width));
+        display: none;
+        //@include transition;
+        //transform: translateY(50px);
         min-width: $sidebar-width;
         left: $sidebar-mini-width;
         padding: $sidebar-item-padding-y $sidebar-item-padding-x;
@@ -282,43 +282,18 @@
 
     }
 
-    > .#{$s}__child {
-      z-index: map-get($zindex, sidebar-mini-child);
-      @include transition;
-      transform: translateX(- ($sidebar-submenu-width+$sidebar-mini-width));
-      //@extend %o-v-none;
-      //display: none;
-      display: block;
-    }
-
-  }
-
-  /* Show submenu item title on active */
-  &__nav > ul > .#{$s}__item:not(.has-button) {
-
-    &:hover {
-      > a {
-        width: $sidebar-mini-active-menu-width - 2; /* Value 2 is to adjust the width to include border of parent li */
-        position: static;
-        .#{$s}__item-title {
-          //display: block;
-          transform: translateX(0);
-        }
-      }
-
-      > .#{$s}__child {
-        transform: translateX(0);
-        //@extend %o-v-show;
-        height: auto !important;
-      }
-    }
-
     /* Submenu - First level */
     > .#{$s}__child {
+      //@include transition;
+      //transform: translateY(50px);
+      //z-index: map-get($zindex, sidebar-mini-child);
       position: absolute;
       min-width: $sidebar-submenu-width;
       left: $sidebar-mini-width;
       box-shadow: $header-shadow;
+      height: auto !important;
+      display: none;
+      //@extend %o-v-none;
 
       a {
         margin: 0;
@@ -342,4 +317,23 @@
 
   }
 
+  /* Show submenu item title on active */
+  &__nav > ul > .#{$s}__item:not(.has-button) {
+    &:hover {
+      > a {
+        width: $sidebar-mini-active-menu-width - 2; /* Value 2 is to adjust the width to include border of parent li */
+        position: static;
+        .#{$s}__item-title {
+          display: block;
+          //transform: translateY(0);
+        }
+      }
+
+      > .#{$s}__child {
+        //transform: translateY(0);
+        display: block;
+        //@extend %o-v-show;
+      }
+    }
+  }
 }
