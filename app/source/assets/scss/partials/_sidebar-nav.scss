@@ -114,7 +114,6 @@
 
       > i {
         @include font-size($sidebar-icon-font-size);
-        width: $sidebar-icon-width;
       }
     }
 
@@ -171,9 +170,6 @@
       > a {
         @include background-color('sidebar', 'dark');
         @include color('sidebar', 'active-color');
-        //.#{$s}__item-title {
-        //  @include background-color('sidebar', 'dark');
-        //}
       }
     }
   }
@@ -189,8 +185,6 @@
 
     .#{$s}__item {
       border: 0;
-      //min-height: $sidebar-submenu-item-height;
-      //line-height: $lh-base;
       /* &:before {
          @include color('sidebar', 'light');
          content:"•";
@@ -210,10 +204,10 @@
     .#{$s}__child {
       .#{$s}__item {
         &:last-of-type {
-          margin-bottom: 0;
+          padding-bottom: 0;
         }
         a {
-          text-indent: $sidebar-icon-width + 15;
+          margin: 0 0 0 ($sidebar-icon-width + $sidebar-icon-margin-right + 15);
         }
       }
 
@@ -221,7 +215,8 @@
       .#{$s}__child {
         .#{$s}__item {
           a {
-            text-indent: $sidebar-icon-width + 30;
+            //text-indent: $sidebar-icon-width + 30;
+            margin: 0 0 0 ($sidebar-icon-width + $sidebar-icon-margin-right + 30);
           }
         }
       }
@@ -237,10 +232,10 @@
 
 .sidebar-is-open.sidebar-mini .sidebar {
   $s: sidebar;
+  //&__nav{ z-index: map-get($zindex, sidebar-mini);}
 
   /* Hiding headers, dividers etc */
   &__item .badge,
-  &__item > a::after,
   &__item.has-button,
   &__header,
   &__divider {
@@ -257,51 +252,63 @@
     opacity: 0 !important;
   }
 
-  &__item {
-    //@include transition;
+  &__nav > ul > .#{$s}__item:not(.has-button) {
     position: static;
-    //width: $sidebar-mini-width;
     display: block;
 
     > a {
-      padding: 0;
-      //width: $sidebar-mini-width - 2;
+      padding: $sidebar-item-padding-y 0;
+
+      &::after {
+        @extend %o-v-none;
+        display: none;
+      }
+
+      .#{$s}__item-icon {
+        margin: 0;
+        text-align: center;
+        width: $sidebar-mini-width - 2;
+      }
+
+      .#{$s}__item-title {
+        position: fixed;
+        //display: none;
+        @include transition;
+        transform: translateX(- ($sidebar-submenu-width+$sidebar-mini-width));
+        min-width: $sidebar-width;
+        left: $sidebar-mini-width;
+        padding: $sidebar-item-padding-y $sidebar-item-padding-x;
+      }
+
     }
 
-    .#{$s}__item-icon {
-      margin: 0;
-      text-align: center;
-      width: $sidebar-mini-width - 2;
+    > .#{$s}__child {
+      z-index: map-get($zindex, sidebar-mini-child);
+      @include transition;
+      transform: translateX(- ($sidebar-submenu-width+$sidebar-mini-width));
+      //@extend %o-v-none;
+      //display: none;
+      display: block;
     }
 
-    .#{$s}__item-title {
-      position: fixed;
-      display: none;
-      min-width: $sidebar-width;
-      left: $sidebar-mini-width;
-      //padding: $sidebar-padding-y $sidebar-padding-x;
-    }
+  }
 
-    .#{$s}__child {
-      @extend %o-v-none;
-      display: none;
-    }
+  /* Show submenu item title on active */
+  &__nav > ul > .#{$s}__item:not(.has-button) {
 
-    /* Show submenu item title on active */
-    //&.show,
     &:hover {
       > a {
         width: $sidebar-mini-active-menu-width - 2; /* Value 2 is to adjust the width to include border of parent li */
         position: static;
         .#{$s}__item-title {
-          //display: inline-block;
-          display: block;
+          //display: block;
+          transform: translateX(0);
         }
       }
 
-      .#{$s}__child {
-        @extend %o-v-show;
-        display: block;
+      > .#{$s}__child {
+        transform: translateX(0);
+        //@extend %o-v-show;
         height: auto !important;
       }
     }
@@ -320,17 +327,19 @@
       /* Second level */
       .#{$s}__child {
         a {
-          text-indent: $sidebar-icon-width;
+          margin: 0 0 0 15px;
         }
 
         /* Third level */
         .#{$s}__child {
           a {
-            text-indent: $sidebar-icon-width + 15;
+            margin: 0 0 0 30px;
           }
         }
       }
 
     }
+
   }
+
 }
