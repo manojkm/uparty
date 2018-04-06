@@ -337,3 +337,25 @@
     }
   }
 }
+
+.sidebar-is-open.sidebar-mini.sidebar-full-height {
+  $s: sidebar;
+  .sidebar {
+    &__nav > ul > .#{$s}__item.has-child:not(.has-button) {
+      &:hover {
+        > a {
+          .#{$s}__item-title {
+            top: $header-height;
+          }
+        }
+        > .#{$s}__child {
+          top: $header-height+38px;
+          bottom: 0;
+          overflow-y: auto;
+          padding-bottom: $footer-min-height;
+        }
+      }
+    }
+
+  }
+}

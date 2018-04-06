@@ -16,7 +16,7 @@
 
         <!--Main-->
         <li class="sidebar__header">OVERVIEW</li>
-        <li {{#if page.dashboard}} class="sidebar__item active" {{else}} class="sidebar__item" {{/if}} >
+        <li {{#if page.dashboard}} class="sidebar__item has-child active" {{else}} class="sidebar__item has-child" {{/if}} >
             <a href="#" class="has-arrow" {{#if page.dashboard}}
                aria-expanded="true" {{else}} aria-expanded="false" {{/if}}>
                 <span class="sidebar__item-icon"><i class="icon-speedometer"></i></span>
@@ -42,7 +42,7 @@
 
         <!--UI Elements-->
         <li class="sidebar__header">UI Elements</li>
-        <li {{#if page.components}} class="sidebar__item active" {{else}} class="sidebar__item" {{/if}} >
+        <li {{#if page.components}} class="sidebar__item has-child active" {{else}} class="sidebar__item has-child" {{/if}} >
 
             <a href="#" class="has-arrow" {{#if page.components}}
                aria-expanded="true" {{else}} aria-expanded="false" {{/if}}>
@@ -68,7 +68,7 @@
                 {{/withSort}}
             </ul>
         </li>
-        <li {{#if page.icons}} class="sidebar__item active" {{else}} class="sidebar__item" {{/if}} >
+        <li {{#if page.icons}} class="sidebar__item has-child active" {{else}} class="sidebar__item has-child" {{/if}} >
             <a href="#" class="has-arrow" {{#if page.icons}}
                aria-expanded="true" {{else}} aria-expanded="false" {{/if}}>
                 <span class="sidebar__item-icon"><i class="icon-vector"></i></span>
@@ -87,8 +87,7 @@
 
             </ul>
         </li>
-
-        <li {{#if page.forms}} class="sidebar__item active" {{else}} class="sidebar__item" {{/if}} >
+        <li {{#if page.forms}} class="sidebar__item has-child active" {{else}} class="sidebar__item has-child" {{/if}} >
             <a href="#" class="has-arrow" {{#if page.forms}}
                aria-expanded="true" {{else}} aria-expanded="false" {{/if}}>
                 <span class="sidebar__item-icon"><i class="icon-vector"></i></span>
@@ -112,17 +111,17 @@
 
         <!--Navigation-->
         <li class="sidebar__header">Navigation</li>
-        <li class="sidebar__item">
+        <li class="sidebar__item has-child">
             <a href="#" class="has-arrow" aria-expanded="false">
                 <span class="sidebar__item-icon"><i class="icon-folder"></i></span>
                 <span class="sidebar__item-title">Menu Levels</span>
             </a>
             <ul class="sidebar__child" aria-expanded="false">
                 <li class="sidebar__item"><a href="#">Level 1.1</a></li>
-                <li class="sidebar__item"><a href="#" class="has-arrow" aria-expanded="false">Level 1.2</a>
+                <li class="sidebar__item has-child"><a href="#" class="has-arrow" aria-expanded="false">Level 1.2</a>
                     <ul class="sidebar__child" aria-expanded="false">
                         <li class="sidebar__item"><a href="#">Level 2.1</a></li>
-                        <li class="sidebar__item"><a href="#" class="has-arrow" aria-expanded="false">Level 2.2</a>
+                        <li class="sidebar__item has-child"><a href="#" class="has-arrow" aria-expanded="false">Level 2.2</a>
                             <ul class="sidebar__child" aria-expanded="false">
                                 <li class="sidebar__item"><a href="#">Level 3.1</a></li>
                                 <li class="sidebar__item"><a href="#">Level 3.2</a></li>

@@ -154,7 +154,7 @@
           padding-top: 10px;
         }
         &:last-of-type {
-          padding-bottom:10px;
+          padding-bottom: 10px;
         }
       }
     }
@@ -163,7 +163,7 @@
   /* Mini sidebar modifiers */
   &-is-open.sidebar-mini & {
     @include transition;
-    left:0;
+    left: 0;
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
     .#{$s}__footer {
@@ -185,7 +185,7 @@
     }
   }
 
-  &-is-open.sidebar-mini &-fixed  & {
+  &-is-open.sidebar-mini &-fixed & {
     left: $sidebar-mini-width;
   }
   /* Showing sidebar and its footer if body has class (.sidebar-is-open)*/
@@ -219,7 +219,7 @@
     }
   }
 
-  .sidebar-mobile &{
+  .sidebar-mobile & {
     overflow-y: auto;
   }
 

@@ -15,6 +15,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  margin: 0;
   min-height: $footer-min-height;
   display: flex;
   justify-content: space-between;
@@ -29,11 +30,16 @@
     position: fixed;
   }
 
-  .sidebar-is-open & {
-    left: $sidebar-width;
+  .sidebar-is-open .footer-fixed & {
+    margin-left: $sidebar-width;
   }
 
-  .sidebar-is-open.sidebar-mini & {
-    left: $sidebar-mini-width;
+  .sidebar-mobile.sidebar-is-open .footer-fixed & {
+    margin-right: -$sidebar-width;
   }
+
+  .sidebar-is-open.sidebar-mini .footer-fixed & {
+    margin-left: $sidebar-mini-width;
+  }
+
 }

@@ -50,12 +50,25 @@ var appMaster = {
         });
 
         $(appMaster._mini).on('click', function (event) {
-            event.preventDefault();
-            $(this).toggleClass('collapsed');
-            appMaster._body.toggleClass('sidebar-mini').removeClass('aside-is-open');
-            appMaster._aside.addClass('collapsed');
-            // appMaster._stopMetisMenu();
-            appMaster._changeLogo();
+
+            var sidebarMiniIsOpen = true;
+            if (sidebarMiniIsOpen == true) {
+                event.preventDefault();
+                $(this).toggleClass('collapsed');
+                appMaster._body.toggleClass('sidebar-mini sidebar-full-height').removeClass('aside-is-open');
+                appMaster._aside.addClass('collapsed');
+                // appMaster._stopMetisMenu();
+                appMaster._changeLogo();
+                alert("true");
+                sidebarMiniIsOpen = true;
+            }
+
+            else {
+                alert("false!");
+                sidebarMiniIsOpen = false;
+            }
+
+
         });
 
         $(appMaster._side_item).on('mouseover', function () {
@@ -65,6 +78,39 @@ var appMaster = {
         });
 
 
+    },
+    aside: function () {
+
+        var asideisOpen = false;
+
+        appMaster._aside.on('click', function (event) {
+            event.preventDefault();
+            $(this).toggleClass('collapsed');
+            // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
+            if (asideisOpen == false) {
+                appMaster._body.addClass('aside-is-open sidebar-mini');
+                appMaster._mini.addClass('collapsed');
+                appMaster._overlay.show();
+                asideisOpen = true;
+            }
+            else {
+                appMaster._body.removeClass('aside-is-open sidebar-mini');
+                appMaster._mini.removeClass('collapsed');
+                appMaster._overlay.hide();
+                asideisOpen = false;
+            }
+
+            /*    $(this).toggleClass('collapsed');
+             if (appMaster._body.hasClass('sidebar-mini') || appMaster._body.hasClass('sidebar-is-closed')) {
+             appMaster._body.toggleClass('aside-is-open');
+             }
+
+             else if (!appMaster._body.hasClass('sidebar-mini') || !appMaster._body.hasClass('sidebar-is-open')) {
+             appMaster._body.toggleClass('aside-is-open sidebar-mini');
+             appMaster._mini.addClass('collapsed');
+             }*/
+            appMaster._stopMetisMenu();
+        });
     },
 
     card: function () {
@@ -143,41 +189,6 @@ var appMaster = {
 
 
     },
-
-    aside: function () {
-
-        var asideisOpen = false;
-
-        appMaster._aside.on('click', function (event) {
-            event.preventDefault();
-            $(this).toggleClass('collapsed');
-            // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
-            if (asideisOpen == false) {
-                appMaster._body.addClass('aside-is-open sidebar-mini');
-                appMaster._mini.addClass('collapsed');
-                appMaster._overlay.show();
-                asideisOpen = true;
-            }
-            else {
-                appMaster._body.removeClass('aside-is-open sidebar-mini');
-                appMaster._mini.removeClass('collapsed');
-                appMaster._overlay.hide();
-                asideisOpen = false;
-            }
-
-            /*    $(this).toggleClass('collapsed');
-             if (appMaster._body.hasClass('sidebar-mini') || appMaster._body.hasClass('sidebar-is-closed')) {
-             appMaster._body.toggleClass('aside-is-open');
-             }
-
-             else if (!appMaster._body.hasClass('sidebar-mini') || !appMaster._body.hasClass('sidebar-is-open')) {
-             appMaster._body.toggleClass('aside-is-open sidebar-mini');
-             appMaster._mini.addClass('collapsed');
-             }*/
-            appMaster._stopMetisMenu();
-        });
-    },
-
 
     _stopMetisMenu: function () {
         $(appMaster._side_nav).find('li').removeClass('active');
@@ -1605,7 +1616,12 @@ var appMaster = {
 var Pluggin = {
     metismenu: function metismenu(element) {
         if ($.fn.metisMenu) {
-            $(element).metisMenu();
+            $(element).metisMenu(
+                {
+                    parentTrigger: '.has-child' // bootstrap 4
+
+                }
+            );
 
         } else {
             throw new Error('Please install metisMenu plugin! https://github.com/onokumus/metisMenu');
