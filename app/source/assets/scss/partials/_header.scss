@@ -15,6 +15,7 @@
   position: absolute;
   left: 0;
   right: 0;
+  margin: 0;
   z-index: map-get($zindex, header);
   min-height: $header-height;
   box-shadow: $header-shadow;
@@ -32,12 +33,24 @@
     position: fixed;
   }
 
-  .sidebar-is-open & {
-    left: $sidebar-width;
+  .sidebar-is-open .header-fixed & {
+    margin-left: $sidebar-width;
   }
 
-  .sidebar-is-open.sidebar-mini & {
-    left: $sidebar-mini-width;
+  .sidebar-mobile.sidebar-is-open .header-fixed & {
+    margin-right: -$sidebar-width;
   }
+
+  .sidebar-is-open.sidebar-mini .header-fixed & {
+    margin-left: $sidebar-mini-width;
+  }
+
+  //.sidebar-is-open & {
+  //  margin-left: $sidebar-width;
+  //}
+  //
+  //.sidebar-is-open.sidebar-mini & {
+  //  margin-left: $sidebar-mini-width;
+  //}
 
 }

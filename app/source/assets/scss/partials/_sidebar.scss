@@ -25,7 +25,6 @@
   top: 0;
   bottom: 0;
   height: 100%;
-  left: $sidebar-width;
   margin-left: -$sidebar-width;
   width: 0;
   z-index: map-get($zindex, sidebar);
@@ -164,10 +163,9 @@
   /* Mini sidebar modifiers */
   &-is-open.sidebar-mini & {
     @include transition;
-    left: $sidebar-mini-width;
+    left:0;
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
-
     .#{$s}__footer {
       width: $sidebar-mini-width;
 
@@ -185,9 +183,11 @@
       }
 
     }
-
   }
 
+  &-is-open.sidebar-mini &-fixed  & {
+    left: $sidebar-mini-width;
+  }
   /* Showing sidebar and its footer if body has class (.sidebar-is-open)*/
   &-is-open & {
     width: $sidebar-width;
@@ -204,6 +204,7 @@
   /* Fixed sidebar */
   &-fixed & {
     position: fixed;
+    left: $sidebar-width;
   }
 
   /* Closed sidebar */
@@ -218,13 +219,16 @@
     }
   }
 
+  .sidebar-mobile &{
+    overflow-y: auto;
+  }
+
 }
 
 //TODO: Fix the below later as its current not working well.
 @include max-screen(767px) {
   .sidebar {
-    overflow-y: auto;
-    position: absolute !important;
+    //overflow-y: auto;
   }
 
   .sidebar-is-open .sidebar {

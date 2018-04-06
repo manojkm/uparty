@@ -23,25 +23,33 @@
 .app {
   @include transition;
   position: relative;
-  width: 100%;
+  //width: 100%;
   padding-left: 0;
   min-height: 100vh;
-  margin: 0 auto;
-  left: 0;
+  //margin: 0 auto;
+  //left: 0;
+  margin-left:0;
+  margin-right:0;
   background-color: $gray-200;
-  overflow: hidden;
+  //overflow: hidden;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 
   /* Adjusting sidebar */
   .sidebar-is-open & {
-    padding-left: $sidebar-width;
+    @include transition;
+    margin-left: $sidebar-width;
+  }
+  .sidebar-mobile.sidebar-is-open &{
+    margin-right: -$sidebar-width;
   }
 
   .sidebar-is-open.sidebar-mini & {
-    padding-left: $sidebar-mini-width;
+    @include transition;
+    margin-left: $sidebar-mini-width;
   }
+
 
 }
 

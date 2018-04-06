@@ -24,7 +24,17 @@ var appMaster = {
 
 
     responsive: function () {
-        $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed');
+
+        function set_sidebar() {
+            $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed sidebar-mobile');
+        }
+
+        set_sidebar();
+
+        $(window).resize(function () {
+            set_sidebar();
+        });
+
     },
 
 
