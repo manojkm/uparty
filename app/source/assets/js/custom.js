@@ -49,7 +49,10 @@ var appMaster = {
             // appMaster._stopMetisMenu();
         });
 
+
         $(appMaster._mini).on('click', function (event) {
+
+            //TODO https://codepen.io/vivianong/pen/DzimH
 
             var sidebarMiniIsOpen = true;
             if (sidebarMiniIsOpen == true) {
@@ -60,7 +63,7 @@ var appMaster = {
                 // appMaster._stopMetisMenu();
                 appMaster._changeLogo();
                 alert("true");
-                sidebarMiniIsOpen = true;
+                sidebarMiniIsOpen = false;
             }
 
             else {
@@ -71,12 +74,12 @@ var appMaster = {
 
         });
 
+
         $(appMaster._side_item).on('mouseover', function () {
             $(this).addClass("show");
         }).on('mouseout', function () {
             $(this).removeClass('show');
         });
-
 
     },
     aside: function () {

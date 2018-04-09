@@ -342,14 +342,15 @@
   $s: sidebar;
   .sidebar {
     &__nav > ul > .#{$s}__item.has-child:not(.has-button) {
-      &:hover {
+      //&:hover
+      &.show{
         > a {
           .#{$s}__item-title {
             top: $header-height;
           }
         }
         > .#{$s}__child {
-          top: $header-height+38px;
+          top: $header-height + 38px;
           bottom: 0;
           overflow-y: auto;
           padding-bottom: $footer-min-height;
