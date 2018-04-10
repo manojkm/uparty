@@ -150,7 +150,8 @@
     }
 
     /* Change the hover, focus, active state links for better highlighting */
-    &:hover {
+    &:hover,
+    &.show {
       @include border-left-color('sidebar', 'dark'); // Make borders visible
       > a {
         @include background-color('sidebar', 'dark');
@@ -319,7 +320,8 @@
 
   /* Show submenu item title on active */
   &__nav > ul > .#{$s}__item:not(.has-button) {
-    &:hover {
+    //&:hover
+    &.show{
       > a {
         width: $sidebar-mini-active-menu-width - 2; /* Value 2 is to adjust the width to include border of parent li */
         position: static;

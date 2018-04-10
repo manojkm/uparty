@@ -8,11 +8,14 @@ var appMaster = {
 
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
-    _side_nav: $('.sidebar__nav, .sidebar__footer-nav'),
-    _side_item: $('.sidebar__list > .sidebar__item'),
+
+    _sidebar_nav: $('.sidebar__nav, .sidebar__footer-nav'),
+    _sidebar_item: $('.sidebar__list > .sidebar__item'),
+
+    _side_mini: $("[data-side='mini']"),
+    _side_hide: $("[data-side='hide']"),
+
     _aside: $("[data-aside='show']"),
-    _mini: $("[data-side='mini']"),
-    _hide: $("[data-side='hide']"),
     _overlay: $('.overlay'),
     _tooltip: $("[data-toggle='tooltip']"),
     _popover: $("[data-toggle='popover']"),
@@ -40,46 +43,51 @@ var appMaster = {
 
     sidebar: function () {
 
-        $(appMaster._hide).on('click', function (event) {
+        $(appMaster._side_hide).on('click', function (event) {
             event.preventDefault();
             $(this).toggleClass('collapsed');
             appMaster._body.removeClass('sidebar-mini aside-is-open').toggleClass('sidebar-is-open sidebar-is-closed');
             appMaster._aside.addClass('collapsed');
-            appMaster._mini.removeClass('collapsed');
+            appMaster._side_mini.removeClass('collapsed');
             // appMaster._stopMetisMenu();
         });
 
 
-        $(appMaster._mini).on('click', function (event) {
+        $(appMaster._side_mini).on('click', function (event) {
+            event.preventDefault();
+            $(this).toggleClass('collapsed');
+            appMaster._body.toggleClass('sidebar-mini sidebar-full-height').removeClass('aside-is-open');
+            appMaster._aside.addClass('collapsed');
+            // appMaster._stopMetisMenu();
+            appMaster._changeLogo();
+        });
 
-            //TODO https://codepen.io/vivianong/pen/DzimH
+        var removeActive = null;
 
-            var sidebarMiniIsOpen = true;
-            if (sidebarMiniIsOpen == true) {
-                event.preventDefault();
-                $(this).toggleClass('collapsed');
-                appMaster._body.toggleClass('sidebar-mini sidebar-full-height').removeClass('aside-is-open');
-                appMaster._aside.addClass('collapsed');
-                // appMaster._stopMetisMenu();
-                appMaster._changeLogo();
-                alert("true");
-                sidebarMiniIsOpen = false;
-            }
-
-            else {
-                alert("false!");
-                sidebarMiniIsOpen = false;
-            }
-
-
+        $(appMaster._sidebar_item).hover(function () {
+            //Adapted from https://codepen.io/vivianong/pen/DzimH
+            var $t;
+            $t = $(this);
+            appMaster._sidebar_item.removeClass('show');
+            $t.addClass('show');
+            appMaster._overlay.show();
+            // $slidemenu_bg.removeClass('hide');
+            return clearInterval(removeActive);
+        }, function () {
+            var $t;
+            $t = $(this);
+            return removeActive = setTimeout((function () {
+                $t.removeClass('show');
+                return appMaster._overlay.hide();
+            }), 1000);
         });
 
 
-        $(appMaster._side_item).on('mouseover', function () {
-            $(this).addClass("show");
-        }).on('mouseout', function () {
-            $(this).removeClass('show');
-        });
+        // $(appMaster._sidebar_item).on('mouseover', function () {
+        //     $(this).addClass("show");
+        // }).on('mouseout', function () {
+        //     $(this).removeClass('show');
+        // });
 
     },
     aside: function () {
@@ -92,13 +100,13 @@ var appMaster = {
             // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
             if (asideisOpen == false) {
                 appMaster._body.addClass('aside-is-open sidebar-mini');
-                appMaster._mini.addClass('collapsed');
+                appMaster._side_mini.addClass('collapsed');
                 appMaster._overlay.show();
                 asideisOpen = true;
             }
             else {
                 appMaster._body.removeClass('aside-is-open sidebar-mini');
-                appMaster._mini.removeClass('collapsed');
+                appMaster._side_mini.removeClass('collapsed');
                 appMaster._overlay.hide();
                 asideisOpen = false;
             }
@@ -110,7 +118,7 @@ var appMaster = {
 
              else if (!appMaster._body.hasClass('sidebar-mini') || !appMaster._body.hasClass('sidebar-is-open')) {
              appMaster._body.toggleClass('aside-is-open sidebar-mini');
-             appMaster._mini.addClass('collapsed');
+             appMaster._side_mini.addClass('collapsed');
              }*/
             appMaster._stopMetisMenu();
         });
@@ -194,9 +202,9 @@ var appMaster = {
     },
 
     _stopMetisMenu: function () {
-        $(appMaster._side_nav).find('li').removeClass('active');
-        $(appMaster._side_nav).find('a').attr('aria-expanded', false);
-        $(appMaster._side_nav).find('ul.collapse').removeClass('in').attr('aria-expanded', false);
+        $(appMaster._sidebar_nav).find('li').removeClass('active');
+        $(appMaster._sidebar_nav).find('a').attr('aria-expanded', false);
+        $(appMaster._sidebar_nav).find('ul.collapse').removeClass('in').attr('aria-expanded', false);
     },
 
     _changeLogo: function () {
@@ -1129,12 +1137,12 @@ var appMaster = {
         if ($.fn.raty) {
             $.fn.raty.defaults.path = "assets/img/",
                 $("#default-star-rating").raty(),
-                $("#saved-rating").raty({ score: 3 }),
-                $("#no-of-stars").raty({ number: 10 }),
-                $("#read-only-stars").raty({ readOnly: true, score: 3 }),
-                $("#space-star").raty({ space: false }),
-                $("#single-star").raty({ single: true }),
-                $("#half-star").raty({ half: !0 }),
+                $("#saved-rating").raty({score: 3}),
+                $("#no-of-stars").raty({number: 10}),
+                $("#read-only-stars").raty({readOnly: true, score: 3}),
+                $("#space-star").raty({space: false}),
+                $("#single-star").raty({single: true}),
+                $("#half-star").raty({half: !0}),
                 $("#custom-icon-heart").raty(
                     {
                         starOff: "fas fa-heart mr-1 text-muted",
@@ -1152,7 +1160,7 @@ var appMaster = {
                         {range: 5, on: "fas fa-snowflake mr-1 text-primary", off: "fas fa-snowflake mr-1"}],
                     starType: "i"
                 }),
-                $("#cancel-star").raty({ cancel: true })
+                $("#cancel-star").raty({cancel: true})
         }
         else {
             throw new Error('Please install Raty plugin! https://github.com/wbotelhos/raty');
@@ -1165,10 +1173,9 @@ var appMaster = {
             return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$/.test(value)
         }, "The specified US ZIP Code is invalid");
 
-        jQuery.validator.addMethod('onecheck', function(value, ele) {
+        jQuery.validator.addMethod('onecheck', function (value, ele) {
             return $("input:checked").length >= 1;
         }, 'Please Select Atleast One CheckBox')
-
 
 
         //Advanced validation
@@ -1519,7 +1526,7 @@ var appMaster = {
     },
 
 
-    expand_collapse: function (){
+    expand_collapse: function () {
         $('.expand_all').on('click', function (e) {
             e.preventDefault();
             $('#accordion-exp-collapse').find('.multi-collapse').collapse('show');
@@ -1531,85 +1538,85 @@ var appMaster = {
         });
     },
 
-    toastr: function (){
+    toastr: function () {
         // Success Type
-        $('#type-success').on('click',function(){
+        $('#type-success').on('click', function () {
             toastr.success('Have fun storming the castle!', 'Miracle Max Says');
         });
 
         // Info Type
-        $('#type-info').on('click',function(){
+        $('#type-info').on('click', function () {
             toastr.info('We do have the Kapua suite available.', 'Turtle Bay Resort');
         });
 
         // Warning Type
-        $('#type-warning').on('click',function(){
+        $('#type-warning').on('click', function () {
             toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!');
         });
 
         // Error Type
-        $('#type-error').on('click',function(){
+        $('#type-error').on('click', function () {
             toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
         });
 
 
         // Position Top Left
-        $('#position-top-left').on('click',function(){
+        $('#position-top-left').on('click', function () {
             toastr.info('I do not think that word means what you think it means.', 'Top Left!', {positionClass: 'toast-top-left'});
         });
 
         // Position Top Center
-        $('#position-top-center').on('click',function(){
+        $('#position-top-center').on('click', function () {
             toastr.info('I do not think that word means what you think it means.', 'Top Center!', {positionClass: 'toast-top-center'});
         });
 
         // Position Top Right
-        $('#position-top-right').on('click',function(){
+        $('#position-top-right').on('click', function () {
             toastr.info('I do not think that word means what you think it means.', 'Top Right!', {positionClass: 'toast-top-right'});
         });
 
         // Position Top Full Width
-        $('#position-top-full').on('click',function(){
+        $('#position-top-full').on('click', function () {
             toastr.info('I do not think that word means what you think it means.', 'Top Full Width!', {positionClass: 'toast-top-full-width'});
         });
 
         // Position Bottom Left
-        $('#position-bottom-left').on('click',function(){
+        $('#position-bottom-left').on('click', function () {
             toastr.info('I do not think that word means what you think it means.', 'Bottom Left!', {positionClass: 'toast-bottom-left'});
         });
 
         // Position Bottom Center
-        $('#position-bottom-center').on('click',function(){
+        $('#position-bottom-center').on('click', function () {
             toastr.info('I do not think that word means what you think it means.', 'Bottom Center!', {positionClass: 'toast-bottom-center'});
         });
 
         // Position Bottom Right
-        $('#position-bottom-right').on('click',function(){
+        $('#position-bottom-right').on('click', function () {
             toastr.info('I do not think that word means what you think it means.', 'Bottom Right!', {positionClass: 'toast-bottom-right'});
         });
 
         // Position Bottom Full Width
-        $('#position-bottom-full').on('click',function(){
+        $('#position-bottom-full').on('click', function () {
             toastr.info('I do not think that word means what you think it means.', 'Bottom Full Width!', {positionClass: 'toast-bottom-full-width'});
         });
 
         // Text Notification
-        $('#text-notification').on('click',function(){
+        $('#text-notification').on('click', function () {
             toastr.info('Have fun storming the castle!');
         });
 
         // Close Button
-        $('#close-button').on('click',function(){
+        $('#close-button').on('click', function () {
             toastr.success('Have fun storming the castle!', 'With Close Button', {"closeButton": true});
         });
 
         // Progress Bar
-        $('#progress-bar').on('click',function(){
+        $('#progress-bar').on('click', function () {
             toastr.success('Have fun storming the castle!', 'Progress Bar', {"progressBar": true});
         });
 
         // Clear Toast Button
-        $('#clear-toast-btn').on('click',function(){
+        $('#clear-toast-btn').on('click', function () {
             toastr.error('Clear itself?<br /><br /><button type="button" class="btn btn-primary">Yes</button>', 'Clear Toast Button');
         });
     }
