@@ -70,24 +70,25 @@ var appMaster = {
             $t = $(this);
             appMaster._sidebar_item.removeClass('show');
             $t.addClass('show');
-            appMaster._overlay.show();
-            // $slidemenu_bg.removeClass('hide');
+            // appMaster._overlay.show();
+            appMaster._showOverlay();
             return clearInterval(removeActive);
         }, function () {
             var $t;
             $t = $(this);
             return removeActive = setTimeout((function () {
                 $t.removeClass('show');
-                return appMaster._overlay.hide();
+                // return appMaster._overlay.hide();
+                return appMaster._hideOverlay();
             }), 1000);
         });
 
 
-        // $(appMaster._sidebar_item).on('mouseover', function () {
-        //     $(this).addClass("show");
-        // }).on('mouseout', function () {
-        //     $(this).removeClass('show');
-        // });
+        /*$(appMaster._sidebar_item).on('mouseover', function () {
+            $(this).addClass("show");
+        }).on('mouseout', function () {
+            $(this).removeClass('show');
+        });*/
 
     },
     aside: function () {
@@ -101,13 +102,15 @@ var appMaster = {
             if (asideisOpen == false) {
                 appMaster._body.addClass('aside-is-open sidebar-mini');
                 appMaster._side_mini.addClass('collapsed');
-                appMaster._overlay.show();
+                // appMaster._overlay.show();
+                appMaster._showOverlay();
                 asideisOpen = true;
             }
             else {
                 appMaster._body.removeClass('aside-is-open sidebar-mini');
                 appMaster._side_mini.removeClass('collapsed');
-                appMaster._overlay.hide();
+                // appMaster._overlay.hide();
+                appMaster._hideOverlay();
                 asideisOpen = false;
             }
 
@@ -200,6 +203,19 @@ var appMaster = {
 
 
     },
+
+    _hideOverlay: function () {
+        $(appMaster._overlay).fadeOut( function () {
+            $(this).hide();
+        });
+    },
+
+    _showOverlay: function () {
+        $(appMaster._overlay).fadeIn( function () {
+            $(this).show();
+        });
+    },
+
 
     _stopMetisMenu: function () {
         $(appMaster._sidebar_nav).find('li').removeClass('active');
