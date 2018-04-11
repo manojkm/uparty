@@ -63,14 +63,12 @@ var appMaster = {
         });
 
         var removeActive = null;
-
         $(appMaster._sidebar_item).hover(function () {
-            //Adapted from https://codepen.io/vivianong/pen/DzimH
+            //TODO Adapted from https://codepen.io/vivianong/pen/DzimH
             var $t;
             $t = $(this);
             appMaster._sidebar_item.removeClass('show');
             $t.addClass('show');
-            // appMaster._overlay.show();
             appMaster._showOverlay();
             return clearInterval(removeActive);
         }, function () {
@@ -78,17 +76,16 @@ var appMaster = {
             $t = $(this);
             return removeActive = setTimeout((function () {
                 $t.removeClass('show');
-                // return appMaster._overlay.hide();
                 return appMaster._hideOverlay();
             }), 1000);
         });
 
 
         /*$(appMaster._sidebar_item).on('mouseover', function () {
-            $(this).addClass("show");
-        }).on('mouseout', function () {
-            $(this).removeClass('show');
-        });*/
+         $(this).addClass("show");
+         }).on('mouseout', function () {
+         $(this).removeClass('show');
+         });*/
 
     },
     aside: function () {
@@ -204,18 +201,37 @@ var appMaster = {
 
     },
 
-    _hideOverlay: function () {
-        $(appMaster._overlay).fadeOut( function () {
-            $(this).hide();
-        });
+    _showHideTesting: function () {
+        var open = false;
+        //TODO Adapted from https://codepen.io/vdecree/pen/ZYMpKz
+
+        // if opened is true, then we will want to close
+        // the overlay as it will mean its already visible.
+        if (open){
+            open = false;
+            message.removeClass("is-open");
+        }
+        // if false, then we want to open the overlay
+        // so we set open equal to true.
+        else{
+            open = true;
+            message.addClass("is-open");
+            console.log(open);
+        }
+
     },
 
     _showOverlay: function () {
-        $(appMaster._overlay).fadeIn( function () {
+        $(appMaster._overlay).fadeIn(function () {
             $(this).show();
         });
     },
 
+    _hideOverlay: function () {
+        $(appMaster._overlay).fadeOut(function () {
+            $(this).hide();
+        });
+    },
 
     _stopMetisMenu: function () {
         $(appMaster._sidebar_nav).find('li').removeClass('active');
