@@ -16,7 +16,11 @@ var appMaster = {
     _side_hide: $("[data-side='hide']"),
 
     _aside: $("[data-aside='show']"),
+    _asideIsOpen: false,
+
     _overlay: $('.overlay'),
+    _overlayIsOpen: false,
+
     _tooltip: $("[data-toggle='tooltip']"),
     _popover: $("[data-toggle='popover']"),
     _textarea_counter: $("[data-toggle='counter']"),
@@ -62,7 +66,7 @@ var appMaster = {
             appMaster._changeLogo();
         });
 
-        var removeActive = null;
+        var removeShow = null;
         $(appMaster._sidebar_item).hover(function () {
             //TODO Adapted from https://codepen.io/vivianong/pen/DzimH
             var $t;
@@ -70,11 +74,11 @@ var appMaster = {
             appMaster._sidebar_item.removeClass('show');
             $t.addClass('show');
             appMaster._showOverlay();
-            return clearInterval(removeActive);
+            return clearInterval(removeShow);
         }, function () {
             var $t;
             $t = $(this);
-            return removeActive = setTimeout((function () {
+            return removeShow = setTimeout((function () {
                 $t.removeClass('show');
                 return appMaster._hideOverlay();
             }), 1000);
@@ -89,39 +93,30 @@ var appMaster = {
 
     },
     aside: function () {
+            appMaster._aside.on('click', function (event) {
+                event.preventDefault();
+                $(this).toggleClass('collapsed');
+                // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
 
-        var asideisOpen = false;
+                if (appMaster._asideIsOpen) {
+                    appMaster._body.removeClass('aside-is-open sidebar-mini');
+                    appMaster._side_mini.removeClass('collapsed');
+                    // appMaster._overlay.hide();
+                    appMaster._toggleOverlay();
+                    appMaster._asideIsOpen = false;
+                    console.log("Aside is", appMaster._asideIsOpen);
+                }
+                else {
+                    appMaster._body.addClass('aside-is-open sidebar-mini');
+                    appMaster._side_mini.addClass('collapsed');
+                    // appMaster._overlay.show();
+                    appMaster._toggleOverlay();
+                    appMaster._asideIsOpen = true;
+                    console.log("Aside is", appMaster._asideIsOpen);
+                }
 
-        appMaster._aside.on('click', function (event) {
-            event.preventDefault();
-            $(this).toggleClass('collapsed');
-            // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
-            if (asideisOpen == false) {
-                appMaster._body.addClass('aside-is-open sidebar-mini');
-                appMaster._side_mini.addClass('collapsed');
-                // appMaster._overlay.show();
-                appMaster._showOverlay();
-                asideisOpen = true;
-            }
-            else {
-                appMaster._body.removeClass('aside-is-open sidebar-mini');
-                appMaster._side_mini.removeClass('collapsed');
-                // appMaster._overlay.hide();
-                appMaster._hideOverlay();
-                asideisOpen = false;
-            }
-
-            /*    $(this).toggleClass('collapsed');
-             if (appMaster._body.hasClass('sidebar-mini') || appMaster._body.hasClass('sidebar-is-closed')) {
-             appMaster._body.toggleClass('aside-is-open');
-             }
-
-             else if (!appMaster._body.hasClass('sidebar-mini') || !appMaster._body.hasClass('sidebar-is-open')) {
-             appMaster._body.toggleClass('aside-is-open sidebar-mini');
-             appMaster._side_mini.addClass('collapsed');
-             }*/
-            appMaster._stopMetisMenu();
-        });
+                // appMaster._stopMetisMenu();
+            });
     },
 
     card: function () {
@@ -201,37 +196,40 @@ var appMaster = {
 
     },
 
-    _showHideTesting: function () {
-        var open = false;
-        //TODO Adapted from https://codepen.io/vdecree/pen/ZYMpKz
-
-        // if opened is true, then we will want to close
-        // the overlay as it will mean its already visible.
-        if (open){
-            open = false;
-            message.removeClass("is-open");
+    _toggleOverlay: function () {
+        if (appMaster._overlayIsOpen) {
+            $(appMaster._overlay).fadeOut(function () {
+                $(this).hide();
+                appMaster._overlayIsOpen = false;
+                console.log("Overlay is", appMaster._overlayIsOpen);
+            });
         }
-        // if false, then we want to open the overlay
-        // so we set open equal to true.
-        else{
-            open = true;
-            message.addClass("is-open");
-            console.log(open);
+        else {
+            $(appMaster._overlay).fadeIn(function () {
+                $(this).show();
+                appMaster._overlayIsOpen = true;
+                console.log("Overlay is", appMaster._overlayIsOpen);
+            });
         }
 
     },
 
-    _showOverlay: function () {
-        $(appMaster._overlay).fadeIn(function () {
-            $(this).show();
-        });
-    },
 
-    _hideOverlay: function () {
-        $(appMaster._overlay).fadeOut(function () {
+   overlay: function () {
+        $(appMaster._overlay).click(function () {
+
+            if (appMaster._asideIsOpen) {
+                $(appMaster._aside).click();
+            }
+
             $(this).hide();
+            appMaster._overlayIsOpen = false;
+
+            console.log("Overlay is", appMaster._overlayIsOpen);
         });
     },
+
+
 
     _stopMetisMenu: function () {
         $(appMaster._sidebar_nav).find('li').removeClass('active');
@@ -1702,6 +1700,7 @@ $(document).on("app.plugin", function () {
 $(document).ready(function () {
     appMaster.responsive();
     appMaster.sidebar();
+    appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
     appMaster.tooltip();
