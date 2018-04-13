@@ -13,6 +13,8 @@ var appMaster = {
     _sidebar_item: $('.sidebar__list > .sidebar__item'),
 
     _side_mini: $("[data-side='mini']"),
+    _sidebarMiniIsOpen: false,
+
     _side_hide: $("[data-side='hide']"),
 
     _aside: $("[data-aside='show']"),
@@ -56,14 +58,22 @@ var appMaster = {
             // appMaster._stopMetisMenu();
         });
 
-
         $(appMaster._side_mini).on('click', function (event) {
             event.preventDefault();
-            $(this).toggleClass('collapsed');
-            appMaster._body.toggleClass('sidebar-mini sidebar-full-height').removeClass('aside-is-open');
-            appMaster._aside.addClass('collapsed');
-            // appMaster._stopMetisMenu();
-            appMaster._changeLogo();
+            if (appMaster._sidebarMiniIsOpen) {
+                $(this).removeClass('collapsed');
+                appMaster._body.removeClass('sidebar-mini sidebar-full-height');
+                appMaster._sidebarMiniIsOpen = false;
+                console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
+            }
+            else {
+                $(this).addClass('collapsed');
+                appMaster._body.addClass('sidebar-mini sidebar-full-height');
+                appMaster._changeLogo();
+                appMaster._sidebarMiniIsOpen = true;
+                console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
+            }
+
         });
 
         var removeShow = null;
@@ -73,50 +83,59 @@ var appMaster = {
             $t = $(this);
             appMaster._sidebar_item.removeClass('show');
             $t.addClass('show');
-            appMaster._showOverlay();
+
+            if (!appMaster._overlayIsOpen) {
+                appMaster._toggleOverlay();
+            }
+
             return clearInterval(removeShow);
         }, function () {
             var $t;
             $t = $(this);
             return removeShow = setTimeout((function () {
                 $t.removeClass('show');
-                return appMaster._hideOverlay();
+                return appMaster._toggleOverlay();
             }), 1000);
         });
-
 
         /*$(appMaster._sidebar_item).on('mouseover', function () {
          $(this).addClass("show");
          }).on('mouseout', function () {
          $(this).removeClass('show');
          });*/
-
     },
     aside: function () {
-            appMaster._aside.on('click', function (event) {
-                event.preventDefault();
-                $(this).toggleClass('collapsed');
-                // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
+        appMaster._aside.on('click', function (event) {
+            event.preventDefault();
+            // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
 
-                if (appMaster._asideIsOpen) {
-                    appMaster._body.removeClass('aside-is-open sidebar-mini');
-                    appMaster._side_mini.removeClass('collapsed');
-                    // appMaster._overlay.hide();
-                    appMaster._toggleOverlay();
-                    appMaster._asideIsOpen = false;
-                    console.log("Aside is", appMaster._asideIsOpen);
-                }
-                else {
-                    appMaster._body.addClass('aside-is-open sidebar-mini');
-                    appMaster._side_mini.addClass('collapsed');
-                    // appMaster._overlay.show();
-                    appMaster._toggleOverlay();
-                    appMaster._asideIsOpen = true;
-                    console.log("Aside is", appMaster._asideIsOpen);
+            if (appMaster._asideIsOpen) {
+                $(this).addClass('collapsed');
+                appMaster._body.removeClass('aside-is-open');
+
+                if (appMaster._sidebarMiniIsOpen) {
+                    $(appMaster._side_mini).click();
                 }
 
-                // appMaster._stopMetisMenu();
-            });
+                appMaster._toggleOverlay();
+                appMaster._asideIsOpen = false;
+                console.log("Aside is", appMaster._asideIsOpen);
+            }
+            else {
+                $(this).removeClass('collapsed');
+                appMaster._body.addClass('aside-is-open');
+
+                if (!appMaster._sidebarMiniIsOpen) {
+                    $(appMaster._side_mini).click();
+                }
+
+                appMaster._toggleOverlay();
+                appMaster._asideIsOpen = true;
+                console.log("Aside is", appMaster._asideIsOpen);
+            }
+
+            // appMaster._stopMetisMenu();
+        });
     },
 
     card: function () {
@@ -196,6 +215,25 @@ var appMaster = {
 
     },
 
+    overlay: function () {
+        $(appMaster._overlay).click(function () {
+
+            if (appMaster._asideIsOpen) {
+                $(appMaster._aside).click();
+            }
+
+            if (appMaster._sidebarMiniIsOpen) {
+                appMaster._sidebar_item.removeClass('show');
+            }
+
+            $(this).hide();
+            appMaster._overlayIsOpen = false;
+
+            console.log("Overlay is", appMaster._overlayIsOpen);
+        });
+    },
+
+
     _toggleOverlay: function () {
         if (appMaster._overlayIsOpen) {
             $(appMaster._overlay).fadeOut(function () {
@@ -213,23 +251,6 @@ var appMaster = {
         }
 
     },
-
-
-   overlay: function () {
-        $(appMaster._overlay).click(function () {
-
-            if (appMaster._asideIsOpen) {
-                $(appMaster._aside).click();
-            }
-
-            $(this).hide();
-            appMaster._overlayIsOpen = false;
-
-            console.log("Overlay is", appMaster._overlayIsOpen);
-        });
-    },
-
-
 
     _stopMetisMenu: function () {
         $(appMaster._sidebar_nav).find('li').removeClass('active');
