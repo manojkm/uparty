@@ -52,10 +52,16 @@ var appMaster = {
         $(appMaster._side_hide).on('click', function (event) {
             event.preventDefault();
             $(this).toggleClass('collapsed');
-            appMaster._body.removeClass('sidebar-mini aside-is-open').toggleClass('sidebar-is-open sidebar-is-closed');
-            appMaster._aside.addClass('collapsed');
-            appMaster._side_mini.removeClass('collapsed');
-            // appMaster._stopMetisMenu();
+            // appMaster._body.removeClass('sidebar-mini aside-is-open').toggleClass('sidebar-is-open sidebar-is-closed');
+            appMaster._body.toggleClass('sidebar-is-open sidebar-is-closed');
+
+            if (appMaster._asideIsOpen) {
+                $(appMaster._aside).click();
+            }
+            if (appMaster._sidebarMiniIsOpen) {
+                $(appMaster._side_mini).click();
+            }
+            appMaster._stopMetisMenu();
         });
 
         $(appMaster._side_mini).on('click', function (event) {
@@ -65,6 +71,7 @@ var appMaster = {
                 appMaster._body.removeClass('sidebar-mini sidebar-full-height');
                 appMaster._sidebarMiniIsOpen = false;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
+
             }
             else {
                 $(this).addClass('collapsed');
@@ -76,64 +83,71 @@ var appMaster = {
 
         });
 
-        var removeShow = null;
-        $(appMaster._sidebar_item).hover(function () {
-            //TODO Adapted from https://codepen.io/vivianong/pen/DzimH
-            var $t;
-            $t = $(this);
-            appMaster._sidebar_item.removeClass('show');
-            $t.addClass('show');
+        function set_sidebar_mini_hover() {
+            var removeShow = null;
+            $(appMaster._sidebar_item).hover(function () {
+                //TODO Adapted from https://codepen.io/vivianong/pen/DzimH
+                if (appMaster._sidebarMiniIsOpen) {
+                    var $t;
+                    $t = $(this);
+                    appMaster._sidebar_item.removeClass('show');
+                    $t.addClass('show');
+                    if (!appMaster._overlayIsOpen) {
+                        appMaster._toggleOverlay();
+                    }
+                    return clearInterval(removeShow);
+                }
 
-            if (!appMaster._overlayIsOpen) {
-                appMaster._toggleOverlay();
-            }
+            }, function () {
+                if (appMaster._sidebarMiniIsOpen) {
+                    var $t;
+                    $t = $(this);
+                    return removeShow = setTimeout((function () {
+                        $t.removeClass('show');
+                        if (appMaster._overlayIsOpen) {
+                            return $(appMaster._overlay).click();
+                        }
 
-            return clearInterval(removeShow);
-        }, function () {
-            var $t;
-            $t = $(this);
-            return removeShow = setTimeout((function () {
-                $t.removeClass('show');
-                return appMaster._toggleOverlay();
-            }), 1000);
-        });
+                    }), 1000);
+                }
 
-        /*$(appMaster._sidebar_item).on('mouseover', function () {
-         $(this).addClass("show");
-         }).on('mouseout', function () {
-         $(this).removeClass('show');
-         });*/
+            });
+        }
+
+        set_sidebar_mini_hover();
+
     },
     aside: function () {
+        var sidebarMiniIsOpenedByAside = false;
         appMaster._aside.on('click', function (event) {
             event.preventDefault();
             // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
-
             if (appMaster._asideIsOpen) {
                 $(this).addClass('collapsed');
                 appMaster._body.removeClass('aside-is-open');
+                appMaster._toggleOverlay();
 
-                if (appMaster._sidebarMiniIsOpen) {
+                if (sidebarMiniIsOpenedByAside) {
                     $(appMaster._side_mini).click();
+                    sidebarMiniIsOpenedByAside = false;
+                    console.log("Sidebar mini by aside is", sidebarMiniIsOpenedByAside);
                 }
 
-                appMaster._toggleOverlay();
                 appMaster._asideIsOpen = false;
                 console.log("Aside is", appMaster._asideIsOpen);
             }
             else {
                 $(this).removeClass('collapsed');
                 appMaster._body.addClass('aside-is-open');
-
                 if (!appMaster._sidebarMiniIsOpen) {
                     $(appMaster._side_mini).click();
+                    sidebarMiniIsOpenedByAside = true;
+                    console.log("Sidebar mini by aside is", sidebarMiniIsOpenedByAside);
                 }
-
                 appMaster._toggleOverlay();
                 appMaster._asideIsOpen = true;
                 console.log("Aside is", appMaster._asideIsOpen);
             }
-
             // appMaster._stopMetisMenu();
         });
     },
@@ -225,16 +239,13 @@ var appMaster = {
             if (appMaster._sidebarMiniIsOpen) {
                 appMaster._sidebar_item.removeClass('show');
             }
-
-            $(this).hide();
-            appMaster._overlayIsOpen = false;
-
-            console.log("Overlay is", appMaster._overlayIsOpen);
+            appMaster._toggleOverlay();
         });
     },
 
 
     _toggleOverlay: function () {
+        //Adapted from https://codepen.io/vdecree/pen/ZYMpKz
         if (appMaster._overlayIsOpen) {
             $(appMaster._overlay).fadeOut(function () {
                 $(this).hide();
