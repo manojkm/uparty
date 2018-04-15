@@ -68,14 +68,14 @@ var appMaster = {
             event.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
-                appMaster._body.removeClass('sidebar-mini sidebar-full-height');
+                appMaster._body.removeClass('sidebar-mini sidebar-mini-full');
                 appMaster._sidebarMiniIsOpen = false;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
 
             }
             else {
                 $(this).addClass('collapsed');
-                appMaster._body.addClass('sidebar-mini sidebar-full-height');
+                appMaster._body.addClass('sidebar-mini sidebar-mini-full');
                 appMaster._changeLogo();
                 appMaster._sidebarMiniIsOpen = true;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
@@ -86,7 +86,7 @@ var appMaster = {
         function set_sidebar_mini_hover() {
             var removeShow = null;
             $(appMaster._sidebar_item).hover(function () {
-                //TODO Adapted from https://codepen.io/vivianong/pen/DzimH
+                //Adapted from https://codepen.io/vivianong/pen/DzimH
                 if (appMaster._sidebarMiniIsOpen) {
                     var $t;
                     $t = $(this);
@@ -104,7 +104,7 @@ var appMaster = {
                     $t = $(this);
                     return removeShow = setTimeout((function () {
                         $t.removeClass('show');
-                        if (appMaster._overlayIsOpen) {
+                        if (appMaster._overlayIsOpen && !appMaster._asideIsOpen) {
                             return $(appMaster._overlay).click();
                         }
 
@@ -246,15 +246,18 @@ var appMaster = {
 
     _toggleOverlay: function () {
         //Adapted from https://codepen.io/vdecree/pen/ZYMpKz
+
+        // if opened is true, then we will want to close the overlay as it will mean its already visible.
         if (appMaster._overlayIsOpen) {
-            $(appMaster._overlay).fadeOut(function () {
+            $(appMaster._overlay).fadeOut(250,function () {
                 $(this).hide();
                 appMaster._overlayIsOpen = false;
                 console.log("Overlay is", appMaster._overlayIsOpen);
             });
         }
+        // if false, then we want to open the overlay.
         else {
-            $(appMaster._overlay).fadeIn(function () {
+            $(appMaster._overlay).fadeIn(250,function () {
                 $(this).show();
                 appMaster._overlayIsOpen = true;
                 console.log("Overlay is", appMaster._overlayIsOpen);

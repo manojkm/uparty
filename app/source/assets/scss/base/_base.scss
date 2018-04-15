@@ -17,9 +17,7 @@ html {
 body {
   height: 100vh;
   min-height: 100%;
-  color: map-get-strict($font, color);
-  font-weight: $font-wh-normal;
-  line-height: map-get-strict($font, line-height);
+  color: get-typography(color);
   background-color: $body-bg-color;
   padding: 0;
   margin: 0;

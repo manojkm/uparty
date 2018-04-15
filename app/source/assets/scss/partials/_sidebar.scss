@@ -19,7 +19,7 @@
 .sidebar {
   $s: sidebar;
   @include transition;
-  @include background-color('sidebar', 'base');
+  @include background-theme($sidebar-theme-color);
   padding-bottom: $sidebar-footer-height;
   position: absolute;
   top: 0;
@@ -34,12 +34,13 @@
 
   /* Sidebar wrapper*/
   &__wrap {
-    @include color('sidebar', 'font-color');
+
+    @include text-theme($sidebar-theme-color, 'font-color');
     height: calc(100vh - #{$sidebar-footer-height});
+    bottom: $sidebar-footer-height;
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    bottom: $sidebar-footer-height;
     position: static;
     top: 0;
     /* Flexbox */
@@ -70,19 +71,19 @@
     height: $sidebar-brand-height;
   }
 
-  /* Sidebar footer */
+  /* Sidebar footer*/
   // Adapted from https://codepen.io/JonBergman/pen/pJmejw, https://codepen.io/addjones/pen/yJEPER TODO: Remove this line later
   &__footer {
     @include transition;
     @extend %o-v-none;
-    @include background-color('sidebar', 'base');
-    @include border-top-color('sidebar', 'dark');
+    @include background-theme($sidebar-footer-theme-color);
+    @include border-theme($sidebar-footer-theme-color, 'dark', $position: top);
+    min-height: $sidebar-footer-height;
+    box-shadow: $sidebar-footer-shadow;
     border-top: 1px solid;
     position: fixed;
     bottom: 0;
     left: 0;
-    min-height: $sidebar-footer-height;
-    box-shadow: $sidebar-footer-shadow;
 
     .#{$s}__footer-list {
       padding: 0;
@@ -103,7 +104,7 @@
 
       a {
         @include transition;
-        @include color('sidebar', 'link-color');
+        @include text-theme($sidebar-footer-theme-color, 'link-color');
         height: 100%;
         /* Flexbox */
         display: flex;
@@ -113,39 +114,36 @@
 
         &:active,
         &:hover {
-          @include background-color('sidebar', 'dark');
-          @include color('sidebar', 'hover-color');
+          @include background-text-theme($sidebar-footer-theme-color, 'dark', 'hover-color');
         }
 
         i {
-          @include font-size($sidebar-footer-icon-font-size);
+         font-size:$sidebar-footer-icon-font-size;
         }
       }
 
       &.active {
         > a {
-          @include background-color('sidebar', 'dark');
-          @include color('primary', 'base');
+          @include background-theme($sidebar-footer-theme-color, 'dark');
+          @include text-theme($sidebar-footer-active-theme-color);
         }
       }
 
     }
     .#{$s}__footer-child {
-      @include background-color('sidebar', 'dark');
-      @include border-top-color('primary', 'base');
-      padding: 0;
-      border-top: 2px solid;
-      position: absolute;
+      @include background-theme($sidebar-footer-theme-color, 'dark');
+      @include border-theme($sidebar-footer-active-theme-color, $position: top);
+      border-top: $sidebar-footer-child-border-top-size solid;
       width: $sidebar-footer-width;
       bottom: $sidebar-footer-height;
+      padding: 0;
+      position: absolute;
 
       .#{$s}__footer-item {
-        min-height: $sidebar-footer-child-item-height;
-        line-height: $sidebar-footer-child-item-height;
-
         a {
-          @include font-size($sidebar-footer-font-size);
-          text-indent: $sidebar-icon-width;
+          font-size:$sidebar-footer-font-size;
+          padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
+
           /* Flexbox */
           align-items: flex-start;
           justify-content: flex-start;
@@ -188,6 +186,7 @@
   &-is-open.sidebar-mini &-fixed & {
     left: $sidebar-mini-width;
   }
+
   /* Showing sidebar and its footer if body has class (.sidebar-is-open)*/
   &-is-open & {
     width: $sidebar-width;
@@ -219,19 +218,8 @@
     }
   }
 
+  /* Sidebar mobile view */
   .sidebar-mobile & {
     overflow-y: auto;
-  }
-
-}
-
-//TODO: Fix the below later as its current not working well.
-@include max-screen(767px) {
-  .sidebar {
-    //overflow-y: auto;
-  }
-
-  .sidebar-is-open .sidebar {
-    //z-index: 1000;
   }
 }

@@ -83,7 +83,7 @@
 
   /* Dropdown header */
   & .dropdown-header:not([href]):not([tabindex]) {
-    @include font-size($dropdown-header-font-size);
+    font-size:$dropdown-header-font-size;
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     white-space: nowrap;
     text-transform: uppercase;
@@ -93,9 +93,9 @@
 
   /* Dropdown menu links */
   & .dropdown-item {
-    @include font-size($dropdown-font-size);
     //@include add-border(2px, transparent, left);
     @include transition;
+    font-size:$dropdown-font-size;
     clear: both;
     position: relative;
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
@@ -106,7 +106,7 @@
 
     /* Dropdown menu icon */
     i {
-      @include font-size($dropdown-font-size);
+      font-size:$dropdown-font-size;
       width: $dropdown-icon-width;
       display: inline-block;
       margin: 0 $dropdown-item-padding-x 0 0;

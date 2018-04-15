@@ -8,21 +8,19 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
 //----------------------------------*\
 // MAP GET ERROR HANDLING
 //----------------------------------*/
 /* Usage map-get-strict($font-html, size); */
 
 @function map-get-strict($map, $key) {
-    @if map-has-key($map, $key) {
-        @return map-get($map, $key);
-    }  @else {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  } @else {
     @warn 'Unfortunately, no value could be retrieved from "#{$key}". '
         + 'Please make sure it is defined in map.';
   }
 }
-
 
 //----------------------------------*\
 // REM FONT SIZE CALCULATING
@@ -56,8 +54,7 @@
 @function contextual-color($scheme, $tone:base) {
   @if type-of(map-get(map-get($contextual, $scheme), $tone)) == color {
     @return map-get(map-get($contextual, $scheme), $tone);
-  }
-  @else {
+  } @else {
     @warn "Make sure you pass a valid color for '#{$tone}' in Theme/Contextual Sass maps";
   }
 }
@@ -72,8 +69,7 @@
     $colors: map-get-strict($value, 'colors');
     @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {
       @return map-get-strict(map-get-strict($colors, $scheme), $tone);
-    }
-    @else {
+    } @else {
       @warn "Make sure you pass a valid color for '#{$tone}' in Theme Sass maps";
     }
 
@@ -82,26 +78,25 @@
 }
 
 //----------------------------------*\
-// RETRIEVE FONT SIZE SASS MAPS
+// RETRIEVE TYPOGRAPHY SASS MAPS
 //----------------------------------*/
-@function font-size($key: size-md) {
-  @return map-get-strict($font, $key);
-}
+@function get-typography($key: size-md, $property:null) {
 
+  @if ($property != null) {
 
-//----------------------------------*\
-// RETRIEVE FONT SIZE SASS MAPS
-//----------------------------------*/
-@function font-weight($key: weight-normal) {
-  @return map-get-strict($font, $key);
-}
+    // Grab typography list for given section
+    $typog-list: map-get-strict($typography, $key);
 
+    @if $property == font-size {
+      @return nth($typog-list, 1);
+    } @else if $property == line-height {
+      @return nth($typog-list, 2) / nth($typog-list, 1);
+    }
 
-//----------------------------------*\
-// RETRIEVE LINE HEIGHT SASS MAPS
-//----------------------------------*/
-@function line-height($key: line-height) {
-  @return map-get-strict($font, $key);
+  } @else {
+    @return map-get-strict($typography, $key);
+  }
+
 }
 
 //----------------------------------*\

@@ -24,14 +24,15 @@
 
 html {
   font-size: $font-size-100;
+
 }
 
 body {
-  font-family: map-get-strict($font, font); /* Assign all elements new font */
+  font-family: get-typography(font); /* Assign all elements new font */
   font-size: $font-size-base;
-  //@include font-size(16px);
+  font-weight: $font-wh-normal;
+  line-height: $lh-base;
 }
-
 
 * {
   /* Antialiasing mode font rendering */
@@ -44,7 +45,7 @@ body {
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, a, td {
-  color: map-get-strict($font, color);
+  color: get-typography(color);
 }
 
 em {
@@ -58,7 +59,6 @@ pre {
 code {
   overflow: hidden;
 }
-
 
 mark {
   background-color: transparent;
@@ -80,19 +80,21 @@ mark {
 /* Theme variations */
 .mark-primary {
   &:after {
-    @include background-color('primary', 'base');
+    @include background-theme('primary');
   }
 }
+
 .mark-secondary {
   &:after {
-    @include background-color('secondary', 'base');
+    @include background-theme('secondary');
   }
 }
+
 /* Contextual variations */
 @each $scheme, $value in $contextual {
   .mark-#{$scheme} {
     &:after {
-      background-color: contextual-color($scheme, 'base');
+      @include background-theme($scheme);
     }
   }
 }

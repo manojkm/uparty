@@ -36,21 +36,21 @@
   &__header {
     @include transition;
     @include add-border(2px, transparent, left);
-    @include font-size($sidebar-header-font-size);
-    @include color('sidebar', 'link-color');
+    @include text-theme($sidebar-theme-color, 'font-color');
     padding: $sidebar-padding-y $sidebar-padding-x;
+    font-size: $sidebar-header-font-size;
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
     min-height: $sidebar-header-height;
     line-height: $sidebar-header-height;
     letter-spacing: 0.1em;
-    opacity: 0.7 !important;
+    opacity: $sidebar-header-opacity !important;
     position: relative;
 
     @if bool($sidebar-divider-border) == false {
       &:after {
-        @include border-bottom-color('sidebar', 'light');
+        @include border-theme($sidebar-theme-color, 'light', 'bottom');
         position: absolute;
         top: 50%;
         width: 100%;
@@ -69,7 +69,7 @@
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
 
     @if bool($sidebar-divider-border) == true {
-      @include border-top-color('sidebar', 'light');
+      @include border-theme($sidebar-theme-color, 'light', 'top');
       border-top: 1px solid;
     }
   }
@@ -80,26 +80,20 @@
     @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
     position: relative;
     box-sizing: border-box;
-    /* Flexbox */
-    //display: flex;
-    //flex-direction: column;
 
     /* Sidebar menu links */
     > a {
       @include transition;
-      @include color('sidebar', 'link-color');
-      @include font-size($sidebar-font-size);
+      @include text-theme($sidebar-theme-color, 'link-color');
+      font-size: $sidebar-font-size;
       text-decoration: none;
       padding: $sidebar-item-padding-y ($sidebar-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-item-padding-y $sidebar-item-padding-x;
-      line-height: $lh-base;
+      line-height: $sidebar-item-line-height;
       /* Flexbox */
       display: flex;
       align-items: center;
       flex-direction: row;
 
-      //&:hover {
-      //  @include color('sidebar', 'hover-color');
-      //}
       &.has-arrow::after {
         right: $sidebar-item-arrow-margin-right;
       }
@@ -113,7 +107,7 @@
       display: inline-block;
 
       > i {
-        @include font-size($sidebar-icon-font-size);
+        font-size: $sidebar-icon-font-size;
       }
     }
 
@@ -123,42 +117,16 @@
       flex: 1;
     }
 
-    /* Sidebar menu notification badge */
-    .badge {
-      animation: animationFrames ease 1s;
-      animation-iteration-count: 1;
-      transform-origin: 50% 50%;
-      animation-fill-mode: forwards; /*when the spec is finished*/
-
-      @keyframes animationFrames {
-        0% {
-          opacity: 0;
-          transform: translate(-1500px, 0px);
-        }
-        60% {
-          opacity: 1;
-          transform: translate(30px, 0px);
-        }
-        80% {
-          transform: translate(-10px, 0px);
-        }
-        100% {
-          opacity: 1;
-          transform: translate(0px, 0px);
-        }
-      }
-    }
-
     /* Change the hover, focus, active state links for better highlighting */
     &:hover,
     &.show {
-      @include border-left-color('sidebar', 'dark'); // Make borders visible
+      @include border-theme($sidebar-active-border-theme-color, $position: left); // Make borders visible
       > a {
-        @include background-color('sidebar', 'dark');
-        @include color('sidebar', 'hover-color');
+        @include background-theme($sidebar-theme-color, 'dark');
+        @include text-theme($sidebar-theme-color, 'hover-color');
         .#{$s}__item-title {
           @include transition;
-          @include background-color('sidebar', 'dark');
+          @include background-theme($sidebar-theme-color, 'dark');
         }
       }
     }
@@ -167,10 +135,10 @@
     &:focus,
     &:active,
     &.active {
-      @include border-left-color('primary', 'base');
+      @include border-theme($sidebar-active-border-theme-color, $position: left); // Make borders visible
       > a {
-        @include background-color('sidebar', 'dark');
-        @include color('sidebar', 'active-color');
+        @include background-theme($sidebar-theme-color, 'dark');
+        @include text-theme($sidebar-theme-color, 'active-color');
       }
     }
   }
@@ -182,7 +150,7 @@
 
   /* Submenu - First level */
   &__child {
-    @include background-color('sidebar', 'dark');
+    @include background-theme($sidebar-theme-color, 'dark');
 
     .#{$s}__item {
       border: 0;
@@ -195,7 +163,7 @@
         padding-bottom: 10px;
       }
       a {
-        @include font-size($sidebar-submenu-font-size);
+        font-size: $sidebar-submenu-font-size;
         margin: 0 0 0 ($sidebar-icon-width + $sidebar-icon-margin-right);
         padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
       }
@@ -216,7 +184,6 @@
       .#{$s}__child {
         .#{$s}__item {
           a {
-            //text-indent: $sidebar-icon-width + 30;
             margin: 0 0 0 ($sidebar-icon-width + $sidebar-icon-margin-right + 30);
           }
         }
@@ -240,12 +207,12 @@
   &__item.has-button,
   &__header,
   &__divider {
-    /*@include transition;
-    @extend %o-v-none;
-    min-height: 0;
-    height: 0;
-    line-height: 0;
-    margin: 0;*/
+    /*    @include transition;
+        @extend %o-v-none;
+        min-height: 0;
+        height: 0;
+        line-height: 0;
+        margin: 0;*/
     display: none;
   }
 
@@ -321,7 +288,7 @@
   /* Show submenu item title on active */
   &__nav > ul > .#{$s}__item:not(.has-button) {
     //&:hover
-    &.show{
+    &.show {
       > a {
         width: $sidebar-mini-active-menu-width - 2; /* Value 2 is to adjust the width to include border of parent li */
         position: static;
@@ -340,19 +307,23 @@
   }
 }
 
-.sidebar-is-open.sidebar-mini.sidebar-full-height {
+.sidebar-is-open.sidebar-mini.sidebar-mini-full {
   $s: sidebar;
   .sidebar {
     &__nav > ul > .#{$s}__item.has-child:not(.has-button) {
       //&:hover
-      &.show{
+      &.show {
         > a {
           .#{$s}__item-title {
             top: $header-height;
+            height: $sidebar-mini-full-item-height;
+            padding: 0 $sidebar-item-padding-x;
+            display: flex;
+            align-items: center;
           }
         }
         > .#{$s}__child {
-          top: $header-height + 38px;
+          top: $header-height + $sidebar-mini-full-item-height;
           bottom: 0;
           overflow-y: auto;
           padding-bottom: $footer-min-height;

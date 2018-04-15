@@ -32,29 +32,10 @@
   }
 
   /* Contextual variations */
-
-  &.#{$a}-success {
-    @include alert-theme(success);
-  }
-
-  &.#{$a}-danger {
-    @include alert-theme(danger);
-  }
-
-  &.#{$a}-warning {
-    @include alert-theme(warning);
-  }
-
-  &.#{$a}-info {
-    @include alert-theme(info);
-  }
-
-  &.#{$a}-light {
-    @include alert-theme(light);
-  }
-
-  &.#{$a}-dark {
-    @include alert-theme(dark);
+  @each $scheme, $value in $contextual {
+    &.#{$a}-#{$scheme} {
+        @include alert-theme($scheme);
+    }
   }
 
   /* Links (.alert-link) */

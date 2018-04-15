@@ -39,49 +39,17 @@
   &.#{$b}-outline-secondary {
     @include badges-theme(secondary, outline, $sledge-hammer: !important);
   }
+
   /* Contextual variations */
-  &.#{$b}-success {
-    @include badges-theme(success, $sledge-hammer: !important);
-  }
-  &.#{$b}-outline-success {
-    @include badges-theme(success, outline, $sledge-hammer: !important);
-  }
-
-  &.#{$b}-danger {
-    @include badges-theme(danger, $sledge-hammer: !important);
-  }
-  &.#{$b}-outline-danger {
-    @include badges-theme(danger, outline, $sledge-hammer: !important);
+  @each $scheme, $value in $contextual {
+    &.#{$b}-#{$scheme} {
+      @include badges-theme($scheme, $sledge-hammer: !important);
+    }
+    &.#{$b}-outline-#{$scheme} {
+      @include badges-theme($scheme, outline, $sledge-hammer: !important);
+    }
   }
 
-  &.#{$b}-warning {
-    @include badges-theme(warning, $sledge-hammer: !important);
-  }
-  &.#{$b}-outline-warning {
-    @include badges-theme(warning, outline, $sledge-hammer: !important);
-  }
-
-  &.#{$b}-info {
-    @include badges-theme(info, $sledge-hammer: !important)
-  }
-  &.#{$b}-outline-info {
-    @include badges-theme(info, outline, $sledge-hammer: !important)
-  }
-
-  &.#{$b}-light {
-    @include badges-theme(light, $sledge-hammer: !important)
-  }
-
-  &.#{$b}-outline-light {
-    @include badges-theme(light, outline, $sledge-hammer: !important)
-  }
-
-  &.#{$b}-dark {
-    @include badges-theme(dark, $sledge-hammer: !important);
-  }
-  &.#{$b}-outline-dark {
-    @include badges-theme(dark, outline, $sledge-hammer: !important);
-  }
 
   /* Disabled badge */
   #{$disabled-tags} {
@@ -205,9 +173,6 @@
     }
 
   }
-
-
-
 }
 
 /* Link Badges */

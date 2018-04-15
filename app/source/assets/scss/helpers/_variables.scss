@@ -86,7 +86,7 @@ $font-html: (
   //size: 16px
 );*/
 
-$font: (
+$typography: (
         font: ("Source Sans Pro", Arial, sans-serif),
         color: $gray-800, /* Global text color on <body> */
         weight-light: 300,
@@ -94,30 +94,35 @@ $font: (
         weight-semi: 600,
         weight-bold: 700,
         line-height: 1.5,
-        size-100: 100%, /* Font size of the <html> element */
-        size-xs: 0.75rem, /* 12px */
-        size-sm: 0.875rem, /* 14px Font size of the <body> element */
-        size-md: 1rem, /* 16px */
-        size-lg: 1.125rem, /* 18px */
-        size-xl: 1.25rem /* 20px */
+        size-100: (100%, 1.375rem), /* Font size of the <html> element */
+        size-xs: (0.75rem, 1.125rem), /* 12px 18px */ /* Order: font-size line-height */
+        size-sm: (0.875rem, 1.25rem), /* 14px 20px */ /* Font size of the <body> element */
+        size-md: (1rem, 1.375rem), /* 16px 22px */
+        size-lg: (1.125rem, 1.5rem), /* 18px 24px */
+        size-xl: (1.25rem, 1.625rem) /* 20px 26px*/
 );
 
 /* Font size */
-$font-size-100: font-size(size-100) !default; /*100%*/
-$font-size-xs: font-size(size-xs) !default; /*12px*/
-$font-size-sm: font-size(size-sm) !default; /*14px*/
-$font-size-base: font-size(size-md) !default; /* Assumes the browser default, typically `16px` */
-$font-size-lg: font-size(size-lg); /*18px*/
-$font-size-xl: font-size(size-xl); /*20px*/
-
-/* Font weight */
-$font-wh-light: font-weight(weight-light) !default; /*300*/
-$font-wh-normal: font-weight(weight-normal) !default; /*400*/
-$font-wh-semi: font-weight(weight-semi) !default; /*600*/
-$font-wh-bold: font-weight(weight-bold) !default; /*700*/
+$font-size-100: get-typography(size-100, font-size);
+$font-size-xs: get-typography(size-xs, font-size);
+$font-size-sm: get-typography(size-sm, font-size);
+$font-size-base: get-typography(size-md, font-size); /* Assumes the browser default, typically `16px` */
+$font-size-lg: get-typography(size-lg, font-size);
+$font-size-xl: get-typography(size-xl, font-size);
 
 /* Line height */
-$lh-base: line-height(line-height) !default;
+$lh-100: get-typography(size-100, line-height);
+$lh-xs: get-typography(size-xs, line-height);
+$lh-sm: get-typography(size-sm, line-height);
+$lh-base: get-typography(size-md, line-height); /* Assumes the browser default, typically `16px` */
+$lh-lg: get-typography(size-lg, line-height);
+$lh-xl: get-typography(size-xl, line-height);
+
+/* Font weight */
+$font-wh-light: get-typography(weight-light) !default; /*300*/
+$font-wh-normal: get-typography(weight-normal) !default; /*400*/
+$font-wh-semi: get-typography(weight-semi) !default; /*600*/
+$font-wh-bold: get-typography(weight-bold) !default; /*700*/
 
 //----------------------------------*\
 // OPTIONS
@@ -276,7 +281,7 @@ $pagination-extended-indicator-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .
 $modal-content-box-shadow-xs: 0 5px 10px rgba($black-color, .1);
 $chosen-select-box-shadow: 0 5px 10px rgba($black-color, .1);
 $multiple-select-box-shadow: 0 5px 10px rgba($black-color, .1);
-$slider-base-box-shadow:inset 0 .1rem .1rem rgba($gray-800, .15) !default;
+$slider-base-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 
 //----------------------------------*\
 // BREADCRUMB
@@ -292,7 +297,7 @@ $breadcrumb-padding-x: .85rem !default;
 
 $breadcrumb-font-size: $font-size-sm !default;
 $breadcrumb-font-color: $gray-700 !default;
-$breadcrumb-line-height: $lh-base !default;
+$breadcrumb-line-height: $lh-sm !default;
 $breadcrumb-active-color: $gray-600 !default;
 
 $breadcrumb-divider-color: $gray-500 !default;
@@ -352,51 +357,57 @@ $page-title-padding-x: 0;
 //----------------------------------*/
 /* Sidebar color variables can be found in themes/_theme-map.scss */
 
+$sidebar-theme-color: sidebar !default;
+$sidebar-active-border-theme-color: primary !default;
+
 $sidebar-width: 200px;
 $sidebar-brand-height: 50px;
 
-$sidebar-font-size: 15px;
+$sidebar-font-size: $font-size-base;
+
+$sidebar-padding-x: 10px;
+$sidebar-padding-y: 0px;
 
 $sidebar-icon-width: 20px;
 $sidebar-icon-font-size: $sidebar-font-size;
 $sidebar-icon-margin-right: 5px;
 
-$sidebar-header-font-size: 11px;
+$sidebar-header-font-size: $font-size-xs;
 $sidebar-header-height: 30px;
-
-$sidebar-padding-x: 10px;
-$sidebar-padding-y: 0px;
-
-//$sidebar-item-height: 40px;
-$sidebar-item-padding-y: 8px;
-$sidebar-item-padding-x: $sidebar-padding-x;
-
-$sidebar-item-arrow-margin-right: 10px;
+$sidebar-header-opacity: 0.7;
 
 $sidebar-divider-border: false;
 $sidebar-divider-height: 0px;
 $sidebar-divider-margin-y: 0.5rem;
 $sidebar-divider-margin-x: 0px;
 
-$sidebar-submenu-font-size: 13px;
-$sidebar-submenu-item-height: 30px;
+$sidebar-item-line-height: $lh-base;
+$sidebar-item-padding-y: 8px;
+$sidebar-item-padding-x: $sidebar-padding-x;
+
+$sidebar-item-arrow-margin-right: 10px;
+
+$sidebar-submenu-font-size: $font-size-sm;
 $sidebar-submenu-width: $sidebar-width;
 
 $sidebar-submenu-item-padding-y: 4px;
 $sidebar-submenu-item-padding-x: $sidebar-padding-x;
 
+/* Sidebar footer */
+$sidebar-footer-theme-color: $sidebar-theme-color !default;
+$sidebar-footer-active-theme-color: primary !default;
+$sidebar-footer-child-border-top-size: $border-thin;
+$sidebar-footer-width: $sidebar-width;
+$sidebar-footer-height: 40px;
+$sidebar-footer-font-size: $sidebar-submenu-font-size;
+$sidebar-footer-icon-font-size: 15px;
 
-/* Mini Sidebar */
+/* Mini sidebar */
 $sidebar-mini-width: 50px;
 $sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
 
-/* Sidebar footer */
-$sidebar-footer-height: 40px;
-$sidebar-footer-item-height: 40px;
-$sidebar-footer-child-item-height: $sidebar-submenu-item-height;
-$sidebar-footer-width: $sidebar-width;
-$sidebar-footer-font-size: $sidebar-submenu-font-size;
-$sidebar-footer-icon-font-size: 15px;
+/* Mini full sidebar */
+$sidebar-mini-full-item-height: 40px;
 
 //----------------------------------*\
 // BUTTONS
@@ -411,38 +422,38 @@ $btn-icon-lh: 1 !default;
 
 /* Small button (.btn-sm) */
 $btn-font-size-sm: $font-size-sm;
-$btn-padding-y-sm: .25rem !default;
-$btn-padding-x-sm: 0.5rem !default;
+$btn-padding-y-sm: 0.25rem !default; /* 4px */
+$btn-padding-x-sm: 0.5rem !default; /* 8px */
 $btn-min-width-sm: 80px !default;
 $btn-min-height-sm: 0px !default;
-$btn-line-height-sm: 1.5 !default;
+$btn-line-height-sm: $lh-sm !default;
 $btn-radius-sm: $border-radius-sm;
 
 /* Regular button (.btn) */
 $btn-font-size: $font-size-base !default;
-$btn-padding-y: .5rem !default;
-$btn-padding-x: .75rem !default;
+$btn-padding-y: 0.375rem !default; /* 6px */
+$btn-padding-x: 0.75rem !default; /* 12px */
 $btn-min-width: 100px !default;
 $btn-min-height: 0px !default;
-$btn-line-height: 1.25 !default;
+$btn-line-height: $lh-base !default;
 $btn-radius: $border-radius-md;
 
 /* Large button (.btn-lg) */
 $btn-font-size-lg: $font-size-lg !default;
-$btn-padding-y-lg: .5rem !default;
-$btn-padding-x-lg: 1rem !default;
+$btn-padding-y-lg: 0.5rem !default; /* 8px */
+$btn-padding-x-lg: 1rem !default; /* 16px */
 $btn-min-width-lg: 120px !default;
 $btn-min-height-lg: 0px !default;
-$btn-line-height-lg: $lh-base !default;
+$btn-line-height-lg: $lh-lg !default;
 $btn-radius-lg: $border-radius-lg;
 
 /* Extra Large button (.btn-xl) */
 $btn-font-size-xl: $font-size-xl !default;
-$btn-padding-y-xl: .8rem !default;
-$btn-padding-x-xl: 1.5rem !default;
-$btn-min-width-xl: 150px !default;
+$btn-padding-y-xl: 0.625rem !default; /* 10px */
+$btn-padding-x-xl:  1.25rem !default; /* 20px */
+$btn-min-width-xl: 140px !default;
 $btn-min-height-xl: 0px !default;
-$btn-line-height-xl: $lh-base !default;
+$btn-line-height-xl: $lh-xl !default;
 $btn-radius-xl: $border-radius-xl;
 
 /* Round button radius (.btn-round) */
@@ -450,7 +461,7 @@ $btn-radius-round: 30px;
 
 /* Raised button(.btn-raised) */
 $btn-raised-box-shadow-y-offset: 5px;
-$btn-raised-box-shadow-y-offset-hover:7px;
+$btn-raised-box-shadow-y-offset-hover: 7px;
 
 /* Small icon button (.btn-sm.btn-icon.btn-round) */
 $btn-icon-font-size-sm: $btn-font-size-sm;
@@ -475,25 +486,23 @@ $btn-icon-size-xl: calc(#{$btn-icon-size-xl-inner} + #{$btn-border-size * 2}) !d
 /* Disabled button opacity */
 $btn-disabled-opacity: 0.5;
 
-
 //----------------------------------*\
 // MARK
 //----------------------------------*/
 /* Extra small(.mark-xs) */
-$mark-underline-height-xs:0.125rem; /*2px*/
+$mark-underline-height-xs: 0.125rem; /*2px*/
 
 /* Small(.mark-sm) */
-$mark-underline-height-sm:0.25rem; /*4px*/
+$mark-underline-height-sm: 0.25rem; /*4px*/
 
 /* Regular*/
-$mark-underline-height:0.5rem; /*8px*/
+$mark-underline-height: 0.5rem; /*8px*/
 
 /* Large(.mark-lg) */
-$mark-underline-height-lg:0.75rem; /*12px*/
+$mark-underline-height-lg: 0.75rem; /*12px*/
 
 /* Extra large(.mark-xl) */
-$mark-underline-height-xl:1rem; /*16px*/
-
+$mark-underline-height-xl: 1rem; /*16px*/
 
 //----------------------------------*\
 // FORMS
@@ -643,7 +652,7 @@ $custom-toggle-flip-normal-background: $gray-400 !default;
 //----------------------------------*\
 // TOASTR
 //----------------------------------*/
-$toastr-radius:$btn-radius!default;
+$toastr-radius: $btn-radius !default;
 $toastr-box-shadow: 0 5px 10px rgba($black-color, .1);
 $toastr-opacity: 0.9;
 
@@ -713,28 +722,28 @@ $alert-font-size: $font-size-base;
 //----------------------------------*\
 // WHITE OPACITY
 //----------------------------------*/
-$opacity-white-1: rgba(255,255,255, .1) !default;
-$opacity-white-2: rgba(255,255,255, .2) !default;
-$opacity-white-3: rgba(255,255,255, .3) !default;
-$opacity-white-4: rgba(255,255,255, .4) !default;
-$opacity-white-5: rgba(255,255,255, .5) !default;
-$opacity-white-6: rgba(255,255,255, .6) !default;
-$opacity-white-7: rgba(255,255,255, .7) !default;
-$opacity-white-8: rgba(255,255,255, .8) !default;
-$opacity-white-9: rgba(255,255,255, .9) !default;
+$opacity-white-1: rgba(255, 255, 255, .1) !default;
+$opacity-white-2: rgba(255, 255, 255, .2) !default;
+$opacity-white-3: rgba(255, 255, 255, .3) !default;
+$opacity-white-4: rgba(255, 255, 255, .4) !default;
+$opacity-white-5: rgba(255, 255, 255, .5) !default;
+$opacity-white-6: rgba(255, 255, 255, .6) !default;
+$opacity-white-7: rgba(255, 255, 255, .7) !default;
+$opacity-white-8: rgba(255, 255, 255, .8) !default;
+$opacity-white-9: rgba(255, 255, 255, .9) !default;
 
 //----------------------------------*\
 // BLACK OPACITY
 //----------------------------------*/
-$opacity-black-1: rgba(0,0,0, .1) !default;
-$opacity-black-2: rgba(0,0,0, .2) !default;
-$opacity-black-3: rgba(0,0,0, .3) !default;
-$opacity-black-4: rgba(0,0,0, .4) !default;
-$opacity-black-5: rgba(0,0,0, .5) !default;
-$opacity-black-6: rgba(0,0,0, .6) !default;
-$opacity-black-7: rgba(0,0,0, .7) !default;
-$opacity-black-8: rgba(0,0,0, .8) !default;
-$opacity-black-9: rgba(0,0,0, .9) !default;
+$opacity-black-1: rgba(0, 0, 0, .1) !default;
+$opacity-black-2: rgba(0, 0, 0, .2) !default;
+$opacity-black-3: rgba(0, 0, 0, .3) !default;
+$opacity-black-4: rgba(0, 0, 0, .4) !default;
+$opacity-black-5: rgba(0, 0, 0, .5) !default;
+$opacity-black-6: rgba(0, 0, 0, .6) !default;
+$opacity-black-7: rgba(0, 0, 0, .7) !default;
+$opacity-black-8: rgba(0, 0, 0, .8) !default;
+$opacity-black-9: rgba(0, 0, 0, .9) !default;
 
 //----------------------------------*\
 // CARDS
@@ -765,11 +774,10 @@ $card-toolbar-icon-width: 30px;
 /* Card window toolbar */
 $card-toolbar-icon-height: 25px;
 
-
 //----------------------------------*\
 // BOOTSTRAP DATEPICKER
 //----------------------------------*/
-$datepicker-border-radius :$card-border-radius;
+$datepicker-border-radius: $card-border-radius;
 $datepicker-dropdown-padding: 20px 22px !default;
 
 $datepicker-cell-border-radius: 50% !default;
@@ -777,13 +785,11 @@ $datepicker-header-cell-border-radius: $border-radius-xl !default;
 $datepicker-cell-width: 36px !default;
 $datepicker-cell-height: 36px !default;
 
-
-
 //----------------------------------*\
 // NUMBER SPINNER
 //----------------------------------*/
-$spinner-icon-width:20px;
-$spinner-icon-font-size:$font-size-xs;
+$spinner-icon-width: 20px;
+$spinner-icon-font-size: $font-size-xs;
 
 //----------------------------------*\
 // SIZES
@@ -821,14 +827,14 @@ $steps-active-theme-color: primary !default;
 $steps-done-theme-color: primary !default;
 $steps-error-theme-color: danger;
 
-$steps-disabled-opacity:$btn-disabled-opacity!default;
+$steps-disabled-opacity: $btn-disabled-opacity !default;
 $steps-disabled-bg: $gray-200 !default;
 $steps-disabled-color: $gray-500 !default;
 
 $steps-content-bg: $white-color !default;
 
-$step-label-color:$gray-600 !default;
-$step-label-font-size:$font-size-lg !default;
+$step-label-color: $gray-600 !default;
+$step-label-font-size: $font-size-lg !default;
 
 $steps-margin-right: 15px;
 $steps-margin-bottom: 15px;
@@ -836,10 +842,9 @@ $steps-margin-bottom: 15px;
 $steps-action-margin-top: 15px;
 $steps-action-button-margin-left: 15px;
 
-
 /* Circle wizard */
-$steps-circle-border-size:5px!default;
-$steps-circle-line-size:3px!default;
+$steps-circle-border-size: 5px !default;
+$steps-circle-line-size: 3px !default;
 $steps-circle-size: $btn-icon-size-lg !default;
 $steps-circle-line-height: $btn-line-height-lg !default;
 $steps-circle-font-size: $btn-font-size-lg !default;
@@ -850,8 +855,6 @@ $steps-circle-title-color: $gray-800 !default;
 /* Arrow wizard */
 $arrow-wizard-size-inner: ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $arrow-wizard-size: calc((#{$arrow-wizard-size-inner} + #{$btn-border-size * 2}) / 2) !default;
-
-
 
 //----------------------------------*\
 // NAVS / TABS / PILLS
@@ -934,43 +937,40 @@ $carousel-control-border-color: $white-color !default;
 
 $carousel-indicator-light-active-bg: $black-color !default;
 
-
 //----------------------------------*\
 // SLIDER CONTROL - NOUISLIDER
 //----------------------------------*/
 $slider-base-size: 5px !default;
 $slider-base-background: $gray-200 !default;
-$slider-base-border-color: $gray-400!default;
+$slider-base-border-color: $gray-400 !default;
 $slider-base-border-radius: $border-radius-xxl;
 $slider-base-margin-y: 35px !default;
 
-$slider-handle-border-radius:$border-radius-50;
-$slider-handle-background:$white-color;
+$slider-handle-border-radius: $border-radius-50;
+$slider-handle-background: $white-color;
 $slider-handle-box-shadow: 0 3px 15px rgba($gray-600, 0.1),
-                           0 2px 3px rgba($gray-600, 0.2) !default;
+0 2px 3px rgba($gray-600, 0.2) !default;
 
 $slider-handle-focus-box-shadow: 0 3px 15px rgba($gray-800, 0.2),
-                                 0 2px 3px rgba($gray-800, 0.3) !default;
-
+0 2px 3px rgba($gray-800, 0.3) !default;
 
 $slider-handle-width: 15px !default;
-$slider-handle-height:  15px !default;
+$slider-handle-height: 15px !default;
 
 $slider-handle-horizontal-top: -6px !default;
-$slider-handle-vertical-left: -6px!default;
-
+$slider-handle-vertical-left: -6px !default;
 
 $slider-pips-color: $gray-600 !default;
-$slider-pips-font-size: $font-size-base!default;
+$slider-pips-font-size: $font-size-base !default;
 
-$slider-tooltip-padding:          3px 10px !default;
-$slider-tooltip-font-size:        $font-size-sm !default;
-$slider-tooltip-background:       $white-color !default;
-$slider-tooltip-border-color:     $gray-400 !default;
-$slider-tooltip-border-radius:    $border-radius-md !default;
-$slider-tooltip-color:            $gray-700 !default;
-$slider-tooltip-box-shadow:       0 3px 15px rgba($gray-400, 0.1),
-                                  0 2px 3px rgba($gray-400, 0.2);
+$slider-tooltip-padding: 3px 10px !default;
+$slider-tooltip-font-size: $font-size-sm !default;
+$slider-tooltip-background: $white-color !default;
+$slider-tooltip-border-color: $gray-400 !default;
+$slider-tooltip-border-radius: $border-radius-md !default;
+$slider-tooltip-color: $gray-700 !default;
+$slider-tooltip-box-shadow: 0 3px 15px rgba($gray-400, 0.1),
+0 2px 3px rgba($gray-400, 0.2);
 //----------------------------------*\
 // PAGINATION
 //----------------------------------*/
@@ -1058,7 +1058,7 @@ $pagination-extended-indicator-margin-x: 4px;
 //----------------------------------*\
 // OVERLAY
 //----------------------------------*/
-$overlay: rgba(0, 0, 0, .3);
+$overlay: rgba(0, 0, 0, .5);
 
 //----------------------------------*\
 // MAIN MENU
@@ -1158,8 +1158,8 @@ $zindex: (
         overlay : 800,
         footer : 800,
         sidebar :800,
-        //sidebar-mini :800,
-        //sidebar-mini-child :-999,
+  //sidebar-mini :800,
+  //sidebar-mini-child :-999,
         aside : 850,
         header : 860,
         dropdown : 1000,
@@ -1224,11 +1224,10 @@ $a-href-tags: '&[href]:hover, &[href]:focus, &[href].focus, &[href]:active, &[hr
 /* - Removed &:focus, &.focus due to the focus issues on buttons */
 $a-tags: '&:hover, &:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
-$hover-tags:'&:hover';
-$focus-tags:'&:focus, &.focus';
-$hover-focus-tags:'&:hover, &:focus, &.focus';
+$hover-tags: '&:hover';
+$focus-tags: '&:focus, &.focus';
+$hover-focus-tags: '&:hover, &:focus, &.focus';
 $active-tags: '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
-
 
 //----------------------------------*\
 // DISABLED SELECTORS
