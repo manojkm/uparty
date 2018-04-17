@@ -32,7 +32,9 @@
       align-items: center;
 
       /* Change the hover, focus, active state links for better highlighting */
-      #{$a-tags} {
+      //#{$a-tags},
+      #{$hover-focus-tags}
+      {
         //@include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
         color: $breadcrumb-menu-hover-color;
       }

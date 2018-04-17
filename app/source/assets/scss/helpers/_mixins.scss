@@ -822,7 +822,7 @@ Usage @include opacity(1);
   /* Link color */
   & .alert-link {
     &,
-    #{$a-tags} {
+    #{$hover-focus-tags} {
       @include text-theme($theme-color,$font-color);
     }
   }

@@ -50,7 +50,8 @@
 
   &-link {
     color: $card-link-color;
-    #{$a-tags} {
+    //#{$a-tags},
+    #{$hover-focus-tags}{
       color: $card-link-hover-color;
     }
   }
@@ -63,7 +64,6 @@
   position: relative;
   text-transform: capitalize;
   overflow: hidden;
-  //color: $card-header-color;
 
   /* Flexbox */
   display: flex;
@@ -71,7 +71,6 @@
   flex-direction: row;
 
   &:first-child {
-    //@include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
     @include set-border-radius($card-inner-border-radius);
     @include border-bottom-radius(0);
     box-shadow: $card-box-header-inset-shadow;
@@ -89,7 +88,6 @@
   }
 
   & .card-title {
-    //font-size: $card-title-font-size;
     margin-bottom: 0;
   }
 }
@@ -117,7 +115,8 @@
     align-items: center;
     justify-content: center;
 
-    #{$a-tags} {
+    //#{$a-tags},
+    #{$hover-focus-tags}{
       color: inherit;
       opacity: 1;
     }
@@ -159,9 +158,8 @@
 }
 
 .card-footer {
-  background-color: $card-footer-bg;
   @include add-border($card-border-size, $card-border-color, top);
-
+  background-color: $card-footer-bg;
   /* Flexbox */
   display: flex;
   align-items: center;

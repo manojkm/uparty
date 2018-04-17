@@ -132,8 +132,8 @@
     }
 
     /* Current item */
-    &:focus,
-    &:active,
+    //&:focus,
+    //&:active,
     &.active {
       @include border-theme($sidebar-active-border-theme-color, $position: left); // Make borders visible
       > a {
@@ -198,7 +198,7 @@
 // MINI SIDEBAR MENU & MODIFIERS
 //----------------------------------*/
 
-.sidebar-is-open.sidebar-mini .sidebar {
+.sidebar-mini .sidebar {
   $s: sidebar;
   //&__nav{ z-index: map-get($zindex, sidebar-mini);}
 
@@ -307,7 +307,7 @@
   }
 }
 
-.sidebar-is-open.sidebar-mini.sidebar-mini-full {
+.sidebar-mini.sidebar-mini-full {
   $s: sidebar;
   .sidebar {
     &__nav > ul > .#{$s}__item.has-child:not(.has-button) {

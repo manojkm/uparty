@@ -148,8 +148,6 @@
       line-height: $btn-line-height;
       background-color: $input-bg;
       color: $input-color;
-
-
       background: $input-bg $chosen-search-bg no-repeat right $custom-select-padding-x center;
       background-size: $chosen-search-bg-size;
     }
@@ -254,6 +252,8 @@
     //@extend .form-control;
     @include transition;
     @include set-border-radius($input-border-radius);
+    @include form-control-hover();
+    @include form-control-focus();
     border: $input-border-size solid $input-border-color;
     background-color: $input-bg;
     padding: $btn-padding-y $btn-padding-x;
@@ -261,9 +261,6 @@
     height: $input-height;
     display: flex;
     align-items: center;
-
-    @include form-control-hover();
-    @include form-control-focus();
 
   }
   .chosen-choices li {
