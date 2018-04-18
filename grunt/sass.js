@@ -24,8 +24,7 @@ module.exports = {
         precision: 6,
         sourcemap: 'auto',
         style: 'expanded',
-        trace: true,
-        bundleExec: true
+        trace: true
     },
 
     main: {
@@ -39,7 +38,7 @@ module.exports = {
         files: [{
             expand: true,
             cwd: '<%= site.src_assets %>/scss/pages/',
-            src: ['*.scss', '!_*.scss'],
+            src: ["**/*/*.{scss, sass}", "!**/*/*.{scss, sass}"],
             dest: '<%= site.dev_assets %>/css/pages/',
             ext: '.css'
         }]
@@ -49,7 +48,7 @@ module.exports = {
         files: [{
             expand: true,
             cwd: '<%= site.src_assets %>/scss/vendors-extensions/',
-            src: ['*/**/*.scss', '!*/**/_*.scss'],
+            src: ["**/*/*.{scss, sass}", "!**/*/*.{scss, sass}"],
             dest: '<%= site.dev_assets %>/css/vendors/',
             ext: '.css'
         }]
