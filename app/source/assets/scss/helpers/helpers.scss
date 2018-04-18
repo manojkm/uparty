@@ -1,6 +1,6 @@
 // ================================================================================================
-// File Name: style.scss
-// Description: Sass manifest file. Folllowing the 7-1 Pattern | https://sass-guidelin.es/#architecture.
+// File Name: helpers.scss
+// Description: Sass manifest file for helpers.
 // Importing order & guidelines are mentioned under the title MAIN FILE : https://sass-guidelin.es/#architecture.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
@@ -19,46 +19,20 @@
 // ================================================================================================
 
 //----------------------------------*\
-// BOURBON
-//----------------------------------*\
-@import
-	'bourbon';
-
-//----------------------------------*\
-// THEMES
+// OVERRIDE THEME VARIABLES
 //----------------------------------*/
 @import
-	'themes/themes';
+    '../functions';
+
 
 //----------------------------------*\
 // CONFIGURATION & HELPERS
 //----------------------------------*/
 @import
-	'helpers/helpers';
-
-//----------------------------------*\
-// VENDORS
-//----------------------------------*/
-// TODO, check what this guy is doing https://github.com/clawfire/Brasserie-Schuman/blob/ac0221058b295dafd1a58644ac9033604c0b639a/_sass/lib/_lib.scss
-@import
-	'vendors/external';
-	//'vendors/normalize', // TODO, i think this is not required, becuase bootstrap is using Reboot builds upon Normalize. However pls confirm when get time. ok
-
-
-//----------------------------------*\
-// BASE STUFF
-//----------------------------------*/
-@import
-	'base/base';
-
-//----------------------------------*\
-// PARTIALS
-//----------------------------------*/
-@import
-	'partials/partials';
-
-//----------------------------------*\
-// ENHANCEMENT COMPONENTS
-//----------------------------------*/
-@import
-	'components/components';
+    'functions',
+    'variables',
+    'mixins',
+    'extends',
+    'utilities',
+    'media-queries',
+    'placeholders';

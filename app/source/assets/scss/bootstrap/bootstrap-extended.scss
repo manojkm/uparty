@@ -1,12 +1,15 @@
-/*!
- * Bootstrap v4.0.0-beta (https://getbootstrap.com)
- * Copyright 2011-2017 The Bootstrap Authors
- * Copyright 2011-2017 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+// ================================================================================================
+// File Name: bootstrap-extended.scss
+// Description:  This is an actual copy of bootstrap.scss(v4.0.0) including our custom bootstrap variables override file.
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
 
 //----------------------------------*\
-// CUSTOM BOOTSTRAP VARIABLES OVERRIDE
+// OVERRIDE BOOTSTRAP VARIABLES
 //----------------------------------*/
 // Variable overrides come first (without !default). Bootstrap default variables
 // come second because they use !default (they won't get set if set already) and
@@ -15,8 +18,14 @@
 @import 'bootstrap-variables';
 
 //----------------------------------*\
-// BOOTSTRAP SCSS
+// IMPORT BOOTSTRAP SCSS
 //----------------------------------*/
+/*!
+ * Bootstrap v4.0.0 (https://getbootstrap.com)
+ * Copyright 2011-2018 The Bootstrap Authors
+ * Copyright 2011-2018 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
 
 @import "functions";
 @import "variables";

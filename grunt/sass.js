@@ -21,19 +21,35 @@ module.exports = {
             '<%= site.node_dir %>/bootstrap/scss'
         ],
 
-        style: 'expanded'
+        precision: 6,
+        sourcemap: 'auto',
+        style: 'expanded',
+        trace: true,
+        bundleExec: true
     },
 
-    dev: {
+    main: {
         files: {
-            '<%= site.dev_assets %>/css/style.css': '<%= site.src_assets %>/scss/style.scss'
+            '<%= site.dev_assets %>/css/style.css': '<%= site.src_assets %>/scss/style.scss',
+            '<%= site.dev_assets %>/css/bootstrap/bootstrap.css': '<%= site.src_assets %>/scss/bootstrap/bootstrap-extended.scss'
         }
     },
 
-    dev2: {
+    pages: {
         files: [{
             expand: true,
-            src: ['<%= site.src_assets %>/scss/vendors-extensions/*.scss'],
+            cwd: '<%= site.src_assets %>/scss/pages/',
+            src: ['*.scss', '!_*.scss'],
+            dest: '<%= site.dev_assets %>/css/pages/',
+            ext: '.css'
+        }]
+    },
+
+    vendors: {
+        files: [{
+            expand: true,
+            cwd: '<%= site.src_assets %>/scss/vendors-extensions/',
+            src: ['*/**/*.scss', '!*/**/_*.scss'],
             dest: '<%= site.dev_assets %>/css/vendors/',
             ext: '.css'
         }]

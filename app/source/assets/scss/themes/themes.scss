@@ -1,6 +1,7 @@
 // ================================================================================================
-// File Name: bootstrap.scss
-// Description: Custom overrides of Bootstrap variables
+// File Name: themes.scss
+// Description: Sass manifest file for themes.
+// Importing order & guidelines are mentioned under the title MAIN FILE : https://sass-guidelin.es/#architecture.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -9,24 +10,18 @@
 // ================================================================================================
 
 // ================================================================================================
-// WARNING: PLEASE DO NOT CHANGE THIS VARIABLE FILE.
-// THIS FILE WILL GET OVERWRITTEN WITH EACH BOOTSTRAP RELEASE.
-// TIP:
-// We suggest you to use this (MANOJ PLS REFER Robust - Responsive Admin Theme) file for overriding bootstrap variables.
+// Guidelines :
+// One @import per folder;
+// A linebreak after @import;
+// Each file on its own line;
+// A new line after the last import from a folder;
+// File extensions and leading underscores omitted.
 // ================================================================================================
 
-
 //----------------------------------*\
-// OPTIONS
+// THEMES
 //----------------------------------*/
-// Quickly modify global styling by enabling or disabling optional features.
-
-$enable-rounded:                  true;
-
-//----------------------------------*\
-// DROPDOWNS
-//----------------------------------*/
-// Dropdown menu container and contents.
-
-//$dropdown-padding-y:              0;
-
+@import
+    'fonts',
+    'colors',
+    'theme-map';
