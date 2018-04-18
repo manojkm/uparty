@@ -1,7 +1,9 @@
 // ================================================================================================
 // File Name: style.scss
-// Description: Sass manifest file. Folllowing the 7-1 Pattern | https://sass-guidelin.es/#architecture.
-// Importing order & guidelines are mentioned under the title MAIN FILE : https://sass-guidelin.es/#architecture.
+// Description:
+// Sass manifest file. Following the 7-1 Pattern - https://sass-guidelin.es/#architecture.
+// Importing order & guidelines are mentioned under the title MAIN FILE -
+// https://sass-guidelin.es/#architecture.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -44,7 +46,6 @@
 	'vendors/external';
 	//'vendors/normalize', // TODO, i think this is not required, becuase bootstrap is using Reboot builds upon Normalize. However pls confirm when get time. ok
 
-
 //----------------------------------*\
 // BASE STUFF
 //----------------------------------*/
@@ -62,3 +63,9 @@
 //----------------------------------*/
 @import
 	'components/components';
+
+//----------------------------------*\
+// CUSTOM STYLES
+//----------------------------------*/
+@import
+	'custom';

@@ -8,6 +8,15 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+//----------------------------------*\
+// VENDORS DEPENDENCIES
+//----------------------------------*/
+@import
+'_dependencies';
+
+/* Please make sure to keep the dependencies included above as they're necessary for all vendors extensions. */
+
+
 #toast-container > div {
   @include set-border-radius($toastr-radius);
   @include opacity($toastr-opacity);

@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: variables.scss
-// Description: Global Themes variables.
+// Description: Global XXXX variables.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -13,10 +13,16 @@
 // TODO: Remove old grey-xx-xx varialbes.
 
 // ================================================================================================
-// WARNING: PLEASE DO NOT CHANGE THIS VARIABLE FILE.
-// THIS FILE WILL GET OVERWRITTEN WITH EACH XXXX TEMPLATE RELEASE.
+// WARNING:
+// PLEASE DO NOT CHANGE THIS VARIABLE FILE. THIS FILE WILL GET OVERWRITTEN WITH EACH
+// XXXX TEMPLATE RELEASE.
 // TIP:
-// We suggest you to use this (assets/scss/variables/app-variables.scss) file for overriding app variables.
+// We suggest you to copy settings from this file into the provided '_custom-variables.scss' to
+// override the xxx(themename) defaults.
+//
+// Like in Bootstrap, variables should follow the '$component-state-property-size'
+// formula for consistent naming.
+// Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 // ================================================================================================
 
 //----------------------------------*\
@@ -349,7 +355,6 @@ $main-content-padding-x: 0;
 //----------------------------------*\
 // PAGE TITLE WRAPPERS
 //----------------------------------*/
-
 $page-title-padding-y: 20px;
 $page-title-padding-x: 0;
 
@@ -1068,7 +1073,6 @@ $overlay: rgba(0, 0, 0, .5);
 //----------------------------------*\
 // PROGRESS BAR
 //----------------------------------*/
-
 $progress-font-size: $font-size-xs !default;
 $progress-bg: $gray-200 !default;
 $progress-border-radius: $border-radius-xxl;
@@ -1151,6 +1155,10 @@ $general-transition-time: 0.5s !default;
 // EASING
 //----------------------------------*/
 $ease-in-out-circ: cubic-bezier(.27, .01, .38, 1.06);
+
+//----------------------------------*\
+// PAGE SPECIFIC
+//----------------------------------*/
 
 //----------------------------------*\
 // ZINDEX
