@@ -13,35 +13,18 @@
 //--------------------------------------------*/
 
 .bg-primary {
-  @include background-text-theme(primary, $sledge-hammer:!important);
+  @include background-text-theme(primary, $sledge-hammer: !important);
 }
 
 .bg-secondary {
-  @include background-text-theme(secondary, $sledge-hammer:!important);
+  @include background-text-theme(secondary, $sledge-hammer: !important);
 }
 
-.bg-success {
-  @include background-text-theme(success, $sledge-hammer:!important);
-}
-
-.bg-danger {
-  @include background-text-theme(danger, $sledge-hammer:!important);
-}
-
-.bg-warning {
-  @include background-text-theme(warning, $sledge-hammer:!important);
-}
-
-.bg-info {
-  @include background-text-theme(info, $sledge-hammer:!important);
-}
-
-.bg-light {
-  @include background-text-theme(light, $sledge-hammer:!important);
-}
-
-.bg-dark {
-  @include background-text-theme(dark, $sledge-hammer:!important);
+/* Contextual variations */
+@each $scheme, $value in $contextual {
+  .bg-#{$scheme} {
+    @include background-text-theme($scheme, $sledge-hammer: !important);
+  }
 }
 
 //----------------------------------*\
@@ -49,35 +32,18 @@
 //----------------------------------*/
 
 .border-primary {
-  @include border-theme(primary,$sledge-hammer:!important);
+  @include border-theme(primary, $sledge-hammer: !important);
 }
 
 .border-secondary {
-  @include border-theme(secondary,$sledge-hammer:!important);
+  @include border-theme(secondary, $sledge-hammer: !important);
 }
 
-.border-success {
-  @include border-theme(success,$sledge-hammer:!important);
-}
-
-.border-danger {
-  @include border-theme(danger,$sledge-hammer:!important);
-}
-
-.border-warning {
-  @include border-theme(warning,$sledge-hammer:!important);
-}
-
-.border-info {
-  @include border-theme(info,$sledge-hammer:!important);
-}
-
-.border-light {
-  @include border-theme(light,$sledge-hammer:!important);
-}
-
-.border-dark {
-  @include border-theme(dark,$sledge-hammer:!important);
+/* Contextual variations */
+@each $scheme, $value in $contextual {
+  .border-#{$scheme} {
+    @include border-theme($scheme, $sledge-hammer: !important);
+  }
 }
 
 //----------------------------------*\
@@ -85,45 +51,22 @@
 //----------------------------------*/
 
 .text-primary {
-  @include text-theme(primary, $sledge-hammer:!important);
-  @include text-link-theme(primary, $sledge-hammer:!important);
+  @include text-theme(primary, $sledge-hammer: !important);
+  @include text-link-theme(primary, $sledge-hammer: !important);
 }
 
 .text-secondary {
-  @include text-theme(secondary, $sledge-hammer:!important);
-  @include text-link-theme(secondary, $sledge-hammer:!important);
+  @include text-theme(secondary, $sledge-hammer: !important);
+  @include text-link-theme(secondary, $sledge-hammer: !important);
 }
 
-.text-success {
-  @include text-theme(success, $sledge-hammer:!important);
-  @include text-link-theme(success, $sledge-hammer:!important);
+/* Contextual variations */
+@each $scheme, $value in $contextual {
+  .text-#{$scheme} {
+    @include text-theme($scheme, $sledge-hammer: !important);
+    @include text-link-theme($scheme, $sledge-hammer: !important);
+  }
 }
-
-.text-danger {
-  @include text-theme(danger, $sledge-hammer:!important);
-  @include text-link-theme(danger, $sledge-hammer:!important);
-}
-
-.text-warning {
-  @include text-theme(warning, $sledge-hammer:!important);
-  @include text-link-theme(warning, $sledge-hammer:!important);
-}
-
-.text-info {
-  @include text-theme(info, $sledge-hammer:!important);
-  @include text-link-theme(info, $sledge-hammer:!important);
-}
-
-.text-light {
-  @include text-theme(light, $sledge-hammer:!important);
-  @include text-link-theme(light, $sledge-hammer:!important);
-}
-
-.text-dark {
-  @include text-theme(dark, $sledge-hammer:!important);
-  @include text-link-theme(dark, $sledge-hammer:!important);
-}
-
 
 //----------------------------------*\
 // SIZING
@@ -131,6 +74,8 @@
 
 @each $prop, $abbrev in (width: w, height: h) {
   @each $size, $length in $sizes {
-    .#{$abbrev}-#{$size} { #{$prop}: $length !important; }
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length !important;
+    }
   }
 }

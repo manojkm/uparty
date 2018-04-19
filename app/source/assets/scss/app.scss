@@ -1,5 +1,5 @@
 // ================================================================================================
-// File Name: style.scss
+// File Name: app.scss
 // Description:
 // Sass manifest file. Following the 7-1 Pattern - https://sass-guidelin.es/#architecture.
 // Importing order & guidelines are mentioned under the title MAIN FILE -
@@ -31,6 +31,12 @@
 //----------------------------------*/
 @import
 	'themes/themes';
+
+//----------------------------------*\
+// OVERRIDE THEME VARIABLES
+//----------------------------------*/
+@import
+	'custom-variables';
 
 //----------------------------------*\
 // CONFIGURATION & HELPERS

@@ -12,7 +12,7 @@
 // VENDORS DEPENDENCIES
 //----------------------------------*/
 @import
-'_dependencies';
+    '_dependencies';
 
 /* Please make sure to keep the dependencies included above as they're necessary for all vendors extensions. */
 
@@ -190,7 +190,8 @@
     a:active {
       @include transition;
       @extend %button;
-      @extend .btn-lg;
+      //@extend .btn-lg;
+      @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
       width: 100%;
       justify-content: flex-start;
     }
@@ -391,7 +392,8 @@
     a {
       @include transition;
       @extend %button;
-      @extend .btn-lg;
+      //@extend .btn-lg;
+      @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
       width: 100%;
       border-radius: 0 !important;
 
