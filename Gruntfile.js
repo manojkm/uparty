@@ -31,9 +31,9 @@ module.exports = function(grunt) {
         data: { //data passed into config.  Can use with <%= test %>
 
             site: grunt.file.readYAML('_config.yml'),
-            jsCombPath: grunt.file.readJSON('app/source/jscomb.json'),
-            cssCombPath: grunt.file.readJSON('app/source/csscomb.json'),
-            vendorInjector: grunt.file.readJSON('app/source/vendor-injector.json'),
+            jsCombPath: grunt.file.readJSON('app/source/data/jscomb.json'),
+            cssCombPath: grunt.file.readJSON('app/source/data/csscomb.json'),
+            vendorInjector: grunt.file.readJSON('app/source/data/vendor-injector.json'),
 
             meta: {
                 /**
