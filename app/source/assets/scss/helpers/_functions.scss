@@ -64,7 +64,6 @@
 //----------------------------------*/
 
 @function theme-color($scheme, $tone) {
-
   @each $themeName, $value in $themes {
     $colors: map-get-strict($value, 'colors');
     @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {
@@ -72,10 +71,28 @@
     } @else {
       @warn "Make sure you pass a valid color for '#{$tone}' in Theme Sass maps";
     }
-
   }
-
 }
+
+// ==========================================================================
+// FONT-FACE
+// ==========================================================================
+// Adapted from sassy-starter http://minamarkham.github.io/sassy-starter/
+@if variable-exists(google-fonts-import) {
+  @import url($google-fonts-import);
+}
+
+@if variable-exists(typefaces) {
+  @each $file, $option in $typefaces {
+    @font-face {
+      font-family: map-get(map-get($typefaces, $file), family);
+      src: url('../fonts/#{$file}.ttf') format('truetype'),
+      url('../fonts/#{$file}.woff') format('woff'),
+      url('../fonts/#{$file}.woff2') format('woff2');
+    }
+  }
+}
+
 
 //----------------------------------*\
 // RETRIEVE TYPOGRAPHY SASS MAPS

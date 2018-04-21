@@ -1,9 +1,8 @@
 // ================================================================================================
-// File Name: helpers.scss
+// File Name: index.scss
 // Description:
-// Sass manifest file for helpers.
-// Importing order & guidelines are mentioned under the title MAIN FILE -
-// https://sass-guidelin.es/#architecture.
+// Sass manifest file for components. Importing order & guidelines are mentioned under the
+// title MAIN FILE - https://sass-guidelin.es/#architecture.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -12,7 +11,7 @@
 // ================================================================================================
 
 // ================================================================================================
-// Guidelines:
+// Guidelines :
 // One @import per folder;
 // A linebreak after @import;
 // Each file on its own line;
@@ -21,13 +20,50 @@
 // ================================================================================================
 
 //----------------------------------*\
-// CONFIGURATION & HELPERS
+// ENHANCEMENT COMPONENTS
 //----------------------------------*/
 @import
-    'functions',
-    'variables',
-    'mixins',
-    'extends',
-    'utilities',
-    'media-queries',
-    'placeholders';
+	'sections',
+	'search',
+	'carousel',
+	'forms',
+	'buttons',
+	'button-group',
+	'input-group',
+	'custom-forms',
+	'badge',
+	'inputs',
+	'lists',
+	'dropdown',
+	'mark',
+	'tables',
+	'tooltips-and-popovers',
+	'sliders',
+	'social',
+	'clearfix',
+	'overlays',
+	'nav',
+	'breakpoints',
+	'breadcrumb',
+	'breadcrumb-menu',
+	'cover',
+	'modals',
+	'checkbox-radio',
+	'tags',
+	'cards',
+	'collapse',
+	'togglers',
+	'thumbnails',
+	'labels',
+	'progress-bars',
+	'spacers',
+	'chat-message',
+	'alerts',
+	'number-spinner',
+	'tabs-and-pills',
+	'pagination',
+	'scrollbar',
+	'print',
+    'defaults',
+    'misc',
+    'examples';

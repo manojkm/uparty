@@ -1,7 +1,8 @@
 // ================================================================================================
-// File Name: themes.scss
-// Description: Sass manifest file for themes.
-// Importing order & guidelines are mentioned under the title MAIN FILE : https://sass-guidelin.es/#architecture.
+// File Name: index.scss
+// Description:
+// Sass manifest file for base. Importing order & guidelines are mentioned under the
+// title MAIN FILE - https://sass-guidelin.es/#architecture.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -19,9 +20,9 @@
 // ================================================================================================
 
 //----------------------------------*\
-// THEMES
+// BASE STUFF
 //----------------------------------*/
 @import
-    'fonts',
-    'colors',
-    'theme-map';
+    'general',
+    'reset',
+    'typography';

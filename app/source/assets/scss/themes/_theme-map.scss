@@ -20,44 +20,44 @@
 // THEME MAP
 //----------------------------------*/
 
-$default-theme: (
+$theme-colors: (
         'colors': (
                 'primary': (
-                        'base': $turquoise,
-                        'light': lighten($turquoise, 6%),
-                        'x-light': lighten($turquoise, 10%),
-                        'xx-light': lighten($turquoise, 20%),
-                        'dark':darken($turquoise, 6%),
-                        'x-dark':darken($turquoise, 10%),
-                        'xx-dark':darken($turquoise, 20%),
+                        'base': $primary-color,
+                        'light': lighten($primary-color, 6%),
+                        'x-light': lighten($primary-color, 10%),
+                        'xx-light': lighten($primary-color, 20%),
+                        'dark':darken($primary-color, 6%),
+                        'x-dark':darken($primary-color, 10%),
+                        'xx-dark':darken($primary-color, 20%),
                         'font-color': #fff,
                 ),
                 'secondary': (
-                        'base': $mauve,
-                        'light': lighten($mauve, 6%),
-                        'x-light': lighten($mauve, 10%),
-                        'xx-light': lighten($mauve, 20%),
-                        'dark':darken($mauve, 6%),
-                        'x-dark':darken($mauve, 10%),
-                        'xx-dark':darken($mauve, 20%),
+                        'base': $secondary-color,
+                        'light': lighten($secondary-color, 6%),
+                        'x-light': lighten($secondary-color, 10%),
+                        'xx-light': lighten($secondary-color, 20%),
+                        'dark':darken($secondary-color, 6%),
+                        'x-dark':darken($secondary-color, 10%),
+                        'xx-dark':darken($secondary-color, 20%),
                         'font-color': #fff,
                 ),
                 'header': (
-                        'base': $midnight-blue,
-                        'light': lighten($midnight-blue, 6%),
-                        'dark': darken($midnight-blue, 6%),
-                        'font-color': lighten($midnight-blue, 60%),
-                        'link-color': lighten($midnight-blue, 65%),
-                        'hover-color': lighten($midnight-blue, 100%),
+                        'base': $header-color,
+                        'light': lighten($header-color, 6%),
+                        'dark': darken($header-color, 6%),
+                        'font-color': lighten($header-color, 60%),
+                        'link-color': lighten($header-color, 65%),
+                        'hover-color': lighten($header-color, 100%),
                         'active-color':  #fff,
                 ),
                 'sidebar': (
-                        'base': $midnight-blue,
-                        'light': lighten($midnight-blue, 6%),
-                        'dark': darken($midnight-blue, 6%),
-                        'font-color': lighten($midnight-blue, 60%),
-                        'link-color': lighten($midnight-blue, 65%),
-                        'hover-color': lighten($midnight-blue, 100%),
+                        'base': $sidebar-color,
+                        'light': lighten($sidebar-color, 6%),
+                        'dark': darken($sidebar-color, 6%),
+                        'font-color': lighten($sidebar-color, 60%),
+                        'link-color': lighten($sidebar-color, 65%),
+                        'hover-color': lighten($sidebar-color, 100%),
                         'active-color':  lighten($turquoise,10%),
                 ),
                 'aside': (
@@ -81,8 +81,7 @@ $default-theme: (
                 //'green': #71d366,
         ),
 );
-
 $themes: (
-        'dark': $default-theme,
+        #{$default-theme}: $theme-colors,
       //'light': ()
 ) !default;

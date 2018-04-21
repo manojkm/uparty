@@ -20,7 +20,7 @@
 @param {String} $key - Key color to use from theme
 @param {Map} $themes [$themes] - Map of themes to use
 */
-@mixin themify($property, $key, $color-variant:null, $sledge-hammer:'', $themes: $themes, $default-theme: $default-theme) {
+@mixin themify($property, $key, $color-variant:null, $sledge-hammer:'', $themes: $themes, $default-theme: $theme-colors) {
   // Iterate over the themes
 
   /// We'll be setting a default color for the selector incase no theme was set.

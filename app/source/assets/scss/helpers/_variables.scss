@@ -1,6 +1,8 @@
 // ================================================================================================
 // File Name: variables.scss
-// Description: Global XXXX variables.
+// Description:
+// Think of variables as handy places to store values that you want to reuse over and over again
+// throughout your Sass document.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -83,30 +85,35 @@ $contextual: (
 );
 
 //----------------------------------*\
-// FONTS
+// TYPOGRAPHY
 //----------------------------------*/
 
-/*
-$font-html: (
-        size: 100%, !*62.5% adapted from https://www.sitepoint.com/understanding-and-using-rem-units-in-css!*!
-  //size: 16px
-);*/
-
 $typography: (
-        font: ("Source Sans Pro", Arial, sans-serif),
-        color: $gray-800, /* Global text color on <body> */
+        font-default: ($font-family-default, $font-family-fallback), /* Font used for <body> */
+        font-headings: ($font-family-display, $font-family-fallback), /* Font used for headings <h1> <h2> etc... */
+        color-default: $gray-800, /* Global text color on <body> */
+        color-headings: $gray-800,
         weight-light: 300,
         weight-normal: 400,
+        weight-medium: 500,
         weight-semi: 600,
         weight-bold: 700,
-        line-height: 1.5,
-        size-100: (100%, 1.375rem), /* Font size of the <html> element */
-        size-xs: (0.75rem, 1.125rem), /* 12px 18px */ /* Order: font-size line-height */
-        size-sm: (0.875rem, 1.25rem), /* 14px 20px */ /* Font size of the <body> element */
+  /* Font size (Order: font-size line-height) */
+        size-100: (100%, 1.375rem), /* 100% 22px Font size of the <html> element */
+        size-xs: (0.75rem, 1.125rem), /* 12px 18px */
+        size-sm: (0.875rem, 1.25rem), /* 14px 20px  Font size of the <body> element */
         size-md: (1rem, 1.375rem), /* 16px 22px */
         size-lg: (1.125rem, 1.5rem), /* 18px 24px */
         size-xl: (1.25rem, 1.625rem) /* 20px 26px*/
 );
+
+/* Font family */
+$font-family-default: get-typography(font-default);
+$font-family-headings: get-typography(font-headings);
+
+/* Font color */
+$font-color-default: get-typography(color-default);
+$font-color-headings: get-typography(color-headings);
 
 /* Font size */
 $font-size-100: get-typography(size-100, font-size);
@@ -120,18 +127,51 @@ $font-size-xl: get-typography(size-xl, font-size);
 $lh-100: get-typography(size-100, line-height);
 $lh-xs: get-typography(size-xs, line-height);
 $lh-sm: get-typography(size-sm, line-height);
-$lh-base: get-typography(size-md, line-height); /* Assumes the browser default, typically `16px` */
+$lh-base: get-typography(size-md, line-height);
 $lh-lg: get-typography(size-lg, line-height);
 $lh-xl: get-typography(size-xl, line-height);
 
 /* Font weight */
 $font-wh-light: get-typography(weight-light) !default; /*300*/
 $font-wh-normal: get-typography(weight-normal) !default; /*400*/
+$font-wh-medium: get-typography(weight-medium) !default; /*500*/
 $font-wh-semi: get-typography(weight-semi) !default; /*600*/
 $font-wh-bold: get-typography(weight-bold) !default; /*700*/
 
 //----------------------------------*\
-// OPTIONS
+// FONTS
+//----------------------------------*/
+
+/* Html */
+$html-font-size: $font-size-100;
+
+/* Body */
+$body-font-family: $font-family-default;
+$body-font-size: $font-size-base;
+$body-font-weight:$font-wh-normal;
+$body-line-height:$lh-base;
+$body-color: $font-color-default;
+
+/* Headings */
+$headings-font-family: $font-family-headings;
+$headings-font-weight: $font-wh-medium;
+$headings-color: $font-color-headings;
+$headings-line-height: $lh-sm;
+$headings-letter-spacing: -.0625rem !default; // ~1px
+
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+/* Lead */
+$lead-font-size: ($font-size-base * 1.25) !default;
+$lead-font-weight: $font-wh-light !default;
+
+//----------------------------------*\
+// CONFIGS
 //----------------------------------*/
 /* Handle rounded corners */
 $enable-rounded: true !default;
@@ -148,7 +188,6 @@ $selection-bg: #f9f6f0;
 //----------------------------------*\
 // BORDERS
 //----------------------------------*/
-
 $none: 0 !default;
 $border: 1px solid !default;
 $border-thin: 1px !default;
@@ -456,7 +495,7 @@ $btn-radius-lg: $border-radius-lg;
 /* Extra Large button (.btn-xl) */
 $btn-font-size-xl: $font-size-xl !default;
 $btn-padding-y-xl: 0.625rem !default; /* 10px */
-$btn-padding-x-xl:  1.25rem !default; /* 20px */
+$btn-padding-x-xl: 1.25rem !default; /* 20px */
 $btn-min-width-xl: 140px !default;
 $btn-min-height-xl: 0px !default;
 $btn-line-height-xl: $lh-xl !default;
@@ -1123,10 +1162,6 @@ $badge-image-font-weight: $font-wh-normal !default;
 $badge-image-line-height: 1.25;
 $badge-inner: ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
 $badge-size: calc(#{$badge-inner}) !default;
-
-//----------------------------------*\
-// TYPOGRAPHY
-//----------------------------------*/
 
 //----------------------------------*\
 // TOOLTIPS

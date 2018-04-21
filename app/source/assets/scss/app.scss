@@ -30,45 +30,44 @@
 // THEMES
 //----------------------------------*/
 @import
-	'themes/themes';
+	'themes/index';
 
 //----------------------------------*\
 // OVERRIDE THEME VARIABLES
 //----------------------------------*/
 @import
-	'custom-variables';
+	'custom-variables'; // TODO , This will not work as the function etc are unavailable.
 
 //----------------------------------*\
 // CONFIGURATION & HELPERS
 //----------------------------------*/
 @import
-	'helpers/helpers';
+	'helpers/index';
 
 //----------------------------------*\
 // VENDORS
 //----------------------------------*/
 // TODO, check what this guy is doing https://github.com/clawfire/Brasserie-Schuman/blob/ac0221058b295dafd1a58644ac9033604c0b639a/_sass/lib/_lib.scss
 @import
-	'vendors/external';
-	//'vendors/normalize', // TODO, i think this is not required, becuase bootstrap is using Reboot builds upon Normalize. However pls confirm when get time. ok
+	'vendors/index';
 
 //----------------------------------*\
 // BASE STUFF
 //----------------------------------*/
 @import
-	'base/base';
+	'base/index';
 
 //----------------------------------*\
 // PARTIALS
 //----------------------------------*/
 @import
-	'partials/partials';
+	'partials/index';
 
 //----------------------------------*\
 // ENHANCEMENT COMPONENTS
 //----------------------------------*/
 @import
-	'components/components';
+	'components/index';
 
 //----------------------------------*\
 // CUSTOM STYLES

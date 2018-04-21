@@ -30,7 +30,7 @@ module.exports = {
     main: {
         files: {
             '<%= site.dev_assets %>/css/<%=site.name %>.css': '<%= site.src_assets %>/scss/app.scss',
-            '<%= site.dev_assets %>/css/bootstrap/bootstrap.css': '<%= site.src_assets %>/scss/bootstrap/bootstrap-extended.scss'
+            '<%= site.dev_assets %>/css/bootstrap-extended/bootstrap.css': '<%= site.src_assets %>/scss/bootstrap-extended/index.scss'
         }
     },
 
