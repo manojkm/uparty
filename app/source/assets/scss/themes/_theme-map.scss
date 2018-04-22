@@ -15,73 +15,15 @@
 // ================================================================================================
 // TODO, theme changing tutorial below. Copy paste this in my own doc later and then remove below line.
 //https://github.com/nborracha/plainID-DemoApp/tree/61b66cf018e918bcb17aa87f243fce2bc95d9833
+// https://codepen.io/jakealbaugh/post/using-sass-functions-to-access-complex-variable-maps
+// https://github.com/manojkm/flask
+// https://www.designernews.co/stories/61077-how-i-manage-my-colour-palettes-using-sass-maps
+
 
 //----------------------------------*\
 // THEME MAP
 //----------------------------------*/
-
-$theme-colors: (
-        'colors': (
-                'primary': (
-                        'base': $primary-color,
-                        'light': lighten($primary-color, 6%),
-                        'x-light': lighten($primary-color, 10%),
-                        'xx-light': lighten($primary-color, 20%),
-                        'dark':darken($primary-color, 6%),
-                        'x-dark':darken($primary-color, 10%),
-                        'xx-dark':darken($primary-color, 20%),
-                        'font-color': #fff,
-                ),
-                'secondary': (
-                        'base': $secondary-color,
-                        'light': lighten($secondary-color, 6%),
-                        'x-light': lighten($secondary-color, 10%),
-                        'xx-light': lighten($secondary-color, 20%),
-                        'dark':darken($secondary-color, 6%),
-                        'x-dark':darken($secondary-color, 10%),
-                        'xx-dark':darken($secondary-color, 20%),
-                        'font-color': #fff,
-                ),
-                'header': (
-                        'base': $header-color,
-                        'light': lighten($header-color, 6%),
-                        'dark': darken($header-color, 6%),
-                        'font-color': lighten($header-color, 60%),
-                        'link-color': lighten($header-color, 65%),
-                        'hover-color': lighten($header-color, 100%),
-                        'active-color':  #fff,
-                ),
-                'sidebar': (
-                        'base': $sidebar-color,
-                        'light': lighten($sidebar-color, 6%),
-                        'dark': darken($sidebar-color, 6%),
-                        'font-color': lighten($sidebar-color, 60%),
-                        'link-color': lighten($sidebar-color, 65%),
-                        'hover-color': lighten($sidebar-color, 100%),
-                        'active-color':  lighten($turquoise,10%),
-                ),
-                'aside': (
-                        'base': $midnight-blue,
-                        'light': lighten($midnight-blue, 6%),
-                        'dark': darken($midnight-blue, 6%),
-                        'font-color': #fff,
-                        'link-color': #fff,
-                        'hover-color': #fff,
-                        'active-color': #fff,
-                ),
-                'footer': (
-                        'base': $midnight-blue,
-                        'light': lighten($midnight-blue, 6%),
-                        'dark': darken($midnight-blue, 6%),
-                        'font-color': #fff,
-                        'link-color': #ccc,
-                        'hover-color': #fff,
-                        'active-color': #fff,
-                ),
-                //'green': #71d366,
-        ),
-);
 $themes: (
-        #{$default-theme}: $theme-colors,
+        #{$theme-name}: $theme-palettes,
       //'light': ()
 ) !default;
