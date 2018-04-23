@@ -23,18 +23,19 @@
   }
 
   /* Theme variations */
-
-  &.#{$a}-primary {
-    @include alert-theme(primary);
-  }
-  &.#{$a}-secondary {
-    @include alert-theme(secondary);
+  @each $themeName, $value in $themes {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $value in $colors {
+      &.#{$a}-#{$scheme} {
+        @include alert-theme($scheme);
+      }
+    }
   }
 
   /* Contextual variations */
   @each $scheme, $value in $contextual {
     &.#{$a}-#{$scheme} {
-        @include alert-theme($scheme);
+      @include alert-theme($scheme);
     }
   }
 

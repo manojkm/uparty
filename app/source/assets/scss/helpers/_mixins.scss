@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: mixins.scss
-// Description: 
+// Description:
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -20,33 +20,41 @@
 @param {String} $key - Key color to use from theme
 @param {Map} $themes [$themes] - Map of themes to use
 */
-@mixin themify($property, $key, $color-variant:null, $sledge-hammer:'', $themes: $themes, $default-theme: $rebecca-palette) {
+@mixin themify($property, $key, $color-variant:null, $sledge-hammer:'', $themes: $themes) {
+
+
   // Iterate over the themes
-
-  /// We'll be setting a default color for the selector incase no theme was set.
-  $default-colors: map-get-strict($default-theme, 'colors');
-  $default-color: null;
-
   @each $themeName, $value in $themes {
 
-    $colors: map-get-strict($value, 'colors');
+    $main-colors: map-get-strict($value, 'main-colors');
+    $partial-colors: map-get-strict($value, 'partial-colors');
+
     $color: null;
 
     /// color variant is optional
     @if ($color-variant != null) {
       /// map inception
-      $color: map-get-strict(map-get-strict($colors, $key), $color-variant);
-      $default-color: map-get-strict(map-get-strict($default-colors, $key), $color-variant);
-    } @else {
-      $color: map-get-strict($colors, $key);
-      $default-color: map-get-strict($default-colors, $key);
+      @if map-has-key($main-colors, $key) {
+        $color: map-get-strict(map-get-strict($main-colors, $key), $color-variant);
+      } @else if map-has-key($partial-colors, $key) {
+        $color: map-get-strict(map-get-strict($partial-colors, $key), $color-variant);
+      } @else {
+        @warn 'Unfortunately, no value could be retrieved from "#{$key}". '
+        + 'Please make sure it is defined in map.';
+      }
     }
-
-    /* Create fallback color based on the default theme */
-    /* & {
-       // Output the declaration
-       #{$property}: $default-color #{$sledge-hammer};
-     }*/
+    @else {
+      @if map-has-key($main-colors, $key) {
+        $color: map-get-strict($main-colors, $key);
+      }
+      @else if map-has-key($partial-colors, $key){
+        $color: map-get-strict($partial-colors, $key);
+      }
+      @else {
+        @warn 'Unfortunately, no value could be retrieved from "#{$key}". '
+        + 'Please make sure it is defined in map.';
+      }
+    }
 
     /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
     /* &.theme-#{$themeName},*/
@@ -55,6 +63,7 @@
       #{$property}: $color #{$sledge-hammer};
     }
   }
+
 }
 
 /// Shorthand to themify color through `themify` mixin
@@ -152,52 +161,52 @@
 @mixin border-theme($theme-color, $tone:base, $position:all, $sledge-hammer:null) {
 
 
-   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
 
-     @if $position == 'all' {
-       border-color: contextual-color($theme-color, $tone) $sledge-hammer;
-     } @else if $position == 'top' {
-       border-top-color: contextual-color($theme-color, $tone) $sledge-hammer;
-     } @else if $position == 'bottom' {
-       border-bottom-color: contextual-color($theme-color, $tone) $sledge-hammer;
-     } @else if $position == 'right' {
-       border-right-color: contextual-color($theme-color, $tone) $sledge-hammer;
-     } @else if $position == 'left' {
-       border-left-color:contextual-color($theme-color, $tone) $sledge-hammer;
-     } @else if $position == 'top-bottom' {
-       border-top-color:contextual-color($theme-color, $tone) $sledge-hammer;
-       border-bottom-color: contextual-color($theme-color, $tone) $sledge-hammer;
-     } @else if $position == 'right-left' {
-       border-left-color: contextual-color($theme-color, $tone) $sledge-hammer;
-       border-right-color:contextual-color($theme-color, $tone) $sledge-hammer;
-     } @else if $position == 'left-bottom' {
-       border-left-color:contextual-color($theme-color, $tone) $sledge-hammer;
-       border-bottom-color:contextual-color($theme-color, $tone) $sledge-hammer;
-     }
+    @if $position == 'all' {
+      border-color: contextual-color($theme-color, $tone) $sledge-hammer;
+    } @else if $position == 'top' {
+      border-top-color: contextual-color($theme-color, $tone) $sledge-hammer;
+    } @else if $position == 'bottom' {
+      border-bottom-color: contextual-color($theme-color, $tone) $sledge-hammer;
+    } @else if $position == 'right' {
+      border-right-color: contextual-color($theme-color, $tone) $sledge-hammer;
+    } @else if $position == 'left' {
+      border-left-color:contextual-color($theme-color, $tone) $sledge-hammer;
+    } @else if $position == 'top-bottom' {
+      border-top-color:contextual-color($theme-color, $tone) $sledge-hammer;
+      border-bottom-color: contextual-color($theme-color, $tone) $sledge-hammer;
+    } @else if $position == 'right-left' {
+      border-left-color: contextual-color($theme-color, $tone) $sledge-hammer;
+      border-right-color:contextual-color($theme-color, $tone) $sledge-hammer;
+    } @else if $position == 'left-bottom' {
+      border-left-color:contextual-color($theme-color, $tone) $sledge-hammer;
+      border-bottom-color:contextual-color($theme-color, $tone) $sledge-hammer;
+    }
 
 
   } @else { /* Theme variations */
 
-     @if $position == 'all' {
-       @include border-color($theme-color, $tone, $sledge-hammer);
-     } @else if $position == 'top' {
-       @include border-top-color($theme-color, $tone, $sledge-hammer);
-     } @else if $position == 'bottom' {
-       @include border-bottom-color($theme-color, $tone, $sledge-hammer);
-     } @else if $position == 'right' {
-       @include border-right-color($theme-color, $tone, $sledge-hammer);
-     } @else if $position == 'left' {
-       @include border-left-color($theme-color, $tone, $sledge-hammer);
-     } @else if $position == 'top-bottom' {
-       @include border-top-color($theme-color, $tone, $sledge-hammer);
-       @include border-bottom-color($theme-color, $tone, $sledge-hammer);
-     } @else if $position == 'right-left' {
-       @include border-left-color($theme-color, $tone, $sledge-hammer);
-       @include border-right-color($theme-color, $tone, $sledge-hammer);
-     } @else if $position == 'left-bottom' {
-       @include border-left-color($theme-color, $tone, $sledge-hammer);
-       @include border-bottom-color($theme-color, $tone, $sledge-hammer);
-     }
+    @if $position == 'all' {
+      @include border-color($theme-color, $tone, $sledge-hammer);
+    } @else if $position == 'top' {
+      @include border-top-color($theme-color, $tone, $sledge-hammer);
+    } @else if $position == 'bottom' {
+      @include border-bottom-color($theme-color, $tone, $sledge-hammer);
+    } @else if $position == 'right' {
+      @include border-right-color($theme-color, $tone, $sledge-hammer);
+    } @else if $position == 'left' {
+      @include border-left-color($theme-color, $tone, $sledge-hammer);
+    } @else if $position == 'top-bottom' {
+      @include border-top-color($theme-color, $tone, $sledge-hammer);
+      @include border-bottom-color($theme-color, $tone, $sledge-hammer);
+    } @else if $position == 'right-left' {
+      @include border-left-color($theme-color, $tone, $sledge-hammer);
+      @include border-right-color($theme-color, $tone, $sledge-hammer);
+    } @else if $position == 'left-bottom' {
+      @include border-left-color($theme-color, $tone, $sledge-hammer);
+      @include border-bottom-color($theme-color, $tone, $sledge-hammer);
+    }
 
   }
 }
@@ -699,7 +708,7 @@ Usage @include opacity(1);
   /* Right tooltip */
   &.bs-tooltip-right .arrow:before {
     @include border-theme($theme-color, $tone, $position:right);
-    }
+  }
 
   /* Top tooltip */
   &.bs-tooltip-top .arrow:before {

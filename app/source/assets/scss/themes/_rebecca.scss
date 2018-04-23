@@ -6,19 +6,16 @@
 // but separate variables outside of the map make it easier.
 
 /* Primary */
-$primary-base-color: $turquoise; // Used as the background for primary buttons, color for primary links etc...
-$primary-font-color: $white-color; // Used as the text color on primary background.
+$primary-background: $turquoise; // Used as the background for primary buttons, color for primary links etc...
+$primary-foreground: $white-color; // Used as the text color on primary background.
 
 /* Secondary  */
-$secondary-base-color: $mauve; // Used as the background for secondary buttons, color for secondary links etc...
-$secondary-font-color: $white-color; // Used as the text color on secondary background.
+$secondary-background: $mauve; // Used as the background for secondary buttons, color for secondary links etc...
+$secondary-foreground: $white-color; // Used as the text color on secondary background.
 
 /* Header */
-$header-base-color: $midnight-blue; // Used as the background color of header.
-$header-font-color: lighten($header-base-color, 60%); // Used as the color of texts.
-$header-link-color: lighten($header-base-color, 65%); // Used as the color of links.
-$header-hover-color: lighten($header-base-color, 100%); // Used as the color of hover links.
-$header-active-color: lighten($primary-base-color, 10%); // Used as the color of active links.
+$header-background: $midnight-blue; // Used as the background color of header.
+$header-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color
 
 /* Colour shades amount */
 $color-shade-amount: 4%; // Used to generate base, light & dark color shades
@@ -26,43 +23,48 @@ $color-shade-amount: 4%; // Used to generate base, light & dark color shades
 //----------------------------------*\
 // THEME PALETTE MAP
 //----------------------------------*/
+// Theme palette are all stored in a map data-structure which gives flexibility
+// when traversing based on keys and also looking up values based on strings
 
+/* Define color/shade map */
 // TODO for  tomorrow https://stackoverflow.com/questions/33856034/dynamically-build-up-a-sass-map-and-then-use-the-values
 
-$rebecca-palette: ( /* Define the name of the map */
-        'colors': (
+$rebecca-palette: (/* Define the name of the map */
+        'main-colors': (
                 'primary': (
-                        'base': $primary-base-color,
-                        'light': lighten($primary-base-color, $color-shade-amount),
-                        'x-light': lighten($primary-base-color, ($color-shade-amount * 2)),
-                        'xx-light': lighten($primary-base-color, ($color-shade-amount  * 3)),
-                        'dark':darken($primary-base-color, $color-shade-amount),
-                        'x-dark':darken($primary-base-color, ($color-shade-amount * 2)),
-                        'xx-dark':darken($primary-base-color, ($color-shade-amount * 3)),
-                        'font-color':$primary-font-color,
+                        'base': $primary-background,
+                        'light': lighten($primary-background, $color-shade-amount),
+                        'x-light': lighten($primary-background, ($color-shade-amount * 2)),
+                        'xx-light': lighten($primary-background, ($color-shade-amount  * 3)),
+                        'dark':darken($primary-background, $color-shade-amount),
+                        'x-dark':darken($primary-background, ($color-shade-amount * 2)),
+                        'xx-dark':darken($primary-background, ($color-shade-amount * 3)),
+                        'font-color':$primary-foreground,
                 ),
                 'secondary': (
-                        'base': $secondary-base-color,
-                        'light': lighten($secondary-base-color, $color-shade-amount),
-                        'x-light': lighten($secondary-base-color, ($color-shade-amount * 2)),
-                        'xx-light': lighten($secondary-base-color, ($color-shade-amount * 3)),
-                        'dark':darken($secondary-base-color, $color-shade-amount),
-                        'x-dark':darken($secondary-base-color, ($color-shade-amount  * 2)),
-                        'xx-dark':darken($secondary-base-color, ($color-shade-amount * 3)),
-                        'font-color':$secondary-font-color,
-                ),
+                        'base': $secondary-background,
+                        'light': lighten($secondary-background, $color-shade-amount),
+                        'x-light': lighten($secondary-background, ($color-shade-amount * 2)),
+                        'xx-light': lighten($secondary-background, ($color-shade-amount * 3)),
+                        'dark':darken($secondary-background, $color-shade-amount),
+                        'x-dark':darken($secondary-background, ($color-shade-amount  * 2)),
+                        'xx-dark':darken($secondary-background, ($color-shade-amount * 3)),
+                        'font-color':$secondary-foreground,
+                )
+        ),
+        'partials-colors': (
                 'header': (
-                        'base': $header-base-color,
-                        'light': lighten($header-base-color, $color-shade-amount),
-                        'x-light': lighten($header-base-color, ($color-shade-amount * 2)),
-                        'xx-light': lighten($header-base-color, ($color-shade-amount * 3)),
-                        'dark': darken($header-base-color, $color-shade-amount),
-                        'x-dark':darken($header-base-color, ($color-shade-amount  * 2)),
-                        'xx-dark':darken($header-base-color, ($color-shade-amount * 3)),
-                        'font-color': $header-font-color,
-                        'link-color': $header-link-color,
-                        'hover-color': $header-hover-color,
-                        'active-color': $header-active-color,
+                        'base': $header-background,
+                        'light': lighten($header-background, $color-shade-amount),
+                        'x-light': lighten($header-background, ($color-shade-amount * 2)),
+                        'xx-light': lighten($header-background, ($color-shade-amount * 3)),
+                        'dark': darken($header-background, $color-shade-amount),
+                        'x-dark':darken($header-background, ($color-shade-amount  * 2)),
+                        'xx-dark':darken($header-background, ($color-shade-amount * 3)),
+                        'font-color': nth($header-colors, 1),
+                        'link-color': nth($header-colors, 2),
+                        'hover-color': nth($header-colors, 3),
+                        'active-color': nth($header-colors, 4),
                 ),
                 'sidebar': (
                         'base': $midnight-blue,

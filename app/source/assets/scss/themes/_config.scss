@@ -14,24 +14,31 @@
 // For instance, to use the Dark theme change:  <body class="theme-dark">
 // ================================================================================================
 // TODO, theme changing tutorial below. Copy paste this in my own doc later and then remove below line.
-//https://github.com/nborracha/plainID-DemoApp/tree/61b66cf018e918bcb17aa87f243fce2bc95d9833
+// https://github.com/nborracha/plainID-DemoApp/tree/61b66cf018e918bcb17aa87f243fce2bc95d9833
 // https://codepen.io/jakealbaugh/post/using-sass-functions-to-access-complex-variable-maps
 // https://github.com/manojkm/flask
 // https://www.designernews.co/stories/61077-how-i-manage-my-colour-palettes-using-sass-maps
 // https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
 // https://www.viget.com/articles/sass-maps-are-awesome/
+// https://github.com/zellwk/themify/blob/master/_themify.scss
+// https://www.ian-thomas.net/a-sassy-approach-to-theming-components/
+// https://codepen.io/anatomic/pen/gpxgqB
 
 //----------------------------------*\
 // IMPORT THEMES
 //----------------------------------*/
-
+/* Import your themes here. */
 @import
   'rebecca';
 
 //----------------------------------*\
 // THEME MAP
 //----------------------------------*/
+// Themes are all stored in a map data-structure which gives flexibilty
+// when traversing based on keys and also looking up values based on strings
+
+/* Define the name of your theme and corresponding palette map name */
 $themes: (
-        rebecca: $rebecca-palette, /* Define the name of the map */
-      //'light': ()
+        rebecca: $rebecca-palette,
+      //'unicorn': ()
 ) !default;

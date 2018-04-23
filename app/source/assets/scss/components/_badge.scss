@@ -25,19 +25,19 @@
   }
 
   /* Theme variations */
-  &.#{$b}-primary {
-    @include badges-theme(primary, $sledge-hammer: !important);
-  }
-  &.#{$b}-outline-primary {
-    @include badges-theme(primary, outline, $sledge-hammer: !important);
-  }
+  @each $themeName, $value in $themes {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $value in $colors {
 
-  &.#{$b}-secondary {
-    @include badges-theme(secondary, $sledge-hammer: !important);
-  }
+      &.#{$b}-#{$scheme} {
+        @include badges-theme($scheme, $sledge-hammer: !important);
+      }
 
-  &.#{$b}-outline-secondary {
-    @include badges-theme(secondary, outline, $sledge-hammer: !important);
+      &.#{$b}-outline-#{$scheme} {
+        @include badges-theme($scheme, outline, $sledge-hammer: !important);
+      }
+
+    }
   }
 
   /* Contextual variations */
@@ -49,7 +49,6 @@
       @include badges-theme($scheme, outline, $sledge-hammer: !important);
     }
   }
-
 
   /* Disabled badge */
   #{$disabled-tags} {
@@ -117,7 +116,9 @@
     }
   }
 
-  &[class*="badge-outline-"].pointed{background-color: #fff;}
+  &[class*="badge-outline-"].pointed {
+    background-color: #fff;
+  }
 
   &.pointed {
     &::before,

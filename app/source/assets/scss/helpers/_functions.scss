@@ -11,6 +11,11 @@
 //----------------------------------*\
 // MAP GET ERROR HANDLING
 //----------------------------------*/
+/**
+ * This function should warn if a theme requirement isn't met,
+ * helping to catch any issues at compile time in development
+ */
+
 /* Usage map-get-strict($font-html, size); */
 
 @function map-get-strict($map, $key) {
@@ -65,7 +70,7 @@
 
 @function theme-color($scheme, $tone) {
   @each $themeName, $value in $themes {
-    $colors: map-get-strict($value, 'colors');
+    $colors: map-get-strict($value, 'main-colors');
     @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {
       @return map-get-strict(map-get-strict($colors, $scheme), $tone);
     } @else {
