@@ -1,0 +1,96 @@
+//----------------------------------*\
+// THEME COLOR VARIABLES
+//----------------------------------*/
+// TODO.. https://github.com/manojkm/flask
+// Begin by defining base colours. You can simply define these inside the palette map instead,
+// but separate variables outside of the map make it easier.
+
+/* Primary */
+$primary-base-color: $turquoise; // Used as the background for primary buttons, color for primary links etc...
+$primary-font-color: $white-color; // Used as the text color on primary background.
+
+/* Secondary  */
+$secondary-base-color: $mauve; // Used as the background for secondary buttons, color for secondary links etc...
+$secondary-font-color: $white-color; // Used as the text color on secondary background.
+
+/* Header */
+$header-base-color: $midnight-blue; // Used as the background color of header.
+$header-font-color: lighten($header-base-color, 60%); // Used as the color of texts.
+$header-link-color: lighten($header-base-color, 65%); // Used as the color of links.
+$header-hover-color: lighten($header-base-color, 100%); // Used as the color of hover links.
+$header-active-color: lighten($primary-base-color, 10%); // Used as the color of active links.
+
+/* Colour shades amount */
+$color-shade-amount: 4%; // Used to generate base, light & dark color shades
+
+//----------------------------------*\
+// THEME PALETTE MAP
+//----------------------------------*/
+
+// TODO for  tomorrow https://stackoverflow.com/questions/33856034/dynamically-build-up-a-sass-map-and-then-use-the-values
+
+$rebecca-palette: ( /* Define the name of the map */
+        'colors': (
+                'primary': (
+                        'base': $primary-base-color,
+                        'light': lighten($primary-base-color, $color-shade-amount),
+                        'x-light': lighten($primary-base-color, ($color-shade-amount * 2)),
+                        'xx-light': lighten($primary-base-color, ($color-shade-amount  * 3)),
+                        'dark':darken($primary-base-color, $color-shade-amount),
+                        'x-dark':darken($primary-base-color, ($color-shade-amount * 2)),
+                        'xx-dark':darken($primary-base-color, ($color-shade-amount * 3)),
+                        'font-color':$primary-font-color,
+                ),
+                'secondary': (
+                        'base': $secondary-base-color,
+                        'light': lighten($secondary-base-color, $color-shade-amount),
+                        'x-light': lighten($secondary-base-color, ($color-shade-amount * 2)),
+                        'xx-light': lighten($secondary-base-color, ($color-shade-amount * 3)),
+                        'dark':darken($secondary-base-color, $color-shade-amount),
+                        'x-dark':darken($secondary-base-color, ($color-shade-amount  * 2)),
+                        'xx-dark':darken($secondary-base-color, ($color-shade-amount * 3)),
+                        'font-color':$secondary-font-color,
+                ),
+                'header': (
+                        'base': $header-base-color,
+                        'light': lighten($header-base-color, $color-shade-amount),
+                        'x-light': lighten($header-base-color, ($color-shade-amount * 2)),
+                        'xx-light': lighten($header-base-color, ($color-shade-amount * 3)),
+                        'dark': darken($header-base-color, $color-shade-amount),
+                        'x-dark':darken($header-base-color, ($color-shade-amount  * 2)),
+                        'xx-dark':darken($header-base-color, ($color-shade-amount * 3)),
+                        'font-color': $header-font-color,
+                        'link-color': $header-link-color,
+                        'hover-color': $header-hover-color,
+                        'active-color': $header-active-color,
+                ),
+                'sidebar': (
+                        'base': $midnight-blue,
+                        'light': lighten($midnight-blue, 6%),
+                        'dark': darken($midnight-blue, 6%),
+                        'font-color': lighten($midnight-blue, 60%),
+                        'link-color': lighten($midnight-blue, 65%),
+                        'hover-color': lighten($midnight-blue, 100%),
+                        'active-color': lighten($turquoise, 10%),
+                ),
+                'aside': (
+                        'base': $midnight-blue,
+                        'light': lighten($midnight-blue, 6%),
+                        'dark': darken($midnight-blue, 6%),
+                        'font-color': #fff,
+                        'link-color': #fff,
+                        'hover-color': #fff,
+                        'active-color': #fff,
+                ),
+                'footer': (
+                        'base': $midnight-blue,
+                        'light': lighten($midnight-blue, 6%),
+                        'dark': darken($midnight-blue, 6%),
+                        'font-color': #fff,
+                        'link-color': #ccc,
+                        'hover-color': #fff,
+                        'active-color': #fff,
+                ),
+          //'green': #71d366,
+        ),
+);

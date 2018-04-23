@@ -3,6 +3,7 @@ module.exports = {
     vendor: {
         files: [
             {expand: true, cwd: '<%= site.src %>/vendor/', src: ['**'], dest: '<%= site.dev %>/vendor/'},
+            /* - TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js*/
         ],
     },
 

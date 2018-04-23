@@ -3,7 +3,7 @@ module.exports = {
     options: {
         min: true,
         prefix:'<%= site.vendor_dir %>/',
-        /* Adapated from https://github.com/yangqw/pb-com/blob/786251274086194f5d87565d2145157afcebc6cd/Gruntfile.js*/
+        /* TODO Adapated from https://github.com/yangqw/pb-com/blob/786251274086194f5d87565d2145157afcebc6cd/Gruntfile.js*/
        /* transform: function(filePath) {
             if (/^.*\.css$/.test(filePath)) {
                 filePath = filePath.replace('/'+destinationFolder, '');

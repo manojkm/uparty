@@ -1,5 +1,5 @@
 // ================================================================================================
-// File Name: theme-map.scss
+// File Name: config.scss
 // Description: Themes
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
@@ -18,12 +18,20 @@
 // https://codepen.io/jakealbaugh/post/using-sass-functions-to-access-complex-variable-maps
 // https://github.com/manojkm/flask
 // https://www.designernews.co/stories/61077-how-i-manage-my-colour-palettes-using-sass-maps
+// https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+// https://www.viget.com/articles/sass-maps-are-awesome/
 
+//----------------------------------*\
+// IMPORT THEMES
+//----------------------------------*/
+
+@import
+  'rebecca';
 
 //----------------------------------*\
 // THEME MAP
 //----------------------------------*/
 $themes: (
-        #{$theme-name}: $theme-palettes,
+        rebecca: $rebecca-palette, /* Define the name of the map */
       //'light': ()
 ) !default;
