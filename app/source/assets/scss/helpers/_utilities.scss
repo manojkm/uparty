@@ -21,7 +21,7 @@
 }
 
 /* Contextual variations */
-@each $scheme, $value in $contextual {
+@each $scheme, $value in $contextual-map {
   .bg-#{$scheme} {
     @include background-text-theme($scheme, $sledge-hammer: !important);
   }
@@ -40,7 +40,7 @@
 }
 
 /* Contextual variations */
-@each $scheme, $value in $contextual {
+@each $scheme, $value in $contextual-map {
   .border-#{$scheme} {
     @include border-theme($scheme, $sledge-hammer: !important);
   }
@@ -61,7 +61,7 @@
 }
 
 /* Contextual variations */
-@each $scheme, $value in $contextual {
+@each $scheme, $value in $contextual-map {
   .text-#{$scheme} {
     @include text-theme($scheme, $sledge-hammer: !important);
     @include text-link-theme($scheme, $sledge-hammer: !important);

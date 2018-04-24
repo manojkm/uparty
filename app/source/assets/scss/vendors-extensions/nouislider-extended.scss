@@ -117,7 +117,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 /* Contextual variations */
-@each $scheme, $value in $contextual {
+@each $scheme, $value in $contextual-map {
   .slider-#{$scheme} {
     .noUi-connect { @include background-theme($scheme);}
     .noUi-handle {@include border-theme($scheme);}

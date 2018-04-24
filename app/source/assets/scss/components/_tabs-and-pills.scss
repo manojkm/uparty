@@ -155,7 +155,7 @@
   }
 
   /* Contextual variations */
-  @each $scheme, $value in $contextual {
+  @each $scheme, $value in $contextual-map {
     &.#{$scheme}-box {
       @include tab-extended-boxed-theme($scheme);
     }

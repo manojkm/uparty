@@ -1,3 +1,4 @@
+@charset "UTF-8"; // Make sure the charset is set appropriately
 // ================================================================================================
 // File Name: app.scss
 // Description:
@@ -20,9 +21,6 @@
 // File extensions and leading underscores omitted.
 // ================================================================================================
 
-// Make sure the charset is set appropriately
-@charset "UTF-8";
-
 //----------------------------------*\
 // BOURBON MIXINS
 //----------------------------------*\
@@ -37,23 +35,17 @@
 	'themes/index';
 
 //----------------------------------*\
-// OVERRIDE THEME VARIABLES
+// VENDORS
 //----------------------------------*/
+// TODO, check what this guy is doing https://github.com/clawfire/Brasserie-Schuman/blob/ac0221058b295dafd1a58644ac9033604c0b639a/_sass/lib/_lib.scss
 @import
-	'custom-variables'; // TODO , This will not work as the function etc are unavailable.
+	'vendors/index';
 
 //----------------------------------*\
 // CONFIGURATION & HELPERS
 //----------------------------------*/
 @import
 	'helpers/index';
-
-//----------------------------------*\
-// VENDORS
-//----------------------------------*/
-// TODO, check what this guy is doing https://github.com/clawfire/Brasserie-Schuman/blob/ac0221058b295dafd1a58644ac9033604c0b639a/_sass/lib/_lib.scss
-@import
-	'vendors/index';
 
 //----------------------------------*\
 // BASE STUFF

@@ -57,8 +57,8 @@
 /* Adapted from https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184 */
 /* Our function for shorter usage of map-get(); */
 @function contextual-color($scheme, $tone:base) {
-  @if type-of(map-get(map-get($contextual, $scheme), $tone)) == color {
-    @return map-get(map-get($contextual, $scheme), $tone);
+  @if type-of(map-get(map-get($contextual-map, $scheme), $tone)) == color {
+    @return map-get(map-get($contextual-map, $scheme), $tone);
   } @else {
     @warn "Make sure you pass a valid color for '#{$tone}' in Theme/Contextual Sass maps";
   }
@@ -69,7 +69,7 @@
 //----------------------------------*/
 
 @function theme-color($scheme, $tone) {
-  @each $themeName, $value in $themes {
+  @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {
       @return map-get-strict(map-get-strict($colors, $scheme), $tone);

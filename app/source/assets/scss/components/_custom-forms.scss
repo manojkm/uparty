@@ -452,7 +452,7 @@
   }
 
   /* Contextual variations */
-  @each $scheme, $value in $contextual {
+  @each $scheme, $value in $contextual-map {
     &.#{$ct}-#{$scheme} {
       @include custom-toggle($scheme);
     }
@@ -571,7 +571,7 @@
   }
 
   /* Contextual variations */
-  @each $scheme, $value in $contextual {
+  @each $scheme, $value in $contextual-map {
     &.#{$ctf}-#{$scheme} {
       @include custom-toggle-flip($scheme);
     }

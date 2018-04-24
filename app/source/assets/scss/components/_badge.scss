@@ -25,7 +25,7 @@
   }
 
   /* Theme variations */
-  @each $themeName, $value in $themes {
+  @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
 
@@ -41,7 +41,7 @@
   }
 
   /* Contextual variations */
-  @each $scheme, $value in $contextual {
+  @each $scheme, $value in $contextual-map {
     &.#{$b}-#{$scheme} {
       @include badges-theme($scheme, $sledge-hammer: !important);
     }

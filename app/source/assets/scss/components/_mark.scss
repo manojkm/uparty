@@ -43,7 +43,7 @@ mark {
 }
 
 /* Contextual variations */
-@each $scheme, $value in $contextual {
+@each $scheme, $value in $contextual-map {
   .mark-#{$scheme} {
     &:after {
       @include background-theme($scheme);

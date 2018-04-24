@@ -24,22 +24,20 @@
 // https://www.ian-thomas.net/a-sassy-approach-to-theming-components/
 // https://codepen.io/anatomic/pen/gpxgqB
 // https://zellwk.com/blog/organizing-multiple-theme-styles-with-sass/
-
 //----------------------------------*\
 // IMPORT THEMES
 //----------------------------------*/
 /* Import your themes here. */
-@import
-  'theme-rebecca/rebecca';
+@import 'theme-rebecca/rebecca';
 
 //----------------------------------*\
-// THEME MAP
+// THEMES MAP
 //----------------------------------*/
 // Themes are all stored in a map data-structure which gives flexibility
 // when traversing based on keys and also looking up values based on strings
 
-/* Define the name of your theme and corresponding palette map name */
-$themes: (
-        rebecca: $rebecca-palette,
-      //'unicorn': ()
-) !default;
+$themes-map: (
+/* Define the name of your theme and corresponding palette map variable */
+        rebecca: $rebecca-palette-map,
+        //'unicorn': ()
+)

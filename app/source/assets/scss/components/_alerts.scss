@@ -23,7 +23,7 @@
   }
 
   /* Theme variations */
-  @each $themeName, $value in $themes {
+  @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
       &.#{$a}-#{$scheme} {
@@ -33,7 +33,7 @@
   }
 
   /* Contextual variations */
-  @each $scheme, $value in $contextual {
+  @each $scheme, $value in $contextual-map {
     &.#{$a}-#{$scheme} {
       @include alert-theme($scheme);
     }

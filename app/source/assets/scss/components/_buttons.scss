@@ -117,13 +117,13 @@ and disabled options for all buttons.
 }
 
 /* Contextual variations */
-@each $scheme, $value in $contextual {
+@each $scheme, $value in $contextual-map {
   .btn-#{$scheme} {
     @include btn-theme($scheme);
   }
 }
 
-@each $scheme, $value in $contextual {
+@each $scheme, $value in $contextual-map {
   .btn-outline-#{$scheme} {
     @include btn-theme($scheme, outline);
   }

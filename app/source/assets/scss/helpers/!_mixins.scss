@@ -125,7 +125,7 @@
 //------------------------------------------------------*/
 @mixin background-theme($theme-color, $tone:base, $font-color:font-color, $sledge-hammer:null) {
 
-  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+  @if map-has-key($contextual-map, $theme-color) { /* Contextual variations */
     background-color: contextual-color($theme-color, $tone) $sledge-hammer;
   } @else { /* Theme variations */
     @include background-color($theme-color, $tone, $sledge-hammer);
@@ -137,7 +137,7 @@
 //------------------------------------------------------*/
 @mixin background-text-theme($theme-color, $tone:base, $font-color:font-color, $sledge-hammer:null) {
 
-  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+  @if map-has-key($contextual-map, $theme-color) { /* Contextual variations */
     background-color: contextual-color($theme-color, $tone) $sledge-hammer;
     color: contextual-color($theme-color, $font-color) $sledge-hammer;
   } @else { /* Theme variations */
@@ -152,7 +152,7 @@
 @mixin border-theme($theme-color, $tone:base, $position:all, $sledge-hammer:null) {
 
 
-   @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+   @if map-has-key($contextual-map, $theme-color) { /* Contextual variations */
 
      @if $position == 'all' {
        border-color: contextual-color($theme-color, $tone) $sledge-hammer;
@@ -207,7 +207,7 @@
 //----------------------------------*/
 @mixin text-theme($theme-color, $font-color:base, $sledge-hammer:null) {
 
-  @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+  @if map-has-key($contextual-map, $theme-color) { /* Contextual variations */
     color: contextual-color($theme-color, $font-color) $sledge-hammer;
   } @else { /* Theme variations */
     @include color($theme-color, $font-color, $sledge-hammer);
@@ -221,7 +221,7 @@
 @mixin text-link-theme($theme-color, $font-color:base, $hover-color:dark, $tone-active:x-dark, $sledge-hammer:null) {
   @at-root a#{&} {
     #{$hover-tags} {
-      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      @if map-has-key($contextual-map, $theme-color) { /* Contextual variations */
         color: contextual-color($theme-color, $hover-color) $sledge-hammer;
       } @else { /* Theme variations */
         @include color($theme-color, $hover-color, $sledge-hammer);
@@ -230,7 +230,7 @@
 
     #{$active-tags},
     #{$focus-tags}{
-      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      @if map-has-key($contextual-map, $theme-color) { /* Contextual variations */
         color: contextual-color($theme-color, $tone-active) $sledge-hammer;
       } @else { /* Theme variations */
         @include color($theme-color, $tone-active, $sledge-hammer);
@@ -458,7 +458,7 @@ Usage @include opacity(1);
 
   }
   &.btn-raised {
-    @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+    @if map-has-key($contextual-map, $theme-color) { /* Contextual variations */
       box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 contextual-color($theme-color, $tone-hover);
     } @else { /* Theme variations */
       $box-shadow-color: theme-color($theme-color, $tone-hover);
@@ -476,7 +476,7 @@ Usage @include opacity(1);
 
     #{$hover-tags},
     #{$active-tags} {
-      @if map-has-key($contextual, $theme-color) { /* Contextual variations */
+      @if map-has-key($contextual-map, $theme-color) { /* Contextual variations */
         box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 contextual-color($theme-color, $tone-hover);
       } @else { /* Theme variations */
         $box-shadow-color: theme-color($theme-color, $tone-hover);
