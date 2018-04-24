@@ -14,8 +14,20 @@ $secondary-background: $mauve; // Used as the background for secondary buttons, 
 $secondary-foreground: $white-color; // Used as the text color on secondary background.
 
 /* Header */
-$header-background: $midnight-blue; // Used as the background color of header.
-$header-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color
+$header-background: $midnight-blue; // Used as the background color of Header.
+$header-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color. Use darken(), lighten() functions if required.
+
+/* Sidebar */
+$sidebar-background: $midnight-blue; // Used as the background color of Sidebar.
+$sidebar-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color. Use darken(), lighten() functions if required.
+
+/* Aside */
+$aside-background: $midnight-blue; // Used as the background color of Aside.
+$aside-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color. Use darken(), lighten() functions if required.
+
+/* Footer */
+$footer-background: $midnight-blue; // Used as the background color of Footer.
+$footer-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color. Use darken(), lighten() functions if required.
 
 /* Colour shades amount */
 $color-shade-amount: 4%; // Used to generate base, light & dark color shades
@@ -29,7 +41,7 @@ $color-shade-amount: 4%; // Used to generate base, light & dark color shades
 /* Define color/shade map */
 // TODO for  tomorrow https://stackoverflow.com/questions/33856034/dynamically-build-up-a-sass-map-and-then-use-the-values
 
-$rebecca-palette: (/* Define the name of the map */
+$rebecca-palette : (/* Define the name of the map */
         'main-colors': (
                 'primary': (
                         'base': $primary-background,
@@ -52,7 +64,7 @@ $rebecca-palette: (/* Define the name of the map */
                         'font-color':$secondary-foreground,
                 )
         ),
-        'partials-colors': (
+        'partial-colors': (
                 'header': (
                         'base': $header-background,
                         'light': lighten($header-background, $color-shade-amount),
@@ -67,32 +79,45 @@ $rebecca-palette: (/* Define the name of the map */
                         'active-color': nth($header-colors, 4),
                 ),
                 'sidebar': (
-                        'base': $midnight-blue,
-                        'light': lighten($midnight-blue, 6%),
-                        'dark': darken($midnight-blue, 6%),
-                        'font-color': lighten($midnight-blue, 60%),
-                        'link-color': lighten($midnight-blue, 65%),
-                        'hover-color': lighten($midnight-blue, 100%),
-                        'active-color': lighten($turquoise, 10%),
+                        'base': $sidebar-background,
+                        'light': lighten($sidebar-background, $color-shade-amount),
+                        'x-light': lighten($sidebar-background, ($color-shade-amount * 2)),
+                        'xx-light': lighten($sidebar-background, ($color-shade-amount * 3)),
+                        'dark': darken($sidebar-background, $color-shade-amount),
+                        'x-dark':darken($sidebar-background, ($color-shade-amount  * 2)),
+                        'xx-dark':darken($sidebar-background, ($color-shade-amount * 3)),
+                        'font-color': nth($sidebar-colors, 1),
+                        'link-color': nth($sidebar-colors, 2),
+                        'hover-color': nth($sidebar-colors, 3),
+                        'active-color': nth($sidebar-colors, 4),
                 ),
                 'aside': (
-                        'base': $midnight-blue,
-                        'light': lighten($midnight-blue, 6%),
-                        'dark': darken($midnight-blue, 6%),
-                        'font-color': #fff,
-                        'link-color': #fff,
-                        'hover-color': #fff,
-                        'active-color': #fff,
+                        'base': $aside-background,
+                        'light': lighten($aside-background, $color-shade-amount),
+                        'x-light': lighten($aside-background, ($color-shade-amount * 2)),
+                        'xx-light': lighten($aside-background, ($color-shade-amount * 3)),
+                        'dark': darken($aside-background, $color-shade-amount),
+                        'x-dark':darken($aside-background, ($color-shade-amount  * 2)),
+                        'xx-dark':darken($aside-background, ($color-shade-amount * 3)),
+                        'font-color': nth($aside-colors, 1),
+                        'link-color': nth($aside-colors, 2),
+                        'hover-color': nth($aside-colors, 3),
+                        'active-color': nth($aside-colors, 4),
                 ),
                 'footer': (
-                        'base': $midnight-blue,
-                        'light': lighten($midnight-blue, 6%),
-                        'dark': darken($midnight-blue, 6%),
-                        'font-color': #fff,
-                        'link-color': #ccc,
-                        'hover-color': #fff,
-                        'active-color': #fff,
+                        'base': $footer-background,
+                        'light': lighten($footer-background, $color-shade-amount),
+                        'x-light': lighten($footer-background, ($color-shade-amount * 2)),
+                        'xx-light': lighten($footer-background, ($color-shade-amount * 3)),
+                        'dark': darken($footer-background, $color-shade-amount),
+                        'x-dark':darken($footer-background, ($color-shade-amount  * 2)),
+                        'xx-dark':darken($footer-background, ($color-shade-amount * 3)),
+                        'font-color': nth($footer-colors, 1),
+                        'link-color': nth($footer-colors, 2),
+                        'hover-color': nth($footer-colors, 3),
+                        'active-color': nth($footer-colors, 4),
                 ),
-          //'green': #71d366,
+          //'green': #71d366,  // non-nested values
         ),
 );
+

@@ -39,6 +39,19 @@ a {
   box-sizing: inherit;
 }
 
-input, textarea, button {
-  @include border-radius(0);
+//input, textarea, button {
+//  @include border-radius(0);
+//}
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+figure,
+img {
+  max-width: 100%;
+  height: auto;
 }

@@ -13,7 +13,7 @@
 // To switch theme, change the class attribute on the <body> in the index.html file.
 // For instance, to use the Dark theme change:  <body class="theme-dark">
 // ================================================================================================
-// TODO, theme changing tutorial below. Copy paste this in my own doc later and then remove below line.
+// TODO, please refer the below links for theme changing tutorial, doc etc.. Copy paste this in my own doc later and then remove below line.
 // https://github.com/nborracha/plainID-DemoApp/tree/61b66cf018e918bcb17aa87f243fce2bc95d9833
 // https://codepen.io/jakealbaugh/post/using-sass-functions-to-access-complex-variable-maps
 // https://github.com/manojkm/flask
@@ -23,18 +23,19 @@
 // https://github.com/zellwk/themify/blob/master/_themify.scss
 // https://www.ian-thomas.net/a-sassy-approach-to-theming-components/
 // https://codepen.io/anatomic/pen/gpxgqB
+// https://zellwk.com/blog/organizing-multiple-theme-styles-with-sass/
 
 //----------------------------------*\
 // IMPORT THEMES
 //----------------------------------*/
 /* Import your themes here. */
 @import
-  'rebecca';
+  'theme-rebecca/rebecca';
 
 //----------------------------------*\
 // THEME MAP
 //----------------------------------*/
-// Themes are all stored in a map data-structure which gives flexibilty
+// Themes are all stored in a map data-structure which gives flexibility
 // when traversing based on keys and also looking up values based on strings
 
 /* Define the name of your theme and corresponding palette map name */
