@@ -15,43 +15,84 @@ module.exports = {
 
     // Enable the below if you are using grunt-contrib-sass
     options: {
-        // loadPath: require('node-bourbon').includePaths,
-        loadPath:[
+        loadPath: [
             require('node-bourbon').includePaths,
             '<%= site.node_dir %>/bootstrap/scss'
         ],
-
-        precision: 6,
         sourcemap: 'auto',
-        style: 'compressed', //Values: nested, expanded, compact, compressed
-        trace: true
+        trace: true,
+        precision: 6,
     },
 
-    main: {
-        files: {
-            '<%= site.dev_assets %>/css/<%=site.name %>.css': '<%= site.src_assets %>/scss/app.scss',
-            '<%= site.dev_assets %>/css/bootstrap-extended/bootstrap.css': '<%= site.src_assets %>/scss/bootstrap-extended/index.scss'
+    // `grunt sass:dev`
+    dev: {
+        options: {
+            style: 'nested' // Values: nested, expanded, compact, compressed
+        },
+
+        main: {
+            files: '<%= taskVarsConfig.sass_main_files %>'
+        },
+
+        bootstrap: {
+            files: '<%= taskVarsConfig.sass_bootstrap_files %>'
+        },
+
+        pages: {
+            files: [{
+                expand: true,
+                cwd: '<%= taskVarsConfig.sass_pages_src_dir %>',
+                src: ['**/*.scss', '!**/_*.scss'],
+                dest: '<%= taskVarsConfig.sass_pages_dest_dir %>',
+                ext: '.css'
+            }]
+        },
+
+        vendors_extensions: {
+            files: [{
+                expand: true,
+                cwd: '<%= taskVarsConfig.sass_vendors_ext_src_dir %>',
+                src: ['**/*.scss', '!**/_*.scss'],
+                dest: '<%= taskVarsConfig.sass_vendors_ext_dest_dir %>',
+                ext: '.css'
+            }]
         }
     },
 
-    pages: {
-        files: [{
-            expand: true,
-            cwd: '<%= site.src_assets %>/scss/pages/',
-            src: ['**/*.scss', '!**/_*.scss'],
-            dest: '<%= site.dev_assets %>/css/pages/',
-            ext: '.css'
-        }]
-    },
+    // `grunt sass:prod`
+    prod: {
+        options: {
+            style: 'compressed', // Values: nested, expanded, compact, compressed
+            sourcemap: 'none'
+        },
 
-    vendors: {
-        files: [{
-            expand: true,
-            cwd: '<%= site.src_assets %>/scss/vendors-extensions/',
-            src: ['**/*.scss', '!**/_*.scss'],
-            dest: '<%= site.dev_assets %>/css/vendors/',
-            ext: '.css'
-        }]
+        main: {
+            files: '<%= taskVarsConfig.sass_main_files %>'
+        },
+
+        bootstrap: {
+            files: '<%= taskVarsConfig.sass_bootstrap_files %>'
+        },
+
+        pages: {
+            files: [{
+                expand: true,
+                cwd: '<%= taskVarsConfig.sass_pages_src_dir %>',
+                src: ['**/*.scss', '!**/_*.scss'],
+                dest: '<%= taskVarsConfig.sass_pages_dest_dir %>',
+                ext: '.css'
+            }]
+        },
+
+        vendors_extensions: {
+            files: [{
+                expand: true,
+                cwd: '<%= taskVarsConfig.sass_vendors_ext_src_dir %>',
+                src: ['**/*.scss', '!**/_*.scss'],
+                dest: '<%= taskVarsConfig.sass_vendors_ext_dest_dir %>',
+                ext: '.css'
+            }]
+        }
     }
 
 };

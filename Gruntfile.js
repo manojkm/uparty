@@ -32,6 +32,7 @@ module.exports = function(grunt) {
 
             site: grunt.file.readYAML('_config.yml'),
             jsCombPath: grunt.file.readJSON('app/source/data/jscomb.json'),
+            taskVarsConfig: grunt.file.read('app/source/data/task-vars-config.js'),
             cssCombPath: grunt.file.readJSON('app/source/data/csscomb.json'),
             vendorInjector: grunt.file.readJSON('app/source/data/vendor-injector.json'),
 
