@@ -1,7 +1,7 @@
 // ================================================================================================
 // File Name: index.scss
 // Description:
-// Sass manifest file for helpers. Importing order & guidelines are mentioned under the
+// Sass manifest file for utilities. Importing order & guidelines are mentioned under the
 // title MAIN FILE - https://sass-guidelin.es/#architecture.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
@@ -20,14 +20,8 @@
 // ================================================================================================
 
 //----------------------------------*\
-// CONFIGURATION & HELPERS
+// UTILITIES
 //----------------------------------*/
 @import
-    'fonts',
-    'functions',
-    '../custom-variables', // Your custom variables and variable overwrites.
-    'colors',
-    'variables', // Default variables
-    'mixins',
-    'extends',
-    'placeholders';
+  'utilities';
+

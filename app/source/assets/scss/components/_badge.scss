@@ -41,7 +41,7 @@
   }
 
   /* Contextual variations */
-  @each $scheme, $value in $contextual-map {
+  @each $scheme, $value in $contextual-palette-map {
     &.#{$b}-#{$scheme} {
       @include badges-theme($scheme, $sledge-hammer: !important);
     }

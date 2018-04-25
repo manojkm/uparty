@@ -33,7 +33,7 @@
   }
 
   /* Contextual variations */
-  @each $scheme, $value in $contextual-map {
+  @each $scheme, $value in $contextual-palette-map {
     &.#{$a}-#{$scheme} {
       @include alert-theme($scheme);
     }

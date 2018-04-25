@@ -4,7 +4,6 @@
     "<%= site.node_dir %>/animate.css/animate.css",
     "<%= site.node_dir %>/bootstrap/dist/css/bootstrap.css",
     "<%= site.node_dir %>/simple-line-icons/css/simple-line-icons.css",
-
     "<%= site.node_dir %>/jquery/dist/jquery.js",
     "<%= site.node_dir %>/nicescroll/jquery.nicescroll.js",
     "<%= site.node_dir %>/metismenu/dist/metisMenu.js",
@@ -40,22 +39,10 @@
     "<%= site.node_dir %>/toastr/build/toastr.min.css",
     "<%= site.node_dir %>/toastr/build/toastr.min.js"
   ],
-  "mask": [
-    "<%= site.node_dir %>/jquery-mask-plugin/dist/jquery.mask.js"
-  ],
-  "autosize": [
-    "<%= site.node_dir %>/autosize/dist/autosize.js"
-  ],
-  "validate": [
-    "<%= site.node_dir %>/jquery-validation/dist/jquery.validate.js"
-  ],
-  "steps": [
-    "<%= site.node_dir %>/jquery-steps/build/jquery.steps.js"
-  ],
-  "repeater": [
-    "<%= site.node_dir %>/jquery.repeater/jquery.repeater.js"
-  ],
-  "maxlength": [
-    "<%= site.node_dir %>/bootstrap-maxlength/bootstrap-maxlength.js"
-  ]
+  "mask": "<%= site.node_dir %>/jquery-mask-plugin/dist/jquery.mask.js",
+  "autosize": "<%= site.node_dir %>/autosize/dist/autosize.js",
+  "validate": "<%= site.node_dir %>/jquery-validation/dist/jquery.validate.js",
+  "steps": "<%= site.node_dir %>/jquery-steps/build/jquery.steps.js",
+  "repeater": "<%= site.node_dir %>/jquery.repeater/jquery.repeater.js",
+  "maxlength": "<%= site.node_dir %>/bootstrap-maxlength/bootstrap-maxlength.js"
 }

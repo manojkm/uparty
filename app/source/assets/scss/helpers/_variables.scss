@@ -34,7 +34,7 @@
 /* Looking for theme color palette? Please check themes/_theme-map.scss */
 
 /* Contextual colors */
-$contextual-map: (
+$contextual-palette-map: (
         'success': (
                 'base': $grass,
                 'light': lighten($grass, 6%),
@@ -1201,6 +1201,9 @@ $ease-in-out-circ: cubic-bezier(.27, .01, .38, 1.06);
 //----------------------------------*\
 // ZINDEX
 //----------------------------------*/
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
 $zindex: (
         overlay : 800,
         footer : 800,

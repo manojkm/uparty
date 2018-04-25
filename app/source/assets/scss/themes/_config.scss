@@ -24,6 +24,9 @@
 // https://www.ian-thomas.net/a-sassy-approach-to-theming-components/
 // https://codepen.io/anatomic/pen/gpxgqB
 // https://zellwk.com/blog/organizing-multiple-theme-styles-with-sass/
+// https://getuikit.com/docs/sass
+
+
 //----------------------------------*\
 // IMPORT THEMES
 //----------------------------------*/
@@ -37,7 +40,7 @@
 // when traversing based on keys and also looking up values based on strings
 
 $themes-map: (
-/* Define the name of your theme and corresponding palette map variable */
+  /* Define the name of your theme as the key and corresponding palette map variable as the value */
         rebecca: $rebecca-palette-map,
-        //'unicorn': ()
+  //'unicorn': ()
 )

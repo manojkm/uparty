@@ -2,7 +2,8 @@
 // ================================================================================================
 // File Name: app.scss
 // Description:
-// Sass manifest file. Following the 7-1 Pattern - https://sass-guidelin.es/#architecture.
+// Sass manifest file and your entry point to compile scss.
+// Following the 7-1 Pattern - https://sass-guidelin.es/#architecture.
 // Importing order & guidelines are mentioned under the title MAIN FILE -
 // https://sass-guidelin.es/#architecture.
 // ----------------------------------------------------------------------------------------------
@@ -35,17 +36,23 @@
 	'themes/index';
 
 //----------------------------------*\
-// VENDORS
-//----------------------------------*/
-// TODO, check what this guy is doing https://github.com/clawfire/Brasserie-Schuman/blob/ac0221058b295dafd1a58644ac9033604c0b639a/_sass/lib/_lib.scss
-@import
-	'vendors/index';
-
-//----------------------------------*\
 // CONFIGURATION & HELPERS
 //----------------------------------*/
 @import
 	'helpers/index';
+
+//----------------------------------*\
+// VENDORS
+//----------------------------------*/
+// TODO, check what this guy is doing https://github.com/clawfire/Brasserie-Schuman/blob/ac0221058b295dafd1a58644ac9033604c0b639a/_sass/lib/_lib.scss
+@import
+	'vendors-include/index';
+
+//----------------------------------*\
+// UTILITIES
+//----------------------------------*/
+@import
+	'utilities/index';
 
 //----------------------------------*\
 // BASE STUFF

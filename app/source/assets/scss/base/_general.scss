@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: common.scss
-// Description: Write styles that apply throughout the project in this file.
+// Description: Contains basic default element styles
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -54,4 +54,26 @@ figure,
 img {
   max-width: 100%;
   height: auto;
+}
+
+
+:active,
+:focus {
+  outline: none;
+}
+
+
+::-webkit-selection {
+  color: $selection-color;
+  background: $selection-bg;
+}
+
+::-moz-selection {
+  color: $selection-color;
+  background: $selection-bg;
+}
+
+::selection {
+  color: $selection-color;
+  background: $selection-bg;
 }

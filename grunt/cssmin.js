@@ -1,5 +1,7 @@
 module.exports = {
-    options: {},
+    options: {
+        keepSpecialComments: 0
+    },
 
     dev: {
         src: ['<%= cssCombPath %>'], // File is located at /app/source/data/csscomb.json

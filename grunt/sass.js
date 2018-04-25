@@ -23,7 +23,7 @@ module.exports = {
 
         precision: 6,
         sourcemap: 'auto',
-        style: 'expanded',
+        style: 'compressed', //Values: nested, expanded, compact, compressed
         trace: true
     },
 

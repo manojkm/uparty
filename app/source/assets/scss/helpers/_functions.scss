@@ -57,10 +57,10 @@
 /* Adapted from https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184 */
 /* Our function for shorter usage of map-get(); */
 @function contextual-color($scheme, $tone:base) {
-  @if type-of(map-get(map-get($contextual-map, $scheme), $tone)) == color {
-    @return map-get(map-get($contextual-map, $scheme), $tone);
+  @if type-of(map-get(map-get($contextual-palette-map, $scheme), $tone)) == color {
+    @return map-get(map-get($contextual-palette-map, $scheme), $tone);
   } @else {
-    @warn "Make sure you pass a valid color for '#{$tone}' in Theme/Contextual Sass maps";
+    @warn "Make sure you pass a valid color for '#{$tone}' in $contextual-palette-map";
   }
 }
 
