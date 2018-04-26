@@ -10,6 +10,7 @@
 
 module.exports = function(grunt) {
     var path = require('path');
+    grunt.sassFiles = [];
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks
     //require('load-grunt-tasks')(grunt); // Load multiple grunt tasks listed in your package.json

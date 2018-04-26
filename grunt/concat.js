@@ -1,12 +1,24 @@
-module.exports = {
-    options: {
-        // separator: ';',
-    },
+module.exports = function(grunt, options) {
+    var concat = {
+        options: {
+            sourceMap: true
+        }
+    };
+    var files = [];
+    grunt.file.recurse('app/source/assets/scss/themes/theme-rebecca', function(abspath, rootdir, subdir, filename){
+        files.push(filename);
+    });
 
-    dev: {
-        src: ['<%= jsCombPath %>'], // File is located at /app/source/data/jscomb.json
-        dest: '<%= site.dev_assets %>/js/<%=site.name %>.js',
-        nonull: true, //to warn if a given file is missing or invalid
-    },
+    sassFiles = files;
+    files.forEach(file => {
+        concat[file] = {
+            src: [
+                'app/source/assets/scss/themes/theme-rebecca/'+file,
+                'app/source/assets/scss/app.scss'
+            ],
+            dest: 'app/development/assets/css/sass/'+file
+        };
+});
 
+    return concat;
 };
