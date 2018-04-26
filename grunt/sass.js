@@ -22,6 +22,7 @@ module.exports = {
         sourcemap: 'auto',
         trace: true,
         precision: 6,
+        update: true // Only compile changed files.
     },
 
     // `grunt sass:dev`
@@ -31,19 +32,23 @@ module.exports = {
         },
 
         main: {
-            files: '<%= taskVarsConfig.sass_main_files %>'
+            files:  {
+                '<%= taskVarsConfig.sass_files.main.dest %>': '<%= taskVarsConfig.sass_files.main.src %>'
+            }
         },
 
         bootstrap: {
-            files: '<%= taskVarsConfig.sass_bootstrap_files %>'
+            files:  {
+                '<%= taskVarsConfig.sass_files.bootstrap.dest %>': '<%= taskVarsConfig.sass_files.bootstrap.src %>'
+            }
         },
 
         pages: {
             files: [{
                 expand: true,
-                cwd: '<%= taskVarsConfig.sass_pages_src_dir %>',
+                cwd: '<%= taskVarsConfig.sass_files.pages.src %>',
                 src: ['**/*.scss', '!**/_*.scss'],
-                dest: '<%= taskVarsConfig.sass_pages_dest_dir %>',
+                dest: '<%= taskVarsConfig.sass_files.pages.dest %>',
                 ext: '.css'
             }]
         },
@@ -51,9 +56,9 @@ module.exports = {
         vendors_extensions: {
             files: [{
                 expand: true,
-                cwd: '<%= taskVarsConfig.sass_vendors_ext_src_dir %>',
+                cwd: '<%= taskVarsConfig.sass_files.vendors_extensions.src %>',
                 src: ['**/*.scss', '!**/_*.scss'],
-                dest: '<%= taskVarsConfig.sass_vendors_ext_dest_dir %>',
+                dest: '<%= taskVarsConfig.sass_files.vendors_extensions.dest %>',
                 ext: '.css'
             }]
         }
@@ -66,33 +71,6 @@ module.exports = {
             sourcemap: 'none'
         },
 
-        main: {
-            files: '<%= taskVarsConfig.sass_main_files %>'
-        },
-
-        bootstrap: {
-            files: '<%= taskVarsConfig.sass_bootstrap_files %>'
-        },
-
-        pages: {
-            files: [{
-                expand: true,
-                cwd: '<%= taskVarsConfig.sass_pages_src_dir %>',
-                src: ['**/*.scss', '!**/_*.scss'],
-                dest: '<%= taskVarsConfig.sass_pages_dest_dir %>',
-                ext: '.css'
-            }]
-        },
-
-        vendors_extensions: {
-            files: [{
-                expand: true,
-                cwd: '<%= taskVarsConfig.sass_vendors_ext_src_dir %>',
-                src: ['**/*.scss', '!**/_*.scss'],
-                dest: '<%= taskVarsConfig.sass_vendors_ext_dest_dir %>',
-                ext: '.css'
-            }]
-        }
     }
 
 };
