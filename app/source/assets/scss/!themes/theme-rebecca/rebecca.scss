@@ -1,3 +1,21 @@
+@charset "UTF-8"; // Make sure the charset is set appropriately
+
+
+//----------------------------------*\
+// BOURBON MIXINS
+//----------------------------------*\
+// http://bourbon.io/docs/
+@import
+  'bourbon';
+
+
+
+// ----------------------------------*\
+// THEME DEPENDENCIES
+//----------------------------------*/
+@import
+'../../helpers/colors';
+
 //----------------------------------*\
 // BRAND COLOR VARIABLES
 //----------------------------------*/
@@ -121,3 +139,22 @@ $rebecca-palette-map : (
         ),
 );
 
+
+
+//----------------------------------*\
+// THEMES MAP
+//----------------------------------*/
+// Themes are all stored in a map data-structure which gives flexibility
+// when traversing based on keys and also looking up values based on strings
+
+$themes-map: (
+  /* Define the name of your theme as the key and corresponding palette map variable as the value */
+        rebecca: $rebecca-palette-map,
+  //'unicorn': ()
+);
+
+
+
+
+@import
+'../../apptest';

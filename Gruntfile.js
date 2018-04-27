@@ -9,8 +9,62 @@
 'use strict';
 
 module.exports = function(grunt) {
+    var fs = require('fs');
     var path = require('path');
-    grunt.sassFiles = [];
+
+
+    //options
+    var concatOpts = {};
+    var minifyOpts = {};
+    var jadeFiles = {};
+    var stylusFiles = {};
+    var importPaths = [];
+    var sassFiles = {};
+
+    var dirs = {
+        src: 'app/source/assets/scss/themes',
+        dest: 'app/development/assets'
+    };
+
+    function prepareSassFiles(page) {
+        var files = fs.readdirSync(dirs.src + '/' + page);
+        files = files.filter(function(element, index, array) {
+            if (path.extname(element) == '.scss') return true;
+            return false;
+        });
+
+        files = files.map(function(file) {
+            return dirs.src + '/' + page + '/' + file;
+        });
+
+        sassFiles[dirs.dest + '/styles/' + page + '.css' ] = files.join('');
+    }
+
+    var pages = fs.readdirSync('./app/source/assets/scss/themes/');
+    pages.forEach(function(page) {
+        if (page == 'layout') return;
+
+        // concatOpts[page] = {
+        //     src: ['<%= dirs.src %>' + page + '/*.js'],
+        //     dest: '<%= dirs.dest %>/javascript/' + page + '.js'
+        // };
+        //
+        // minifyOpts[page] = {
+        //     src: ['<%= dirs.dest %>/javascript/' + page + '.js'],
+        //     dest: '<%= dirs.dest %>/javascript/' + page + '.min.js'
+        // };
+
+        // jadeFiles['<%= dirs.dest %>/' + page + '.html'] = ['<%= dirs.src %>/' + page + '/*.jade'];
+        // stylusFiles['<%= dirs.dest %>/styles/' + page + '.css' ] = '<%= dirs.src %>/' + page + '/*.styl';
+        // sassFiles['<%= dirs.dest %>/css/' + page + '.css' ] = '<%= dirs.src %>/' + page + '/*.scss';
+
+        prepareSassFiles(page);
+
+        // importPaths.push(dirs.src + '/' + page);
+    });
+
+    //Makes it available to exec tasks
+    grunt.sassFiles = sassFiles;
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks
     //require('load-grunt-tasks')(grunt); // Load multiple grunt tasks listed in your package.json
