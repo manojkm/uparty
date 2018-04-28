@@ -1,20 +1,9 @@
-@charset "UTF-8"; // Make sure the charset is set appropriately
-
-
 //----------------------------------*\
-// BOURBON MIXINS
-//----------------------------------*\
-// http://bourbon.io/docs/
-@import
-  'bourbon';
-
-
-
-// ----------------------------------*\
 // THEME DEPENDENCIES
 //----------------------------------*/
 @import
-'../../helpers/colors';
+    '../../custom-variables', // Your custom variables and variable overwrites.
+    '../../helpers/colors'; // Default color variables
 
 //----------------------------------*\
 // BRAND COLOR VARIABLES
@@ -33,19 +22,19 @@ $secondary-foreground: $white-color; // Used as the text color on secondary back
 
 /* Header */
 $header-background: $midnight-blue; // Used as the background color of Header.
-$header-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color. Use darken(), lighten() functions if required.
+$header-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 /* Sidebar */
 $sidebar-background: $midnight-blue; // Used as the background color of Sidebar.
-$sidebar-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color. Use darken(), lighten() functions if required.
+$sidebar-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 /* Aside */
 $aside-background: $midnight-blue; // Used as the background color of Aside.
-$aside-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color. Use darken(), lighten() functions if required.
+$aside-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 /* Footer */
 $footer-background: $midnight-blue; // Used as the background color of Footer.
-$footer-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font-color, link-color, hover-color, active-color. Use darken(), lighten() functions if required.
+$footer-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 /* Colour shades amount */
 $color-shade-amount: 4%; // Used to generate base, light & dark color shades
@@ -138,23 +127,3 @@ $rebecca-palette-map : (
           //'green': #71d366,  // non-nested values
         ),
 );
-
-
-
-//----------------------------------*\
-// THEMES MAP
-//----------------------------------*/
-// Themes are all stored in a map data-structure which gives flexibility
-// when traversing based on keys and also looking up values based on strings
-
-$themes-map: (
-  /* Define the name of your theme as the key and corresponding palette map variable as the value */
-        rebecca: $rebecca-palette-map,
-  //'unicorn': ()
-);
-
-
-
-
-@import
-'../../apptest';

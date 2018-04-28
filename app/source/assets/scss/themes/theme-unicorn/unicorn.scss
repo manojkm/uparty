@@ -1,20 +1,9 @@
-@charset "UTF-8"; // Make sure the charset is set appropriately
-
-
 //----------------------------------*\
-// BOURBON MIXINS
-//----------------------------------*\
-// http://bourbon.io/docs/
-@import
-  'bourbon';
-
-
-
-// ----------------------------------*\
 // THEME DEPENDENCIES
 //----------------------------------*/
 @import
-'../../helpers/colors';
+    '../../custom-variables', // Your custom variables and variable overwrites.
+    '../../helpers/colors'; // Default color variables
 
 //----------------------------------*\
 // BRAND COLOR VARIABLES
@@ -24,11 +13,11 @@
 // but separate variables outside of the map make it easier.
 
 /* Primary */
-$primary-background: $turquoise; // Used as the background for primary buttons, color for primary links etc...
+$primary-background: $nephritis; // Used as the background for primary buttons, color for primary links etc...
 $primary-foreground: $white-color; // Used as the text color on primary background.
 
 /* Secondary  */
-$secondary-background: $mauve; // Used as the background for secondary buttons, color for secondary links etc...
+$secondary-background: $pomegranate; // Used as the background for secondary buttons, color for secondary links etc...
 $secondary-foreground: $white-color; // Used as the text color on secondary background.
 
 /* Header */
@@ -59,7 +48,7 @@ $color-shade-amount: 4%; // Used to generate base, light & dark color shades
 /* Define color/shade map */
 // TODO for  tomorrow https://stackoverflow.com/questions/33856034/dynamically-build-up-a-sass-map-and-then-use-the-values
 
-$rebecca-palette-map : (
+$unicorn-palette-map : (
         'main-colors': (
                 'primary': (
                         'base': $primary-background,
@@ -138,23 +127,3 @@ $rebecca-palette-map : (
           //'green': #71d366,  // non-nested values
         ),
 );
-
-
-
-//----------------------------------*\
-// THEMES MAP
-//----------------------------------*/
-// Themes are all stored in a map data-structure which gives flexibility
-// when traversing based on keys and also looking up values based on strings
-
-$themes-map: (
-  /* Define the name of your theme as the key and corresponding palette map variable as the value */
-        rebecca: $rebecca-palette-map,
-  //'unicorn': ()
-);
-
-
-
-
-@import
-'../../apptest';

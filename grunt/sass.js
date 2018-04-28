@@ -1,6 +1,5 @@
 module.exports = function (grunt) {
 
-
     return {
         options: {
             loadPath: [
@@ -8,20 +7,24 @@ module.exports = function (grunt) {
                 '<%= site.node_dir %>/bootstrap/scss'
             ],
             sourcemap: 'auto',
+            sourceComments: false,
             trace: true,
             precision: 6,
             style: 'nested',// Values: nested, expanded, compact, compressed
-            update: true // Only compile changed files.
+            //update: true // Only compile changed files.
         },
 
-
-
-
-        test: {
-            files:  grunt.sassFiles
+        testMain: {
+            files:  grunt.sassMainFiles
         },
 
+        testPages: {
+            files: grunt.sassPagesTasks
+        },
 
+        testVendorsExtensions: {
+            files: grunt.sassVendorsExtTasks
+        },
 
         main: {
             files: {

@@ -20,6 +20,7 @@
 @param {String} $key - Key color to use from theme
 @param {Map} $themes [$themes] - Map of themes to use
 */
+
 @mixin themify($property, $key, $color-variant:null, $sledge-hammer:'', $themes: $themes-map) {
 
   // Iterate over the themes
@@ -52,12 +53,22 @@
       }
     }
 
-    /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
-    /* &.theme-#{$themeName},*/
-    .theme-#{$themeName} & {
-      // Output the declaration
-      #{$property}: $color #{$sledge-hammer};
+    @if ($themeName == $activeTheme and $dynamicTheme == false) {
+      /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
+      /* &.theme-#{$themeName},*/
+      .theme-#{$themeName} & {
+        // Output the declaration
+        #{$property}: $color #{$sledge-hammer};
+      }
+    } @else if ($dynamicTheme == true) {
+      /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
+      /* &.theme-#{$themeName},*/
+      .theme-#{$themeName} & {
+        // Output the declaration
+        #{$property}: $color #{$sledge-hammer};
+      }
     }
+
   }
 
 }
