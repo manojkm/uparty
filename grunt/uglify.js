@@ -1,5 +1,6 @@
 module.exports = {
     options: {
+        banner: '<%= meta.banner %>',
         sourceMap: false,
     },
 

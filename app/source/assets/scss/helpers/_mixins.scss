@@ -53,7 +53,7 @@
       }
     }
 
-    @if ($themeName == $activeTheme and $dynamicTheme == false) {
+    @if ($themeName == $activeTheme and bool($dynamicTheme) == false) {
       /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
       /* &.theme-#{$themeName},*/
       .theme-#{$themeName} & {

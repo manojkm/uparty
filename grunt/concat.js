@@ -1,5 +1,7 @@
 module.exports = {
     options: {
+        banner: '<%= meta.banner %>',
+        stripBanners: true
         // separator: ';',
     },
 

@@ -11,7 +11,7 @@
 module.exports = function (grunt) {
     var fs = require('fs');
     var path = require('path');
-    var site = grunt.file.readYAML('_config.yml');
+    var pkg = require('./package.json');
 
     var dirs = {
         src: 'app/source/assets/scss',
@@ -30,6 +30,7 @@ module.exports = function (grunt) {
     var sassMainFiles = {};
     var sassPagesTasks = {};
     var sassVendorsExtTasks = {};
+    var importPaths = [];
 
     function prepareSassFiles(theme) {
         var files = fs.readdirSync(dirs.src + '/themes/' + theme);
@@ -42,7 +43,7 @@ module.exports = function (grunt) {
             return dirs.src + '/themes/' + theme + '/' + file;
         });
 
-        sassMainFiles[dirs.dest + '/' + theme + '/' + theme + '.css'] = files.join('');
+        sassMainFiles[dirs.dest + '/' + theme + '/' + pkg.name + '.css'] = files.join('');
     }
 
     var themes = fs.readdirSync('./'+ dirs.src + '/themes/');
@@ -54,7 +55,7 @@ module.exports = function (grunt) {
             sassPagesTasks = [{
                 expand: true,
                 cwd: dirs.src + '/pages/',
-                src: ['**/*.scss', '!**/_*.scss'],
+                src: ['**/*.{sass,scss}', '!**/_*'], // take sass files & ignore partials
                 dest: dirs.dest + '/' + theme + '/' + 'pages',
                 ext: '.css'
             }];
@@ -62,20 +63,28 @@ module.exports = function (grunt) {
             sassVendorsExtTasks = [{
                 expand: true,
                 cwd: dirs.src + '/vendors-extensions/',
-                src: ['**/*.scss', '!**/_*.scss'],
+                src: ['**/*.{sass,scss}', '!**/_*'], // take sass files & ignore partials
                 dest: dirs.dest + '/' + theme + '/' + 'vendors-extensions',
                 ext: '.css'
             }];
 
             prepareSassFiles(theme);
+
+            importPaths.push(dirs.dest + '/' + theme + '/');
+
         }
 
     });
+
+    console.log('Import Paths are: ' + importPaths);
 
     // Makes it available to exec tasks
     grunt.sassMainFiles = sassMainFiles;
     grunt.sassPagesTasks = sassPagesTasks;
     grunt.sassVendorsExtTasks = sassVendorsExtTasks;
+    grunt.importPaths = importPaths;
+    grunt.activeTheme = activeTheme;
+
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks
     //require('load-grunt-tasks')(grunt); // Load multiple grunt tasks listed in your package.json
@@ -96,7 +105,7 @@ module.exports = function (grunt) {
         // ...
         data: { //data passed into config.  Can use with <%= test %>
 
-            site: site,
+            site: grunt.file.readYAML('_config.yml'),
             jsCombPath: grunt.file.readJSON('app/source/data/jscomb.json'),
             taskVarsConfig: grunt.file.readJSON('app/source/data/task-vars-config.json'),
             cssCombPath: grunt.file.readJSON('app/source/data/csscomb.json'),

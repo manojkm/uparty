@@ -26,7 +26,7 @@ module.exports = function (grunt) {
             files: grunt.sassVendorsExtTasks
         },
 
-        main: {
+      /*  main: {
             files: {
                 '<%= taskVarsConfig.sass_files.main.dest %>': '<%= taskVarsConfig.sass_files.main.src %>'
             }
@@ -42,7 +42,7 @@ module.exports = function (grunt) {
             files: [{
                 expand: true,
                 cwd: '<%= taskVarsConfig.sass_files.pages.src %>',
-                src: ['**/*.scss', '!**/_*.scss'],
+                src: ['**!/!*.scss', '!**!/_*.scss'],
                 dest: '<%= taskVarsConfig.sass_files.pages.dest %>',
                 ext: '.css'
             }]
@@ -52,11 +52,11 @@ module.exports = function (grunt) {
             files: [{
                 expand: true,
                 cwd: '<%= taskVarsConfig.sass_files.vendors_extensions.src %>',
-                src: ['**/*.scss', '!**/_*.scss'],
+                src: ['**!/!*.scss', '!**!/_*.scss'],
                 dest: '<%= taskVarsConfig.sass_files.vendors_extensions.dest %>',
                 ext: '.css'
             }]
-        }
+        }*/
 
     }
 
