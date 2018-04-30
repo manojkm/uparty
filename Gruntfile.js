@@ -12,6 +12,8 @@ module.exports = function (grunt) {
     var fs = require('fs');
     var path = require('path');
     var pkg = require('./package.json');
+    var isProd = false;
+    console.log('Production: ' + isProd);
 
     var dirs = {
         src: 'app/source/assets/scss',
@@ -94,6 +96,7 @@ module.exports = function (grunt) {
     grunt.importPaths = importPaths;
     grunt.activeTheme = activeTheme;
     grunt.cssMin = cssMin;
+    grunt.isProd = isProd;
 
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks

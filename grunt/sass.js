@@ -7,12 +7,14 @@ module.exports = function (grunt) {
                 require('node-bourbon').includePaths,
                 '<%= site.node_dir %>/bootstrap/scss'
             ],
-            sourcemap: 'auto',
+            sourcemap: grunt.isProd ? 'false' : 'true',
+            // sourcemap: 'auto',
             sourceComments: false,
             trace: true,
             precision: 6,
+            style: grunt.isProd ? 'compressed' : 'expanded',
             // style: grunt.fabConfig.sassCompress ? 'compressed' : 'expanded' - TODO https://github.com/BuzzingPixelFabricator/buzzing-pixel-fabricator/blob/18f23f7b20d4312dad1d27e77df6551819029702/src/grunt/sassConfig.js
-            style: 'expanded',// Values: nested, expanded, compact, compressed
+            // style: 'expanded',// Values: nested, expanded, compact, compressed
             //update: true // Only compile changed files.
         },
 
