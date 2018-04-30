@@ -18,6 +18,8 @@ module.exports = function (grunt) {
         dest: 'app/development/assets'
     };
 
+    var build_state = 'prod';
+
     // Retrieve active theme name
     const sassExtract = require('sass-extract');
     const rendered = sassExtract.renderSync({
@@ -30,6 +32,7 @@ module.exports = function (grunt) {
     var sassMainFiles = {};
     var sassPagesTasks = {};
     var sassVendorsExtTasks = {};
+    var cssMin = {};
     var importPaths = [];
 
     function prepareSassFiles(theme) {
@@ -68,12 +71,18 @@ module.exports = function (grunt) {
                 ext: '.css'
             }];
 
+            cssMin = [{
+                expand: true,
+                cwd:  dirs.dest + '/' + theme + '/',
+                src: ['**/*.css', '!**/*.min.css'],
+                dest: dirs.dest + '/' + theme + '/',
+                ext: '.min.css'
+            }];
+
             prepareSassFiles(theme);
 
             importPaths.push(dirs.dest + '/' + theme + '/');
-
         }
-
     });
 
     console.log('Import Paths are: ' + importPaths);
@@ -84,6 +93,7 @@ module.exports = function (grunt) {
     grunt.sassVendorsExtTasks = sassVendorsExtTasks;
     grunt.importPaths = importPaths;
     grunt.activeTheme = activeTheme;
+    grunt.cssMin = cssMin;
 
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks
