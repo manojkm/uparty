@@ -7,11 +7,12 @@ module.exports = function (grunt) {
             shorthandCompacting: false,
             roundingPrecision: -1,
             keepSpecialComments: 0,
+            sourceMap:false,
             nonull: true //to warn if a given file is missing or invalid
         },
 
         minify: {
-            files: grunt.cssMin
+            files: grunt.cssMinTasks
         }
 
     }

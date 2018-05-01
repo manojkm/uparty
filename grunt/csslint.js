@@ -1,10 +1,16 @@
-module.exports = {
-    css_target: {
+module.exports = function (grunt) {
+
+    return {
+
         options: {
             csslintrc: '.csslintrc',
             import: 2
         },
-        // src: ['<%= site.dev_assets %>/css/*.css']
-        src: ['<%= site.dev_assets %>/css/<%=site.name %>.min.css']
+
+        lint: {
+            src: [grunt.importPaths + '**/*.css', '!' + grunt.importPaths + '**/*.min.css']
+        }
+
     }
+
 };

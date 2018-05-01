@@ -12,12 +12,22 @@ module.exports = function (grunt) {
     var fs = require('fs');
     var path = require('path');
     var pkg = require('./package.json');
-    var isProd = false;
-    console.log('Production: ' + isProd);
+    var site = grunt.file.readYAML('_config.yml');
+
+    var argv = require('minimist')(process.argv.slice(2));
+    global.isProd = (argv.isProd) ? true : false;
+
+    if (isProd) {
+        console.log('Build state is PRODUCTION')
+    }
+    if (!isProd) {
+        console.log('Build state is DEVELOPMENT')
+    }
 
     var dirs = {
         src: 'app/source/assets/scss',
         dest: 'app/development/assets'
+        // dest: site.dev_assets
     };
 
     var build_state = 'prod';
@@ -34,7 +44,7 @@ module.exports = function (grunt) {
     var sassMainFiles = {};
     var sassPagesTasks = {};
     var sassVendorsExtTasks = {};
-    var cssMin = {};
+    var cssMinTasks = {};
     var importPaths = [];
 
     function prepareSassFiles(theme) {
@@ -51,11 +61,11 @@ module.exports = function (grunt) {
         sassMainFiles[dirs.dest + '/' + theme + '/' + pkg.name + '.css'] = files.join('');
     }
 
-    var themes = fs.readdirSync('./'+ dirs.src + '/themes/');
+    var themes = fs.readdirSync('./' + dirs.src + '/themes/');
     themes.forEach(function (theme) {
         if (theme == 'config') return;
-        if (theme == 'theme-'+ activeTheme) {
-           console.log('Active theme: ' + activeTheme);
+        if (theme == 'theme-' + activeTheme) {
+            console.log('Active theme: ' + activeTheme);
 
             sassPagesTasks = [{
                 expand: true,
@@ -73,9 +83,9 @@ module.exports = function (grunt) {
                 ext: '.css'
             }];
 
-            cssMin = [{
+            cssMinTasks = [{
                 expand: true,
-                cwd:  dirs.dest + '/' + theme + '/',
+                cwd: dirs.dest + '/' + theme + '/',
                 src: ['**/*.css', '!**/*.min.css'],
                 dest: dirs.dest + '/' + theme + '/',
                 ext: '.min.css'
@@ -95,8 +105,8 @@ module.exports = function (grunt) {
     grunt.sassVendorsExtTasks = sassVendorsExtTasks;
     grunt.importPaths = importPaths;
     grunt.activeTheme = activeTheme;
-    grunt.cssMin = cssMin;
-    grunt.isProd = isProd;
+    grunt.cssMinTasks = cssMinTasks;
+    // grunt.isProd = isProd;
 
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks
@@ -118,7 +128,7 @@ module.exports = function (grunt) {
         // ...
         data: { //data passed into config.  Can use with <%= test %>
 
-            site: grunt.file.readYAML('_config.yml'),
+            site: site,
             jsCombPath: grunt.file.readJSON('app/source/data/jscomb.json'),
             taskVarsConfig: grunt.file.readJSON('app/source/data/task-vars-config.json'),
             cssCombPath: grunt.file.readJSON('app/source/data/csscomb.json'),
