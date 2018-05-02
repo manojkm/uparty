@@ -1,3 +1,4 @@
+'use strict';
 module.exports = {
 
     watch: ['watch:html', 'watch:sass_css', 'watch:js', 'watch:images', 'watch:wp_theme_php_flies'],

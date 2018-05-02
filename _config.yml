@@ -24,7 +24,7 @@ src_data:         <%= site.src %>/data/*.{json,yml}
 # Templates
 src_templates:    <%= site.src %>/templates
 src_layoutdir:    <%= site.src_templates %>/layouts
-src_layout:       default
+src_layout:       master
 src_partialsdir:  <%= site.src_templates %>/partials
 src_partials:     <%= site.src_templates %>/partials/**/*.hbs
 src_pages:        <%= site.src_templates %>/pages

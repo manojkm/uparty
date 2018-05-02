@@ -1,3 +1,4 @@
+'use strict';
 module.exports = function (grunt) {
 
     return {
@@ -24,7 +25,7 @@ module.exports = function (grunt) {
             files: grunt.sassPagesTasks
         },
 
-        vendors_extensions: {
+        vendors_extended: {
             files: grunt.sassVendorsExtTasks
         },
 
@@ -60,6 +61,6 @@ module.exports = function (grunt) {
          }]
          }*/
 
-    }
+    };
 
 };

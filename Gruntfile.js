@@ -33,7 +33,7 @@ module.exports = function (grunt) {
 
     // var build_state = 'prod';
 
-    // Retrieve active theme name
+    // Retrieve active theme name from scss file
     const sassExtract = require('sass-extract');
     const rendered = sassExtract.renderSync({
         file: dirs.src + '/themes/config/_config.scss'
@@ -45,6 +45,10 @@ module.exports = function (grunt) {
     var sassVendorsExtTasks = {};
     var cssMinTasks = {};
     var importPaths = [];
+
+    if(!grunt.file.exists('./' + dirs.src + '/themes/' + 'theme-' + activeTheme )) {
+        grunt.fail.fatal('>> Theme ' + activeTheme +  ' not found');
+    }
 
     function prepareSassThemeFiles(theme) {
         var files = fs.readdirSync(dirs.src + '/themes/' + theme);
@@ -65,7 +69,6 @@ module.exports = function (grunt) {
     }
 
     function prepareSassMainFiles(theme) {
-
         sassMainFiles[dirs.dest + '/' + theme + '/' + pkg.name + '.css'] = dirs.src + '/' + 'app.scss';
     }
 
@@ -74,6 +77,7 @@ module.exports = function (grunt) {
         if (theme === 'config') {
             return;
         }
+
         if (theme === 'theme-' + activeTheme) {
             console.log('Active theme: ' + activeTheme);
 
@@ -87,9 +91,9 @@ module.exports = function (grunt) {
 
             sassVendorsExtTasks = [{
                 expand: true,
-                cwd: dirs.src + '/vendors-extensions/',
+                cwd: dirs.src + '/vendors-extended/',
                 src: ['**/*.{sass,scss}', '!**/_*'], // take sass files & ignore partials
-                dest: dirs.dest + '/' + theme + '/' + 'vendors-extensions',
+                dest: dirs.dest + '/' + theme + '/' + 'vendors-extended',
                 ext: '.css'
             }];
 
@@ -139,10 +143,11 @@ module.exports = function (grunt) {
         data: { //data passed into config.  Can use with <%= test %>
 
             site: site,
+            activeThemeDir: 'theme-' + grunt.activeTheme,
             jsCombPath: grunt.file.readJSON('app/source/data/jscomb.json'),
             taskVarsConfig: grunt.file.readJSON('app/source/data/task-vars-config.json'),
             cssCombPath: grunt.file.readJSON('app/source/data/csscomb.json'),
-            vendorInjector: grunt.file.readJSON('app/source/data/vendor-injector.json'),
+            vI: grunt.file.readJSON('app/source/data/vendor-injector.json'),
 
             meta: {
                 /**

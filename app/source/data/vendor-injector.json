@@ -11,9 +11,12 @@
     "<%= site.node_dir %>/bootstrap/dist/js/bootstrap.js"
   ],
   "chosen": [
-    "<%= site.node_dir %>/chosen-js/chosen.css",
-    "<%= site.node_dir %>/chosen-js/chosen.jquery.js"
+      "<%= site.node_dir %>/chosen-js/chosen.css",
+      "<%= site.node_dir %>/chosen-js/chosen.jquery.js",
+      "<%= site.dev_assets %>/<%= activeThemeDir %>/vendors-extended/chosen.css",
+      "<%= site.dev_assets %>/js/vendors-extended/chosen.jquery.js"
   ],
+
   "dropzone": [
     "<%= site.node_dir %>/dropzone/dist/min/dropzone.min.css",
     "<%= site.node_dir %>/dropzone/dist/dropzone.js"

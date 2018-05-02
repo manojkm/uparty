@@ -1,8 +1,7 @@
-// The "assemble" task
+'use strict';
 module.exports = function (grunt) {
 
     return {
-        // Task-level options
         options: {
 
             collections: [
@@ -34,7 +33,7 @@ module.exports = function (grunt) {
             site: '<%= site %>',
             data: '<%= site.src_data %>',
             assets: '<%= site.dev_assets %>',
-            activeTheme: 'theme-' + grunt.activeTheme,
+            activeTheme: '<%= activeThemeDir %>',
 
             // Templates
             partials: '<%= site.src_partials %>',
@@ -47,7 +46,8 @@ module.exports = function (grunt) {
 
         main: {
             options: {
-                dist: false
+                // postprocess: require('injector'),
+                production: (isProd) ? true : false // http://assemble.io/docs/Options.html
             },
             files: [{
                 expand: true,
@@ -70,6 +70,6 @@ module.exports = function (grunt) {
         //         dest: '<%= site.dev %>/rtl'
         //     }]
         // }
-    }
+    };
 
 };

@@ -1,3 +1,4 @@
+'use strict';
 module.exports = function (grunt) {
 
     return {
@@ -13,6 +14,6 @@ module.exports = function (grunt) {
         autoprefix: {
             src: [grunt.importPaths + '**/*.css', '!' + grunt.importPaths + '**/*.min.css']
         }
-    }
+    };
 
 };
