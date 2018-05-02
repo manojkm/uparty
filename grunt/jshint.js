@@ -5,7 +5,7 @@ module.exports = {
     },
 
     gruntfile: {
-        src: '../Gruntfile.js'
+        src: 'Gruntfile.js'
     },
 
     js_target: {

@@ -18,19 +18,20 @@ module.exports = function (grunt) {
     global.isProd = (argv.isProd) ? true : false;
 
     if (isProd) {
-        console.log('Build state is PRODUCTION')
+        console.log('Build state is PRODUCTION');
     }
     if (!isProd) {
-        console.log('Build state is DEVELOPMENT')
+        console.log('Build state is DEVELOPMENT');
     }
 
     var dirs = {
+        // src: site.src_assets + '/scss',
+        //dest: site.dev_assets
         src: 'app/source/assets/scss',
         dest: 'app/development/assets'
-        // dest: site.dev_assets
     };
 
-    var build_state = 'prod';
+    // var build_state = 'prod';
 
     // Retrieve active theme name
     const sassExtract = require('sass-extract');
@@ -39,19 +40,21 @@ module.exports = function (grunt) {
     }, {plugins: ['serialize']});
 
     var activeTheme = rendered.vars.global.$activeTheme.value;
-    // console.log('Active theme: ' + activeTheme);
-
     var sassMainFiles = {};
     var sassPagesTasks = {};
     var sassVendorsExtTasks = {};
     var cssMinTasks = {};
     var importPaths = [];
 
-    function prepareSassFiles(theme) {
+    function prepareSassThemeFiles(theme) {
         var files = fs.readdirSync(dirs.src + '/themes/' + theme);
         files = files.filter(function (element, index, array) {
-            if (path.extname(element) == '.scss') return true;
-            return false;
+            if (path.extname(element) === '.scss') {
+                return true;
+            }
+            else {
+                return false;
+            }
         });
 
         files = files.map(function (file) {
@@ -61,10 +64,17 @@ module.exports = function (grunt) {
         sassMainFiles[dirs.dest + '/' + theme + '/' + pkg.name + '.css'] = files.join('');
     }
 
+    function prepareSassMainFiles(theme) {
+
+        sassMainFiles[dirs.dest + '/' + theme + '/' + pkg.name + '.css'] = dirs.src + '/' + 'app.scss';
+    }
+
     var themes = fs.readdirSync('./' + dirs.src + '/themes/');
     themes.forEach(function (theme) {
-        if (theme == 'config') return;
-        if (theme == 'theme-' + activeTheme) {
+        if (theme === 'config') {
+            return;
+        }
+        if (theme === 'theme-' + activeTheme) {
             console.log('Active theme: ' + activeTheme);
 
             sassPagesTasks = [{
@@ -83,6 +93,9 @@ module.exports = function (grunt) {
                 ext: '.css'
             }];
 
+            // prepareSassThemeFiles(theme);
+            prepareSassMainFiles(theme);
+
             cssMinTasks = [{
                 expand: true,
                 cwd: dirs.dest + '/' + theme + '/',
@@ -90,8 +103,6 @@ module.exports = function (grunt) {
                 dest: dirs.dest + '/' + theme + '/',
                 ext: '.min.css'
             }];
-
-            prepareSassFiles(theme);
 
             importPaths.push(dirs.dest + '/' + theme + '/');
         }
@@ -106,7 +117,6 @@ module.exports = function (grunt) {
     grunt.importPaths = importPaths;
     grunt.activeTheme = activeTheme;
     grunt.cssMinTasks = cssMinTasks;
-    // grunt.isProd = isProd;
 
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks

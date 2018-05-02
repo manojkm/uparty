@@ -1,11 +1,11 @@
 task_css:
 #  - 'scsslint:files'
+  - 'clean:dev'
   - 'sass'
+  - 'csslint'
 # - TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
-  - 'copy:css'
   - 'autoprefixer'
   - 'cssmin'
-  - 'csslint'
   - 'notify:css'
 task_js:
   - 'copy:js'

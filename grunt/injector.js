@@ -2,8 +2,9 @@ module.exports = {
 
     options: {
         min: true,
+        // relative: true,
         prefix:'<%= site.vendor_dir %>/',
-        /* TODO Adapated from https://github.com/yangqw/pb-com/blob/786251274086194f5d87565d2145157afcebc6cd/Gruntfile.js*/
+        // Adapated from https://github.com/yangqw/pb-com/blob/786251274086194f5d87565d2145157afcebc6cd/Gruntfile.js
        /* transform: function(filePath) {
             if (/^.*\.css$/.test(filePath)) {
                 filePath = filePath.replace('/'+destinationFolder, '');
@@ -20,8 +21,8 @@ module.exports = {
 
     vendor_css_js_global: {
         options: {
-            starttag:'<!-- BEGIN VENDOR :{{ext}} -->',
-            endtag:'<!-- END VENDOR :{{ext}} -->',
+            starttag:'<!-- BEGIN GLOBAL VENDORS :{{ext}} -->',
+            endtag:'<!-- END GLOBAL VENDORS :{{ext}} -->'
         },
 
         files: { // <%= vendorInjector %> File is located at /app/source/data/vendor-injector.json
@@ -32,8 +33,8 @@ module.exports = {
 
  /*   vendor_css_js_pageLevel: {
         options: {
-            starttag:'<!-- BEGIN PAGE LEVEL VENDOR :{{ext}} -->',
-            endtag:'<!-- END PAGE LEVEL VENDOR :{{ext}} -->'
+            starttag:'<!-- BEGIN PAGE LEVEL VENDORS :{{ext}} -->',
+            endtag:'<!-- END PAGE LEVEL VENDORS :{{ext}} -->'
         },
 
         files: {

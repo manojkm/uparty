@@ -1,70 +1,75 @@
 // The "assemble" task
-module.exports = {
-    // Task-level options
-    options: {
+module.exports = function (grunt) {
 
-        collections: [
-            {
-                name: 'components',
-                sortby: 'posted',
-                sortorder: 'descending'
-            },
-            {
-                name: 'dashboard',
-                sortby: 'posted',
-                sortorder: 'descending'
-            },
-            {
-                name: 'icons',
-                sortby: 'posted',
-                sortorder: 'descending'
-            },
-            {
-                name: 'forms',
-                sortby: 'posted',
-                sortorder: 'descending'
-            }],
-
-        flatten: true,
-        layoutext: '.hbs',
-        assets: '<%= site.dev_assets %>',
-
-        // Metadata
-        site: '<%= site %>',
-        data: '<%= site.src_data %>',
-
-        // Templates
-        partials: '<%= site.src_partials %>',
-        layoutdir: '<%= site.src_layoutdir %>',
-        layout: '<%= site.src_layout %>',
-
-        // Extensions
-        helpers: '<%= site.src_helpers %>'
-    },
-
-    main: {
+    return {
+        // Task-level options
         options: {
-            dist: false
+
+            collections: [
+                {
+                    name: 'components',
+                    sortby: 'posted',
+                    sortorder: 'descending'
+                },
+                {
+                    name: 'dashboard',
+                    sortby: 'posted',
+                    sortorder: 'descending'
+                },
+                {
+                    name: 'icons',
+                    sortby: 'posted',
+                    sortorder: 'descending'
+                },
+                {
+                    name: 'forms',
+                    sortby: 'posted',
+                    sortorder: 'descending'
+                }],
+
+            flatten: true,
+            layoutext: '.hbs',
+
+            // Metadata
+            site: '<%= site %>',
+            data: '<%= site.src_data %>',
+            assets: '<%= site.dev_assets %>',
+            activeTheme: 'theme-' + grunt.activeTheme,
+
+            // Templates
+            partials: '<%= site.src_partials %>',
+            layoutdir: '<%= site.src_layoutdir %>',
+            layout: '<%= site.src_layout %>',
+
+            // Extensions
+            helpers: '<%= site.src_helpers %>'
         },
-        files: [{
-            expand: true,
-            cwd: '<%= site.src_pages %>',
-            src: ['**/*.hbs'],
-            dest: '<%= site.dev %>'
-        }]
-    },
+
+        main: {
+            options: {
+                dist: false
+            },
+            files: [{
+                expand: true,
+                cwd: '<%= site.src_pages %>',
+                src: ['**/*.hbs'],
+                dest: '<%= site.dev %>'
+            }]
+        },
 
 
-    // rtl: {
-    //     options: {
-    //         layout: 'default',
-    //         rtl: true
-    //     },
-    //     files: [{
-    //         expand: true,
-    //         cwd: '<%= site.src_pages %>',
-    //         src: ['**/*.hbs'],
-    //         dest: '<%= site.dev %>/rtl'
-    //     }]
-    // }
+        // rtl: {
+        //     options: {
+        //         layout: 'default',
+        //         rtl: true
+        //     },
+        //     files: [{
+        //         expand: true,
+        //         cwd: '<%= site.src_pages %>',
+        //         src: ['**/*.hbs'],
+        //         dest: '<%= site.dev %>/rtl'
+        //     }]
+        // }
+    }
+
 };
