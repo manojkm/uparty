@@ -1,20 +1,23 @@
-task_css:
-#  - 'scsslint:files'
+task_css_dev:
   - 'clean:dev'
   - 'sass'
   - 'csslint'
-# - TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
   - 'autoprefixer'
+
+task_css:
+# - TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
   - 'cssmin'
   - 'notify:css'
-task_js:
-  - 'copy:js'
-#  - 'bower_concat'
-  - 'concat'
+
+task_js_dev:
   - 'jshint'
+  - 'concat'
+  - 'copy:vendors_extended'
+
+task_js:
   - 'uglify'
-#  - 'wiredep'
   - 'notify:js'
+
 task_img:
   - 'copy:images'
   - 'imagemin'

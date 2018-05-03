@@ -7,7 +7,7 @@ module.exports = {
     // html: ['<%= site.dist %>/*.html'],
     // img: ['<%= site.dist_img %>'],
 
-    dev: ['<%= site.dev %>/**/*', '!<%= site.dev %>/.{git,gitignore,gitkeep}']
+    dev: ['<%= site.dev %>/**/*', '.tmp/**/*','!<%= site.dev %>/.{git,gitignore,gitkeep}']
     // env: ['<%= site.env %>/**/*', '!<%= site.env %>/.{git,gitignore,gitkeep}'],
 
 };

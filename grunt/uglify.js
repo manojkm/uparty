@@ -1,39 +1,32 @@
-module.exports = {
-    options: {
-        banner: '<%= meta.banner %>',
-        sourceMap: false,
-    },
+'use strict';
+module.exports = function (grunt) {
+    return {
+        options: {
+            banner: '<%= meta.banner %>',
+            sourceMap:false,
+            mangle: false
+        },
 
+        uglify: {
+            files: [{
+                expand: true,
+                cwd: '<%= site.dev_js %>/',
+                src: ['**/*.js', '!**/*.min.js'],
+                dest: '<%= site.dev_js %>/',
+                // ext: '.min.js',
+                rename: function (dest, src) {
+                    // src modules/news/news.main.js
+                    var folder = src.substring(0, src.lastIndexOf('/'));
+                    var filename = src.substring(src.lastIndexOf('/'), src.length);
 
-    dev: {
-        files: [{
-            expand: true,
-            cwd: '<%= site.dev_assets %>/js/',
-            src: ['<%=site.name %>.js', ],
-            dest: '<%= site.dev_assets %>/js/',
-            ext: '.min.js'
-        }, ]
-    }
+                    filename = filename.substring(0, filename.lastIndexOf('.'));
 
-    // dev: {
-    //     files: [{
-    //         expand: true,
-    //         cwd: '<%= site.dev_assets %>/js/',
-    //         // src: ['<%=site.name %>.js', 'vendor.js'],
-    //         src: ['**/*.js', '!**/*.min.js'],
-    //         dest: '<%= site.dev_assets %>/js/',
-    //         ext: '.min.js'
-    //     }, ]
-    // }
+                    // return js/GoalApp/js/modules/news/news.main.min.js
+                    return dest + folder + filename + '.min.js';
+                }
 
-    // custom: {
-    //     files: [{
-    //         expand: true,
-    //         cwd: '<%= site.dev_assets %>/js/',
-    //         src: ['**/*.js', '!**/*.min.js'],
-    //         dest: '<%= site.dev_assets %>/js/',
-    //         ext: '.min.js'
-    //     }, ]
-    // }
+            }]
+        }
+    };
 
 };

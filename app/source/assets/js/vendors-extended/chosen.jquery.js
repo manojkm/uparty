@@ -1,6 +1,6 @@
 // ================================================================================================
-// File Name: jquery.multi-select.js
-// Description: Initialize jquery multi select
+// File Name: chosen.jquery.js
+// Description: Initialize chosen
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2

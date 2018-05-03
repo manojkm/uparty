@@ -2,13 +2,12 @@
 module.exports = function (grunt) {
 
     return {
-
         options: {
-            map: true, // Autoprefixer will not remove sourcemap info from scss file.
+            map: (isProd) ? false : true , // Autoprefixer will not remove source-map info from sass file.
             browsers: ['last 2 versions'],
             expand: true,
             flatten: true,
-            nonull: true //to warn if a given file is missing or invalid
+            nonull: true // To warn if a given file is missing or invalid
         },
 
         autoprefix: {

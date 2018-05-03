@@ -5,9 +5,9 @@ module.exports = {
         noProcess : ['.DS_Store', '.gitignore', '.sass-cache', 'node_modules']
     },
 
-    vendor: {
+    vendors_extended: {
         files: [
-            {expand: true, cwd: '<%= site.src %>/vendor/', src: ['**'], dest: '<%= site.dev %>/vendor/'}
+            {expand: true, cwd: '<%= site.src_js_vi %>/', src: ['**/*.js'], dest: '<%= site.dev_js_vi %>/'}
             /* - TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js*/
         ]
     },

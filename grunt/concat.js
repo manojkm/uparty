@@ -1,14 +1,18 @@
-module.exports = {
-    options: {
-        banner: '<%= meta.banner %>',
-        stripBanners: true
-        // separator: ';',
-    },
+'use strict';
+module.exports = function (grunt) {
 
-    libs: {
-        src: ['<%= jsCombPath %>'], // File is located at /app/source/data/jscomb.json
-        dest: '<%= site.dev_assets %>/js/<%=site.name %>.js',
-        nonull: true, //to warn if a given file is missing or invalid
-    }
+    return {
+        options: {
+            banner: '<%= meta.banner %>',
+            stripBanners: true,
+            separator: ';',
+            nonull: true //to warn if a given file is missing or invalid
+        },
+
+        main: {
+            src: ['<%= site.src_js %>/app.js', '<%= site.src_js %>/custom.js'],
+            dest: '<%= site.dev_js %>/<%=site.name %>.js'
+        }
+    };
 
 };

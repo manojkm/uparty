@@ -1,15 +1,19 @@
 'use strict';
-module.exports = {
-    options: {
-        jshintrc: '.jshintrc',
-        force: true, //report JSHint errors but not fail the task
-    },
+module.exports = function (grunt) {
 
-    gruntfile: {
-        src: ['Gruntfile.js','grunt/**/*.js']
-    },
+    return {
+        options: {
+            jshintrc: '.jshintrc',
+            force: true //report JSHint errors but not fail the task
+        },
 
-    js_target: {
-        src: ['<%= site.dev_assets %>/js/<%=site.name %>.js']
-    }
+        gruntfile: {
+            src: ['Gruntfile.js', 'grunt/**/*.js']
+        },
+
+        all: {
+            src: ['<%= site.src_js %>/**/*.js']
+        }
+    };
+
 };
