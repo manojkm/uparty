@@ -121,6 +121,7 @@ module.exports = function (grunt) {
     grunt.importPaths = importPaths;
     grunt.activeTheme = activeTheme;
     grunt.cssMinTasks = cssMinTasks;
+    grunt.site = site;
 
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks
@@ -143,6 +144,7 @@ module.exports = function (grunt) {
         data: { //data passed into config.  Can use with <%= test %>
 
             site: site,
+            now : new Date().toISOString().replace(/(-|:|T)/g, "_"),
             activeThemeDir: 'theme-' + grunt.activeTheme,
             jsCombPath: grunt.file.readJSON('app/source/data/jscomb.json'),
             taskVarsConfig: grunt.file.readJSON('app/source/data/task-vars-config.json'),

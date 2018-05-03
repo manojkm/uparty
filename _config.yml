@@ -8,13 +8,19 @@ deploy_img:       <%= site.deploy %>/assets/img
 
 dev:              app/development
 dev_assets:       <%= site.dev %>/assets
-dev_img:          <%= site.dev %>/assets/img
+dev_css:          <%= site.dev_assets %>/css
+dev_js:           <%= site.dev_assets %>/js
+dev_js_vi:        <%= site.dev_js %>/vendors-extended
+dev_img:          <%= site.dev_assets %>/img
 dev_port:         8080
 
 # env:              app/environment/wp-content/themes/bootville-lite
 
 src:              app/source
 src_assets:       <%= site.src %>/assets
+src_scss:         <%= site.src_assets %>/scss
+src_js:           <%= site.src_assets %>/js
+src_js_vi:        <%= site.src_js %>/vendors-extended
 src_img:          <%= site.src_assets %>/img
 src_vendor:       <%= site.src %>/vendor
 
