@@ -3,12 +3,14 @@ module.exports = function (grunt) {
 
     return {
         options: {
-            cacheLocation: '.tmp/.sass-cache',
+
             loadPath: [
                 require('node-bourbon').includePaths,
                 '<%= site.node_dir %>/bootstrap/scss'
             ],
             sourcemap: (isProd) ? 'none' : 'auto',
+            cacheLocation: '<%= site.tmp %>/.sass-cache',
+            noCache: (isProd) ? true : false, // TODO, check this later, as im not sure.
             sourceComments: false,
             trace: true,
             precision: 6,

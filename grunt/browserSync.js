@@ -2,10 +2,7 @@ module.exports = {
     server: {
         bsFiles: {
             src: [
-                '<%= site.dev_assets %>/**',
-                '<%= site.dev %>/vendor/!**',
-                '<%= site.dev %>/!*.php',
-                '<%= site.dev %>/!*.html'
+                "<%= site.dev %>/**/*.{css,js,html,png,jpg}"
             ]
         },
         options: {
@@ -39,10 +36,7 @@ module.exports = {
     proxy: {
         files: {
             src: [
-                '<%= site.dev_assets %>/**',
-                '<%= site.dev %>/vendor/**',
-                '<%= site.dev %>/*.php',
-                '<%= site.dev %>/*.html'
+                "<%= site.dev %>/**/*.{css,js,html,png,jpg}"
             ]
         },
         options: {

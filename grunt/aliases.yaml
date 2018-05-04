@@ -1,38 +1,46 @@
+task_clean:
+  - 'clean'
+
 task_css_dev:
-  - 'clean:dev'
   - 'sass'
   - 'csslint'
   - 'autoprefixer'
 
-task_css:
+task_css_prod:
 # - TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
   - 'cssmin'
   - 'notify:css'
 
 task_js_dev:
   - 'jshint'
-  - 'concat'
   - 'copy:vendors_extended'
+  - 'concat'
 
-task_js:
+task_js_prod:
   - 'uglify'
   - 'notify:js'
 
-task_img:
+task_img_dev:
   - 'copy:images'
-  - 'imagemin'
   - 'sprite'
+
+task_img_prod:
+  - 'imagemin'
   - 'notify:img'
-task_injector:
-  - 'injector'
+
+task_html_dev:
+  - 'injector:vendor_global'
+  - 'assemble'
+#  - 'injector:vendor_pageLevel'
+  - 'htmlhint'
+
+task_html_prod:
+  - 'prettify'
+  - 'notify:html'
+
 task_banner:
   - 'usebanner'
   - 'notify:banner'
-task_html:
-  - 'assemble'
-  - 'htmlhint'
-  - 'prettify'
-  - 'notify:html'
 task_copy:
   - 'copy:vendor'
   - 'notify:copy'

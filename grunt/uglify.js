@@ -15,13 +15,13 @@ module.exports = function (grunt) {
                 dest: '<%= site.dev_js %>/',
                 // ext: '.min.js',
                 rename: function (dest, src) {
-                    // src modules/news/news.main.js
+                    // src chosen.jquery.js
                     var folder = src.substring(0, src.lastIndexOf('/'));
                     var filename = src.substring(src.lastIndexOf('/'), src.length);
 
                     filename = filename.substring(0, filename.lastIndexOf('.'));
 
-                    // return js/GoalApp/js/modules/news/news.main.min.js
+                    // return chosen.jquery.min.js
                     return dest + folder + filename + '.min.js';
                 }
 

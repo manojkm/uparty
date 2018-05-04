@@ -34,7 +34,7 @@ module.exports = function (grunt) {
             ignorePath: ['<%= site.dev %>/'] // strips ' app/development/' from the urls of files
         },
 
-        vendor_css_js_global: {
+        vendor_global: {
             options: {
                 starttag: '<!-- BEGIN GLOBAL VENDORS :{{ext}} -->',
                 endtag: '<!-- END GLOBAL VENDORS :{{ext}} -->'
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
             }
         },
 
-        vendor_css_js_pageLevel: {
+        vendor_pageLevel: {
             options: {
                 starttag: '<!-- BEGIN PAGE LEVEL VENDORS AND ITS EXTENSIONS :{{ext}} -->',
                 endtag: '<!-- END PAGE LEVEL VENDORS AND ITS EXTENSIONS :{{ext}} -->'
