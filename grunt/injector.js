@@ -34,7 +34,7 @@ module.exports = function (grunt) {
             ignorePath: ['<%= site.dev %>/'] // strips ' app/development/' from the urls of files
         },
 
-        vendor_global: {
+        vendors_global: {
             options: {
                 starttag: '<!-- BEGIN GLOBAL VENDORS :{{ext}} -->',
                 endtag: '<!-- END GLOBAL VENDORS :{{ext}} -->'
@@ -46,14 +46,13 @@ module.exports = function (grunt) {
             }
         },
 
-        vendor_pageLevel: {
+        vendors_pageLevel: {
             options: {
                 starttag: '<!-- BEGIN PAGE LEVEL VENDORS AND ITS EXTENSIONS :{{ext}} -->',
                 endtag: '<!-- END PAGE LEVEL VENDORS AND ITS EXTENSIONS :{{ext}} -->'
             },
             files: {
-                '<%= site.src_partialsdir %>/head.hbs': ['<%= vI.chosen %>'],
-                '<%= site.src_partialsdir %>/footer-scripts.hbs': ['<%= vI.chosen %>']
+                '<%= site.dev %>/advanced-form-elements.html': ['<%= vI.chosen %>']
             }
         }
     };

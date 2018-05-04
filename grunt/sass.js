@@ -4,19 +4,15 @@ module.exports = function (grunt) {
     return {
         options: {
 
-            loadPath: [
+            includePaths: [
                 require('node-bourbon').includePaths,
                 '<%= site.node_dir %>/bootstrap/scss'
             ],
-            sourcemap: (isProd) ? 'none' : 'auto',
+            sourceMap: (isProd) ? false : true,
             cacheLocation: '<%= site.tmp %>/.sass-cache',
-            noCache: (isProd) ? true : false, // TODO, check this later, as im not sure.
             sourceComments: false,
-            trace: true,
-            precision: 6,
-            style: (isProd) ? 'compressed' : 'expanded' // Values: nested, expanded, compact, compressed
+            outputStyle: (isProd) ? 'compressed' : 'compact' // 'expanded' causes newline error in csslint task.
             // style: grunt.fabConfig.sassCompress ? 'compressed' : 'expanded' - TODO https://github.com/BuzzingPixelFabricator/buzzing-pixel-fabricator/blob/18f23f7b20d4312dad1d27e77df6551819029702/src/grunt/sassConfig.js
-            //update: true // Only compile changed files.
         },
 
         main: {

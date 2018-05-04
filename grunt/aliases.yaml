@@ -29,9 +29,9 @@ task_img_prod:
   - 'notify:img'
 
 task_html_dev:
-  - 'injector:vendor_global'
+  - 'injector:vendors_global'
   - 'assemble'
-#  - 'injector:vendor_pageLevel'
+  - 'injector:vendors_pageLevel'
   - 'htmlhint'
 
 task_html_prod:

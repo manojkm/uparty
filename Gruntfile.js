@@ -25,8 +25,6 @@ module.exports = function (grunt) {
     }
 
     var dirs = {
-        // src: site.src_assets + '/scss',
-        //dest: site.dev_assets
         src: 'app/source/assets/scss',
         dest: 'app/development/assets'
     };
@@ -86,7 +84,8 @@ module.exports = function (grunt) {
                 cwd: dirs.src + '/pages/',
                 src: ['**/*.{sass,scss}', '!**/_*'], // take sass files & ignore partials
                 dest: dirs.dest + '/' + theme + '/' + 'pages',
-                ext: '.css'
+                ext: '.css',
+                extDot: 'last'
             }];
 
             sassVendorsExtTasks = [{
@@ -94,7 +93,8 @@ module.exports = function (grunt) {
                 cwd: dirs.src + '/vendors-extended/',
                 src: ['**/*.{sass,scss}', '!**/_*'], // take sass files & ignore partials
                 dest: dirs.dest + '/' + theme + '/' + 'vendors-extended',
-                ext: '.css'
+                ext: '.css',
+                extDot: 'last'
             }];
 
             // prepareSassThemeFiles(theme);

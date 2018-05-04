@@ -13,8 +13,9 @@ module.exports = function (grunt) {
                 cwd: '<%= site.dev_js %>/',
                 src: ['**/*.js', '!**/*.min.js'],
                 dest: '<%= site.dev_js %>/',
-                // ext: '.min.js',
-                rename: function (dest, src) {
+                ext: '.min.js',
+                extDot: 'last' // OR enable the below 'rename' function
+             /*   rename: function (dest, src) {
                     // src chosen.jquery.js
                     var folder = src.substring(0, src.lastIndexOf('/'));
                     var filename = src.substring(src.lastIndexOf('/'), src.length);
@@ -23,7 +24,7 @@ module.exports = function (grunt) {
 
                     // return chosen.jquery.min.js
                     return dest + folder + filename + '.min.js';
-                }
+                }*/
 
             }]
         }
