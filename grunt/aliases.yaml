@@ -1,49 +1,39 @@
 task_clean:
   - 'clean'
-
 task_css_dev:
   - 'sass'
   - 'csslint'
   - 'autoprefixer'
-
 task_css_prod:
 # - TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
+  - 'task_css_dev'
   - 'cssmin'
-  - 'notify:css'
-
 task_js_dev:
   - 'jshint'
   - 'copy:vendors_extended'
   - 'concat'
-
 task_js_prod:
+  - 'task_js_dev'
   - 'uglify'
-  - 'notify:js'
-
 task_img_dev:
   - 'copy:images'
   - 'sprite'
-
 task_img_prod:
+  - 'task_img_dev'
   - 'imagemin'
-  - 'notify:img'
-
+  - 'svgmin'
 task_html_dev:
   - 'injector:vendors_global'
   - 'assemble'
   - 'injector:vendors_pageLevel'
   - 'htmlhint'
-
 task_html_prod:
+  - 'task_html_dev'
   - 'prettify'
-  - 'notify:html'
-
 task_banner:
   - 'usebanner'
   - 'notify:banner'
-task_copy:
-  - 'copy:vendor'
-  - 'notify:copy'
+
 task_sync:
   - 'sync'
 
@@ -52,19 +42,21 @@ task_sync:
 #----------------------------------*\
 
 default:
-  - 'task_css'
-  - 'task_js'
-  - 'task_img'
-  - 'task_injector'
-  - 'task_banner'
-  - 'task_html'
-  - 'task_copy'
-  # - 'task_sync'
+  - 'task_clean'
+  - 'task_css_dev'
+  - 'notify:css'
+  - 'task_js_dev'
+  - 'notify:js'
+  - 'task_img_dev'
+  - 'notify:img'
+  - 'task_html_dev'
+  - 'notify:html'
 
 dev:
   - 'default'
   - 'browserSync:server'
   - 'concurrent:watch'
+
 deploy:
   - 'default'
   - 'browserSync:server'

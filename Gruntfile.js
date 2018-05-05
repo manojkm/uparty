@@ -157,7 +157,7 @@ module.exports = function (grunt) {
                  * Dynamically appended to CSS/JS files
                  * Inherits text from package.json
                  */
-                banner: '/**\n' +
+                banner: '/*!\n' +
                 '* <%=site.title %> - <%=site.name %> v<%= site.version %>\n' +
                 '* Author : <%= site.author.name %> \n' +
                 '* Copyright <%= grunt.template.today("yyyy-mm-dd") %>\n' +

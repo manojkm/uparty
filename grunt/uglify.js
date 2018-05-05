@@ -25,7 +25,6 @@ module.exports = function (grunt) {
                     // return chosen.jquery.min.js
                     return dest + folder + filename + '.min.js';
                 }*/
-
             }]
         }
     };

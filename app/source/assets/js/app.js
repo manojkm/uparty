@@ -1,3 +1,13 @@
+// ================================================================================================
+// File Name: app.js
+// Description: Template related app JS.
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
 'use strict';
 if (typeof jQuery === 'undefined') {
     throw new Error('Theme\'s JavaScript requires jQuery');
