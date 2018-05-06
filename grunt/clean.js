@@ -1,13 +1,13 @@
 // Clean your /dist folder
-module.exports = {
+'use strict';
+module.exports = function (grunt) {
 
-    // dist: ['<%= site.dist %>'],
-    // js: ['<%= site.dist_assets %>/js'],
-    // css: ['<%= site.dist_assets %>/css'],
-    // html: ['<%= site.dist %>/*.html'],
-    // img: ['<%= site.dist_img %>'],
+    return {   // dist: ['<%= site.dist %>'],
+        // js: ['<%= site.dist_assets %>/js'],
+        // css: ['<%= site.dist_assets %>/css'],
+        // html: ['<%= site.dist %>/*.html'],
+        // img: ['<%= site.dist_img %>'],
 
-    dev: ['<%= site.dev %>/**/*', '<%= site.tmp %>/.sass-cache/**/*', '!<%= site.dev %>/.{git,gitignore,gitkeep}']
-    // env: ['<%= site.env %>/**/*', '!<%= site.env %>/.{git,gitignore,gitkeep}'],
-
+        dev: [grunt.getPath('dest') + '**/*', grunt.getPath('tmp') + '.sass-cache/**/*', '!'+ grunt.getPath('dest') + '.{git,gitignore,gitkeep}']
+    };
 };

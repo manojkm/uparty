@@ -23,10 +23,16 @@ module.exports = function (grunt) {
             tasks: ['concurrent:task_img']
         },
 
+        fonts: {
+            files: ['<%= site.src_fonts %>/**'],
+            tasks: ['concurrent:task_fonts']
+        },
+
         html: {
             files: ['<%= site.src_templates %>/{,*/}*.{md,hbs,yml,js}'],
             tasks: ['concurrent:task_html']
         }
+
     };
 
 };

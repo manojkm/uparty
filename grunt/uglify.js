@@ -10,9 +10,9 @@ module.exports = function (grunt) {
         uglify: {
             files: [{
                 expand: true,
-                cwd: '<%= site.dev_js %>/',
+                cwd: grunt.getPath('js', false, true),
                 src: ['**/*.js', '!**/*.min.js'],
-                dest: '<%= site.dev_js %>/',
+                dest: grunt.getPath('js', false, true),
                 ext: '.min.js',
                 extDot: 'last' // OR enable the below 'rename' function
              /*   rename: function (dest, src) {

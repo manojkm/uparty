@@ -8,9 +8,9 @@ module.exports = function (grunt) {
         svgmin: {
             files: [{
                 expand: true,
-                cwd: '<%= site.dev_img %>/',
+                cwd: grunt.getPath('img', false, true),
                 src: ['**/*.svg'],
-                dest: '<%= site.dev_img %>/'
+                dest: grunt.getPath('img', false, true)
             }]
         }
     };

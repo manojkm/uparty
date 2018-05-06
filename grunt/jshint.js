@@ -4,15 +4,16 @@ module.exports = function (grunt) {
     return {
         options: {
             jshintrc: '.jshintrc',
+            reporter: require('jshint-stylish'),
             force: true //report JSHint errors but not fail the task
         },
 
         gruntfile: {
-            src: ['Gruntfile.js', 'grunt/**/*.js']
+            src: ['Gruntfile.js', grunt.getPath('grunt') + '**/*.js']
         },
 
         all: {
-            src: ['<%= site.src_js %>/**/*.js']
+            src: [grunt.getPath('js', true) + '**/*.js']
         }
     };
 

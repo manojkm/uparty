@@ -17,8 +17,8 @@ module.exports = function (grunt) {
         },
 
         main: {
-            src: ['<%= site.src_js %>/app.js', '<%= site.src_js %>/custom.js'],
-            dest: '<%= site.dev_js %>/<%=site.name %>.js'
+            src: [grunt.getPath('js', true) + 'app.js', grunt.getPath('js', true) + 'custom.js'],
+            dest: grunt.getPath('js', false, true) + '<%= package.name %>.js'
         }
     };
 

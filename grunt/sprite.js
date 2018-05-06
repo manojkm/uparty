@@ -3,8 +3,8 @@ module.exports = function (grunt) {
 
     return {
         all: {
-            src: '<%= site.src_img %>/sprite/*.png',
-            dest: '<%= site.dev_img %>/sprite/spritesheet.png',
+            src: grunt.getPath('img', true) + '/sprite/*.png',
+            dest: grunt.getPath('img', false, true) + 'sprite/spritesheet.png',
             destCss: grunt.importPaths + '/sprites.css'
         }
     };

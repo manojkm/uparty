@@ -31,17 +31,17 @@ module.exports = function (grunt) {
 
             // Metadata
             site: '<%= site %>',
-            data: '<%= site.src_data %>',
-            assets: '<%= site.dev_assets %>',
+            data: grunt.getPath('data', true) + '**/*.{json,yml}',
+            assets: grunt.getPath('assets', false, true),
             activeTheme: '<%= activeThemeDir %>',
 
             // Templates
-            partials: '<%= site.src_partials %>',
-            layoutdir: '<%= site.src_layoutdir %>',
-            layout: '<%= site.src_layout %>',
+            partials: grunt.getPath('partials', true) + '**/*.hbs',
+            layoutdir: grunt.getPath('layouts', true),
+            layout: 'master',
 
             // Extensions
-            helpers: '<%= site.src_helpers %>'
+            helpers: grunt.getPath('helpers', true) + '**/*.js'
         },
 
         main: {
@@ -51,9 +51,9 @@ module.exports = function (grunt) {
             },
             files: [{
                 expand: true,
-                cwd: '<%= site.src_pages %>',
+                cwd: grunt.getPath('pages', true),
                 src: ['**/*.hbs'],
-                dest: '<%= site.dev %>'
+                dest: grunt.getPath('dest')
             }]
         },
 

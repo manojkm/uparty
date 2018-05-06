@@ -11,5 +11,4 @@ module.exports = function (grunt) {
             src: [grunt.importPaths + '**/*.css', '!' + grunt.importPaths + '**/*.min.css']
         }
     };
-
 };

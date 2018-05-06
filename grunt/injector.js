@@ -1,8 +1,9 @@
 'use strict';
 module.exports = function (grunt) {
 
-    var node_dir = grunt.site.node_dir;
-    var vendor_dir = grunt.site.vendor_dir;
+    // var node_dir = grunt.site.node_dir;
+    // var vendor_dir = grunt.site.vendor_dir;
+    var head = grunt.getPath('partials', true);
 
     return {
 
@@ -15,10 +16,10 @@ module.exports = function (grunt) {
             // Adapted from https://github.com/AIOrc/aiofwapp/blob/ccf5e6a4b6bd53a76cc1c40a4fed22ce282493c5/Gruntfile.js
             transform: function (filePath) {
                 if (/^.*\.css$/.test(filePath)) {
-                    filePath = filePath.replace(node_dir, vendor_dir);
+                    filePath = filePath.replace(grunt.getPath('node'), grunt.getPath('vendor'));
                     return '<link rel="stylesheet" href="' + filePath + '">';
                 } else if (/^.*\.js$/.test(filePath)) {
-                    filePath = filePath.replace(node_dir, vendor_dir);
+                    filePath = filePath.replace(grunt.getPath('node'), grunt.getPath('vendor'));
                     return '<script src="' + filePath + '"></script>';
                 }
             },
@@ -31,7 +32,7 @@ module.exports = function (grunt) {
              }
              },*/
             addRootSlash: false, // strips leading '/' from path files
-            ignorePath: ['<%= site.dev %>/'] // strips ' app/development/' from the urls of files
+            ignorePath: [grunt.getPath('dest')] // strips ' app/build/' from the urls of files
         },
 
         vendors_global: {

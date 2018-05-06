@@ -7,9 +7,9 @@ module.exports = function (grunt) {
             },
             files: [{
                 expand: true,
-                cwd: '<%= site.dev_img %>/',
+                cwd: grunt.getPath('img', false, true),
                 src: ['**/*.{png,jpg,gif,ico}'],
-                dest: '<%= site.dev_img %>/'
+                dest: grunt.getPath('img', false, true)
             }]
         }
     };

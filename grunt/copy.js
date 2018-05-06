@@ -7,26 +7,26 @@ module.exports = function (grunt) {
 
         vendors_extended: {
             files: [
-                {expand: true, cwd: '<%= site.src_js_vi %>/', src: ['**/*.js'], dest: '<%= site.dev_js_vi %>/'}
-                /* - TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js */
+                {expand: true, cwd: grunt.getPath('js_vi', true), src: ['**/*.js'], dest: grunt.getPath('js_vi', false, true), filter: 'isFile'}
+                // TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
             ]
         },
 
         /* js: {
          files: [
-         {expand: true, cwd: '<%= site.src_assets %>/js/', src: ['**!/!*.js'], dest: '<%= site.dev_assets %>/js/'}
+         {expand: true, cwd: grunt.getPath('js', true), src: ['**!/!*.js'], dest: grunt.getPath('js', false, true), filter: 'isFile'}
          ]
          },*/
 
         images: {
             files: [
-                {expand: true, cwd: '<%= site.src_img %>/', src: ['**'], dest: '<%= site.dev_img %>/'}
+                {expand: true, cwd: grunt.getPath('img', true), src: ['**'], dest: grunt.getPath('img', false, true), filter: 'isFile'}
             ]
         },
 
         fonts: {
             files: [
-                {expand: true, cwd: '<%= site.src_assets %>/fonts/', src: ['**'], dest: '<%= site.dev_assets %>/fonts/'}
+                {expand: true, cwd: grunt.getPath('fonts', true), src: ['**'], dest: grunt.getPath('fonts', false, true), filter: 'isFile'}
             ]
         }
     };

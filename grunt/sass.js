@@ -4,10 +4,10 @@ module.exports = function (grunt) {
     var optionsGruntContribSass = {
         loadPath: [
             require('node-bourbon').includePaths,
-            '<%= site.node_dir %>/bootstrap/scss'
+            grunt.getPath('node') + 'bootstrap/scss'
         ],
         sourcemap: (isProd) ? 'none' : 'auto',
-        cacheLocation: '<%= site.tmp %>/.sass-cache',
+        cacheLocation: grunt.getPath('tmp') + '.sass-cache',
         noCache: (isProd) ? true : false, // TODO, check this later, as im not sure.
         sourceComments: false,
         trace: true,
@@ -19,14 +19,14 @@ module.exports = function (grunt) {
     var optionsGruntSass = {
         includePaths: [
             require('node-bourbon').includePaths,
-            '<%= site.node_dir %>/bootstrap/scss'
+            grunt.getPath('node') + 'bootstrap/scss'
         ],
         banner: '<%= meta.banner %>',
         // outDir: grunt.importPaths,
         // outFile: 'nyco-patterns-default.css',
         // sourceMap: (isProd) ? false : true,
         sourceMapEmbed :  (isProd) ? false : true,
-        cacheLocation: '<%= site.tmp %>/.sass-cache',
+        cacheLocation: grunt.getPath('tmp') + '.sass-cache',
         sourceComments: false,
         outputStyle: (isProd) ? 'compressed' : 'compact' // 'expanded' causes newline error in csslint task.
     };

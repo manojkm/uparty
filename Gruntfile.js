@@ -13,6 +13,7 @@ module.exports = function (grunt) {
     var path = require('path');
     var pkg = require('./package.json');
     var site = grunt.file.readYAML('_config.yml');
+    var getPath = require('./config/getPath');
 
     var argv = require('minimist')(process.argv.slice(2));
     global.isProd = (argv.isProd) ? true : false;
@@ -29,12 +30,12 @@ module.exports = function (grunt) {
         dest: 'app/development/assets'
     };
 
-    // var build_state = 'prod';
 
     // Retrieve active theme name from scss file
     const sassExtract = require('sass-extract');
     const rendered = sassExtract.renderSync({
-        file: dirs.src + '/themes/config/_config.scss'
+        file: getPath('sass_themes', true) + 'config/_config.scss'
+
     }, {plugins: ['serialize']});
 
     var activeTheme = rendered.vars.global.$activeTheme.value;
@@ -44,12 +45,12 @@ module.exports = function (grunt) {
     var cssMinTasks = {};
     var importPaths = [];
 
-    if (!grunt.file.exists('./' + dirs.src + '/themes/' + 'theme-' + activeTheme)) {
+    if (!grunt.file.exists('./' + getPath('sass_themes', true) + 'theme-' + activeTheme)) {
         grunt.fail.fatal('>> Theme ' + activeTheme + ' not found');
     }
 
     function prepareSassThemeFiles(theme) {
-        var files = fs.readdirSync(dirs.src + '/themes/' + theme);
+        var files = fs.readdirSync(getPath('sass_themes', true) + theme);
         files = files.filter(function (element, index, array) {
             if (path.extname(element) === '.scss') {
                 return true;
@@ -60,17 +61,17 @@ module.exports = function (grunt) {
         });
 
         files = files.map(function (file) {
-            return dirs.src + '/themes/' + theme + '/' + file;
+            return getPath('sass_themes', true) + theme + '/' + file;
         });
 
-        sassMainFiles[dirs.dest + '/' + theme + '/' + pkg.name + '.css'] = files.join('');
+        sassMainFiles[getPath('assets', false, true) + theme + '/' + pkg.name + '.css'] = files.join('');
     }
 
     function prepareSassMainFiles(theme) {
-        sassMainFiles[dirs.dest + '/' + theme + '/' + pkg.name + '.css'] = dirs.src + '/' + 'app.scss';
+        sassMainFiles[getPath('assets', false, true) + theme + '/' + pkg.name + '.css'] = getPath('sass', true) + 'app.scss';
     }
 
-    var themes = fs.readdirSync('./' + dirs.src + '/themes/');
+    var themes = fs.readdirSync('./' + getPath('sass_themes', true));
     themes.forEach(function (theme) {
         if (theme === 'config') {
             return;
@@ -81,18 +82,18 @@ module.exports = function (grunt) {
 
             sassPagesTasks = [{
                 expand: true,
-                cwd: dirs.src + '/pages/',
+                cwd: getPath('sass_pages', true),
                 src: ['**/*.{sass,scss}', '!**/_*'], // take sass files & ignore partials
-                dest: dirs.dest + '/' + theme + '/' + 'pages',
+                dest: getPath('assets', false, true) + theme + '/' + 'pages',
                 ext: '.css',
                 extDot: 'last'
             }];
 
             sassVendorsExtTasks = [{
                 expand: true,
-                cwd: dirs.src + '/vendors-extended/',
+                cwd: getPath('SASS_VI', true),
                 src: ['**/*.{sass,scss}', '!**/_*'], // take sass files & ignore partials
-                dest: dirs.dest + '/' + theme + '/' + 'vendors-extended',
+                dest: getPath('assets', false, true) + theme + '/' + 'vendors-extended',
                 ext: '.css',
                 extDot: 'last'
             }];
@@ -102,19 +103,21 @@ module.exports = function (grunt) {
 
             cssMinTasks = [{
                 expand: true,
-                cwd: dirs.dest + '/' + theme + '/',
+                cwd: getPath('assets', false, true) + theme + '/',
                 src: ['**/*.css', '!**/*.min.css'],
-                dest: dirs.dest + '/' + theme + '/',
+                dest: getPath('assets', false, true) + theme + '/',
                 ext: '.min.css'
             }];
 
-            importPaths.push(dirs.dest + '/' + theme + '/');
+            importPaths.push(getPath('assets', false, true) + theme + '/');
         }
     });
 
     console.log('Import Paths are: ' + importPaths);
 
+
     // Makes it available to exec tasks
+    grunt.getPath = getPath;
     grunt.sassMainFiles = sassMainFiles;
     grunt.sassPagesTasks = sassPagesTasks;
     grunt.sassVendorsExtTasks = sassVendorsExtTasks;
@@ -122,7 +125,6 @@ module.exports = function (grunt) {
     grunt.activeTheme = activeTheme;
     grunt.cssMinTasks = cssMinTasks;
     grunt.site = site;
-
 
     require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks
     //require('load-grunt-tasks')(grunt); // Load multiple grunt tasks listed in your package.json
@@ -169,4 +171,18 @@ module.exports = function (grunt) {
 
     });
 
+    // Adapted from https://github.com/victoriauniversity/victoria-web-toolkit/blob/master/Gruntfile.js
+    grunt.registerTask('default', 'My "default" task description.', function () {
+        grunt.log.writeln('grunty: Here is what you can do!' + "\n");
+        grunt.log.writeln('grunt dev - to build the project for development and open a browser instance with watch, etc.');
+        // grunt.log.writeln('            Also runs the watch task and opens the browser, browsersync is active.');
+        grunt.log.writeln('grunt prod --isProd -  to build the project for production. --isProd needs to be passed');
+        grunt.log.writeln('grunt version - Shows version number');
+    });
+
+    //  Adapted from https://github.com/tlinqu/grunt-tutorial/blob/master/Gruntfile.js
+    grunt.registerTask('version', 'Shows version number', function () {
+        var pkg = grunt.file.readJSON('package.json');
+        console.log(pkg.name, pkg.version);
+    });
 };
