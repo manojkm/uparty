@@ -1,17 +1,20 @@
 'use strict';
 module.exports = function (grunt) {
 
+    var partials = grunt.getPath('partials', true);
+    var dest = grunt.getPath('dest');
+
     var vendors_files = function (isGlobal, isPageLevel) {
         var files = {};
 
         if (isGlobal) {
-            files[grunt.getPath('partials', true) + 'head.hbs'] = ['<%= vI.css_js_global %>'];
-            files[grunt.getPath('partials', true) + 'footer-scripts.hbs'] = ['<%= vI.css_js_global %>'];
+            files[partials + 'head.hbs'] = ['<%= vI.css_js_global %>'];
+            files[partials + 'footer-scripts.hbs'] = ['<%= vI.css_js_global %>'];
             return files;
         }
 
         if (isPageLevel) {
-            files[grunt.getPath('dest') + 'advanced-form-elements.html'] = ['<%= vI.chosen %>'];
+            files[dest + 'advanced-form-elements.html'] = ['<%= vI.chosen %>'];
             return files;
         }
 
