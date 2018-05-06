@@ -1,12 +1,23 @@
 'use strict';
 module.exports = function (grunt) {
 
-    // var node_dir = grunt.site.node_dir;
-    // var vendor_dir = grunt.site.vendor_dir;
-    var head = grunt.getPath('partials', true);
+    var vendors_files = function (isGlobal, isPageLevel) {
+        var files = {};
+
+        if (isGlobal) {
+            files[grunt.getPath('partials', true) + 'head.hbs'] = ['<%= vI.css_js_global %>'];
+            files[grunt.getPath('partials', true) + 'footer-scripts.hbs'] = ['<%= vI.css_js_global %>'];
+            return files;
+        }
+
+        if (isPageLevel) {
+            files[grunt.getPath('dest') + 'advanced-form-elements.html'] = ['<%= vI.chosen %>'];
+            return files;
+        }
+
+    };
 
     return {
-
         options: {
             min: (isProd) ? true : false,
             // relative: true,
@@ -16,10 +27,10 @@ module.exports = function (grunt) {
             // Adapted from https://github.com/AIOrc/aiofwapp/blob/ccf5e6a4b6bd53a76cc1c40a4fed22ce282493c5/Gruntfile.js
             transform: function (filePath) {
                 if (/^.*\.css$/.test(filePath)) {
-                    filePath = filePath.replace(grunt.getPath('node'), grunt.getPath('vendor'));
+                    filePath = filePath.replace(grunt.getPath('node'), grunt.getPath('vendors'));
                     return '<link rel="stylesheet" href="' + filePath + '">';
                 } else if (/^.*\.js$/.test(filePath)) {
-                    filePath = filePath.replace(grunt.getPath('node'), grunt.getPath('vendor'));
+                    filePath = filePath.replace(grunt.getPath('node'), grunt.getPath('vendors'));
                     return '<script src="' + filePath + '"></script>';
                 }
             },
@@ -40,11 +51,7 @@ module.exports = function (grunt) {
                 starttag: '<!-- BEGIN GLOBAL VENDORS :{{ext}} -->',
                 endtag: '<!-- END GLOBAL VENDORS :{{ext}} -->'
             },
-
-            files: { // <%= vI %> File is located at /app/source/data/vendor-injector.json
-                '<%= site.src_partialsdir %>/head.hbs': ['<%= vI.css_js_global %>'],
-                '<%= site.src_partialsdir %>/footer-scripts.hbs': ['<%= vI.css_js_global %>']
-            }
+            files: vendors_files(true)
         },
 
         vendors_pageLevel: {
@@ -52,11 +59,7 @@ module.exports = function (grunt) {
                 starttag: '<!-- BEGIN PAGE LEVEL VENDORS AND ITS EXTENSIONS :{{ext}} -->',
                 endtag: '<!-- END PAGE LEVEL VENDORS AND ITS EXTENSIONS :{{ext}} -->'
             },
-            files: {
-                '<%= site.dev %>/advanced-form-elements.html': ['<%= vI.chosen %>']
-            }
+            files: vendors_files(false, true)
         }
     };
-
-
 };

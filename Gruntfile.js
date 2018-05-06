@@ -37,8 +37,8 @@ module.exports = function (grunt) {
         file: getPath('sass_themes', true) + 'config/_config.scss'
 
     }, {plugins: ['serialize']});
-
     var activeTheme = rendered.vars.global.$activeTheme.value;
+
     var sassMainFiles = {};
     var sassPagesTasks = {};
     var sassVendorsExtTasks = {};
@@ -148,10 +148,10 @@ module.exports = function (grunt) {
             site: site,
             now: new Date().toISOString().replace(/(-|:|T)/g, "_"),
             activeThemeDir: 'theme-' + grunt.activeTheme,
-            jsCombPath: grunt.file.readJSON('app/source/data/jscomb.json'),
-            taskVarsConfig: grunt.file.readJSON('app/source/data/task-vars-config.json'),
-            cssCombPath: grunt.file.readJSON('app/source/data/csscomb.json'),
+            //taskVarsConfig: grunt.file.readJSON('app/source/data/task-vars-config.json'),
             vI: grunt.file.readJSON('app/source/data/vendor-injector.json'),
+            extendedCSS: grunt.getPath('assets', false, true) + 'theme-' + grunt.activeTheme + '/vendors-extended',
+            extendedJS: grunt.getPath('JS_VI', false, true),
 
             meta: {
                 /**

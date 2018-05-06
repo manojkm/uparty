@@ -1,51 +1,51 @@
 {
   "css_js_global": [
-    "<%= site.node_dir %>/metismenu/dist/metisMenu.css",
-    "<%= site.node_dir %>/animate.css/animate.css",
-    "<%= site.node_dir %>/bootstrap/dist/css/bootstrap.css",
-    "<%= site.node_dir %>/simple-line-icons/css/simple-line-icons.css",
-    "<%= site.node_dir %>/jquery/dist/jquery.js",
-    "<%= site.node_dir %>/nicescroll/jquery.nicescroll.js",
-    "<%= site.node_dir %>/metismenu/dist/metisMenu.js",
-    "<%= site.node_dir %>/popper.js/dist/umd/popper.js",
-    "<%= site.node_dir %>/bootstrap/dist/js/bootstrap.js"
+    "node_modules/metismenu/dist/metisMenu.css",
+    "node_modules/animate.css/animate.css",
+    "node_modules/bootstrap/dist/css/bootstrap.css",
+    "node_modules/simple-line-icons/css/simple-line-icons.css",
+    "node_modules/jquery/dist/jquery.js",
+    "node_modules/nicescroll/jquery.nicescroll.js",
+    "node_modules/metismenu/dist/metisMenu.js",
+    "node_modules/popper.js/dist/umd/popper.js",
+    "node_modules/bootstrap/dist/js/bootstrap.js"
   ],
   "chosen": [
-      "<%= site.node_dir %>/chosen-js/chosen.css",
-      "<%= site.node_dir %>/chosen-js/chosen.jquery.js",
-      "<%= site.dev_assets %>/<%= activeThemeDir %>/vendors-extended/chosen.css",
-      "<%= site.dev_js_vi %>/chosen.jquery.js"
+      "node_modules/chosen-js/chosen.css",
+      "node_modules/chosen-js/chosen.jquery.js",
+      "<%= extendedCSS %>/chosen.css",
+      "<%= extendedJS %>/chosen.jquery.js"
   ],
 
   "dropzone": [
-    "<%= site.node_dir %>/dropzone/dist/min/dropzone.min.css",
-    "<%= site.node_dir %>/dropzone/dist/dropzone.js"
+    "node_modules/dropzone/dist/min/dropzone.min.css",
+    "node_modules/dropzone/dist/dropzone.js"
   ],
   "multi-select": [
-    "<%= site.node_dir %>/multiselect/css/multi-select.css",
-    "<%= site.node_dir %>/multiselect/js/jquery.multi-select.js",
-    "<%= site.node_dir %>/jquery.quicksearch/dist/jquery.quicksearch.min.js"
+    "node_modules/multiselect/css/multi-select.css",
+    "node_modules/multiselect/js/jquery.multi-select.js",
+    "node_modules/jquery.quicksearch/dist/jquery.quicksearch.min.js"
   ],
   "datepicker": [
-    "<%= site.node_dir %>/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css",
-    "<%= site.node_dir %>/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"
+    "node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css",
+    "node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"
   ],
   "nouislider": [
-    "<%= site.node_dir %>/nouislider/distribute/nouislider.css",
-    "<%= site.node_dir %>/nouislider/distribute/nouislider.js"
+    "node_modules/nouislider/distribute/nouislider.css",
+    "node_modules/nouislider/distribute/nouislider.js"
   ],
   "raty": [
-    "<%= site.node_dir %>/raty-js/lib/jquery.raty.css",
-    "<%= site.node_dir %>/raty-js/lib/jquery.raty.js"
+    "node_modules/raty-js/lib/jquery.raty.css",
+    "node_modules/raty-js/lib/jquery.raty.js"
   ],
   "toastr": [
-    "<%= site.node_dir %>/toastr/build/toastr.min.css",
-    "<%= site.node_dir %>/toastr/build/toastr.min.js"
+    "node_modules/toastr/build/toastr.min.css",
+    "node_modules/toastr/build/toastr.min.js"
   ],
-  "mask": "<%= site.node_dir %>/jquery-mask-plugin/dist/jquery.mask.js",
-  "autosize": "<%= site.node_dir %>/autosize/dist/autosize.js",
-  "validate": "<%= site.node_dir %>/jquery-validation/dist/jquery.validate.js",
-  "steps": "<%= site.node_dir %>/jquery-steps/build/jquery.steps.js",
-  "repeater": "<%= site.node_dir %>/jquery.repeater/jquery.repeater.js",
-  "maxlength": "<%= site.node_dir %>/bootstrap-maxlength/bootstrap-maxlength.js"
+  "mask": "node_modules/jquery-mask-plugin/dist/jquery.mask.js",
+  "autosize": "node_modules/autosize/dist/autosize.js",
+  "validate": "node_modules/jquery-validation/dist/jquery.validate.js",
+  "steps": "node_modules/jquery-steps/build/jquery.steps.js",
+  "repeater": "node_modules/jquery.repeater/jquery.repeater.js",
+  "maxlength": "node_modules/bootstrap-maxlength/bootstrap-maxlength.js"
 }

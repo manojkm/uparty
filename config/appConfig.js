@@ -22,12 +22,12 @@ var options = {
 
         DATA:'data/',
 
+        TMP: '.tmp/',
+        NODE: 'node_modules/',
+        VENDORS: 'vendors/',
+        GRUNT: 'grunt/',
     },
 
-    TMP: '.tmp/',
-    NODE: 'node_modules/',
-    VENDOR: 'vendor/',
-    GRUNT: 'grunt/',
 };
 
 module.exports = options;
