@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         },
 
         sass: {
-            files: [grunt.getPath('scss', true) + '**/*.scss'],
+            files: [grunt.getPath('sass', true) + '**/*.scss'],
             tasks: ['concurrent:task_sass']
         },
 

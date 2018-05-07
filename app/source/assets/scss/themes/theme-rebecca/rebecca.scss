@@ -1,9 +1,8 @@
 //----------------------------------*\
 // THEME DEPENDENCIES
 //----------------------------------*/
-@import
-    '../../custom-variables', // Your custom variables and variable overwrites.
-    '../../helpers/colors'; // Default color variables
+@import '../../custom-variables', // Your custom variables and variable overwrites.
+'../../helpers/colors'; // Default color variables
 
 //----------------------------------*\
 // BRAND COLOR VARIABLES
@@ -22,19 +21,19 @@ $secondary-foreground: $white-color; // Used as the text color on secondary back
 
 /* Header */
 $header-background: $midnight-blue; // Used as the background color of Header.
-$header-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
+$header-colors: lighten($midnight-blue, 60%), lighten($midnight-blue, 65%), lighten($midnight-blue, 100%), #fff; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 /* Sidebar */
 $sidebar-background: $midnight-blue; // Used as the background color of Sidebar.
-$sidebar-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
+$sidebar-colors: lighten($midnight-blue, 60%), lighten($midnight-blue, 65%), lighten($midnight-blue, 100%), lighten($turquoise, 10%); // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 /* Aside */
 $aside-background: $midnight-blue; // Used as the background color of Aside.
-$aside-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
+$aside-colors: #fff, #fff, #fff, #fff; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 /* Footer */
 $footer-background: $midnight-blue; // Used as the background color of Footer.
-$footer-colors: #ff0000, #ff0000, #ff0000, #000; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
+$footer-colors: #fff, #ccc, #fff, #fff; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 /* Colour shades amount */
 $color-shade-amount: 4%; // Used to generate base, light & dark color shades
@@ -48,7 +47,7 @@ $color-shade-amount: 4%; // Used to generate base, light & dark color shades
 /* Define color/shade map */
 // TODO for  tomorrow https://stackoverflow.com/questions/33856034/dynamically-build-up-a-sass-map-and-then-use-the-values
 
-$rebecca-palette-map : (
+$rebecca-palette-map: (
         'main-colors': (
                 'primary': (
                         'base': $primary-background,

@@ -14,7 +14,23 @@ module.exports = function (grunt) {
         }
 
         if (isPageLevel) {
-            files[dest + 'advanced-form-elements.html'] = ['<%= vI.chosen %>'];
+            files[dest + 'wizard.html'] = ['<%= vI.steps %>', '<%= vI.validate %>'];
+            files[dest + 'form-wizard.html'] = ['<%= vI.steps %>', '<%= vI.validate %>'];
+            files[dest + 'form-validation.html'] = ['<%= vI.validate %>'];
+            files[dest + 'form-repeater.html'] = ['<%= vI.repeater %>'];
+            files[dest + 'advanced-form-elements.html'] = [
+                '<%= vI.maxlength %>',
+                '<%= vI.raty %>',
+                '<%= vI.nouislider %>',
+                '<%= vI.toastr %>',
+                '<%= vI.datepicker %>',
+                '<%= vI.chosen %>',
+                '<%= vI.multiSelect %>',
+                '<%= vI.mask %>',
+                '<%= vI.dropzone %>'
+            ];
+
+
             return files;
         }
 

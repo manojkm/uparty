@@ -11,41 +11,63 @@
     "node_modules/bootstrap/dist/js/bootstrap.js"
   ],
   "chosen": [
-      "node_modules/chosen-js/chosen.css",
-      "node_modules/chosen-js/chosen.jquery.js",
-      "<%= extendedCSS %>/chosen.css",
-      "<%= extendedJS %>/chosen.jquery.js"
+    "node_modules/chosen-js/chosen.css",
+    "node_modules/chosen-js/chosen.jquery.js",
+    "<%= extendedCSS %>/chosen.css",
+    "<%= extendedJS %>/chosen.jquery.js"
   ],
-
   "dropzone": [
     "node_modules/dropzone/dist/min/dropzone.min.css",
-    "node_modules/dropzone/dist/dropzone.js"
+    "node_modules/dropzone/dist/dropzone.js",
+    "<%= extendedCSS %>/dropzone.css"
   ],
-  "multi-select": [
+  "multiSelect": [
     "node_modules/multiselect/css/multi-select.css",
     "node_modules/multiselect/js/jquery.multi-select.js",
-    "node_modules/jquery.quicksearch/dist/jquery.quicksearch.min.js"
+    "node_modules/jquery.quicksearch/dist/jquery.quicksearch.min.js",
+    "<%= extendedCSS %>/multi-select.css",
+    "<%= extendedJS %>/jquery.multi-select.js"
   ],
   "datepicker": [
     "node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css",
-    "node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"
+    "node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js",
+    "<%= extendedCSS %>/bootstrap-datepicker.standalone.css",
+    "<%= extendedJS %>/bootstrap-datepicker.js"
   ],
   "nouislider": [
     "node_modules/nouislider/distribute/nouislider.css",
-    "node_modules/nouislider/distribute/nouislider.js"
+    "node_modules/nouislider/distribute/nouislider.js",
+    "<%= extendedCSS %>/nouislider.css",
+    "<%= extendedJS %>/nouislider.js"
   ],
   "raty": [
     "node_modules/raty-js/lib/jquery.raty.css",
-    "node_modules/raty-js/lib/jquery.raty.js"
+    "node_modules/raty-js/lib/jquery.raty.js",
+    "<%= extendedJS %>/jquery.raty.js"
   ],
   "toastr": [
     "node_modules/toastr/build/toastr.min.css",
-    "node_modules/toastr/build/toastr.min.js"
+    "node_modules/toastr/build/toastr.min.js",
+    "<%= extendedCSS %>/toastr.css",
+    "<%= extendedJS %>/toastr.js"
   ],
   "mask": "node_modules/jquery-mask-plugin/dist/jquery.mask.js",
   "autosize": "node_modules/autosize/dist/autosize.js",
-  "validate": "node_modules/jquery-validation/dist/jquery.validate.js",
-  "steps": "node_modules/jquery-steps/build/jquery.steps.js",
-  "repeater": "node_modules/jquery.repeater/jquery.repeater.js",
-  "maxlength": "node_modules/bootstrap-maxlength/bootstrap-maxlength.js"
+  "validate": [
+    "node_modules/jquery-validation/dist/jquery.validate.js",
+    "<%= extendedJS %>/jquery.validate.js"
+  ],
+  "steps": [
+    "node_modules/jquery-steps/build/jquery.steps.js",
+    "<%= extendedCSS %>/jquery.steps.css",
+    "<%= extendedJS %>/jquery.steps.js"
+  ],
+  "repeater": [
+    "node_modules/jquery.repeater/jquery.repeater.js",
+    "<%= extendedJS %>/jquery.repeater.js"
+  ],
+  "maxlength": [
+    "node_modules/bootstrap-maxlength/bootstrap-maxlength.js",
+    "<%= extendedJS %>/bootstrap-maxlength.js"
+  ]
 }

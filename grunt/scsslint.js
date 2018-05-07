@@ -2,7 +2,7 @@
 module.exports = function (grunt) {
     return {
         allFiles: [
-            grunt.getPath('scss', true) + '**/*.scss'
+            grunt.getPath('sass', true) + '**/*.scss'
         ],
 
         options: {

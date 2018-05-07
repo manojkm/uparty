@@ -3,7 +3,8 @@ module.exports = function (grunt) {
 
     return {
         options: {
-            logConcurrentOutput: true
+            logConcurrentOutput: true,
+            limit: 5
         },
 
         watch: ['watch:sass', 'watch:js', 'watch:images', 'watch:fonts', 'watch:html'],
