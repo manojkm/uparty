@@ -2,9 +2,11 @@
 module.exports = function (grunt) {
 
     return {
-        options: {logConcurrentOutput: true},
+        options: {
+            logConcurrentOutput: true
+        },
 
-        watch: ['watch:sass', 'watch:js', 'watch:images','watch:fonts', 'watch:html'],
+        watch: ['watch:sass', 'watch:js', 'watch:images', 'watch:fonts', 'watch:html'],
 
         task_sass: [
             ['task_css_dev', 'notify:css']

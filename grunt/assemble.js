@@ -30,9 +30,11 @@ module.exports = function (grunt) {
             layoutext: '.hbs',
 
             // Metadata
-            site: '<%= site %>',
+            package: '<%= package %>',
             data: grunt.getPath('data', true) + '**/*.{json,yml}',
             assets: grunt.getPath('assets', false, true),
+            img: grunt.getPath('img'),
+            script: grunt.getPath('js'),
             activeTheme: '<%= activeThemeDir %>',
 
             // Templates
@@ -55,21 +57,20 @@ module.exports = function (grunt) {
                 src: ['**/*.hbs'],
                 dest: grunt.getPath('dest')
             }]
-        },
+        }/*,
 
-
-        // rtl: {
-        //     options: {
-        //         layout: 'default',
-        //         rtl: true
-        //     },
-        //     files: [{
-        //         expand: true,
-        //         cwd: '<%= site.src_pages %>',
-        //         src: ['**/*.hbs'],
-        //         dest: '<%= site.dev %>/rtl'
-        //     }]
-        // }
+        rtl: {
+            options: {
+                layout: 'master',
+                rtl: true
+            },
+            files: [{
+                expand: true,
+                cwd: grunt.getPath('pages', true),
+                src: ['**!/!*.hbs'],
+                 dest: grunt.getPath('dest') + 'rtl'
+            }]
+        }*/
     };
 
 };

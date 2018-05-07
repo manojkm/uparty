@@ -11,10 +11,9 @@ module.exports = function (grunt) {
 
             files: {
                 // src: [grunt.importPaths + '/<%=site.name %>.min.css']
-                src: [grunt.importPaths + '**/*.css',]
+                src: [grunt.importPaths + '**/*.css']
             }
-        },
-        /*
+        }/*,
          js: {
          options: {
          position: 'top',
@@ -23,7 +22,7 @@ module.exports = function (grunt) {
          },
 
          files: {
-         src: ['<%= site.dev_js %>/<%= site.name %>.min.js']
+         src: [grunt.getPath('js', false, true) + '<%= package.name %>.min.js']
          }
          }*/
 

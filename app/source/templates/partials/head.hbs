@@ -1,26 +1,26 @@
-<title>{{title}} | {{site.title}}</title>
+<title>{{title}} | {{package.title}}</title>
 <!-- Required meta tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="{{ site.description }}">
-<meta name="keywords" content="{{ site.keywords }}">
-<meta name="author" content="{{ site.author.name }}">
+<meta name="description" content="{{ package.description }}">
+<meta name="keywords" content="{{ package.keywords }}">
+<meta name="author" content="{{ package.author.name }}">
 <!--
     //////////////////////////////////////////////////////
 
     ADMIN HTML5 TEMPLATE
-    DESIGNED & DEVELOPED by {{ site.author.name }}
+    DESIGNED & DEVELOPED by {{ package.author.name }}
 
     Website:        xxx
     Email:          xxx
 
     //////////////////////////////////////////////////////
     -->
-<link rel="icon" href="{{assets}}/img/favicon.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="{{assets}}/img/favicon.ico" type="image/x-icon"/>
-<link rel="apple-touch-icon" href="{{assets}}/img/apple-touch-icon.png"/>
-<link rel="apple-touch-icon" sizes="72x72" href="{{assets}}/img/apple-touch-icon-72x72.png"/>
-<link rel="apple-touch-icon" sizes="114x114" href="{{assets}}/img/apple-touch-icon-114x114.png"/>
+<link rel="icon" href="{{img}}favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="{{img}}favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="{{img}}apple-touch-icon.png"/>
+<link rel="apple-touch-icon" sizes="72x72" href="{{img}}apple-touch-icon-72x72.png"/>
+<link rel="apple-touch-icon" sizes="114x114" href="{{img}}apple-touch-icon-114x114.png"/>
 
 {{!--<link rel="stylesheet" href="{{assets}}/css/bootstrap.css" />--}}
 
@@ -36,9 +36,9 @@
 
 <!-- BEGIN OBEUS :CSS-->
 {{#if production}}
-    <link href="{{assets}}/{{activeTheme}}/{{ site.name }}.min.css" rel="stylesheet" title="mainStyle">
+    <link href="{{assets}}{{activeTheme}}/{{ package.name }}.min.css" rel="stylesheet" title="mainStyle">
 {{else}}
-    <link href="{{assets}}/{{activeTheme}}/{{ site.name }}.css" rel="stylesheet" title="mainStyle">
+    <link href="{{assets}}{{activeTheme}}/{{ package.name }}.css" rel="stylesheet" title="mainStyle">
 {{/if}}
 <!-- END OBEUS :CSS-->
 

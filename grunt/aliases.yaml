@@ -12,6 +12,7 @@ task_js_dev:
   - 'jshint'
   - 'copy:vendors_extended'
   - 'concat'
+  - 'jsbeautifier'
 task_js_prod:
   - 'task_js_dev'
   - 'uglify'
@@ -32,12 +33,9 @@ task_html_dev:
 task_html_prod:
   - 'task_html_dev'
   - 'prettify'
-task_banner: # - TODO .. this is not yet on final build..
+task_banner: # - TODO .. this is not yet included with final build below...
   - 'usebanner'
   - 'notify:banner'
-
-#task_sync:
-#  - 'sync'
 
 #----------------------------------*\
 # FINAL BUILD

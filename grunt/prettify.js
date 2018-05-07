@@ -9,10 +9,10 @@ module.exports = function (grunt) {
         html: {
             // Target-specific file lists and/or options go here.
             expand: true,
-            cwd: '<%= site.dev %>',
+            cwd: grunt.getPath('dest'),
             ext: '.html',
             src: ['*.html'],
-            dest: '<%= site.dev %>/'
+            dest: grunt.getPath('dest')
         }
     };
 

@@ -11,15 +11,5 @@
 
 <!-- BEGIN OBEUS :JS-->
 <!-- Custom JavaScript code for all pages-->
-{{#if production}}
-    <script src="{{assets}}/js/{{ site.name }}.min.js"></script>
-{{else}}
-    <script src="{{assets}}/js/{{ site.name }}.js"></script>
-{{/if}}
+<script src="{{script}}{{ package.name }}{{#if production}}.min{{/if}}.js"></script>
 <!-- END OBEUS :JS-->
-
-
-
-
-
-

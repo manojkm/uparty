@@ -29,7 +29,7 @@
                     {{#each pages }}
                         <li {{#is ../../page.dest this.dest}}
                         class="sidebar__item active" {{ else }} class="sidebar__item"{{/is}}>
-                            <a href="{{ replaceStr dest 'app/development/' '' }}">{{ data.title }}</a>
+                            <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}</a>
                         </li>
                     {{/each}}
                 {{/withSort}}
@@ -55,7 +55,7 @@
                     {{#each pages }}
                         <li {{#is ../../page.dest this.dest}}
                         class="sidebar__item active" {{ else }} class="sidebar__item"{{/is}}><a
-                                href="{{ replaceStr dest 'app/development/' '' }}">{{ data.title }}
+                                href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}
                             {{#is data.title "Badges"}}
                                 <span class="ml-auto badge badge-round badge-primary">4</span>
                             {{/is}}
@@ -80,7 +80,7 @@
                     {{#each pages }}
                         <li {{#is ../../page.dest this.dest}}
                         class="sidebar__item active" {{ else }} class="sidebar__item"{{/is}}>
-                            <a href="{{ replaceStr dest 'app/development/' '' }}">{{ data.title }}</a>
+                            <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}</a>
                         </li>
                     {{/each}}
                 {{/withSort}}
@@ -99,7 +99,7 @@
                     {{#each pages }}
                         <li {{#is ../../page.dest this.dest}}
                         class="sidebar__item active" {{ else }} class="sidebar__item"{{/is}}>
-                            <a href="{{ replaceStr dest 'app/development/' '' }}">{{ data.title }}</a>
+                            <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}</a>
                         </li>
                     {{/each}}
                 {{/withSort}}

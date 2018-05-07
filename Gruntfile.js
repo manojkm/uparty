@@ -25,13 +25,7 @@ module.exports = function (grunt) {
         console.log('Build state is DEVELOPMENT');
     }
 
-    var dirs = {
-        src: 'app/source/assets/scss',
-        dest: 'app/development/assets'
-    };
-
-
-    // Retrieve active theme name from scss file
+    // Retrieve active theme name from SCSS file
     const sassExtract = require('sass-extract');
     const rendered = sassExtract.renderSync({
         file: getPath('sass_themes', true) + 'config/_config.scss'
@@ -91,7 +85,7 @@ module.exports = function (grunt) {
 
             sassVendorsExtTasks = [{
                 expand: true,
-                cwd: getPath('SASS_VI', true),
+                cwd: getPath('sass_vi', true),
                 src: ['**/*.{sass,scss}', '!**/_*'], // take sass files & ignore partials
                 dest: getPath('assets', false, true) + theme + '/' + 'vendors-extended',
                 ext: '.css',
@@ -126,32 +120,37 @@ module.exports = function (grunt) {
     grunt.cssMinTasks = cssMinTasks;
     grunt.site = site;
 
-    require('time-grunt')(grunt); //Display the elapsed execution time of grunt tasks
-    //require('load-grunt-tasks')(grunt); // Load multiple grunt tasks listed in your package.json
+    // Display the elapsed execution time of grunt tasks
+    require('time-grunt')(grunt);
+
+    // Loads the tasks configs and loads them
     require('load-grunt-config')(grunt, {
 
+        // Path to task.js files, defaults to grunt dir.
+        configPath: path.join(process.cwd(), 'grunt'),
+
+        // Use jit-grunt to speed up the build process
         jitGrunt: {
-            // here you can pass options to jit-grunt (or just jitGrunt: true)
+            // Static mappings of file names to grunt plugins
             staticMappings: {
-                // here you can specify static mappings, for example:
                 usebanner: 'grunt-banner',
                 sprite: 'grunt-spritesmith',
                 scsslint: 'grunt-scss-lint'
             }
         },
 
-        // path to task.js files, defaults to grunt dir.
-        configPath: path.join(process.cwd(), 'grunt'),
-        // ...
-        data: { //data passed into config.  Can use with <%= test %>
+        // Automatically execute grunt.initConfig()
+        init: true,
 
+        // data passed into config.  Can use with <%= test %>
+        data: {
             site: site,
-            now: new Date().toISOString().replace(/(-|:|T)/g, "_"),
+            now: new Date().toISOString().replace(/(-|:|T)/g, '_'),
             activeThemeDir: 'theme-' + grunt.activeTheme,
             //taskVarsConfig: grunt.file.readJSON('app/source/data/task-vars-config.json'),
-            vI: grunt.file.readJSON('app/source/data/vendor-injector.json'),
+            vI: grunt.file.readJSON(grunt.getPath('data', true) + 'vendor-injector.json'),
             extendedCSS: grunt.getPath('assets', false, true) + 'theme-' + grunt.activeTheme + '/vendors-extended',
-            extendedJS: grunt.getPath('JS_VI', false, true),
+            extendedJS: grunt.getPath('js_vi', false, true),
 
             meta: {
                 /**
@@ -173,7 +172,7 @@ module.exports = function (grunt) {
 
     // Adapted from https://github.com/victoriauniversity/victoria-web-toolkit/blob/master/Gruntfile.js
     grunt.registerTask('default', 'My "default" task description.', function () {
-        grunt.log.writeln('grunty: Here is what you can do!' + "\n");
+        grunt.log.writeln('grunty: Here is what you can do!' + '\n');
         grunt.log.writeln('grunt dev - to build the project for development and open a browser instance with watch, etc.');
         // grunt.log.writeln('            Also runs the watch task and opens the browser, browsersync is active.');
         grunt.log.writeln('grunt prod --isProd -  to build the project for production. --isProd needs to be passed');

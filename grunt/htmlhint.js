@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         },
 
         html1: {
-            src: ['<%= site.dev %>/*.html']
+            src: [grunt.getPath('dest') + '*.html']
         }
     };
 };

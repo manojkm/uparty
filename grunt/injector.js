@@ -24,7 +24,7 @@ module.exports = function (grunt) {
         options: {
             min: (isProd) ? true : false,
             // relative: true,
-            // prefix:'<%= site.vendor_dir %>/',
+            // prefix: grunt.getPath('vendors'),
             // postfix : '?v=<%= now %>',
             // Adapted from https://github.com/yangqw/pb-com/blob/786251274086194f5d87565d2145157afcebc6cd/Gruntfile.js
             // Adapted from https://github.com/AIOrc/aiofwapp/blob/ccf5e6a4b6bd53a76cc1c40a4fed22ce282493c5/Gruntfile.js

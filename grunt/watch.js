@@ -9,27 +9,27 @@ module.exports = function (grunt) {
         },
 
         sass: {
-            files: ['<%= site.src_scss %>/**/*.scss'],
+            files: [grunt.getPath('scss', true) + '**/*.scss'],
             tasks: ['concurrent:task_sass']
         },
 
         js: {
-            files: ['<%= site.src_js %>/**/*.js'],
+            files: [grunt.getPath('js', true) + '**/*.js'],
             tasks: ['concurrent:task_js']
         },
 
         images: {
-            files: ['<%= site.src_img %>/**/*.{png,jpg,gif,ico,svg}'],
+            files: [grunt.getPath('img', true) + '**/*.{png,jpg,gif,ico,svg}'],
             tasks: ['concurrent:task_img']
         },
 
         fonts: {
-            files: ['<%= site.src_fonts %>/**'],
+            files: [grunt.getPath('fonts', true) + '**'],
             tasks: ['concurrent:task_fonts']
         },
 
         html: {
-            files: ['<%= site.src_templates %>/{,*/}*.{md,hbs,yml,js}'],
+            files: [grunt.getPath('templates', true) + '{,*/}*.{md,hbs,yml,js}'],
             tasks: ['concurrent:task_html']
         }
 
