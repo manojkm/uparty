@@ -1,17 +1,16 @@
 // ================================================================================================
-// File Name: forms.scss
-// Description: Form control styles, layout options, and custom components for creating a wide variety of forms
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : forms.scss
+// Description    : Form control styles, layout options, and custom components for creating a
+// wide variety of forms.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // TEXTUAL FORM CONTROLS
-//----------------------------------*/
-
+// ======================================================
 .form-control {
   @include transition;
   @include set-border-radius($input-border-radius);
@@ -38,9 +37,8 @@
   }
 }
 
-//----------------------------------*\
 // TEXTAREA
-//----------------------------------*/
+// ======================================================
 textarea.form-control {
   height: auto;
 }
@@ -49,9 +47,8 @@ textarea.textarea-no-resize {
   resize: none;
 }
 
-//----------------------------------*\
 // SELECT
-//----------------------------------*/
+// ======================================================
 
 select.form-control {
   &:not([size]):not([multiple]) {
@@ -71,7 +68,7 @@ select.form-control {
   }
 }
 
-/* Set uniform font-sizes for labels and legends. */
+// Set uniform font-sizes for labels and legends.
 form {
   label,
   .col-form-legend {
@@ -81,11 +78,9 @@ form {
 
 }
 
-//----------------------------------*\
 // LABEL SIZING
-//----------------------------------*/
-/* For use with horizontal and inline forms, when you need the label text to
-   align with the form controls. */
+// ======================================================
+// For use with horizontal and inline forms, when you need the label text to align with the form controls.
 
 .col-form-label {
   padding-top: calc(#{$btn-padding-y} + #{$input-border-size});
@@ -108,9 +103,8 @@ form {
   line-height: $btn-line-height-sm;
 }
 
-//----------------------------------*\
 // REQUIRED FIELD LABEL
-//----------------------------------*/
+// ======================================================
 .required-field {
 
   &::after {
@@ -122,12 +116,10 @@ form {
   }
 }
 
-//----------------------------------*\
 // LEGENDS
-//----------------------------------*/
-
-/* For use with horizontal and inline forms, when you need the legend text to
-   be the same size as regular labels, and to align with the form controls. */
+// ======================================================
+// For use with horizontal and inline forms, when you need the legend text to be the same size as
+// regular labels, and to align with the form controls.
 
 .col-form-legend {
   padding-top: $btn-padding-y;
@@ -135,7 +127,7 @@ form {
   font-size: $input-font-size;
 }
 
-/* Readonly controls as plain text */
+// Readonly controls as plain text
 .form-control-plaintext {
   color: $input-color;
   background: transparent;
@@ -146,10 +138,8 @@ form {
   border-width: $input-border-size 0;
 }
 
-//----------------------------------*\
 // FORM CONTROL SIZING
-//----------------------------------*/
-
+// ======================================================
 .form-control-sm {
   @include set-border-radius($input-border-radius-sm);
   padding: $btn-padding-y-sm $btn-padding-x-sm;
@@ -178,19 +168,16 @@ select.form-control-lg {
   }
 }
 
-//----------------------------------*\
 // FORM VALIDATION
-//----------------------------------*/
-
-/* Valid */
+// ======================================================
+// Valid
 @include form-validation-state("valid", $form-feedback-valid-color);
 
-/* In valid */
+// In valid
 @include form-validation-state("invalid", $form-feedback-invalid-color);
 
-//----------------------------------*\
 // TRANSPARENT FORM ELEMENTS
-//----------------------------------*/
+// ======================================================
 .has-bg-dark {
   @include transparent-forms($opacity-white-2, $opacity-white-3, $opacity-white-2, $opacity-white-3, $white-color, $white-color, $opacity-white-5);
 }

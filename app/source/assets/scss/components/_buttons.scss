@@ -1,41 +1,38 @@
 // ================================================================================================
-// File Name: buttons.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : buttons.scss
+// Description    : Adjustments for Buttons.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// Regular button and base styling.
 button, .button {
   cursor: pointer;
 }
 
-/* Regular button and base styling */
-
 .btn {
   @extend %button;
-  /* Beta 3 Migration changes */
+  // Beta 3 Migration changes
   #{$hover-focus-tags},
   #{$active-tags},
   .show > &.dropdown-toggle,
   .show > &.dropdown-toggle:focus,
   .show > &.dropdown-toggle:hover,
-  .open > &.dropdown-toggle{
+  .open > &.dropdown-toggle {
     outline: 0;
     box-shadow: none;
   }
 
-
+  // Icon Buttons
   &.btn-icon {
     min-width: $btn-icon-size;
     width: $btn-icon-size;
     min-height: $btn-icon-size;
     position: relative;
     line-height: $btn-line-height;
-
-    // Flexbox
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -74,7 +71,6 @@ button, .button {
       }
     }
 
-
     &.has-dropdown {
       width: auto;
       min-width: 0;
@@ -93,27 +89,21 @@ button, .button {
   }
 }
 
-/* Apply the mixin to the button variants.
-Easily pump out default styles, as well as :hover, :focus, :active,
-and disabled options for all buttons.
-*/
+// Apply the mixin to the button variants.
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons.
 
 // Theme variations
-
-.btn-primary {
-  @include btn-theme(primary);
-}
-
-.btn-outline-primary {
-  @include btn-theme(primary, outline);
-}
-
-.btn-secondary {
-  @include btn-theme(secondary);
-}
-
-.btn-outline-secondary {
-  @include btn-theme(secondary, outline);
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .btn-#{$scheme} {
+      @include btn-theme($scheme);
+    }
+    .btn-outline-#{$scheme} {
+      @include btn-theme($scheme, outline);
+    }
+  }
 }
 
 // Contextual variations
@@ -129,13 +119,12 @@ and disabled options for all buttons.
   }
 }
 
-/* Social button */
-
+// Social button
 @each $scheme, $value in $social-colors {
   $tone-hover: darken($value, 6%);
   $tone-active: darken($value, 10%);
   .btn-#{$scheme} {
-    @include btn-social-theme($value, $tone-hover,$tone-active, $white-color);
+    @include btn-social-theme($value, $tone-hover, $tone-active, $white-color);
   }
 }
 
@@ -147,7 +136,7 @@ and disabled options for all buttons.
   }
 }
 
-/* Disabled button */
+// Disabled button
 fieldset[disabled] a.btn,
 .btn {
   #{$disabled-tags} {
@@ -157,46 +146,48 @@ fieldset[disabled] a.btn,
   }
 }
 
+// Make a button look and behave like a link
 .btn-link {
   border: 0;
-  background-color: transparent!important;
+  background-color: transparent !important;
   #{$hover-focus-tags},
   #{$active-tags},
   .show > &.dropdown-toggle,
   .show > &.dropdown-toggle:focus,
   .show > &.dropdown-toggle:hover,
-  .open > &.dropdown-toggle{
+  .open > &.dropdown-toggle {
     text-decoration: none;
     box-shadow: none;
   }
 
 }
 
-/* Extra Large button */
+// Extra large button
 .btn-xl {
   @include btn-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-min-width-xl, $btn-min-height-xl, $btn-font-size-xl, $btn-radius-xl, $btn-line-height-xl);
 }
 
-/* Large button */
+// Large button
 .btn-lg {
   @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
 }
 
-/* Small button */
+// Small button
 .btn-sm {
   @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-radius-sm, $btn-line-height-sm);
 }
 
-/* Round button */
+// Round button
 .btn-round {
   @include border-radius($btn-radius-round);
 }
 
+// Raised buttons
 .btn-raised {
   position: relative;
   transition: box-shadow 0s;
 
-  &:hover{
+  &:hover {
     bottom: $btn-raised-box-shadow-y-offset-hover - $btn-raised-box-shadow-y-offset;
   }
   .show > &.dropdown-toggle,
@@ -205,10 +196,10 @@ fieldset[disabled] a.btn,
   .open > &.dropdown-toggle,
   &:active,
   &:active,
-  &.active{
-    box-shadow: none!important;
+  &.active {
+    box-shadow: none !important;
     margin-bottom: -$btn-raised-box-shadow-y-offset;
     margin-top: $btn-raised-box-shadow-y-offset;
-    bottom:0;
+    bottom: 0;
   }
 }

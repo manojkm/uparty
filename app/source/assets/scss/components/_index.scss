@@ -1,15 +1,13 @@
 // ================================================================================================
-// File Name: index.scss
-// Description:
-// Sass manifest file for components. Importing order & guidelines are mentioned under the
-// title MAIN FILE - https://sass-guidelin.es/#architecture.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : index.scss
+// Description    : Sass manifest file for components. Importing order & guidelines are mentioned
+// under the title MAIN FILE - https://sass-guidelin.es/#architecture.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
-
 // ================================================================================================
 // Guidelines :
 // One @import per folder;
@@ -19,51 +17,52 @@
 // File extensions and leading underscores omitted.
 // ================================================================================================
 
-//----------------------------------*\
 // ENHANCEMENT COMPONENTS
-//----------------------------------*/
+// ======================================================
 @import
-	'sections',
-	'search',
-	'carousel',
+	'tables',
 	'forms',
 	'buttons',
+	'dropdown',
 	'button-group',
 	'input-group',
 	'custom-forms',
+	'nav',
+	'tabs-and-pills',
+	'cards',
+	'breadcrumb',
+	'breadcrumb-menu',
+	'pagination',
 	'badge',
-	'inputs',
+	'alerts',
+	'progress-bars',
 	'lists',
-	'dropdown',
-	'mark',
-	'tables',
+	'modals',
 	'tooltips-and-popovers',
+	'carousel',
+	'collapse',
+
+	//TODO below are not in order and are extra components
+	'sections',
+	'search',
+	'inputs',
+	'mark',
 	'sliders',
 	'social',
 	'clearfix',
 	'overlays',
-	'nav',
 	'breakpoints',
-	'breadcrumb',
-	'breadcrumb-menu',
 	'cover',
-	'modals',
 	'checkbox-radio',
 	'tags',
-	'cards',
-	'collapse',
 	'togglers',
 	'thumbnails',
 	'labels',
-	'progress-bars',
 	'spacers',
 	'chat-message',
-	'alerts',
 	'number-spinner',
-	'tabs-and-pills',
-	'pagination',
 	'scrollbar',
-	'print',
     'defaults',
     'misc',
+	'print',
     'examples';

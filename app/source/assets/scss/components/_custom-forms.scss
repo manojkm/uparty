@@ -1,16 +1,16 @@
 // ================================================================================================
-// File Name: forms.scss
-// Description: Form control styles, layout options, and custom components for creating a wide variety of forms
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : custom-forms.scss
+// Description    : Form control styles, layout options, and custom components for creating a
+// wide variety of forms
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // CUSTOM FORMS
-//----------------------------------*/
+// ======================================================
 
 .custom-control {
   min-height: (1rem * $lh-base);
@@ -59,7 +59,7 @@
   }
 }
 
-/* Custom Label */
+// Custom Label
 .custom-control-label {
   &::before {
     @include transition;
@@ -87,9 +87,8 @@
   }
 }
 
-//----------------------------------*\
 // CHECKBOXES
-//----------------------------------*/
+// ======================================================
 
 .custom-checkbox {
   $cc: custom-control;
@@ -132,9 +131,8 @@
   }
 }
 
-//----------------------------------*\
 // RADIOS
-//----------------------------------*/
+// ======================================================
 
 .custom-radio {
   $cc: custom-control;
@@ -164,9 +162,8 @@
 
 }
 
-//----------------------------------*\
 // CUSTOM SELECT
-//----------------------------------*/
+// ======================================================
 
 .custom-select {
   @include transition;
@@ -194,14 +191,11 @@
   &[size]:not([size="1"]) {
     padding-right: $btn-padding-x;
   }
-
   @include form-control-disabled();
-
 }
 
-//----------------------------------*\
 // CUSTOM SELECT SIZING
-//----------------------------------*/
+// ======================================================
 
 .custom-select-sm {
   height: $input-height-sm;
@@ -217,9 +211,8 @@
   line-height: $btn-line-height-lg;
 }
 
-//----------------------------------*\
 // CUSTOM FILE INPUT
-//----------------------------------*/
+// ======================================================
 
 .custom-file {
   @include transition;
@@ -312,9 +305,8 @@
   }
 }
 
-//----------------------------------*\
 // FILE INPUT SIZING
-//----------------------------------*/
+// ======================================================
 .custom-file-sm {
   height: $input-height-sm;
   font-size: $input-font-size-sm;
@@ -357,9 +349,8 @@
   }
 }
 
-//----------------------------------*\
 // TOGGLE SWITCH
-//----------------------------------*/
+// ======================================================
 .custom-toggle {
   $ct: custom-toggle;
   $cci: custom-control-input;
@@ -369,7 +360,6 @@
   display: flex !important;
   align-items: center;
   padding-left: 0;
-
   //padding-left: ($custom-toggle-width + 10px);
 
   .#{$ccind} {
@@ -411,7 +401,7 @@
     }
   }
 
-  /* Checked state */
+  // Checked state
   .#{$cci}:checked + .#{$ccind},
   .#{$cci}:checked:active + .#{$ccind} {
     @include transition;
@@ -421,7 +411,7 @@
     }
   }
 
-  /* Active state */
+  // Active state
   .#{$cci}:active + .#{$ccind} {
     background-color: $custom-toggle-background-color;
     &:after {
@@ -429,7 +419,7 @@
     }
   }
 
-  /* Disabled state */
+  // Disabled state
   .#{$cci}:disabled + .#{$ccind} {
     background-color: $custom-control-indicator-disabled-bg;
     cursor: not-allowed;
@@ -438,17 +428,19 @@
     width: $custom-toggle-knob-width;
   }
 
-  /* Checked + Disabled state */
+  // Checked + Disabled state
   .#{$cci}:disabled:checked + .#{$ccind} {
     opacity: 0.5;
   }
 
   // Theme variations
-  &.#{$ct}-primary {
-    @include custom-toggle(primary);
-  }
-  &.#{$ct}-secondary {
-    @include custom-toggle(secondary);
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $value in $colors {
+      &.#{$ct}-#{$scheme} {
+        @include custom-toggle($scheme);
+      }
+    }
   }
 
   // Contextual variations
@@ -459,9 +451,8 @@
   }
 }
 
-//----------------------------------*\
 // TOGGLE FLIP SWITCH
-//----------------------------------*/
+// ======================================================
 
 .custom-toggle-flip {
   $ctf: custom-toggle-flip;
@@ -496,7 +487,6 @@
       border-radius: 3px;
     }
 
-
     &:before {
       content: attr(data-toggle-off);
       background-color: $custom-toggle-flip-normal-background;
@@ -508,7 +498,7 @@
     }
   }
 
-  /* Checked state */
+  // Checked state
   .#{$cci}:checked + .#{$ccind},
   .#{$cci}:checked:active + .#{$ccind} {
     @include transition;
@@ -522,20 +512,20 @@
   }
 
 
-  /* Disabled state */
+  // Disabled state
   .#{$cci}:disabled + .#{$ccind} {
     background-color: $custom-control-indicator-disabled-bg;
     color: $custom-control-indicator-disabled-color;
     cursor: not-allowed;
   }
 
-  /* Checked + Disabled state */
+  // Checked + Disabled state
   .#{$cci}:disabled:checked + .#{$ccind} {
     opacity: 0.5;
   }
 
 
-  /* YES/NO fliping toggle switch */
+  // YES/NO fliping toggle switch
   &.yes-no .#{$ccind} {
     &:before {
       background-color: contextual-color(danger, base);
@@ -546,7 +536,7 @@
     }
   }
 
-  /* YES/NO Checked state */
+  // YES/NO Checked state
   &.yes-no .#{$cci}:checked + .#{$ccind},
   &.yes-no .#{$cci}:checked:active + .#{$ccind} {
     &:before {
@@ -557,17 +547,19 @@
     }
   }
 
-  /* YES/NO Disabled state */
+  // YES/NO Disabled state
   &.yes-no .#{$cci}:disabled + .#{$ccind} {
     opacity: 0.5;
   }
 
   // Theme variations
-  &.#{$ctf}-primary {
-    @include custom-toggle-flip(primary);
-  }
-  &.#{$ctf}-secondary {
-    @include custom-toggle-flip(secondary);
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $value in $colors {
+      &.#{$ctf}-#{$scheme} {
+        @include custom-toggle-flip($scheme);
+      }
+    }
   }
 
   // Contextual variations
@@ -576,7 +568,6 @@
       @include custom-toggle-flip($scheme);
     }
   }
-
 
 }
 

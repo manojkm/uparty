@@ -8,6 +8,8 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 // TODO Adapted from https://codepen.io/uimax/pen/kkadmY
+
+// Base styles
 .badge {
   $b: badge;
   @include set-border-radius($badge-border-radius);
@@ -16,6 +18,7 @@
   position: relative;
   text-indent: 0;
 
+  // Account for icons in badges
   > i {
     margin-right: 5px;
     line-height: 1;
@@ -27,15 +30,12 @@
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
-
       &.#{$b}-#{$scheme} {
         @include badges-theme($scheme, $sledge-hammer: !important);
       }
-
       &.#{$b}-outline-#{$scheme} {
         @include badges-theme($scheme, outline, $sledge-hammer: !important);
       }
-
     }
   }
 
@@ -64,13 +64,12 @@
 
   }
 
+  // Image badges
   &.image {
     border: 0;
     font-size: $badge-image-font-size;
     font-weight: $badge-image-font-weight;
     line-height: $badge-image-line-height;
-
-    // Flex
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -98,7 +97,6 @@
     padding: $badge-round-padding;
     line-height: $badge-round-line-height;
     text-align: center;
-    /* Flex */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -115,10 +113,12 @@
     }
   }
 
+  // Outline badges
   &[class*="badge-outline-"].pointed {
     background-color: #fff;
   }
 
+  // Pointed Badges
   &.pointed {
     &::before,
     &::after {

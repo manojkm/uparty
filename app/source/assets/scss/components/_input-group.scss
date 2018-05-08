@@ -1,18 +1,17 @@
 // ================================================================================================
-// File Name: input-group.scss
-// Description: Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : input-group.scss
+// Description    : Adjustments for input groups. Easily extend form controls by adding text,
+// buttons, or button groups on either side of textual inputs.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // BASE STYLES FOR INPUT GROUP AND ADDONS
-//----------------------------------*/
-
-/* Seamlessly integrated input group addons */
+// ======================================================
+// Seamlessly integrated input group addons.
 .input-group {
   &[class*="with-addon-icon"] {
     .input-group-text {
@@ -56,7 +55,7 @@
   }
 }
 
-/*  Prepend and append */
+// Prepend and append
 .input-group-prepend,
 .input-group-append {
   .btn + .btn,
@@ -76,7 +75,7 @@
   margin-left: -$input-border-size;
 }
 
-/* Textual addons */
+// Textual addons
 .input-group-text {
   @include transition;
   @include set-border-radius($input-border-radius);
@@ -91,8 +90,6 @@
   min-width: $input-addon-min-width;
   text-align: center;
   height: 100%;
-
-  /* Flex */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,7 +101,7 @@
 
 }
 
-/* Sizing options */
+// Sizing options
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
@@ -121,7 +118,7 @@
   @extend .form-control-sm;
 }
 
-/* Reset rounded corners */
+ // Reset rounded corners
 .input-group > .input-group-prepend > .btn,
 .input-group > .input-group-prepend > .custom-select,
 .input-group > .input-group-prepend > .input-group-text,
@@ -146,10 +143,9 @@
   @include border-left-radius(0);
 }
 
-//----------------------------------*\
 // BUTTON INPUT GROUPS
-//----------------------------------*/
-/* Tweaking width for buttons and addons. */
+// ======================================================
+// Tweaking width for buttons and addons.
 
 .input-group-append,
 .input-group-prepend {
@@ -162,10 +158,9 @@
   }
 }
 
-//----------------------------------*\
 // SHOWING BORDER ON FOCUS AND HOVER
-//----------------------------------*/
-/* Add/Remove below classes to input group element with javascript. */
+// ======================================================
+// Add/Remove below classes to input group element with javascript.
 .input-group-focus,
 .input-group-hover {
   .input-group-text,
@@ -192,9 +187,8 @@
   }
 }
 
-//----------------------------------*\
 // READONLY INPUT GROUP ADDONS
-//----------------------------------*/
+// ======================================================
 .disabled,
 .readonly {
   &.input-group-text {

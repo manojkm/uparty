@@ -24,8 +24,8 @@ module.exports = function (grunt) {
         banner: '<%= meta.banner %>',
         // outDir: grunt.importPaths,
         // outFile: 'nyco-patterns-default.css',
-        // sourceMap: (isProd) ? false : true,
-        sourceMapEmbed: (isProd) ? false : true,
+        sourceMap: (isProd) ? false : true,
+        // sourceMapEmbed: (isProd) ? false : true,
         cacheLocation: grunt.getPath('tmp') + '.sass-cache',
         sourceComments: false,
         outputStyle: (isProd) ? 'compressed' : 'compact' // 'expanded' causes newline error in csslint task.

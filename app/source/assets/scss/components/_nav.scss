@@ -1,13 +1,14 @@
-// ================================================================================================
-// File Name: nav.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+/// ================================================================================================
+// File Name      : nav.scss
+// Description    : Adjustments for Bootstrap's navigation component.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// Base styles
 .nav {
   font-size: $nav-tabs-font-size;
   font-weight: $nav-tabs-font-weight;
@@ -17,11 +18,10 @@
   //@include transition;
   padding: $nav-link-padding-y $nav-link-padding-x;
 
-  /* Disabled state lightens text */
+  // Disabled state lightens text
   &.disabled {
     color: $nav-link-disabled-color !important;
     cursor: not-allowed;
-
     &:hover,
     &:active,
     &:focus {

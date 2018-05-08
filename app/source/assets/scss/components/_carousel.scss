@@ -1,20 +1,16 @@
 // ================================================================================================
-// File Name: carousel.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : carousel.scss
+// Description    : Carousel adjustments.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
-// CAROUSEL
-// ======================================================
-
+// Optional captions
 .carousel-caption {
-  background-color: rgba(0,0,0,.5);
-
+  background-color: rgba(0, 0, 0, .5);
   * {
     color: inherit;
   }
@@ -26,16 +22,16 @@
   }
 }
 
-/* Next/Prev icons */
+// Next/Prev icons
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   @include add-border($carousel-control-border-size, $carousel-control-border-color, all);
-  background-color:$carousel-control-icon-bg;
+  background-color: $carousel-control-icon-bg;
   width: $carousel-control-icon-width;
   height: $carousel-control-icon-width;
   background-image: none;
   position: relative;
-  font-size:$carousel-control-icon-font-size;
+  font-size: $carousel-control-icon-font-size;
 
   &::before {
     font-family: simple-line-icons;
@@ -51,24 +47,23 @@
     text-shadow: $carousel-control-prev-icon-text-shadow;
   }
 }
-
+// Next icon
 .carousel-control-next-icon {
   &::before {
     content: $carousel-control-next-icon;
   }
 }
-
+// Prev icon
 .carousel-control-prev-icon {
   &::before {
     content: $carousel-control-prev-icon;
   }
 }
 
-/* Theming */
+// Theming
 .carousel {
 
   &.light {
-
     .carousel-caption {
       color: rgba(0, 0, 0, .9);
     }
@@ -91,17 +86,14 @@
 
 }
 
-
 // CAPTIONS ONLY
 // ======================================================
 
 .captions-only {
-
   .carousel-caption {
     background-color: transparent;
     position: relative;
     right: 0;
     left: 0;
   }
-
 }

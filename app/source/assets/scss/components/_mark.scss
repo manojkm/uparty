@@ -1,17 +1,17 @@
 // ================================================================================================
-// File Name: mark.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : mark.scss
+// Description    : Styles for Mark Text element (<mark>) represents text which is marked or
+// highlighted for reference or notation purposes,
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // EMPHASIS
-//----------------------------------*/
-
+// ======================================================
+// Base styles
 mark {
   background-color: transparent;
   position: relative;
@@ -30,15 +30,14 @@ mark {
 }
 
 // Theme variations
-.mark-primary {
-  &:after {
-    @include background-theme('primary');
-  }
-}
-
-.mark-secondary {
-  &:after {
-    @include background-theme('secondary');
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .mark-#{$scheme} {
+      &:after {
+        @include background-theme($scheme);
+      }
+    }
   }
 }
 
@@ -51,7 +50,7 @@ mark {
   }
 }
 
-/* Extra small mark */
+// Extra small mark
 .mark-sm {
   &:after {
     height: $mark-underline-height-xs;
@@ -59,7 +58,7 @@ mark {
   }
 }
 
-/* Small mark */
+// Small mark
 .mark-sm {
   &:after {
     height: $mark-underline-height-sm;
@@ -67,7 +66,7 @@ mark {
   }
 }
 
-/* Large mark  */
+// Large mark
 .mark-lg {
   &:after {
     height: $mark-underline-height-lg;
@@ -75,7 +74,7 @@ mark {
   }
 }
 
-/* Extra large mark  */
+// Extra large mark
 .mark-xl {
   &:after {
     height: $mark-underline-height-xl;

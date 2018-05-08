@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : breadcrumb-menu.scss
-// Description    :
+// Description    : Breadcrumb with extra Menu.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -8,7 +8,7 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
+// Breadcrumb with menu
 .breadcrumb.has-menu {
   padding-right: 0;
 
@@ -32,10 +32,9 @@
       display: flex;
       align-items: center;
 
-      /* Change the hover, focus, active state links for better highlighting */
+      // Change the hover, focus, active state links for better highlighting
       //#{$a-tags},
-      #{$hover-focus-tags}
-      {
+      #{$hover-focus-tags} {
         //@include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
         color: $breadcrumb-menu-hover-color;
       }

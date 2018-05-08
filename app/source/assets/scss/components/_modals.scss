@@ -1,17 +1,16 @@
 // ================================================================================================
-// File Name: modals.scss
-// Description: Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes,
-// user notifications, or completely custom content.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : modals.scss
+// Description    : Adjustments for Bootstrap's modal.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
 .modal {
   z-index: map-get($zindex, modal);
-
+  // Actual modal
   &-content {
     @include set-border-radius($modal-border-radius);
     //@include add-border($modal-content-border-width, $modal-content-border-color, all);
@@ -20,7 +19,7 @@
     background-color: $modal-content-bg;
     overflow: hidden;
   }
-
+  // Modal header
   &-header {
     //@include set-border-radius($modal-border-radius);
     //@include border-bottom-radius(0);
@@ -28,17 +27,22 @@
     @include add-border($modal-header-border-width, $modal-header-border-color, bottom);
     padding: $modal-header-padding;
   }
+  // Modal body
   &-body {
     padding: $modal-body-padding;
   }
+  // Modal footer
   &-footer {
     @include add-border($modal-footer-border-width, $modal-footer-border-color, top);
     padding: $modal-footer-padding;
   }
-  button.close {  box-shadow: none;}
+  // Modal close button
+  button.close {
+    box-shadow: none;
+  }
 }
 
-/* Modal background */
+// Modal background
 .modal-backdrop {
   z-index: map-get($zindex, modal-backdrop);
   background-color: $modal-backdrop-bg;
@@ -50,34 +54,19 @@
   }
 }
 
-.modal-primary {
-  @include modal-theme(primary);
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .modal-#{$scheme} {
+      @include modal-theme($scheme);
+    }
+  }
 }
 
-.modal-secondary {
-  @include modal-theme(secondary);
-}
-
-.modal-success {
-  @include modal-theme(success);
-}
-
-.modal-danger {
-  @include modal-theme(danger);
-}
-
-.modal-warning {
-  @include modal-theme(warning);
-}
-
-.modal-info {
-  @include modal-theme(info);
-}
-
-.modal-light {
-  @include modal-theme(light);
-}
-
-.modal-dark {
-  @include modal-theme(dark);
+// Contextual variations
+@each $scheme, $value in $contextual-palette-map {
+  .modal-#{$scheme} {
+    @include modal-theme($scheme);
+  }
 }

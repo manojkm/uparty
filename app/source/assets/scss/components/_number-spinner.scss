@@ -1,25 +1,20 @@
+/// ================================================================================================
+// File Name      : number-spinner.scss
+// Description    : Defines styles for spinner control (up and down arrows) etc..
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
-// File Name: number-spinner.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
-// ================================================================================================
-
-//.number-spinner input {
-//  text-align: right;
-//}
 
 .input-group-btn-vertical {
   position: relative;
   white-space: nowrap;
   width: $spinner-icon-width;
-  /* Flex */
   display: flex;
   flex-direction: column;
-  align-items:stretch;
+  align-items: stretch;
   justify-content: center;
 }
 
@@ -27,11 +22,10 @@
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  padding: 0 ;
+  padding: 0;
   margin-left: -1px;
   position: relative;
   border-radius: 0;
-  /* Flex */
   flex: 1;
   display: flex;
   justify-content: center;

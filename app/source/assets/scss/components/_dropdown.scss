@@ -1,16 +1,16 @@
 // ================================================================================================
-// File Name: dropdown.scss
-// Description: Bootstrap dropdowns to active on hover/click and provide a nice user experience.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : dropdown.scss
+// Description    : Adjustments for dropdowns that active on hover/click and provide a nice
+// user experience.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // BOOTSTRAP DROPDOWN MENU - EXTENDED
-//----------------------------------*/
+// ======================================================
 // TODO Adapted from https://codepen.io/pawelwojtas/pen/rGPpbd
 
 .dropdown-menu.extended {
@@ -23,7 +23,7 @@
     max-width: $dropdown-max-width;
     min-width: $dropdown-min-width;
     padding: $dropdown-padding-y $dropdown-padding-x;
-    margin-top: $dropdown-margin-top; /* Positioning first level dropdown menu */
+    margin-top: $dropdown-margin-top; // Positioning first level dropdown menu
     background-color: $dropdown-bg;
     box-shadow: $dropdown-shadow;
 
@@ -35,7 +35,7 @@
     }
   }
 
-  /* Dropdown top arrow */
+  // Dropdown top arrow
   &:before {
     content: "";
     border-bottom: 6px solid #fff;
@@ -81,9 +81,9 @@
     }
   }
 
-  /* Dropdown header */
+  // Dropdown section headers
   & .dropdown-header:not([href]):not([tabindex]) {
-    font-size:$dropdown-header-font-size;
+    font-size: $dropdown-header-font-size;
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     white-space: nowrap;
     text-transform: uppercase;
@@ -91,22 +91,21 @@
     font-weight: $font-wh-semi;
   }
 
-  /* Dropdown menu links */
+  // Dropdown menu links
   & .dropdown-item {
     //@include add-border(2px, transparent, left);
     @include transition;
-    font-size:$dropdown-font-size;
+    font-size: $dropdown-font-size;
     clear: both;
     position: relative;
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
     color: $dropdown-link-color;
-    // Flexbox
     display: flex;
     align-items: center;
 
-    /* Dropdown menu icon */
+    // Dropdown menu icon
     i {
-      font-size:$dropdown-font-size;
+      font-size: $dropdown-font-size;
       width: $dropdown-icon-width;
       display: inline-block;
       margin: 0 $dropdown-item-padding-x 0 0;
@@ -116,10 +115,10 @@
 
     // TODO Adapted from https://github.com/sagaio/user-dropdown-menu/blob/master/trunk/css/dropdown.css
 
-    /* Showing left border styling on hover for better highlighting */
+    // Showing left border styling on hover for better highlighting
     &::before {
       @include transition;
-      @include background-color('primary', 'base');
+      @include background-theme('primary');
       content: '';
       position: absolute;
       bottom: 0;
@@ -134,7 +133,7 @@
       opacity: 1;
     }
 
-    /* Change the hover, focus, active state links for better highlighting */
+    // Change the hover, focus, active state links for better highlighting
     &:hover,
     &:focus {
       color: $dropdown-link-hover-color;
@@ -152,7 +151,7 @@
       text-decoration: none;
     }
 
-    #{$disabled-tags}{
+    #{$disabled-tags} {
       //@include add-border(2px, transparent, left);
       //color: $dropdown-link-disabled-color;
       background-color: transparent;
@@ -168,7 +167,7 @@
     @include add-border($dropdown-divider-border-width, $dropdown-divider-color, top);
   }
 
-  /* Positioning submenu layout. Add extra class to `.dropdown-menu` to flip the alignment of the dropdown. */
+  // Positioning submenu layout. Add extra class to `.dropdown-menu` to flip the alignment of the dropdown.
   &.dropdown-menu-right {
     &:before {
       right: 16px;
@@ -180,7 +179,7 @@
       right: 14px;
     }
 
-    /* Second, Third and more levels */
+    // Second, Third and more levels
     & .dropdown-menu {
       top: 0;
       left: -100%;
@@ -192,16 +191,15 @@
 
 }
 
-//----------------------------------*\
 // DROPDOWN SUBMENU
-//----------------------------------*/
+// ======================================================
 // The styles below are applicable for both extended and default bootstrap dropdown
 // TODO Adapted from https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation/45755948#45755948
 
 .dropdown-submenu {
   position: relative;
 
-  /* Arrow icon */
+  // Arrow icon
   .dropdown-toggle:after {
     @include center(y);
     //top: 50%;
@@ -213,7 +211,7 @@
     }
   }
 
-  /* Second, Third and more levels */
+  // Second, Third and more levels
   & .dropdown-menu {
     top: 0;
     left: 100%;
@@ -226,54 +224,50 @@
   }
 }
 
-
 // BOOTSTRAP DROPDOWN MENU - EXTENDED - THEMED
 // ======================================================
 .dropdown-menu.extended.themed {
 
   &,
   .dropdown-menu {
-    @include background-color('header', 'base');
+    @include background-theme('header', 'base');
     border: 0;
   }
 
-  /* Dropdown top arrow colors */
+  // Dropdown top arrow colors
   &:before {
-    @include border-bottom-color('header', 'base');
+    @include border-theme('header', $position: bottom);
   }
 
   &:after {
-    @include border-bottom-color('header', 'dark');
+    @include border-theme('header', 'dark', $position: bottom);
     display: none;
   }
 
-  /* Dropdown header */
+  // Dropdown section headers
   .dropdown-header {
-    @include color('header', 'font-color');
+    @include text-theme('header', 'font-color');
   }
 
-  /* Dropdown menu links */
+  // Dropdown menu links
   .dropdown-item {
 
     &,
     i {
-      @include color('header', 'link-color');
+      @include text-theme('header', 'link-color');
     }
 
-    /* Change the hover, focus, active state links for better highlighting */
+    // Change the hover, focus, active state links for better highlighting
     &:hover,
     &:focus {
-      @include color('header', 'hover-color');
-      @include background-color('header', 'light');
+      @include background-text-theme('header', 'light', 'hover-color');
     }
 
     &.active,
     &.active:focus,
     &.active:hover,
     &:active {
-      @include color('header', 'active-color');
-      @include background-color('header', 'light');
-
+      @include background-text-theme('header', 'light', 'active-color');
     }
 
     &.disabled,
@@ -287,13 +281,13 @@
   }
 
   & .dropdown-divider {
-    @include border-top-color('header', 'light');
+    @include border-theme('header', 'light', $position: top);
     border-top: 1px solid;
   }
 
 }
 
-/* Remove the arrow in dropdown to replace with Icon (.no-arr) */
+// Remove the arrow in dropdown to replace with Icon (.no-arr)
 .dropdown-toggle.no-arr {
   &:after {
     //display: none;
@@ -301,12 +295,11 @@
   }
 }
 
-//----------------------------------*\
 // DROPUP VARIATIONS
-//----------------------------------*/
+// ======================================================
 .dropup {
   .dropdown-menu.extended {
-    /* Dropdown arrow */
+    // Dropdown arrow
     &:before {
       bottom: -6px;
       top: unset;
@@ -326,7 +319,7 @@
     margin-top: 0;
     margin-left: 15px;
 
-    /* Dropdown arrow */
+    // Dropdown arrow
     &:before {
       top: 16px;
       left: -9px;
@@ -347,7 +340,7 @@
     margin-top: 0;
     margin-right: 15px;
 
-    /* Dropdown arrow */
+    // Dropdown arrow
     &:before {
       top: 16px;
       right: -9px;

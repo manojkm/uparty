@@ -1,16 +1,16 @@
 // ================================================================================================
-// File Name: examples.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : examples.scss
+// Description    : Styles used for demo purpose only. Remove this css from your project.
+// user experience.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // DROPDOWN
-//----------------------------------*/
+// ======================================================
 
 .example {
   > .dropdown-menu {
@@ -49,4 +49,33 @@
     transform: scale(3);
   }
 
+}
+
+// DUMMY PLACEHOLDERS
+// ======================================================
+// Adapted from https://codepen.io/p-dg/pen/ezYmYz?editors=1100
+
+span.placeholder,
+span.placeholder code,
+span.placeholder a {
+  background: hsl(0, 0%, 90%);
+  color: hsl(0, 0%, 90%);
+  line-height:1.70rem;
+}
+
+span.placeholder code{
+  padding-top:0;
+  padding-bottom:0;
+}
+
+hr.placeholder {
+  border: 0;
+  height: .25em;
+  background: hsla(0, 0%, 80%, .25);
+  margin: 2rem 0;
+}
+button span.placeholder,
+button span.placeholder a {
+  background: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 100%);
 }

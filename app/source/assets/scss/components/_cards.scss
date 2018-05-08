@@ -1,13 +1,15 @@
 // ================================================================================================
-// File Name: cards.scss
-// Description: Cards provide a flexible and extensible content container with multiple variants and options.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : cards.scss
+// Description    : Adjustments for Cards that provide a flexible and extensible content container
+// with multiple variants and options.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// Base styles
 .card {
   @include transition;
   @include set-border-radius($card-border-radius);
@@ -17,7 +19,7 @@
   margin-bottom: $card-margin-bottom;
   box-shadow: $card-box-shadow;
 
-  /* Fullscreen Card */
+  // Fullscreen card
   &-fullscreen {
     @include transition;
     z-index: map-get($zindex, fullscreen_card);
@@ -48,15 +50,17 @@
     }
   }
 
+  // Card link
   &-link {
     color: $card-link-color;
     //#{$a-tags},
-    #{$hover-focus-tags}{
+    #{$hover-focus-tags} {
       color: $card-link-hover-color;
     }
   }
 }
 
+// Card header
 .card-header {
   @include add-border($card-border-size, $card-border-color, bottom);
   background-color: $card-header-bg;
@@ -64,8 +68,6 @@
   position: relative;
   text-transform: capitalize;
   overflow: hidden;
-
-  // Flexbox
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -74,17 +76,17 @@
     @include set-border-radius($card-inner-border-radius);
     @include border-bottom-radius(0);
     box-shadow: $card-box-header-inset-shadow;
-    /*    &::before {
-          //background:rgba(255,255,255, 0.9);
-          content: "";
-          //height: 1px;
-          position: absolute;
-          width: 100%;
-          left: 0;
-          bottom: 0;
-          top: 0;
-          box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9)
-        }*/
+    //&::before {
+    //     //background:rgba(255,255,255, 0.9);
+    //     content: "";
+    //     //height: 1px;
+    //     position: absolute;
+    //     width: 100%;
+    //     left: 0;
+    //     bottom: 0;
+    //     top: 0;
+    //     box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9)
+    //   }
   }
 
   & .card-title {
@@ -92,11 +94,11 @@
   }
 }
 
+// Card with actions
 .card__actions {
   $ca: card__actions;
   margin-right: -$card-spacer-x;
   color: $card-tools-color;
-  // Flexbox
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -109,19 +111,18 @@
     font-size: $card-tools-font-size;
     text-decoration: none;
     opacity: 0.8;
-
-    // Flexbox
     display: flex;
     align-items: center;
     justify-content: center;
 
     //#{$a-tags},
-    #{$hover-focus-tags}{
+    #{$hover-focus-tags} {
       color: inherit;
       opacity: 1;
     }
   }
 
+  // Window type
   &.window {
     @include set-border-radius($card-border-radius);
     @include add-border($card-border-size, rgba(0, 0, 0, .18), left-bottom);
@@ -139,6 +140,7 @@
 
 }
 
+// Card image and positions
 .card-img {
   @include border-radius($card-inner-border-radius);
 }
@@ -150,17 +152,19 @@
 .card-img-bottom {
   @include border-bottom-radius($card-inner-border-radius);
 }
+
 .card-img-right {
   @include border-right-radius($card-inner-border-radius);
 }
+
 .card-img-left {
   @include border-left-radius($card-inner-border-radius);
 }
 
+// Card footer
 .card-footer {
   @include add-border($card-border-size, $card-border-color, top);
   background-color: $card-footer-bg;
-  // Flexbox
   display: flex;
   align-items: center;
 
@@ -169,11 +173,10 @@
   }
 }
 
-
 // CARD EXTENDED
 // ======================================================
 
-/* TODO https://codepen.io/ibanez182/pen/qZOvNj*/
+// TODO https://codepen.io/ibanez182/pen/qZOvNj
 .card {
   &.extended {
     & .card-body {

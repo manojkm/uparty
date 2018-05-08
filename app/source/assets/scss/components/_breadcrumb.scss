@@ -9,6 +9,7 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// Base styles
 .breadcrumb {
   @include set-border-radius($breadcrumb-border-radius);
   @include add-border($breadcrumb-border-size, $breadcrumb-border-color, all);
@@ -16,10 +17,7 @@
   padding: 0 $breadcrumb-padding-x;
   font-size: $breadcrumb-font-size;
   line-height: $breadcrumb-line-height;
-
-  // Flexbox
   display: flex;
-
 }
 
 .breadcrumb-item {
@@ -36,6 +34,7 @@
 
   }
 
+  // Breadcrumb links
   & a {
     @include text-theme($breadcrumb-link-theme-color);
     &:focus,
@@ -44,20 +43,20 @@
       @include text-theme($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
     }
 
-   &.collapsed{
-     @include transition;
-     width: 50px;
-     overflow: hidden;
-     -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
-     display: inline-block;
-     white-space: nowrap;
-     vertical-align: top;
-     &:hover{
-       @include transition;
-       width: auto;
-     }
-   }
+    &.collapsed {
+      @include transition;
+      width: 50px;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      display: inline-block;
+      white-space: nowrap;
+      vertical-align: top;
+      &:hover {
+        @include transition;
+        width: auto;
+      }
+    }
   }
 
   &.active {
@@ -65,8 +64,7 @@
   }
 }
 
-
-// BREADCRUMB EXTENDED
+// BREADCRUMB EXTENDED TYPE
 // ======================================================
 .breadcrumb {
 
@@ -125,9 +123,8 @@
 
 }
 
-// BREADCRUMB EXTENDED - WIZARD
+// BREADCRUMB EXTENDED - WIZARD TYPE
 // ======================================================
-
 .breadcrumb.extended-arrow {
   &.wizard-step {
 
@@ -181,8 +178,7 @@
   }
 }
 
-
-// BREADCRUMB EXTENDED - WRAP
+// BREADCRUMB EXTENDED - WRAP TYPE
 // ======================================================
 /* TODO https://codepen.io/xhepigerta/pen/XKmZKN*/
 .breadcrumb {
@@ -235,7 +231,7 @@
           @include background-text-theme($breadcrumb-link-theme-color);
         }
         &:hover:after {
-          @include border-theme($breadcrumb-link-theme-color, $position:left);
+          @include border-theme($breadcrumb-link-theme-color, $position: left);
         }
 
       }
@@ -245,7 +241,7 @@
         a {
           @include background-text-theme($breadcrumb-link-theme-color);
           &:after {
-            @include border-theme($breadcrumb-link-theme-color, $position:left);
+            @include border-theme($breadcrumb-link-theme-color, $position: left);
           }
         }
 
@@ -268,8 +264,7 @@
   }
 }
 
-
-// BREADCRUMB EXTENDED - WRAP WIZARD
+// BREADCRUMB EXTENDED - WRAP WIZARD TYPE
 // ======================================================
 .breadcrumb.extended-arrow-wrap.wizard-step {
 
@@ -283,7 +278,7 @@
     a {
       @include background-text-theme($breadcrumb-wizard-completed-theme-color);
       &:after {
-        @include border-theme($breadcrumb-wizard-completed-theme-color,$position:left);
+        @include border-theme($breadcrumb-wizard-completed-theme-color, $position: left);
       }
     }
   }
@@ -293,7 +288,7 @@
     a {
       @include background-text-theme($breadcrumb-wizard-active-theme-color);
       &:after {
-        @include border-theme($breadcrumb-wizard-active-theme-color, $position:left);
+        @include border-theme($breadcrumb-wizard-active-theme-color, $position: left);
       }
     }
 
@@ -313,10 +308,8 @@
 
 }
 
-
-// BREADCRUMB DIVIDERS
+// BREADCRUMB DIVIDERS TYPE
 // ======================================================
-
 .breadcrumb {
   &.divider-angle-right {
     .breadcrumb-item {

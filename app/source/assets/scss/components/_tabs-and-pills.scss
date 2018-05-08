@@ -118,7 +118,7 @@
   padding: 0 $nav-tabs-boxed-spacing;
 
   .nav-item {
-    // Flexbox
+
     display: flex;
     align-items: center;
 
@@ -243,15 +243,13 @@
 // ======================================================
 .extended-vertical {
 
-  // Flexbox
+
   display: flex;
   flex-direction: row;
 
   .nav-tabs {
     @include add-border($nav-tabs-border-width, $nav-tabs-border-color, right);
     border-bottom: none;
-
-    // Flexbox
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 0;

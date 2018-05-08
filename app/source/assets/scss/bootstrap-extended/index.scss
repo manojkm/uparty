@@ -1,17 +1,16 @@
 // ================================================================================================
 // File Name: index.scss
-// Description:
-// Sass manifest file for extended bootstrap. This is an actual copy of bootstrap.scss(v4.0.0)
-// including our custom bootstrap variables override file.
+// Description: Sass manifest file for extended bootstrap. This is an actual copy of
+// bootstrap.scss(v4.0.0) including our custom bootstrap variables override file.
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
 // Author: MANOJ
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
-//----------------------------------*\
+
 // OVERRIDE BOOTSTRAP VARIABLES
-//----------------------------------*/
+// ======================================================
 // Variable overrides come first (without !default). Bootstrap default variables
 // come second because they use !default (they won't get set if set already) and
 // some of them depend on our overrides.
@@ -20,9 +19,8 @@
 @import 'bootstrap-variables';// DO NOT TOUCH
 @import 'custom-bootstrap-variables';// USER BOOTSTRAP VARIABLES TO OVERRIDE
 
-//----------------------------------*\
 // IMPORT BOOTSTRAP SCSS
-//----------------------------------*/
+// ======================================================
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors

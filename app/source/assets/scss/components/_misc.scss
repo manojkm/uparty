@@ -1,40 +1,79 @@
 // ================================================================================================
-// File Name: misc.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : misc.scss
+// Description    : Miscellaneous stuffs. We did a lot of important things already, so why not
+// a couple of miscellaneous stuff?
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
-// DUMMY PLACEHOLDERS
-//----------------------------------*/
-/* Adapted from https://codepen.io/p-dg/pen/ezYmYz?editors=1100 */
-
-span.placeholder,
-span.placeholder code,
-span.placeholder a {
-    background: hsl(0, 0%, 90%);
-    color: hsl(0, 0%, 90%);
-    line-height:1.70rem;
+// LINES
+// ======================================================
+// Base styles
+hr {
+  margin: 2em auto;
+  border-bottom: 1px solid $gray-300;
+  border-top: none;
+  position: relative;
 }
 
-span.placeholder code{
-  padding-top:0;
-  padding-bottom:0;
+hr.color-line {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    display: block;
+    top: -1px;
+    left: -1px;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    background: white;
+    display: block;
+    top: -1px;
+    left: 20px;
+    -ms-transform: rotate(10deg); /* IE 9 */
+    -webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
+    transform: rotate(80deg)
+  }
 }
 
-
-hr.placeholder {
-    border: 0;
-    height: .25em;
-    background: hsla(0, 0%, 80%, .25);
-    margin: 2rem 0;
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    hr.color-line.#{$scheme}-line:before {
+      @include background-theme($scheme);
+    }
+  }
 }
-button span.placeholder,
-button span.placeholder a {
-    background: hsl(0, 0%, 100%);
-    color: hsl(0, 0%, 100%);
+
+// Contextual variations
+@each $scheme, $value in $contextual-palette-map {
+  hr.color-line.#{$scheme}-line:before {
+    @include background-theme($scheme);
+  }
+}
+
+// SELECTIONS
+// ======================================================
+::selection {
+  color: $selection-color;
+  background: $selection-bg;
+}
+
+::-webkit-selection {
+  color: $selection-color;
+  background: $selection-bg;
+}
+
+::-moz-selection {
+  color: $selection-color;
+  background: $selection-bg;
 }
