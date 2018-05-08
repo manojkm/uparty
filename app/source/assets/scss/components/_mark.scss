@@ -29,7 +29,7 @@ mark {
   }
 }
 
-/* Theme variations */
+// Theme variations
 .mark-primary {
   &:after {
     @include background-theme('primary');
@@ -42,7 +42,7 @@ mark {
   }
 }
 
-/* Contextual variations */
+// Contextual variations
 @each $scheme, $value in $contextual-palette-map {
   .mark-#{$scheme} {
     &:after {

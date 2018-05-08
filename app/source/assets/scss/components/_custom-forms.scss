@@ -443,7 +443,7 @@
     opacity: 0.5;
   }
 
-  /* Theme variations */
+  // Theme variations
   &.#{$ct}-primary {
     @include custom-toggle(primary);
   }
@@ -451,7 +451,7 @@
     @include custom-toggle(secondary);
   }
 
-  /* Contextual variations */
+  // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
     &.#{$ct}-#{$scheme} {
       @include custom-toggle($scheme);
@@ -562,7 +562,7 @@
     opacity: 0.5;
   }
 
-  /* Theme variations */
+  // Theme variations
   &.#{$ctf}-primary {
     @include custom-toggle-flip(primary);
   }
@@ -570,7 +570,7 @@
     @include custom-toggle-flip(secondary);
   }
 
-  /* Contextual variations */
+  // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
     &.#{$ctf}-#{$scheme} {
       @include custom-toggle-flip($scheme);

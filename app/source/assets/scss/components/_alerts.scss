@@ -1,13 +1,12 @@
 // ================================================================================================
-// File Name: alert.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : alert.scss
+// Description    : Styles for global alert messages that float on top of all other content.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
-
 //TODO https://codepen.io/simeonoff/pen/QKYwba
 .alert {
   $a: alert;
@@ -22,7 +21,7 @@
     border: 0;
   }
 
-  /* Theme variations */
+  // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
@@ -32,14 +31,14 @@
     }
   }
 
-  /* Contextual variations */
+  // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
     &.#{$a}-#{$scheme} {
       @include alert-theme($scheme);
     }
   }
 
-  /* Links (.alert-link) */
+  // Links (.alert-link)
   & .#{$a}-link {
     cursor: pointer;
     text-decoration: underline;
@@ -51,8 +50,7 @@
   }
 }
 
-/* Dismissible alerts */
-
+// Dismissible alerts
 .alert-dismissible > .close {
   opacity: .7;
 

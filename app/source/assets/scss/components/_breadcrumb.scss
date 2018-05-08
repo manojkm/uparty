@@ -1,12 +1,12 @@
 // ================================================================================================
-// File Name: breadcrumb.scss
-// Description: Indicate the current page's location within a navigational hierarchy that
+// File Name      : breadcrumb.scss
+// Description    : Indicate the current page's location within a navigational hierarchy that
 // automatically adds separators via CSS.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
 .breadcrumb {
@@ -17,7 +17,7 @@
   font-size: $breadcrumb-font-size;
   line-height: $breadcrumb-line-height;
 
-  /* Flexbox */
+  // Flexbox
   display: flex;
 
 }
@@ -65,9 +65,9 @@
   }
 }
 
-//-------------------------------------------*\
+
 // BREADCRUMB EXTENDED
-//-------------------------------------------*/
+// ======================================================
 .breadcrumb {
 
   &.extended-arrow {
@@ -125,9 +125,8 @@
 
 }
 
-//-------------------------------------------*\
 // BREADCRUMB EXTENDED - WIZARD
-//-------------------------------------------*/
+// ======================================================
 
 .breadcrumb.extended-arrow {
   &.wizard-step {
@@ -182,9 +181,9 @@
   }
 }
 
-//-------------------------------------------*\
+
 // BREADCRUMB EXTENDED - WRAP
-//-------------------------------------------*/
+// ======================================================
 /* TODO https://codepen.io/xhepigerta/pen/XKmZKN*/
 .breadcrumb {
   &.extended-arrow-wrap {
@@ -209,7 +208,7 @@
         margin: 0 10px 0 0;
         color: $breadcrumb-ext-wrap-font-color;
 
-        /* Right arrow tip */
+        // Right arrow tip
         &:after {
           content: "";
           border-top: $breadcrumb-ext-border-top-bottom-size solid transparent;
@@ -221,7 +220,7 @@
           z-index: 1;
         }
 
-        /* Left inset arrow */
+        // Left inset arrow
         &:before {
           content: "";
           border-top: $breadcrumb-ext-border-top-bottom-size solid transparent;
@@ -242,7 +241,7 @@
       }
 
       &.active {
-        /* Highlight the active child */
+        // Highlight the active child
         a {
           @include background-text-theme($breadcrumb-link-theme-color);
           &:after {
@@ -258,7 +257,7 @@
           @include border-right-radius(0);
           padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 12px;
 
-          /* The first item has no inset arrow */
+          // The first item has no inset arrow
           &:before {
             display: none;
           }
@@ -269,9 +268,9 @@
   }
 }
 
-//-------------------------------------------*\
+
 // BREADCRUMB EXTENDED - WRAP WIZARD
-//-------------------------------------------*/
+// ======================================================
 .breadcrumb.extended-arrow-wrap.wizard-step {
 
   & .breadcrumb-item {
@@ -290,7 +289,7 @@
   }
 
   & .active {
-    /* Highlight the active child */
+    // Highlight the active child
     a {
       @include background-text-theme($breadcrumb-wizard-active-theme-color);
       &:after {
@@ -314,9 +313,9 @@
 
 }
 
-//-------------------------------------------*\
+
 // BREADCRUMB DIVIDERS
-//-------------------------------------------*/
+// ======================================================
 
 .breadcrumb {
   &.divider-angle-right {

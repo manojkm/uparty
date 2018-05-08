@@ -35,11 +35,7 @@
 <!-- END PAGE LEVEL VENDORS AND ITS EXTENSIONS :CSS -->
 
 <!-- BEGIN OBEUS :CSS-->
-{{#if production}}
-    <link href="{{assets}}{{activeTheme}}/{{ package.name }}.min.css" rel="stylesheet" title="mainStyle">
-{{else}}
-    <link href="{{assets}}{{activeTheme}}/{{ package.name }}.css" rel="stylesheet" title="mainStyle">
-{{/if}}
+<link href="{{assets}}{{activeTheme}}/{{ package.name }}{{#if production}}.min{{/if}}.css" rel="stylesheet" title="mainStyle">
 <!-- END OBEUS :CSS-->
 
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">

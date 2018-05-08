@@ -29,7 +29,8 @@ module.exports = function (grunt) {
                 '<%= vI.mask %>',
                 '<%= vI.dropzone %>'
             ];
-
+            files[dest + 'form-elements-transparent.html'] = ['<%= vI.autosize %>'];
+            files[dest + 'form-elements.html'] = ['<%= vI.autosize %>'];
 
             return files;
         }

@@ -35,7 +35,7 @@ button, .button {
     position: relative;
     line-height: $btn-line-height;
 
-    /* Flexbox */
+    // Flexbox
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -98,7 +98,7 @@ Easily pump out default styles, as well as :hover, :focus, :active,
 and disabled options for all buttons.
 */
 
-/* Theme variations */
+// Theme variations
 
 .btn-primary {
   @include btn-theme(primary);
@@ -116,7 +116,7 @@ and disabled options for all buttons.
   @include btn-theme(secondary, outline);
 }
 
-/* Contextual variations */
+// Contextual variations
 @each $scheme, $value in $contextual-palette-map {
   .btn-#{$scheme} {
     @include btn-theme($scheme);

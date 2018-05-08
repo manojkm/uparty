@@ -10,9 +10,9 @@
 
 /* TODO:  Responsive bootstrap tabs https://codepen.io/devben/pen/EaLdeJ */
 
-//-------------------------------------------*\
+
 // TAB
-//-------------------------------------------*/
+// ======================================================
 .nav-tabs {
   @include add-border($nav-tabs-border-width, $nav-tabs-border-color, bottom);
 
@@ -64,9 +64,9 @@
 
 }
 
-//-------------------------------------------*\
+
 // TAB EXTENDED
-//-------------------------------------------*/
+// ======================================================
 .nav-tabs {
 
   &.extended {
@@ -106,9 +106,9 @@
 
 }
 
-//-------------------------------------------*\
+
 // TAB EXTENDED - BOXED
-//-------------------------------------------*/
+// ======================================================
 
 .nav-tabs.extended-boxed {
 
@@ -118,7 +118,7 @@
   padding: 0 $nav-tabs-boxed-spacing;
 
   .nav-item {
-    /* Flexbox */
+    // Flexbox
     display: flex;
     align-items: center;
 
@@ -145,7 +145,7 @@
     }
   }
 
-  /* Theme variations */
+  // Theme variations
   &.primary-box {
     @include tab-extended-boxed-theme(primary);
   }
@@ -154,7 +154,7 @@
     @include tab-extended-boxed-theme(secondary);
   }
 
-  /* Contextual variations */
+  // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
     &.#{$scheme}-box {
       @include tab-extended-boxed-theme($scheme);
@@ -163,9 +163,9 @@
 
 }
 
-//-------------------------------------------*\
+
 // TAB EXTENDED - ARROW
-//-------------------------------------------*/
+// ======================================================
 .nav-tabs {
 
   &.extended-arrow {
@@ -238,12 +238,12 @@
 
 }
 
-//-------------------------------------------*\
+
 // TAB EXTENDED - VERTICAL
-//-------------------------------------------*/
+// ======================================================
 .extended-vertical {
 
-  /* Flexbox */
+  // Flexbox
   display: flex;
   flex-direction: row;
 
@@ -251,7 +251,7 @@
     @include add-border($nav-tabs-border-width, $nav-tabs-border-color, right);
     border-bottom: none;
 
-    /* Flexbox */
+    // Flexbox
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 0;
@@ -353,9 +353,9 @@
 
 }
 
-//-------------------------------------------*\
+
 // PILLS
-//-------------------------------------------*/
+// ======================================================
 
 .nav-pills {
 

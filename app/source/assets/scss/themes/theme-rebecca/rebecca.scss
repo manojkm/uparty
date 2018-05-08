@@ -1,50 +1,47 @@
-//----------------------------------*\
 // THEME DEPENDENCIES
-//----------------------------------*/
-@import '../../custom-variables', // Your custom variables and variable overwrites.
-'../../helpers/colors'; // Default color variables
+// ======================================================
+@import
+    '../../custom-variables', // Your custom variables and variable overwrites.
+    '../../helpers/colors'; // Default color variables.
 
-//----------------------------------*\
-// BRAND COLOR VARIABLES
-//----------------------------------*/
-// TODO.. https://github.com/manojkm/flask
+// BRAND COLOR VARIABLES // TODO.. https://github.com/manojkm/flask
+// ======================================================
 // Begin by defining base colours. You can simply define these inside the palette map instead,
 // but separate variables outside of the map make it easier.
 
-/* Primary */
+// Primary
 $primary-background: $turquoise; // Used as the background for primary buttons, color for primary links etc...
 $primary-foreground: $white-color; // Used as the text color on primary background.
 
-/* Secondary  */
+// Secondary
 $secondary-background: $mauve; // Used as the background for secondary buttons, color for secondary links etc...
 $secondary-foreground: $white-color; // Used as the text color on secondary background.
 
-/* Header */
+// Header
 $header-background: $midnight-blue; // Used as the background color of Header.
 $header-colors: lighten($midnight-blue, 60%), lighten($midnight-blue, 65%), lighten($midnight-blue, 100%), #fff; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
-/* Sidebar */
+// Sidebar
 $sidebar-background: $midnight-blue; // Used as the background color of Sidebar.
 $sidebar-colors: lighten($midnight-blue, 60%), lighten($midnight-blue, 65%), lighten($midnight-blue, 100%), lighten($turquoise, 10%); // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
-/* Aside */
+// Aside
 $aside-background: $midnight-blue; // Used as the background color of Aside.
 $aside-colors: #fff, #fff, #fff, #fff; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
-/* Footer */
+// Footer
 $footer-background: $midnight-blue; // Used as the background color of Footer.
 $footer-colors: #fff, #ccc, #fff, #fff; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
-/* Colour shades amount */
-$color-shade-amount: 4%; // Used to generate base, light & dark color shades
+// Colour shades amount
+$color-shade-amount: 4%; // Used to generate base, light & dark color shades.
 
-//----------------------------------*\
 // THEME PALETTE MAP
-//----------------------------------*/
+// ======================================================
 // Theme palette are all stored in a map data-structure which gives flexibility
-// when traversing based on keys and also looking up values based on strings
+// when traversing based on keys and also looking up values based on strings.
 
-/* Define color/shade map */
+// Define color/shade map
 // TODO for  tomorrow https://stackoverflow.com/questions/33856034/dynamically-build-up-a-sass-map-and-then-use-the-values
 
 $rebecca-palette-map: (

@@ -65,7 +65,7 @@
   text-transform: capitalize;
   overflow: hidden;
 
-  /* Flexbox */
+  // Flexbox
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -96,7 +96,7 @@
   $ca: card__actions;
   margin-right: -$card-spacer-x;
   color: $card-tools-color;
-  /* Flexbox */
+  // Flexbox
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -110,7 +110,7 @@
     text-decoration: none;
     opacity: 0.8;
 
-    /* Flexbox */
+    // Flexbox
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,7 +160,7 @@
 .card-footer {
   @include add-border($card-border-size, $card-border-color, top);
   background-color: $card-footer-bg;
-  /* Flexbox */
+  // Flexbox
   display: flex;
   align-items: center;
 
@@ -169,9 +169,9 @@
   }
 }
 
-//-------------------------------------------*\
+
 // CARD EXTENDED
-//-------------------------------------------*/
+// ======================================================
 
 /* TODO https://codepen.io/ibanez182/pen/qZOvNj*/
 .card {

@@ -1,13 +1,12 @@
 // ================================================================================================
-// File Name: badge.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : badge.scss
+// Description    : Badges adjustments.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
-
 // TODO Adapted from https://codepen.io/uimax/pen/kkadmY
 .badge {
   $b: badge;
@@ -24,7 +23,7 @@
     top: 1px;
   }
 
-  /* Theme variations */
+  // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
@@ -40,7 +39,7 @@
     }
   }
 
-  /* Contextual variations */
+  // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
     &.#{$b}-#{$scheme} {
       @include badges-theme($scheme, $sledge-hammer: !important);
@@ -50,13 +49,13 @@
     }
   }
 
-  /* Disabled badge */
+  // Disabled badge
   #{$disabled-tags} {
     @include opacity($badge-disabled-opacity);
     pointer-events: none;
   }
 
-  /* Floating badges */
+  // Floating badges
   &.floating {
     position: absolute;
     top: -0.45rem;
@@ -71,7 +70,7 @@
     font-weight: $badge-image-font-weight;
     line-height: $badge-image-line-height;
 
-    /* Flex */
+    // Flex
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -86,12 +85,12 @@
     }
   }
 
-  /* Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false) */
+  // Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false)
   &.badge-pill {
     @include border-radius($badge-pill-border-radius);
   }
 
-  /* Round badges */
+  // Round badges
   &.badge-round {
     @include border-radius($badge-radius-round);
     width: $badge-round-size;
@@ -176,7 +175,7 @@
   }
 }
 
-/* Link Badges */
+// Link Badges
 a.badge {
   cursor: pointer;
   text-decoration: none;

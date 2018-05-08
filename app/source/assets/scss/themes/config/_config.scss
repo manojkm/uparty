@@ -1,13 +1,13 @@
 // ================================================================================================
-// File Name: config.scss
-// Description:
-// Themes configuration. Sass manifest file for themes. Importing order & guidelines are
-// mentioned under the title MAIN FILE - https://sass-guidelin.es/#architecture.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : config.scss
+// Description    : Themes configuration. Sass manifest file for themes.
+// Importing order & guidelines are mentioned under the title MAIN FILE
+// - https://sass-guidelin.es/#architecture.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 // ================================================================================================
 // THEME SWITCHING TIP:
@@ -28,32 +28,28 @@
 // https://zellwk.com/blog/organizing-multiple-theme-styles-with-sass/
 // https://getuikit.com/docs/sass
 
-//----------------------------------*\
 // ENABLE DYNAMIC THEMES
-//----------------------------------*/
-$dynamicTheme : false;
+// ======================================================
+$dynamicTheme: false;
 
-//----------------------------------*\
 // ACTIVE THEME
-//----------------------------------*/
-$activeTheme : 'rebecca';
+// ======================================================
+$activeTheme: 'rebecca';
 
-//----------------------------------*\
 // IMPORT THEMES
-//----------------------------------*/
-/* Import your themes here. */
+// ======================================================
+// Import your themes here.
 @import
     '../theme-rebecca/rebecca',
     '../theme-unicorn/unicorn';
 
-//----------------------------------*\
 // THEMES MAP
-//----------------------------------*/
+// ======================================================
 // Themes are all stored in a map data-structure which gives flexibility
-// when traversing based on keys and also looking up values based on strings
+// when traversing based on keys and also looking up values based on strings.
 
+// Define the name of your theme as the key and corresponding palette map variable as the value.
 $themes-map: (
-  /* Define the name of your theme as the key and corresponding palette map variable as the value */
         rebecca: $rebecca-palette-map,
         unicorn: $unicorn-palette-map,
 );
