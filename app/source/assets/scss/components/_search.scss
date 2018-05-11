@@ -1,16 +1,15 @@
 // ================================================================================================
-// File Name: search.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : search.scss
+// Description    : Defines styles for custom search bar on header.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // HEADER SEARCH
-//----------------------------------*/
+// ======================================================
 // Adapted from https://codepen.io/jarnovanrhijn/pen/obPLOY
 
 .master-header__search {
@@ -20,6 +19,7 @@
 
   /* Form text input */
   input[type="text"] {
+    @include opacity(0);
     border: 0;
     background: none;
     z-index: 1;
@@ -29,7 +29,6 @@
     color: transparent;
     font-size: 0.75rem;
     line-height: 25px;
-    @include opacity(0);
 
     &:hover {
       cursor: pointer;
@@ -39,21 +38,19 @@
       }
 
       + span {
-        @include background-color('header', 'dark');
+        @include background-theme('header', 'dark');
       }
     }
 
     &:focus {
+      @include text-theme('header', 'link-color');
+      @include opacity(1);
       width: 200px;
       padding: 0 10px;
       outline: none;
       background: none;
-      @include color('header', 'link-color');
-      @include opacity(1);
-
       + span {
         width: 200px;
-
         &::before {
           width: 2px;
           opacity: 0;
@@ -63,7 +60,7 @@
     }
 
     + span {
-      @include border-color('header', 'link-color');
+      @include border-theme('header', 'link-color', $position: all);
       border: 2px solid;
       border-radius: 25px;
       z-index: -1;
@@ -75,7 +72,7 @@
       /* right: 0;*/
 
       &::before {
-        @include background-color('header', 'link-color');
+        @include background-theme('header', 'link-color');
         transition: all .25s ease-in .5s;
         transform-origin: left top;
         content: '';
@@ -86,11 +83,5 @@
         transform: rotate(45deg) translate(26px, -2px);
       }
     }
-  }
-}
-
-@include max-screen($screen-sm-max) {
-  .master-header__search {
-    //margin-left: 0;
   }
 }

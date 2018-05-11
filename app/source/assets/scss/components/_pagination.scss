@@ -1,12 +1,14 @@
 // ================================================================================================
-// File Name: pagination.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : pagination.scss
+// Description    : Adjustments for Bootstrap's pagination component.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
+
+// Base styles
 
 .page-item {
   &:first-child {
@@ -24,7 +26,7 @@
 
   &.active .page-link,
   &.active .page-link:focus,
-  &.active .page-link:hover{
+  &.active .page-link:hover {
     @include background-text-theme($pagination-active-bg-theme-color);
     @include border-theme($pagination-active-bg-theme-color);
   }
@@ -44,7 +46,6 @@
     font-size: $pagination-icon-font-size;
   }
 
-
   &:focus,
   &:hover {
     @include text-theme($pagination-link-theme-color);
@@ -54,10 +55,8 @@
   }
 }
 
-
 // PAGINATION SIZES
 // ======================================================
-
 /* Large pagination */
 .pagination-lg {
   @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $pagination-font-size-lg, $pagination-line-height-lg, $border-radius-lg);
@@ -68,10 +67,8 @@
   @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $pagination-font-size-sm, $pagination-line-height-sm, $border-radius-sm);
 }
 
-
 // PAGINATION EXTENDED
 // ======================================================
-
 .pagination {
 
   &.extended {
@@ -112,7 +109,7 @@
 
     }
 
-    &.pg-wizard{
+    &.pg-wizard {
       .page-link {
         @include add-border(0, transparent, all);
         background-color: $pagination-wizard-bg;
@@ -128,8 +125,8 @@
       .page-item {
         &.disabled {
           & .page-link {
-            background-color: $pagination-wizard-bg!important;;
-            color: $pagination-wizard-color!important;
+            background-color: $pagination-wizard-bg !important;;
+            color: $pagination-wizard-color !important;
             opacity: 0.4;
           }
         }
@@ -140,8 +137,7 @@
 
 }
 
-
-// PAGINATION EXTENDED - BORDER
+// PAGINATION EXTENDED - BORDER TYPE
 // ======================================================
 .pagination {
 
@@ -201,10 +197,8 @@
 
 }
 
-
-// PAGINATION EXTENDED - SQUARE
+// PAGINATION EXTENDED - SQUARE TYPE
 // ======================================================
-
 .pagination {
 
   &.extended-square {
@@ -260,9 +254,7 @@
 
 }
 
-
-
-// PAGINATION EXTENDED - INDICATOR
+// PAGINATION EXTENDED - INDICATOR TYPE
 // ======================================================
 
 .pagination {
@@ -283,7 +275,7 @@
 
       &:focus,
       &:hover {
-        background-color:$pagination-extended-indicator-hover-bg;
+        background-color: $pagination-extended-indicator-hover-bg;
       }
     }
 
@@ -305,10 +297,8 @@
 
 }
 
-
 // DISABLED PAGINATION
 // ======================================================
-
 .page-item {
   &.disabled {
     cursor: not-allowed;

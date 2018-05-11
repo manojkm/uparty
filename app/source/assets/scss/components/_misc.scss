@@ -9,7 +9,7 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// LINES
+// HORIZONTAL RULE
 // ======================================================
 // Base styles
 hr {
@@ -76,4 +76,16 @@ hr.color-line {
 ::-moz-selection {
   color: $selection-color;
   background: $selection-bg;
+}
+
+img::selection {
+  background: transparent
+}
+
+img::-webkit-selection {
+  background: transparent
+}
+
+img::-moz-selection {
+  background: transparent
 }

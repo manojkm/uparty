@@ -1,18 +1,21 @@
 // ================================================================================================
-// File Name: sections.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : sections.scss
+// Description    : Defines styles for custom sections.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
-
-.section-gray{
-  background-color: #EEEEEE;
+// Custom get started section
+section.get-started {
+  & .card {
+  }
 }
-.section-white{
-  background-color: #FFFFFF;
+
+// Custom contact us section
+section.contact-us {
+  & .card {
+  }
 }

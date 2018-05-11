@@ -1,13 +1,12 @@
 // ================================================================================================
-// File Name: scrollbar.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : scrollbar.scss
+// Description    : Custom scrollbar
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
-
 
 /*
 ::-webkit-scrollbar {
@@ -33,28 +32,54 @@
 }
 */
 
-
-/* Let's get this party started */
+/*
+// Let's get this party started
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
-/* Track */
+// Track
 ::-webkit-scrollbar-track {
-  // -webkit-box-shadow: inset 0 0 6px #626d77;
-  // background: #626d77;
+  -webkit-box-shadow: inset 0 0 6px #626d77;
+  background: #626d77;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
 
-/* Handle */
+// Handle
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 0;
   border-radius: 0;
   background: darken(#e51400, 5%);
-  // -webkit-box-shadow: inset 0 0 6px $color-primary;
+  -webkit-box-shadow: inset 0 0 6px #ff0000;
 }
+
 ::-webkit-scrollbar-thumb:window-inactive {
   background: #e51400;
+}*/
+
+//TODO https://github.com/LirtosSkap/school/blob/5444379b249634451ea85a69f126334a524ba614/resources/assets/web/sass/scrollbar.scss
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,.2);
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 50px;
+  background-color: rgba(255,255,255,.15);
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: rgba(255,255,255,.2);
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,.15);
 }

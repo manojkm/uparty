@@ -1,34 +1,32 @@
 // ================================================================================================
-// File Name: progress-bars.scss
-// Description: Custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : progress-bars.scss
+// Description    : Adjustments for Bootstrap's progress component and custom progress bars
+// featuring support for stacked bars, animated backgrounds, and text labels.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
-// PROGRESS BAR
-// ======================================================
-
+// Base styles
 .progress {
   @include set-border-radius($progress-border-radius);
   box-shadow: $progress-box-shadow;
   font-size: $progress-font-size;
   line-height: $progress-height;
   background-color: $progress-bg;
-  height:$progress-height;
+  height: $progress-height;
 
   &-bar {
     @include transition;
-    @include background-text-theme(primary); /* Theme variation. Default is primary */
+    @include background-text-theme(primary);
     height: $progress-height;
     line-height: $progress-height;
     position: relative;
   }
 
-  /* Small */
+  // Small
   &-sm {
     height: $progress-sm-height;
     .progress-bar {
@@ -36,7 +34,7 @@
     }
   }
 
-  /* Large */
+  // Large
   &-lg {
     height: $progress-lg-height;
     .progress-bar {
@@ -50,10 +48,8 @@
 
 }
 
-
-// PROGRESS BAR EXTENDED
+// PROGRESS BAR EXTENDED TYPE
 // ======================================================
-
 .progress {
 
   &.extended {
@@ -74,7 +70,7 @@
         right: -1.4em;
 
         &::after {
-          @include border-bottom-color('primary', 'base');
+          @include border-theme(primary, $position: bottom);
           border: 5px solid transparent;
           content: "";
           bottom: 100%;
@@ -88,24 +84,21 @@
       }
     }
 
-    & .bg-secondary {
-      @include progress-bar-theme(secondary);
+    // Theme variations
+    @each $themeName, $value in $themes-map {
+      $colors: map-get-strict($value, 'main-colors');
+      @each $scheme, $value in $colors {
+        & .bg-#{$scheme} {
+          @include progress-bar-theme($scheme);
+        }
+      }
     }
 
-    & .bg-success {
-      @include progress-bar-theme(success);
-    }
-
-    & .bg-danger {
-      @include progress-bar-theme(danger);
-    }
-
-    & .bg-warning {
-      @include progress-bar-theme(warning);
-    }
-
-    & .bg-info {
-      @include progress-bar-theme(info);
+    // Contextual variations
+    @each $scheme, $value in $contextual-palette-map {
+      & .bg-#{$scheme} {
+        @include progress-bar-theme($scheme);
+      }
     }
 
   }
