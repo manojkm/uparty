@@ -1,21 +1,19 @@
 // ================================================================================================
-// File Name: tabs-and-pills.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : tabs-and-pills.scss
+// Description    : Adjustments for Bootstrap's tabbed interface.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
 /* TODO:  Responsive bootstrap tabs https://codepen.io/devben/pen/EaLdeJ */
-
 
 // TAB
 // ======================================================
 .nav-tabs {
   @include add-border($nav-tabs-border-width, $nav-tabs-border-color, bottom);
-
   .nav-link {
     @include set-border-radius($nav-tabs-border-radius);
     @include add-border($nav-tabs-border-width, transparent, all);
@@ -34,9 +32,9 @@
       color: $nav-link-disabled-color;
     }
 
-    /* Teb icon */
+    // Tab icon
     i {
-     font-size: inherit;
+      font-size: inherit;
       width: $tab-icon-width;
       display: inline-block;
       color: inherit;
@@ -44,33 +42,26 @@
     }
 
   }
-
   .nav-link.active,
   .nav-item.show .nav-link {
     @include text-theme($nav-tabs-link-active-theme-color);
     background-color: $nav-tabs-link-active-bg;
     border-color: $nav-tabs-link-active-border-color $nav-tabs-link-active-border-color $nav-tabs-link-active-bg;
   }
-
 }
 
 .tab-content {
-
   &.hasborder {
     margin-top: -1px;
     background: $tab-content-bg;
     @include add-border($nav-tabs-border-width, $nav-tabs-border-color, all);
   }
-
 }
-
 
 // TAB EXTENDED
 // ======================================================
 .nav-tabs {
-
   &.extended {
-
     .nav-link {
       @include set-border-radius(0);
       @include add-border(0, transparent, all);
@@ -93,23 +84,17 @@
         transform: scale(0);
       }
     }
-
     .nav-link.active,
     .nav-item.show .nav-link {
       &::before {
         transform: scale(1)
       }
-
     }
-
   }
-
 }
 
-
-// TAB EXTENDED - BOXED
+// TAB EXTENDED - BOXED TYPE
 // ======================================================
-
 .nav-tabs.extended-boxed {
 
   @include set-border-radius($nav-tabs-border-radius);
@@ -163,8 +148,7 @@
 
 }
 
-
-// TAB EXTENDED - ARROW
+// TAB EXTENDED - ARROW TYPE
 // ======================================================
 .nav-tabs {
 
@@ -228,7 +212,7 @@
       .nav-item.show .nav-link {
         @include background-text-theme($nav-pills-link-active-theme-color);
         &:after {
-          @include border-theme($nav-pills-link-active-theme-color, $position:top);
+          @include border-theme($nav-pills-link-active-theme-color, $position: top);
         }
 
       }
@@ -238,11 +222,9 @@
 
 }
 
-
-// TAB EXTENDED - VERTICAL
+// TAB EXTENDED - VERTICAL TYPE
 // ======================================================
 .extended-vertical {
-
 
   display: flex;
   flex-direction: row;
@@ -351,10 +333,8 @@
 
 }
 
-
-// PILLS
+// PILLS TYPE
 // ======================================================
-
 .nav-pills {
 
   .nav-link {
@@ -362,7 +342,6 @@
     @include set-border-radius($nav-pills-border-radius);
     @include text-theme($nav-pills-link-active-theme-color);
     margin: 0 5px 3px 0;
-
 
     &.active,
     &.active:hover,

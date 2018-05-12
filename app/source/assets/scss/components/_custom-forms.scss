@@ -256,10 +256,10 @@
   }
 
   &:disabled + .custom-file-label {
+    @include opacity(0.8);
     border-color: $input-border-disabled;
     background-color: $input-bg-disabled;
     color: $input-color-disabled;
-    opacity: 0.8;
 
     &:before {
       //background: $input-bg-disabled;
@@ -430,7 +430,7 @@
 
   // Checked + Disabled state
   .#{$cci}:disabled:checked + .#{$ccind} {
-    opacity: 0.5;
+    @include opacity(0.5);
   }
 
   // Theme variations
@@ -521,7 +521,7 @@
 
   // Checked + Disabled state
   .#{$cci}:disabled:checked + .#{$ccind} {
-    opacity: 0.5;
+    @include opacity(0.5);
   }
 
 
@@ -549,7 +549,7 @@
 
   // YES/NO Disabled state
   &.yes-no .#{$cci}:disabled + .#{$ccind} {
-    opacity: 0.5;
+    @include opacity(0.5);
   }
 
   // Theme variations

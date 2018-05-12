@@ -16,6 +16,9 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// BASE
+// ======================================================
+
 html {
   font-size: $html-font-size;
 }
@@ -37,6 +40,9 @@ body {
   // May break with some browsers, comment out as necessary.
   text-rendering: optimizeLegibility;
 }
+
+// HEADERS
+// ======================================================
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: $headings-font-family;
@@ -71,10 +77,35 @@ h6, .h6 {
   font-size: $h6-font-size;
 }
 
-p, a, td {
+// PARAGRAPHS
+// ======================================================
+p {
   color: $font-color-default;
 }
 
+// LINKS
+// ======================================================
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color 250ms ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: $link-hover-color;
+  text-decoration: $link-hover-decoration;
+}
+
+// SMALL
+// ======================================================
+small,
+.small {
+  color: $font-color-default;
+}
+
+// LEAD
+// ======================================================
 .lead {
   font-size: $lead-font-size;
   font-weight: $lead-font-weight;

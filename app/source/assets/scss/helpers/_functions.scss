@@ -1,22 +1,19 @@
 // ================================================================================================
-// File Name: functions.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : functions.scss
+// Description    : A collection of usefull sass functions for working with xxxx Theme
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // MAP GET ERROR HANDLING
-//----------------------------------*/
-/**
- * This function should warn if a theme requirement isn't met,
- * helping to catch any issues at compile time in development
- */
+// ======================================================
+// This function should warn if a theme requirement isn't met,
+// helping to catch any issues at compile time in development
 
-/* Usage map-get-strict($font-html, size); */
+// Usage map-get-strict($font-html, size);
 
 @function map-get-strict($map, $key) {
   @if map-has-key($map, $key) {
@@ -27,19 +24,17 @@
   }
 }
 
-//----------------------------------*\
 // REM FONT SIZE CALCULATING
-//----------------------------------*/
-/* Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/ */
+// ======================================================
+// Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
 
 @function calculateRem($size) {
   $remSize: $size / 16px;
   @return #{$remSize}rem;
 }
 
-//----------------------------------*\
 // CHECK BOOLEAN VALUE
-//----------------------------------*/
+// ======================================================
 @function bool($value: false) {
   @if $value == false or
           $value == "" or
@@ -51,11 +46,10 @@
   @return true;
 }
 
-//----------------------------------*\
 // SET CONTEXTUAL COLORS
-//----------------------------------*/
-/* Adapted from https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184 */
-/* Our function for shorter usage of map-get(); */
+// ======================================================
+// Adapted from https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+// Retrieve contextual color maps
 @function contextual-color($scheme, $tone:base) {
   @if type-of(map-get(map-get($contextual-palette-map, $scheme), $tone)) == color {
     @return map-get(map-get($contextual-palette-map, $scheme), $tone);
@@ -64,11 +58,10 @@
   }
 }
 
-//----------------------------------*\
 // SET THEME COLORS
-//----------------------------------*/
-
-@function theme-color($scheme, $tone) {
+// ======================================================
+// Retrieve 'main-colors' from theme color maps
+@function theme-colo1r($scheme, $tone) {
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {
@@ -79,9 +72,8 @@
   }
 }
 
-// ==========================================================================
 // ROUNDING DECIMALS
-// ==========================================================================
+// ======================================================
 // Round a number to specified digits.
 //
 // @param  {Number} $number A number to round
@@ -160,10 +152,8 @@
   @return decimal-round($number, $digits, floor);
 }
 
-
-// ==========================================================================
 // FONT-FACE
-// ==========================================================================
+// ======================================================
 // Adapted from sassy-starter http://minamarkham.github.io/sassy-starter/
 @if variable-exists(google-fonts-import) {
   @import url($google-fonts-import);
@@ -180,10 +170,8 @@
   }
 }
 
-
-//----------------------------------*\
 // RETRIEVE TYPOGRAPHY SASS MAPS
-//----------------------------------*/
+// ======================================================
 @function get-typography($key: size-md, $property:null) {
 
   @if ($property != null) {
@@ -195,8 +183,8 @@
       @return nth($typog-list, 1);
     } @else if $property == line-height {
 
-      //** Computed "line-height" ('line-height' / 'font-size') for use with 'margin', 'padding', etc.
-      @return  decimal-round(nth($typog-list, 2) / nth($typog-list, 1), 1);
+      // Computed "line-height" ('line-height' / 'font-size') for use with 'margin', 'padding', etc.
+      @return decimal-round(nth($typog-list, 2) / nth($typog-list, 1), 1);
     }
 
   } @else {
@@ -205,9 +193,8 @@
 
 }
 
-//----------------------------------*\
 // Replace `$search` with `$replace` in `$string
-//----------------------------------*/
+// ======================================================
 // Used on our SVG icon backgrounds for custom forms.
 //
 // @author Hugo Giraudel
@@ -217,10 +204,8 @@
 // @return {String} - Updated string
 @function str-replace($string, $search, $replace: "") {
   $index: str-index($string, $search);
-
   @if $index {
     @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
-
   @return $string;
 }

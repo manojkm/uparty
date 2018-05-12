@@ -1,39 +1,32 @@
 // ================================================================================================
-// File Name: variables.scss
-// Description:
-// Think of variables as handy places to store values that you want to reuse over and over again
-// throughout your Sass document.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : variables.scss
+// Description    : Think of variables as handy places to store values that you want to reuse
+// over and over again throughout the Sass document.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
-
-// TODO: Fill the below comment block with proper text following robust admin theme.
-// TODO get variable namings fro https://www.bootstrap-live-customizer.com/.
-// TODO: Remove old grey-xx-xx varialbes.
-// TODO... usefull for wordings... -> https://github.com/hershko765/swift10minuteemail/blob/d1983eaced83fe12242b1fd4524e97f62df19a08/web/media/sass/_variables.scss
-
 // ================================================================================================
-// WARNING:
-// PLEASE DO NOT CHANGE THIS VARIABLE FILE. THIS FILE WILL GET OVERWRITTEN WITH EACH
-// XXXX TEMPLATE RELEASE.
-// TIP:
-// We suggest you to copy settings from this file into the provided '_custom-variables.scss' to
-// override the xxx(themename) defaults.
-//
+// WARNING        : PLEASE DO NOT CHANGE THIS VARIABLE FILE. THIS FILE WILL GET OVERWRITTEN WITH
+// EACH XXXX TEMPLATE RELEASE.
+// TIP            : We suggest you to copy variables from this file into the provided
+// '_custom-variables.scss' to override the xxx(themename) defaults.
+// ------------------------------------------------------------------------------------------------
 // Like in Bootstrap, variables should follow the '$component-state-property-size'
 // formula for consistent naming.
 // Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 // ================================================================================================
 
-//----------------------------------*\
-// COLOR PALETTE
-//----------------------------------*/
-/* Looking for theme color palette? Please check themes/_theme-map.scss */
+// TODO: Fill the below comment block with proper text following robust admin theme.
+// TODO get variable namings fro https://www.bootstrap-live-customizer.com/.
+// TODO... usefull for wordings... -> https://github.com/hershko765/swift10minuteemail/blob/d1983eaced83fe12242b1fd4524e97f62df19a08/web/media/sass/_variables.scss
 
-/* Contextual colors */
+// CONTEXTUAL COLOR MAP
+// ======================================================
+// Looking for theme color palette?
+// Please check helpers/_colors.scss
 $contextual-palette-map: (
         'success': (
                 'base': $grass,
@@ -85,48 +78,48 @@ $contextual-palette-map: (
         ),
 );
 
-//----------------------------------*\
-// TYPOGRAPHY
-//----------------------------------*/
-/* Font, Weight, line-height, color for body text, headings, and more. */
+// TYPOGRAPHY MAP
+// ======================================================
+// Font, Weight, line-height, color for body text, headings, and sizes.
 $typography: (
-        font-default: ($font-family-default, $font-family-fallback), /* Font used for <body> */
-        font-headings: ($font-family-display, $font-family-fallback), /* Font used for headings <h1> <h2> etc... */
-        color-default: $gray-800, /* Global text color on <body> */
+        font-default: ($font-family-default, $font-family-fallback), // Font used for <body>
+        font-headings: ($font-family-display, $font-family-fallback), // Font used for headings <h1> <h2> etc...
+        color-default: $gray-800, // Global text color on <body>
         color-headings: $gray-800,
         weight-light: 300,
         weight-normal: 400,
         weight-medium: 500,
         weight-semi: 600,
         weight-bold: 700,
-        /* Font size with line height (Order: font-size line-height) */
-        size-100: (100%, 1.375rem), /* 100% 22px Font size of the <html> element */
-        size-xs: (0.75rem, 1.125rem), /* 12px 18px */
-        size-sm: (0.875rem, 1.25rem), /* 14px 20px*/
-        size-md: (1rem, 1.375rem), /* 16px 22px Font size of the <body> element */
-        size-lg: (1.125rem, 1.5rem), /* 18px 24px */
-        size-xl: (1.25rem, 1.625rem) /* 20px 26px*/
+  // Font size with line height (Order: font-size line-height)
+        size-100: (100%, 1.375rem), // 100% 22px Font size of the <html> element
+        size-xs: (0.75rem, 1.125rem), // 12px 18px
+        size-sm: (0.875rem, 1.25rem), // 14px 20px
+        size-md: (1rem, 1.375rem), // 16px 22px Font size of the <body> element
+        size-lg: (1.125rem, 1.5rem), // 18px 24px
+        size-xl: (1.25rem, 1.625rem) // 20px 26p
 );
 
-/* Retrieve values from the above $typography sass map */
+// Retrieve values from the above $typography sass map
+// ======================================================
 
-/* Font family */
+// Font family
 $font-family-default: get-typography(font-default);
 $font-family-headings: get-typography(font-headings);
 
-/* Font color */
+// Font color
 $font-color-default: get-typography(color-default);
 $font-color-headings: get-typography(color-headings);
 
-/* Font size */
+// Font size
 $font-size-100: get-typography(size-100, font-size);
 $font-size-xs: get-typography(size-xs, font-size);
 $font-size-sm: get-typography(size-sm, font-size);
-$font-size-base: get-typography(size-md, font-size); /* Assumes the browser default, typically `16px` */
+$font-size-base: get-typography(size-md, font-size) !default; // Assumes the browser default, typically '16px'
 $font-size-lg: get-typography(size-lg, font-size);
 $font-size-xl: get-typography(size-xl, font-size);
 
-/* Line height */
+// Computed unit-less line height
 $lh-100: get-typography(size-100, line-height);
 $lh-xs: get-typography(size-xs, line-height);
 $lh-sm: get-typography(size-sm, line-height);
@@ -134,31 +127,32 @@ $lh-base: get-typography(size-md, line-height);
 $lh-lg: get-typography(size-lg, line-height);
 $lh-xl: get-typography(size-xl, line-height);
 
-/* Font weight */
-$font-wh-light: get-typography(weight-light) !default; /*300*/
-$font-wh-normal: get-typography(weight-normal) !default; /*400*/
-$font-wh-medium: get-typography(weight-medium) !default; /*500*/
-$font-wh-semi: get-typography(weight-semi) !default; /*600*/
-$font-wh-bold: get-typography(weight-bold) !default; /*700*/
+// Font weight
+$font-wh-light: get-typography(weight-light) !default; // 300
+$font-wh-normal: get-typography(weight-normal) !default; // 400
+$font-wh-medium: get-typography(weight-medium) !default; // 500
+$font-wh-semi: get-typography(weight-semi) !default; // 600
+$font-wh-bold: get-typography(weight-bold) !default; // 700
 
-//----------------------------------*\
-// FONTS
-//----------------------------------*/
-
-/* Html */
+// Html
 $html-font-size: $font-size-100;
 
-/* Body */
+// Body
+$body-color: $font-color-default;
 $body-font-family: $font-family-default;
 $body-font-size: $font-size-base;
-$body-font-weight:$font-wh-normal;
-$body-line-height:$lh-base;
-$body-color: $font-color-default;
+$body-font-weight: $font-wh-normal;
+$body-line-height: $lh-base;
 
-/* Headings */
+// Links
+$link-color: $font-color-default;
+$link-hover-color: darken($font-color-default, 15%) !default;
+$link-hover-decoration: underline;
+
+// Headings
+$headings-color: $font-color-headings;
 $headings-font-family: $font-family-headings;
 $headings-font-weight: $font-wh-medium;
-$headings-color: $font-color-headings;
 $headings-line-height: 1.2;
 $headings-letter-spacing: -.0625rem !default; // ~1px
 
@@ -169,58 +163,49 @@ $h4-font-size: $font-size-base * 1.5 !default;
 $h5-font-size: $font-size-base * 1.25 !default;
 $h6-font-size: $font-size-base !default;
 
-/* Lead */
+// Lead
 $lead-font-size: ($font-size-base * 1.25) !default;
 $lead-font-weight: $font-wh-light !default;
 
-//----------------------------------*\
 // CONFIGS
-//----------------------------------*/
-/* Handle rounded corners */
+// ======================================================
+// Handle rounded corners
 $enable-rounded: true !default;
 
-/* Breadcrumb */
+// Breadcrumb
 $enable-breadcrumb: true !default;
 
-//----------------------------------*\
-// SELECTION
-//----------------------------------*/
-$selection-color: #818892;
-$selection-bg: #f9f6f0;
+// SELECTIONS
+// ======================================================
+// Highlighting selected text
+$selection-color: #818892 !default;
+$selection-bg: #f9f6f0 !default;
 
-//----------------------------------*\
 // BORDERS
-//----------------------------------*/
+// ======================================================
 $none: 0 !default;
 $border: 1px solid !default;
 $border-thin: 1px !default;
 $border-thick: 2px !default;
 $border-thicker: 4px !default;
 
-/* Border radius */
-$border-radius-xs: 0.125rem !default; /*2px*/
-$border-radius-sm: 0.1875rem !default; /*3px*/
-$border-radius-md: 0.25rem !default; /*4px*/
-$border-radius-lg: 0.3125rem !default; /*5px*/
-$border-radius-xl: 0.375rem !default; /*6px*/
-$border-radius-xxl: 0.5rem !default; /*8px*/
+// Border radius
+$border-radius-xs: 0.125rem !default; // 2px
+$border-radius-sm: 0.1875rem !default; // 3px
+$border-radius-md: 0.25rem !default; // 4px
+$border-radius-lg: 0.3125rem !default; // 5px
+$border-radius-xl: 0.375rem !default; // 6px
+$border-radius-xxl: 0.5rem !default; // 8px
 $border-radius-50: 50% !default;
 $border-radius-100: 100% !default;
 
-//----------------------------------*\
 // BODY
-//----------------------------------*/
-$body-bg-color: $white-color;
-$text-color: $grey-dark;
+// ======================================================
+$body-bg-color: $white-color; // Background color for <body>.
 
-//----------------------------------*\
-// LINKS
-//----------------------------------*/
-
-//----------------------------------*\
 // HEADER & NAVBAR
-//----------------------------------*/
-/* Header color variables can be found in themes/_theme-map.scss */
+// ======================================================
+// Header color variables can be found in themes/_theme-map.scss
 $header-height: 50px;
 $navbar-font-size: $font-size-sm;
 $navbar-font-weight: $font-wh-normal;
@@ -235,9 +220,8 @@ $navbar-text-font-weight: $font-wh-normal;
 //$navbar-toggler-border-colour:;
 $navbar-item-mobile-bottom-border: true;
 
-//----------------------------------*\
 // BOOTSTRAP DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
-//----------------------------------*/
+// ======================================================
 
 $dropdown-width: 200px;
 $dropdown-min-width: 160px;
@@ -258,29 +242,27 @@ $dropdown-padding-x: 0px;
 $dropdown-item-padding-y: 8px;
 $dropdown-item-padding-x: 12px;
 
-$dropdown-link-color: $grey-xx-dark;
+$dropdown-link-color: $gray-800;
 
-$dropdown-link-hover-color: $grey-xx-dark;
-$dropdown-link-hover-bg: $grey-xx-light;
+$dropdown-link-hover-color: $gray-900;
+$dropdown-link-hover-bg: $gray-300;
 
-$dropdown-link-active-color: $grey-xx-dark;
-$dropdown-link-active-bg: $grey-x-light;
+$dropdown-link-active-color: $gray-900;
+$dropdown-link-active-bg: $gray-300;
 
-$dropdown-link-disabled-color: $grey-light;
+$dropdown-link-disabled-color-opacity: 0.6;
 
-$dropdown-divider-color: $grey-x-light;
+$dropdown-divider-color: $gray-400;
 $dropdown-divider-border-width: $border-thin !default;
 
 $dropdown-icon-width: 20px;
 
-//----------------------------------*\
 // BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
-//----------------------------------*/
+// ======================================================
 /* Themed dropdown styles are automatically generated based on header map that can be found in themes/_theme-map.scss */
 
-//----------------------------------*\
 // TOGGLERS
-//----------------------------------*/
+// ======================================================
 /* Navbar toggle button */
 $navbar-toggler-padding-y: 10px;
 $navbar-toggler-padding-x: 10px;
@@ -295,13 +277,11 @@ $aside-toggler-height: $header-height;
 $aside-toggler-padding-y: 10px;
 $aside-toggler-padding-x: 10px;
 
-//----------------------------------*\
 // SEARCH
-//----------------------------------*/
+// ======================================================
 
-//----------------------------------*\
 // PADDINGS
-//----------------------------------*/
+// ======================================================
 
 $padding-base-y: .5rem !default;
 $padding-base-x: .7rem !default;
@@ -315,9 +295,8 @@ $padding-large-x: 48px !default;
 $padding-small-y: 5px !default;
 $padding-small-x: 15px !default;
 
-//----------------------------------*\
 // SHADOWS
-//----------------------------------*/
+// ======================================================
 $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
 $dropdown-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
 $header-shadow: 0 1px 3px rgba($black-color, .2);
@@ -332,9 +311,8 @@ $chosen-select-box-shadow: 0 5px 10px rgba($black-color, .1);
 $multiple-select-box-shadow: 0 5px 10px rgba($black-color, .1);
 $slider-base-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 
-//----------------------------------*\
 // BREADCRUMB
-//----------------------------------*/
+// ======================================================
 $breadcrumb-bg: $white-color !default;
 
 $breadcrumb-border-radius: $border-radius-md !default;
@@ -388,21 +366,18 @@ $breadcrumb-wizard-incomplete-color: $gray-600 !default;
 $breadcrumb-menu-color: $gray-600 !default;
 $breadcrumb-menu-hover-color: $gray-800 !default;
 
-//----------------------------------*\
 // MAIN CONTENT WRAPPERS
-//----------------------------------*/
+// ======================================================
 $main-content-padding-y: 20px;
 $main-content-padding-x: 0;
 
-//----------------------------------*\
 // PAGE TITLE WRAPPERS
-//----------------------------------*/
+// ======================================================
 $page-title-padding-y: 20px;
 $page-title-padding-x: 0;
 
-//----------------------------------*\
 // SIDEBAR
-//----------------------------------*/
+// ======================================================
 /* Sidebar color variables can be found in themes/_theme-map.scss */
 
 $sidebar-theme-color: sidebar !default;
@@ -457,15 +432,15 @@ $sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
 /* Mini full sidebar */
 $sidebar-mini-full-item-height: 40px;
 
-//----------------------------------*\
 // BUTTONS
-//----------------------------------*/
+// ======================================================
 
 $btn-border-size: $border-thin;
 $btn-font-weight: $font-wh-normal !default;
 
 /* Button with icon */
-$btn-icon-padding-left-right: 3px !default;
+$btn-icon-padding-left: 5px !default;
+$btn-icon-padding-right: 5px !default;
 $btn-icon-lh: 1 !default;
 
 /* Small button (.btn-sm) */
@@ -484,7 +459,7 @@ $btn-padding-x: 0.75rem !default; /* 12px */
 $btn-min-width: 100px !default;
 $btn-min-height: 0px !default;
 $btn-line-height: $lh-base !default;
-$btn-radius: $border-radius-md;
+$btn-radius: $border-radius-md !default;
 
 /* Large button (.btn-lg) */
 $btn-font-size-lg: $font-size-lg !default;
@@ -534,9 +509,8 @@ $btn-icon-size-xl: calc(#{$btn-icon-size-xl-inner} + #{$btn-border-size * 2}) !d
 /* Disabled button opacity */
 $btn-disabled-opacity: 0.5;
 
-//----------------------------------*\
 // MARK
-//----------------------------------*/
+// ======================================================
 /* Extra small(.mark-xs) */
 $mark-underline-height-xs: 0.125rem; /*2px*/
 
@@ -552,9 +526,8 @@ $mark-underline-height-lg: 0.75rem; /*12px*/
 /* Extra large(.mark-xl) */
 $mark-underline-height-xl: 1rem; /*16px*/
 
-//----------------------------------*\
 // FORMS
-//----------------------------------*/
+// ======================================================
 
 $input-bg: $white-color;
 
@@ -615,9 +588,8 @@ $form-feedback-invalid-color: contextual-color(danger);
 /* Required field */
 $required-field-color: danger;
 
-//----------------------------------*\
 // CUSTOM FORMS
-//----------------------------------*/
+// ======================================================
 
 $custom-control-indicator-color: $white-color;
 $custom-control-indicator-active-color: $white-color;
@@ -697,16 +669,14 @@ $custom-toggle-flip-border-radius: $input-border-size;
 $custom-toggle-flip-normal-color: $gray-800 !default;
 $custom-toggle-flip-normal-background: $gray-400 !default;
 
-//----------------------------------*\
 // TOASTR
-//----------------------------------*/
+// ======================================================
 $toastr-radius: $btn-radius !default;
 $toastr-box-shadow: 0 5px 10px rgba($black-color, .1);
 $toastr-opacity: 0.9;
 
-//----------------------------------*\
 // CHOSEN SELECT
-//----------------------------------*/
+// ======================================================
 $chosen-search-icon-color: $gray-600 !default;
 $chosen-search-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 8 8'%3E%3Cpath fill='#{$chosen-search-icon-color}' d='M3.5 0c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c.59 0 1.17-.14 1.66-.41a1 1 0 0 0 .13.13l1 1a1.02 1.02 0 1 0 1.44-1.44l-1-1a1 1 0 0 0-.16-.13c.27-.49.44-1.06.44-1.66 0-1.93-1.57-3.5-3.5-3.5zm0 1c1.39 0 2.5 1.11 2.5 2.5 0 .66-.24 1.27-.66 1.72-.01.01-.02.02-.03.03a1 1 0 0 0-.13.13c-.44.4-1.04.63-1.69.63-1.39 0-2.5-1.11-2.5-2.5s1.11-2.5 2.5-2.5z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
@@ -728,9 +698,8 @@ $chosen-search-multi-search-choice-margin: 0 2px;
 $chosen-search-multi-search-choice-padding: 3px 20px 3px 5px;
 $chosen-search-multi-search-choice-padding-rtl: 3px 5px 3px 19px;
 
-//----------------------------------*\
 // DROPZONE JS
-//----------------------------------*/
+// ======================================================
 $dropzone-bg: $gray-200;
 $dropzone-hover-bg: $gray-300;
 $dropzone-radius: $border-radius-md;
@@ -746,30 +715,26 @@ $dropzone-message-line-height: $btn-line-height-lg;
 $dropzone-message-icon: "\e084" !default;
 $dropzone-message-icon-font-size: 2rem !default;
 
-//----------------------------------*\
 // POPOVERS
-//----------------------------------*/
+// ======================================================
 $popover-header-font-size: 14px !default;
 $popover-header-color: $gray-700 !default;
 $popover-font-size: 13px !default;
 $popover-max-width: 276px;
 $popover-border-radius: $border-radius-md;
 
-//----------------------------------*\
 // ALERT
-//----------------------------------*/
+// ======================================================
 $alert-border: false;
 $alert-border-radius: $border-radius-md;
 $alert-border-size: $border-thin;
 $alert-font-size: $font-size-base;
 
-//----------------------------------*\
 // NAVBAR
-//----------------------------------*/
+// ======================================================
 
-//----------------------------------*\
 // WHITE OPACITY
-//----------------------------------*/
+// ======================================================
 $opacity-white-1: rgba(255, 255, 255, .1) !default;
 $opacity-white-2: rgba(255, 255, 255, .2) !default;
 $opacity-white-3: rgba(255, 255, 255, .3) !default;
@@ -780,9 +745,8 @@ $opacity-white-7: rgba(255, 255, 255, .7) !default;
 $opacity-white-8: rgba(255, 255, 255, .8) !default;
 $opacity-white-9: rgba(255, 255, 255, .9) !default;
 
-//----------------------------------*\
 // BLACK OPACITY
-//----------------------------------*/
+// ======================================================
 $opacity-black-1: rgba(0, 0, 0, .1) !default;
 $opacity-black-2: rgba(0, 0, 0, .2) !default;
 $opacity-black-3: rgba(0, 0, 0, .3) !default;
@@ -793,9 +757,8 @@ $opacity-black-7: rgba(0, 0, 0, .7) !default;
 $opacity-black-8: rgba(0, 0, 0, .8) !default;
 $opacity-black-9: rgba(0, 0, 0, .9) !default;
 
-//----------------------------------*\
 // CARDS
-//----------------------------------*/
+// ======================================================
 $card-spacer-y: .75rem !default;
 $card-spacer-x: 1.25rem !default;
 $card-margin-bottom: 15px !default;
@@ -822,9 +785,8 @@ $card-toolbar-icon-width: 30px;
 /* Card window toolbar */
 $card-toolbar-icon-height: 25px;
 
-//----------------------------------*\
 // BOOTSTRAP DATEPICKER
-//----------------------------------*/
+// ======================================================
 $datepicker-border-radius: $card-border-radius;
 $datepicker-dropdown-padding: 20px 22px !default;
 
@@ -833,24 +795,21 @@ $datepicker-header-cell-border-radius: $border-radius-xl !default;
 $datepicker-cell-width: 36px !default;
 $datepicker-cell-height: 36px !default;
 
-//----------------------------------*\
 // NUMBER SPINNER
-//----------------------------------*/
+// ======================================================
 $spinner-icon-width: 20px;
 $spinner-icon-font-size: $font-size-xs;
 
-//----------------------------------*\
 // SIZES
-//----------------------------------*/
+// ======================================================
 $sizes: (
         5: 5%,
         10: 10%,
         15: 15%,
 ) !default;
 
-//----------------------------------*\
 // ACCORDION
-//----------------------------------*/
+// ======================================================
 $accordion-title-color: $gray-700 !default;
 $accordion-title-active-color: $gray-900 !default;
 $accordion-title-hover-color: $gray-900 !default;
@@ -868,9 +827,8 @@ $accordion-active-icon: "\e607" !default;
 $accordion-underline-border-size: $border-thick;
 $accordion-body-bg: $gray-100 !default;
 
-//----------------------------------*\
 // FORM WIZARD
-//----------------------------------*/
+// ======================================================
 $steps-active-theme-color: primary !default;
 $steps-done-theme-color: primary !default;
 $steps-error-theme-color: danger;
@@ -904,9 +862,8 @@ $steps-circle-title-color: $gray-800 !default;
 $arrow-wizard-size-inner: ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $arrow-wizard-size: calc((#{$arrow-wizard-size-inner} + #{$btn-border-size * 2}) / 2) !default;
 
-//----------------------------------*\
 // NAVS / TABS / PILLS
-//----------------------------------*/
+// ======================================================
 
 /* Tabs */
 $nav-link-padding-y: .5rem !default;
@@ -949,9 +906,8 @@ $nav-pills-border-radius: $border-radius-md !default;
 $nav-pills-link-active-theme-color: primary !default;
 $nav-pills-link-hover-bg-theme-color-tone: light !default;
 
-//----------------------------------*\
 // MODAL
-//----------------------------------*/
+// ======================================================
 
 $modal-content-bg: $white-color !default;
 $modal-content-border-width: $border-thin !default;
@@ -971,9 +927,8 @@ $modal-footer-border-width: $border-thin !default;
 $modal-footer-border-color: $modal-content-border-color;
 $modal-footer-padding: 15px 25px !default;
 
-//----------------------------------*\
 // CAROUSEL
-//----------------------------------*/
+// ======================================================
 $carousel-control-icon-width: 40px !default;
 $carousel-control-icon-font-size: 1.5rem;
 $carousel-control-icon-bg: rgba(0, 0, 0, .0);
@@ -985,9 +940,8 @@ $carousel-control-border-color: $white-color !default;
 
 $carousel-indicator-light-active-bg: $black-color !default;
 
-//----------------------------------*\
 // SLIDER CONTROL - NOUISLIDER
-//----------------------------------*/
+// ======================================================
 $slider-base-size: 5px !default;
 $slider-base-background: $gray-200 !default;
 $slider-base-border-color: $gray-400 !default;
@@ -1019,9 +973,8 @@ $slider-tooltip-border-radius: $border-radius-md !default;
 $slider-tooltip-color: $gray-700 !default;
 $slider-tooltip-box-shadow: 0 3px 15px rgba($gray-400, 0.1),
 0 2px 3px rgba($gray-400, 0.2);
-//----------------------------------*\
 // PAGINATION
-//----------------------------------*/
+// ======================================================
 
 $pagination-bg: $white-color !default;
 
@@ -1063,9 +1016,8 @@ $pagination-padding-x-lg: $btn-padding-x-lg !default;
 $pagination-line-height-lg: $btn-line-height-lg !default;
 $pagination-border-radius-lg: $btn-radius-lg !default;
 
-//----------------------------------*\
 // PAGINATION EXTENDED
-//----------------------------------*/
+// ======================================================
 
 $pagination-extended-radius-round: $border-radius-100 !default;
 
@@ -1103,18 +1055,15 @@ $pagination-extended-indicator-hover-bg: $gray-400 !default;
 $pagination-extended-indicator-size: 15px;
 $pagination-extended-indicator-margin-x: 4px;
 
-//----------------------------------*\
 // OVERLAY
-//----------------------------------*/
+// ======================================================
 $overlay: rgba(0, 0, 0, .5);
 
-//----------------------------------*\
 // MAIN MENU
-//----------------------------------*/
+// ======================================================
 
-//----------------------------------*\
 // PROGRESS BAR
-//----------------------------------*/
+// ======================================================
 $progress-font-size: $font-size-xs !default;
 $progress-bg: $gray-200 !default;
 $progress-border-radius: $border-radius-xxl;
@@ -1128,18 +1077,15 @@ $progress-height: 0.5rem !default;
 /* Large */
 $progress-lg-height: 0.75rem !default;
 
-//----------------------------------*\
 // PATHS
-//----------------------------------*/
+// ======================================================
 $path-rel: 'images/';
 
-//----------------------------------*\
 // TABLES
-//----------------------------------*/
+// ======================================================
 
-//----------------------------------*\
 // BADGES
-//----------------------------------*/
+// ======================================================
 /* Including relevant variables from bootstrap variables.scss */
 $badge-pill-border-radius: 10rem !default;
 
@@ -1166,9 +1112,8 @@ $badge-image-line-height: 1.25;
 $badge-inner: ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
 $badge-size: calc(#{$badge-inner}) !default;
 
-//----------------------------------*\
 // TOOLTIPS
-//----------------------------------*/
+// ======================================================
 $tooltip-background-color: $gray-900 !default;
 $tooltip-font-color: $white-color !default;
 $tooltip-padding-y: 8px !default;
@@ -1176,31 +1121,26 @@ $tooltip-padding-x: 10px !default;
 $tooltip-font-size: $font-size-sm;
 $tooltip-line-height: 1.25 !default;
 
-//----------------------------------*\
 // FOOTER
-//----------------------------------*/
+// ======================================================
 $footer-min-height: 30px;
 $footer-font-size: $font-size-sm;
 $footer-font-weight: $font-wh-normal;
 
-//----------------------------------*\
 // TRANSITION
-//----------------------------------*/
+// ======================================================
 $theme-transition-duration: 1.5s; // TODO, delete this if not using.
 $general-transition-time: 0.5s !default;
 
-//----------------------------------*\
 // EASING
-//----------------------------------*/
+// ======================================================
 $ease-in-out-circ: cubic-bezier(.27, .01, .38, 1.06);
 
-//----------------------------------*\
 // PAGE SPECIFIC
-//----------------------------------*/
+// ======================================================
 
-//----------------------------------*\
-// ZINDEX
-//----------------------------------*/
+// HANDLING Z-INDEX LAYERS
+// ======================================================
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
 
@@ -1221,9 +1161,8 @@ $zindex: (
         fullscreen_card: 999,
 );
 
-//----------------------------------*\
 // BREAKPOINTS
-//----------------------------------*/
+// ======================================================
 // Media queries breakpoints
 // Grabbed from Bootstrap
 // --------------------------------------
@@ -1264,9 +1203,8 @@ $screen-md-max: ($screen-lg-min - 1) !default; /*991px*/
 /* Large devices (desktops, less than 1200px) */
 $screen-lg-max: ($screen-xl-min - 1) !default; /*1999px*/
 
-//----------------------------------*\
 // LINK SELECTORS
-//----------------------------------*/
+// ======================================================
 /* Adapted from https://css-tricks.com/snippets/sass/sass-things-links/ */
 $a-href-tags: '&[href]:hover, &[href]:focus, &[href].focus, &[href]:active, &[href].active, &[href]:active:focus, &[href].active:focus, &[href]:active:hover, &[href].active:hover, &[href]:not([disabled]):not(.disabled):active, &[href]:not([disabled]):not(.disabled).active, &[href]:not([disabled]):not(.disabled):active:focus, &[href]:not([disabled]):not(.disabled).active:focus';
 
@@ -1279,12 +1217,10 @@ $focus-tags: '&:focus, &.focus';
 $hover-focus-tags: '&:hover, &:focus, &.focus';
 $active-tags: '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
-//----------------------------------*\
 // DISABLED SELECTORS
-//----------------------------------*/
+// ======================================================
 $disabled-tags: '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
 
-//----------------------------------*\
 // ICON SELECTORS
-//----------------------------------*/
+// ======================================================
 $icon-tags: 'i[class*="fa-"], i[class*="icon-"]';

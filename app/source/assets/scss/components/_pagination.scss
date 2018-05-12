@@ -127,7 +127,7 @@
           & .page-link {
             background-color: $pagination-wizard-bg !important;;
             color: $pagination-wizard-color !important;
-            opacity: 0.4;
+            @include opacity(0.4);
           }
         }
 

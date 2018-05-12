@@ -47,10 +47,10 @@
   z-index: map-get($zindex, modal-backdrop);
   background-color: $modal-backdrop-bg;
   &.fade {
-    opacity: 0;
+    @include opacity(0);
   }
   &.show {
-    opacity: $modal-backdrop-opacity;
+    @include opacity($modal-backdrop-opacity);
   }
 }
 

@@ -79,12 +79,23 @@ button, .button {
 
   }
 
-  &:not(.btn-icon) {
+  &.has-icon-left,
+  &.has-icon-right{
     #{$icon-tags} {
-      padding: 0 $btn-icon-padding-left-right;
-      //top: 1px;
       position: relative;
       line-height: $btn-icon-lh;
+    }
+  }
+
+  &.has-icon-left{
+    #{$icon-tags} {
+      padding: 0 $btn-icon-padding-right 0 0;
+    }
+  }
+
+  &.has-icon-right{
+    #{$icon-tags} {
+      padding: 0 0 0 $btn-icon-padding-left;
     }
   }
 }
@@ -111,9 +122,6 @@ button, .button {
   .btn-#{$scheme} {
     @include btn-theme($scheme);
   }
-}
-
-@each $scheme, $value in $contextual-palette-map {
   .btn-outline-#{$scheme} {
     @include btn-theme($scheme, outline);
   }

@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : cards.scss
-// Description    : Adjustments for Cards that provide a flexible and extensible content container
+// Description    : Adjustments for Bootstrap's cards that provide a flexible and extensible content container
 // with multiple variants and options.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
@@ -106,11 +106,11 @@
 
   &-item {
     @include transition;
+    @include opacity(0.8);
     color: inherit;
     width: $card-toolbar-icon-width;
     font-size: $card-tools-font-size;
     text-decoration: none;
-    opacity: 0.8;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,7 +118,7 @@
     //#{$a-tags},
     #{$hover-focus-tags} {
       color: inherit;
-      opacity: 1;
+      @include opacity(1);
     }
   }
 

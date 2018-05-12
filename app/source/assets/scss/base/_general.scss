@@ -10,8 +10,8 @@
 
 html {
   //TODO, refer coreui doc (http://coreui.io/docs/getting-started/introduction/) for box sizing
-  @include vendor(box-sizing, border-box);
   min-height: 100%;
+  box-sizing: border-box;
 }
 
 body {
@@ -55,6 +55,7 @@ img {
   height: auto;
 }
 
+:hover,
 :active,
 :focus {
   outline: none;

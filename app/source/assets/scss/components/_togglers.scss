@@ -1,22 +1,21 @@
 // ================================================================================================
-// File Name: togglers.scss
-// Description: Hamburger icons & animations
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : togglers.scss
+// Description    : Hamburger icons & animations styles
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
-/* Navbar toggle button - Bootstrap default class name .navbar-toggler */
+// Navbar toggle button - Bootstrap default class name .navbar-toggler
 .navbar-toggler {
   position: relative;
   padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
 
-  /* Hamburger icon */
+  // Hamburger icon
   & .icon-bar {
-    @include background-color('primary', 'base');
+    @include background-theme('primary');
   }
   &.collapsed {
     &:hover {
@@ -30,16 +29,16 @@
 
 }
 
-/* Sidebar toggle button */
+// Sidebar toggle button
 .sidebar--toggler {
-  @include background-color('primary', 'base');
+  @include background-theme('primary');
   padding: $sidebar-toggler-padding-y $sidebar-toggler-padding-x;
   height: $sidebar-toggler-height;
   border: 0;
   cursor: pointer;
 
   &:hover {
-    @include background-color('primary', 'light');
+    @include background-theme('primary', 'light');
 
   }
 
@@ -53,15 +52,15 @@
     }
   }
 
-  /* Hamburger icon */
+  // Hamburger icon
   & .icon-bar {
-    @include background-color('primary', 'font-color');
+    @include background-theme('primary', 'font-color');
   }
 }
 
-/* Aside toggle button */
+// Aside toggle button
 .aside--toggler {
-  @include background-color('header', 'base');
+  @include background-theme('header');
   @include transition;
   position: relative;
   padding: $aside-toggler-padding-y $aside-toggler-padding-x;
@@ -69,18 +68,18 @@
   border: 0;
   cursor: pointer;
 
-  /* Hamburger icon */
+  // Hamburger icon
   & .icon-bar {
-    @include background-color('primary', 'base');
+    @include background-theme('primary');
   }
 
   &.collapsed {
     .icon-bar {
-      @include background-color('header', 'link-color');
+      @include background-theme('header', 'link-color');
     }
     &:hover {
       .icon-bar {
-        @include background-color('header', 'hover-color');
+        @include background-theme('header', 'hover-color');
         + .icon-bar {
           margin-top: 6px;
         }
@@ -89,8 +88,7 @@
   }
 }
 
-
-/* Sidebar mini toggle button */
+// Sidebar mini toggle button
 .sidebar__footer--toggler {
   //@include background-color('sidebar', 'base');
   background: transparent;
@@ -100,29 +98,29 @@
   height: $sidebar-footer-height;
   flex: 1;
 
-  /* Hamburger icon */
+  // Hamburger icon
   & .icon-bar {
-    @include background-color('sidebar', 'link-color');
+    @include background-theme('sidebar', 'link-color');
   }
 
   &:hover {
-    @include background-color('sidebar', 'dark');
+    @include background-theme('sidebar', 'dark');
     .icon-bar {
-      @include background-color('primary', 'base');
+      @include background-theme('primary');
     }
   }
 
   &.collapsed {
-    @include background-color('sidebar', 'dark');
+    @include background-theme('sidebar', 'dark');
     .icon-bar {
-      @include background-color('primary', 'base');
+      @include background-theme('primary');
     }
   }
 }
 
 // Adapted from https://codepen.io/jorenerene/pen/vxKbJb?editors=1100
 
-/* HAMBURGER ICON */
+// HAMBURGER ICON
 .icon-bar {
   background-color: #fff;
   display: block;
@@ -137,7 +135,8 @@
   }
 }
 
-/* ANIMATED X */
+// ANIMATED X
+// ======================================================
 .x .icon-bar:nth-of-type(1) {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -148,7 +147,7 @@
 }
 
 .x .icon-bar:nth-of-type(2) {
-  opacity: 0;
+  @include opacity(0);
   filter: alpha(opacity=0);
 }
 
@@ -161,7 +160,8 @@
   transform-origin: 10% 90%;
 }
 
-/* ANIMATED X COLLAPSED */
+// ANIMATED X COLLAPSED
+// ======================================================
 .x.collapsed .icon-bar:nth-of-type(1) {
   -webkit-transform: rotate(0);
   -ms-transform: rotate(0);
@@ -169,7 +169,7 @@
 }
 
 .x.collapsed .icon-bar:nth-of-type(2) {
-  opacity: 1;
+  @include opacity(1);
   filter: alpha(opacity=100);
 }
 
@@ -178,87 +178,88 @@
   -ms-transform: rotate(0);
   transform: rotate(0);
 }
-/* END ANIMATED X */
 
-/* ANIMATED RIGHT ARROW */
+// ANIMATED RIGHT ARROW
+// ======================================================
 .rarr.collapsed .icon-bar:nth-of-type(1) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
   transform-origin: right top;
   width: 22px;
 }
 
 .rarr.collapsed .icon-bar:nth-of-type(2) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
 }
 
 .rarr.collapsed .icon-bar:nth-of-type(3) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
   transform-origin: right bottom;
   width: 22px;
 }
 
 .rarr .icon-bar:nth-of-type(1) {
-  transform: translate3d(11px,6px,0) rotate(45deg);
+  transform: translate3d(11px, 6px, 0) rotate(45deg);
   transform-origin: right top;
   width: 11px;
 }
 
 .rarr .icon-bar:nth-of-type(2) {
-  /* transform: scale(0.75); */;
+  /* transform: scale(0.75); */
+;
 }
 
 .rarr .icon-bar:nth-of-type(3) {
-  transform: translate3d(11px,-6px,0) rotate(-45deg);
+  transform: translate3d(11px, -6px, 0) rotate(-45deg);
   transform-origin: right bottom;
   width: 11px;
 }
-/* END ANIMATED RIGHT ARROW */
 
-/* ANIMATED LEFT ARROW */
+// ANIMATED LEFT ARROW
+// ======================================================
 .larr.collapsed .icon-bar:nth-of-type(1) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
   width: 22px;
 }
 
 .larr.collapsed .icon-bar:nth-of-type(2) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
 }
 
 .larr.collapsed .icon-bar:nth-of-type(3) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
   width: 22px;
 }
 
 .larr .icon-bar:nth-of-type(1) {
-  transform: translate3d(0px,6px,0) rotate(45deg);
+  transform: translate3d(0px, 6px, 0) rotate(45deg);
   transform-origin: left top;
   width: 11px;
 }
 
 .larr .icon-bar:nth-of-type(3) {
-  transform: translate3d(0px,-6px,0) rotate(-45deg);
+  transform: translate3d(0px, -6px, 0) rotate(-45deg);
   transform-origin: left bottom;
   width: 11px;
 }
-/* END ANIMATED LEFT ARROW */
 
-/* ANIMATED UP ARROW */
+// ANIMATED UP ARROW
+// ======================================================
 .uarr.collapsed .icon-bar:nth-of-type(1) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
   width: 22px;
 }
 
 .uarr.collapsed .icon-bar:nth-of-type(2) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
 }
 
 .uarr.collapsed .icon-bar:nth-of-type(3) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
   width: 22px;
 }
 
 .uarr .icon-bar:nth-of-type(1) {
-  transform: translate3d(1px,0,0) rotate(-45deg);
+  transform: translate3d(1px, 0, 0) rotate(-45deg);
   transform-origin: center center;
   width: 11px;
 }
@@ -269,77 +270,73 @@
 }
 
 .uarr .icon-bar:nth-of-type(3) {
-  transform: translate3d(0px,-14px,0) rotate(-135deg);
+  transform: translate3d(0px, -14px, 0) rotate(-135deg);
   transform-origin: right top;
   width: 11px;
 }
-/* END ANIMATED UP ARROW */
 
-/* ANIMATED PLUS */
+// ANIMATED PLUS
+// ======================================================
 .plus.collapsed .icon-bar:nth-of-type(1) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
 }
 
 .plus.collapsed .icon-bar:nth-of-type(2) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
 }
 
 .plus.collapsed .icon-bar:nth-of-type(3) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
 }
 
 .plus .icon-bar:nth-of-type(1) {
-  transform: translate3d(0px,6px,0) rotate(90deg);
+  transform: translate3d(0px, 6px, 0) rotate(90deg);
   transform-origin: center center;
 }
 
 .plus .icon-bar:nth-of-type(3) {
-  transform: translate3d(0px,-6px,0) rotate(-90deg);
+  transform: translate3d(0px, -6px, 0) rotate(-90deg);
   transform-origin: center center;
 }
-/* END ANIMATED PLUS */
 
-/* ANIMATED MINUS */
+// ANIMATED MINUS
+// ======================================================
 .minus.collapsed .icon-bar:nth-of-type(1) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
 }
 
 .minus.collapsed .icon-bar:nth-of-type(2) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
 }
 
 .minus.collapsed .icon-bar:nth-of-type(3) {
-  transform: translate3d(0,0,0) rotate(0deg);
+  transform: translate3d(0, 0, 0) rotate(0deg);
 }
 
 .minus .icon-bar:nth-of-type(1) {
-  transform: translate3d(0,6px,0);
+  transform: translate3d(0, 6px, 0);
 }
 
 .minus .icon-bar:nth-of-type(3) {
-  transform: translate3d(0,-6px,0);
+  transform: translate3d(0, -6px, 0);
 }
-/* END ANIMATED MINUS */
 
-
-
-/* ANIMATED MINI ON SIDEBAR FOOTER */
-
+// ANIMATED MINI ON SIDEBAR FOOTER
+// ======================================================
 .mini .collapsed .icon-bar:nth-of-type(1) {
-  transform: translate3d(0px,6px,0) rotate(90deg);
+  transform: translate3d(0px, 6px, 0) rotate(90deg);
   transform-origin: center center;
 }
 
 .mini .collapsed .icon-bar:nth-of-type(3) {
-  transform: translate3d(0px,-6px,0) rotate(-90deg);
+  transform: translate3d(0px, -6px, 0) rotate(-90deg);
   transform-origin: center center;
 }
 
 .mini .icon-bar:nth-of-type(1) {
-  transform: translate3d(0,6px,0);
+  transform: translate3d(0, 6px, 0);
 }
 
 .mini .icon-bar:nth-of-type(3) {
-  transform: translate3d(0,-6px,0);
+  transform: translate3d(0, -6px, 0);
 }
-/* END ANIMATED MINI ON SIDEBAR FOOTER */

@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : dropdown.scss
-// Description    : Adjustments for dropdowns that active on hover/click and provide a nice
+// Description    : Adjustments for Bootstrap's dropdowns that active on hover/click and provide a nice
 // user experience.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
@@ -125,12 +125,12 @@
       left: 0;
       top: 0;
       width: 3px;
-      opacity: 0;
+      @include opacity(0);
     }
 
     &:hover::before,
     &.active::before {
-      opacity: 1;
+      @include opacity(1);
     }
 
     // Change the hover, focus, active state links for better highlighting
@@ -153,11 +153,10 @@
 
     #{$disabled-tags} {
       //@include add-border(2px, transparent, left);
-      //color: $dropdown-link-disabled-color;
       background-color: transparent;
       cursor: not-allowed;
       background-image: none;
-      opacity: 0.6;
+      @include opacity($dropdown-link-disabled-color-opacity);
       filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)";
     }
 
@@ -275,7 +274,7 @@
     &.disabled:hover,
     &:disabled {
       background-color: transparent;
-      opacity: 0.6;
+      @include opacity(0.6);
     }
 
   }

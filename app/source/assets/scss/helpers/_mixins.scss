@@ -1,25 +1,16 @@
 // ================================================================================================
-// File Name: mixins.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : mixins.scss
+// Description    :
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // THEMIFY
-//----------------------------------*/
-
-/* Adapted from https://github.com/nborracha/plainID-DemoApp/blob/61b66cf018e918bcb17aa87f243fce2bc95d9833/app/styles/mixins.scss */
-
-/*
-@access private
-@param {String} $property - Property to themify
-@param {String} $key - Key color to use from theme
-@param {Map} $themes [$themes] - Map of themes to use
-*/
+// ======================================================
+// Adapted from https://github.com/nborracha/plainID-DemoApp/blob/61b66cf018e918bcb17aa87f243fce2bc95d9833/app/styles/mixins.scss
 
 @mixin themify($property, $key, $color-variant:null, $sledge-hammer:'', $themes: $themes-map) {
 
@@ -54,15 +45,15 @@
     }
 
     @if ($themeName == $activeTheme and bool($dynamicTheme) == false) {
-      /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
-      /* &.theme-#{$themeName},*/
+      // Create a selector (e.g. `.media.theme-light, .theme-light .media`)
+      // &.theme-#{$themeName},
       .theme-#{$themeName} & {
         // Output the declaration
         #{$property}: $color #{$sledge-hammer};
       }
     } @else if ($dynamicTheme == true) {
-      /// Create a selector (e.g. `.media.theme-light, .theme-light .media`)
-      /* &.theme-#{$themeName},*/
+      // Create a selector (e.g. `.media.theme-light, .theme-light .media`)
+      // &.theme-#{$themeName},
       .theme-#{$themeName} & {
         // Output the declaration
         #{$property}: $color #{$sledge-hammer};
@@ -141,9 +132,9 @@
 //------------------------------------------------------*/
 @mixin background-theme($scheme, $tone:base, $font-color:font-color, $sledge-hammer:null) {
 
-  @if map-has-key($contextual-palette-map, $scheme) { /* Contextual variations */
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
     background-color: contextual-color($scheme, $tone) $sledge-hammer;
-  } @else { /* Theme variations */
+  } @else { // Theme variations
     @include background-color($scheme, $tone, $sledge-hammer);
   }
 }
@@ -153,21 +144,20 @@
 //------------------------------------------------------*/
 @mixin background-text-theme($scheme, $tone:base, $font-color:font-color, $sledge-hammer:null) {
 
-  @if map-has-key($contextual-palette-map, $scheme) { /* Contextual variations */
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
     background-color: contextual-color($scheme, $tone) $sledge-hammer;
     color: contextual-color($scheme, $font-color) $sledge-hammer;
-  } @else { /* Theme variations */
+  } @else { // Theme variations
     @include background-color($scheme, $tone, $sledge-hammer);
     @include color($scheme, $font-color, $sledge-hammer);
   }
 }
 
-//----------------------------------*\
 // CONTEXTUAL & THEME BORDER VARIANTS
-//----------------------------------*/
+// ======================================================
 @mixin border-theme($scheme, $tone:base, $position:all, $sledge-hammer:null) {
 
-  @if map-has-key($contextual-palette-map, $scheme) { /* Contextual variations */
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
 
     @if $position == 'all' {
       border-color: contextual-color($scheme, $tone) $sledge-hammer;
@@ -190,7 +180,7 @@
       border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
     }
 
-  } @else { /* Theme variations */
+  } @else { // Theme variations
 
     @if $position == 'all' {
       @include border-color($scheme, $tone, $sledge-hammer);
@@ -216,77 +206,52 @@
   }
 }
 
-//----------------------------------*\
 // CONTEXTUAL & THEME TEXT VARIANTS
-//----------------------------------*/
+// ======================================================
 @mixin text-theme($scheme, $font-color:base, $sledge-hammer:null) {
 
-  @if map-has-key($contextual-palette-map, $scheme) { /* Contextual variations */
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
     color: contextual-color($scheme, $font-color) $sledge-hammer;
-  } @else { /* Theme variations */
+  } @else { // Theme variations
     @include color($scheme, $font-color, $sledge-hammer);
   }
 
 }
 
-//----------------------------------*\
 // CONTEXTUAL & THEME TEXT LINK VARIANTS
-//----------------------------------*/
+// ======================================================
 @mixin text-link-theme($scheme, $font-color:base, $hover-color:dark, $tone-active:x-dark, $sledge-hammer:null) {
   @at-root a#{&} {
     #{$hover-tags} {
-      @if map-has-key($contextual-palette-map, $scheme) { /* Contextual variations */
+      @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
         color: contextual-color($scheme, $hover-color) $sledge-hammer;
-      } @else { /* Theme variations */
+      } @else { // Theme variations
         @include color($scheme, $hover-color, $sledge-hammer);
       }
     }
 
     #{$active-tags},
     #{$focus-tags} {
-      @if map-has-key($contextual-palette-map, $scheme) { /* Contextual variations */
+      @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
         color: contextual-color($scheme, $tone-active) $sledge-hammer;
-      } @else { /* Theme variations */
+      } @else { // Theme variations
         @include color($scheme, $tone-active, $sledge-hammer);
       }
     }
   }
 }
 
-//----------------------------------*\
-// WIDTH
-//----------------------------------*/
-/*
-Usage @include size(10px, 20px), @include size(25px);
-Adapted from https://bumbu.github.io/sass-width-mixin/
-*/
-
-@mixin size($width, $height...) {
-  @if length($height) == 1 {
-    height: $height;
-    width: $width;
-  } @else {
-    height: $width;
-    width: $width;
-  }
-}
-
-//----------------------------------*\
 // REM FONT SIZING  - ADVANCED
-//----------------------------------*/
-/*
-Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
-Usage @include fontSize(16px);
-*/
-
+// ======================================================
+// Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+// Usage @include fontSize(16px);
 @mixin font-size($size) {
   font-size: $size; //Fallback in px
   font-size: calculateRem($size);
 }
 
-//----------------------------------*\
 // TEXT SHADOW
-//----------------------------------*/
+// ======================================================
 @mixin text-shadow($tShadow : 0px 1px 3px rgba(0,0,0,.5)) {
   -webkit-box-shadow: $tShadow;
   -moz-box-shadow: $tShadow;
@@ -294,12 +259,9 @@ Usage @include fontSize(16px);
   box-shadow: $tShadow;
 }
 
-//----------------------------------*\
 // TRANSITIONS
-//----------------------------------*/
-/*
-Usage @include transition(color .3s ease); @include transition;
-*/
+// ======================================================
+// Usage @include transition(color .3s ease); @include transition;
 @mixin transition($transitionvalue : all $general-transition-time ease) {
   -webkit-transition: $transitionvalue;
   -o-transition: $transitionvalue;
@@ -307,12 +269,9 @@ Usage @include transition(color .3s ease); @include transition;
   transition: $transitionvalue;
 }
 
-//----------------------------------*\
 // BORDER RADIUS
-//----------------------------------*/
-/*
-Usage @include border-radius(4px);
-*/
+// ======================================================
+// Usage @include border-radius(4px);
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -320,7 +279,7 @@ Usage @include border-radius(4px);
   border-radius: $radius;
 }
 
-/* Usage @include set-border-radius($input-border-radius-lg);*/
+// Usage @include set-border-radius($input-border-radius-lg);
 @mixin set-border-radius($radius) {
   @if bool($enable-rounded) == true {
     @include border-radius($radius);
@@ -329,15 +288,13 @@ Usage @include border-radius(4px);
   }
 }
 
-//----------------------------------*\
 // BORDER
-//----------------------------------*/
-/*
-Usage
-@include add-border(1px, #cccccc,top);
-@include add-border(1px, #cccccc,right-left);
-@include add-border(1px, #cccccc, all);
-*/
+// ======================================================
+// Usage
+// @include add-border(1px, #cccccc, top);
+// @include add-border(1px, #cccccc, right-left);
+// @include add-border(1px, #cccccc, all);
+
 @mixin add-border($size, $color, $position) {
   @if $position == 'all' {
     border: $size solid $color;
@@ -361,12 +318,10 @@ Usage
   }
 }
 
-//----------------------------------*\
 // OPACITY
-//----------------------------------*/
-/*
-Usage @include opacity(1);
-*/
+// ======================================================
+// Usage @include opacity(1);
+
 @mixin opacity($opacity) {
   opacity: $opacity;
   // IE8 filter
@@ -374,10 +329,8 @@ Usage @include opacity(1);
   filter: #{alpha(opacity=$opacity-ie)};
 }
 
-//----------------------------------*\
 // VENDOR PREFIX
-//----------------------------------*/
-
+// ======================================================
 @mixin vendor($property, $value...) {
   -webkit-#{$property}: $value;
   -moz-#{$property}: $value;
@@ -386,10 +339,9 @@ Usage @include opacity(1);
   #{$property}: $value;
 }
 
-//----------------------------------*\
 // CLEARFIX FOR IE8 & ABOVE
-//----------------------------------*/
-/* Adapted from http://css-tricks.com/snippets/css/clear-fix/ */
+// ======================================================
+// Adapted from http://css-tricks.com/snippets/css/clear-fix/
 
 @mixin clearfix {
   &:after {
@@ -399,10 +351,9 @@ Usage @include opacity(1);
   }
 }
 
-//----------------------------------*\
 // CENTERING
-//----------------------------------*/
-/* Center vertically and/or horizontally an absolute positioned element */
+// ======================================================
+// Center vertically and/or horizontally an absolute positioned element
 
 @mixin center($xy:xy) {
   @if $xy == xy {
@@ -422,9 +373,8 @@ Usage @include opacity(1);
   }
 }
 
-//----------------------------------*\
 // BUTTONS
-//----------------------------------*/
+// ======================================================
 
 // TODO: http://demos.creative-tim.com/now-ui-kit/documentation/tutorial-components.html?ref=nuk-free-doc#buttons-row
 
@@ -472,9 +422,9 @@ Usage @include opacity(1);
 
   }
   &.btn-raised {
-    @if map-has-key($contextual-palette-map, $scheme) { /* Contextual variations */
+    @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
       box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 contextual-color($scheme, $tone-hover);
-    } @else { /* Theme variations */
+    } @else { // Theme variations
       $box-shadow-color: theme-color($scheme, $tone-hover);
       box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 $box-shadow-color;
     }
@@ -490,9 +440,9 @@ Usage @include opacity(1);
 
     #{$hover-tags},
     #{$active-tags} {
-      @if map-has-key($contextual-palette-map, $scheme) { /* Contextual variations */
+      @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
         box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 contextual-color($scheme, $tone-hover);
-      } @else { /* Theme variations */
+      } @else { // Theme variations
         $box-shadow-color: theme-color($scheme, $tone-hover);
         box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 $box-shadow-color;
       }
@@ -501,19 +451,18 @@ Usage @include opacity(1);
 
 }
 
-//----------------------------------*\
 // SOCIAL BUTTONS
-//----------------------------------*/
+// ======================================================
 
 @mixin btn-social-theme($tone:base, $tone-hover:dark, $tone-active:x-dark, $font-color:font-color, $bg:fill) {
 
   border-color: $tone;
-  /* Filled button */
+  // Filled button
   @if $bg == fill {
     background-color: $tone;
     color: $font-color;
   }
-  /* Outline button */
+  // Outline button
   @if $bg == outline {
     background-color: transparent;
     color: $tone
@@ -549,9 +498,8 @@ Usage @include opacity(1);
 
 }
 
-//----------------------------------*\
 // BUTTON SIZES
-//----------------------------------*/
+// ======================================================
 
 @mixin btn-size($padding-y, $padding-x, $min-width, $min-height, $font-size, $border, $line-height) {
   @include set-border-radius($border);
@@ -562,14 +510,13 @@ Usage @include opacity(1);
   line-height: $line-height;
 }
 
-//----------------------------------*\
 // BADGES
-//----------------------------------*/
+// ======================================================
 
 @mixin badges-theme($scheme, $bg:fill, $tone:base, $tone-hover:dark, $tone-active:x-dark,  $font-color:font-color, $sledge-hammer:null) {
 
   @include border-theme($scheme, $tone);
-  /* Filled button */
+  // Filled button
   @if $bg == fill {
     @include background-theme($scheme, $tone, $sledge-hammer);
     @include text-theme($scheme, $font-color);
@@ -577,7 +524,7 @@ Usage @include opacity(1);
       @include text-theme($scheme, $font-color, $sledge-hammer);
     }
   }
-  /* Outline button */
+  // Outline button
   @if $bg == outline {
     background-color: transparent;
     @include text-theme($scheme, $tone);
@@ -586,7 +533,7 @@ Usage @include opacity(1);
     }
   }
 
-  /* Link Badges */
+  // Link Badges
   @at-root a#{&} {
     #{$hover-tags} {
       @include border-theme($scheme, $tone-hover);
@@ -604,9 +551,8 @@ Usage @include opacity(1);
 
 }
 
-//----------------------------------*\
 // BREADCRUMB EXTENDED - WIZARD
-//----------------------------------*/
+// ======================================================
 @mixin breadcrumb-wizard-status($scheme, $tone:base, $tone-hover:dark, $tone-border:x-dark, $font-color:font-color) {
 
   @include background-theme($scheme, $tone);
@@ -637,9 +583,8 @@ Usage @include opacity(1);
 
 }
 
-//----------------------------------*\
 // POPOVERS
-//----------------------------------*/
+// ======================================================
 
 @mixin popover-theme($scheme, $tone:base, $header-tone:dark, $border-tone:dark, $font-color:font-color) {
 
@@ -669,72 +614,65 @@ Usage @include opacity(1);
   .popover-header {
     @include border-theme($scheme, $header-tone);
     @include background-text-theme($scheme, $header-tone, $font-color);
-
   }
 }
 
-//----------------------------------*\
 // TAB EXTENDED - BOXED
-//----------------------------------*/
+// ======================================================
 @mixin tab-extended-boxed-theme($scheme, $tone:base, $font-color:font-color) {
 
   @include background-theme($scheme, $tone);
 
   .nav-link {
-    opacity: 0.6;
+    @include opacity(0.6);
   }
   .nav-link,
   .boxed-tab-title {
     @include text-theme($scheme, $font-color);
-
   }
 
   .nav-link.active,
   .nav-link:hover,
   .nav-link:focus,
   .nav-item.show .nav-link {
-    opacity: 1;
+    @include opacity(1);
     @include text-theme($scheme, $tone);
-
   }
 
 }
 
-//----------------------------------*\
 // TOOLTIP
-//----------------------------------*/
+// ======================================================
 
 @mixin tooltip-theme($scheme, $tone:base, $font-color:font-color) {
 
   .tooltip-inner {
     @include background-text-theme($scheme, $tone, $font-color);
-
   }
 
-  /* Right tooltip */
+  // Right tooltip
   &.bs-tooltip-right .arrow:before {
     @include border-theme($scheme, $tone, $position: right);
   }
 
-  /* Top tooltip */
+  // Top tooltip
   &.bs-tooltip-top .arrow:before {
     @include border-theme($scheme, $tone, $position: top);
   }
-  /* Bottom tooltip */
+  // Bottom tooltip
   &.bs-tooltip-bottom .arrow:before {
     @include border-theme($scheme, $tone, $position: bottom);
   }
 
-  /* Left tooltip */
+  // Left tooltip
   &.bs-tooltip-left .arrow:before {
     @include border-theme($scheme, $tone, $position: left);
   }
 
 }
 
-//----------------------------------*\
 // PAGINATION SIZE
-//----------------------------------*/
+// ======================================================
 @mixin pagination-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
   .page-link {
     padding: $padding-y $padding-x;
@@ -756,9 +694,8 @@ Usage @include opacity(1);
   }
 }
 
-//----------------------------------*\
 // MODEL
-//----------------------------------*/
+// ======================================================
 @mixin modal-theme($scheme, $tone:base, $border-tone:dark, $font-color:font-color) {
 
   .modal-header {
@@ -776,9 +713,8 @@ Usage @include opacity(1);
   }
 }
 
-//----------------------------------*\
 // CUSTOM TOGGLE
-//----------------------------------*/
+// ======================================================
 @mixin custom-toggle($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
 
   $cci: custom-control-input;
@@ -803,9 +739,8 @@ Usage @include opacity(1);
 
 }
 
-//----------------------------------*\
 // CUSTOM TOGGLE FLIP
-//----------------------------------*/
+// ======================================================
 @mixin custom-toggle-flip($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
 
   $ctf: custom-toggle-flip;
@@ -820,21 +755,20 @@ Usage @include opacity(1);
 
 }
 
-//----------------------------------*\
 // ALERT
-//----------------------------------*/
+// ======================================================
 @mixin alert-theme($scheme, $tone:base, $tone-hover:light, $tone-border:dark, $font-color:font-color) {
 
   @include border-theme($scheme, $tone-border);
   @include background-text-theme($scheme, $tone, $font-color);
 
-  /* Close button */
+  // Close button
   @at-root &.alert-dismissible > .close {
     @include text-theme($scheme, $font-color);
 
   }
 
-  /* Link color */
+  // Link color
   & .alert-link {
     &,
     #{$hover-focus-tags} {
@@ -848,9 +782,8 @@ Usage @include opacity(1);
 
 }
 
-//----------------------------------*\
 // PROGRESS BARS
-//----------------------------------*/
+// ======================================================
 @mixin progress-bar-theme($scheme, $tone:base, $font-color:font-color) {
   span {
     @include background-text-theme($scheme);
@@ -860,11 +793,10 @@ Usage @include opacity(1);
   }
 }
 
-//----------------------------------*\
 // FORMS
-//----------------------------------*/
+// ======================================================
 
-/* Form control focus state */
+// Form control focus state
 @mixin form-control-focus() {
   &:focus {
     //@include transition;
@@ -877,14 +809,14 @@ Usage @include opacity(1);
   }
 }
 
-/* Form control hover state. */
+// Form control hover state
 @mixin form-control-hover() {
   &:hover {
     border-color: $input-hover-border-color;
   }
 }
 
-/* Form control  disabled state. */
+// Form control disabled state
 @mixin form-control-disabled() {
 
   #{$disabled-tags},
@@ -901,7 +833,7 @@ Usage @include opacity(1);
   }
 }
 
-/* Form validation mixin for dynamic states. */
+// Form validation mixin for dynamic states.
 @mixin form-validation-state($state, $color) {
   .#{$state}-feedback {
     @include transition;
@@ -958,7 +890,7 @@ Usage @include opacity(1);
     }
   }
 
-  /* Custom select */
+  // Custom select
   .custom-select {
     .was-validated &:#{$state},
     &.is-#{$state} {
@@ -966,7 +898,7 @@ Usage @include opacity(1);
     }
   }
 
-  /* Custom file upload */
+  // Custom file upload
   .custom-file-input {
 
     .was-validated &:#{$state},
@@ -995,7 +927,7 @@ Usage @include opacity(1);
     }
   }
 
-  /* Custom toggles */
+  // Custom toggles
   .custom-toggle .custom-control-input {
 
     &:checked {
@@ -1025,9 +957,8 @@ Usage @include opacity(1);
   }
 }
 
-//----------------------------------*\
 // TRANSPARENT FORMS
-//----------------------------------*/
+// ======================================================
 
 @mixin transparent-forms($background-color,$background-focus-color,$border-color,$border-focus-color,$font-color,$font-focus-color, $placeholder-disable-color) {
 
@@ -1055,7 +986,7 @@ Usage @include opacity(1);
     &[readonly] {
       background-color: $background-color;
       color: $font-color;
-      opacity: 0.7;
+      @include opacity(0.7);
     }
   }
 
@@ -1063,7 +994,7 @@ Usage @include opacity(1);
     @extend %transparent-form-control;
   }
 
-  /* Select */
+  // Select
   select.form-control:not([multiple]) option,
   select.form-control:not([multiple]) optgroup,
   select.custom-select:not([multiple]) option,
@@ -1071,13 +1002,13 @@ Usage @include opacity(1);
     color: $gray-700;
   }
 
-  /* Custom select */
+  // Custom select
   .custom-select {
     @extend %transparent-form-control;
     border: none;
   }
 
-  /* Custom file input */
+  // Custom file input
   .custom-file-label {
     background-color: $background-color;
     color: $placeholder-disable-color;
@@ -1090,7 +1021,7 @@ Usage @include opacity(1);
     }
   }
 
-  /* Input group with icon addon */
+  // Input group with icon addon
   .input-group {
     &[class*="with-addon-icon"] {
       .input-group-text {
@@ -1132,7 +1063,7 @@ Usage @include opacity(1);
     }
   }
 
-  /* Chosen select*/
+  // Chosen select
   .chosen-single,
   .chosen-choices {
     @extend %transparent-form-control;

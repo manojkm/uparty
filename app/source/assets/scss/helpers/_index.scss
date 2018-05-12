@@ -1,17 +1,15 @@
 // ================================================================================================
-// File Name: index.scss
-// Description:
-// Sass manifest file for helpers. Importing order & guidelines are mentioned under the
-// title MAIN FILE - https://sass-guidelin.es/#architecture.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : index.scss
+// Description    : Sass manifest file for helpers. Importing order & guidelines are mentioned
+// under the title MAIN FILE - https://sass-guidelin.es/#architecture.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
-
 // ================================================================================================
-// Guidelines:
+// Guidelines :
 // One @import per folder;
 // A linebreak after @import;
 // Each file on its own line;
@@ -19,15 +17,15 @@
 // File extensions and leading underscores omitted.
 // ================================================================================================
 
-//----------------------------------*\
 // CONFIGURATION & HELPERS
-//----------------------------------*/
+// ======================================================
 @import
     'fonts',
     'functions',
-    '../custom-variables', // Your custom variables and variable overwrites.
     'colors',
     'variables', // Default variables
+    '../custom-variables', // Your custom variables and variable overwrites.
+    'spacers',
     'mixins',
     'extends',
     'placeholders';

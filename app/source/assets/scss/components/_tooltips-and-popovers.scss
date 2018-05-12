@@ -1,20 +1,19 @@
 // ================================================================================================
-// File Name: tooltips-and-popovers.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : tooltips-and-popovers.scss
+// Description    : Adjustments for Bootstrap's tooltips and popovers.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // TOOLTIP
-//----------------------------------*/
-
+// ======================================================
 .tooltip {
   z-index: map-get($zindex, tooltip);
-  /* Tooltip inner */
+
+  // Tooltip inner
   @at-root  &-inner {
     font-size: $tooltip-font-size;
     font-weight: $font-wh-normal;
@@ -25,61 +24,46 @@
     //box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
   }
 
-  /* Right tooltip */
+  // Right tooltip
   &.bs-tooltip-right .arrow:before {
     border-right-color: $tooltip-background-color;
   }
 
-  /* Top tooltip */
+  // Top tooltip
   &.bs-tooltip-top .arrow:before {
     border-top-color: $tooltip-background-color;
   }
-  /* Bottom tooltip */
+  // Bottom tooltip
   &.bs-tooltip-bottom .arrow:before {
     border-bottom-color: $tooltip-background-color;
   }
 
-  /* Left tooltip */
+  // Left tooltip
   &.bs-tooltip-left .arrow:before {
     border-left-color: $tooltip-background-color;
   }
 
-
-
-  /* Apply the mixin to the tooltip variants. */
-
-  &.tooltip-primary {
-    @include tooltip-theme(primary);
-  }
-  &.tooltip-secondary {
-    @include tooltip-theme(secondary);
-  }
-  &.tooltip-success {
-    @include tooltip-theme(success);
-  }
-  &.tooltip-danger {
-    @include tooltip-theme(danger);
-  }
-  &.tooltip-warning{
-    @include tooltip-theme(warning);
-  }
-  &.tooltip-info {
-    @include tooltip-theme(info);
-  }
-  &.tooltip-light{
-    @include tooltip-theme(light);
-  }
-  &.tooltip-dark {
-    @include tooltip-theme(dark);
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $value in $colors {
+      &.tooltip-#{$scheme} {
+        @include tooltip-theme($scheme);
+      }
+    }
   }
 
+  // Contextual variations
+  @each $scheme, $value in $contextual-palette-map {
+    &.tooltip-#{$scheme} {
+      @include tooltip-theme($scheme);
+    }
+  }
 
 }
 
-//----------------------------------*\
 // POPOVERS
-//----------------------------------*/
-
+// ======================================================
 .popover {
   @include set-border-radius($popover-border-radius);
   font-size: $popover-font-size;
@@ -108,35 +92,25 @@
     color: $popover-header-color;
   }
 
-  /* Apply the mixin to the popover variants. */
-
-  &.popover-primary {
-    @include popover-theme(primary);
-  }
-  &.popover-secondary {
-    @include popover-theme(secondary);
-  }
-  &.popover-success {
-    @include popover-theme(success);
-  }
-  &.popover-danger {
-    @include popover-theme(danger);
-  }
-  &.popover-warning{
-    @include popover-theme(warning);
-  }
-  &.popover-info {
-    @include popover-theme(info);
-  }
-  &.popover-light{
-    @include popover-theme(light);
-  }
-  &.popover-dark {
-    @include popover-theme(dark);
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $value in $colors {
+      &.popover-#{$scheme} {
+        @include popover-theme($scheme);
+      }
+    }
   }
 
+  // Contextual variations
+  @each $scheme, $value in $contextual-palette-map {
+    &.popover-#{$scheme} {
+      @include popover-theme($scheme);
+    }
+  }
 }
 
-img.has-popover{
+// Mouse pointer to be displayed when pointing over the image.
+img.has-popover {
   cursor: pointer;
 }

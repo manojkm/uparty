@@ -1,17 +1,15 @@
 // ================================================================================================
-// File Name: placeholders.scss
-// Description: @extend placeholders that you like to use for your project.
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : placeholders.scss
+// Description    : Use @extend for placeholders
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
-//----------------------------------*\
 // BUTTON
-//----------------------------------*/
+// ======================================================
 %button {
   @include set-border-radius($btn-radius);
   font-size: $btn-font-size;
@@ -23,53 +21,45 @@
   min-height: $btn-min-height;
   cursor: pointer;
   border: $btn-border-size solid transparent;
-
-
-  /*Flexbox*/
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-
-//----------------------------------*\
 // CLEARFIX
-//----------------------------------*/
+// ======================================================
 %cf {
   @include clearfix;
 }
 
-//----------------------------------*\
 // LIST STYLE NONE
-//----------------------------------*/
+// ======================================================
 
 %lsn {
   list-style: none;
 }
 
-%o-v-none{
-  opacity: 0;
+%o-v-none {
+  @include opacity(0);
   visibility: hidden;
 }
 
-%o-v-show{
-  opacity: 1;
+%o-v-show {
+  @include opacity(1);
   visibility: visible;
 }
 
-
-//----------------------------------*\
 // ACCORDION PSEUDO
-//----------------------------------*/
+// ======================================================
 %acc-pseudo {
   @include center(y);
   font-family: 'simple-line-icons';
   font-style: normal;
   content: $accordion-active-icon;
   //color: $accordion-icon-color; 
-  color:inherit;
+  color: inherit;
   float: right;
-  font-size:  0.75rem;
+  font-size: 0.75rem;
   line-height: 1;
   speak: none;
   width: 15px;
@@ -77,16 +67,13 @@
   text-align: center;
   position: absolute;
   right: $card-spacer-x;
-
-  /* Flexbox */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-//----------------------------------*\
 // DROPZONE PSEUDO
-//----------------------------------*/
+// ======================================================
 %dropzone-pseudo {
   //@include center(y);
   font-family: 'simple-line-icons';
@@ -95,17 +82,13 @@
   font-size: $dropzone-message-icon-font-size;
   speak: none;
   width: 100%;
-  /* Flexbox */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-
-//----------------------------------*\
 // BREADCRUMB EXTENDED ARROW PSEUDO
-//----------------------------------*/
+// ======================================================
 %abreadcrumb-ext-arrow-pseudo {
   content: " ";
   display: block;
@@ -115,29 +98,26 @@
   border-bottom: $breadcrumb-ext-border-top-bottom-size solid transparent;
   border-left: $breadcrumb-ext-border-left-size solid transparent;
   position: absolute;
-  top:0;
+  top: 0;
   //top: 50%;
   //margin-top: -$breadcrumb-ext-border-top-bottom-size;
   left: 100%;
   z-index: 3;
 }
 
-//----------------------------------*\
 // CHOSEN SELECT BOX PSEUDO
-//----------------------------------*/
+// ======================================================
 %search-choice-close-pseudo,
 %chosen-close-pseudo {
   font-family: 'simple-line-icons';
   font-style: normal;
   content: "\e082";
-  font-size:15px;
+  font-size: 15px;
   speak: none;
   width: 100%;
   height: 100%;
   text-align: center;
   color: $gray-600;
-
-  /* Flexbox */
   display: flex;
   align-items: center;
   justify-content: center;
