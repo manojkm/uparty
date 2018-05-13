@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: sidebar-nav.scss
-// Description:
+// Description: Contains all the styles of sidebar navigation
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -36,7 +36,7 @@
   &__header {
     @include transition;
     @include add-border(2px, transparent, left);
-    @include text-theme($sidebar-theme-color, 'font-color');
+    @include text-theme($sidebar-theme-scheme, 'font-color');
     padding: $sidebar-padding-y $sidebar-padding-x;
     font-size: $sidebar-header-font-size;
     font-weight: 600;
@@ -50,7 +50,7 @@
 
     @if bool($sidebar-divider-border) == false {
       &:after {
-        @include border-theme($sidebar-theme-color, 'light', 'bottom');
+        @include border-theme($sidebar-theme-scheme, 'light', 'bottom');
         position: absolute;
         top: 50%;
         width: 100%;
@@ -69,7 +69,7 @@
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
 
     @if bool($sidebar-divider-border) == true {
-      @include border-theme($sidebar-theme-color, 'light', 'top');
+      @include border-theme($sidebar-theme-scheme, 'light', 'top');
       border-top: 1px solid;
     }
   }
@@ -84,7 +84,7 @@
     /* Sidebar menu links */
     > a {
       @include transition;
-      @include text-theme($sidebar-theme-color, 'link-color');
+      @include text-theme($sidebar-theme-scheme, 'link-color');
       font-size: $sidebar-font-size;
       text-decoration: none;
       padding: $sidebar-item-padding-y ($sidebar-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-item-padding-y $sidebar-item-padding-x;
@@ -120,13 +120,13 @@
     /* Change the hover, focus, active state links for better highlighting */
     &:hover,
     &.show {
-      @include border-theme($sidebar-active-border-theme-color, $position: left); // Make borders visible
+      @include border-theme($sidebar-active-border-theme-scheme, $position: left); // Make borders visible
       > a {
-        @include background-theme($sidebar-theme-color, 'dark');
-        @include text-theme($sidebar-theme-color, 'hover-color');
+        @include background-theme($sidebar-theme-scheme, 'dark');
+        @include text-theme($sidebar-theme-scheme, 'hover-color');
         .#{$s}__item-title {
           @include transition;
-          @include background-theme($sidebar-theme-color, 'dark');
+          @include background-theme($sidebar-theme-scheme, 'dark');
         }
       }
     }
@@ -135,10 +135,10 @@
     //&:focus,
     //&:active,
     &.active {
-      @include border-theme($sidebar-active-border-theme-color, $position: left); // Make borders visible
+      @include border-theme($sidebar-active-border-theme-scheme, $position: left); // Make borders visible
       > a {
-        @include background-theme($sidebar-theme-color, 'dark');
-        @include text-theme($sidebar-theme-color, 'active-color');
+        @include background-theme($sidebar-theme-scheme, 'dark');
+        @include text-theme($sidebar-theme-scheme, 'active-color');
       }
     }
   }
@@ -150,7 +150,7 @@
 
   /* Submenu - First level */
   &__child {
-    @include background-theme($sidebar-theme-color, 'dark');
+    @include background-theme($sidebar-theme-scheme, 'dark');
 
     .#{$s}__item {
       border: 0;

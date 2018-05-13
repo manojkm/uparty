@@ -229,23 +229,23 @@
 
   &,
   .dropdown-menu {
-    @include background-theme('header', 'base');
+    @include background-theme($dropdown-extended-theme-color, 'base');
     border: 0;
   }
 
   // Dropdown top arrow colors
   &:before {
-    @include border-theme('header', $position: bottom);
+    @include border-theme($dropdown-extended-theme-color, $position: bottom);
   }
 
   &:after {
-    @include border-theme('header', 'dark', $position: bottom);
+    @include border-theme($dropdown-extended-theme-color, 'dark', $position: bottom);
     display: none;
   }
 
   // Dropdown section headers
   .dropdown-header {
-    @include text-theme('header', 'font-color');
+    @include text-theme($dropdown-extended-theme-color, 'font-color');
   }
 
   // Dropdown menu links
@@ -253,20 +253,20 @@
 
     &,
     i {
-      @include text-theme('header', 'link-color');
+      @include text-theme($dropdown-extended-theme-color, 'link-color');
     }
 
     // Change the hover, focus, active state links for better highlighting
     &:hover,
     &:focus {
-      @include background-text-theme('header', 'light', 'hover-color');
+      @include background-text-theme($dropdown-extended-theme-color, 'light', 'hover-color');
     }
 
     &.active,
     &.active:focus,
     &.active:hover,
     &:active {
-      @include background-text-theme('header', 'light', 'active-color');
+      @include background-text-theme($dropdown-extended-theme-color, 'light', 'active-color');
     }
 
     &.disabled,
@@ -280,7 +280,7 @@
   }
 
   & .dropdown-divider {
-    @include border-theme('header', 'light', $position: top);
+    @include border-theme($dropdown-extended-theme-color, 'light', $position: top);
     border-top: 1px solid;
   }
 
@@ -294,8 +294,9 @@
   }
 }
 
-// DROPUP VARIATIONS
+// DROPDOWN POSITION VARIATIONS
 // ======================================================
+// Dropup variation
 .dropup {
   .dropdown-menu.extended {
     // Dropdown arrow
@@ -313,6 +314,7 @@
   }
 }
 
+// Dropright variation
 .dropright {
   .dropdown-menu.extended {
     margin-top: 0;
@@ -334,6 +336,7 @@
   }
 }
 
+//Dropleft variation
 .dropleft {
   .dropdown-menu.extended {
     margin-top: 0;

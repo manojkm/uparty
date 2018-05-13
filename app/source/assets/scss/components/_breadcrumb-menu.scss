@@ -23,19 +23,18 @@
       display: flex;
     }
     .nav-link {
-      //@include color($breadcrumb-link-theme-color, $breadcrumb-link-theme-color-tone);
+      //@include color($breadcrumb-link-theme-scheme, $breadcrumb-link-theme-scheme-tone);
       @include transition;
       color: $breadcrumb-menu-color;
       line-height: $breadcrumb-line-height;
-      padding: $breadcrumb-padding-y 0;
+      padding: $breadcrumb-item-padding-y 0;
       position: relative;
       display: flex;
       align-items: center;
-
       // Change the hover, focus, active state links for better highlighting
       //#{$a-tags},
       #{$hover-focus-tags} {
-        //@include color($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+        //@include color($breadcrumb-link-theme-scheme, $breadcrumb-link-hover-theme-tone);
         color: $breadcrumb-menu-hover-color;
       }
 

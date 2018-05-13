@@ -22,6 +22,7 @@
 // TODO: Fill the below comment block with proper text following robust admin theme.
 // TODO get variable namings fro https://www.bootstrap-live-customizer.com/.
 // TODO... usefull for wordings... -> https://github.com/hershko765/swift10minuteemail/blob/d1983eaced83fe12242b1fd4524e97f62df19a08/web/media/sass/_variables.scss
+// https://github.com/hershko765/swift10minuteemail/blob/d1983eaced83fe12242b1fd4524e97f62df19a08/web/media/sass/_variables.scss
 
 // CONTEXTUAL COLOR MAP
 // ======================================================
@@ -183,7 +184,6 @@ $selection-bg: #f9f6f0 !default;
 
 // BORDERS
 // ======================================================
-$none: 0 !default;
 $border: 1px solid !default;
 $border-thin: 1px !default;
 $border-thick: 2px !default;
@@ -205,74 +205,63 @@ $body-bg-color: $white-color; // Background color for <body>.
 
 // HEADER & NAVBAR
 // ======================================================
-// Header color variables can be found in themes/_theme-map.scss
 $header-height: 50px;
 $navbar-font-size: $font-size-sm;
 $navbar-font-weight: $font-wh-normal;
-$navbar-link-height: $header-height;
-//$navbar-link-md-height: $header-height - 10;
-
 $navbar-text-font-size: $navbar-font-size;
 $navbar-text-font-weight: $font-wh-normal;
-//$navlink-padding-y: 0px;
-//$navlink-padding-x: 0px;
-//$navbar-toggler-bg:;
-//$navbar-toggler-border-colour:;
 $navbar-item-mobile-bottom-border: true;
 
-// BOOTSTRAP DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
+// DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 // ======================================================
-
-$dropdown-width: 200px;
+$dropdown-width: 200px; // Dropdown menu container width.
 $dropdown-min-width: 160px;
 $dropdown-max-width: 320px;
+$dropdown-bg: $white-color; // Background for the dropdown menu container.
+$dropdown-border-radius: $border-radius-md; // Dropdown menu container border radius.
 
-$dropdown-bg: $white-color;
+$dropdown-font-size: 13px; // Dropdown menu item font size.
+$dropdown-header-font-size: 11px; // Dropdown section headers font size.
 
-$dropdown-border-radius: $border-radius-md;
+$dropdown-margin-top: 15px; // Positioning first level dropdown menu.
+$dropdown-padding-y: 5px; // Dropdown menu container top-bottom padding.
+$dropdown-padding-x: 0px; // Dropdown menu container left-right padding.
 
-$dropdown-font-size: 13px;
-$dropdown-header-font-size: 11px;
+$dropdown-item-padding-y: 8px; // Dropdown menu item top-bottom padding.
+$dropdown-item-padding-x: 12px; // Dropdown menu item left-right padding.
 
-$dropdown-margin-top: 15px; /* Positioning first level dropdown menu */
+$dropdown-link-color: $gray-800; // Dropdown link & icon text color.
 
-$dropdown-padding-y: 5px;
-$dropdown-padding-x: 0px;
+$dropdown-link-hover-color: $gray-900; // Hover color for dropdown links.
+$dropdown-link-hover-bg: $gray-300; // Hover background for dropdown links.
 
-$dropdown-item-padding-y: 8px;
-$dropdown-item-padding-x: 12px;
+$dropdown-link-active-color: $gray-900; // Active dropdown menu item text color.
+$dropdown-link-active-bg: $gray-300; // Active dropdown menu item background color.
 
-$dropdown-link-color: $gray-800;
+$dropdown-link-disabled-color-opacity: 0.6; // Disabled dropdown menu item text color/opacity.
 
-$dropdown-link-hover-color: $gray-900;
-$dropdown-link-hover-bg: $gray-300;
+$dropdown-divider-color: $gray-400; // Divider color for between dropdown items.
+$dropdown-divider-border-width: $border-thin !default; // Border width of divider between dropdown items.
 
-$dropdown-link-active-color: $gray-900;
-$dropdown-link-active-bg: $gray-300;
-
-$dropdown-link-disabled-color-opacity: 0.6;
-
-$dropdown-divider-color: $gray-400;
-$dropdown-divider-border-width: $border-thin !default;
-
-$dropdown-icon-width: 20px;
+$dropdown-icon-width: 20px; // Dropdown menu item icon width for perfect alignment between icons and text.
 
 // BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 // ======================================================
-/* Themed dropdown styles are automatically generated based on header map that can be found in themes/_theme-map.scss */
+$dropdown-extended-theme-color: header !default; // Theme color applied to dropdown. Theme colors are retrieved
+// from active theme palette map that can be found in themes/theme-*
 
-// TOGGLERS
+// TOGGLERS ADJUSTMENTS
 // ======================================================
-/* Navbar toggle button */
+// Navbar toggle button
 $navbar-toggler-padding-y: 10px;
 $navbar-toggler-padding-x: 10px;
 
-/* Sidebar toggle button */
+// Sidebar toggle button
 $sidebar-toggler-height: $header-height - 10;
 $sidebar-toggler-padding-y: 0px;
 $sidebar-toggler-padding-x: 10px;
 
-/* Aside toggle button */
+// Aside toggle button
 $aside-toggler-height: $header-height;
 $aside-toggler-padding-y: 10px;
 $aside-toggler-padding-x: 10px;
@@ -280,9 +269,8 @@ $aside-toggler-padding-x: 10px;
 // SEARCH
 // ======================================================
 
-// PADDINGS
+// PADDINGS //TODO, not using anywhere.. remove later if required.
 // ======================================================
-
 $padding-base-y: .5rem !default;
 $padding-base-x: .7rem !default;
 
@@ -295,10 +283,10 @@ $padding-large-x: 48px !default;
 $padding-small-y: 5px !default;
 $padding-small-x: 15px !default;
 
-// SHADOWS
+// SHADOWS //TODO, make the below perfect later
 // ======================================================
-$container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
-$dropdown-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
+$container-shadow: 0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
+$dropdown-shadow: 0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
 $header-shadow: 0 1px 3px rgba($black-color, .2);
 $popover-shadow: 0 5px 10px rgba($black-color, .1);
 $sidebar-footer-shadow: 0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
@@ -313,77 +301,78 @@ $slider-base-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 
 // BREADCRUMB
 // ======================================================
-$breadcrumb-bg: $white-color !default;
+$breadcrumb-bg: $white-color !default; // Breadcrumb background color.
 
 $breadcrumb-border-radius: $border-radius-md !default;
 $breadcrumb-border-size: $border-thin;
 $breadcrumb-border-color: $gray-400 !default;
 
-$breadcrumb-padding-y: .40rem !default;
-$breadcrumb-padding-x: .85rem !default;
+$breadcrumb-item-padding-y: .40rem !default; // Breadcrumb item top-bottom padding.
+$breadcrumb-item-padding-x: .85rem !default; // Breadcrumb item left-right padding.
 
 $breadcrumb-font-size: $font-size-sm !default;
-$breadcrumb-font-color: $gray-700 !default;
+$breadcrumb-color: $gray-700 !default; // Breadcrumb text color.
 $breadcrumb-line-height: $lh-sm !default;
-$breadcrumb-active-color: $gray-600 !default;
+$breadcrumb-active-color: $gray-600 !default; // Text color of current page in the breadcrumb.
 
-$breadcrumb-divider-color: $gray-500 !default;
-$breadcrumb-divider: "/" !default;
-$breadcrumb-divider-angle-right: "\f054" !default;
-$breadcrumb-divider-angle-double-right: "\f061" !default;
-$breadcrumb-divider-caret-right: "\f0da" !default;
+$breadcrumb-divider: "/" !default; // Textual separator for between breadcrumb elements.
+$breadcrumb-divider-color: $gray-500 !default; // Textual separator color between breadcrumb elements.
+$breadcrumb-divider-angle-right: "\f054" !default; // Textual separator type.
+$breadcrumb-divider-angle-double-right: "\f061" !default; // Textual separator type.
+$breadcrumb-divider-caret-right: "\f0da" !default; // Textual separator type.
 
-$breadcrumb-link-theme-color: primary !default;
-$breadcrumb-link-hover-theme-color-tone: dark !default;
+$breadcrumb-link-theme-scheme: primary !default; // Breadcrumb link text theme scheme.
+$breadcrumb-link-hover-theme-tone: dark !default; // Hover theme tone for breadcrumb links.
 
-$breadcrumb-size-inner: ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-padding-y * 2) !default;
-$breadcrumb-size: calc((#{$breadcrumb-size-inner} + #{$breadcrumb-border-size}) / 2) !default;
+$breadcrumb-inner-size: ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
+$breadcrumb-size: calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
 
-/* Breadcrumb Extended - Arrow */
-$breadcrumb-ext-bg: $white-color !default;
+// Breadcrumb extended(ext) - Arrow type
+$breadcrumb-ext-bg: $white-color !default; // Breadcrumb container background color.
+$breadcrumb-ext-border-color: $gray-300 !default; // Breadcrumb container border color.
+$breadcrumb-ext-item-hover-bg: $gray-100 !default; // Hover background color for breadcrumb item.
+$breadcrumb-ext-arrow-bg: $breadcrumb-ext-bg !default; // Breadcrumb arrow background color.
+$breadcrumb-ext-arrow-hover-border-color: $gray-500 !default; // Hover color for breadcrumb arrow.
+$breadcrumb-ext-top-bottom-border-size: $breadcrumb-size !default; // Computed size to fit the arrow edges perfectly inside the container.
+$breadcrumb-ext-left-border-size: 10px !default; // Breadcrumb arrow extending out size.
 
-$breadcrumb-ext-item-bg: $white-color !default;
-$breadcrumb-ext-item-hover-bg: $gray-100 !default;
+// Breadcrumb extended(ext) - Arrow wrap type
+$breadcrumb-ext-wrap-bg: $white-color !default; // Breadcrumb container background color.
+$breadcrumb-ext-wrap-item-bg: $gray-200 !default; // Breadcrumb item background color for previous pages.
+$breadcrumb-ext-wrap-color: $gray-600 !default; // Breadcrumb item text color for previous pages.
+$breadcrumb-ext-wrap-left-border-color: $breadcrumb-ext-wrap-bg !default; // Breadcrumb arrow separator background color.
 
-$breadcrumb-ext-border-color: $gray-300 !default;
-$breadcrumb-ext-border-hover-color: $gray-400 !default;
-$breadcrumb-ext-border-top-bottom-size: $breadcrumb-size;
-$breadcrumb-ext-border-left-size: 10px;
+// Breadcrumb extended(ext) - Arrow wizard type
+$breadcrumb-wizard-completed-theme-scheme: primary !default; // Background color of completed step in the breadcrumb.
+$breadcrumb-wizard-active-theme-scheme: secondary !default; // Background color of current step in the breadcrumb.
+$breadcrumb-wizard-incomplete-bg: $gray-200 !default; // Background color of next/incomplete step in the breadcrumb.
+$breadcrumb-wizard-incomplete-color: $gray-600 !default; // Text color of next/incomplete step in the breadcrumb.
 
-/* Breadcrumb Extended - Arrow Wrap */
-$breadcrumb-ext-wrap-bg: $white-color !default;
-$breadcrumb-ext-wrap-item-bg: $gray-200 !default;
-$breadcrumb-ext-wrap-font-color: $gray-600 !default;
-$breadcrumb-ext-wrap-border-left-color: $white-color !default;
+// Breadcrumb type with menu on the end
+$breadcrumb-menu-color: $gray-600 !default; // Breadcrumb item text color
+$breadcrumb-menu-hover-color: $gray-800 !default; // Hover text color for breadcrumb item.
 
-/* Breadcrumb Extended - Arrow Wizard */
-$breadcrumb-wizard-completed-theme-color: primary !default;
-$breadcrumb-wizard-active-theme-color: secondary !default;
-$breadcrumb-wizard-incomplete-bg: $gray-200 !default;
-$breadcrumb-wizard-incomplete-color: $gray-600 !default;
-
-/* Breadcrumb Menu */
-$breadcrumb-menu-color: $gray-600 !default;
-$breadcrumb-menu-hover-color: $gray-800 !default;
+// ============================================================================================================
+// LAYOUT VARIABLES
+// ============================================================================================================
 
 // MAIN CONTENT WRAPPERS
 // ======================================================
-$main-content-padding-y: 20px;
-$main-content-padding-x: 0;
+$main-content-padding-y: 20px; // Top-bottom padding for 'main content' wrapper (main.content)
+$main-content-padding-x: 0; // Left-right padding for 'main content' wrapper (main.content)
 
 // PAGE TITLE WRAPPERS
 // ======================================================
-$page-title-padding-y: 20px;
-$page-title-padding-x: 0;
+$page-title-padding-y: 20px; // Top-bottom padding for 'page title' wrapper (.content__page-title)
+$page-title-padding-x: 0; // Left-right padding for 'page title' wrapper (.content__page-title)
 
 // SIDEBAR
 // ======================================================
-/* Sidebar color variables can be found in themes/_theme-map.scss */
+$sidebar-theme-scheme: sidebar !default; // Theme color applied to sidebar. Theme colors are retrieved from
+// active theme palette map that can be found in themes/theme-*
+$sidebar-active-border-theme-scheme: primary !default; // Border color of active sidebar menu item
 
-$sidebar-theme-color: sidebar !default;
-$sidebar-active-border-theme-color: primary !default;
-
-$sidebar-width: 200px;
+$sidebar-width: 200px; // Sidebar section width (section.sidebar)
 $sidebar-brand-height: 50px;
 
 $sidebar-font-size: $font-size-base;
@@ -417,7 +406,7 @@ $sidebar-submenu-item-padding-y: 4px;
 $sidebar-submenu-item-padding-x: $sidebar-padding-x;
 
 /* Sidebar footer */
-$sidebar-footer-theme-color: $sidebar-theme-color !default;
+$sidebar-footer-theme-color: $sidebar-theme-scheme !default;
 $sidebar-footer-active-theme-color: primary !default;
 $sidebar-footer-child-border-top-size: $border-thin;
 $sidebar-footer-width: $sidebar-width;

@@ -9,7 +9,7 @@
 // ================================================================================================
 
 .master-header {
-  @include background-color('header', 'base');
+  @include background-theme('header');
   @include transition;
   @include clearfix;
   position: absolute;
@@ -19,8 +19,6 @@
   z-index: map-get($zindex, header);
   min-height: $header-height;
   box-shadow: $header-shadow;
-
-  /* Flexbox */
   display: flex;
   align-items: center;
 

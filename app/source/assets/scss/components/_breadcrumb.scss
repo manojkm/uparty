@@ -14,15 +14,15 @@
   @include set-border-radius($breadcrumb-border-radius);
   @include add-border($breadcrumb-border-size, $breadcrumb-border-color, all);
   background-color: $breadcrumb-bg;
-  padding: 0 $breadcrumb-padding-x;
+  padding: 0 $breadcrumb-item-padding-x;
   font-size: $breadcrumb-font-size;
   line-height: $breadcrumb-line-height;
   display: flex;
 }
 
 .breadcrumb-item {
-  padding: $breadcrumb-padding-y 0;
-  color: $breadcrumb-font-color;
+  padding: $breadcrumb-item-padding-y 0;
+  color: $breadcrumb-color;
 
   + .breadcrumb-item::before {
     font-family: "Font Awesome 5 Solid";
@@ -36,11 +36,11 @@
 
   // Breadcrumb links
   & a {
-    @include text-theme($breadcrumb-link-theme-color);
+    @include text-theme($breadcrumb-link-theme-scheme);
     &:focus,
     &:active,
     &:hover {
-      @include text-theme($breadcrumb-link-theme-color, $breadcrumb-link-hover-theme-color-tone);
+      @include text-theme($breadcrumb-link-theme-scheme, $breadcrumb-link-hover-theme-tone);
     }
 
     &.collapsed {
@@ -64,251 +64,7 @@
   }
 }
 
-// BREADCRUMB EXTENDED TYPE
-// ======================================================
-.breadcrumb {
-
-  &.extended-arrow {
-    @include add-border($breadcrumb-border-size, $breadcrumb-ext-border-color, all);
-    background-color: $breadcrumb-ext-bg;
-    padding: 0;
-
-    & .breadcrumb-item {
-      position: relative;
-      padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 24px;
-
-      &:first-child {
-        @include set-border-radius($breadcrumb-border-radius);
-        @include border-right-radius(0);
-        padding: $breadcrumb-padding-y 5px $breadcrumb-padding-y 12px !important;
-      }
-
-      &:last-child {
-        padding: $breadcrumb-padding-y 0 $breadcrumb-padding-y 24px;
-        &:before {
-          display: none;
-        }
-      }
-
-      &:not(:last-child):after {
-        @extend %abreadcrumb-ext-arrow-pseudo;
-      }
-
-      &:not(:last-child):before {
-        @extend %abreadcrumb-ext-arrow-pseudo;
-        margin-left: 1px;
-      }
-
-    }
-
-    .breadcrumb-item:hover:not(:last-child) {
-      background-color: $breadcrumb-ext-item-hover-bg
-    }
-
-    .breadcrumb-item:not(:last-child):after {
-      @include add-border($breadcrumb-ext-border-left-size, $breadcrumb-ext-item-bg, left);
-    }
-    .breadcrumb-item:hover:not(:last-child):after {
-      @include add-border($breadcrumb-ext-border-left-size, $breadcrumb-ext-item-hover-bg, left);
-    }
-
-    .breadcrumb-item:not(:last-child):before {
-      @include add-border($breadcrumb-ext-border-left-size, $breadcrumb-ext-border-color, left);
-    }
-    .breadcrumb-item:hover:not(:last-child):before {
-      @include add-border($breadcrumb-ext-border-left-size, $breadcrumb-ext-border-hover-color, left);
-    }
-
-  }
-
-}
-
-// BREADCRUMB EXTENDED - WIZARD TYPE
-// ======================================================
-.breadcrumb.extended-arrow {
-  &.wizard-step {
-
-    & .breadcrumb-item {
-
-      &:first-child {
-        padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 12px !important;
-      }
-
-      &:last-child {
-        padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 24px;
-        &:before {
-          display: none;
-        }
-      }
-
-      &:after {
-        @extend %abreadcrumb-ext-arrow-pseudo;
-      }
-
-      &:before {
-        @extend %abreadcrumb-ext-arrow-pseudo;
-        margin-left: 1px;
-      }
-
-    }
-
-    & .completed {
-      @include breadcrumb-wizard-status($breadcrumb-wizard-completed-theme-color);
-    }
-    & .active {
-      @include breadcrumb-wizard-status($breadcrumb-wizard-active-theme-color);
-    }
-
-    & .incomplete {
-      &,
-      a,
-      a:hover {
-        color: $breadcrumb-wizard-incomplete-color;
-      }
-
-      &:hover {
-        background-color: $white-color;
-      }
-      &:hover:after {
-        border-left-color: $white-color;
-      }
-
-    }
-
-  }
-}
-
-// BREADCRUMB EXTENDED - WRAP TYPE
-// ======================================================
-/* TODO https://codepen.io/xhepigerta/pen/XKmZKN*/
-.breadcrumb {
-  &.extended-arrow-wrap {
-    @include set-border-radius(0);
-    background-color: $breadcrumb-ext-wrap-bg;
-    padding: 0;
-    border: 0;
-
-    & .breadcrumb-item {
-      display: inline;
-      padding: 0;
-
-      &:before {
-        display: none;
-      }
-
-      a {
-        display: block;
-        background: $breadcrumb-ext-wrap-item-bg;
-        padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 24px;
-        position: relative;
-        margin: 0 10px 0 0;
-        color: $breadcrumb-ext-wrap-font-color;
-
-        // Right arrow tip
-        &:after {
-          content: "";
-          border-top: $breadcrumb-ext-border-top-bottom-size solid transparent;
-          border-bottom: $breadcrumb-ext-border-top-bottom-size solid transparent;
-          border-left: $breadcrumb-ext-border-left-size solid $breadcrumb-ext-wrap-item-bg;
-          position: absolute;
-          left: 100%;
-          top: 0;
-          z-index: 1;
-        }
-
-        // Left inset arrow
-        &:before {
-          content: "";
-          border-top: $breadcrumb-ext-border-top-bottom-size solid transparent;
-          border-bottom: $breadcrumb-ext-border-top-bottom-size solid transparent;
-          border-left: $breadcrumb-ext-border-left-size solid $breadcrumb-ext-wrap-border-left-color;
-          position: absolute;
-          left: 0;
-          top: 0;
-        }
-
-        &:hover {
-          @include background-text-theme($breadcrumb-link-theme-color);
-        }
-        &:hover:after {
-          @include border-theme($breadcrumb-link-theme-color, $position: left);
-        }
-
-      }
-
-      &.active {
-        // Highlight the active child
-        a {
-          @include background-text-theme($breadcrumb-link-theme-color);
-          &:after {
-            @include border-theme($breadcrumb-link-theme-color, $position: left);
-          }
-        }
-
-      }
-
-      &:first-child {
-        a {
-          @include set-border-radius($breadcrumb-border-radius);
-          @include border-right-radius(0);
-          padding: $breadcrumb-padding-y 12px $breadcrumb-padding-y 12px;
-
-          // The first item has no inset arrow
-          &:before {
-            display: none;
-          }
-        }
-      }
-
-    }
-  }
-}
-
-// BREADCRUMB EXTENDED - WRAP WIZARD TYPE
-// ======================================================
-.breadcrumb.extended-arrow-wrap.wizard-step {
-
-  & .breadcrumb-item {
-    a {
-      color: $breadcrumb-wizard-incomplete-color;
-    }
-  }
-
-  & .completed {
-    a {
-      @include background-text-theme($breadcrumb-wizard-completed-theme-color);
-      &:after {
-        @include border-theme($breadcrumb-wizard-completed-theme-color, $position: left);
-      }
-    }
-  }
-
-  & .active {
-    // Highlight the active child
-    a {
-      @include background-text-theme($breadcrumb-wizard-active-theme-color);
-      &:after {
-        @include border-theme($breadcrumb-wizard-active-theme-color, $position: left);
-      }
-    }
-
-  }
-
-  & .incomplete {
-    a,
-    a:hover {
-      color: $breadcrumb-wizard-incomplete-color;
-      background-color: $breadcrumb-wizard-incomplete-bg;
-      &:after {
-        border-left-color: $breadcrumb-wizard-incomplete-bg;
-      }
-
-    }
-  }
-
-}
-
-// BREADCRUMB DIVIDERS TYPE
+// BREADCRUMB TEXTUAL DIVIDERS TYPE
 // ======================================================
 .breadcrumb {
   &.divider-angle-right {
@@ -335,3 +91,248 @@
   }
 
 }
+
+// BREADCRUMB EXTENDED - ARROW TYPE
+// ======================================================
+.breadcrumb {
+
+  &.extended-arrow {
+    @include add-border($breadcrumb-border-size, $breadcrumb-ext-border-color, all);
+    background-color: $breadcrumb-ext-bg;
+    padding: 0;
+
+    & .breadcrumb-item {
+      position: relative;
+      padding: $breadcrumb-item-padding-y 12px $breadcrumb-item-padding-y 24px;
+
+      &:first-child {
+        @include set-border-radius($breadcrumb-border-radius);
+        @include border-right-radius(0);
+        padding: $breadcrumb-item-padding-y 5px $breadcrumb-item-padding-y 12px !important;
+      }
+
+      &:last-child {
+        padding: $breadcrumb-item-padding-y 0 $breadcrumb-item-padding-y 24px;
+        &:before {
+          display: none;
+        }
+      }
+
+      &:not(:last-child):after {
+        @extend %abreadcrumb-ext-arrow-pseudo;
+      }
+
+      &:not(:last-child):before {
+        @extend %abreadcrumb-ext-arrow-pseudo;
+        margin-left: 1px;
+      }
+
+    }
+
+    .breadcrumb-item:hover:not(:last-child) {
+      background-color: $breadcrumb-ext-item-hover-bg
+    }
+
+    .breadcrumb-item:not(:last-child):after {
+      @include add-border($breadcrumb-ext-left-border-size, $breadcrumb-ext-arrow-bg, left);
+    }
+    .breadcrumb-item:hover:not(:last-child):after {
+      @include add-border($breadcrumb-ext-left-border-size, $breadcrumb-ext-item-hover-bg, left);
+    }
+
+    .breadcrumb-item:not(:last-child):before {
+      @include add-border($breadcrumb-ext-left-border-size, $breadcrumb-ext-border-color, left);
+    }
+    .breadcrumb-item:hover:not(:last-child):before {
+      @include add-border($breadcrumb-ext-left-border-size, $breadcrumb-ext-arrow-hover-border-color, left);
+    }
+
+  }
+
+}
+
+// BREADCRUMB EXTENDED - ARROW WRAP TYPE
+// ======================================================
+/* TODO https://codepen.io/xhepigerta/pen/XKmZKN*/
+.breadcrumb {
+  &.extended-arrow-wrap {
+    @include set-border-radius(0);
+    background-color: $breadcrumb-ext-wrap-bg;
+    padding: 0;
+    border: 0;
+
+    & .breadcrumb-item {
+      display: inline;
+      padding: 0;
+
+      &:before {
+        display: none;
+      }
+
+      a {
+        display: block;
+        background: $breadcrumb-ext-wrap-item-bg;
+        padding: $breadcrumb-item-padding-y 12px $breadcrumb-item-padding-y 24px;
+        position: relative;
+        margin: 0 10px 0 0;
+        color: $breadcrumb-ext-wrap-color;
+
+        // Right arrow tip
+        &:after {
+          content: "";
+          border-top: $breadcrumb-ext-top-bottom-border-size solid transparent;
+          border-bottom: $breadcrumb-ext-top-bottom-border-size solid transparent;
+          border-left: $breadcrumb-ext-left-border-size solid $breadcrumb-ext-wrap-item-bg;
+          position: absolute;
+          left: 100%;
+          top: 0;
+          z-index: 1;
+        }
+
+        // Left inset arrow
+        &:before {
+          content: "";
+          border-top: $breadcrumb-ext-top-bottom-border-size solid transparent;
+          border-bottom: $breadcrumb-ext-top-bottom-border-size solid transparent;
+          border-left: $breadcrumb-ext-left-border-size solid $breadcrumb-ext-wrap-left-border-color;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        &:hover {
+          @include background-text-theme($breadcrumb-link-theme-scheme);
+        }
+        &:hover:after {
+          @include border-theme($breadcrumb-link-theme-scheme, $position: left);
+        }
+
+      }
+
+      &.active {
+        // Highlight the active child
+        a {
+          @include background-text-theme($breadcrumb-link-theme-scheme);
+          &:after {
+            @include border-theme($breadcrumb-link-theme-scheme, $position: left);
+          }
+        }
+
+      }
+
+      &:first-child {
+        a {
+          @include set-border-radius($breadcrumb-border-radius);
+          @include border-right-radius(0);
+          padding: $breadcrumb-item-padding-y 12px $breadcrumb-item-padding-y 12px;
+
+          // The first item has no inset arrow
+          &:before {
+            display: none;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+// BREADCRUMB EXTENDED - ARROW WIZARD TYPE
+// ======================================================
+.breadcrumb.extended-arrow {
+  &.wizard-step {
+
+    & .breadcrumb-item {
+
+      &:first-child {
+        padding: $breadcrumb-item-padding-y 12px $breadcrumb-item-padding-y 12px !important;
+      }
+
+      &:last-child {
+        padding: $breadcrumb-item-padding-y 12px $breadcrumb-item-padding-y 24px;
+        &:before {
+          display: none;
+        }
+      }
+
+      &:after {
+        @extend %abreadcrumb-ext-arrow-pseudo;
+      }
+
+      &:before {
+        @extend %abreadcrumb-ext-arrow-pseudo;
+        margin-left: 1px;
+      }
+
+    }
+
+    & .completed {
+      @include breadcrumb-wizard-status($breadcrumb-wizard-completed-theme-scheme);
+    }
+    & .active {
+      @include breadcrumb-wizard-status($breadcrumb-wizard-active-theme-scheme);
+    }
+
+    & .incomplete {
+      &,
+      a,
+      a:hover {
+        color: $breadcrumb-wizard-incomplete-color;
+      }
+
+      &:hover {
+        background-color: $white-color;
+      }
+      &:hover:after {
+        border-left-color: $white-color;
+      }
+
+    }
+
+  }
+}
+
+// BREADCRUMB EXTENDED - ARROW WRAP WIZARD TYPE
+// ======================================================
+.breadcrumb.extended-arrow-wrap.wizard-step {
+
+  & .breadcrumb-item {
+    a {
+      color: $breadcrumb-wizard-incomplete-color;
+    }
+  }
+
+  & .completed {
+    a {
+      @include background-text-theme($breadcrumb-wizard-completed-theme-scheme);
+      &:after {
+        @include border-theme($breadcrumb-wizard-completed-theme-scheme, $position: left);
+      }
+    }
+  }
+
+  & .active {
+    // Highlight the active child
+    a {
+      @include background-text-theme($breadcrumb-wizard-active-theme-scheme);
+      &:after {
+        @include border-theme($breadcrumb-wizard-active-theme-scheme, $position: left);
+      }
+    }
+
+  }
+
+  & .incomplete {
+    a,
+    a:hover {
+      color: $breadcrumb-wizard-incomplete-color;
+      background-color: $breadcrumb-wizard-incomplete-bg;
+      &:after {
+        border-left-color: $breadcrumb-wizard-incomplete-bg;
+      }
+
+    }
+  }
+
+}
+
