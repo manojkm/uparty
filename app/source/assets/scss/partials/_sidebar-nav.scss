@@ -8,14 +8,14 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// https://gist.github.com/jareware/4738651
-//----------------------------------*\
+// TODO https://gist.github.com/jareware/4738651
+
 // SIDEBAR MENU
-//----------------------------------*/
+// ======================================================
 .sidebar {
   $s: sidebar;
 
-  /* Sidebar menu navigation */
+  // Sidebar menu navigation
   &__nav {
     flex: 1;
     display: flex;
@@ -33,24 +33,24 @@
 
   }
 
-  &__header {
+  &__header-title {
     @include transition;
     @include add-border(2px, transparent, left);
     @include text-theme($sidebar-theme-scheme, 'font-color');
     padding: $sidebar-padding-y $sidebar-padding-x;
-    font-size: $sidebar-header-font-size;
+    font-size: $sidebar-header-title-font-size;
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
-    min-height: $sidebar-header-height;
-    line-height: $sidebar-header-height;
+    min-height: $sidebar-header-title-height;
+    line-height: $sidebar-header-title-height;
     letter-spacing: 0.1em;
-    opacity: $sidebar-header-opacity !important;
+    opacity: $sidebar-header-title-opacity !important;
     position: relative;
 
     @if bool($sidebar-divider-border) == false {
       &:after {
-        @include border-theme($sidebar-theme-scheme, 'light', 'bottom');
+        @include border-theme($sidebar-theme-scheme, 'xx-light', 'bottom');
         position: absolute;
         top: 50%;
         width: 100%;
@@ -69,27 +69,26 @@
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
 
     @if bool($sidebar-divider-border) == true {
-      @include border-theme($sidebar-theme-scheme, 'light', 'top');
+      @include border-theme($sidebar-theme-scheme, 'xx-light', 'top');
       border-top: 1px solid;
     }
   }
 
-  /* Sidebar menu */
+  // Sidebar menu
   &__item {
     @include transition;
     @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
     position: relative;
     box-sizing: border-box;
 
-    /* Sidebar menu links */
+    // Sidebar menu links
     > a {
       @include transition;
       @include text-theme($sidebar-theme-scheme, 'link-color');
-      font-size: $sidebar-font-size;
+      font-size: $sidebar-item-font-size;
       text-decoration: none;
       padding: $sidebar-item-padding-y ($sidebar-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-item-padding-y $sidebar-item-padding-x;
       line-height: $sidebar-item-line-height;
-      /* Flexbox */
       display: flex;
       align-items: center;
       flex-direction: row;
@@ -99,7 +98,7 @@
       }
     }
 
-    /* Sidebar menu icon before item title */
+    // Sidebar menu icon before item title
     .#{$s}__item-icon {
       margin-right: $sidebar-icon-margin-right;
       text-align: left;
@@ -111,13 +110,13 @@
       }
     }
 
-    /* Sidebar menu item title */
+    // Sidebar menu item title
     .#{$s}__item-title {
       display: inline-block;
       flex: 1;
     }
 
-    /* Change the hover, focus, active state links for better highlighting */
+    // Change the hover, focus, active state links for better highlighting
     &:hover,
     &.show {
       @include border-theme($sidebar-active-border-theme-scheme, $position: left); // Make borders visible
@@ -131,9 +130,7 @@
       }
     }
 
-    /* Current item */
-    //&:focus,
-    //&:active,
+    // Current item
     &.active {
       @include border-theme($sidebar-active-border-theme-scheme, $position: left); // Make borders visible
       > a {
@@ -148,17 +145,17 @@
     padding: $sidebar-padding-y $sidebar-padding-x;
   }
 
-  /* Submenu - First level */
+  // Submenu - First level
   &__child {
     @include background-theme($sidebar-theme-scheme, 'dark');
 
     .#{$s}__item {
       border: 0;
-      /* &:before {
-         @include color('sidebar', 'light');
-         content:"•";
-         position: absolute;
-       }*/
+      ///* &:before {
+      //   @include color('sidebar', 'light');
+      //   content:"•";
+      //   position: absolute;
+      // }*/
       &:last-of-type {
         padding-bottom: 10px;
       }
@@ -169,7 +166,7 @@
       }
     }
 
-    /* Second level */
+    // Second level
     .#{$s}__child {
       .#{$s}__item {
         &:last-of-type {
@@ -180,7 +177,7 @@
         }
       }
 
-      /* Third level */
+      // Third level
       .#{$s}__child {
         .#{$s}__item {
           a {
@@ -194,29 +191,28 @@
 
 }
 
-//----------------------------------*\
 // MINI SIDEBAR MENU & MODIFIERS
-//----------------------------------*/
+// ======================================================
 
 .sidebar-mini .sidebar {
   $s: sidebar;
   //&__nav{ z-index: map-get($zindex, sidebar-mini);}
 
-  /* Hiding headers, dividers etc */
+  // Hiding headers, dividers etc
   &__item .badge,
   &__item.has-button,
-  &__header,
+  &__header-title,
   &__divider {
-    /*    @include transition;
-        @extend %o-v-none;
-        min-height: 0;
-        height: 0;
-        line-height: 0;
-        margin: 0;*/
+    ///*    @include transition;
+    //    @extend %o-v-none;
+    //    min-height: 0;
+    //    height: 0;
+    //    line-height: 0;
+    //    margin: 0;*/
     display: none;
   }
 
-  &__header {
+  &__header-title {
     opacity: 0 !important;
   }
 
@@ -250,13 +246,13 @@
 
     }
 
-    /* Submenu - First level */
+    // Submenu - First level
     > .#{$s}__child {
       //@include transition;
       //transform: translateY(50px);
       //z-index: map-get($zindex, sidebar-mini-child);
       position: absolute;
-      min-width: $sidebar-submenu-width;
+      min-width: $sidebar-mini-submenu-width;
       left: $sidebar-mini-width;
       box-shadow: $header-shadow;
       height: auto !important;
@@ -267,13 +263,13 @@
         margin: 0;
       }
 
-      /* Second level */
+      // Second level
       .#{$s}__child {
         a {
           margin: 0 0 0 15px;
         }
 
-        /* Third level */
+        // Third level
         .#{$s}__child {
           a {
             margin: 0 0 0 30px;
@@ -285,12 +281,12 @@
 
   }
 
-  /* Show submenu item title on active */
+  // Show submenu item title on active
   &__nav > ul > .#{$s}__item:not(.has-button) {
     //&:hover
     &.show {
       > a {
-        width: $sidebar-mini-active-menu-width - 2; /* Value 2 is to adjust the width to include border of parent li */
+        width: $sidebar-mini-active-menu-width - 2; // Value 2 is to adjust the width to include border of parent li
         position: static;
         .#{$s}__item-title {
           display: block;

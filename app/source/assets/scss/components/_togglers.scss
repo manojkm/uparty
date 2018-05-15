@@ -106,14 +106,14 @@
   &:hover {
     @include background-theme('sidebar', 'dark');
     .icon-bar {
-      @include background-theme('primary');
+      @include background-theme($sidebar-footer-active-theme-scheme);
     }
   }
 
   &.collapsed {
     @include background-theme('sidebar', 'dark');
     .icon-bar {
-      @include background-theme('primary');
+      @include background-theme($sidebar-footer-active-theme-scheme);
     }
   }
 }

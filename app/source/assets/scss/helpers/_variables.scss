@@ -23,6 +23,8 @@
 // TODO get variable namings fro https://www.bootstrap-live-customizer.com/.
 // TODO... usefull for wordings... -> https://github.com/hershko765/swift10minuteemail/blob/d1983eaced83fe12242b1fd4524e97f62df19a08/web/media/sass/_variables.scss
 // https://github.com/hershko765/swift10minuteemail/blob/d1983eaced83fe12242b1fd4524e97f62df19a08/web/media/sass/_variables.scss
+// http://hn.arrowpress.net/circle-gui/#toc29
+// https://codeless.co/tower/default/
 
 // CONTEXTUAL COLOR MAP
 // ======================================================
@@ -356,69 +358,67 @@ $breadcrumb-menu-hover-color: $gray-800 !default; // Hover text color for breadc
 // LAYOUT VARIABLES
 // ============================================================================================================
 
-// MAIN CONTENT WRAPPERS
+// MAIN CONTENT WRAPPERS (main.content)
 // ======================================================
-$main-content-padding-y: 20px; // Top-bottom padding for 'main content' wrapper (main.content)
-$main-content-padding-x: 0; // Left-right padding for 'main content' wrapper (main.content)
+$main-content-padding-y: 20px; // Top-bottom padding for 'main content' wrapper
+$main-content-padding-x: 0; // Left-right padding for 'main content' wrapper
 
-// PAGE TITLE WRAPPERS
+// PAGE TITLE WRAPPERS (.content__page-title)
 // ======================================================
-$page-title-padding-y: 20px; // Top-bottom padding for 'page title' wrapper (.content__page-title)
-$page-title-padding-x: 0; // Left-right padding for 'page title' wrapper (.content__page-title)
+$page-title-padding-y: 20px; // Top-bottom padding for 'page title' wrapper
+$page-title-padding-x: 0; // Left-right padding for 'page title' wrapper
 
-// SIDEBAR
+// SIDEBAR (section.sidebar)
 // ======================================================
 $sidebar-theme-scheme: sidebar !default; // Theme color applied to sidebar. Theme colors are retrieved from
 // active theme palette map that can be found in themes/theme-*
 $sidebar-active-border-theme-scheme: primary !default; // Border color of active sidebar menu item
 
-$sidebar-width: 200px; // Sidebar section width (section.sidebar)
-$sidebar-brand-height: 50px;
+$sidebar-width: 200px; // Width of sidebar
+$sidebar-brand-height: 50px; // Sidebar branding header height
 
-$sidebar-font-size: $font-size-base;
+$sidebar-padding-y: 0px; // Sidebar top-bottom padding.
+$sidebar-padding-x: 10px; // Sidebar left-right padding
 
-$sidebar-padding-x: 10px;
-$sidebar-padding-y: 0px;
+$sidebar-header-title-font-size: $font-size-xs; // Font size of sidebar section headers (.sidebar__header)
+$sidebar-header-title-height: 30px;
+$sidebar-header-title-opacity: 0.7;
 
-$sidebar-icon-width: 20px;
-$sidebar-icon-font-size: $sidebar-font-size;
-$sidebar-icon-margin-right: 5px;
+$sidebar-item-font-size: $font-size-base; // Sidebar menu item title font size (.sidebar__item > a).
+$sidebar-item-line-height: $lh-base;
+$sidebar-item-padding-y: 8px;
+$sidebar-item-padding-x: $sidebar-padding-x;
+$sidebar-item-arrow-margin-right: 10px; // Right margin for sidebar menu item arrow, so that there is space between sidebar and arrow.
 
-$sidebar-header-font-size: $font-size-xs;
-$sidebar-header-height: 30px;
-$sidebar-header-opacity: 0.7;
+$sidebar-icon-width: 20px; // Width of sidebar menu icon
+$sidebar-icon-font-size: $sidebar-item-font-size; // Sidebar menu item icon font size (.sidebar__item-icon > i).
+$sidebar-icon-margin-right: 5px; // Right margin for sidebar icon, so that there is space between title and icon.
 
+$sidebar-submenu-font-size: $font-size-sm; // Sidebar sub menu item font size (.sidebar__child .sidebar__item > a).
+$sidebar-submenu-item-padding-y: 4px;
+$sidebar-submenu-item-padding-x: $sidebar-padding-x;
+
+// Sidebar section divider adjustments (.sidebar__divider)
 $sidebar-divider-border: false;
 $sidebar-divider-height: 0px;
 $sidebar-divider-margin-y: 0.5rem;
 $sidebar-divider-margin-x: 0px;
 
-$sidebar-item-line-height: $lh-base;
-$sidebar-item-padding-y: 8px;
-$sidebar-item-padding-x: $sidebar-padding-x;
-
-$sidebar-item-arrow-margin-right: 10px;
-
-$sidebar-submenu-font-size: $font-size-sm;
-$sidebar-submenu-width: $sidebar-width;
-
-$sidebar-submenu-item-padding-y: 4px;
-$sidebar-submenu-item-padding-x: $sidebar-padding-x;
-
-/* Sidebar footer */
-$sidebar-footer-theme-color: $sidebar-theme-scheme !default;
-$sidebar-footer-active-theme-color: primary !default;
-$sidebar-footer-child-border-top-size: $border-thin;
-$sidebar-footer-width: $sidebar-width;
-$sidebar-footer-height: 40px;
-$sidebar-footer-font-size: $sidebar-submenu-font-size;
+// Sidebar footer
+$sidebar-footer-theme-color: $sidebar-theme-scheme !default; // Theme color applied to sidebar footer. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
+$sidebar-footer-active-theme-scheme: primary !default; // Color of active item
+$sidebar-footer-width: $sidebar-width; // Width of sidebar footer
+$sidebar-footer-height: 40px; // Height of sidebar footer
+$sidebar-footer-child-border-top-size: $border-thin; // Width of the top 'border'for submenu.
+$sidebar-footer-font-size: $sidebar-submenu-font-size; // Submenu item font size (.sidebar__footer-child .sidebar__footer-item > a).
 $sidebar-footer-icon-font-size: 15px;
 
-/* Mini sidebar */
+// Mini sidebar adjustments
 $sidebar-mini-width: 50px;
+$sidebar-mini-submenu-width: $sidebar-width;
 $sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
 
-/* Mini full sidebar */
+// Mini-full sidebar adjustments
 $sidebar-mini-full-item-height: 40px;
 
 // BUTTONS
