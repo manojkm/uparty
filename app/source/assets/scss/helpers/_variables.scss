@@ -25,6 +25,7 @@
 // https://github.com/hershko765/swift10minuteemail/blob/d1983eaced83fe12242b1fd4524e97f62df19a08/web/media/sass/_variables.scss
 // http://hn.arrowpress.net/circle-gui/#toc29
 // https://codeless.co/tower/default/
+// https://bulma.io/documentation/elements/button/
 
 // CONTEXTUAL COLOR MAP
 // ======================================================
@@ -379,10 +380,10 @@ $sidebar-padding-x: 10px; // Sidebar left-right padding
 // Sidebar brand/project image
 $sidebar-brand-height: 50px; // Sidebar branding header height
 
-// Sidebar heading
-$sidebar-header-title-font-size: $font-size-xs; // Font size of sidebar section headers (.sidebar__header)
-$sidebar-header-title-height: 30px;
-$sidebar-header-title-opacity: 0.7;
+// Sidebar item heading
+$sidebar-item-header-font-size: $font-size-xs; // Font size of sidebar section headers (.sidebar__item-header)
+$sidebar-item-header-height: 30px;
+$sidebar-item-header-opacity: 0.7;
 
 // Sidebar item
 $sidebar-item-font-size: $font-size-base; // Sidebar menu item title font size (.sidebar__item > a).
@@ -391,7 +392,7 @@ $sidebar-item-padding-y: 8px;
 $sidebar-item-padding-x: $sidebar-padding-x;
 $sidebar-item-caret-margin-right: 10px; // Right margin for sidebar menu item caret, so that there is space between sidebar and caret.
 
-// Sidebar item icons
+// Sidebar item icon
 $sidebar-item-icon-width: 20px; // Width of sidebar menu icon
 $sidebar-item-icon-font-size: $sidebar-item-font-size; // Sidebar menu item icon font size (.sidebar__item-icon > i).
 $sidebar-item-icon-margin-right: 5px; // Right margin for sidebar icon, so that there is space between title and icon.
@@ -421,102 +422,101 @@ $sidebar-mini-width: 50px;
 $sidebar-mini-submenu-width: $sidebar-width;
 $sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
 
-// Mini sidebar full height type adjustments
-$sidebar-mini-full-height-type: 40px;
+// Mini sidebar 'full' type adjustments
+$sidebar-mini-full-item-height: 40px;
 
 // BUTTONS
 // ======================================================
-
-$btn-border-size: $border-thin;
+$btn-border-size: $border-thin !default;
 $btn-font-weight: $font-wh-normal !default;
 
-/* Button with icon */
+// Button with icon (.has-icon-left / .has-icon-right)
 $btn-icon-padding-left: 5px !default;
 $btn-icon-padding-right: 5px !default;
 $btn-icon-lh: 1 !default;
 
-/* Small button (.btn-sm) */
+// Small button (.btn-sm)
 $btn-font-size-sm: $font-size-sm;
-$btn-padding-y-sm: 0.25rem !default; /* 4px */
-$btn-padding-x-sm: 0.5rem !default; /* 8px */
+$btn-padding-y-sm: 0.25rem !default; // 4px
+$btn-padding-x-sm: 0.5rem !default; // 8px
 $btn-min-width-sm: 80px !default;
 $btn-min-height-sm: 0px !default;
 $btn-line-height-sm: $lh-sm !default;
 $btn-radius-sm: $border-radius-sm;
 
-/* Regular button (.btn) */
+// Regular button (.btn)
 $btn-font-size: $font-size-base !default;
-$btn-padding-y: 0.375rem !default; /* 6px */
-$btn-padding-x: 0.75rem !default; /* 12px */
+$btn-padding-y: 0.375rem !default; // 6px
+$btn-padding-x: 0.75rem !default; // 12px
 $btn-min-width: 100px !default;
 $btn-min-height: 0px !default;
 $btn-line-height: $lh-base !default;
 $btn-radius: $border-radius-md !default;
 
-/* Large button (.btn-lg) */
+// Large button (.btn-lg)
 $btn-font-size-lg: $font-size-lg !default;
-$btn-padding-y-lg: 0.5rem !default; /* 8px */
-$btn-padding-x-lg: 1rem !default; /* 16px */
+$btn-padding-y-lg: 0.5rem !default; // 8px
+$btn-padding-x-lg: 1rem !default; // 16px
 $btn-min-width-lg: 120px !default;
 $btn-min-height-lg: 0px !default;
 $btn-line-height-lg: $lh-lg !default;
 $btn-radius-lg: $border-radius-lg;
 
-/* Extra Large button (.btn-xl) */
+// Extra Large button (.btn-xl)
 $btn-font-size-xl: $font-size-xl !default;
-$btn-padding-y-xl: 0.625rem !default; /* 10px */
-$btn-padding-x-xl: 1.25rem !default; /* 20px */
+$btn-padding-y-xl: 0.625rem !default; // 10px
+$btn-padding-x-xl: 1.25rem !default; // 20px
 $btn-min-width-xl: 140px !default;
 $btn-min-height-xl: 0px !default;
 $btn-line-height-xl: $lh-xl !default;
 $btn-radius-xl: $border-radius-xl;
 
-/* Round button radius (.btn-round) */
+// Round button radius (.btn-round)
 $btn-radius-round: 30px;
 
-/* Raised button(.btn-raised) */
+// Raised button (.btn-raised)
 $btn-raised-box-shadow-y-offset: 5px;
 $btn-raised-box-shadow-y-offset-hover: 7px;
 
-/* Small icon button (.btn-sm.btn-icon.btn-round) */
+// Small icon button (.btn-icon.btn-sm)
 $btn-icon-font-size-sm: $btn-font-size-sm;
 $btn-icon-size-sm-inner: ($btn-icon-font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
 $btn-icon-size-sm: calc(#{$btn-icon-size-sm-inner} + #{$btn-border-size * 2}) !default;
 
-/* Regular icon button (.btn-icon.btn-round) */
+// Regular icon button (.btn-icon)
 $btn-icon-font-size: $btn-font-size;
 $btn-icon-size-inner: ($btn-icon-font-size * $btn-line-height) + ($btn-padding-y * 2) !default;
 $btn-icon-size: calc(#{$btn-icon-size-inner} + #{$btn-border-size *2}) !default;
 
-/* Large icon button (.btn-lg.btn-icon.btn-round) */
+// Large icon button (.btn-icon.btn-lg)
 $btn-icon-font-size-lg: $btn-font-size-lg;
 $btn-icon-size-lg-inner: ($btn-icon-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $btn-icon-size-lg: calc(#{$btn-icon-size-lg-inner} + #{$btn-border-size * 2}) !default;
 
-/* Extra Large icon button (.btn-xl.btn-icon.btn-round) */
+// Extra Large icon button (.btn-icon.btn-xl)
 $btn-icon-font-size-xl: $btn-font-size-xl;
 $btn-icon-size-xl-inner: ($btn-icon-font-size-xl * $btn-line-height-xl) + ($btn-padding-y-xl * 2) !default;
 $btn-icon-size-xl: calc(#{$btn-icon-size-xl-inner} + #{$btn-border-size * 2}) !default;
 
-/* Disabled button opacity */
+// Disabled button opacity
 $btn-disabled-opacity: 0.5;
 
 // MARK
 // ======================================================
-/* Extra small(.mark-xs) */
-$mark-underline-height-xs: 0.125rem; /*2px*/
+// Extra small (.mark-xs)
+$mark-underline-height-xs: 0.125rem; // 2px
 
-/* Small(.mark-sm) */
-$mark-underline-height-sm: 0.25rem; /*4px*/
+// Small (.mark-sm)
+$mark-underline-height-sm: 0.25rem; // 4px
 
-/* Regular*/
-$mark-underline-height: 0.5rem; /*8px*/
+// Regular
+$mark-underline-height: 0.5rem; // 8px
 
-/* Large(.mark-lg) */
-$mark-underline-height-lg: 0.75rem; /*12px*/
+// Large (.mark-lg)
+$mark-underline-height-lg: 0.75rem; // 12px
 
-/* Extra large(.mark-xl) */
-$mark-underline-height-xl: 1rem; /*16px*/
+// Extra large (.mark-xl)
+$mark-underline-height-xl: 1rem; // 16px
 
 // FORMS
 // ======================================================

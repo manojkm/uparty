@@ -15,7 +15,7 @@
     <ul class="sidebar__list metismenu list-unstyled" data-plugin="metismenu">
 
         <!--Main-->
-        <li class="sidebar__header-title">OVERVIEW</li>
+        <li class="sidebar__item-header">OVERVIEW</li>
         <li {{#if page.dashboard}} class="sidebar__item has-child active" {{else}} class="sidebar__item has-child" {{/if}} >
             <a href="#" class="has-arrow" {{#if page.dashboard}}
                aria-expanded="true" {{else}} aria-expanded="false" {{/if}}>
@@ -41,7 +41,7 @@
         <!--/Main-->
 
         <!--UI Elements-->
-        <li class="sidebar__header-title">UI Elements</li>
+        <li class="sidebar__item-header">UI Elements</li>
         <li {{#if page.components}} class="sidebar__item has-child active" {{else}} class="sidebar__item has-child" {{/if}} >
 
             <a href="#" class="has-arrow" {{#if page.components}}
@@ -110,7 +110,7 @@
         <!--/UI Elements-->
 
         <!--Navigation-->
-        <li class="sidebar__header-title">Navigation</li>
+        <li class="sidebar__item-header">Navigation</li>
         <li class="sidebar__item has-child">
             <a href="#" class="has-arrow" aria-expanded="false">
                 <span class="sidebar__item-icon"><i class="icon-folder"></i></span>
@@ -138,7 +138,7 @@
         <!--/Navigation-->
 
         <!--Extras-->
-        <li class="sidebar__header-title">Extras</li>
+        <li class="sidebar__item-header">Extras</li>
         <li class="sidebar__item">
             <a href="#">
                 <span class="sidebar__item-icon"><i class="icon-list"></i></span>
@@ -149,7 +149,7 @@
         <!--/Extras-->
 
         <!--/Action-->
-        <li class="sidebar__header-title">Action</li>
+        <li class="sidebar__item-header">Action</li>
         <li class="sidebar__item has-button">
             <a class="btn btn-primary btn-block" href="#" role="button">Create new</a>
         </li>
@@ -159,7 +159,7 @@
 
     <!--Downloads-->
     <ul class="sidebar__list metismenu list-unstyled mt-auto" data-plugin="metismenu">
-        <li class="sidebar__header-title">Downloads</li>
+        <li class="sidebar__item-header">Downloads</li>
         <li class="sidebar__item">
             <a href="#">
                 <span class="sidebar__item-icon"><i class="fa fa-camera-retro"></i></span>

@@ -33,20 +33,20 @@
 
   }
 
-  // Sidebar heading
-  &__header-title {
+  // Sidebar item heading
+  &__item-header {
     @include transition;
     @include add-border(2px, transparent, left);
     @include text-theme($sidebar-theme-scheme, 'font-color');
     padding: $sidebar-padding-y $sidebar-padding-x;
-    font-size: $sidebar-header-title-font-size;
+    font-size: $sidebar-item-header-font-size;
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
-    min-height: $sidebar-header-title-height;
-    line-height: $sidebar-header-title-height;
+    min-height: $sidebar-item-header-height;
+    line-height: $sidebar-item-header-height;
     letter-spacing: 0.1em;
-    opacity: $sidebar-header-title-opacity !important;
+    opacity: $sidebar-item-header-opacity !important;
     position: relative;
 
     @if bool($enable-sidebar-divider-underline-type) == false {
@@ -202,7 +202,7 @@
   // Hiding headers, dividers etc
   &__item .badge,
   &__item.has-button,
-  &__header-title,
+  &__item-header,
   &__divider {
     ///*    @include transition;
     //    @extend %o-v-none;
@@ -213,7 +213,7 @@
     display: none;
   }
 
-  &__header-title {
+  &__item-header {
     opacity: 0 !important;
   }
 
@@ -317,14 +317,14 @@
         > a {
           .#{$s}__item-title {
             top: $header-height;
-            height: $sidebar-mini-full-height-type;
+            height: $sidebar-mini-full-item-height;
             padding: 0 $sidebar-item-padding-x;
             display: flex;
             align-items: center;
           }
         }
         > .#{$s}__child {
-          top: $header-height + $sidebar-mini-full-height-type;
+          top: $header-height + $sidebar-mini-full-item-height;
           bottom: 0;
           overflow-y: auto;
           padding-bottom: $footer-min-height;

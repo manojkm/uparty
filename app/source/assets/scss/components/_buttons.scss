@@ -41,6 +41,7 @@ button, .button {
       font-size: $btn-icon-font-size;
     }
 
+     // Small icon button
     &.btn-sm {
       min-width: $btn-icon-size-sm;
       width: $btn-icon-size-sm;
@@ -51,6 +52,7 @@ button, .button {
       }
     }
 
+    // Large icon button
     &.btn-lg {
       min-width: $btn-icon-size-lg;
       width: $btn-icon-size-lg;
@@ -61,6 +63,7 @@ button, .button {
       }
     }
 
+    // Extra large icon button
     &.btn-xl {
       min-width: $btn-icon-size-xl;
       width: $btn-icon-size-xl;
@@ -71,6 +74,7 @@ button, .button {
       }
     }
 
+    // Icon button with drop down
     &.has-dropdown {
       width: auto;
       min-width: 0;
@@ -79,6 +83,7 @@ button, .button {
 
   }
 
+  // Helper classes to make sure the icons are perfectly aligned on either sides of text.
   &.has-icon-left,
   &.has-icon-right{
     #{$icon-tags} {
@@ -86,13 +91,11 @@ button, .button {
       line-height: $btn-icon-lh;
     }
   }
-
   &.has-icon-left{
     #{$icon-tags} {
       padding: 0 $btn-icon-padding-right 0 0;
     }
   }
-
   &.has-icon-right{
     #{$icon-tags} {
       padding: 0 0 0 $btn-icon-padding-left;
