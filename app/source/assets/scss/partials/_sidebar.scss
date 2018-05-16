@@ -1,11 +1,11 @@
 // ================================================================================================
-// File Name: sidebar.scss
-// Description: Contains all the styles of sidebar layout
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : sidebar.scss
+// Description    : Contains all the styles of sidebar layout
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
 // TODO, Header design idea, remove the below links.
@@ -28,11 +28,10 @@
   margin-left: -$sidebar-width;
   width: 0;
   z-index: map-get($zindex, sidebar);
-  /* Flexbox */
   display: flex;
   flex-direction: column;
 
-  /* Sidebar wrapper*/
+  // Sidebar wrapper
   &__wrap {
 
     @include text-theme($sidebar-theme-scheme, 'font-color');
@@ -43,13 +42,28 @@
     overflow-y: auto;
     position: static;
     top: 0;
-    /* Flexbox */
     display: flex;
     flex: 1;
     flex-direction: column;
+
+    // Scrollbar style for webkit browsers
+    &::-webkit-scrollbar-track {
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 15px;
+      @include background-theme($sidebar-theme-scheme);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      @include background-theme($sidebar-theme-scheme, 'light');
+    }
   }
 
-  /* Hiding sidebar if body has class (.sidebar-is-closed) */
+  // Hiding sidebar if body has class (.sidebar-is-closed)
   &-is-closed {
     // TODO Adapted from https://codepen.io/tonkec/pen/gryZmg
     .#{$s}__wrap * {
@@ -58,20 +72,20 @@
       transform: translateX(-100px);
     }
   }
-  /* Showing sidebar if body has class (.sidebar-is-open) */
+  // Showing sidebar if body has class (.sidebar-is-open)
   &-is-open {
     .#{$s}__wrap * {
       @extend %o-v-show;
     }
   }
 
-  /* Sidebar brand logo */
+  // Sidebar brand logo
   &__brand {
     padding: $sidebar-padding-y $sidebar-padding-x;
     height: $sidebar-brand-height;
   }
 
-  /* Sidebar footer*/
+  // Sidebar footer
   // Adapted from https://codepen.io/JonBergman/pen/pJmejw, https://codepen.io/addjones/pen/yJEPER TODO: Remove this line later
   &__footer {
     @include transition;
@@ -88,7 +102,6 @@
     .#{$s}__footer-list {
       padding: 0;
       margin: 1px 0 0 0;
-      /* Flexbox */
       display: flex;
       flex: 1;
     }
@@ -96,7 +109,6 @@
       @include transition;
       @extend %o-v-none;
       position: relative;
-      /* Flexbox */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -106,7 +118,6 @@
         @include transition;
         @include text-theme($sidebar-footer-theme-color, 'link-color');
         height: 100%;
-        /* Flexbox */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -118,7 +129,7 @@
         }
 
         i {
-         font-size:$sidebar-footer-icon-font-size;
+          font-size: $sidebar-footer-icon-font-size;
         }
       }
 
@@ -141,10 +152,8 @@
 
       .#{$s}__footer-item {
         a {
-          font-size:$sidebar-footer-font-size;
-          padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
-
-          /* Flexbox */
+          font-size: $sidebar-footer-font-size;
+          padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-caret-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
           align-items: flex-start;
           justify-content: flex-start;
         }
@@ -158,7 +167,7 @@
     }
   }
 
-  /* Mini sidebar modifiers */
+  // Mini sidebar modifiers
   &-is-open.sidebar-mini & {
     @include transition;
     left: 0;
@@ -167,19 +176,18 @@
     .#{$s}__footer {
       width: $sidebar-mini-width;
 
-      /* Hiding Sidebar footer links */
+      // Hiding Sidebar footer links
       .#{$s}__footer-item {
         @extend %o-v-none;
         width: 0;
         flex: auto;
       }
 
-      /* Keep showing sidebar mini toggle button */
+      // Keep showing sidebar mini toggle button
       .#{$s}__footer-item.mini {
         @extend %o-v-show;
         width: $sidebar-mini-width;
       }
-
     }
   }
 
@@ -187,7 +195,7 @@
     left: $sidebar-mini-width;
   }
 
-  /* Showing sidebar and its footer if body has class (.sidebar-is-open)*/
+  // Showing sidebar and its footer if body has class (.sidebar-is-open)
   &-is-open & {
     width: $sidebar-width;
     .#{$s}__footer {
@@ -200,13 +208,13 @@
     }
   }
 
-  /* Fixed sidebar */
+  // Fixed sidebar
   &-fixed & {
     position: fixed;
     left: $sidebar-width;
   }
 
-  /* Closed sidebar */
+  // Closed sidebar
   &-is-closed & {
     width: 0;
 
@@ -218,7 +226,7 @@
     }
   }
 
-  /* Sidebar mobile view */
+  // Sidebar mobile view
   .sidebar-mobile & {
     overflow-y: auto;
   }

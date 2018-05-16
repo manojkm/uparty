@@ -254,7 +254,7 @@ $dropdown-extended-theme-color: header !default; // Theme color applied to dropd
 
 // TOGGLERS ADJUSTMENTS
 // ======================================================
-// Navbar toggle button
+// Header Navbar toggle button - visible on mobile devices only
 $navbar-toggler-padding-y: 10px;
 $navbar-toggler-padding-x: 10px;
 
@@ -370,36 +370,39 @@ $page-title-padding-x: 0; // Left-right padding for 'page title' wrapper
 
 // SIDEBAR (section.sidebar)
 // ======================================================
-$sidebar-theme-scheme: sidebar !default; // Theme color applied to sidebar. Theme colors are retrieved from
-// active theme palette map that can be found in themes/theme-*
+$sidebar-theme-scheme: sidebar !default; // Theme color applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
 $sidebar-active-border-theme-scheme: primary !default; // Border color of active sidebar menu item
-
 $sidebar-width: 200px; // Width of sidebar
-$sidebar-brand-height: 50px; // Sidebar branding header height
-
 $sidebar-padding-y: 0px; // Sidebar top-bottom padding.
 $sidebar-padding-x: 10px; // Sidebar left-right padding
 
+// Sidebar brand/project image
+$sidebar-brand-height: 50px; // Sidebar branding header height
+
+// Sidebar heading
 $sidebar-header-title-font-size: $font-size-xs; // Font size of sidebar section headers (.sidebar__header)
 $sidebar-header-title-height: 30px;
 $sidebar-header-title-opacity: 0.7;
 
+// Sidebar item
 $sidebar-item-font-size: $font-size-base; // Sidebar menu item title font size (.sidebar__item > a).
 $sidebar-item-line-height: $lh-base;
 $sidebar-item-padding-y: 8px;
 $sidebar-item-padding-x: $sidebar-padding-x;
-$sidebar-item-arrow-margin-right: 10px; // Right margin for sidebar menu item arrow, so that there is space between sidebar and arrow.
+$sidebar-item-caret-margin-right: 10px; // Right margin for sidebar menu item caret, so that there is space between sidebar and caret.
 
-$sidebar-icon-width: 20px; // Width of sidebar menu icon
-$sidebar-icon-font-size: $sidebar-item-font-size; // Sidebar menu item icon font size (.sidebar__item-icon > i).
-$sidebar-icon-margin-right: 5px; // Right margin for sidebar icon, so that there is space between title and icon.
+// Sidebar item icons
+$sidebar-item-icon-width: 20px; // Width of sidebar menu icon
+$sidebar-item-icon-font-size: $sidebar-item-font-size; // Sidebar menu item icon font size (.sidebar__item-icon > i).
+$sidebar-item-icon-margin-right: 5px; // Right margin for sidebar icon, so that there is space between title and icon.
 
-$sidebar-submenu-font-size: $font-size-sm; // Sidebar sub menu item font size (.sidebar__child .sidebar__item > a).
+// Sidebar sub menu
+$sidebar-submenu-item-font-size: $font-size-sm; // Sidebar sub menu item font size (.sidebar__child .sidebar__item > a).
 $sidebar-submenu-item-padding-y: 4px;
 $sidebar-submenu-item-padding-x: $sidebar-padding-x;
 
-// Sidebar section divider adjustments (.sidebar__divider)
-$sidebar-divider-border: false;
+// Sidebar divider (.sidebar__divider)
+$enable-sidebar-divider-underline-type: false; // 'true' will disable the divider after-line type.
 $sidebar-divider-height: 0px;
 $sidebar-divider-margin-y: 0.5rem;
 $sidebar-divider-margin-x: 0px;
@@ -410,7 +413,7 @@ $sidebar-footer-active-theme-scheme: primary !default; // Color of active item
 $sidebar-footer-width: $sidebar-width; // Width of sidebar footer
 $sidebar-footer-height: 40px; // Height of sidebar footer
 $sidebar-footer-child-border-top-size: $border-thin; // Width of the top 'border'for submenu.
-$sidebar-footer-font-size: $sidebar-submenu-font-size; // Submenu item font size (.sidebar__footer-child .sidebar__footer-item > a).
+$sidebar-footer-font-size: $sidebar-submenu-item-font-size; // Submenu item font size (.sidebar__footer-child .sidebar__footer-item > a).
 $sidebar-footer-icon-font-size: 15px;
 
 // Mini sidebar adjustments
@@ -418,8 +421,8 @@ $sidebar-mini-width: 50px;
 $sidebar-mini-submenu-width: $sidebar-width;
 $sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
 
-// Mini-full sidebar adjustments
-$sidebar-mini-full-item-height: 40px;
+// Mini sidebar full height type adjustments
+$sidebar-mini-full-height-type: 40px;
 
 // BUTTONS
 // ======================================================

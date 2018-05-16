@@ -61,7 +61,7 @@
 // SET THEME COLORS
 // ======================================================
 // Retrieve 'main-colors' from theme color maps
-@function theme-colo1r($scheme, $tone) {
+@function theme-color($scheme, $tone) {
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {

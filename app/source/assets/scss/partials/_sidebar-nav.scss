@@ -1,11 +1,11 @@
 // ================================================================================================
-// File Name: sidebar-nav.scss
-// Description: Contains all the styles of sidebar navigation
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : sidebar-nav.scss
+// Description    : Contains all the styles of sidebar navigation
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
 // TODO https://gist.github.com/jareware/4738651
@@ -15,7 +15,7 @@
 .sidebar {
   $s: sidebar;
 
-  // Sidebar menu navigation
+  // Base styles
   &__nav {
     flex: 1;
     display: flex;
@@ -33,6 +33,7 @@
 
   }
 
+  // Sidebar heading
   &__header-title {
     @include transition;
     @include add-border(2px, transparent, left);
@@ -48,7 +49,7 @@
     opacity: $sidebar-header-title-opacity !important;
     position: relative;
 
-    @if bool($sidebar-divider-border) == false {
+    @if bool($enable-sidebar-divider-underline-type) == false {
       &:after {
         @include border-theme($sidebar-theme-scheme, 'xx-light', 'bottom');
         position: absolute;
@@ -62,51 +63,51 @@
     }
 
   }
-
+  // Sidebar divider
   &__divider {
     @include transition;
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
 
-    @if bool($sidebar-divider-border) == true {
+    @if bool($enable-sidebar-divider-underline-type) == true {
       @include border-theme($sidebar-theme-scheme, 'xx-light', 'top');
       border-top: 1px solid;
     }
   }
 
-  // Sidebar menu
+  // Sidebar menu item
   &__item {
     @include transition;
     @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
     position: relative;
     box-sizing: border-box;
 
-    // Sidebar menu links
+    // Sidebar menu item links
     > a {
       @include transition;
       @include text-theme($sidebar-theme-scheme, 'link-color');
       font-size: $sidebar-item-font-size;
       text-decoration: none;
-      padding: $sidebar-item-padding-y ($sidebar-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-item-padding-y $sidebar-item-padding-x;
+      padding: $sidebar-item-padding-y ($sidebar-item-padding-x + $sidebar-item-caret-margin-right) $sidebar-item-padding-y $sidebar-item-padding-x;
       line-height: $sidebar-item-line-height;
       display: flex;
       align-items: center;
       flex-direction: row;
 
       &.has-arrow::after {
-        right: $sidebar-item-arrow-margin-right;
+        right: $sidebar-item-caret-margin-right;
       }
     }
 
     // Sidebar menu icon before item title
     .#{$s}__item-icon {
-      margin-right: $sidebar-icon-margin-right;
+      margin-right: $sidebar-item-icon-margin-right;
       text-align: left;
-      width: $sidebar-icon-width;
+      width: $sidebar-item-icon-width;
       display: inline-block;
 
       > i {
-        font-size: $sidebar-icon-font-size;
+        font-size: $sidebar-item-icon-font-size;
       }
     }
 
@@ -160,9 +161,9 @@
         padding-bottom: 10px;
       }
       a {
-        font-size: $sidebar-submenu-font-size;
-        margin: 0 0 0 ($sidebar-icon-width + $sidebar-icon-margin-right);
-        padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-arrow-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
+        font-size: $sidebar-submenu-item-font-size;
+        margin: 0 0 0 ($sidebar-item-icon-width + $sidebar-item-icon-margin-right);
+        padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-caret-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
       }
     }
 
@@ -173,7 +174,7 @@
           padding-bottom: 0;
         }
         a {
-          margin: 0 0 0 ($sidebar-icon-width + $sidebar-icon-margin-right + 15);
+          margin: 0 0 0 ($sidebar-item-icon-width + $sidebar-item-icon-margin-right + 15);
         }
       }
 
@@ -181,7 +182,7 @@
       .#{$s}__child {
         .#{$s}__item {
           a {
-            margin: 0 0 0 ($sidebar-icon-width + $sidebar-icon-margin-right + 30);
+            margin: 0 0 0 ($sidebar-item-icon-width + $sidebar-item-icon-margin-right + 30);
           }
         }
       }
@@ -246,7 +247,7 @@
 
     }
 
-    // Submenu - First level
+    // Sub menu - First level
     > .#{$s}__child {
       //@include transition;
       //transform: translateY(50px);
@@ -281,7 +282,7 @@
 
   }
 
-  // Show submenu item title on active
+  // Show sub menu item title on active
   &__nav > ul > .#{$s}__item:not(.has-button) {
     //&:hover
     &.show {
@@ -303,6 +304,10 @@
   }
 }
 
+
+// MINI SIDEBAR FULL HEIGHT TYPE
+// ======================================================
+
 .sidebar-mini.sidebar-mini-full {
   $s: sidebar;
   .sidebar {
@@ -312,14 +317,14 @@
         > a {
           .#{$s}__item-title {
             top: $header-height;
-            height: $sidebar-mini-full-item-height;
+            height: $sidebar-mini-full-height-type;
             padding: 0 $sidebar-item-padding-x;
             display: flex;
             align-items: center;
           }
         }
         > .#{$s}__child {
-          top: $header-height + $sidebar-mini-full-item-height;
+          top: $header-height + $sidebar-mini-full-height-type;
           bottom: 0;
           overflow-y: auto;
           padding-bottom: $footer-min-height;
