@@ -23,7 +23,7 @@
 
   .chosen-drop {
     @include transition;
-    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
     animation-duration: 0.5s;
     animation-delay: 0s;
     z-index: map-get($zindex, chosen-drop);
@@ -65,7 +65,7 @@
 
   }
   .chosen-default {
-    color: $input-color-placeholder!important;
+    color: $input-placeholder-color!important;
   }
   .chosen-single span {
 
@@ -293,7 +293,7 @@
         //line-height: normal;
         //border-radius: 0;
         //width: 25px;
-        color: $input-color-placeholder;
+        color: $input-placeholder-color;
         font-size: $input-font-size;
       }
     }
@@ -383,7 +383,7 @@
     //display: list-item;
     //color: #ccc;
     //cursor: default;
-    color: $input-color-placeholder;
+    color: $input-placeholder-color;
   }
 
   .chosen-drop {
@@ -402,7 +402,7 @@
     //border: 1px solid #5897fb;
     //box-shadow: 0 0 5px rgba(#000,.3);
     //border-color: $input-focus-border-color;
-    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
     box-shadow: none;
 
   }
@@ -417,7 +417,7 @@
       //box-shadow: 0 1px 0 #fff inset;
 
       //border-color: $input-focus-border-color;
-      @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+      @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
       box-shadow: none;
       background-image: none;
     }
@@ -434,7 +434,7 @@
     //border: 1px solid #5897fb;
     //box-shadow: 0 0 5px rgba(#000,.3);
     //border-color: $input-focus-border-color;
-    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
     box-shadow: none;
 
     li.search-field input[type="text"] {

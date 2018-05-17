@@ -146,7 +146,7 @@
     padding: $sidebar-padding-y $sidebar-padding-x;
   }
 
-  // Submenu - First level
+  // Sub menu - First level
   &__child {
     @include background-theme($sidebar-theme-scheme, 'dark');
 
@@ -282,7 +282,7 @@
 
   }
 
-  // Show sub menu item title on active
+  // Show sub menu item title on hover
   &__nav > ul > .#{$s}__item:not(.has-button) {
     //&:hover
     &.show {

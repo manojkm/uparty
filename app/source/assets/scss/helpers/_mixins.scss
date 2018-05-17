@@ -801,10 +801,10 @@
   &:focus {
     //@include transition;
     color: $input-focus-color;
-    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
     box-shadow: none;
     &:hover {
-      @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+      @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
     }
   }
 }

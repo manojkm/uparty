@@ -227,19 +227,19 @@
     @include transition;
     color: $input-focus-color;
     //border-color: $input-focus-border-color;
-    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
     box-shadow: none;
 
     &:after {
       background: $custom-file-button-focus-bg;
       //border-color: $input-focus-border-color;
     }
-    @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+    @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
 
     /* Set the border color to the focused state border color when the input is also hovered. */
     &:hover {
       //border-color: $input-focus-border-color;
-      @include border-theme($input-focus-border-theme-color, $input-focus-border-theme-color-tone);
+      @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
     }
   }
 

@@ -27,7 +27,7 @@
   @include form-control-focus();
 
   &::placeholder {
-    color: $input-color-placeholder;
+    color: $input-placeholder-color;
   }
 
   @include form-control-disabled();
@@ -172,6 +172,7 @@ select.form-control-lg {
 // ======================================================
 // Valid
 @include form-validation-state("valid", $form-feedback-valid-color);
+//@warn '';
 
 // In valid
 @include form-validation-state("invalid", $form-feedback-invalid-color);
