@@ -29,7 +29,7 @@
   $cc: custom-control;
   &:checked ~ .#{$cc}-label::before {
     @include background-theme($custom-control-indicator-checked-bg);
-    color: $custom-control-indicator-color;
+    color: $custom-control-indicator-checked-color;
     box-shadow: none;
     border-color: transparent;
   }
@@ -48,7 +48,7 @@
   &:disabled {
 
     ~ .#{$cc}-label {
-      color: $custom-control-description-disabled-color;
+      color: $custom-control-label-disabled-color;
       cursor: not-allowed;
 
       &::before {
@@ -183,7 +183,7 @@
     // For visual consistency with IE.
     &::-ms-value {
       color: $input-color;
-      background-color: $input-bg;
+      background-color: $input-background-color;
     }
   }
 
@@ -257,13 +257,13 @@
 
   &:disabled + .custom-file-label {
     @include opacity(0.8);
-    border-color: $input-border-disabled;
-    background-color: $input-bg-disabled;
-    color: $input-color-disabled;
+    border-color: $input-disabled-border-color;
+    background-color: $input-disabled-background-color;
+    color: $input-disabled-color;
 
     &:before {
-      //background: $input-bg-disabled;
-      border-color: $input-border-disabled;
+      //background: $input-disabled-background-color;
+      border-color: $input-disabled-border-color;
     }
 
   }

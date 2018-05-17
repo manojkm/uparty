@@ -19,7 +19,7 @@
   font-weight: $btn-font-weight;
   padding: $btn-padding-y $btn-padding-x;
   line-height: $btn-line-height;
-  background-color: $input-bg;
+  background-color: $input-background-color;
   color: $input-color;
   //height: $input-height;
 
@@ -33,7 +33,7 @@
   @include form-control-disabled();
 
   &.input-round {
-    @include border-radius($input-radius-round);
+    @include border-radius($input-round-radius);
   }
 }
 
@@ -64,7 +64,7 @@ select.form-control {
 
   &:focus::-ms-value {
     color: $input-color;
-    background-color: $input-bg;
+    background-color: $input-background-color;
   }
 }
 
@@ -108,7 +108,7 @@ form {
 .required-field {
 
   &::after {
-    @include text-theme($required-field-color);
+    @include text-theme($required-field-theme-scheme);
     margin: -.2em 0 0 .2em;
     content: '*';
     top: 0;

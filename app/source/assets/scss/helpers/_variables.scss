@@ -208,83 +208,83 @@ $body-bg-color: $white-color; // Background color for <body>.
 
 // HEADER & NAVBAR
 // ======================================================
-$header-height: 50px;
-$navbar-font-size: $font-size-sm;
-$navbar-font-weight: $font-wh-normal;
-$navbar-text-font-size: $navbar-font-size;
-$navbar-text-font-weight: $font-wh-normal;
-$navbar-item-mobile-bottom-border: true;
+$header-height:                         50px;
+$navbar-font-size:                      $font-size-sm;
+$navbar-font-weight:                    $font-wh-normal;
+$navbar-text-font-size:                 $navbar-font-size;
+$navbar-text-font-weight:               $font-wh-normal;
+$navbar-item-mobile-bottom-border:      true;
 
 // DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 // ======================================================
-$dropdown-width: 200px; // Dropdown menu container width.
-$dropdown-min-width: 160px;
-$dropdown-max-width: 320px;
-$dropdown-bg: $white-color; // Background for the dropdown menu container.
-$dropdown-border-radius: $border-radius-md; // Dropdown menu container border radius.
+$dropdown-width:                        200px; // Dropdown menu container width.
+$dropdown-min-width:                    160px;
+$dropdown-max-width:                    320px;
+$dropdown-background-color:             $white-color; // Background for the dropdown menu container.
+$dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius.
 
-$dropdown-font-size: 13px; // Dropdown menu item font size.
-$dropdown-header-font-size: 11px; // Dropdown section headers font size.
+$dropdown-font-size:                    13px; // Dropdown menu item font size.
+$dropdown-header-font-size:             11px; // Dropdown section headers font size.
 
-$dropdown-margin-top: 15px; // Positioning first level dropdown menu.
-$dropdown-padding-y: 5px; // Dropdown menu container top-bottom padding.
-$dropdown-padding-x: 0px; // Dropdown menu container left-right padding.
+$dropdown-margin-top:                   15px; // Positioning first level dropdown menu.
+$dropdown-padding-y:                    5px; // Dropdown menu container top-bottom padding.
+$dropdown-padding-x:                    0px; // Dropdown menu container left-right padding.
 
-$dropdown-item-padding-y: 8px; // Dropdown menu item top-bottom padding.
-$dropdown-item-padding-x: 12px; // Dropdown menu item left-right padding.
+$dropdown-item-padding-y:               8px; // Dropdown menu item top-bottom padding.
+$dropdown-item-padding-x:               12px; // Dropdown menu item left-right padding.
 
-$dropdown-link-color: $gray-800; // Dropdown link & icon text color.
+$dropdown-link-color:                   $gray-800; // Dropdown link & icon text color.
 
-$dropdown-link-hover-color: $gray-900; // Hover color for dropdown links.
-$dropdown-link-hover-bg: $gray-300; // Hover background for dropdown links.
+$dropdown-link-hover-color:             $gray-900; // Hover color for dropdown links.
+$dropdown-link-hover-bg:                $gray-300; // Hover background for dropdown links.
 
-$dropdown-link-active-color: $gray-900; // Active dropdown menu item text color.
-$dropdown-link-active-bg: $gray-300; // Active dropdown menu item background color.
+$dropdown-link-active-color:            $gray-900; // Active dropdown menu item text color.
+$dropdown-link-active-bg:               $gray-300; // Active dropdown menu item background color.
 
-$dropdown-link-disabled-color-opacity: 0.6; // Disabled dropdown menu item text color/opacity.
+$dropdown-link-opacity-disabled-color:  0.6; // Disabled dropdown menu item text color/opacity.
 
-$dropdown-divider-color: $gray-400; // Divider color for between dropdown items.
-$dropdown-divider-border-width: $border-thin !default; // Border width of divider between dropdown items.
+$dropdown-divider-color:                $gray-400; // Divider color for between dropdown items.
+$dropdown-divider-border-width:         $border-thin !default; // Border width of divider between dropdown items.
 
-$dropdown-icon-width: 20px; // Dropdown menu item icon width for perfect alignment between icons and text.
+$dropdown-icon-width:                   20px; // Dropdown menu item icon width for perfect alignment between icons and text.
 
 // BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 // ======================================================
-$dropdown-extended-theme-color: header !default; // Theme color applied to dropdown. Theme colors are retrieved
+$dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. Theme colors are retrieved
 // from active theme palette map that can be found in themes/theme-*
 
 // TOGGLERS ADJUSTMENTS
 // ======================================================
 // Header Navbar toggle button - visible on mobile devices only
-$navbar-toggler-padding-y: 10px;
-$navbar-toggler-padding-x: 10px;
+$navbar-toggler-padding-y:              10px;
+$navbar-toggler-padding-x:              10px;
 
 // Sidebar toggle button
-$sidebar-toggler-height: $header-height - 10;
-$sidebar-toggler-padding-y: 0px;
-$sidebar-toggler-padding-x: 10px;
+$sidebar-toggler-height:                $header-height - 10;
+$sidebar-toggler-padding-y:             0px;
+$sidebar-toggler-padding-x:             10px;
 
 // Aside toggle button
-$aside-toggler-height: $header-height;
-$aside-toggler-padding-y: 10px;
-$aside-toggler-padding-x: 10px;
+$aside-toggler-height:                  $header-height;
+$aside-toggler-padding-y:               10px;
+$aside-toggler-padding-x:               10px;
 
 // SEARCH
 // ======================================================
 
 // PADDINGS //TODO, not using anywhere.. remove later if required.
 // ======================================================
-$padding-base-y: .5rem !default;
-$padding-base-x: .7rem !default;
+$padding-base-y:                        .5rem !default;
+$padding-base-x:                        .7rem !default;
 
-$padding-simple-y: 10px !default;
-$padding-simple-x: 17px !default;
+$padding-simple-y:                      10px !default;
+$padding-simple-x:                      17px !default;
 
-$padding-large-y: 15px !default;
-$padding-large-x: 48px !default;
+$padding-large-y:                       15px !default;
+$padding-large-x:                       48px !default;
 
-$padding-small-y: 5px !default;
-$padding-small-x: 15px !default;
+$padding-small-y:                       5px !default;
+$padding-small-x:                       15px !default;
 
 // SHADOWS //TODO, make the below perfect later
 // ======================================================
@@ -306,54 +306,54 @@ $slider-base-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 // ======================================================
 $breadcrumb-bg: $white-color !default; // Breadcrumb background color.
 
-$breadcrumb-border-radius: $border-radius-md !default;
-$breadcrumb-border-size: $border-thin;
-$breadcrumb-border-color: $gray-400 !default;
+$breadcrumb-border-radius:              $border-radius-md !default;
+$breadcrumb-border-size:                $border-thin;
+$breadcrumb-border-color:               $gray-400 !default;
 
-$breadcrumb-item-padding-y: .40rem !default; // Breadcrumb item top-bottom padding.
-$breadcrumb-item-padding-x: .85rem !default; // Breadcrumb item left-right padding.
+$breadcrumb-item-padding-y:             .40rem !default; // Breadcrumb item top-bottom padding.
+$breadcrumb-item-padding-x:             .85rem !default; // Breadcrumb item left-right padding.
 
-$breadcrumb-font-size: $font-size-sm !default;
-$breadcrumb-color: $gray-700 !default; // Breadcrumb text color.
-$breadcrumb-line-height: $lh-sm !default;
-$breadcrumb-active-color: $gray-600 !default; // Text color of current page in the breadcrumb.
+$breadcrumb-font-size:                  $font-size-sm !default;
+$breadcrumb-color:                      $gray-700 !default; // Breadcrumb text color.
+$breadcrumb-line-height:                $lh-sm !default;
+$breadcrumb-active-color:               $gray-600 !default; // Text color of current page in the breadcrumb.
 
-$breadcrumb-divider: "/" !default; // Textual separator for between breadcrumb elements.
-$breadcrumb-divider-color: $gray-500 !default; // Textual separator color between breadcrumb elements.
-$breadcrumb-divider-angle-right: "\f054" !default; // Textual separator type.
+$breadcrumb-divider:                    "/" !default; // Textual separator for between breadcrumb elements.
+$breadcrumb-divider-color:              $gray-500 !default; // Textual separator color between breadcrumb elements.
+$breadcrumb-divider-angle-right:        "\f054" !default; // Textual separator type.
 $breadcrumb-divider-angle-double-right: "\f061" !default; // Textual separator type.
-$breadcrumb-divider-caret-right: "\f0da" !default; // Textual separator type.
+$breadcrumb-divider-caret-right:        "\f0da" !default; // Textual separator type.
 
-$breadcrumb-link-theme-scheme: primary !default; // Breadcrumb link text theme scheme.
-$breadcrumb-link-hover-theme-tone: dark !default; // Hover theme tone for breadcrumb links.
+$breadcrumb-link-theme-scheme:          primary !default; // Theme color scheme applied to breadcrumb link text theme scheme.
+$breadcrumb-link-hover-theme-tone:      dark !default; // Theme color tone applied to breadcrumb links on hover.
 
-$breadcrumb-inner-size: ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
-$breadcrumb-size: calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
+$breadcrumb-inner-size:                 ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
+$breadcrumb-size:                       calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
 
 // Breadcrumb extended(ext) - Arrow type
-$breadcrumb-ext-bg: $white-color !default; // Breadcrumb container background color.
-$breadcrumb-ext-border-color: $gray-300 !default; // Breadcrumb container border color.
-$breadcrumb-ext-item-hover-bg: $gray-100 !default; // Hover background color for breadcrumb item.
-$breadcrumb-ext-arrow-bg: $breadcrumb-ext-bg !default; // Breadcrumb arrow background color.
-$breadcrumb-ext-arrow-hover-border-color: $gray-500 !default; // Hover color for breadcrumb arrow.
-$breadcrumb-ext-top-bottom-border-size: $breadcrumb-size !default; // Computed size to fit the arrow edges perfectly inside the container.
-$breadcrumb-ext-left-border-size: 10px !default; // Breadcrumb arrow extending out size.
+$breadcrumb-ext-bg:                             $white-color !default; // Breadcrumb container background color.
+$breadcrumb-ext-border-color:                   $gray-300 !default; // Breadcrumb container border color.
+$breadcrumb-ext-item-hover-bg:                  $gray-100 !default; // Hover background color for breadcrumb item.
+$breadcrumb-ext-arrow-bg:                       $breadcrumb-ext-bg !default; // Breadcrumb arrow background color.
+$breadcrumb-ext-arrow-hover-border-color:       $gray-500 !default; // Hover color for breadcrumb arrow.
+$breadcrumb-ext-top-bottom-border-size:         $breadcrumb-size !default; // Computed size to fit the arrow edges perfectly inside the container.
+$breadcrumb-ext-left-border-size:               10px !default; // Breadcrumb arrow extending out size.
 
 // Breadcrumb extended(ext) - Arrow wrap type
-$breadcrumb-ext-wrap-bg: $white-color !default; // Breadcrumb container background color.
-$breadcrumb-ext-wrap-item-bg: $gray-200 !default; // Breadcrumb item background color for previous pages.
-$breadcrumb-ext-wrap-color: $gray-600 !default; // Breadcrumb item text color for previous pages.
-$breadcrumb-ext-wrap-left-border-color: $breadcrumb-ext-wrap-bg !default; // Breadcrumb arrow separator background color.
+$breadcrumb-ext-wrap-bg:                        $white-color !default; // Breadcrumb container background color.
+$breadcrumb-ext-wrap-item-bg:                   $gray-200 !default; // Breadcrumb item background color for previous pages.
+$breadcrumb-ext-wrap-color:                     $gray-600 !default; // Breadcrumb item text color for previous pages.
+$breadcrumb-ext-wrap-left-border-color:         $breadcrumb-ext-wrap-bg !default; // Breadcrumb arrow separator background color.
 
 // Breadcrumb extended(ext) - Arrow wizard type
-$breadcrumb-wizard-completed-theme-scheme: primary !default; // Background color of completed step in the breadcrumb.
-$breadcrumb-wizard-active-theme-scheme: secondary !default; // Background color of current step in the breadcrumb.
-$breadcrumb-wizard-incomplete-bg: $gray-200 !default; // Background color of next/incomplete step in the breadcrumb.
-$breadcrumb-wizard-incomplete-color: $gray-600 !default; // Text color of next/incomplete step in the breadcrumb.
+$breadcrumb-wizard-completed-theme-scheme:      primary !default; //  Theme color scheme applied to background color of completed step in the breadcrumb.
+$breadcrumb-wizard-active-theme-scheme:         secondary !default; // Theme color scheme applied to background color of current step in the breadcrumb.
+$breadcrumb-wizard-incomplete-bg:               $gray-200 !default; // Background color of next/incomplete step in the breadcrumb.
+$breadcrumb-wizard-incomplete-color:            $gray-600 !default; // Text color of next/incomplete step in the breadcrumb.
 
 // Breadcrumb type with menu on the end
-$breadcrumb-menu-color: $gray-600 !default; // Breadcrumb item text color
-$breadcrumb-menu-hover-color: $gray-800 !default; // Hover text color for breadcrumb item.
+$breadcrumb-menu-color:                 $gray-600 !default; // Breadcrumb item text color
+$breadcrumb-menu-hover-color:           $gray-800 !default; // Hover text color for breadcrumb item.
 
 // ============================================================================================================
 // LAYOUT VARIABLES
@@ -361,106 +361,106 @@ $breadcrumb-menu-hover-color: $gray-800 !default; // Hover text color for breadc
 
 // MAIN CONTENT WRAPPERS (main.content)
 // ======================================================
-$main-content-padding-y: 20px; // Top-bottom padding for 'main content' wrapper
-$main-content-padding-x: 0; // Left-right padding for 'main content' wrapper
+$main-content-padding-y:                20px; // Top-bottom padding for 'main content' wrapper
+$main-content-padding-x:                0; // Left-right padding for 'main content' wrapper
 
 // PAGE TITLE WRAPPERS (.content__page-title)
 // ======================================================
-$page-title-padding-y: 20px; // Top-bottom padding for 'page title' wrapper
-$page-title-padding-x: 0; // Left-right padding for 'page title' wrapper
+$page-title-padding-y:                  20px; // Top-bottom padding for 'page title' wrapper
+$page-title-padding-x:                  0; // Left-right padding for 'page title' wrapper
 
 // SIDEBAR (section.sidebar)
 // ======================================================
-$sidebar-theme-scheme: sidebar !default; // Theme color applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
-$sidebar-active-border-theme-scheme: primary !default; // Border color of active sidebar menu item
-$sidebar-width: 200px; // Width of sidebar
-$sidebar-padding-y: 0px; // Sidebar top-bottom padding.
-$sidebar-padding-x: 10px; // Sidebar left-right padding
+$sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
+$sidebar-active-border-theme-scheme:    primary !default;  // Theme color scheme applied to active sidebar menu item
+$sidebar-width:                         200px; // Width of sidebar
+$sidebar-padding-y:                     0px; // Sidebar top-bottom padding.
+$sidebar-padding-x:                     10px; // Sidebar left-right padding
 
 // Sidebar brand/project image
-$sidebar-brand-height: 50px; // Sidebar branding header height
+$sidebar-brand-height:                  50px; // Sidebar branding header height
 
 // Sidebar item heading
-$sidebar-item-header-font-size: $font-size-xs; // Font size of sidebar section headers (.sidebar__item-header)
-$sidebar-item-header-height: 30px;
-$sidebar-item-header-opacity: 0.7;
+$sidebar-item-header-font-size:         $font-size-xs; // Font size of sidebar section headers (.sidebar__item-header)
+$sidebar-item-header-height:            30px;
+$sidebar-item-header-opacity:           0.7;
 
 // Sidebar item
-$sidebar-item-font-size: $font-size-base; // Sidebar menu item title font size (.sidebar__item > a).
-$sidebar-item-line-height: $lh-base;
-$sidebar-item-padding-y: 8px;
-$sidebar-item-padding-x: $sidebar-padding-x;
-$sidebar-item-caret-margin-right: 10px; // Right margin for sidebar menu item caret, so that there is space between sidebar and caret.
+$sidebar-item-font-size:                $font-size-base; // Sidebar menu item title font size (.sidebar__item > a).
+$sidebar-item-line-height:              $lh-base;
+$sidebar-item-padding-y:                8px;
+$sidebar-item-padding-x:                $sidebar-padding-x;
+$sidebar-item-caret-margin-right:       10px; // Right margin for sidebar menu item caret, so that there is space between sidebar and caret.
 
 // Sidebar item icon
-$sidebar-item-icon-width: 20px; // Width of sidebar menu icon
-$sidebar-item-icon-font-size: $sidebar-item-font-size; // Sidebar menu item icon font size (.sidebar__item-icon > i).
-$sidebar-item-icon-margin-right: 5px; // Right margin for sidebar icon, so that there is space between title and icon.
+$sidebar-item-icon-width:               20px; // Width of sidebar menu icon
+$sidebar-item-icon-font-size:           $sidebar-item-font-size; // Sidebar menu item icon font size (.sidebar__item-icon > i).
+$sidebar-item-icon-margin-right:        5px; // Right margin for sidebar icon, so that there is space between title and icon.
 
 // Sidebar sub menu
-$sidebar-submenu-item-font-size: $font-size-sm; // Sidebar sub menu item font size (.sidebar__child .sidebar__item > a).
-$sidebar-submenu-item-padding-y: 4px;
-$sidebar-submenu-item-padding-x: $sidebar-padding-x;
+$sidebar-submenu-item-font-size:        $font-size-sm; // Sidebar sub menu item font size (.sidebar__child .sidebar__item > a).
+$sidebar-submenu-item-padding-y:        4px;
+$sidebar-submenu-item-padding-x:        $sidebar-padding-x;
 
 // Sidebar divider (.sidebar__divider)
 $enable-sidebar-divider-underline-type: false; // 'true' will disable the divider after-line type.
-$sidebar-divider-height: 0px;
-$sidebar-divider-margin-y: 0.5rem;
-$sidebar-divider-margin-x: 0px;
+$sidebar-divider-height:                0px;
+$sidebar-divider-margin-y:              0.5rem;
+$sidebar-divider-margin-x:              0px;
 
 // Sidebar footer
-$sidebar-footer-theme-color: $sidebar-theme-scheme !default; // Theme color applied to sidebar footer. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
-$sidebar-footer-active-theme-scheme: primary !default; // Theme color scheme of active item
-$sidebar-footer-width: $sidebar-width; // Width of sidebar footer
-$sidebar-footer-height: 40px; // Height of sidebar footer
-$sidebar-footer-child-border-top-size: $border-thin; // Width of the top 'border'for submenu.
-$sidebar-footer-font-size: $sidebar-submenu-item-font-size; // Submenu item font size (.sidebar__footer-child .sidebar__footer-item > a).
-$sidebar-footer-icon-font-size: 15px;
+$sidebar-footer-theme-color:            $sidebar-theme-scheme !default; // Theme color applied to sidebar footer. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
+$sidebar-footer-active-theme-scheme:    primary !default; // Theme color scheme applied to active item
+$sidebar-footer-width:                  $sidebar-width; // Width of sidebar footer
+$sidebar-footer-height:                 40px; // Height of sidebar footer
+$sidebar-footer-child-border-top-size:  $border-thin; // Width of the top 'border'for submenu.
+$sidebar-footer-font-size:              $sidebar-submenu-item-font-size; // Submenu item font size (.sidebar__footer-child .sidebar__footer-item > a).
+$sidebar-footer-icon-font-size:         15px;
 
 // Mini sidebar adjustments
-$sidebar-mini-width: 50px;
-$sidebar-mini-submenu-width: $sidebar-width;
-$sidebar-mini-active-menu-width: $sidebar-width + $sidebar-mini-width;
+$sidebar-mini-width:                    50px;
+$sidebar-mini-submenu-width:            $sidebar-width;
+$sidebar-mini-active-menu-width:        $sidebar-width + $sidebar-mini-width;
 
 // Mini sidebar 'full' type adjustments
-$sidebar-mini-full-item-height: 40px;
+$sidebar-mini-full-item-height:         40px;
 
 // BUTTONS
 // ======================================================
-$btn-border-size: $border-thin !default;
-$btn-font-weight: $font-wh-normal !default;
+$btn-border-size:                       $border-thin !default;
+$btn-font-weight:                       $font-wh-normal !default;
 
 // Button with icon (.has-icon-left / .has-icon-right)
-$btn-icon-padding-left: 5px !default;
-$btn-icon-padding-right: 5px !default;
-$btn-icon-lh: 1 !default;
+$btn-icon-padding-left:                 5px !default;
+$btn-icon-padding-right:                5px !default;
+$btn-icon-lh:                           1 !default;
 
 // Small button (.btn-sm)
-$btn-font-size-sm: $font-size-sm;
-$btn-padding-y-sm: 0.25rem !default; // 4px
-$btn-padding-x-sm: 0.5rem !default; // 8px
-$btn-min-width-sm: 80px !default;
-$btn-min-height-sm: 0px !default;
-$btn-line-height-sm: $lh-sm !default;
-$btn-radius-sm: $border-radius-sm;
+$btn-font-size-sm:                      $font-size-sm;
+$btn-padding-y-sm:                      0.25rem !default; // 4px
+$btn-padding-x-sm:                      0.5rem !default; // 8px
+$btn-min-width-sm:                      80px !default;
+$btn-min-height-sm:                     0px !default;
+$btn-line-height-sm:                    $lh-sm !default;
+$btn-radius-sm:                         $border-radius-sm;
 
 // Regular button (.btn)
-$btn-font-size: $font-size-base !default;
-$btn-padding-y: 0.375rem !default; // 6px
-$btn-padding-x: 0.75rem !default; // 12px
-$btn-min-width: 100px !default;
-$btn-min-height: 0px !default;
-$btn-line-height: $lh-base !default;
-$btn-radius: $border-radius-md !default;
+$btn-font-size:                         $font-size-base !default;
+$btn-padding-y:                         0.375rem !default; // 6px
+$btn-padding-x:                         0.75rem !default; // 12px
+$btn-min-width:                         100px !default;
+$btn-min-height:                        0px !default;
+$btn-line-height:                       $lh-base !default;
+$btn-radius:                            $border-radius-md !default;
 
 // Large button (.btn-lg)
-$btn-font-size-lg: $font-size-lg !default;
-$btn-padding-y-lg: 0.5rem !default; // 8px
-$btn-padding-x-lg: 1rem !default; // 16px
-$btn-min-width-lg: 120px !default;
-$btn-min-height-lg: 0px !default;
-$btn-line-height-lg: $lh-lg !default;
-$btn-radius-lg: $border-radius-lg;
+$btn-font-size-lg:                      $font-size-lg !default;
+$btn-padding-y-lg:                      0.5rem !default; // 8px
+$btn-padding-x-lg:                      1rem !default; // 16px
+$btn-min-width-lg:                      120px !default;
+$btn-min-height-lg:                     0px !default;
+$btn-line-height-lg:                    $lh-lg !default;
+$btn-radius-lg:                         $border-radius-lg;
 
 // Extra Large button (.btn-xl)
 $btn-font-size-xl:                      $font-size-xl !default;
@@ -471,10 +471,10 @@ $btn-min-height-xl:                     0px !default;
 $btn-line-height-xl:                    $lh-xl !default;
 $btn-radius-xl:                         $border-radius-xl;
 
-// Round button radius (.btn-round)
-$btn-radius-round:                      30px;
+// Rounded button type (.btn-round)
+$btn-round-radius:                      30px;
 
-// Raised button (.btn-raised)
+// Raised button type (.btn-raised)
 $btn-raised-box-shadow-y-offset:        5px;
 $btn-raised-box-shadow-y-offset-hover:  7px;
 
@@ -520,22 +520,22 @@ $mark-underline-height-xl:              1rem; // 16px
 
 // FORMS
 // ======================================================
-$input-bg:                              $white-color; // <input> background color
+$input-background-color:                $white-color; // <input> background color
 $input-color:                           $gray-700; // Text color for inputs
 $input-label-color:                     $gray-800; // Text color for inputs labels and legends.
 $input-placeholder-color:               $gray-500; // Placeholder text color
-$input-radius-round:                    $btn-radius-round; // Rounded input (.form-control.input-round) border radius
+$input-round-radius:                    $btn-round-radius; // Rounded input (.form-control.input-round) type border radius
 $input-border-color:                    $gray-400; // Border color for inputs
 $input-border-size:                     $border-thin; // '.form-control' border size/width
 $input-focus-color:                     $gray-700; // Text color for inputs on focus
-$input-focus-border-theme-scheme:       primary !default; // Border theme scheme for inputs on focus
-$input-focus-border-theme-tone:         base !default; // Border theme tone for inputs on focus
+$input-focus-border-theme-scheme:       primary !default; // Theme color scheme applied to border of inputs on focus
+$input-focus-border-theme-tone:         base !default; // Theme color tone applied to border of inputs on focus
 $input-hover-border-color:              $gray-500; // Border color for inputs on hover
 
 // Disabled state
-$input-color-disabled:                  $gray-600;
-$input-border-disabled:                 $gray-300;
-$input-bg-disabled:                     $gray-200;
+$input-disabled-color:                  $gray-600;
+$input-disabled-border-color:           $gray-300;
+$input-disabled-background-color:       $gray-200;
 
 // Input group
 $input-addon-color:                     $gray-700; // Color for textual input group’s addons
@@ -545,62 +545,60 @@ $input-addon-min-width:                 40px; // Minimum width of input group’
 
 $input-height-border:                   $input-border-size * 2 !default; // Required to compute input height
 
-// Small input'.form-control-sm'
+// Small input (.form-control-sm)
 $input-font-size-sm:                    $font-size-sm !default;
 $input-border-radius-sm:                $border-radius-sm !default;
 $input-height-inner-sm:                 ($font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
 $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default; // Computing height
 
-// Regular (Default) input '.form-control'
+// Regular (Default) input (.form-control)
 $input-font-size:                       $font-size-base !default;
 $input-border-radius:                   $border-radius-md !default;
 $input-height-inner:                    ($font-size-base * $btn-line-height) + ($btn-padding-y * 2) !default;
 $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default; // Computing height
 
-// Large input '.form-control-lg'
+// Large input (.form-control-lg)
 $input-font-size-lg:                    $font-size-lg !default;
 $input-border-radius-lg:                $border-radius-lg !default;
 $input-height-inner-lg:                 ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default; // Computing height
 
 // Validation
-$form-feedback-valid-color:             contextual-color(success); // Retrieve valid color from theme palette map
-$form-feedback-invalid-color:           contextual-color(danger); // In valid color
+$form-feedback-valid-color:             contextual-color(success); // Retrieve 'success' color from contextual color map ($contextual-palette-map)
+$form-feedback-invalid-color:           contextual-color(danger); // Retrieve 'danger' color from contextual color map ($contextual-palette-map)
 
 // Required field
-$required-field-color:                  danger;
+$required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk symbol
 
 // CUSTOM FORMS
 // ======================================================
-$custom-control-indicator-color: $white-color;
-$custom-control-indicator-active-color: $white-color;
-$custom-control-indicator-checked-bg: success;
-$custom-control-indicator-active-bg: lighten(contextual-color(success), 25%) !default;
+$custom-control-indicator-size:                         1rem !default;
+$custom-control-indicator-bg:                           $white-color !default; // Background color for checkboxes and radios
+$custom-control-indicator-bg-size:                      50% 50% !default;
+$custom-control-indicator-border-size:                  $border-thin;
+$custom-control-indicator-border-color:                 $input-border-color; // Border color for checkboxes and radios
 
-$custom-control-indicator-size: 1rem !default;
-$custom-control-indicator-bg: $white-color !default;
-$custom-control-indicator-bg-size: 50% 50% !default;
-$custom-control-indicator-border-size: $border-thin;
-$custom-control-indicator-border-color: $input-border-color;
+$custom-control-indicator-checked-color:                $white-color;
+$custom-control-indicator-checked-bg:                   success !default; // Contextual color scheme applied to checked/selected checkboxes and radios
+$custom-control-indicator-active-color:                 $white-color;
+$custom-control-indicator-active-bg:                    lighten(contextual-color(success), 25%) !default; // Contextual color scheme applied to active state checkboxes and radios
 
-/* Description */
-$custom-control-description-disabled-color: lighten($input-label-color, 25%) !default;
+// Disabled state
+$custom-control-indicator-disabled-bg:                  $input-disabled-background-color !default;
+$custom-control-indicator-disabled-color:               $input-disabled-color;
+$custom-control-indicator-disabled-border-color:        $input-disabled-border-color;
+$custom-control-label-disabled-color:                   lighten($input-label-color, 25%) !default;
 
-/* Disabled state */
-$custom-control-indicator-disabled-bg: $input-bg-disabled !default;
-$custom-control-indicator-disabled-color: $input-color-disabled;
-$custom-control-indicator-disabled-border-color: $input-border-disabled;
+// Checkbox
+$custom-checkbox-indicator-border-radius:               $border-radius-sm; // Border radius for default custom checkbox
+$custom-checkbox-rounded-indicator-border-radius:       $border-radius-100; // Border radius for custom circled/rounded type checkbox (.custom-checkbox .rounded)
+$custom-checkbox-indicator-disabled-checked-color:      lighten($input-disabled-color, 15%) !default; // Checked + disabled state color
+$custom-checkbox-indicator-disabled-icon-checked:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$custom-checkbox-indicator-disabled-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-/* Checkbox */
-$custom-checkbox-indicator-border-radius: $border-radius-sm;
-$custom-checkbox-rounded-indicator-border-radius: $border-radius-100;
-$custom-checkbox-indicator-disabled-checked-color: lighten($input-color-disabled, 15%) !default;
-$custom-checkbox-indicator-disabled-icon-checked: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$custom-checkbox-indicator-disabled-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23") !default;
-
-/* Radio */
-$custom-radio-indicator-border-radius: $border-radius-50;
-$custom-radio-indicator-disabled-checked-color: lighten($input-color-disabled, 15%) !default;
-$custom-radio-indicator-disabled-icon-checked: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='#{$custom-radio-indicator-disabled-checked-color}'/%3E%3C/svg%3E"), "#", "%23") !default;
+// Radio
+$custom-radio-indicator-border-radius:                  $border-radius-50; // Border radius for default custom radio
+$custom-radio-indicator-disabled-checked-color:         lighten($input-disabled-color, 15%) !default; // Checked + disabled state color
+$custom-radio-indicator-disabled-icon-checked:          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='#{$custom-radio-indicator-disabled-checked-color}'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 /* Select */
 $custom-select-line-height: $btn-line-height;

@@ -24,7 +24,7 @@
     min-width: $dropdown-min-width;
     padding: $dropdown-padding-y $dropdown-padding-x;
     margin-top: $dropdown-margin-top; // Positioning first level dropdown menu
-    background-color: $dropdown-bg;
+    background-color: $dropdown-background-color;
     box-shadow: $dropdown-shadow;
 
     @include max-screen($screen-md-max) {
@@ -156,7 +156,7 @@
       background-color: transparent;
       cursor: not-allowed;
       background-image: none;
-      @include opacity($dropdown-link-disabled-color-opacity);
+      @include opacity($dropdown-link-opacity-disabled-color);
       filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)";
     }
 
@@ -229,23 +229,23 @@
 
   &,
   .dropdown-menu {
-    @include background-theme($dropdown-extended-theme-color, 'base');
+    @include background-theme($dropdown-extended-theme-scheme, 'base');
     border: 0;
   }
 
   // Dropdown top arrow colors
   &:before {
-    @include border-theme($dropdown-extended-theme-color, $position: bottom);
+    @include border-theme($dropdown-extended-theme-scheme, $position: bottom);
   }
 
   &:after {
-    @include border-theme($dropdown-extended-theme-color, 'dark', $position: bottom);
+    @include border-theme($dropdown-extended-theme-scheme, 'dark', $position: bottom);
     display: none;
   }
 
   // Dropdown section headers
   .dropdown-header {
-    @include text-theme($dropdown-extended-theme-color, 'font-color');
+    @include text-theme($dropdown-extended-theme-scheme, 'font-color');
   }
 
   // Dropdown menu links
@@ -253,20 +253,20 @@
 
     &,
     i {
-      @include text-theme($dropdown-extended-theme-color, 'link-color');
+      @include text-theme($dropdown-extended-theme-scheme, 'link-color');
     }
 
     // Change the hover, focus, active state links for better highlighting
     &:hover,
     &:focus {
-      @include background-text-theme($dropdown-extended-theme-color, 'light', 'hover-color');
+      @include background-text-theme($dropdown-extended-theme-scheme, 'light', 'hover-color');
     }
 
     &.active,
     &.active:focus,
     &.active:hover,
     &:active {
-      @include background-text-theme($dropdown-extended-theme-color, 'light', 'active-color');
+      @include background-text-theme($dropdown-extended-theme-scheme, 'light', 'active-color');
     }
 
     &.disabled,
@@ -280,7 +280,7 @@
   }
 
   & .dropdown-divider {
-    @include border-theme($dropdown-extended-theme-color, 'light', $position: top);
+    @include border-theme($dropdown-extended-theme-scheme, 'light', $position: top);
     border-top: 1px solid;
   }
 

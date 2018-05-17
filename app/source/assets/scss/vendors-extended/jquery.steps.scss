@@ -269,7 +269,7 @@
 
     .step {
       @include transition;
-      @include border-radius($btn-radius-round);
+      @include border-radius($btn-round-radius);
       border: $steps-circle-border-size solid transparent;
       width: $steps-circle-size;
       min-width: $steps-circle-size;
