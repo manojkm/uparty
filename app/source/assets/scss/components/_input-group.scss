@@ -86,7 +86,7 @@
   font-weight: $btn-font-weight;
   line-height: $btn-line-height;
   color: $input-addon-color;
-  background-color: $input-addon-background-color;
+  background-color: $input-addon-bg;
   min-width: $input-addon-min-width;
   text-align: center;
   height: 100%;
@@ -192,7 +192,7 @@
 .readonly {
   &.input-group-text {
     border-color: $input-disabled-border-color;
-    background-color: $input-disabled-background-color !important;
+    background-color: $input-disabled-bg !important;
     color: $input-disabled-color;
     &:hover {
       cursor: not-allowed;

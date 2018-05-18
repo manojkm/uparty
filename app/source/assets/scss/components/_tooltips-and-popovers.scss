@@ -20,27 +20,27 @@
     padding: $tooltip-padding-y $tooltip-padding-x;
     color: $tooltip-font-color;
     line-height: $tooltip-line-height;
-    background-color: $tooltip-background-color;
+    background-color: $tooltip-bg;
     //box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
   }
 
   // Right tooltip
   &.bs-tooltip-right .arrow:before {
-    border-right-color: $tooltip-background-color;
+    border-right-color: $tooltip-bg;
   }
 
   // Top tooltip
   &.bs-tooltip-top .arrow:before {
-    border-top-color: $tooltip-background-color;
+    border-top-color: $tooltip-bg;
   }
   // Bottom tooltip
   &.bs-tooltip-bottom .arrow:before {
-    border-bottom-color: $tooltip-background-color;
+    border-bottom-color: $tooltip-bg;
   }
 
   // Left tooltip
   &.bs-tooltip-left .arrow:before {
-    border-left-color: $tooltip-background-color;
+    border-left-color: $tooltip-bg;
   }
 
   // Theme variations

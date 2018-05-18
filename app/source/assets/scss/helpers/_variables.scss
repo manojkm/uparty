@@ -220,18 +220,18 @@ $navbar-item-mobile-bottom-border:      true;
 $dropdown-width:                        200px; // Dropdown menu container width.
 $dropdown-min-width:                    160px;
 $dropdown-max-width:                    320px;
-$dropdown-background-color:             $white-color; // Background for the dropdown menu container.
+$dropdown-bg:                           $white-color; // Background color for the dropdown menu container.
 $dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius.
 
 $dropdown-font-size:                    13px; // Dropdown menu item font size.
 $dropdown-header-font-size:             11px; // Dropdown section headers font size.
 
 $dropdown-margin-top:                   15px; // Positioning first level dropdown menu.
-$dropdown-padding-y:                    5px; // Dropdown menu container top-bottom padding.
-$dropdown-padding-x:                    0px; // Dropdown menu container left-right padding.
+$dropdown-padding-y:                    5px; // Dropdown menu container vertical padding.
+$dropdown-padding-x:                    0px; // Dropdown menu container horizontal padding.
 
-$dropdown-item-padding-y:               8px; // Dropdown menu item top-bottom padding.
-$dropdown-item-padding-x:               12px; // Dropdown menu item left-right padding.
+$dropdown-item-padding-y:               8px; // Dropdown menu item vertical padding.
+$dropdown-item-padding-x:               12px; // Dropdown menu item horizontal padding.
 
 $dropdown-link-color:                   $gray-800; // Dropdown link & icon text color.
 
@@ -310,8 +310,8 @@ $breadcrumb-border-radius:              $border-radius-md !default;
 $breadcrumb-border-size:                $border-thin;
 $breadcrumb-border-color:               $gray-400 !default;
 
-$breadcrumb-item-padding-y:             .40rem !default; // Breadcrumb item top-bottom padding.
-$breadcrumb-item-padding-x:             .85rem !default; // Breadcrumb item left-right padding.
+$breadcrumb-item-padding-y:             .40rem !default; // Breadcrumb item vertical padding.
+$breadcrumb-item-padding-x:             .85rem !default; // Breadcrumb item horizontal padding.
 
 $breadcrumb-font-size:                  $font-size-sm !default;
 $breadcrumb-color:                      $gray-700 !default; // Breadcrumb text color.
@@ -320,9 +320,9 @@ $breadcrumb-active-color:               $gray-600 !default; // Text color of cur
 
 $breadcrumb-divider:                    "/" !default; // Textual separator for between breadcrumb elements.
 $breadcrumb-divider-color:              $gray-500 !default; // Textual separator color between breadcrumb elements.
-$breadcrumb-divider-angle-right:        "\f054" !default; // Textual separator type.
-$breadcrumb-divider-angle-double-right: "\f061" !default; // Textual separator type.
-$breadcrumb-divider-caret-right:        "\f0da" !default; // Textual separator type.
+$breadcrumb-divider-angle-right:        "\f054" !default; // Textual separator type - Simple Line Icons unicode.
+$breadcrumb-divider-angle-double-right: "\f061" !default; // Textual separator type - Simple Line Icons unicode.
+$breadcrumb-divider-caret-right:        "\f0da" !default; // Textual separator type - Simple Line Icons unicode.
 
 $breadcrumb-link-theme-scheme:          primary !default; // Theme color scheme applied to breadcrumb link text theme scheme.
 $breadcrumb-link-hover-theme-tone:      dark !default; // Theme color tone applied to breadcrumb links on hover.
@@ -361,21 +361,21 @@ $breadcrumb-menu-hover-color:           $gray-800 !default; // Hover text color 
 
 // MAIN CONTENT WRAPPERS (main.content)
 // ======================================================
-$main-content-padding-y:                20px; // Top-bottom padding for 'main content' wrapper
-$main-content-padding-x:                0; // Left-right padding for 'main content' wrapper
+$main-content-padding-y:                20px; // Vertical padding for 'main content' wrapper
+$main-content-padding-x:                0; // Horizontal padding for 'main content' wrapper
 
 // PAGE TITLE WRAPPERS (.content__page-title)
 // ======================================================
-$page-title-padding-y:                  20px; // Top-bottom padding for 'page title' wrapper
-$page-title-padding-x:                  0; // Left-right padding for 'page title' wrapper
+$page-title-padding-y:                  20px; // Vertical padding for 'page title' wrapper
+$page-title-padding-x:                  0; // Horizontal padding for 'page title' wrapper
 
 // SIDEBAR (section.sidebar)
 // ======================================================
 $sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
 $sidebar-active-border-theme-scheme:    primary !default;  // Theme color scheme applied to active sidebar menu item
 $sidebar-width:                         200px; // Width of sidebar
-$sidebar-padding-y:                     0px; // Sidebar top-bottom padding.
-$sidebar-padding-x:                     10px; // Sidebar left-right padding
+$sidebar-padding-y:                     0px; // Sidebar vertical padding.
+$sidebar-padding-x:                     10px; // Sidebar horizontal padding
 
 // Sidebar brand/project image
 $sidebar-brand-height:                  50px; // Sidebar branding header height
@@ -520,7 +520,7 @@ $mark-underline-height-xl:              1rem; // 16px
 
 // FORMS
 // ======================================================
-$input-background-color:                $white-color; // <input> background color
+$input-bg:                              $white-color; // <input> background color
 $input-color:                           $gray-700; // Text color for inputs
 $input-label-color:                     $gray-800; // Text color for inputs labels and legends.
 $input-placeholder-color:               $gray-500; // Placeholder text color
@@ -535,12 +535,12 @@ $input-hover-border-color:              $gray-500; // Border color for inputs on
 // Disabled state
 $input-disabled-color:                  $gray-600;
 $input-disabled-border-color:           $gray-300;
-$input-disabled-background-color:       $gray-200;
+$input-disabled-bg:                     $gray-200;
 
 // Input group
 $input-addon-color:                     $gray-700; // Color for textual input group’s addons
 $input-addon-hover-focus-color:         $input-focus-color; // Color for textual input group’s addons on hover/focus
-$input-addon-background-color:          $gray-100; // Background color for textual input group’s addons
+$input-addon-bg:                        $gray-100; // Background color for textual input group’s addons
 $input-addon-min-width:                 40px; // Minimum width of input group’s addons
 
 $input-height-border:                   $input-border-size * 2 !default; // Required to compute input height
@@ -549,26 +549,26 @@ $input-height-border:                   $input-border-size * 2 !default; // Requ
 $input-font-size-sm:                    $font-size-sm !default;
 $input-border-radius-sm:                $border-radius-sm !default;
 $input-height-inner-sm:                 ($font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
-$input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default; // Computing height
+$input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Regular (Default) input (.form-control)
 $input-font-size:                       $font-size-base !default;
 $input-border-radius:                   $border-radius-md !default;
 $input-height-inner:                    ($font-size-base * $btn-line-height) + ($btn-padding-y * 2) !default;
-$input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default; // Computing height
+$input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Large input (.form-control-lg)
 $input-font-size-lg:                    $font-size-lg !default;
 $input-border-radius-lg:                $border-radius-lg !default;
 $input-height-inner-lg:                 ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
-$input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default; // Computing height
+$input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Validation
 $form-feedback-valid-color:             contextual-color(success); // Retrieve 'success' color from contextual color map ($contextual-palette-map)
 $form-feedback-invalid-color:           contextual-color(danger); // Retrieve 'danger' color from contextual color map ($contextual-palette-map)
 
 // Required field
-$required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk symbol
+$required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk (*) symbol
 
 // CUSTOM FORMS
 // ======================================================
@@ -577,14 +577,13 @@ $custom-control-indicator-bg:                           $white-color !default; /
 $custom-control-indicator-bg-size:                      50% 50% !default;
 $custom-control-indicator-border-size:                  $border-thin;
 $custom-control-indicator-border-color:                 $input-border-color; // Border color for checkboxes and radios
-
 $custom-control-indicator-checked-color:                $white-color;
 $custom-control-indicator-checked-bg:                   success !default; // Contextual color scheme applied to checked/selected checkboxes and radios
 $custom-control-indicator-active-color:                 $white-color;
 $custom-control-indicator-active-bg:                    lighten(contextual-color(success), 25%) !default; // Contextual color scheme applied to active state checkboxes and radios
 
 // Disabled state
-$custom-control-indicator-disabled-bg:                  $input-disabled-background-color !default;
+$custom-control-indicator-disabled-bg:                  $input-disabled-bg !default;
 $custom-control-indicator-disabled-color:               $input-disabled-color;
 $custom-control-indicator-disabled-border-color:        $input-disabled-border-color;
 $custom-control-label-disabled-color:                   lighten($input-label-color, 25%) !default;
@@ -600,74 +599,86 @@ $custom-radio-indicator-border-radius:                  $border-radius-50; // Bo
 $custom-radio-indicator-disabled-checked-color:         lighten($input-disabled-color, 15%) !default; // Checked + disabled state color
 $custom-radio-indicator-disabled-icon-checked:          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='#{$custom-radio-indicator-disabled-checked-color}'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-/* Select */
-$custom-select-line-height: $btn-line-height;
-$custom-select-color: $input-color;
-$custom-select-font-size: $input-font-size;
-$custom-select-font-weight: $btn-font-weight;
-$custom-select-border-width: $input-border-size;
-$custom-select-border-color: $input-border-color;
-$custom-select-indicator-padding: 1rem !default; // Extra padding to account for the presence of the background-image based indicator
+// Select
+$custom-select-line-height:                             $btn-line-height; // Custom '<select>' menus line height should be same as buttons.
+$custom-select-color:                                   $input-color; // Text color for custom '<select>' menus should be same as '<input>'s.
+$custom-select-font-size:                               $input-font-size; // Font size for custom '<select>' menus should be same as '<input>'s.
+$custom-select-font-weight:                             $btn-font-weight;  // Font size for custom '<select>' menus should be same as buttons.
+$custom-select-border-width:                            $input-border-size; // Border width for custom '<select>' menus should be same as '<input>'s.
+$custom-select-border-color:                            $input-border-color; // Border color for custom '<select>' menus should be same as '<input>'s.
+$custom-select-padding-x:                               .75rem !default;
+$custom-select-bg:                                      $white-color !default; // Background color for custom '<select>' menus
+$custom-select-bg-size:                                 8px 10px !default; // In pixels because image dimensions
+$custom-select-indicator-padding:                       1rem !default; // Extra padding to account for the presence of the background-image based indicator
+$custom-select-indicator-color:                         $gray-700 !default; // Color for custom '<select>' menus dropdown arrow.
+$custom-select-indicator:                               str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-$custom-select-indicator-color: $gray-800 !default;
-$custom-select-padding-x: .75rem !default;
-$custom-select-bg-size: 8px 10px !default; // In pixels because image dimensions
-$custom-select-indicator: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default;
+// File input
+$custom-file-button-bg:                                 $gray-200 !default; // Background color for custom file browser button
+$custom-file-button-focus-bg:                           $gray-300 !default;  // Background color for custom file browser button on focus
+$custom-file-text:                                      (en: "\e089   Browse") !default; // Custom file browser button text and icon (Simple Line Icons) unicode.
 
-/* File input */
-$custom-file-button-bg: $gray-200 !default;
-$custom-file-button-focus-bg: $gray-300 !default;
+// CUSTOM TOGGLE SWITCH
+// ======================================================
+$custom-toggle-width:                   50px;
+$custom-toggle-height:                  28px;
+$custom-toggle-border:                  $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
+$custom-toggle-bg:                      $white-color;
+$custom-toggle-border-radius:           100px;
+$custom-toggle-knob-bg:                 $white-color;
+$custom-toggle-knob-width:              20px;
+$custom-toggle-knob-height:             20px;
+$custom-toggle-knob-border-radius:      100px;
+$custom-toggle-knob-checked-bg:         $white-color;
+$custom-toggle-knob-active-width:       26px; // Pressing and holding the knob looks little expanded
 
-$custom-file-text: (
-        en: "\e089   Browse"
-) !default;
+// Mini type
+$custom-toggle-mini-height:             10px !default;
+$custom-toggle-mini-bg:                 $gray-200 !default;
 
-/* Custom toggle switch */
-$custom-toggle-width: 50px;
-$custom-toggle-height: 28px;
-$custom-toggle-border: $input-border-size solid $input-border-color;
-$custom-toggle-background-color: $white-color;
-$custom-toggle-border-radius: 100px;
+// Flip type
+$custom-toggle-flip-width:              60px;
+$custom-toggle-flip-height:             30px;
+$custom-toggle-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
+$custom-toggle-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
+$custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
 
-$custom-toggle-checked-knob-background: $white-color;
+// POPOVERS
+// ======================================================
+$popover-header-font-size: 14px !default;
+$popover-header-color: $gray-700 !default;
+$popover-font-size: 13px !default;
+$popover-max-width: 276px;
+$popover-border-radius: $border-radius-md;
 
-$custom-toggle-knob-width: 20px;
-$custom-toggle-knob-height: 20px;
-$custom-toggle-knob-background: $white-color;
-$custom-toggle-knob-border-radius: 100px;
-$custom-toggle-knob-active-width: 26px;
+// ALERT
+// ======================================================
+$enable-alert-border:                   false; // Quickly adding border by enabling or disabling
+$enable-alert-border-radius:            $border-radius-md;
+$enable-alert-border-size:              $border-thin;
+$alert-font-size:                       $font-size-base;
 
-/* Mini */
-$custom-toggle-mini-height: 10px !default;
-$custom-toggle-mini-background-color: $gray-200 !default;
-
-/* Flip */
-$custom-toggle-flip-width: 60px;
-$custom-toggle-flip-height: 30px;
-$custom-toggle-flip-border-radius: $input-border-size;
-$custom-toggle-flip-normal-color: $gray-800 !default;
-$custom-toggle-flip-normal-background: $gray-400 !default;
+// ============================================================================================================
+// VENDOR'S VARIABLES
+// ============================================================================================================
 
 // TOASTR
 // ======================================================
-$toastr-radius: $btn-radius !default;
-$toastr-box-shadow: 0 5px 10px rgba($black-color, .1);
-$toastr-opacity: 0.9;
+$toastr-radius:                         $enable-alert-border-radius !default; // Radius should be same as Alert's radius for consistency.
+$toastr-box-shadow:                     0 5px 10px rgba($black-color, .1);
+$toastr-opacity:                        0.9;
 
 // CHOSEN SELECT
 // ======================================================
-$chosen-search-icon-color: $gray-600 !default;
-$chosen-search-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 8 8'%3E%3Cpath fill='#{$chosen-search-icon-color}' d='M3.5 0c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c.59 0 1.17-.14 1.66-.41a1 1 0 0 0 .13.13l1 1a1.02 1.02 0 1 0 1.44-1.44l-1-1a1 1 0 0 0-.16-.13c.27-.49.44-1.06.44-1.66 0-1.93-1.57-3.5-3.5-3.5zm0 1c1.39 0 2.5 1.11 2.5 2.5 0 .66-.24 1.27-.66 1.72-.01.01-.02.02-.03.03a1 1 0 0 0-.13.13c-.44.4-1.04.63-1.69.63-1.39 0-2.5-1.11-2.5-2.5s1.11-2.5 2.5-2.5z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$chosen-search-icon-color:              $gray-600 !default; // Search lens icon color that appear on search input
+$chosen-search-bg-size:                 15px 15px; // In pixels because image dimensions
+$chosen-search-bg:                      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 8 8'%3E%3Cpath fill='#{$chosen-search-icon-color}' d='M3.5 0c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c.59 0 1.17-.14 1.66-.41a1 1 0 0 0 .13.13l1 1a1.02 1.02 0 1 0 1.44-1.44l-1-1a1 1 0 0 0-.16-.13c.27-.49.44-1.06.44-1.66 0-1.93-1.57-3.5-3.5-3.5zm0 1c1.39 0 2.5 1.11 2.5 2.5 0 .66-.24 1.27-.66 1.72-.01.01-.02.02-.03.03a1 1 0 0 0-.13.13c-.44.4-1.04.63-1.69.63-1.39 0-2.5-1.11-2.5-2.5s1.11-2.5 2.5-2.5z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-/* File input */
-$chosen-search-bg-size: 15px 15px;
-
-$chosen-results-margin: 0 0px 4px 0;
-$chosen-results-padding: 0 0px;
-$chosen-results-item-padding: 3px $btn-padding-x;
-
-$chosen-results-highlighted-color: $gray-900;
-$chosen-results-highlighted-bg: $gray-400;
+$chosen-results-margin:                 0 0px 4px 0;
+$chosen-results-padding:                0 0px;
+$chosen-results-item-padding:           3px $btn-padding-x;
+$chosen-results-highlighted-color:      $gray-900;
+$chosen-results-highlighted-bg:         $gray-400;
 
 $chosen-results-no-results-color: $gray-600;
 $chosen-results-no-results-bg: $white-color;
@@ -694,20 +705,6 @@ $dropzone-message-line-height: $btn-line-height-lg;
 $dropzone-message-icon: "\e084" !default;
 $dropzone-message-icon-font-size: 2rem !default;
 
-// POPOVERS
-// ======================================================
-$popover-header-font-size: 14px !default;
-$popover-header-color: $gray-700 !default;
-$popover-font-size: 13px !default;
-$popover-max-width: 276px;
-$popover-border-radius: $border-radius-md;
-
-// ALERT
-// ======================================================
-$alert-border: false;
-$alert-border-radius: $border-radius-md;
-$alert-border-size: $border-thin;
-$alert-font-size: $font-size-base;
 
 // NAVBAR
 // ======================================================
@@ -1093,7 +1090,7 @@ $badge-size: calc(#{$badge-inner}) !default;
 
 // TOOLTIPS
 // ======================================================
-$tooltip-background-color: $gray-900 !default;
+$tooltip-bg: $gray-900 !default;
 $tooltip-font-color: $white-color !default;
 $tooltip-padding-y: 8px !default;
 $tooltip-padding-x: 10px !default;

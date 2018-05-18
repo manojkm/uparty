@@ -822,7 +822,7 @@
   #{$disabled-tags},
   &[readonly] {
     border-color: $input-disabled-border-color;
-    background-color: $input-disabled-background-color;
+    background-color: $input-disabled-bg;
     color: $input-disabled-color;
     &:hover {
       cursor: not-allowed;
@@ -937,7 +937,7 @@
           border-color: transparent;
 
           &:after {
-            background: $custom-toggle-knob-background;
+            background: $custom-toggle-knob-bg;
           }
         }
       }

@@ -175,6 +175,8 @@
   font-weight: $custom-select-font-weight;
   border: $custom-select-border-width solid $custom-select-border-color;
   padding: $btn-padding-y ($btn-padding-x + $custom-select-indicator-padding) $btn-padding-y $btn-padding-x;
+  background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
+  background-size: $custom-select-bg-size;
 
   @include form-control-hover();
   @include form-control-focus();
@@ -183,7 +185,7 @@
     // For visual consistency with IE.
     &::-ms-value {
       color: $input-color;
-      background-color: $input-background-color;
+      background-color: $input-bg;
     }
   }
 
@@ -258,11 +260,11 @@
   &:disabled + .custom-file-label {
     @include opacity(0.8);
     border-color: $input-disabled-border-color;
-    background-color: $input-disabled-background-color;
+    background-color: $input-disabled-bg;
     color: $input-disabled-color;
 
     &:before {
-      //background: $input-disabled-background-color;
+      //background: $input-disabled-bg;
       border-color: $input-disabled-border-color;
     }
 
@@ -369,7 +371,7 @@
     left: 0;
     width: $custom-toggle-width;
     height: $custom-toggle-height;
-    background-color: $custom-toggle-background-color;
+    background-color: $custom-toggle-bg;
     display: block;
     border-radius: $custom-toggle-border-radius;
     border: $custom-toggle-border;
@@ -393,7 +395,7 @@
 
     @at-root .mini#{&} {
       height: $custom-toggle-mini-height;
-      background-color: $custom-toggle-mini-background-color !important;
+      background-color: $custom-toggle-mini-bg !important;
       border: $custom-toggle-border !important;
       &:after {
         top: -6px;
@@ -413,7 +415,7 @@
 
   // Active state
   .#{$cci}:active + .#{$ccind} {
-    background-color: $custom-toggle-background-color;
+    background-color: $custom-toggle-bg;
     &:after {
       width: $custom-toggle-knob-active-width;
     }
@@ -472,7 +474,7 @@
     user-select: none;
     perspective: $custom-toggle-flip-width + $custom-toggle-flip-height;
     margin-right: 10px;
-    color: $custom-toggle-flip-normal-color;
+    color: $custom-toggle-flip-off-state-color;
 
     &:before, &:after {
       @include transition;
@@ -484,12 +486,12 @@
       line-height: $custom-toggle-flip-height;
       backface-visibility: hidden;
       text-align: center;
-      border-radius: 3px;
+      border-radius: $custom-toggle-flip-border-radius;
     }
 
     &:before {
       content: attr(data-toggle-off);
-      background-color: $custom-toggle-flip-normal-background;
+      background-color: $custom-toggle-flip-off-state-bg;
     }
 
     &:after {
