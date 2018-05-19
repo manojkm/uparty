@@ -16,7 +16,7 @@ $(document).ready(function(){
         var $current = index + 1;
         var $percent = ($current / $total) * 100;
         $(elem).find('.progress-bar').css({width: $percent + '%'}).text($percent + " % ");
-        $(elem).find('.step-label').text("Step " + $current + " of " + $total);
+        $(elem).find('.step-indicator').text("Step " + $current + " of " + $total);
 
     }
 

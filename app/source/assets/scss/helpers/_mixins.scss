@@ -1083,4 +1083,11 @@
       color: $font-color;
     }
   }
+  .chosen-container-active {
+    .chosen-choices {
+      li.search-field input[type="text"] {
+        color: $font-focus-color !important;
+      }
+    }
+  }
 }

@@ -1,23 +1,24 @@
 // ================================================================================================
-// File Name: bootstrap-datepicker.standalone.scss
-// Description:
-// Custom overrides of bootstrap-datepicker Plugin
+// File Name      : bootstrap-datepicker.standalone.scss
+// Description    : Custom overrides of Bootstrap-datepicker Plugin
 // (https://github.com/uxsolutions/bootstrap-datepicker/blob/master/less/datepicker.less)
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// These styles are required for Bootstrap-datepicker to function. You probably don't need to
+// change these rules to apply your design.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // VENDORS DEPENDENCIES
-//----------------------------------*/
+// ======================================================
 @import
     '_dependencies';
+// Please make sure to keep the dependencies included above as they're necessary for all vendors extensions to function.
 
-/* Please make sure to keep the dependencies included above as they're necessary for all vendors extensions. */
-
+// DATEPICKER
+// ======================================================
 
 .datepicker {
   border-radius: $datepicker-border-radius;

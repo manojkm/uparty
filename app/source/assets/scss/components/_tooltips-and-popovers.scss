@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : tooltips-and-popovers.scss
-// Description    : Adjustments for Bootstrap's tooltips and popovers.
+// Description    : Adjustments/Override for Bootstrap's tooltips and popovers.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -13,12 +13,12 @@
 .tooltip {
   z-index: map-get($zindex, tooltip);
 
-  // Tooltip inner
+  // Wrapper for the tooltip content
   @at-root  &-inner {
     font-size: $tooltip-font-size;
     font-weight: $font-wh-normal;
     padding: $tooltip-padding-y $tooltip-padding-x;
-    color: $tooltip-font-color;
+    color: $tooltip-color;
     line-height: $tooltip-line-height;
     background-color: $tooltip-bg;
     //box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
@@ -72,6 +72,7 @@
   z-index: map-get($zindex, popover);
   text-align: left;
   white-space: normal;
+  background-color: $popover-bg;
 
   &.bs-popover-top .arrow:before,
   &.bs-popover-left .arrow:before,

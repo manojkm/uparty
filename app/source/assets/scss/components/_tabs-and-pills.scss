@@ -10,7 +10,7 @@
 
 /* TODO:  Responsive bootstrap tabs https://codepen.io/devben/pen/EaLdeJ */
 
-// TAB
+// TABS
 // ======================================================
 .nav-tabs {
   @include add-border($nav-tabs-border-width, $nav-tabs-border-color, bottom);
@@ -23,19 +23,15 @@
 
     &:hover,
     &:focus {
-      @include text-theme($nav-tabs-link-active-theme-color);
+      @include text-theme($nav-tabs-link-active-theme-scheme);
       border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
       background-color: $nav-tabs-link-hover-bg;
-    }
-
-    &.disabled {
-      color: $nav-link-disabled-color;
     }
 
     // Tab icon
     i {
       font-size: inherit;
-      width: $tab-icon-width;
+      width: $nav-tabs-icon-width;
       display: inline-block;
       color: inherit;
       text-align: center;
@@ -44,7 +40,7 @@
   }
   .nav-link.active,
   .nav-item.show .nav-link {
-    @include text-theme($nav-tabs-link-active-theme-color);
+    @include text-theme($nav-tabs-link-active-theme-scheme);
     background-color: $nav-tabs-link-active-bg;
     border-color: $nav-tabs-link-active-border-color $nav-tabs-link-active-border-color $nav-tabs-link-active-bg;
   }
@@ -68,13 +64,13 @@
 
       &:hover,
       &:focus {
-        @include text-theme($nav-tabs-link-active-theme-color);
+        @include text-theme($nav-tabs-link-active-theme-scheme);
         background-color: transparent;
       }
 
       &::before {
         @include transition;
-        @include background-theme($nav-tabs-line-link-active-border-theme-color);
+        @include background-theme($nav-tabs-active-theme-scheme);
         content: "";
         height: 2px;
         position: absolute;
@@ -182,10 +178,9 @@
         border-width: 11px;
       }
 
-      &:hover,
-      &:focus {
-        @include text-theme($nav-tabs-link-active-theme-color);
-        background-color: $nav-tabs-line-link-hover-bg;
+      &:hover {
+        @include text-theme($nav-tabs-link-active-theme-scheme);
+        background-color: $nav-tabs-ext-arrow-link-hover-bg;
       }
     }
 
@@ -196,6 +191,12 @@
       &:before {
         @extend %o-v-show;
         transform: translateY(0px);
+      }
+
+      &:hover {
+        &:after {
+          border-top-color: $nav-tabs-ext-arrow-link-hover-bg;
+        }
       }
 
       &:after {
@@ -264,7 +265,7 @@
 
       &::before {
         @include transition;
-        @include background-theme($nav-tabs-line-link-active-border-theme-color);
+        @include background-theme($nav-tabs-active-theme-scheme);
         content: "";
         width: 2px;
         position: absolute;
@@ -301,7 +302,7 @@
   &.outline-primary {
 
     .nav-tabs {
-      @include border-theme($nav-tabs-line-link-active-border-theme-color);
+      @include border-theme($nav-tabs-active-theme-scheme);
     }
     .nav-link {
       @include add-border($nav-tabs-v-wrap-active-border-width, transparent, all);
@@ -310,7 +311,7 @@
 
     .nav-link.active,
     .nav-item.show .nav-link {
-      @include border-theme($nav-tabs-line-link-active-border-theme-color);
+      @include border-theme($nav-tabs-active-theme-scheme);
       border-right-color: $nav-tabs-link-active-bg !important;
     }
   }
@@ -319,7 +320,7 @@
   &.primary-filled {
 
     .nav-tabs {
-      @include border-theme($nav-tabs-line-link-active-border-theme-color);
+      @include border-theme($nav-tabs-active-theme-scheme);
     }
     .nav-link {
       @include border-left-radius($nav-tabs-border-radius);

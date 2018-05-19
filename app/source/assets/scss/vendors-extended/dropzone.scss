@@ -1,22 +1,24 @@
 // ================================================================================================
-// File Name: dropzone.scss
-// Description: Custom overrides of dropzone.css
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : dropzone.scss
+// Description    : Custom overrides of Dropzone Plugin
+// (https://github.com/enyo/dropzone/blob/master/dist/dropzone.css)
+// These styles are required for Dropzone to function. You probably don't need to change these
+// rules to apply your design.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // VENDORS DEPENDENCIES
-//----------------------------------*/
+// ======================================================
 @import
-   '_dependencies';
+    '_dependencies';
+// Please make sure to keep the dependencies included above as they're necessary for all vendors extensions to function.
 
-/* Please make sure to keep the dependencies included above as they're necessary for all vendors extensions. */
-
-
+// DROPZONE
+// ======================================================
 .dropzone {
   @include transition;
   @include set-border-radius($dropzone-radius);
@@ -26,7 +28,6 @@
 
   & .dz-message span {
     @include transition;
-    @include set-border-radius($dropzone-message-radius);
     color: $dropzone-message-color;
     display: inline-block;
     padding: $dropzone-message-padding-y $dropzone-message-padding-x;

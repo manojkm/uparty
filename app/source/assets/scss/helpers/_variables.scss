@@ -26,6 +26,8 @@
 // http://hn.arrowpress.net/circle-gui/#toc29
 // https://codeless.co/tower/default/
 // https://bulma.io/documentation/elements/button/
+// https://repos.cakemail.com/projects/COM/repos/ui-bootstrap/browse/lib/dist/sass/components?at=59a0e4e0708d0df6467bc6c0d2c3d98f1e114463
+// https://github.com/twbs/ratchet/blob/master/sass/
 
 // CONTEXTUAL COLOR MAP
 // ======================================================
@@ -187,20 +189,20 @@ $selection-bg: #f9f6f0 !default;
 
 // BORDERS
 // ======================================================
-$border: 1px solid !default;
-$border-thin: 1px !default;
-$border-thick: 2px !default;
-$border-thicker: 4px !default;
+$border:                                1px solid !default;
+$border-thin:                           1px !default;
+$border-thick:                          2px !default;
+$border-thicker:                        4px !default;
 
 // Border radius
-$border-radius-xs: 0.125rem !default; // 2px
-$border-radius-sm: 0.1875rem !default; // 3px
-$border-radius-md: 0.25rem !default; // 4px
-$border-radius-lg: 0.3125rem !default; // 5px
-$border-radius-xl: 0.375rem !default; // 6px
-$border-radius-xxl: 0.5rem !default; // 8px
-$border-radius-50: 50% !default;
-$border-radius-100: 100% !default;
+$border-radius-xs:                      0.125rem !default; // 2px
+$border-radius-sm:                      0.1875rem !default; // 3px
+$border-radius-md:                      0.25rem !default; // 4px
+$border-radius-lg:                      0.3125rem !default; // 5px
+$border-radius-xl:                      0.375rem !default; // 6px
+$border-radius-xxl:                     0.5rem !default; // 8px
+$border-radius-50:                      50% !default;
+$border-radius-100:                     100% !default;
 
 // BODY
 // ======================================================
@@ -288,19 +290,20 @@ $padding-small-x:                       15px !default;
 
 // SHADOWS //TODO, make the below perfect later
 // ======================================================
-$container-shadow: 0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
-$dropdown-shadow: 0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
-$header-shadow: 0 1px 3px rgba($black-color, .2);
-$popover-shadow: 0 5px 10px rgba($black-color, .1);
-$sidebar-footer-shadow: 0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
-$progress-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
-$card-box-shadow: 0 1px 2px rgba(0, 0, 0, .075) !default;
-$card-box-header-inset-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
-$pagination-extended-indicator-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .5) !default;
-$modal-content-box-shadow-xs: 0 5px 10px rgba($black-color, .1);
-$chosen-select-box-shadow: 0 5px 10px rgba($black-color, .1);
-$multiple-select-box-shadow: 0 5px 10px rgba($black-color, .1);
-$slider-base-box-shadow: inset 0 .1rem .1rem rgba($gray-800, .15) !default;
+$container-shadow:                              0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
+$dropdown-shadow:                               0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
+$header-shadow:                                 0 1px 3px rgba($black-color, .2);
+$popover-shadow:                                0 5px 10px rgba($black-color, .1);
+$sidebar-footer-shadow:                         0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
+$progress-box-shadow:                           inset 0 .1rem .1rem rgba($gray-800, .15) !default;
+$card-box-shadow:                               0 1px 2px rgba(0, 0, 0, .075) !default;
+$card-box-header-inset-shadow:                  inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
+$pagination-extended-indicator-box-shadow:      inset 0 .1rem .1rem rgba($gray-800, .5) !default;
+$modal-content-box-shadow-xs:                   0 5px 10px rgba($black-color, .1);
+$chosen-select-box-shadow:                      0 5px 10px rgba($black-color, .1);
+$multiple-select-box-shadow:                    0 5px 10px rgba($black-color, .1);
+$slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-800, .15) !default;
+$toastr-box-shadow:                             0 5px 10px rgba($black-color, .1);
 
 // BREADCRUMB
 // ======================================================
@@ -625,10 +628,11 @@ $custom-toggle-height:                  28px;
 $custom-toggle-border:                  $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
 $custom-toggle-bg:                      $white-color;
 $custom-toggle-border-radius:           100px;
-$custom-toggle-knob-bg:                 $white-color;
-$custom-toggle-knob-width:              20px;
-$custom-toggle-knob-height:             20px;
-$custom-toggle-knob-border-radius:      100px;
+
+$custom-toggle-knob-bg:                 $white-color; // Knob background color
+$custom-toggle-knob-border-radius:      100px; // To add rounded corners to the Knob
+$custom-toggle-knob-width:              20px; // Knob width. Height and width should be same to make circle perfect.
+$custom-toggle-knob-height:             20px; // Knob height. Height and width should be same to make circle perfect.
 $custom-toggle-knob-checked-bg:         $white-color;
 $custom-toggle-knob-active-width:       26px; // Pressing and holding the knob looks little expanded
 
@@ -645,136 +649,83 @@ $custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color 
 
 // POPOVERS
 // ======================================================
-$popover-header-font-size: 14px !default;
-$popover-header-color: $gray-700 !default;
-$popover-font-size: 13px !default;
-$popover-max-width: 276px;
-$popover-border-radius: $border-radius-md;
+$popover-bg:                            $white-color !default; // Popover body background color
+$popover-header-font-size:              $font-size-base !default; // Popover header font size.
+$popover-header-color:                  $gray-700 !default; // Popover header text color.
+$popover-font-size:                     $font-size-sm !default; // Popover body font size.
+$popover-max-width:                     276px; // Popover maximum width
+$popover-border-radius:                 $border-radius-md;
+
+// TOOLTIPS
+// ======================================================
+$tooltip-bg:                            $gray-900 !default; // Tooltip background color
+$tooltip-color:                         $white-color !default; // Tooltip text color
+$tooltip-padding-y:                     8px !default; // Tooltip body vertical padding.
+$tooltip-padding-x:                     10px !default; // Tooltip body horizontal padding.
+$tooltip-font-size:                     $font-size-sm; // Tooltip font size.
+$tooltip-line-height:                   $lh-sm !default;
 
 // ALERT
 // ======================================================
 $enable-alert-border:                   false; // Quickly adding border by enabling or disabling
-$enable-alert-border-radius:            $border-radius-md;
-$enable-alert-border-size:              $border-thin;
-$alert-font-size:                       $font-size-base;
-
-// ============================================================================================================
-// VENDOR'S VARIABLES
-// ============================================================================================================
-
-// TOASTR
-// ======================================================
-$toastr-radius:                         $enable-alert-border-radius !default; // Radius should be same as Alert's radius for consistency.
-$toastr-box-shadow:                     0 5px 10px rgba($black-color, .1);
-$toastr-opacity:                        0.9;
-
-// CHOSEN SELECT
-// ======================================================
-$chosen-search-icon-color:              $gray-600 !default; // Search lens icon color that appear on search input
-$chosen-search-bg-size:                 15px 15px; // In pixels because image dimensions
-$chosen-search-bg:                      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 8 8'%3E%3Cpath fill='#{$chosen-search-icon-color}' d='M3.5 0c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c.59 0 1.17-.14 1.66-.41a1 1 0 0 0 .13.13l1 1a1.02 1.02 0 1 0 1.44-1.44l-1-1a1 1 0 0 0-.16-.13c.27-.49.44-1.06.44-1.66 0-1.93-1.57-3.5-3.5-3.5zm0 1c1.39 0 2.5 1.11 2.5 2.5 0 .66-.24 1.27-.66 1.72-.01.01-.02.02-.03.03a1 1 0 0 0-.13.13c-.44.4-1.04.63-1.69.63-1.39 0-2.5-1.11-2.5-2.5s1.11-2.5 2.5-2.5z'/%3E%3C/svg%3E"), "#", "%23") !default;
-
-$chosen-results-margin:                 0 0px 4px 0;
-$chosen-results-padding:                0 0px;
-$chosen-results-item-padding:           3px $btn-padding-x;
-$chosen-results-highlighted-color:      $gray-900;
-$chosen-results-highlighted-bg:         $gray-400;
-
-$chosen-results-no-results-color: $gray-600;
-$chosen-results-no-results-bg: $white-color;
-
-$chosen-search-multi-search-choice-bg: $gray-200;
-$chosen-search-multi-search-choice-margin: 0 2px;
-$chosen-search-multi-search-choice-padding: 3px 20px 3px 5px;
-$chosen-search-multi-search-choice-padding-rtl: 3px 5px 3px 19px;
-
-// DROPZONE JS
-// ======================================================
-$dropzone-bg: $gray-200;
-$dropzone-hover-bg: $gray-300;
-$dropzone-radius: $border-radius-md;
-
-$dropzone-message-color: $gray-500;
-$dropzone-message-hover-color: $gray-700;
-$dropzone-message-radius: $border-radius-md;
-$dropzone-message-padding-y: $btn-padding-y-lg;
-$dropzone-message-padding-x: $btn-padding-x-lg;
-$dropzone-message-font-size: $input-font-size-lg;
-$dropzone-message-line-height: $btn-line-height-lg;
-
-$dropzone-message-icon: "\e084" !default;
-$dropzone-message-icon-font-size: 2rem !default;
-
-
-// NAVBAR
-// ======================================================
-
-// WHITE OPACITY
-// ======================================================
-$opacity-white-1: rgba(255, 255, 255, .1) !default;
-$opacity-white-2: rgba(255, 255, 255, .2) !default;
-$opacity-white-3: rgba(255, 255, 255, .3) !default;
-$opacity-white-4: rgba(255, 255, 255, .4) !default;
-$opacity-white-5: rgba(255, 255, 255, .5) !default;
-$opacity-white-6: rgba(255, 255, 255, .6) !default;
-$opacity-white-7: rgba(255, 255, 255, .7) !default;
-$opacity-white-8: rgba(255, 255, 255, .8) !default;
-$opacity-white-9: rgba(255, 255, 255, .9) !default;
-
-// BLACK OPACITY
-// ======================================================
-$opacity-black-1: rgba(0, 0, 0, .1) !default;
-$opacity-black-2: rgba(0, 0, 0, .2) !default;
-$opacity-black-3: rgba(0, 0, 0, .3) !default;
-$opacity-black-4: rgba(0, 0, 0, .4) !default;
-$opacity-black-5: rgba(0, 0, 0, .5) !default;
-$opacity-black-6: rgba(0, 0, 0, .6) !default;
-$opacity-black-7: rgba(0, 0, 0, .7) !default;
-$opacity-black-8: rgba(0, 0, 0, .8) !default;
-$opacity-black-9: rgba(0, 0, 0, .9) !default;
+$alert-border-radius:                   $border-radius-md; // Alert border radius.
+$alert-border-size:                     $border-thin; // Alert border width
+$alert-font-size:                       $font-size-base; // Alert font size.
 
 // CARDS
 // ======================================================
-$card-spacer-y: .75rem !default;
-$card-spacer-x: 1.25rem !default;
-$card-margin-bottom: 15px !default;
+$card-margin-bottom:                    15px !default; // Margin for the bottom of each card so that it is separated from all other cards.
+$card-spacer-y:                         .75rem !default; // Card vertical padding helper variable.
+$card-spacer-x:                         1.25rem !default; // Card horizontal padding helper variable.
 
-$card-background: $white-color;
-$card-border-radius: $border-radius-lg;
-$card-border-size: $border-thin;
-$card-border-color: rgba($black-color, .155) !default;
-$card-header-bg: rgba($black-color, .03) !default;
-$card-footer-bg: $card-header-bg;
-$card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-size}) !default;
+$card-bg:                               $white-color; // Background color for entire card
+$card-border-radius:                    $border-radius-lg; // Card corner radius
+$card-border-size:                      $border-thin; // Card border width
+$card-border-color:                     rgba($black-color, .155) !default; // Card border color
+$card-inner-border-radius:              calc(#{$card-border-radius} - #{$card-border-size}) !default; // Compute card inside radius, so that elements inside the card will proper radius.
 
-//$card-title-font-size: $font-size-base !default;
-$card-link-color: $gray-600 !default;
-$card-link-hover-color: $gray-800;
+$card-header-bg:                        rgba($black-color, .03) !default; // Background color for card header
+$card-footer-bg:                        $card-header-bg; // Background color for card footer
 
-/* Card tools */
-$card-tools-color: $gray-600 !default;
-//$card-tools-hover-color: $gray-800 !default;
-$card-tools-font-size: $font-size-xs !default;
-//$card-tools-icon-padding-x: 10px;
-$card-toolbar-icon-width: 30px;
+$card-link-color:                       $gray-600 !default; // Text color for card links (a.card-link)
+$card-link-hover-color:                 $gray-800; // Text color for card links on hover (a.card-link)
 
-/* Card window toolbar */
-$card-toolbar-icon-height: 25px;
+// Card tools
+$card-tools-color:                      $gray-600 !default; // Text color for card action items
+$card-tools-font-size:                  $font-size-xs !default; // Font size for card action items
+$card-toolbar-icon-width:               30px; // Width of the icons for each card action items
 
-// BOOTSTRAP DATEPICKER
+// Window type card actions toolbar
+$card-toolbar-icon-height:              25px; // Height of the icons for Window type actions items
+
+// ACCORDION / COLLAPSE
 // ======================================================
-$datepicker-border-radius: $card-border-radius;
-$datepicker-dropdown-padding: 20px 22px !default;
+// Default accordion
+$accordion-title-color:                         $gray-700 !default; // Text color for accordion title
+$accordion-title-hover-color:                   $gray-900 !default; // Text color for accordion title on hover
+$accordion-title-active-color:                  $gray-900 !default; // Text color for active accordion title
 
-$datepicker-cell-border-radius: 50% !default;
-$datepicker-header-cell-border-radius: $border-radius-xl !default;
-$datepicker-cell-width: 36px !default;
-$datepicker-cell-height: 36px !default;
+$accordion-icon-margin-left:                    10px; // Right margin for accordion icon, so that there is space between icon and title.
+$accordion-body-bg:                             $white-color !default; // Background color for accordion
+
+$accordion-header-collapsed-bg:                 $card-header-bg !default; // Background color for accordion header
+$accordion-header-collapsed-hover-bg:           rgba($black-color, .08) !default; // Background color for accordion header on hover
+$accordion-header-active-bg:                    $accordion-header-collapsed-hover-bg !default; // Background color for accordion header on active
+
+// Accordion caret icon
+$accordion-icon-collapsed:                      "\e604" !default; // Collapsed accordion icon (Simple Line Icons) unicode
+$accordion-icon-active:                         "\e607" !default; // Active accordion icon (Simple Line Icons) unicode
+
+// Accordion Extended (ext) type
+$accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion
+$accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to Extended' accordion on hover
+$accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // Theme color tone applied to Extended' accordion on active
+$accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
 
 // NUMBER SPINNER
 // ======================================================
-$spinner-icon-width: 20px;
-$spinner-icon-font-size: $font-size-xs;
+$spinner-icon-width:                    20px;
+$spinner-icon-font-size:                $font-size-xs;
 
 // SIZES
 // ======================================================
@@ -784,102 +735,163 @@ $sizes: (
         15: 15%,
 ) !default;
 
-// ACCORDION
+
+// WHITE OPACITY
 // ======================================================
-$accordion-title-color: $gray-700 !default;
-$accordion-title-active-color: $gray-900 !default;
-$accordion-title-hover-color: $gray-900 !default;
+$opacity-white-1:                       rgba(255, 255, 255, .1) !default;
+$opacity-white-2:                       rgba(255, 255, 255, .2) !default;
+$opacity-white-3:                       rgba(255, 255, 255, .3) !default;
+$opacity-white-4:                       rgba(255, 255, 255, .4) !default;
+$opacity-white-5:                       rgba(255, 255, 255, .5) !default;
+$opacity-white-6:                       rgba(255, 255, 255, .6) !default;
+$opacity-white-7:                       rgba(255, 255, 255, .7) !default;
+$opacity-white-8:                       rgba(255, 255, 255, .8) !default;
+$opacity-white-9:                       rgba(255, 255, 255, .9) !default;
 
-$accordion-header-hover-bg: rgba($black-color, .05) !default;
-$accordion-left-icon-margin: 10px;
-
-$accordion-active-theme-color: primary !default;
-$accordion-active-theme-hover-color-tone: dark !default;
-
-$accordion-collapsed-icon: "\e604" !default;
-$accordion-active-icon: "\e607" !default;
-
-/* Accordion Extended - Underline */
-$accordion-underline-border-size: $border-thick;
-$accordion-body-bg: $gray-100 !default;
-
-// FORM WIZARD
+// BLACK OPACITY
 // ======================================================
-$steps-active-theme-color: primary !default;
-$steps-done-theme-color: primary !default;
-$steps-error-theme-color: danger;
+$opacity-black-1:                       rgba(0, 0, 0, .1) !default;
+$opacity-black-2:                       rgba(0, 0, 0, .2) !default;
+$opacity-black-3:                       rgba(0, 0, 0, .3) !default;
+$opacity-black-4:                       rgba(0, 0, 0, .4) !default;
+$opacity-black-5:                       rgba(0, 0, 0, .5) !default;
+$opacity-black-6:                       rgba(0, 0, 0, .6) !default;
+$opacity-black-7:                       rgba(0, 0, 0, .7) !default;
+$opacity-black-8:                       rgba(0, 0, 0, .8) !default;
+$opacity-black-9:                       rgba(0, 0, 0, .9) !default;
 
-$steps-disabled-opacity: $btn-disabled-opacity !default;
-$steps-disabled-bg: $gray-200 !default;
-$steps-disabled-color: $gray-500 !default;
+// ============================================================================================================
+// VENDOR'S VARIABLES
+// ============================================================================================================
 
-$steps-content-bg: $white-color !default;
+// TOASTR PLUGIN
+// ======================================================
+$toastr-radius:                         $alert-border-radius !default; // Radius should be same as Bootstrap's alert radius for consistency.
+$toastr-opacity:                        0.9; // Toastr container opacity
 
-$step-label-color: $gray-600 !default;
-$step-label-font-size: $font-size-lg !default;
+// CHOSEN SELECT PLUGIN
+// ======================================================
+$chosen-search-icon-color:                              $gray-600 !default; // Search lens icon color that appear on search input
+$chosen-search-bg-size:                                 15px 15px; // In pixels because image dimensions
+$chosen-search-bg:                                      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 8 8'%3E%3Cpath fill='#{$chosen-search-icon-color}' d='M3.5 0c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c.59 0 1.17-.14 1.66-.41a1 1 0 0 0 .13.13l1 1a1.02 1.02 0 1 0 1.44-1.44l-1-1a1 1 0 0 0-.16-.13c.27-.49.44-1.06.44-1.66 0-1.93-1.57-3.5-3.5-3.5zm0 1c1.39 0 2.5 1.11 2.5 2.5 0 .66-.24 1.27-.66 1.72-.01.01-.02.02-.03.03a1 1 0 0 0-.13.13c-.44.4-1.04.63-1.69.63-1.39 0-2.5-1.11-2.5-2.5s1.11-2.5 2.5-2.5z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-$steps-margin-right: 15px;
-$steps-margin-bottom: 15px;
+$chosen-results-margin:                                 0 0px 4px 0; // Chosen results container margin
+$chosen-results-padding:                                0 0px; // Chosen results container vertical, horizontal padding
+$chosen-results-item-padding:                           3px $btn-padding-x; // Chosen result item vertical, horizontal padding
+$chosen-results-highlighted-color:                      $gray-900; // Text color to highlight the search result item
+$chosen-results-highlighted-bg:                         $gray-400; // Background color to highlight the search result item
 
-$steps-action-margin-top: 15px;
-$steps-action-button-margin-left: 15px;
+$chosen-results-no-results-color:                       $gray-600;  // "No results" search text color
+$chosen-results-no-results-bg:                          $white-color; // Background color for "No results" search text
 
-/* Circle wizard */
-$steps-circle-border-size: 5px !default;
-$steps-circle-line-size: 3px !default;
-$steps-circle-size: $btn-icon-size-lg !default;
-$steps-circle-line-height: $btn-line-height-lg !default;
-$steps-circle-font-size: $btn-font-size-lg !default;
+$chosen-search-multi-search-choice-bg:                  $gray-200; // Highlights selected options for  Multi Chosen
+$chosen-search-multi-search-choice-margin:              0 2px; // Selected options vertical, horizontal margin
+$chosen-search-multi-search-choice-padding:             3px 20px 3px 5px; // Selected options vertical, horizontal padding
+$chosen-search-multi-search-choice-rtl-padding:         3px 5px 3px 19px; // Selected options vertical, horizontal padding for Right-to-Left variant
 
-$steps-circle-title-font-size: $font-size-base !default;
-$steps-circle-title-color: $gray-800 !default;
+// DROPZONE JS PLUGIN
+// ======================================================
+$dropzone-bg:                           $gray-200; // Background color for drag’n’drop area
+$dropzone-hover-bg:                     $gray-300;  // Background color for drag’n’drop area on hover
+$dropzone-radius:                       $border-radius-md; // Border radius for drag’n’drop area
 
-/* Arrow wizard */
-$arrow-wizard-size-inner: ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
-$arrow-wizard-size: calc((#{$arrow-wizard-size-inner} + #{$btn-border-size * 2}) / 2) !default;
+$dropzone-message-color:                $gray-500; // Text color for drag’n’drop message
+$dropzone-message-hover-color:          $gray-700; // Text color for drag’n’drop message on hover
+$dropzone-message-padding-y:            $btn-padding-y-lg; // Drag’n’drop message vertical padding.
+$dropzone-message-padding-x:            $btn-padding-x-lg; // Drag’n’drop message horizontal padding.
+$dropzone-message-font-size:            $input-font-size-lg; // Drag’n’drop message font size
+$dropzone-message-line-height:          $btn-line-height-lg;  // Drag’n’drop message line height
+
+$dropzone-message-icon:                 "\e084" !default; // Drag’n’drop icon (Simple Line Icons) unicode.
+$dropzone-message-icon-font-size:       2rem !default; // Drag’n’drop icon font size
+
+// BOOTSTRAP DATEPICKER PLUGIN
+// ======================================================
+$datepicker-border-radius:              $card-border-radius; // Datepicker border radius should be same as Bootstrap's card radius for consistency.
+$datepicker-dropdown-padding:           20px 22px !default; // Datepicker vertical and horizontal padding.
+
+$datepicker-header-cell-border-radius:  $border-radius-xl !default; // Border radius for th elements
+$datepicker-cell-border-radius:         50% !default; // Border radius for td elements
+$datepicker-cell-width:                 36px !default; // Width for table cells (td & th)
+$datepicker-cell-height:                36px !default; // Height for table cells (td & th)
+
+// JQUERY STEPS PLUGIN
+// ======================================================
+$steps-active-theme-scheme:             primary !default; // Theme color scheme applied to the tab of current step
+$steps-done-theme-scheme:               primary !default; // Theme color scheme applied to the tabs of previous steps
+$steps-error-theme-scheme:              danger; // Theme color scheme applied to tabs if current step have any validation errors
+
+$steps-disabled-opacity:                $btn-disabled-opacity !default; // Opacity applied to the tabs of previous steps
+$steps-disabled-bg:                     $gray-200 !default; // Background color of next/incomplete steps.
+$steps-disabled-color:                  $gray-500 !default; // Text color of next/incomplete steps.
+
+$steps-content-bg:                      $white-color !default; // Background color for step content (body) area
+
+$step-indicator-color:                  $gray-600 !default; // Text color of step indicator
+$step-indicator-font-size:              $font-size-lg !default; // Step indicator font size
+
+$steps-margin-right:                    15px; // Right margin for horizontal steps item  so that there is space between each item.
+$steps-margin-bottom:                   15px; // Bottom margin for vertical steps item, so that there is space between each item.
+
+$steps-action-margin-top:               15px; // Right margin for the action container
+$steps-action-button-margin-left:       15px; // Left margin for the action buttons, so that there is space between buttons.
+
+// Circle wizard type
+$steps-circle-border-size:              5px !default; // Steps item border width
+$steps-circle-line-size:                3px !default; // Height of connecting lines between steps item
+$steps-circle-size:                     $btn-icon-size-lg !default; // Steps item size should be same as large buttons for consistency
+$steps-circle-line-height:              $btn-line-height-lg !default; // Steps item line height should be same as large buttons for consistency
+$steps-circle-font-size:                $btn-font-size-lg !default;  // Step item icon font size
+$steps-circle-title-font-size:          $font-size-base !default; // Step item title font size
+$steps-circle-title-color:              $gray-800 !default; // Step item title text color
+
+// Arrow wizard type
+$arrow-wizard-inner-size:               ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
+$arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle.
 
 // NAVS / TABS / PILLS
 // ======================================================
 
-/* Tabs */
-$nav-link-padding-y: .5rem !default;
-$nav-link-padding-x: 1rem !default;
-$nav-link-disabled-color: $gray-400 !default;
+// Navs
+$nav-font-size:                         $font-size-base !default; // Navigation font size (.nav)
+$nav-font-weight:                       $font-wh-normal !default; // Navigation font weight (.nav)
+$nav-link-padding-y:                    .5rem !default; // Navigation link vertical padding (.nav-link).
+$nav-link-padding-x:                    1rem !default; // Navigation link horizontal padding (.nav-link).
+$nav-link-disabled-color:               $gray-400 !default; // Navigation disabled link color (.nav-link).
 
-$nav-tabs-font-size: $font-size-base !default;
-$nav-tabs-font-weight: $font-wh-normal !default;
-$nav-tabs-border-color: $gray-400 !default;
-$nav-tabs-border-width: $border-thin !default;
-$nav-tabs-border-radius: $border-radius-md !default;
-$nav-tabs-link-hover-border-color: $gray-300 !default;
-$nav-tabs-link-hover-bg: $gray-100 !default;
-$nav-tabs-link-color: $gray-600 !default;
-$nav-tabs-link-active-theme-color: primary !default;
-$nav-tabs-link-active-bg: $white-color !default;
-$nav-tabs-link-active-border-color: $nav-tabs-border-color !default;
+// Tabs
+$nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements
+$nav-tabs-border-color:                 $gray-400 !default; // Tabbed navigation border color
+$nav-tabs-border-width:                 $border-thin !default;  // Tabbed navigation border width
+$nav-tabs-border-radius:                $border-radius-md !default;  // Tabbed navigation border radius
+$nav-tabs-link-hover-border-color:      $gray-300 !default; // Tabbed navigation border color on hover
+$nav-tabs-link-hover-bg:                $gray-100 !default; // Tabbed navigation background color on hover
+$nav-tabs-link-color:                   $gray-600 !default; // Text color for tabbed navigation link
+$nav-tabs-link-active-theme-scheme:     $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to the active tabbed navigation link
+$nav-tabs-link-active-bg:               $white-color !default; // Background color for active tabbed navigation
+$nav-tabs-link-active-border-color:     $nav-tabs-border-color !default; // Border color for active tabbed navigation
+$nav-tabs-icon-width:                   20px;
 
-$tab-content-bg: $white-color !default;
+// Tab content
+$tab-content-bg:                        $white-color !default; // Active tab content body background color
 
-$tab-icon-width: 20px;
+// Tabs Extended (ext) - Arrow type
+$nav-tabs-ext-arrow-link-hover-bg:      $white-color !default; // Tabbed navigation background color on hover
 
-/* Tabs Extended */
-$nav-tabs-line-link-hover-bg: $white-color !default;
-$nav-tabs-line-link-active-border-theme-color: primary !default;
-
-/* Tabs Extended - Boxed */
+// Tabs Extended (ext) - Boxed type
 $nav-tabs-boxed-bg: $gray-200 !default;
 $nav-tabs-boxed-spacing: 8px !default;
 
-/* Tabs Extended - Vertical */
+// Tabs Extended (ext) - Vertical
 $nav-tabs-v-width: 180px !default;
 $nav-tabs-v-right-line-active-border-width: 2px !default;
 
-/* Tabs Extended - Vertical */
+// Tabs Extended (ext) - Vertical
 $nav-tabs-v-wrap-active-border-width: 1px !default;
 
-/* Pills */
+// Pills
 $nav-pills-border-radius: $border-radius-md !default;
-$nav-pills-link-active-theme-color: primary !default;
+$nav-pills-link-active-theme-color: $nav-tabs-active-theme-scheme !default;
 $nav-pills-link-hover-bg-theme-color-tone: light !default;
 
 // MODAL
@@ -1087,15 +1099,6 @@ $badge-image-font-weight: $font-wh-normal !default;
 $badge-image-line-height: 1.25;
 $badge-inner: ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
 $badge-size: calc(#{$badge-inner}) !default;
-
-// TOOLTIPS
-// ======================================================
-$tooltip-bg: $gray-900 !default;
-$tooltip-font-color: $white-color !default;
-$tooltip-padding-y: 8px !default;
-$tooltip-padding-x: 10px !default;
-$tooltip-font-size: $font-size-sm;
-$tooltip-line-height: 1.25 !default;
 
 // FOOTER
 // ======================================================

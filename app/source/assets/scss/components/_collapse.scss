@@ -17,7 +17,7 @@
     position: relative;
     > i {
       float: left;
-      margin-right: $accordion-left-icon-margin;
+      margin-right: $accordion-icon-margin-left;
     }
   }
   [data-toggle="collapse"] {
@@ -25,6 +25,7 @@
     @include add-border($card-border-size, transparent, top);
     @include add-border(0, transparent, bottom);
     color: $accordion-title-active-color;
+    background-color: $accordion-header-active-bg;
     border-color: $card-border-color;
     cursor: pointer;
     display: flex;
@@ -49,16 +50,23 @@
     // Collapsed state
     &.collapsed {
       color: $accordion-title-color;
+      background-color: $accordion-header-collapsed-bg;
       &:after {
-        content: $accordion-collapsed-icon;
+        content: $accordion-icon-collapsed;
       }
       &:hover {
-        background-color: $accordion-header-hover-bg;
+        background-color: $accordion-header-collapsed-hover-bg;
         color: $accordion-title-hover-color;
       }
     }
 
   }
+
+  & .card-body {
+    background-color: $accordion-body-bg;
+  }
+
+
 }
 
 // STANDARD ACCORDION TYPE
@@ -73,7 +81,7 @@ a.accordion {
   }
   &.collapsed {
     &:before {
-      content: $accordion-collapsed-icon;
+      content: $accordion-icon-collapsed;
     }
   }
 }
@@ -83,18 +91,20 @@ a.accordion {
 
 .accordion.extended {
   .card {
-    @include border-theme($accordion-active-theme-color);
+    @include border-theme($accordion-ext-theme-scheme);
   }
 
   & [data-toggle="collapse"] {
     @include add-border($card-border-size, transparent, top);
     @include add-border(0, transparent, bottom);
-    @include border-theme($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
-    @include background-text-theme($accordion-active-theme-color);
+    @include border-theme($accordion-ext-theme-scheme, $accordion-ext-hover-theme-tone);
+    @include text-theme($accordion-ext-theme-scheme, 'font-color');
+    @include background-theme($accordion-ext-theme-scheme, $accordion-ext-active-theme-tone);
 
     &.collapsed {
+      @include background-theme($accordion-ext-theme-scheme);
       &:hover {
-        @include background-theme($accordion-active-theme-color, $accordion-active-theme-hover-color-tone);
+        @include background-theme($accordion-ext-theme-scheme, $accordion-ext-hover-theme-tone);
       }
     }
 
@@ -106,14 +116,14 @@ a.accordion {
   // Outline type
   &.outline {
     & [data-toggle="collapse"] {
-      @include border-theme($accordion-active-theme-color);
+      @include border-theme($accordion-ext-theme-scheme);
 
       &.collapsed {
         background-color: transparent;
         color: $accordion-title-color;
 
         &:hover {
-          background-color: $accordion-header-hover-bg;
+          background-color: $accordion-header-collapsed-hover-bg;
           color: $accordion-title-hover-color;
         }
       }
@@ -130,8 +140,8 @@ a.accordion {
       border: 0;
     }
     & [data-toggle="collapse"] {
-      @include add-border($accordion-underline-border-size, transparent, bottom);
-      @include border-theme($accordion-active-theme-color);
+      @include add-border($accordion-ext-border-size, transparent, bottom);
+      @include border-theme($accordion-ext-theme-scheme);
       background-color: transparent;
       padding-left: 40px;
       &:before {
@@ -145,16 +155,13 @@ a.accordion {
       }
 
       &.collapsed {
-        @include add-border($accordion-underline-border-size, $card-border-color, bottom);
+        @include add-border($accordion-ext-border-size, $card-border-color, bottom);
         &:before {
-          content: $accordion-collapsed-icon;
+          content: $accordion-icon-collapsed;
         }
       }
     }
 
-    & .card-body {
-      background-color: $accordion-body-bg;
-    }
   }
 }
 
@@ -170,9 +177,9 @@ a.accordion {
 
     & [data-toggle="collapse"] {
       @include set-border-radius(0);
-      @include add-border($accordion-underline-border-size, transparent, left);
+      @include add-border($accordion-ext-border-size, transparent, left);
       @include add-border(0, transparent, bottom);
-      @include border-theme($accordion-active-theme-color);
+      @include border-theme($accordion-ext-theme-scheme);
       padding-left: 40px;
       &:before {
         @extend %acc-pseudo;
@@ -186,9 +193,9 @@ a.accordion {
 
       &.collapsed {
         @include add-border(0, transparent, bottom);
-        @include border-theme($accordion-active-theme-color);
+        @include border-theme($accordion-ext-theme-scheme);
         &:before {
-          content: $accordion-collapsed-icon;
+          content: $accordion-icon-collapsed;
         }
       }
 
@@ -196,8 +203,8 @@ a.accordion {
 
     & .collapsing,
     & .collapse.show {
-      @include add-border($accordion-underline-border-size, transparent, left);
-      @include border-theme($accordion-active-theme-color);
+      @include add-border($accordion-ext-border-size, transparent, left);
+      @include border-theme($accordion-ext-theme-scheme);
     }
   }
 }
