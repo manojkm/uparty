@@ -13,7 +13,6 @@
   // Actual modal
   &-content {
     @include set-border-radius($modal-border-radius);
-    //@include add-border($modal-content-border-width, $modal-content-border-color, all);
     @include add-border(0, transparent, all);
     box-shadow: $modal-content-box-shadow-xs;
     background-color: $modal-content-bg;
@@ -24,7 +23,7 @@
     //@include set-border-radius($modal-border-radius);
     //@include border-bottom-radius(0);
     @include set-border-radius(0);
-    @include add-border($modal-header-border-width, $modal-header-border-color, bottom);
+    @include add-border($modal-header-border-size, $modal-header-border-color, bottom);
     padding: $modal-header-padding;
   }
   // Modal body

@@ -10,6 +10,7 @@
 // Author         : MANOJ
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
+
 // VENDORS DEPENDENCIES
 // ======================================================
 @import
@@ -189,7 +190,7 @@
       @include transition;
       @extend %button;
       //@extend .btn-lg;
-      @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
+      @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-border-radius-lg, $btn-line-height-lg);
       width: 100%;
       justify-content: flex-start;
     }
@@ -376,7 +377,7 @@
       @include transition;
       @extend %button;
       //@extend .btn-lg;
-      @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-radius-lg, $btn-line-height-lg);
+      @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-border-radius-lg, $btn-line-height-lg);
       width: 100%;
       border-radius: 0 !important;
 
@@ -410,8 +411,8 @@
     ul li:first-child {
       a {
         @if bool($enable-rounded) == true {
-          border-top-left-radius: $btn-radius-lg !important;
-          border-bottom-left-radius: $btn-radius-lg !important;
+          border-top-left-radius: $btn-border-radius-lg !important;
+          border-bottom-left-radius: $btn-border-radius-lg !important;
         }
         @include max-screen($screen-xs-max) {
           border-radius: 0 !important;
@@ -428,8 +429,8 @@
     ul li:last-child {
       a {
         @if bool($enable-rounded) == true {
-          border-top-right-radius: $btn-radius-lg !important;
-          border-bottom-right-radius: $btn-radius-lg !important;
+          border-top-right-radius: $btn-border-radius-lg !important;
+          border-bottom-right-radius: $btn-border-radius-lg !important;
         }
         @include max-screen($screen-xs-max) {
           border-radius: 0 !important;
@@ -512,7 +513,7 @@
 // ======================================================
 .wizard.tab-wizard {
   > .steps {
-    //@include add-border($nav-tabs-border-width, $nav-tabs-border-color, bottom);
+    //@include add-border($nav-tabs-border-size, $nav-tabs-border-color, bottom);
     margin: 0;
     ul li {
       margin: 0 5px 0 0;
@@ -520,9 +521,9 @@
 
     a {
       @include transition;
-      @include set-border-radius($btn-radius-lg);
+      @include set-border-radius($btn-border-radius-lg);
       @include border-bottom-radius(0);
-      @include add-border($nav-tabs-border-width, transparent, all);
+      @include add-border($nav-tabs-border-size, transparent, all);
       font-size: $btn-font-size-lg;
       font-weight: $btn-font-weight;
       padding: $btn-padding-y-lg $btn-padding-x-lg;

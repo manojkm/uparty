@@ -27,8 +27,8 @@
 .carousel-control-next-icon {
   @include add-border($carousel-control-border-size, $carousel-control-border-color, all);
   background-color: $carousel-control-icon-bg;
-  width: $carousel-control-icon-width;
-  height: $carousel-control-icon-width;
+  width: $carousel-control-icon-size;
+  height: $carousel-control-icon-size;
   background-image: none;
   position: relative;
   font-size: $carousel-control-icon-font-size;
@@ -60,7 +60,7 @@
   }
 }
 
-// Theming
+// Theming - light
 .carousel {
 
   &.light {

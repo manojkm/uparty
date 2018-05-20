@@ -1,25 +1,28 @@
 // ================================================================================================
-// File Name: _nouislider.scss
-// Description: Custom overrides of Multi-select Plugin (https://github.com/leongersen/noUiSlider/blob/master/distribute/nouislider.css)
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : nouislider.scss
+// Description    : Custom overrides of noUiSlider Plugin
+// (https://github.com/leongersen/noUiSlider/blob/master/distribute/nouislider.css)
+// These styles are required for noUiSlider to function. You probably don't need to change these
+// rules to apply your design.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
 // VENDORS DEPENDENCIES
-//----------------------------------*/
+// ======================================================
 @import
-'_dependencies';
+    '_dependencies';
+// Please make sure to keep the dependencies included above as they're necessary for all vendors extensions to function.
 
-/* Please make sure to keep the dependencies included above as they're necessary for all vendors extensions. */
-
+// noUi SLIDER
+// ======================================================
 
 .noUi-target {
   @include set-border-radius($slider-base-border-radius);
-  background: $slider-base-background;
+  background: $slider-base-bg;
   box-shadow: $slider-base-box-shadow;
   margin: $slider-base-margin-y 0;
   border-color:$slider-base-border-color;
@@ -28,7 +31,7 @@
 .noUi-handle {
   @include transition;
   @include set-border-radius($slider-handle-border-radius);
-  background: $slider-handle-background;
+  background: $slider-handle-bg;
   box-shadow: $slider-handle-box-shadow;
   width: $slider-handle-width!important;
   height: $slider-handle-height!important;;
@@ -90,7 +93,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   font-size: $slider-pips-font-size;
 }
 
-/* Markings */
+// Markings
 .noUi-marker-large {
   background: $slider-pips-color;
 }
@@ -98,25 +101,26 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .noUi-tooltip {
   @include add-border(1px, $slider-tooltip-border-color, all);
   @include set-border-radius($slider-tooltip-border-radius);
-  background: $slider-tooltip-background;
+  background: $slider-tooltip-bg;
   color: $slider-tooltip-color;
   font-size: $slider-tooltip-font-size;
   padding: $slider-tooltip-padding;
   box-shadow: $slider-tooltip-box-shadow;
 }
 
-/* Theme variations */
-.slider-primary {
-  .noUi-connect {@include background-theme(primary); }
-  .noUi-handle {@include border-theme(primary);}
+// Theme variations
 
-}
-.slider-secondary {
-  .noUi-connect { @include background-theme(secondary);}
-  .noUi-handle {@include border-theme(secondary);}
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .slider-#{$scheme} {
+      .noUi-connect {@include background-theme($scheme); }
+      .noUi-handle {@include border-theme($scheme);}
+    }
+  }
 }
 
-/* Contextual variations */
+// Contextual variations
 @each $scheme, $value in $contextual-palette-map {
   .slider-#{$scheme} {
     .noUi-connect { @include background-theme($scheme);}

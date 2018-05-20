@@ -110,35 +110,35 @@ $typography: (
 // ======================================================
 
 // Font family
-$font-family-default: get-typography(font-default);
-$font-family-headings: get-typography(font-headings);
+$font-family-default:                   get-typography(font-default);
+$font-family-headings:                  get-typography(font-headings);
 
 // Font color
-$font-color-default: get-typography(color-default);
-$font-color-headings: get-typography(color-headings);
+$font-color-default:                    get-typography(color-default);
+$font-color-headings:                   get-typography(color-headings);
 
 // Font size
-$font-size-100: get-typography(size-100, font-size);
-$font-size-xs: get-typography(size-xs, font-size);
-$font-size-sm: get-typography(size-sm, font-size);
-$font-size-base: get-typography(size-md, font-size) !default; // Assumes the browser default, typically '16px'
-$font-size-lg: get-typography(size-lg, font-size);
-$font-size-xl: get-typography(size-xl, font-size);
+$font-size-100:                         get-typography(size-100, font-size);
+$font-size-xs:                          get-typography(size-xs, font-size);
+$font-size-sm:                          get-typography(size-sm, font-size);
+$font-size-base:                        get-typography(size-md, font-size) !default; // Assumes the browser default, typically '16px'
+$font-size-lg:                          get-typography(size-lg, font-size);
+$font-size-xl:                          get-typography(size-xl, font-size);
 
 // Computed unit-less line height
-$lh-100: get-typography(size-100, line-height);
-$lh-xs: get-typography(size-xs, line-height);
-$lh-sm: get-typography(size-sm, line-height);
-$lh-base: get-typography(size-md, line-height);
-$lh-lg: get-typography(size-lg, line-height);
-$lh-xl: get-typography(size-xl, line-height);
+$lh-100:                                get-typography(size-100, line-height);
+$lh-xs:                                 get-typography(size-xs, line-height);
+$lh-sm:                                 get-typography(size-sm, line-height);
+$lh-base:                               get-typography(size-md, line-height);
+$lh-lg:                                 get-typography(size-lg, line-height);
+$lh-xl:                                 get-typography(size-xl, line-height);
 
 // Font weight
-$font-wh-light: get-typography(weight-light) !default; // 300
-$font-wh-normal: get-typography(weight-normal) !default; // 400
-$font-wh-medium: get-typography(weight-medium) !default; // 500
-$font-wh-semi: get-typography(weight-semi) !default; // 600
-$font-wh-bold: get-typography(weight-bold) !default; // 700
+$font-wh-light:                         get-typography(weight-light) !default; // 300
+$font-wh-normal:                        get-typography(weight-normal) !default; // 400
+$font-wh-medium:                        get-typography(weight-medium) !default; // 500
+$font-wh-semi:                          get-typography(weight-semi) !default; // 600
+$font-wh-bold:                          get-typography(weight-bold) !default; // 700
 
 // Html
 $html-font-size: $font-size-100;
@@ -206,7 +206,7 @@ $border-radius-100:                     100% !default;
 
 // BODY
 // ======================================================
-$body-bg-color: $white-color; // Background color for <body>.
+$body-bg-color:                         $white-color; // Background color for <body>.
 
 // HEADER & NAVBAR
 // ======================================================
@@ -252,21 +252,25 @@ $dropdown-icon-width:                   20px; // Dropdown menu item icon width f
 
 // BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 // ======================================================
-$dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. Theme colors are retrieved
-// from active theme palette map that can be found in themes/theme-*
+
+$dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
 
 // TOGGLERS ADJUSTMENTS
 // ======================================================
+
 // Header Navbar toggle button - visible on mobile devices only
+
 $navbar-toggler-padding-y:              10px;
 $navbar-toggler-padding-x:              10px;
 
 // Sidebar toggle button
+
 $sidebar-toggler-height:                $header-height - 10;
 $sidebar-toggler-padding-y:             0px;
 $sidebar-toggler-padding-x:             10px;
 
 // Aside toggle button
+
 $aside-toggler-height:                  $header-height;
 $aside-toggler-padding-y:               10px;
 $aside-toggler-padding-x:               10px;
@@ -276,6 +280,7 @@ $aside-toggler-padding-x:               10px;
 
 // PADDINGS //TODO, not using anywhere.. remove later if required.
 // ======================================================
+
 $padding-base-y:                        .5rem !default;
 $padding-base-x:                        .7rem !default;
 
@@ -290,6 +295,7 @@ $padding-small-x:                       15px !default;
 
 // SHADOWS //TODO, make the below perfect later
 // ======================================================
+
 $container-shadow:                              0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
 $dropdown-shadow:                               0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
 $header-shadow:                                 0 1px 3px rgba($black-color, .2);
@@ -298,7 +304,7 @@ $sidebar-footer-shadow:                         0 1px 10px rgba($black-color, 0.
 $progress-box-shadow:                           inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 $card-box-shadow:                               0 1px 2px rgba(0, 0, 0, .075) !default;
 $card-box-header-inset-shadow:                  inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
-$pagination-extended-indicator-box-shadow:      inset 0 .1rem .1rem rgba($gray-800, .5) !default;
+$pagination-ext-indicator-box-shadow:           inset 0 .1rem .1rem rgba($gray-800, .5) !default;
 $modal-content-box-shadow-xs:                   0 5px 10px rgba($black-color, .1);
 $chosen-select-box-shadow:                      0 5px 10px rgba($black-color, .1);
 $multiple-select-box-shadow:                    0 5px 10px rgba($black-color, .1);
@@ -307,33 +313,38 @@ $toastr-box-shadow:                             0 5px 10px rgba($black-color, .1
 
 // BREADCRUMB
 // ======================================================
-$breadcrumb-bg: $white-color !default; // Breadcrumb background color.
 
-$breadcrumb-border-radius:              $border-radius-md !default;
-$breadcrumb-border-size:                $border-thin;
-$breadcrumb-border-color:               $gray-400 !default;
+$breadcrumb-bg:                                 $white-color !default; // Breadcrumb background color.
 
-$breadcrumb-item-padding-y:             .40rem !default; // Breadcrumb item vertical padding.
-$breadcrumb-item-padding-x:             .85rem !default; // Breadcrumb item horizontal padding.
+$breadcrumb-border-radius:                      $border-radius-md !default;
+$breadcrumb-border-size:                        $border-thin;
+$breadcrumb-border-color:                       $gray-400 !default;
 
-$breadcrumb-font-size:                  $font-size-sm !default;
-$breadcrumb-color:                      $gray-700 !default; // Breadcrumb text color.
-$breadcrumb-line-height:                $lh-sm !default;
-$breadcrumb-active-color:               $gray-600 !default; // Text color of current page in the breadcrumb.
+$breadcrumb-item-padding-y:                     .40rem !default; // Breadcrumb item vertical padding.
+$breadcrumb-item-padding-x:                     .85rem !default; // Breadcrumb item horizontal padding.
 
-$breadcrumb-divider:                    "/" !default; // Textual separator for between breadcrumb elements.
-$breadcrumb-divider-color:              $gray-500 !default; // Textual separator color between breadcrumb elements.
-$breadcrumb-divider-angle-right:        "\f054" !default; // Textual separator type - Simple Line Icons unicode.
-$breadcrumb-divider-angle-double-right: "\f061" !default; // Textual separator type - Simple Line Icons unicode.
-$breadcrumb-divider-caret-right:        "\f0da" !default; // Textual separator type - Simple Line Icons unicode.
+$breadcrumb-font-size:                          $font-size-sm !default;
+$breadcrumb-color:                              $gray-700 !default; // Breadcrumb text color.
+$breadcrumb-line-height:                        $lh-sm !default;
+$breadcrumb-active-color:                       $gray-600 !default; // Text color of current page in the breadcrumb.
 
-$breadcrumb-link-theme-scheme:          primary !default; // Theme color scheme applied to breadcrumb link text theme scheme.
-$breadcrumb-link-hover-theme-tone:      dark !default; // Theme color tone applied to breadcrumb links on hover.
+$breadcrumb-divider:                            "/" !default; // Textual separator for between breadcrumb elements.
+$breadcrumb-divider-color:                      $gray-500 !default; // Textual separator color between breadcrumb elements.
+$breadcrumb-divider-angle-right:                "\f054" !default; // Textual separator type - Simple Line Icons unicode.
+$breadcrumb-divider-angle-double-right:         "\f061" !default; // Textual separator type - Simple Line Icons unicode.
+$breadcrumb-divider-caret-right:                "\f0da" !default; // Textual separator type - Simple Line Icons unicode.
 
-$breadcrumb-inner-size:                 ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
-$breadcrumb-size:                       calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
+$breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text theme scheme.
+$breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover.
+
+$breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
+$breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
+
+// BREADCRUMB EXTENDED
+// ======================================================
 
 // Breadcrumb extended(ext) - Arrow type
+
 $breadcrumb-ext-bg:                             $white-color !default; // Breadcrumb container background color.
 $breadcrumb-ext-border-color:                   $gray-300 !default; // Breadcrumb container border color.
 $breadcrumb-ext-item-hover-bg:                  $gray-100 !default; // Hover background color for breadcrumb item.
@@ -343,20 +354,23 @@ $breadcrumb-ext-top-bottom-border-size:         $breadcrumb-size !default; // Co
 $breadcrumb-ext-left-border-size:               10px !default; // Breadcrumb arrow extending out size.
 
 // Breadcrumb extended(ext) - Arrow wrap type
+
 $breadcrumb-ext-wrap-bg:                        $white-color !default; // Breadcrumb container background color.
 $breadcrumb-ext-wrap-item-bg:                   $gray-200 !default; // Breadcrumb item background color for previous pages.
 $breadcrumb-ext-wrap-color:                     $gray-600 !default; // Breadcrumb item text color for previous pages.
 $breadcrumb-ext-wrap-left-border-color:         $breadcrumb-ext-wrap-bg !default; // Breadcrumb arrow separator background color.
 
 // Breadcrumb extended(ext) - Arrow wizard type
+
 $breadcrumb-wizard-completed-theme-scheme:      primary !default; //  Theme color scheme applied to background color of completed step in the breadcrumb.
 $breadcrumb-wizard-active-theme-scheme:         secondary !default; // Theme color scheme applied to background color of current step in the breadcrumb.
 $breadcrumb-wizard-incomplete-bg:               $gray-200 !default; // Background color of next/incomplete step in the breadcrumb.
 $breadcrumb-wizard-incomplete-color:            $gray-600 !default; // Text color of next/incomplete step in the breadcrumb.
 
 // Breadcrumb type with menu on the end
-$breadcrumb-menu-color:                 $gray-600 !default; // Breadcrumb item text color
-$breadcrumb-menu-hover-color:           $gray-800 !default; // Hover text color for breadcrumb item.
+
+$breadcrumb-menu-color:                         $gray-600 !default; // Breadcrumb item text color
+$breadcrumb-menu-hover-color:                   $gray-800 !default; // Hover text color for breadcrumb item.
 
 // ============================================================================================================
 // LAYOUT VARIABLES
@@ -364,16 +378,19 @@ $breadcrumb-menu-hover-color:           $gray-800 !default; // Hover text color 
 
 // MAIN CONTENT WRAPPERS (main.content)
 // ======================================================
+
 $main-content-padding-y:                20px; // Vertical padding for 'main content' wrapper
 $main-content-padding-x:                0; // Horizontal padding for 'main content' wrapper
 
 // PAGE TITLE WRAPPERS (.content__page-title)
 // ======================================================
+
 $page-title-padding-y:                  20px; // Vertical padding for 'page title' wrapper
 $page-title-padding-x:                  0; // Horizontal padding for 'page title' wrapper
 
 // SIDEBAR (section.sidebar)
 // ======================================================
+
 $sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
 $sidebar-active-border-theme-scheme:    primary !default;  // Theme color scheme applied to active sidebar menu item
 $sidebar-width:                         200px; // Width of sidebar
@@ -381,14 +398,17 @@ $sidebar-padding-y:                     0px; // Sidebar vertical padding.
 $sidebar-padding-x:                     10px; // Sidebar horizontal padding
 
 // Sidebar brand/project image
+
 $sidebar-brand-height:                  50px; // Sidebar branding header height
 
 // Sidebar item heading
+
 $sidebar-item-header-font-size:         $font-size-xs; // Font size of sidebar section headers (.sidebar__item-header)
 $sidebar-item-header-height:            30px;
 $sidebar-item-header-opacity:           0.7;
 
 // Sidebar item
+
 $sidebar-item-font-size:                $font-size-base; // Sidebar menu item title font size (.sidebar__item > a).
 $sidebar-item-line-height:              $lh-base;
 $sidebar-item-padding-y:                8px;
@@ -396,22 +416,26 @@ $sidebar-item-padding-x:                $sidebar-padding-x;
 $sidebar-item-caret-margin-right:       10px; // Right margin for sidebar menu item caret, so that there is space between sidebar and caret.
 
 // Sidebar item icon
+
 $sidebar-item-icon-width:               20px; // Width of sidebar menu icon
 $sidebar-item-icon-font-size:           $sidebar-item-font-size; // Sidebar menu item icon font size (.sidebar__item-icon > i).
 $sidebar-item-icon-margin-right:        5px; // Right margin for sidebar icon, so that there is space between title and icon.
 
 // Sidebar sub menu
+
 $sidebar-submenu-item-font-size:        $font-size-sm; // Sidebar sub menu item font size (.sidebar__child .sidebar__item > a).
 $sidebar-submenu-item-padding-y:        4px;
 $sidebar-submenu-item-padding-x:        $sidebar-padding-x;
 
 // Sidebar divider (.sidebar__divider)
+
 $enable-sidebar-divider-underline-type: false; // 'true' will disable the divider after-line type.
 $sidebar-divider-height:                0px;
 $sidebar-divider-margin-y:              0.5rem;
 $sidebar-divider-margin-x:              0px;
 
 // Sidebar footer
+
 $sidebar-footer-theme-color:            $sidebar-theme-scheme !default; // Theme color applied to sidebar footer. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
 $sidebar-footer-active-theme-scheme:    primary !default; // Theme color scheme applied to active item
 $sidebar-footer-width:                  $sidebar-width; // Width of sidebar footer
@@ -421,108 +445,120 @@ $sidebar-footer-font-size:              $sidebar-submenu-item-font-size; // Subm
 $sidebar-footer-icon-font-size:         15px;
 
 // Mini sidebar adjustments
+
 $sidebar-mini-width:                    50px;
 $sidebar-mini-submenu-width:            $sidebar-width;
 $sidebar-mini-active-menu-width:        $sidebar-width + $sidebar-mini-width;
 
 // Mini sidebar 'full' type adjustments
+
 $sidebar-mini-full-item-height:         40px;
 
 // BUTTONS
 // ======================================================
+
 $btn-border-size:                       $border-thin !default;
 $btn-font-weight:                       $font-wh-normal !default;
 
 // Button with icon (.has-icon-left / .has-icon-right)
+
 $btn-icon-padding-left:                 5px !default;
 $btn-icon-padding-right:                5px !default;
 $btn-icon-lh:                           1 !default;
 
 // Small button (.btn-sm)
+
 $btn-font-size-sm:                      $font-size-sm;
 $btn-padding-y-sm:                      0.25rem !default; // 4px
 $btn-padding-x-sm:                      0.5rem !default; // 8px
 $btn-min-width-sm:                      80px !default;
 $btn-min-height-sm:                     0px !default;
 $btn-line-height-sm:                    $lh-sm !default;
-$btn-radius-sm:                         $border-radius-sm;
+$btn-border-radius-sm:                  $border-radius-sm;
 
 // Regular button (.btn)
+
 $btn-font-size:                         $font-size-base !default;
 $btn-padding-y:                         0.375rem !default; // 6px
 $btn-padding-x:                         0.75rem !default; // 12px
 $btn-min-width:                         100px !default;
 $btn-min-height:                        0px !default;
 $btn-line-height:                       $lh-base !default;
-$btn-radius:                            $border-radius-md !default;
+$btn-border-radius:                     $border-radius-md !default;
 
 // Large button (.btn-lg)
+
 $btn-font-size-lg:                      $font-size-lg !default;
 $btn-padding-y-lg:                      0.5rem !default; // 8px
 $btn-padding-x-lg:                      1rem !default; // 16px
 $btn-min-width-lg:                      120px !default;
 $btn-min-height-lg:                     0px !default;
 $btn-line-height-lg:                    $lh-lg !default;
-$btn-radius-lg:                         $border-radius-lg;
+$btn-border-radius-lg:                  $border-radius-lg;
 
 // Extra Large button (.btn-xl)
+
 $btn-font-size-xl:                      $font-size-xl !default;
 $btn-padding-y-xl:                      0.625rem !default; // 10px
 $btn-padding-x-xl:                      1.25rem !default; // 20px
 $btn-min-width-xl:                      140px !default;
 $btn-min-height-xl:                     0px !default;
 $btn-line-height-xl:                    $lh-xl !default;
-$btn-radius-xl:                         $border-radius-xl;
+$btn-border-radius-xl:                  $border-radius-xl;
 
 // Rounded button type (.btn-round)
+
 $btn-round-radius:                      30px;
 
 // Raised button type (.btn-raised)
+
 $btn-raised-box-shadow-y-offset:        5px;
 $btn-raised-box-shadow-y-offset-hover:  7px;
 
 // Small icon button (.btn-icon.btn-sm)
+
 $btn-icon-font-size-sm:                 $btn-font-size-sm;
 $btn-icon-size-sm-inner:                ($btn-icon-font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
 $btn-icon-size-sm:                      calc(#{$btn-icon-size-sm-inner} + #{$btn-border-size * 2}) !default;
 
 // Regular icon button (.btn-icon)
+
 $btn-icon-font-size:                    $btn-font-size;
 $btn-icon-size-inner:                   ($btn-icon-font-size * $btn-line-height) + ($btn-padding-y * 2) !default;
 $btn-icon-size:                         calc(#{$btn-icon-size-inner} + #{$btn-border-size *2}) !default;
 
 // Large icon button (.btn-icon.btn-lg)
+
 $btn-icon-font-size-lg:                 $btn-font-size-lg;
 $btn-icon-size-lg-inner:                ($btn-icon-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $btn-icon-size-lg:                      calc(#{$btn-icon-size-lg-inner} + #{$btn-border-size * 2}) !default;
 
 // Extra Large icon button (.btn-icon.btn-xl)
+
 $btn-icon-font-size-xl:                 $btn-font-size-xl;
 $btn-icon-size-xl-inner:                ($btn-icon-font-size-xl * $btn-line-height-xl) + ($btn-padding-y-xl * 2) !default;
 $btn-icon-size-xl:                      calc(#{$btn-icon-size-xl-inner} + #{$btn-border-size * 2}) !default;
 
 // Disabled button opacity
+
 $btn-disabled-opacity: 0.5;
 
 // MARK
 // ======================================================
-// Extra small (.mark-xs)
-$mark-underline-height-xs:              0.125rem; // 2px
 
-// Small (.mark-sm)
-$mark-underline-height-sm:              0.25rem; // 4px
+$mark-underline-height-xs:              0.125rem; // 2px. Extra small (.mark-xs)
 
-// Regular
-$mark-underline-height:                 0.5rem; // 8px
+$mark-underline-height-sm:              0.25rem; // 4px. Small (.mark-sm)
 
-// Large (.mark-lg)
-$mark-underline-height-lg:              0.75rem; // 12px
+$mark-underline-height:                 0.5rem; // 8px. Regular
 
-// Extra large (.mark-xl)
-$mark-underline-height-xl:              1rem; // 16px
+$mark-underline-height-lg:              0.75rem; // 12px. Large (.mark-lg)
+
+$mark-underline-height-xl:              1rem; // 16px. Extra large (.mark-xl)
 
 // FORMS
 // ======================================================
+
 $input-bg:                              $white-color; // <input> background color
 $input-color:                           $gray-700; // Text color for inputs
 $input-label-color:                     $gray-800; // Text color for inputs labels and legends.
@@ -536,11 +572,13 @@ $input-focus-border-theme-tone:         base !default; // Theme color tone appli
 $input-hover-border-color:              $gray-500; // Border color for inputs on hover
 
 // Disabled state
+
 $input-disabled-color:                  $gray-600;
 $input-disabled-border-color:           $gray-300;
 $input-disabled-bg:                     $gray-200;
 
 // Input group
+
 $input-addon-color:                     $gray-700; // Color for textual input group’s addons
 $input-addon-hover-focus-color:         $input-focus-color; // Color for textual input group’s addons on hover/focus
 $input-addon-bg:                        $gray-100; // Background color for textual input group’s addons
@@ -549,32 +587,38 @@ $input-addon-min-width:                 40px; // Minimum width of input group’
 $input-height-border:                   $input-border-size * 2 !default; // Required to compute input height
 
 // Small input (.form-control-sm)
+
 $input-font-size-sm:                    $font-size-sm !default;
 $input-border-radius-sm:                $border-radius-sm !default;
 $input-height-inner-sm:                 ($font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
 $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Regular (Default) input (.form-control)
+
 $input-font-size:                       $font-size-base !default;
 $input-border-radius:                   $border-radius-md !default;
 $input-height-inner:                    ($font-size-base * $btn-line-height) + ($btn-padding-y * 2) !default;
 $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Large input (.form-control-lg)
+
 $input-font-size-lg:                    $font-size-lg !default;
 $input-border-radius-lg:                $border-radius-lg !default;
 $input-height-inner-lg:                 ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Validation
+
 $form-feedback-valid-color:             contextual-color(success); // Retrieve 'success' color from contextual color map ($contextual-palette-map)
 $form-feedback-invalid-color:           contextual-color(danger); // Retrieve 'danger' color from contextual color map ($contextual-palette-map)
 
 // Required field
+
 $required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk (*) symbol
 
 // CUSTOM FORMS
 // ======================================================
+
 $custom-control-indicator-size:                         1rem !default;
 $custom-control-indicator-bg:                           $white-color !default; // Background color for checkboxes and radios
 $custom-control-indicator-bg-size:                      50% 50% !default;
@@ -586,23 +630,27 @@ $custom-control-indicator-active-color:                 $white-color;
 $custom-control-indicator-active-bg:                    lighten(contextual-color(success), 25%) !default; // Contextual color scheme applied to active state checkboxes and radios
 
 // Disabled state
+
 $custom-control-indicator-disabled-bg:                  $input-disabled-bg !default;
 $custom-control-indicator-disabled-color:               $input-disabled-color;
 $custom-control-indicator-disabled-border-color:        $input-disabled-border-color;
 $custom-control-label-disabled-color:                   lighten($input-label-color, 25%) !default;
 
 // Checkbox
+
 $custom-checkbox-indicator-border-radius:               $border-radius-sm; // Border radius for default custom checkbox
 $custom-checkbox-rounded-indicator-border-radius:       $border-radius-100; // Border radius for custom circled/rounded type checkbox (.custom-checkbox .rounded)
 $custom-checkbox-indicator-disabled-checked-color:      lighten($input-disabled-color, 15%) !default; // Checked + disabled state color
 $custom-checkbox-indicator-disabled-icon-checked:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$custom-checkbox-indicator-disabled-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 // Radio
+
 $custom-radio-indicator-border-radius:                  $border-radius-50; // Border radius for default custom radio
 $custom-radio-indicator-disabled-checked-color:         lighten($input-disabled-color, 15%) !default; // Checked + disabled state color
 $custom-radio-indicator-disabled-icon-checked:          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='#{$custom-radio-indicator-disabled-checked-color}'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 // Select
+
 $custom-select-line-height:                             $btn-line-height; // Custom '<select>' menus line height should be same as buttons.
 $custom-select-color:                                   $input-color; // Text color for custom '<select>' menus should be same as '<input>'s.
 $custom-select-font-size:                               $input-font-size; // Font size for custom '<select>' menus should be same as '<input>'s.
@@ -617,12 +665,14 @@ $custom-select-indicator-color:                         $gray-700 !default; // C
 $custom-select-indicator:                               str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 // File input
+
 $custom-file-button-bg:                                 $gray-200 !default; // Background color for custom file browser button
 $custom-file-button-focus-bg:                           $gray-300 !default;  // Background color for custom file browser button on focus
 $custom-file-text:                                      (en: "\e089   Browse") !default; // Custom file browser button text and icon (Simple Line Icons) unicode.
 
 // CUSTOM TOGGLE SWITCH
 // ======================================================
+
 $custom-toggle-width:                   50px;
 $custom-toggle-height:                  28px;
 $custom-toggle-border:                  $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
@@ -631,16 +681,18 @@ $custom-toggle-border-radius:           100px;
 
 $custom-toggle-knob-bg:                 $white-color; // Knob background color
 $custom-toggle-knob-border-radius:      100px; // To add rounded corners to the Knob
-$custom-toggle-knob-width:              20px; // Knob width. Height and width should be same to make circle perfect.
-$custom-toggle-knob-height:             20px; // Knob height. Height and width should be same to make circle perfect.
+$custom-toggle-knob-width:              20px; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
+$custom-toggle-knob-height:             20px; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
 $custom-toggle-knob-checked-bg:         $white-color;
 $custom-toggle-knob-active-width:       26px; // Pressing and holding the knob looks little expanded
 
 // Mini type
+
 $custom-toggle-mini-height:             10px !default;
 $custom-toggle-mini-bg:                 $gray-200 !default;
 
 // Flip type
+
 $custom-toggle-flip-width:              60px;
 $custom-toggle-flip-height:             30px;
 $custom-toggle-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
@@ -649,6 +701,7 @@ $custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color 
 
 // POPOVERS
 // ======================================================
+
 $popover-bg:                            $white-color !default; // Popover body background color
 $popover-header-font-size:              $font-size-base !default; // Popover header font size.
 $popover-header-color:                  $gray-700 !default; // Popover header text color.
@@ -658,6 +711,7 @@ $popover-border-radius:                 $border-radius-md;
 
 // TOOLTIPS
 // ======================================================
+
 $tooltip-bg:                            $gray-900 !default; // Tooltip background color
 $tooltip-color:                         $white-color !default; // Tooltip text color
 $tooltip-padding-y:                     8px !default; // Tooltip body vertical padding.
@@ -667,6 +721,7 @@ $tooltip-line-height:                   $lh-sm !default;
 
 // ALERT
 // ======================================================
+
 $enable-alert-border:                   false; // Quickly adding border by enabling or disabling
 $alert-border-radius:                   $border-radius-md; // Alert border radius.
 $alert-border-size:                     $border-thin; // Alert border width
@@ -674,6 +729,7 @@ $alert-font-size:                       $font-size-base; // Alert font size.
 
 // CARDS
 // ======================================================
+
 $card-margin-bottom:                    15px !default; // Margin for the bottom of each card so that it is separated from all other cards.
 $card-spacer-y:                         .75rem !default; // Card vertical padding helper variable.
 $card-spacer-x:                         1.25rem !default; // Card horizontal padding helper variable.
@@ -691,16 +747,20 @@ $card-link-color:                       $gray-600 !default; // Text color for ca
 $card-link-hover-color:                 $gray-800; // Text color for card links on hover (a.card-link)
 
 // Card tools
+
 $card-tools-color:                      $gray-600 !default; // Text color for card action items
 $card-tools-font-size:                  $font-size-xs !default; // Font size for card action items
 $card-toolbar-icon-width:               30px; // Width of the icons for each card action items
 
 // Window type card actions toolbar
+
 $card-toolbar-icon-height:              25px; // Height of the icons for Window type actions items
 
 // ACCORDION / COLLAPSE
 // ======================================================
+
 // Default accordion
+
 $accordion-title-color:                         $gray-700 !default; // Text color for accordion title
 $accordion-title-hover-color:                   $gray-900 !default; // Text color for accordion title on hover
 $accordion-title-active-color:                  $gray-900 !default; // Text color for active accordion title
@@ -713,22 +773,216 @@ $accordion-header-collapsed-hover-bg:           rgba($black-color, .08) !default
 $accordion-header-active-bg:                    $accordion-header-collapsed-hover-bg !default; // Background color for accordion header on active
 
 // Accordion caret icon
+
 $accordion-icon-collapsed:                      "\e604" !default; // Collapsed accordion icon (Simple Line Icons) unicode
 $accordion-icon-active:                         "\e607" !default; // Active accordion icon (Simple Line Icons) unicode
 
-// Accordion Extended (ext) type
+// ACCORDION EXTENDED
+// ======================================================
+
 $accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion
-$accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to Extended' accordion on hover
-$accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // Theme color tone applied to Extended' accordion on active
+$accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to 'Extended' accordion on hover
+$accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // Theme color tone applied to 'Extended' accordion on active
 $accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
+
+// NAVS
+// ======================================================
+
+$nav-font-size:                         $font-size-base !default; // Navigation font size (.nav)
+$nav-font-weight:                       $font-wh-normal !default; // Navigation font weight (.nav)
+$nav-link-padding-y:                    .5rem !default; // Navigation link vertical padding (.nav-link).
+$nav-link-padding-x:                    1rem !default; // Navigation link horizontal padding (.nav-link).
+$nav-link-disabled-color:               $gray-400 !default; // Navigation disabled link color (.nav-link).
+
+// TABS, PILLS
+// ======================================================
+
+// Tabs
+
+$nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements like border colors, font colors etc..
+$nav-tabs-border-color:                 $gray-400 !default; // Tabbed navigation border color
+$nav-tabs-border-size:                  $border-thin !default;  // Tabbed navigation borders width
+$nav-tabs-border-radius:                $border-radius-md !default;  // Tabbed navigation item borders radius
+$nav-tabs-link-hover-border-color:      $gray-300 !default; // Tabbed navigation item border color on hover
+$nav-tabs-link-hover-bg:                $gray-100 !default; // Tabbed navigation item background color on hover
+$nav-tabs-link-color:                   $gray-600 !default; // Text color for tabbed navigation item link
+$nav-tabs-link-active-theme-scheme:     $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to the active tabbed navigation item link
+$nav-tabs-link-active-bg:               $white-color !default; // Background color for active tabbed navigation item
+$nav-tabs-link-active-border-color:     $nav-tabs-border-color !default; // Border color for active tabbed navigation item
+$nav-tabs-icon-width:                   20px;
+
+// Tab content
+
+$tab-content-bg:                        $white-color !default; // Background color active tab content body
+
+// Pills type
+
+$nav-pills-border-radius:                       $nav-tabs-border-radius !default; // Tabbed navigation pill border radius
+$nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to active pill item
+$nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover
+
+// TABS EXTENDED
+// ======================================================
+
+// Tabs Extended (ext) - Arrow type
+
+$nav-tabs-ext-arrow-link-hover-bg:              $white-color !default; // Tabbed navigation item background color on hover
+
+// Tabs Extended (ext) - Boxed type
+
+$nav-tabs-ext-box-bg:                           $gray-200 !default; // Background color for the box area behind the tabs
+$nav-tabs-ext-box-spacing:                      8px !default; // Spacing between navigation items and outer box
+
+// Tabs Extended (ext) - Vertical type
+
+$nav-tabs-ext-v-width:                          200px !default; // Width of the tabbed navigation on left side
+$nav-tabs-ext-v-wrap-active-border-size:        $nav-tabs-border-size !default; // Width of the border around active tabbed navigation item
+
+// Tabs Extended (ext) - Vertical Right line type
+
+$nav-tabs-ext-v-right-line-active-border-size:  $nav-tabs-ext-v-wrap-active-border-size + 1 !default; // Width of the right side line for active tab
+
+
+// MODAL
+// ======================================================
+
+$modal-content-bg:                      $white-color !default; // Background color of modal content area
+
+$modal-border-radius:                   $border-radius-md !default; // Modal border radius
+$modal-body-padding:                    15px 25px !default; // Padding around the modal body
+
+$modal-backdrop-bg:                     $black-color !default; // Modal backdrop background color
+$modal-backdrop-opacity:                .7 !default; // Modal backdrop opacity
+
+$modal-header-border-size:              $border-thin !default; // Modal header border bottom width
+$modal-header-border-color:             $gray-400;  // Modal header border bottom color
+$modal-header-padding:                  10px 25px !default; ; // Modal header vertical and horizontal padding.
+
+$modal-footer-border-width:             $border-thin !default; // Modal footer border top width
+$modal-footer-border-color:             $gray-400; // Modal footer border top color
+$modal-footer-padding:                  15px 25px !default; // Modal footer vertical and horizontal padding.
+
+// CAROUSEL
+// ======================================================
+
+$carousel-control-icon-size:                            40px !default; // Left/right controls size
+$carousel-control-icon-font-size:                       1.5rem; // Left/right controls icon font size
+$carousel-control-icon-bg:                              rgba(0, 0, 0, .0); // Left/right controls background color
+$carousel-control-next-icon:                            '\e606'; // Next icon (Simple Line Icons) unicode.
+$carousel-control-prev-icon:                            '\e605'; // Prev icon (Simple Line Icons) unicode.
+$carousel-control-prev-icon-text-shadow:                1px 2px 2px rgba(0, 0, 0, 0.5); // Next/Prev icons text shadow.
+$carousel-control-border-size:                          $border-thin; // Left/right controls border width
+$carousel-control-border-color:                         $white-color !default; // Left/right controls border color
+
+$carousel-indicator-light-active-bg:                    $black-color !default; // Carousel indicator background color for lighter theme
+
+
+// PAGINATION
+// ======================================================
+
+$pagination-bg:                         $white-color !default; // Page link background color
+$pagination-border-size:                $btn-border-size !default; // Page link border width
+$pagination-border-color:               $gray-400 !default; // Page link border color
+$pagination-font-weight:                $btn-font-weight !default; // Page link font weight
+
+$pagination-link-theme-scheme:          primary !default; // Theme color scheme applied to page link
+$pagination-link-active-theme-scheme:   $pagination-link-theme-scheme !default; // Theme color scheme applied to current page link
+
+$pagination-hover-bg:                   $gray-100 !default; // Background color for page link on hover
+$pagination-hover-border-color:         $pagination-border-color; // Border color for page link on hover
+
+$pagination-icon-font-size:             $font-size-sm !default; // Next/Prev icons font size
+
+$pagination-disabled-color:             $gray-400 !default; // Text color for disabled page link
+$pagination-disabled-bg:                $white-color !default; // Background color for disabled page link
+$pagination-disabled-border-color:      $gray-200 !default;  // Border color for disabled page link
+
+// Small size
+
+$pagination-font-size-sm:               $btn-font-size-sm !default; // Use the same font size as in 'small' size button for a consistent look
+$pagination-padding-y-sm:               $btn-padding-y-sm !default; // Use the same vertical padding as in 'small' size button for a consistent look
+$pagination-padding-x-sm:               $btn-padding-x-sm !default; // Use the same horizontal padding as in 'small' size button for a consistent look
+$pagination-line-height-sm:             $btn-line-height-sm !default; // Use the same line height as in 'small' size button for a consistent look
+$pagination-border-radius-sm:           $btn-border-radius-sm !default; // Use the same border radius as in 'small' size button for a consistent look
+
+// Regular size
+
+$pagination-font-size:                  $btn-font-size !default; // Use the same font size as in 'regular' size button for a consistent look
+$pagination-padding-y:                  $btn-padding-y !default; // Use the same vertical padding as in 'regular' size button for a consistent look
+$pagination-padding-x:                  $btn-padding-x !default; // Use the same horizontal padding as in 'regular' size button for a consistent look
+$pagination-line-height:                $btn-line-height !default; // Use the same line height as in 'regular' size button for a consistent look
+$pagination-border-radius:              $btn-border-radius !default; // Use the same border radius as in 'regular' size button for a consistent look
+
+// Large size
+
+$pagination-font-size-lg:               $btn-font-size-lg !default; // Use the same font size as in 'large' size button for a consistent look
+$pagination-padding-y-lg:               $btn-padding-y-lg !default; // Use the same vertical padding as in 'large' size button for a consistent look
+$pagination-padding-x-lg:               $btn-padding-x-lg !default; // Use the same horizontal padding as in 'large' size button for a consistent look
+$pagination-line-height-lg:             $btn-line-height-lg !default; // Use the same line height as in 'large' size button for a consistent look
+$pagination-border-radius-lg:           $btn-border-radius-lg !default; // Use the same border radius as in 'large' size button for a consistent look
+
+// PAGINATION EXTENDED
+// ======================================================
+
+// Pagination extended(ext) - Round type
+
+$pagination-ext-round-border-radius:    $border-radius-100 !default;  // Page link radius to make it circled/rounded shape
+
+// Pagination extended(ext) - Wizard type
+
+$pagination-ext-wizard-bg:              $gray-300 !default; // Background color for page link
+$pagination-ext-wizard-color:           $gray-600 !default; // Text color for page link
+
+$pagination-ext-wizard-hover-bg:        $gray-400 !default; // Background color for page link on hover
+$pagination-ext-wizard-hover-color:     $gray-700 !default; // Text color for page link on hover
+
+$pagination-ext-wizard-disabled-bg:     $gray-200 !default; // Background color for disabled page link
+$pagination-ext-wizard-disabled-color:  $gray-300 !default; // Text color for for disabled page link
+
+// Pagination extended(ext) - Outline type
+
+$pagination-ext-outline-border-size:    3px;  // Page link border radius width
+$pagination-ext-outline-border-radius:  $border-radius-100 !default;  // Page link radius to make it circled/rounded shape
+
+// Pagination extended(ext) - Indicator type
+
+$pagination-ext-indicator-bg:                           $gray-200 !default; // Background color for page link
+$pagination-ext-indicator-hover-bg:                     $gray-400 !default; // Background color for page link on hover
+$pagination-ext-indicator-border-radius:                $border-radius-100 !default; // Page link item radius to make it circled/rounded shape
+$pagination-ext-indicator-size:                         15px; // Page link item size
+$pagination-ext-indicator-margin-x:                     4px;  // Right margin for page link item, so that there is space between each item.
+
+// Small size
+
+// Compute the pagination height so the pagination will have the same height as 'small' size buttons
+$pagination-ext-border-size-sm:         $pagination-border-size * 2 !default;
+$pagination-ext-inner-sm:               ($pagination-font-size-sm * $pagination-line-height-sm) + ($pagination-padding-y-sm * 2) !default;
+$pagination-ext-size-sm:                calc(#{$pagination-ext-inner-sm} + #{$pagination-ext-border-size-sm}) !default;
+
+// Regular size
+
+// Compute the pagination height so the pagination will have the same height as 'regular' size buttons
+$pagination-ext-border-size:            $pagination-border-size * 2 !default;
+$pagination-ext-inner:                  ($pagination-font-size * $pagination-line-height) + ($pagination-padding-y * 2) !default;
+$pagination-ext-size:                   calc(#{$pagination-ext-inner} + #{$pagination-ext-border-size}) !default;
+
+// Large size
+
+// Compute the pagination height so the pagination will have the same height as 'large' size buttons
+$pagination-ext-border-size-lg:         $pagination-border-size * 2 !default;
+$pagination-ext-inner-lg:               ($pagination-font-size-lg * $pagination-line-height-lg) + ($pagination-padding-y-lg * 2) !default;
+$pagination-ext-size-lg:                calc(#{$pagination-ext-inner-lg} + #{$pagination-ext-border-size-lg}) !default;
+
 
 // NUMBER SPINNER
 // ======================================================
+
 $spinner-icon-width:                    20px;
 $spinner-icon-font-size:                $font-size-xs;
 
 // SIZES
 // ======================================================
+
 $sizes: (
         5: 5%,
         10: 10%,
@@ -766,11 +1020,13 @@ $opacity-black-9:                       rgba(0, 0, 0, .9) !default;
 
 // TOASTR PLUGIN
 // ======================================================
+
 $toastr-radius:                         $alert-border-radius !default; // Radius should be same as Bootstrap's alert radius for consistency.
 $toastr-opacity:                        0.9; // Toastr container opacity
 
 // CHOSEN SELECT PLUGIN
 // ======================================================
+
 $chosen-search-icon-color:                              $gray-600 !default; // Search lens icon color that appear on search input
 $chosen-search-bg-size:                                 15px 15px; // In pixels because image dimensions
 $chosen-search-bg:                                      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 8 8'%3E%3Cpath fill='#{$chosen-search-icon-color}' d='M3.5 0c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c.59 0 1.17-.14 1.66-.41a1 1 0 0 0 .13.13l1 1a1.02 1.02 0 1 0 1.44-1.44l-1-1a1 1 0 0 0-.16-.13c.27-.49.44-1.06.44-1.66 0-1.93-1.57-3.5-3.5-3.5zm0 1c1.39 0 2.5 1.11 2.5 2.5 0 .66-.24 1.27-.66 1.72-.01.01-.02.02-.03.03a1 1 0 0 0-.13.13c-.44.4-1.04.63-1.69.63-1.39 0-2.5-1.11-2.5-2.5s1.11-2.5 2.5-2.5z'/%3E%3C/svg%3E"), "#", "%23") !default;
@@ -791,9 +1047,10 @@ $chosen-search-multi-search-choice-rtl-padding:         3px 5px 3px 19px; // Sel
 
 // DROPZONE JS PLUGIN
 // ======================================================
+
 $dropzone-bg:                           $gray-200; // Background color for drag’n’drop area
 $dropzone-hover-bg:                     $gray-300;  // Background color for drag’n’drop area on hover
-$dropzone-radius:                       $border-radius-md; // Border radius for drag’n’drop area
+$dropzone-border-radius:                $border-radius-md; // Border radius for drag’n’drop area
 
 $dropzone-message-color:                $gray-500; // Text color for drag’n’drop message
 $dropzone-message-hover-color:          $gray-700; // Text color for drag’n’drop message on hover
@@ -807,6 +1064,7 @@ $dropzone-message-icon-font-size:       2rem !default; // Drag’n’drop icon f
 
 // BOOTSTRAP DATEPICKER PLUGIN
 // ======================================================
+
 $datepicker-border-radius:              $card-border-radius; // Datepicker border radius should be same as Bootstrap's card radius for consistency.
 $datepicker-dropdown-padding:           20px 22px !default; // Datepicker vertical and horizontal padding.
 
@@ -817,6 +1075,7 @@ $datepicker-cell-height:                36px !default; // Height for table cells
 
 // JQUERY STEPS PLUGIN
 // ======================================================
+
 $steps-active-theme-scheme:             primary !default; // Theme color scheme applied to the tab of current step
 $steps-done-theme-scheme:               primary !default; // Theme color scheme applied to the tabs of previous steps
 $steps-error-theme-scheme:              danger; // Theme color scheme applied to tabs if current step have any validation errors
@@ -830,13 +1089,14 @@ $steps-content-bg:                      $white-color !default; // Background col
 $step-indicator-color:                  $gray-600 !default; // Text color of step indicator
 $step-indicator-font-size:              $font-size-lg !default; // Step indicator font size
 
-$steps-margin-right:                    15px; // Right margin for horizontal steps item  so that there is space between each item.
+$steps-margin-right:                    15px; // Right margin for horizontal steps item, so that there is space between each item.
 $steps-margin-bottom:                   15px; // Bottom margin for vertical steps item, so that there is space between each item.
 
 $steps-action-margin-top:               15px; // Right margin for the action container
 $steps-action-button-margin-left:       15px; // Left margin for the action buttons, so that there is space between buttons.
 
 // Circle wizard type
+
 $steps-circle-border-size:              5px !default; // Steps item border width
 $steps-circle-line-size:                3px !default; // Height of connecting lines between steps item
 $steps-circle-size:                     $btn-icon-size-lg !default; // Steps item size should be same as large buttons for consistency
@@ -846,202 +1106,42 @@ $steps-circle-title-font-size:          $font-size-base !default; // Step item t
 $steps-circle-title-color:              $gray-800 !default; // Step item title text color
 
 // Arrow wizard type
+
 $arrow-wizard-inner-size:               ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle.
 
-// NAVS / TABS / PILLS
+// SLIDER CONTROL - NOUISLIDER PLUGIN
 // ======================================================
 
-// Navs
-$nav-font-size:                         $font-size-base !default; // Navigation font size (.nav)
-$nav-font-weight:                       $font-wh-normal !default; // Navigation font weight (.nav)
-$nav-link-padding-y:                    .5rem !default; // Navigation link vertical padding (.nav-link).
-$nav-link-padding-x:                    1rem !default; // Navigation link horizontal padding (.nav-link).
-$nav-link-disabled-color:               $gray-400 !default; // Navigation disabled link color (.nav-link).
+// Slider base bar
+$slider-base-size:                      5px !default; // Slider base bar height
+$slider-base-bg:                        $gray-200 !default; // Background color for slider base bar
+$slider-base-border-color:              $gray-400 !default; // Border color for slider base bar
+$slider-base-border-radius:             $border-radius-xxl; // Border radius for slider base bar
+$slider-base-margin-y:                  35px !default; // Slider vertical margin, so that there is space between elements that are placed immediately after the slider
 
-// Tabs
-$nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements
-$nav-tabs-border-color:                 $gray-400 !default; // Tabbed navigation border color
-$nav-tabs-border-width:                 $border-thin !default;  // Tabbed navigation border width
-$nav-tabs-border-radius:                $border-radius-md !default;  // Tabbed navigation border radius
-$nav-tabs-link-hover-border-color:      $gray-300 !default; // Tabbed navigation border color on hover
-$nav-tabs-link-hover-bg:                $gray-100 !default; // Tabbed navigation background color on hover
-$nav-tabs-link-color:                   $gray-600 !default; // Text color for tabbed navigation link
-$nav-tabs-link-active-theme-scheme:     $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to the active tabbed navigation link
-$nav-tabs-link-active-bg:               $white-color !default; // Background color for active tabbed navigation
-$nav-tabs-link-active-border-color:     $nav-tabs-border-color !default; // Border color for active tabbed navigation
-$nav-tabs-icon-width:                   20px;
+// Slider handle
+$slider-handle-border-radius:           $border-radius-50; // Slider handle border radius to make it circled/rounded shape
+$slider-handle-bg:                      $white-color; // Slider handle background color
+$slider-handle-box-shadow:              0 3px 15px rgba($gray-600, 0.1), 0 2px 3px rgba($gray-600, 0.2) !default; // Slider handle box shadow
+$slider-handle-focus-box-shadow:        0 3px 15px rgba($gray-800, 0.2), 0 2px 3px rgba($gray-800, 0.3) !default; // Slider handle box shadow on focus
+$slider-handle-width:                   15px !default; // Slider handle width. NOTE: Height and width should be same to make perfect circle shape.
+$slider-handle-height:                  15px !default; // Slider handle height. NOTE: Height and width should be same to make perfect circle shape.
+$slider-handle-horizontal-top:          -6px !default; // To ensure that slider handle always aligns horizontally to the base bar
+$slider-handle-vertical-left:           -6px !default; // To ensure that slider handle always aligns vertically to the base bar
 
-// Tab content
-$tab-content-bg:                        $white-color !default; // Active tab content body background color
+// Slider pips
+$slider-pips-color:                     $gray-600 !default; // Slider points color
+$slider-pips-font-size:                 $font-size-base !default; // Slider points font size
 
-// Tabs Extended (ext) - Arrow type
-$nav-tabs-ext-arrow-link-hover-bg:      $white-color !default; // Tabbed navigation background color on hover
-
-// Tabs Extended (ext) - Boxed type
-$nav-tabs-boxed-bg: $gray-200 !default;
-$nav-tabs-boxed-spacing: 8px !default;
-
-// Tabs Extended (ext) - Vertical
-$nav-tabs-v-width: 180px !default;
-$nav-tabs-v-right-line-active-border-width: 2px !default;
-
-// Tabs Extended (ext) - Vertical
-$nav-tabs-v-wrap-active-border-width: 1px !default;
-
-// Pills
-$nav-pills-border-radius: $border-radius-md !default;
-$nav-pills-link-active-theme-color: $nav-tabs-active-theme-scheme !default;
-$nav-pills-link-hover-bg-theme-color-tone: light !default;
-
-// MODAL
-// ======================================================
-
-$modal-content-bg: $white-color !default;
-$modal-content-border-width: $border-thin !default;
-$modal-content-border-color: $gray-400 !default;
-
-$modal-border-radius: $border-radius-md !default;
-$modal-body-padding: 15px 25px !default;
-
-$modal-backdrop-bg: $black-color !default;
-$modal-backdrop-opacity: .7 !default;
-
-$modal-header-border-width: $border-thin !default;
-$modal-header-border-color: $modal-content-border-color;
-$modal-header-padding: 10px 25px !default;
-
-$modal-footer-border-width: $border-thin !default;
-$modal-footer-border-color: $modal-content-border-color;
-$modal-footer-padding: 15px 25px !default;
-
-// CAROUSEL
-// ======================================================
-$carousel-control-icon-width: 40px !default;
-$carousel-control-icon-font-size: 1.5rem;
-$carousel-control-icon-bg: rgba(0, 0, 0, .0);
-$carousel-control-next-icon: '\e606';
-$carousel-control-prev-icon: '\e605';
-$carousel-control-prev-icon-text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
-$carousel-control-border-size: $border-thin;
-$carousel-control-border-color: $white-color !default;
-
-$carousel-indicator-light-active-bg: $black-color !default;
-
-// SLIDER CONTROL - NOUISLIDER
-// ======================================================
-$slider-base-size: 5px !default;
-$slider-base-background: $gray-200 !default;
-$slider-base-border-color: $gray-400 !default;
-$slider-base-border-radius: $border-radius-xxl;
-$slider-base-margin-y: 35px !default;
-
-$slider-handle-border-radius: $border-radius-50;
-$slider-handle-background: $white-color;
-$slider-handle-box-shadow: 0 3px 15px rgba($gray-600, 0.1),
-0 2px 3px rgba($gray-600, 0.2) !default;
-
-$slider-handle-focus-box-shadow: 0 3px 15px rgba($gray-800, 0.2),
-0 2px 3px rgba($gray-800, 0.3) !default;
-
-$slider-handle-width: 15px !default;
-$slider-handle-height: 15px !default;
-
-$slider-handle-horizontal-top: -6px !default;
-$slider-handle-vertical-left: -6px !default;
-
-$slider-pips-color: $gray-600 !default;
-$slider-pips-font-size: $font-size-base !default;
-
-$slider-tooltip-padding: 3px 10px !default;
-$slider-tooltip-font-size: $font-size-sm !default;
-$slider-tooltip-background: $white-color !default;
-$slider-tooltip-border-color: $gray-400 !default;
-$slider-tooltip-border-radius: $border-radius-md !default;
-$slider-tooltip-color: $gray-700 !default;
-$slider-tooltip-box-shadow: 0 3px 15px rgba($gray-400, 0.1),
-0 2px 3px rgba($gray-400, 0.2);
-// PAGINATION
-// ======================================================
-
-$pagination-bg: $white-color !default;
-
-$pagination-border-width: $btn-border-size !default;
-$pagination-border-color: $gray-400 !default;
-
-$pagination-font-weight: $btn-font-weight !default;
-
-$pagination-link-theme-color: primary !default;
-$pagination-active-bg-theme-color: primary !default;
-
-$pagination-disabled-color: $gray-400 !default;
-$pagination-disabled-bg: $white-color !default;
-$pagination-disabled-border-color: $gray-200 !default;
-
-$pagination-hover-bg: $gray-100 !default;
-$pagination-hover-border-color: $pagination-border-color;
-
-$pagination-icon-font-size: $font-size-sm !default;
-
-/* Small size */
-$pagination-font-size-sm: $btn-font-size-sm !default;
-$pagination-padding-y-sm: $btn-padding-y-sm !default;
-$pagination-padding-x-sm: $btn-padding-x-sm !default;
-$pagination-line-height-sm: $btn-line-height-sm !default;
-$pagination-border-radius-sm: $btn-radius-sm !default;
-
-/* Regular size */
-$pagination-font-size: $btn-font-size !default;
-$pagination-padding-y: $btn-padding-y !default;
-$pagination-padding-x: $btn-padding-x !default;
-$pagination-line-height: $btn-line-height !default;
-$pagination-border-radius: $btn-radius !default;
-
-/* Large size */
-$pagination-font-size-lg: $btn-font-size-lg !default;
-$pagination-padding-y-lg: $btn-padding-y-lg !default;
-$pagination-padding-x-lg: $btn-padding-x-lg !default;
-$pagination-line-height-lg: $btn-line-height-lg !default;
-$pagination-border-radius-lg: $btn-radius-lg !default;
-
-// PAGINATION EXTENDED
-// ======================================================
-
-$pagination-extended-radius-round: $border-radius-100 !default;
-
-/* Small size */
-$pagination-extended-border-width-sm: $pagination-border-width * 2 !default;
-$pagination-extended-inner-sm: ($pagination-font-size-sm * $pagination-line-height-sm) + ($pagination-padding-y-sm * 2) !default;
-$pagination-extended-size-sm: calc(#{$pagination-extended-inner-sm} + #{$pagination-extended-border-width-sm}) !default;
-
-/* Regular size */
-$pagination-extended-border-width: $pagination-border-width * 2 !default;
-$pagination-extended-inner: ($pagination-font-size * $pagination-line-height) + ($pagination-padding-y * 2) !default;
-$pagination-extended-size: calc(#{$pagination-extended-inner} + #{$pagination-extended-border-width}) !default;
-
-/* Large size */
-$pagination-extended-border-width-lg: $pagination-border-width * 2 !default;
-$pagination-extended-inner-lg: ($pagination-font-size-lg * $pagination-line-height-lg) + ($pagination-padding-y-lg * 2) !default;
-$pagination-extended-size-lg: calc(#{$pagination-extended-inner-lg} + #{$pagination-extended-border-width-lg}) !default;
-
-/* Extended - Wizard */
-$pagination-wizard-bg: $gray-300 !default;
-$pagination-wizard-color: $gray-600 !default;
-
-$pagination-wizard-hover-bg: $gray-400 !default;
-$pagination-wizard-hover-color: $gray-700 !default;
-
-$pagination-wizard-disabled-color: $gray-300 !default;
-$pagination-wizard-disabled-bg: $gray-200 !default;
-
-/* Extended - Border */
-$pagination-border-round-width: 3px;
-
-/* Extended - indicator */
-$pagination-extended-indicator-bg: $gray-200 !default;
-$pagination-extended-indicator-hover-bg: $gray-400 !default;
-$pagination-extended-indicator-size: 15px;
-$pagination-extended-indicator-margin-x: 4px;
+// Slider tooltip
+$slider-tooltip-padding:                3px 10px !default; // Slider tooltip vertical and horizontal padding.
+$slider-tooltip-font-size:              $font-size-sm !default; // Slider tooltip font size
+$slider-tooltip-bg:                     $white-color !default; // Slider tooltip background color
+$slider-tooltip-border-color:           $gray-400 !default; // Slider tooltip border color
+$slider-tooltip-border-radius:          $border-radius-md !default; // Slider tooltip border radius
+$slider-tooltip-color:                  $gray-700 !default; // Slider tooltip text color
+$slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3px rgba($gray-400, 0.2); // Slider tooltip box shadow
 
 // OVERLAY
 // ======================================================

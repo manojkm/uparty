@@ -21,7 +21,7 @@
 // ======================================================
 .dropzone {
   @include transition;
-  @include set-border-radius($dropzone-radius);
+  @include set-border-radius($dropzone-border-radius);
   border: 0;
   background-color: $dropzone-bg;
   position: relative;

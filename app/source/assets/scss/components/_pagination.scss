@@ -27,28 +27,29 @@
   &.active .page-link,
   &.active .page-link:focus,
   &.active .page-link:hover {
-    @include background-text-theme($pagination-active-bg-theme-color);
-    @include border-theme($pagination-active-bg-theme-color);
+    @include background-text-theme($pagination-link-active-theme-scheme);
+    @include border-theme($pagination-link-active-theme-scheme);
   }
 
 }
 
 .page-link {
-  @include add-border($pagination-border-width, $pagination-border-color, all);
-  @include text-theme($pagination-link-theme-color);
+  @include add-border($pagination-border-size, $pagination-border-color, all);
+  @include text-theme($pagination-link-theme-scheme);
   line-height: $pagination-line-height;
   padding: $pagination-padding-y $pagination-padding-x;
   font-size: $pagination-font-size;
   font-weight: $pagination-font-weight;
   background-color: $pagination-bg;
 
+  // Next/Prev icons
   #{$icon-tags} {
     font-size: $pagination-icon-font-size;
   }
 
   &:focus,
   &:hover {
-    @include text-theme($pagination-link-theme-color);
+    @include text-theme($pagination-link-theme-scheme);
     background-color: $pagination-hover-bg;
     border-color: $pagination-hover-border-color;
     box-shadow: none;
@@ -57,12 +58,12 @@
 
 // PAGINATION SIZES
 // ======================================================
-/* Large pagination */
+// Large
 .pagination-lg {
   @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $pagination-font-size-lg, $pagination-line-height-lg, $border-radius-lg);
 }
 
-/* Small pagination */
+// Small
 .pagination-sm {
   @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $pagination-font-size-sm, $pagination-line-height-sm, $border-radius-sm);
 }
@@ -79,21 +80,21 @@
 
     .page-link {
       @include add-border(0, transparent, all);
-      @include set-border-radius($pagination-extended-radius-round);
-      min-width: $pagination-extended-size;
-      height: $pagination-extended-size;
-      line-height: $pagination-extended-size;
+      @include set-border-radius($pagination-ext-round-border-radius);
+      min-width: $pagination-ext-size;
+      height: $pagination-ext-size;
+      line-height: $pagination-ext-size;
       padding: 0;
       text-align: center;
     }
-
+r
     &.pagination-lg {
       .page-link {
         @include add-border(0, transparent, all);
-        @include set-border-radius($pagination-extended-radius-round);
-        min-width: $pagination-extended-size-lg;
-        height: $pagination-extended-size-lg;
-        line-height: $pagination-extended-size-lg;
+        @include set-border-radius($pagination-ext-round-border-radius);
+        min-width: $pagination-ext-size-lg;
+        height: $pagination-ext-size-lg;
+        line-height: $pagination-ext-size-lg;
       }
 
     }
@@ -101,10 +102,10 @@
     &.pagination-sm {
       .page-link {
         @include add-border(0, transparent, all);
-        @include set-border-radius($pagination-extended-radius-round);
-        min-width: $pagination-extended-size-sm;
-        height: $pagination-extended-size-sm;
-        line-height: $pagination-extended-size-sm;
+        @include set-border-radius($pagination-ext-round-border-radius);
+        min-width: $pagination-ext-size-sm;
+        height: $pagination-ext-size-sm;
+        line-height: $pagination-ext-size-sm;
       }
 
     }
@@ -112,21 +113,21 @@
     &.pg-wizard {
       .page-link {
         @include add-border(0, transparent, all);
-        background-color: $pagination-wizard-bg;
-        color: $pagination-wizard-color;
+        background-color: $pagination-ext-wizard-bg;
+        color: $pagination-ext-wizard-color;
 
         &:focus,
         &:hover {
-          background-color: $pagination-wizard-hover-bg;
-          color: $pagination-wizard-hover-color;
+          background-color: $pagination-ext-wizard-hover-bg;
+          color: $pagination-ext-wizard-hover-color;
         }
       }
 
       .page-item {
         &.disabled {
           & .page-link {
-            background-color: $pagination-wizard-bg !important;;
-            color: $pagination-wizard-color !important;
+            background-color: $pagination-ext-wizard-bg !important;;
+            color: $pagination-ext-wizard-color !important;
             @include opacity(0.4);
           }
         }
@@ -137,21 +138,21 @@
 
 }
 
-// PAGINATION EXTENDED - BORDER TYPE
+// PAGINATION EXTENDED - OUTLINE TYPE
 // ======================================================
 .pagination {
 
-  &.extended-border {
+  &.extended-outline {
 
     .page-item {
       margin: 0 2px;
     }
 
     .page-link {
-      @include add-border($pagination-border-round-width, transparent, all);
-      @include set-border-radius($pagination-extended-radius-round);
-      min-width: $pagination-extended-size;
-      height: $pagination-extended-size;
+      @include add-border($pagination-ext-outline-border-size, transparent, all);
+      @include set-border-radius($pagination-ext-outline-border-radius);
+      min-width: $pagination-ext-size;
+      height: $pagination-ext-size;
       padding: 0;
       text-align: center;
       box-sizing: border-box;
@@ -161,26 +162,26 @@
 
     .page-item {
       &.active .page-link {
-        @include border-theme($pagination-active-bg-theme-color);
-        @include text-theme($pagination-link-theme-color);
+        @include border-theme($pagination-link-active-theme-scheme);
+        @include text-theme($pagination-link-active-theme-scheme);
         background-color: $pagination-bg;
       }
     }
 
     &.pagination-lg {
       .page-link {
-        @include set-border-radius($pagination-extended-radius-round);
-        min-width: $pagination-extended-size-lg;
-        height: $pagination-extended-size-lg;
+        @include set-border-radius($pagination-ext-outline-border-radius);
+        min-width: $pagination-ext-size-lg;
+        height: $pagination-ext-size-lg;
       }
 
     }
 
     &.pagination-sm {
       .page-link {
-        @include set-border-radius($pagination-extended-radius-round);
-        min-width: $pagination-extended-size-sm;
-        height: $pagination-extended-size-sm;
+        @include set-border-radius($pagination-ext-outline-border-radius);
+        min-width: $pagination-ext-size-sm;
+        height: $pagination-ext-size-sm;
       }
 
     }
@@ -204,10 +205,10 @@
   &.extended-square {
 
     .page-link {
-      @include border-theme($pagination-active-bg-theme-color);
+      @include border-theme($pagination-link-active-theme-scheme);
       @include set-border-radius($pagination-border-radius);
-      min-width: $pagination-extended-size;
-      height: $pagination-extended-size;
+      min-width: $pagination-ext-size;
+      height: $pagination-ext-size;
       padding: 0;
       text-align: center;
       box-sizing: border-box;
@@ -217,20 +218,20 @@
 
     &.pagination-lg {
       .page-link {
-        @include border-theme($pagination-active-bg-theme-color);
+        @include border-theme($pagination-link-active-theme-scheme);
         @include set-border-radius($pagination-border-radius-lg);
-        min-width: $pagination-extended-size-lg;
-        height: $pagination-extended-size-lg;
+        min-width: $pagination-ext-size-lg;
+        height: $pagination-ext-size-lg;
       }
 
     }
 
     &.pagination-sm {
       .page-link {
-        @include border-theme($pagination-active-bg-theme-color);
+        @include border-theme($pagination-link-active-theme-scheme);
         @include set-border-radius($pagination-border-radius-sm);
-        min-width: $pagination-extended-size-sm;
-        height: $pagination-extended-size-sm;
+        min-width: $pagination-ext-size-sm;
+        height: $pagination-ext-size-sm;
       }
 
     }
@@ -239,7 +240,7 @@
       margin: 0 2px;
 
       &.active .page-link {
-        @include border-theme($pagination-active-bg-theme-color);
+        @include border-theme($pagination-link-active-theme-scheme);
       }
 
       &.disabled {
@@ -263,11 +264,11 @@
 
     .page-link {
       @include add-border(0, transparent, all);
-      @include set-border-radius($pagination-extended-radius-round);
-      box-shadow: $pagination-extended-indicator-box-shadow;
-      background-color: $pagination-extended-indicator-bg;
-      width: $pagination-extended-indicator-size;
-      height: $pagination-extended-indicator-size;
+      @include set-border-radius($pagination-ext-indicator-border-radius);
+      box-shadow: $pagination-ext-indicator-box-shadow;
+      background-color: $pagination-ext-indicator-bg;
+      width: $pagination-ext-indicator-size;
+      height: $pagination-ext-indicator-size;
       padding: 0;
       text-indent: 100%;
       white-space: nowrap;
@@ -275,15 +276,15 @@
 
       &:focus,
       &:hover {
-        background-color: $pagination-extended-indicator-hover-bg;
+        background-color: $pagination-ext-indicator-hover-bg;
       }
     }
 
     .page-item {
-      margin: 0 $pagination-extended-indicator-margin-x;
+      margin: 0 $pagination-ext-indicator-margin-x;
 
       &.active .page-link {
-        @include border-theme($pagination-active-bg-theme-color);
+        @include border-theme($pagination-link-active-theme-scheme);
       }
 
       &.disabled {
