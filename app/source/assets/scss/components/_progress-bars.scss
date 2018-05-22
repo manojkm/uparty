@@ -13,7 +13,7 @@
 .progress {
   @include set-border-radius($progress-border-radius);
   box-shadow: $progress-box-shadow;
-  font-size: $progress-font-size;
+  font-size: $progress-label-font-size;
   line-height: $progress-height;
   background-color: $progress-bg;
   height: $progress-height;
@@ -28,17 +28,17 @@
 
   // Small
   &-sm {
-    height: $progress-sm-height;
+    height: $progress-height-sm;
     .progress-bar {
-      height: $progress-sm-height;
+      height: $progress-height-sm;
     }
   }
 
   // Large
   &-lg {
-    height: $progress-lg-height;
+    height: $progress-height-lg;
     .progress-bar {
-      height: $progress-lg-height;
+      height: $progress-height-lg;
     }
   }
 
@@ -59,10 +59,9 @@
       @include set-border-radius($progress-border-radius);
       position: relative;
 
-      span {
-        @include background-text-theme(primary);
+      span.progress-label {
         @include set-border-radius($border-radius-sm);
-        font-size: $progress-font-size;
+        font-size: $progress-label-font-size;
         line-height: $progress-height;
         position: absolute;
         bottom: -25px;
@@ -70,7 +69,6 @@
         right: -1.4em;
 
         &::after {
-          @include border-theme(primary, $position: bottom);
           border: 5px solid transparent;
           content: "";
           bottom: 100%;

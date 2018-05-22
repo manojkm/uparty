@@ -183,9 +183,9 @@ $enable-breadcrumb: true !default;
 
 // SELECTIONS
 // ======================================================
-// Highlighting selected text
-$selection-color: #818892 !default;
-$selection-bg: #f9f6f0 !default;
+
+$selection-bg:                          #f9f6f0 !default; // Background color for highlighting the selection
+$selection-color:                       #818892 !default; // Text color for selected text
 
 // BORDERS
 // ======================================================
@@ -194,7 +194,7 @@ $border-thin:                           1px !default;
 $border-thick:                          2px !default;
 $border-thicker:                        4px !default;
 
-// Border radius
+// Border radius variables for setting rounded corners
 $border-radius-xs:                      0.125rem !default; // 2px
 $border-radius-sm:                      0.1875rem !default; // 3px
 $border-radius-md:                      0.25rem !default; // 4px
@@ -219,11 +219,12 @@ $navbar-item-mobile-bottom-border:      true;
 
 // DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 // ======================================================
+
 $dropdown-width:                        200px; // Dropdown menu container width.
 $dropdown-min-width:                    160px;
 $dropdown-max-width:                    320px;
 $dropdown-bg:                           $white-color; // Background color for the dropdown menu container.
-$dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius.
+$dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius to add rounded corners
 
 $dropdown-font-size:                    13px; // Dropdown menu item font size.
 $dropdown-header-font-size:             11px; // Dropdown section headers font size.
@@ -258,7 +259,7 @@ $dropdown-extended-theme-scheme:         header !default; // Theme color scheme 
 // TOGGLERS ADJUSTMENTS
 // ======================================================
 
-// Header Navbar toggle button - visible on mobile devices only
+// Header nav toggle button - visible on mobile devices only
 
 $navbar-toggler-padding-y:              10px;
 $navbar-toggler-padding-x:              10px;
@@ -316,7 +317,7 @@ $toastr-box-shadow:                             0 5px 10px rgba($black-color, .1
 
 $breadcrumb-bg:                                 $white-color !default; // Breadcrumb background color.
 
-$breadcrumb-border-radius:                      $border-radius-md !default;
+$breadcrumb-border-radius:                      $border-radius-md !default; // Border radius to add rounded corners
 $breadcrumb-border-size:                        $border-thin;
 $breadcrumb-border-color:                       $gray-400 !default;
 
@@ -334,7 +335,7 @@ $breadcrumb-divider-angle-right:                "\f054" !default; // Textual sep
 $breadcrumb-divider-angle-double-right:         "\f061" !default; // Textual separator type - Simple Line Icons unicode.
 $breadcrumb-divider-caret-right:                "\f0da" !default; // Textual separator type - Simple Line Icons unicode.
 
-$breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text theme scheme.
+$breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text.
 $breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover.
 
 $breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
@@ -391,8 +392,10 @@ $page-title-padding-x:                  0; // Horizontal padding for 'page title
 // SIDEBAR (section.sidebar)
 // ======================================================
 
-$sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
-$sidebar-active-border-theme-scheme:    primary !default;  // Theme color scheme applied to active sidebar menu item
+// Theme color scheme applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
+$sidebar-theme-scheme:                  sidebar !default;
+// Theme color scheme applied to active sidebar menu item. (Possible variables are 'primary' and 'secondary', use only what you really need)
+$sidebar-active-border-theme-scheme:    primary !default;
 $sidebar-width:                         200px; // Width of sidebar
 $sidebar-padding-y:                     0px; // Sidebar vertical padding.
 $sidebar-padding-x:                     10px; // Sidebar horizontal padding
@@ -474,7 +477,7 @@ $btn-padding-x-sm:                      0.5rem !default; // 8px
 $btn-min-width-sm:                      80px !default;
 $btn-min-height-sm:                     0px !default;
 $btn-line-height-sm:                    $lh-sm !default;
-$btn-border-radius-sm:                  $border-radius-sm;
+$btn-border-radius-sm:                  $border-radius-sm; // Border radius to add rounded corners
 
 // Regular button (.btn)
 
@@ -484,7 +487,7 @@ $btn-padding-x:                         0.75rem !default; // 12px
 $btn-min-width:                         100px !default;
 $btn-min-height:                        0px !default;
 $btn-line-height:                       $lh-base !default;
-$btn-border-radius:                     $border-radius-md !default;
+$btn-border-radius:                     $border-radius-md !default; // Border radius to add rounded corners
 
 // Large button (.btn-lg)
 
@@ -494,7 +497,7 @@ $btn-padding-x-lg:                      1rem !default; // 16px
 $btn-min-width-lg:                      120px !default;
 $btn-min-height-lg:                     0px !default;
 $btn-line-height-lg:                    $lh-lg !default;
-$btn-border-radius-lg:                  $border-radius-lg;
+$btn-border-radius-lg:                  $border-radius-lg; // Border radius to add rounded corners
 
 // Extra Large button (.btn-xl)
 
@@ -504,7 +507,7 @@ $btn-padding-x-xl:                      1.25rem !default; // 20px
 $btn-min-width-xl:                      140px !default;
 $btn-min-height-xl:                     0px !default;
 $btn-line-height-xl:                    $lh-xl !default;
-$btn-border-radius-xl:                  $border-radius-xl;
+$btn-border-radius-xl:                  $border-radius-xl; // Border radius to add rounded corners
 
 // Rounded button type (.btn-round)
 
@@ -589,21 +592,21 @@ $input-height-border:                   $input-border-size * 2 !default; // Requ
 // Small input (.form-control-sm)
 
 $input-font-size-sm:                    $font-size-sm !default;
-$input-border-radius-sm:                $border-radius-sm !default;
+$input-border-radius-sm:                $border-radius-sm !default; // Border radius to add rounded corners
 $input-height-inner-sm:                 ($font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
 $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Regular (Default) input (.form-control)
 
 $input-font-size:                       $font-size-base !default;
-$input-border-radius:                   $border-radius-md !default;
+$input-border-radius:                   $border-radius-md !default; // Border radius to add rounded corners
 $input-height-inner:                    ($font-size-base * $btn-line-height) + ($btn-padding-y * 2) !default;
 $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Large input (.form-control-lg)
 
 $input-font-size-lg:                    $font-size-lg !default;
-$input-border-radius-lg:                $border-radius-lg !default;
+$input-border-radius-lg:                $border-radius-lg !default; // Border radius to add rounded corners
 $input-height-inner-lg:                 ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
@@ -707,7 +710,7 @@ $popover-header-font-size:              $font-size-base !default; // Popover hea
 $popover-header-color:                  $gray-700 !default; // Popover header text color.
 $popover-font-size:                     $font-size-sm !default; // Popover body font size.
 $popover-max-width:                     276px; // Popover maximum width
-$popover-border-radius:                 $border-radius-md;
+$popover-border-radius:                 $border-radius-md; // Popover border radius to add rounded corners
 
 // TOOLTIPS
 // ======================================================
@@ -723,7 +726,7 @@ $tooltip-line-height:                   $lh-sm !default;
 // ======================================================
 
 $enable-alert-border:                   false; // Quickly adding border by enabling or disabling
-$alert-border-radius:                   $border-radius-md; // Alert border radius.
+$alert-border-radius:                   $border-radius-md; // Alert border radius to add rounded corners
 $alert-border-size:                     $border-thin; // Alert border width
 $alert-font-size:                       $font-size-base; // Alert font size.
 
@@ -735,7 +738,7 @@ $card-spacer-y:                         .75rem !default; // Card vertical paddin
 $card-spacer-x:                         1.25rem !default; // Card horizontal padding helper variable.
 
 $card-bg:                               $white-color; // Background color for entire card
-$card-border-radius:                    $border-radius-lg; // Card corner radius
+$card-border-radius:                    $border-radius-lg; // Card border radius to add rounded corners
 $card-border-size:                      $border-thin; // Card border width
 $card-border-color:                     rgba($black-color, .155) !default; // Card border color
 $card-inner-border-radius:              calc(#{$card-border-radius} - #{$card-border-size}) !default; // Compute card inside radius, so that elements inside the card will proper radius.
@@ -802,7 +805,7 @@ $nav-link-disabled-color:               $gray-400 !default; // Navigation disabl
 $nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements like border colors, font colors etc..
 $nav-tabs-border-color:                 $gray-400 !default; // Tabbed navigation border color
 $nav-tabs-border-size:                  $border-thin !default;  // Tabbed navigation borders width
-$nav-tabs-border-radius:                $border-radius-md !default;  // Tabbed navigation item borders radius
+$nav-tabs-border-radius:                $border-radius-md !default;  // Tabbed navigation item borders radius to add rounded corners
 $nav-tabs-link-hover-border-color:      $gray-300 !default; // Tabbed navigation item border color on hover
 $nav-tabs-link-hover-bg:                $gray-100 !default; // Tabbed navigation item background color on hover
 $nav-tabs-link-color:                   $gray-600 !default; // Text color for tabbed navigation item link
@@ -817,7 +820,7 @@ $tab-content-bg:                        $white-color !default; // Background col
 
 // Pills type
 
-$nav-pills-border-radius:                       $nav-tabs-border-radius !default; // Tabbed navigation pill border radius
+$nav-pills-border-radius:                       $nav-tabs-border-radius !default; // Tabbed navigation pill border radius to add rounded corners
 $nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to active pill item
 $nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover
 
@@ -848,7 +851,7 @@ $nav-tabs-ext-v-right-line-active-border-size:  $nav-tabs-ext-v-wrap-active-bord
 
 $modal-content-bg:                      $white-color !default; // Background color of modal content area
 
-$modal-border-radius:                   $border-radius-md !default; // Modal border radius
+$modal-border-radius:                   $border-radius-md !default; // Modal border radius to add rounded corners
 $modal-body-padding:                    15px 25px !default; // Padding around the modal body
 
 $modal-backdrop-bg:                     $black-color !default; // Modal backdrop background color
@@ -974,6 +977,69 @@ $pagination-ext-inner-lg:               ($pagination-font-size-lg * $pagination-
 $pagination-ext-size-lg:                calc(#{$pagination-ext-inner-lg} + #{$pagination-ext-border-size-lg}) !default;
 
 
+// OVERLAY
+// ======================================================
+$overlay:                               rgba(0, 0, 0, .5);
+
+// MAIN MENU
+// ======================================================
+
+// PROGRESS BAR
+// ======================================================
+$progress-bg:                           $gray-200 !default; // Background color of the whole progress component
+$progress-label-font-size:              $font-size-xs !default; // Font size for progress label
+$progress-border-radius:                $border-radius-xxl; // Border radius to add rounded corners on progress bar.
+
+// Small size
+
+$progress-height-sm:                    0.25rem !default;
+
+// Regular size
+
+$progress-height:                       0.5rem !default;
+
+// Large size
+
+$progress-height-lg:                    0.75rem !default;
+
+// TABLES
+// ======================================================
+
+// BADGES
+// ======================================================
+
+$badge-border-radius:                   $border-radius-sm; // Border radius to add rounded corners
+$badge-border-size:                     $border-thin; // Badges border width
+$badge-padding-y:                       .18rem !default; // Badges vertical padding. Make sure that for small value, the badge will be big enough
+$badge-padding-x:                       .3rem !default; // Badges horizontal padding. Make sure that for small value, the badge will be big enough
+
+// Pill badges
+
+$badge-pill-border-radius:              10rem !default; // Border radius to add more rounded corners to form the pill shape
+
+// Round badges
+
+$badge-round-border-radius:             $border-radius-100;
+$badge-round-size:                      1.5em;  // Size used for both width and height to make perfect circle/rounded shape. When the value changes/increase the badge could get bigger
+$badge-round-padding:                   0.70em; // Used to add extra padding around the round badges.
+$badge-round-line-height:               1em;
+
+// Empty badges
+
+$badge-empty-size:                      .5em; // Size used for both width and height to make perfect circle/rounded empty shape. When the value changes/increase the badge could get bigger
+
+// Image badges
+
+$badge-image-font-size:                 $font-size-sm; // The image badge font size
+$badge-image-font-weight:               $font-wh-normal !default; // The image badge font weight
+$badge-image-line-height:               1.25; // Line height required for badge text to align vertically with the image.
+$badge-inner:                           ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
+$badge-size:                            calc(#{$badge-inner}) !default;
+
+// Disabled badges
+
+$badge-disabled-opacity:                0.5; // Disabled badges opacity.
+
 // NUMBER SPINNER
 // ======================================================
 
@@ -1080,8 +1146,8 @@ $steps-active-theme-scheme:             primary !default; // Theme color scheme 
 $steps-done-theme-scheme:               primary !default; // Theme color scheme applied to the tabs of previous steps
 $steps-error-theme-scheme:              danger; // Theme color scheme applied to tabs if current step have any validation errors
 
-$steps-disabled-opacity:                $btn-disabled-opacity !default; // Opacity applied to the tabs of previous steps
 $steps-disabled-bg:                     $gray-200 !default; // Background color of next/incomplete steps.
+$steps-disabled-opacity:                $btn-disabled-opacity !default; // Opacity applied to the tabs of previous steps
 $steps-disabled-color:                  $gray-500 !default; // Text color of next/incomplete steps.
 
 $steps-content-bg:                      $white-color !default; // Background color for step content (body) area
@@ -1114,6 +1180,7 @@ $arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$b
 // ======================================================
 
 // Slider base bar
+
 $slider-base-size:                      5px !default; // Slider base bar height
 $slider-base-bg:                        $gray-200 !default; // Background color for slider base bar
 $slider-base-border-color:              $gray-400 !default; // Border color for slider base bar
@@ -1121,6 +1188,7 @@ $slider-base-border-radius:             $border-radius-xxl; // Border radius for
 $slider-base-margin-y:                  35px !default; // Slider vertical margin, so that there is space between elements that are placed immediately after the slider
 
 // Slider handle
+
 $slider-handle-border-radius:           $border-radius-50; // Slider handle border radius to make it circled/rounded shape
 $slider-handle-bg:                      $white-color; // Slider handle background color
 $slider-handle-box-shadow:              0 3px 15px rgba($gray-600, 0.1), 0 2px 3px rgba($gray-600, 0.2) !default; // Slider handle box shadow
@@ -1131,10 +1199,12 @@ $slider-handle-horizontal-top:          -6px !default; // To ensure that slider 
 $slider-handle-vertical-left:           -6px !default; // To ensure that slider handle always aligns vertically to the base bar
 
 // Slider pips
+
 $slider-pips-color:                     $gray-600 !default; // Slider points color
 $slider-pips-font-size:                 $font-size-base !default; // Slider points font size
 
 // Slider tooltip
+
 $slider-tooltip-padding:                3px 10px !default; // Slider tooltip vertical and horizontal padding.
 $slider-tooltip-font-size:              $font-size-sm !default; // Slider tooltip font size
 $slider-tooltip-bg:                     $white-color !default; // Slider tooltip background color
@@ -1143,62 +1213,11 @@ $slider-tooltip-border-radius:          $border-radius-md !default; // Slider to
 $slider-tooltip-color:                  $gray-700 !default; // Slider tooltip text color
 $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3px rgba($gray-400, 0.2); // Slider tooltip box shadow
 
-// OVERLAY
-// ======================================================
-$overlay: rgba(0, 0, 0, .5);
-
-// MAIN MENU
-// ======================================================
-
-// PROGRESS BAR
-// ======================================================
-$progress-font-size: $font-size-xs !default;
-$progress-bg: $gray-200 !default;
-$progress-border-radius: $border-radius-xxl;
-
-/* Small */
-$progress-sm-height: 0.25rem !default;
-
-/* Regular */
-$progress-height: 0.5rem !default;
-
-/* Large */
-$progress-lg-height: 0.75rem !default;
 
 // PATHS
 // ======================================================
 $path-rel: 'images/';
 
-// TABLES
-// ======================================================
-
-// BADGES
-// ======================================================
-/* Including relevant variables from bootstrap variables.scss */
-$badge-pill-border-radius: 10rem !default;
-
-$badge-disabled-opacity: 0.5;
-$badge-border-radius: $border-radius-sm;
-$badge-border-size: $border-thin;
-$badge-padding-y: .18rem !default;
-$badge-padding-x: .3rem !default;
-
-/* Round badges */
-$badge-radius-round: $border-radius-100;
-$badge-round-size: 1.5em;
-$badge-round-padding: 0.70em;
-$badge-round-line-height: 1em;
-
-/* Empty badges */
-$badge-empty-size: .5em;
-
-/* Images badges */
-
-$badge-image-font-size: $font-size-sm;
-$badge-image-font-weight: $font-wh-normal !default;
-$badge-image-line-height: 1.25;
-$badge-inner: ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
-$badge-size: calc(#{$badge-inner}) !default;
 
 // FOOTER
 // ======================================================
