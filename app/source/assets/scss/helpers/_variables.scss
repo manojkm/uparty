@@ -18,7 +18,7 @@
 // '$component-state-property-size' formula for consistent naming.
 // Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 // ================================================================================================
-// Table of Contents
+// Table of Contents TODO USE THIS WAY TOMORROW https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
 //
 // Color system
 
@@ -32,6 +32,7 @@
 // https://bulma.io/documentation/elements/button/
 // https://repos.cakemail.com/projects/COM/repos/ui-bootstrap/browse/lib/dist/sass/components?at=59a0e4e0708d0df6467bc6c0d2c3d98f1e114463
 // https://github.com/twbs/ratchet/blob/master/sass/
+// https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
 
 // CONTEXTUAL COLOR MAP
 // ======================================================
@@ -114,7 +115,7 @@ $typography: (
         size-xl:                        (1.25rem, 1.625rem) // 20px 26p
 );
 
-// Variables that will retrieve values from the above $typography sass map
+// Variables that will retrieve values from the above $typography map
 
 // Retrieve font family
 
@@ -158,40 +159,41 @@ $html-font-size:                        $font-size-100; // Font size for <html>.
 
 // BODY
 // ======================================================
-// Settings for the `<body>` element.
+// Settings for the '<body>' element.
 
 $body-bg:                               $white-color; // Background color for <body>.
-$body-color:                            $font-color-default;
-$body-font-family:                      $font-family-default;
-$body-font-size:                        $font-size-base;
-$body-font-weight:                      $font-wh-normal;
-$body-line-height:                      $lh-base;
+$body-color:                            $font-color-default; // Global text color on <body>.
+$body-font-family:                      $font-family-default; // Specifies the default font family for body text
+$body-font-size:                        $font-size-base; // Specifies the default font size for body text
+$body-font-weight:                      $font-wh-normal; // Specifies the default font weight for body text
+$body-line-height:                      $lh-base;  // Specifies the default line height for body text
 
 // LINKS
 // ======================================================
 // Style anchor elements.
 
-$link-color:                            $font-color-default;
-$link-hover-color:                      darken($font-color-default, 15%) !default;
-$link-hover-decoration:                 underline;
+$link-color:                            $font-color-default; // Global textual link color.
+$link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
+$link-hover-decoration:                 underline; // Global textual link hover decoration.
 
 // HEADINGS
 // ======================================================
+// Settings for the '<h1>, <h2>' etc.. elements. By default, this inherits from the '<body>'.
 
-$headings-color:                        $font-color-headings;
-$headings-font-family:                  $font-family-headings;
+$headings-color:                        $font-color-headings; // Text color for headings <h1> <h2> etc...
+$headings-font-family:                  $font-family-headings; // Font family for headings
 $headings-font-weight:                  $font-wh-medium;
 $headings-line-height:                  1.2;
-$headings-letter-spacing:               -.0625rem !default; // ~1px
+$headings-letter-spacing:               -.0625rem !default; // ~1px, Character spacing for headings.
 
 // Font sizing
 
-$h1-font-size:                          $font-size-base * 2.5 !default;
-$h2-font-size:                          $font-size-base * 2 !default;
-$h3-font-size:                          $font-size-base * 1.75 !default;
-$h4-font-size:                          $font-size-base * 1.5 !default;
-$h5-font-size:                          $font-size-base * 1.25 !default;
-$h6-font-size:                          $font-size-base !default;
+$h1-font-size:                          $font-size-base * 2.5 !default; // <h1> font size
+$h2-font-size:                          $font-size-base * 2 !default; // <h2> font size
+$h3-font-size:                          $font-size-base * 1.75 !default; // <h3> font size
+$h4-font-size:                          $font-size-base * 1.5 !default; // <h4> font size
+$h5-font-size:                          $font-size-base * 1.25 !default; // <h5> font size
+$h6-font-size:                          $font-size-base !default; // <h6> font size
 
 // LEAD
 // ======================================================
@@ -350,7 +352,7 @@ $breadcrumb-item-padding-x:                     .85rem !default; // Breadcrumb i
 
 $breadcrumb-font-size:                          $font-size-sm !default;
 $breadcrumb-color:                              $gray-700 !default; // Breadcrumb text color.
-$breadcrumb-line-height:                        $lh-sm !default;
+$breadcrumb-line-height:                        $lh-sm !default;  // Centers the text vertically while matching height of breadcrumb item
 $breadcrumb-active-color:                       $gray-600 !default; // Text color of current page in the breadcrumb.
 
 $breadcrumb-divider:                            "/" !default; // Textual separator for between breadcrumb elements.
@@ -666,13 +668,13 @@ $custom-control-label-disabled-color:                   lighten($input-label-col
 // Checkbox
 
 $custom-checkbox-indicator-border-radius:               $border-radius-sm; // Border radius for default custom checkbox
-$custom-checkbox-rounded-indicator-border-radius:       $border-radius-100; // Border radius for custom circled/rounded type checkbox (.custom-checkbox .rounded)
 $custom-checkbox-indicator-disabled-checked-color:      lighten($input-disabled-color, 15%) !default; // Checked + disabled state color
 $custom-checkbox-indicator-disabled-icon-checked:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$custom-checkbox-indicator-disabled-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$custom-checkbox-rounded-indicator-border-radius:       $border-radius-100; // Border radius for custom circled/rounded type checkbox. Create a circle around the checkbox (.custom-checkbox .rounded)
 
 // Radio
 
-$custom-radio-indicator-border-radius:                  $border-radius-50; // Border radius for default custom radio
+$custom-radio-indicator-border-radius:                  $border-radius-50; // Border radius for default custom radio. Create a circle around the radio
 $custom-radio-indicator-disabled-checked-color:         lighten($input-disabled-color, 15%) !default; // Checked + disabled state color
 $custom-radio-indicator-disabled-icon-checked:          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='#{$custom-radio-indicator-disabled-checked-color}'/%3E%3C/svg%3E"), "#", "%23") !default;
 
@@ -851,7 +853,7 @@ $nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color t
 // TABS EXTENDED
 // ======================================================
 
-// Tabs Extended (ext) - Arrow type
+// Tabs Extended (ext) - Arrow > type
 
 $nav-tabs-ext-arrow-link-hover-bg:              $white-color !default; // Tabbed navigation item background color on hover
 
@@ -1043,7 +1045,7 @@ $badge-pill-border-radius:              10rem !default; // Border radius to add 
 
 // Round badges
 
-$badge-round-border-radius:             $border-radius-100;
+$badge-round-border-radius:             $border-radius-100; // Create a circle around the badges
 $badge-round-size:                      1.5em;  // Size used for both width and height to make perfect circle/rounded shape. When the value changes/increase the badge could get bigger
 $badge-round-padding:                   0.70em; // Used to add extra padding around the round badges.
 $badge-round-line-height:               1em;
@@ -1198,7 +1200,7 @@ $steps-circle-title-color:              $gray-800 !default; // Step item title t
 // Arrow wizard type
 
 $arrow-wizard-inner-size:               ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
-$arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle.
+$arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle /\.
 
 // SLIDER CONTROL - NOUISLIDER PLUGIN
 // ======================================================

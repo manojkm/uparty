@@ -20,7 +20,7 @@
     @return map-get($map, $key);
   } @else {
     @warn 'Unfortunately, no value could be retrieved from "#{$key}". '
-        + 'Please make sure it is defined in map.';
+        + 'Please make sure it is defined in their corresponding map .';
   }
 }
 
@@ -44,32 +44,6 @@
     @return false;
   }
   @return true;
-}
-
-// SET CONTEXTUAL COLORS
-// ======================================================
-// Adapted from https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
-// Retrieve contextual color maps
-@function contextual-color($scheme, $tone:base) {
-  @if type-of(map-get(map-get($contextual-palette-map, $scheme), $tone)) == color {
-    @return map-get(map-get($contextual-palette-map, $scheme), $tone);
-  } @else {
-    @warn "Make sure you pass a valid color for '#{$tone}' in $contextual-palette-map";
-  }
-}
-
-// SET THEME COLORS
-// ======================================================
-// Retrieve 'main-colors' from theme color maps
-@function theme-color($scheme, $tone) {
-  @each $themeName, $value in $themes-map {
-    $colors: map-get-strict($value, 'main-colors');
-    @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {
-      @return map-get-strict(map-get-strict($colors, $scheme), $tone);
-    } @else {
-      @warn "Make sure you pass a valid color for '#{$tone}' in Theme Sass maps";
-    }
-  }
 }
 
 // ROUNDING DECIMALS
@@ -159,6 +133,7 @@
   @import url($google-fonts-import);
 }
 
+// Load fonts from this directory.
 @if variable-exists(typefaces) {
   @each $file, $option in $typefaces {
     @font-face {
@@ -170,7 +145,31 @@
   }
 }
 
-// RETRIEVE TYPOGRAPHY SASS MAPS
+// RETRIEVE COLORS VALUE FROM DEFINED 'CONTEXTUAL' MAPS ($contextual-palette-map)
+// ======================================================
+// Adapted from https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+@function contextual-color($scheme, $tone:base) {
+  @if type-of(map-get-strict(map-get-strict($contextual-palette-map, $scheme), $tone)) == color {
+    @return map-get-strict(map-get-strict($contextual-palette-map, $scheme), $tone);
+  } @else {
+    @warn "Make sure you pass a valid color for '#{$tone}' in $contextual-palette-map";
+  }
+}
+
+// RETRIEVE MAIN COLORS VALUE FROM DEFINED 'THEMES' MAPS ($themes-map)
+// ======================================================
+@function theme-color($scheme, $tone) {
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {
+      @return map-get-strict(map-get-strict($colors, $scheme), $tone);
+    } @else {
+      @warn "Make sure you pass a valid color for '#{$tone}' in Theme Sass maps";
+    }
+  }
+}
+
+// RETRIEVE VALUES FROM DEFINED 'TYPOGRAPHY' MAP ($typography)
 // ======================================================
 @function get-typography($key: size-md, $property:null) {
 

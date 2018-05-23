@@ -90,8 +90,7 @@ a {
   color: $link-color;
   text-decoration: none;
   transition: color 250ms ease-in-out;
-  &:hover,
-  &:focus {
+  #{$hover-focus-tags} {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
@@ -111,3 +110,6 @@ small,
   font-weight: $lead-font-weight;
 }
 
+strong {
+  font-weight: 600;
+}
