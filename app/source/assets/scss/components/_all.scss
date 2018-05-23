@@ -1,6 +1,6 @@
 // ================================================================================================
-// File Name      : index.scss
-// Description    : Sass manifest file for helpers. Importing order & guidelines are mentioned
+// File Name      : all.scss
+// Description    : Sass manifest file for components. Importing order & guidelines are mentioned
 // under the title MAIN FILE - https://sass-guidelin.es/#architecture.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
@@ -17,15 +17,50 @@
 // File extensions and leading underscores omitted.
 // ================================================================================================
 
-// CONFIGURATION & HELPERS
+// ENHANCEMENT COMPONENTS
 // ======================================================
 @import
-    'fonts',
-    'functions',
-    'colors',
-    'variables', // Default variables
-    '../custom-variables', // Your custom variables and variable overwrites.
-    'spacers',
-    'mixins',
-    'extends',
-    'placeholders';
+	'tables',
+	'forms',
+	'buttons',
+	'dropdown',
+	'button-group',
+	'input-group',
+	'custom-forms',
+	'nav',
+	'tabs-and-pills',
+	'cards',
+	'breadcrumb',
+	'breadcrumb-menu',
+	'pagination',
+	'badge',
+	'alerts',
+	'progress-bars',
+	'lists',
+	'modals',
+	'tooltips-and-popovers',
+	'carousel',
+	'collapse',
+
+	//TODO below are not in order and are extra components
+	'sections',
+	'search',
+	'inputs',
+	'mark',
+	'sliders',
+	'social',
+	'clearfix',
+	'overlays',
+	'breakpoints',
+	'cover',
+	'checkbox-radio',
+	'tags',
+	'togglers',
+	'thumbnails',
+	'labels',
+	'chat-message',
+	'number-spinner',
+	'scrollbar',
+    'defaults',
+    'misc',
+    'examples';

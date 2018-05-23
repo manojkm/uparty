@@ -8,6 +8,7 @@
 // font-weight
 // font-style
 // font-variant
+// color
 // ... and other font properties
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
@@ -89,12 +90,11 @@ a {
   color: $link-color;
   text-decoration: none;
   transition: color 250ms ease-in-out;
-}
-
-a:hover,
-a:focus {
-  color: $link-hover-color;
-  text-decoration: $link-hover-decoration;
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
 }
 
 // SMALL

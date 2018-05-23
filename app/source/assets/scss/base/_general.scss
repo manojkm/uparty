@@ -17,19 +17,8 @@ html {
 body {
   height: 100vh;
   min-height: 100%;
-  background-color: $body-bg-color;
+  background-color: $body-bg;
   overflow-x: hidden;
-}
-
-a {
-  &,
-  &:hover,
-  &:focus /*,
-  &:visited*/
-  {
-    //@include color('primary', 'base');
-    text-decoration: none;
-  }
 }
 
 *,
@@ -38,25 +27,24 @@ a {
   box-sizing: inherit;
 }
 
-//input, textarea, button {
-//  @include border-radius(0);
-//}
-
-// Make sure embeds and iFrames fit their containers.
-embed,
-iframe,
-object {
-  max-width: 100%;
-}
-
-figure,
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 :hover,
 :active,
 :focus {
   outline: none;
+}
+
+// Set Image and Objects to have a max-width of 100%.
+embed,
+iframe,
+img,
+figure,
+object,
+video {
+  max-width: 100%;
+}
+
+// Set Img height and width to auto for IE8.
+img {
+  height: auto;
+  width: auto;
 }
