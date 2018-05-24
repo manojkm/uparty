@@ -14,7 +14,7 @@
   $a: alert;
   @include set-border-radius($alert-border-radius);
   font-size: $alert-font-size;
-  font-weight: $font-wh-normal;
+  font-weight: $font-wh-regular;
   position: relative;
 
   @if bool($enable-alert-border) == true {
@@ -44,7 +44,7 @@
   & .#{$a}-link {
     cursor: pointer;
     text-decoration: underline;
-    font-weight: $font-wh-normal;
+    font-weight: $font-wh-regular;
     &:hover {
       @include opacity(0.9);
       text-decoration: none;

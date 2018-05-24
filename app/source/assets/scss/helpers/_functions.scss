@@ -138,9 +138,14 @@
   @each $file, $option in $typefaces {
     @font-face {
       font-family: map-get(map-get($typefaces, $file), family);
-      src: url('../fonts/#{$file}.ttf') format('truetype'),
-      url('../fonts/#{$file}.woff') format('woff'),
-      url('../fonts/#{$file}.woff2') format('woff2');
+      font-style: map-get(map-get($typefaces, $file), style);
+      font-weight: map-get(map-get($typefaces, $file), weight);
+      src: url('#{$font-path}/#{$file}.eot'); // IE9 Compat Modes
+      src: url('#{$font-path}/#{$file}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+           url('#{$font-path}/#{$file}.woff') format('woff'),  // Pretty Modern Browsers
+           url('#{$font-path}/#{$file}.woff2') format('woff2'), // Super Modern Browsers
+           url('#{$font-path}/#{$file}.ttf') format('truetype'), // Safari, Android, iOS
+           url('#{$font-path}/#{$file}.svg') format('svg'); // Legacy iOS
     }
   }
 }

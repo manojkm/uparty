@@ -1,7 +1,6 @@
 // ================================================================================================
 // File Name      : variables.scss
-// Description    : Think of variables as handy places to store values that you want to reuse
-// over and over again throughout the Sass document.
+// Description    : Defining variables used throughout the application.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -18,9 +17,12 @@
 // '$component-state-property-size' formula for consistent naming.
 // Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 // ================================================================================================
-// Table of Contents TODO USE THIS WAY TOMORROW https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
-//
-// Color system
+
+// TABLE OF CONTENTS TODO USE THIS WAY TOMORROW https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
+// // https://github.com/andaistvan/bardoni-theme/blob/2f6c72e67a4fde923884cac79a2b75ef19004cab/assets/theme/_variables.scss
+// 1. #COLORS:                             Base, palette and theme color definitions + application
+// 2. #CONTEXTUAL COLOR MAP:
+// 3. #TYPOGRAPHY:                         Font definitions and scales
 
 
 // TODO: Fill the below comment block with proper text following robust admin theme.
@@ -34,10 +36,13 @@
 // https://github.com/twbs/ratchet/blob/master/sass/
 // https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
 
-// CONTEXTUAL COLOR MAP
+// 1. #COLORS
 // ======================================================
-// Looking for theme color palette?
-// Please check helpers/_colors.scss
+// It's quite good to have all color variables in a separate file as it's may quite heavy.
+// Please check helpers/_colors.scss,
+
+// #CONTEXTUAL COLOR MAP
+// ======================================================
 
 $contextual-palette-map: (
         'success': (
@@ -90,32 +95,58 @@ $contextual-palette-map: (
         ),
 );
 
-// TYPOGRAPHY MAP
+// 2. #TYPOGRAPHY, MAP AND RE-USABLE VARIABLES
 // ======================================================
-// Font, Weight, line-height, color for body text, headings, and sizes.
+// We don't want to load many fonts on your site so we stayclassic.
+
+// Web fonts
+
+// Adapted from sassy-starter http://minamarkham.github.io/sassy-starter/
+// $typefaces: (
+//   'FILENAME': (
+//     family: 'fontname',
+//     weight: 300,
+//     style: normal,
+//   ),
+// );
+
+// Google fonts
+
+// Includes:
+//  - Source Sans Pro:                     Light, Regular, Medium, Semi-bold, Bold;
+//  - Roboto Mono:                         Light, Regular, Medium, Semi-bold, Bold;
+$google-fonts-import:                   'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700|Roboto+Mono:300,400,500,600,700';
+
+// Config font stacks
+
+$font-family-default:                   'Source Sans Pro';  // Define Google font stack used for body, paragraphs.
+$font-family-display:                   $font-family-default; // Define font stack used for headings <h1> <h2> etc...
+$font-family-fallback:                  'Arial', sans-serif; // Define font stack used for fallback
+
+
+// Typography map
 
 $typography: (
-        font-default:                   ($font-family-default, $font-family-fallback), // Font used for <body>
-        font-headings:                  ($font-family-display, $font-family-fallback), // Font used for headings <h1> <h2> etc...
+        font-default:                   ($font-family-default, $font-family-fallback),
+        font-headings:                  ($font-family-display, $font-family-fallback),
         color-default:                  $gray-800, // Global text color on <body>
         color-headings:                 $gray-800,
         weight-light:                   300,
-        weight-normal:                  400,
+        weight-regular:                  400,
         weight-medium:                  500,
         weight-semi:                    600,
         weight-bold:                    700,
 
         // Font size with line height (Order: font-size line-height)
-
         size-100:                       (100%, 1.375rem), // 100% 22px, font size of the <html> element
         size-xs:                        (0.75rem, 1.125rem), // 12px 18px
         size-sm:                        (0.875rem, 1.25rem), // 14px 20px
         size-md:                        (1rem, 1.375rem), // 16px 22px, font size of the <body> element
         size-lg:                        (1.125rem, 1.5rem), // 18px 24px
-        size-xl:                        (1.25rem, 1.625rem) // 20px 26p
+        size-xl:                        (1.25rem, 1.625rem) // 20px 26px
 );
 
-// Variables that will retrieve values from the above $typography map
+// Re-usable variable names that will retrieve values from the above $typography map.
 
 // Retrieve font family
 
@@ -148,16 +179,17 @@ $lh-xl:                                 get-typography(size-xl, line-height);
 // Retrieve font weight
 
 $font-wh-light:                         get-typography(weight-light) !default; // 300
-$font-wh-normal:                        get-typography(weight-normal) !default; // 400
+$font-wh-regular:                       get-typography(weight-regular) !default; // 400
 $font-wh-medium:                        get-typography(weight-medium) !default; // 500
 $font-wh-semi:                          get-typography(weight-semi) !default; // 600
 $font-wh-bold:                          get-typography(weight-bold) !default; // 700
 
-// HTML
+// 3. #HTML
 // ======================================================
+
 $html-font-size:                        $font-size-100; // Font size for <html>.
 
-// BODY
+// 4. #BODY
 // ======================================================
 // Settings for the '<body>' element.
 
@@ -165,10 +197,10 @@ $body-bg:                               $white-color; // Background color for <b
 $body-color:                            $font-color-default; // Global text color on <body>.
 $body-font-family:                      $font-family-default; // Specifies the default font family for body text
 $body-font-size:                        $font-size-base; // Specifies the default font size for body text
-$body-font-weight:                      $font-wh-normal; // Specifies the default font weight for body text
+$body-font-weight:                      $font-wh-regular; // Specifies the default font weight for body text
 $body-line-height:                      $lh-base;  // Specifies the default line height for body text
 
-// LINKS
+// #LINKS
 // ======================================================
 // Style anchor elements.
 
@@ -176,13 +208,13 @@ $link-color:                            $font-color-default; // Global textual l
 $link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
 $link-hover-decoration:                 underline; // Global textual link hover decoration.
 
-// HEADINGS
+// #HEADINGS
 // ======================================================
 // Settings for the '<h1>, <h2>' etc.. elements. By default, this inherits from the '<body>'.
 
 $headings-color:                        $font-color-headings; // Text color for headings <h1> <h2> etc...
 $headings-font-family:                  $font-family-headings; // Font family for headings
-$headings-font-weight:                  $font-wh-medium;
+$headings-font-weight:                  $font-wh-medium; // Font weight for headings
 $headings-line-height:                  1.2;
 $headings-letter-spacing:               -.0625rem !default; // ~1px, Character spacing for headings.
 
@@ -195,26 +227,26 @@ $h4-font-size:                          $font-size-base * 1.5 !default; // <h4> 
 $h5-font-size:                          $font-size-base * 1.25 !default; // <h5> font size
 $h6-font-size:                          $font-size-base !default; // <h6> font size
 
-// LEAD
+// #LEAD
 // ======================================================
 
 $lead-font-size:                        ($font-size-base * 1.25) !default;
 $lead-font-weight:                      $font-wh-light !default;
 
-// CONFIGS
+// #CONFIGS
 // ======================================================
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-rounded:                        true !default; // Handle rounded corners
 $enable-breadcrumb:                     true !default; // Breadcrumb
 
-// SELECTIONS
+// #SELECTIONS
 // ======================================================
 
 $selection-bg:                          #f9f6f0 !default; // Background color for highlighting the selection
 $selection-color:                       #818892 !default; // Text color for selected text
 
-// BORDERS
+// #BORDERS
 // ======================================================
 
 $border:                                1px solid !default;
@@ -233,17 +265,17 @@ $border-radius-xxl:                     0.5rem !default; // 8px
 $border-radius-50:                      50% !default;
 $border-radius-100:                     100% !default;
 
-// HEADER & NAVBAR
+// #HEADER & NAVBAR
 // ======================================================
 
 $header-height:                         50px;
 $navbar-font-size:                      $font-size-sm;
-$navbar-font-weight:                    $font-wh-normal;
+$navbar-font-weight:                    $font-wh-regular;
 $navbar-text-font-size:                 $navbar-font-size;
-$navbar-text-font-weight:               $font-wh-normal;
+$navbar-text-font-weight:               $font-wh-regular;
 $navbar-item-mobile-bottom-border:      true;
 
-// DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
+// #DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 // ======================================================
 
 $dropdown-width:                        200px; // Dropdown menu container width.
@@ -277,12 +309,12 @@ $dropdown-divider-border-width:         $border-thin !default; // Border width o
 
 $dropdown-icon-width:                   20px; // Dropdown menu item icon width for perfect alignment between icons and text.
 
-// BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
+// #BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 // ======================================================
 
 $dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
 
-// TOGGLERS ADJUSTMENTS
+// #TOGGLERS ADJUSTMENTS
 // ======================================================
 
 // Header nav toggle button - visible on mobile devices only
@@ -302,10 +334,10 @@ $aside-toggler-height:                  $header-height;
 $aside-toggler-padding-y:               10px;
 $aside-toggler-padding-x:               10px;
 
-// SEARCH
+// #SEARCH
 // ======================================================
 
-// PADDINGS //TODO, not using anywhere.. remove later if required.
+// #PADDINGS //TODO, not using anywhere.. remove later if required.
 // ======================================================
 
 $padding-base-y:                        .5rem !default;
@@ -320,7 +352,7 @@ $padding-large-x:                       48px !default;
 $padding-small-y:                       5px !default;
 $padding-small-x:                       15px !default;
 
-// SHADOWS //TODO, make the below perfect later
+// #SHADOWS //TODO, make the below perfect later
 // ======================================================
 
 $container-shadow:                              0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
@@ -338,7 +370,7 @@ $multiple-select-box-shadow:                    0 5px 10px rgba($black-color, .1
 $slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 $toastr-box-shadow:                             0 5px 10px rgba($black-color, .1);
 
-// BREADCRUMB
+// #BREADCRUMB
 // ======================================================
 
 $breadcrumb-bg:                                 $white-color !default; // Breadcrumb background color.
@@ -367,7 +399,7 @@ $breadcrumb-link-hover-theme-tone:              dark !default; // Theme color to
 $breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
 $breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
 
-// BREADCRUMB EXTENDED
+// #BREADCRUMB EXTENDED
 // ======================================================
 
 // Breadcrumb extended(ext) - Arrow type
@@ -400,22 +432,22 @@ $breadcrumb-menu-color:                         $gray-600 !default; // Breadcrum
 $breadcrumb-menu-hover-color:                   $gray-800 !default; // Hover text color for breadcrumb item.
 
 // ============================================================================================================
-// LAYOUT VARIABLES
+// #LAYOUT VARIABLES
 // ============================================================================================================
 
-// MAIN CONTENT WRAPPERS (main.content)
+// #MAIN CONTENT WRAPPERS (main.content)
 // ======================================================
 
 $main-content-padding-y:                20px; // Vertical padding for 'main content' wrapper
 $main-content-padding-x:                0; // Horizontal padding for 'main content' wrapper
 
-// PAGE TITLE WRAPPERS (.content__page-title)
+// #PAGE TITLE WRAPPERS (.content__page-title)
 // ======================================================
 
 $page-title-padding-y:                  20px; // Vertical padding for 'page title' wrapper
 $page-title-padding-x:                  0; // Horizontal padding for 'page title' wrapper
 
-// SIDEBAR (section.sidebar)
+// #SIDEBAR (section.sidebar)
 // ======================================================
 
 // Theme color scheme applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
@@ -483,11 +515,18 @@ $sidebar-mini-active-menu-width:        $sidebar-width + $sidebar-mini-width;
 
 $sidebar-mini-full-item-height:         40px;
 
-// BUTTONS
+// #FOOTER
+// ======================================================
+
+$footer-min-height:                     30px;
+$footer-font-size:                      $font-size-sm;
+$footer-font-weight:                    $font-wh-regular;
+
+// #BUTTONS
 // ======================================================
 
 $btn-border-size:                       $border-thin !default;
-$btn-font-weight:                       $font-wh-normal !default;
+$btn-font-weight:                       $font-wh-regular !default;
 
 // Button with icon (.has-icon-left / .has-icon-right)
 
@@ -572,7 +611,7 @@ $btn-icon-size-xl:                      calc(#{$btn-icon-size-xl-inner} + #{$btn
 
 $btn-disabled-opacity: 0.5;
 
-// MARK
+// #MARK
 // ======================================================
 
 $mark-underline-height-xs:              0.125rem; // 2px. Extra small (.mark-xs)
@@ -585,7 +624,7 @@ $mark-underline-height-lg:              0.75rem; // 12px. Large (.mark-lg)
 
 $mark-underline-height-xl:              1rem; // 16px. Extra large (.mark-xl)
 
-// FORMS
+// #FORMS
 // ======================================================
 
 $input-bg:                              $white-color; // <input> background color
@@ -645,7 +684,7 @@ $form-feedback-invalid-color:           contextual-color(danger); // Retrieve 'd
 
 $required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk (*) symbol
 
-// CUSTOM FORMS
+// #CUSTOM FORMS
 // ======================================================
 
 $custom-control-indicator-size:                         1rem !default;
@@ -699,7 +738,7 @@ $custom-file-button-bg:                                 $gray-200 !default; // B
 $custom-file-button-focus-bg:                           $gray-300 !default;  // Background color for custom file browser button on focus
 $custom-file-text:                                      (en: "\e089   Browse") !default; // Custom file browser button text and icon (Simple Line Icons) unicode.
 
-// CUSTOM TOGGLE SWITCH
+// #CUSTOM TOGGLE SWITCH
 // ======================================================
 
 $custom-toggle-width:                   50px;
@@ -728,7 +767,7 @@ $custom-toggle-flip-border-radius:      $input-border-radius; // Border radius s
 $custom-toggle-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
 $custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
 
-// POPOVERS
+// #POPOVERS
 // ======================================================
 
 $popover-bg:                            $white-color !default; // Popover body background color
@@ -738,7 +777,7 @@ $popover-font-size:                     $font-size-sm !default; // Popover body 
 $popover-max-width:                     276px; // Popover maximum width
 $popover-border-radius:                 $border-radius-md; // Popover border radius to add rounded corners
 
-// TOOLTIPS
+// #TOOLTIPS
 // ======================================================
 
 $tooltip-bg:                            $gray-900 !default; // Tooltip background color
@@ -748,7 +787,7 @@ $tooltip-padding-x:                     10px !default; // Tooltip body horizonta
 $tooltip-font-size:                     $font-size-sm; // Tooltip font size.
 $tooltip-line-height:                   $lh-sm !default;
 
-// ALERT
+// #ALERT
 // ======================================================
 
 $enable-alert-border:                   false; // Quickly adding border by enabling or disabling
@@ -756,7 +795,7 @@ $alert-border-radius:                   $border-radius-md; // Alert border radiu
 $alert-border-size:                     $border-thin; // Alert border width
 $alert-font-size:                       $font-size-base; // Alert font size.
 
-// CARDS
+// #CARDS
 // ======================================================
 
 $card-margin-bottom:                    15px !default; // Margin for the bottom of each card so that it is separated from all other cards.
@@ -785,7 +824,7 @@ $card-toolbar-icon-width:               30px; // Width of the icons for each car
 
 $card-toolbar-icon-height:              25px; // Height of the icons for Window type actions items
 
-// ACCORDION / COLLAPSE
+// #ACCORDION / COLLAPSE
 // ======================================================
 
 // Default accordion
@@ -806,7 +845,7 @@ $accordion-header-active-bg:                    $accordion-header-collapsed-hove
 $accordion-icon-collapsed:                      "\e604" !default; // Collapsed accordion icon (Simple Line Icons) unicode
 $accordion-icon-active:                         "\e607" !default; // Active accordion icon (Simple Line Icons) unicode
 
-// ACCORDION EXTENDED
+// #ACCORDION EXTENDED
 // ======================================================
 
 $accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion
@@ -814,16 +853,16 @@ $accordion-ext-hover-theme-tone:                dark !default; // Theme color to
 $accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // Theme color tone applied to 'Extended' accordion on active
 $accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
 
-// NAVS
+// #NAVS
 // ======================================================
 
 $nav-font-size:                         $font-size-base !default; // Navigation font size (.nav)
-$nav-font-weight:                       $font-wh-normal !default; // Navigation font weight (.nav)
+$nav-font-weight:                       $font-wh-regular !default; // Navigation font weight (.nav)
 $nav-link-padding-y:                    .5rem !default; // Navigation link vertical padding (.nav-link).
 $nav-link-padding-x:                    1rem !default; // Navigation link horizontal padding (.nav-link).
 $nav-link-disabled-color:               $gray-400 !default; // Navigation disabled link color (.nav-link).
 
-// TABS, PILLS
+// #TABS, PILLS
 // ======================================================
 
 // Tabs
@@ -850,7 +889,7 @@ $nav-pills-border-radius:                       $nav-tabs-border-radius !default
 $nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to active pill item
 $nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover
 
-// TABS EXTENDED
+// #TABS EXTENDED
 // ======================================================
 
 // Tabs Extended (ext) - Arrow > type
@@ -872,7 +911,7 @@ $nav-tabs-ext-v-wrap-active-border-size:        $nav-tabs-border-size !default; 
 $nav-tabs-ext-v-right-line-active-border-size:  $nav-tabs-ext-v-wrap-active-border-size + 1 !default; // Width of the right side line for active tab
 
 
-// MODAL
+// #MODAL
 // ======================================================
 
 $modal-content-bg:                      $white-color !default; // Background color of modal content area
@@ -891,7 +930,7 @@ $modal-footer-border-width:             $border-thin !default; // Modal footer b
 $modal-footer-border-color:             $gray-400; // Modal footer border top color
 $modal-footer-padding:                  15px 25px !default; // Modal footer vertical and horizontal padding.
 
-// CAROUSEL
+// #CAROUSEL
 // ======================================================
 
 $carousel-control-icon-size:                            40px !default; // Left/right controls size
@@ -906,7 +945,7 @@ $carousel-control-border-color:                         $white-color !default; /
 $carousel-indicator-light-active-bg:                    $black-color !default; // Carousel indicator background color for lighter theme
 
 
-// PAGINATION
+// #PAGINATION
 // ======================================================
 
 $pagination-bg:                         $white-color !default; // Page link background color
@@ -950,7 +989,7 @@ $pagination-padding-x-lg:               $btn-padding-x-lg !default; // Use the s
 $pagination-line-height-lg:             $btn-line-height-lg !default; // Use the same line height as in 'large' size button for a consistent look
 $pagination-border-radius-lg:           $btn-border-radius-lg !default; // Use the same border radius as in 'large' size button for a consistent look
 
-// PAGINATION EXTENDED
+// #PAGINATION EXTENDED
 // ======================================================
 
 // Pagination extended(ext) - Round type
@@ -1003,14 +1042,14 @@ $pagination-ext-inner-lg:               ($pagination-font-size-lg * $pagination-
 $pagination-ext-size-lg:                calc(#{$pagination-ext-inner-lg} + #{$pagination-ext-border-size-lg}) !default;
 
 
-// OVERLAY
+// #OVERLAY
 // ======================================================
 $overlay:                               rgba(0, 0, 0, .5);
 
-// MAIN MENU
+// #MAIN MENU
 // ======================================================
 
-// PROGRESS BAR
+// #PROGRESS BAR
 // ======================================================
 $progress-bg:                           $gray-200 !default; // Background color of the whole progress component
 $progress-label-font-size:              $font-size-xs !default; // Font size for progress label
@@ -1028,10 +1067,10 @@ $progress-height:                       0.5rem !default;
 
 $progress-height-lg:                    0.75rem !default;
 
-// TABLES
+// #TABLES
 // ======================================================
 
-// BADGES
+// #BADGES
 // ======================================================
 
 $badge-border-radius:                   $border-radius-sm; // Border radius to add rounded corners
@@ -1057,7 +1096,7 @@ $badge-empty-size:                      .5em; // Size used for both width and he
 // Image badges
 
 $badge-image-font-size:                 $font-size-sm; // The image badge font size
-$badge-image-font-weight:               $font-wh-normal !default; // The image badge font weight
+$badge-image-font-weight:               $font-wh-regular !default; // The image badge font weight
 $badge-image-line-height:               1.25; // Line height required for badge text to align vertically with the image.
 $badge-inner:                           ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
 $badge-size:                            calc(#{$badge-inner}) !default;
@@ -1066,13 +1105,13 @@ $badge-size:                            calc(#{$badge-inner}) !default;
 
 $badge-disabled-opacity:                0.5; // Disabled badges opacity.
 
-// NUMBER SPINNER
+// #NUMBER SPINNER
 // ======================================================
 
 $spinner-icon-width:                    20px;
 $spinner-icon-font-size:                $font-size-xs;
 
-// SIZES
+// #SIZES
 // ======================================================
 
 $sizes: (
@@ -1082,7 +1121,7 @@ $sizes: (
 ) !default;
 
 
-// WHITE OPACITY
+// #WHITE OPACITY
 // ======================================================
 $opacity-white-1:                       rgba(255, 255, 255, .1) !default;
 $opacity-white-2:                       rgba(255, 255, 255, .2) !default;
@@ -1094,7 +1133,7 @@ $opacity-white-7:                       rgba(255, 255, 255, .7) !default;
 $opacity-white-8:                       rgba(255, 255, 255, .8) !default;
 $opacity-white-9:                       rgba(255, 255, 255, .9) !default;
 
-// BLACK OPACITY
+// #BLACK OPACITY
 // ======================================================
 $opacity-black-1:                       rgba(0, 0, 0, .1) !default;
 $opacity-black-2:                       rgba(0, 0, 0, .2) !default;
@@ -1107,16 +1146,16 @@ $opacity-black-8:                       rgba(0, 0, 0, .8) !default;
 $opacity-black-9:                       rgba(0, 0, 0, .9) !default;
 
 // ============================================================================================================
-// VENDOR'S VARIABLES
+// #VENDOR'S VARIABLES
 // ============================================================================================================
 
-// TOASTR PLUGIN
+// #TOASTR PLUGIN
 // ======================================================
 
 $toastr-radius:                         $alert-border-radius !default; // Radius should be same as Bootstrap's alert radius for consistency.
 $toastr-opacity:                        0.9; // Toastr container opacity
 
-// CHOSEN SELECT PLUGIN
+// #CHOSEN SELECT PLUGIN
 // ======================================================
 
 $chosen-search-icon-color:                              $gray-600 !default; // Search lens icon color that appear on search input
@@ -1137,7 +1176,7 @@ $chosen-search-multi-search-choice-margin:              0 2px; // Selected optio
 $chosen-search-multi-search-choice-padding:             3px 20px 3px 5px; // Selected options vertical, horizontal padding
 $chosen-search-multi-search-choice-rtl-padding:         3px 5px 3px 19px; // Selected options vertical, horizontal padding for Right-to-Left variant
 
-// DROPZONE JS PLUGIN
+// #DROPZONE JS PLUGIN
 // ======================================================
 
 $dropzone-bg:                           $gray-200; // Background color for drag’n’drop area
@@ -1154,7 +1193,7 @@ $dropzone-message-line-height:          $btn-line-height-lg;  // Drag’n’drop
 $dropzone-message-icon:                 "\e084" !default; // Drag’n’drop icon (Simple Line Icons) unicode.
 $dropzone-message-icon-font-size:       2rem !default; // Drag’n’drop icon font size
 
-// BOOTSTRAP DATEPICKER PLUGIN
+// #BOOTSTRAP DATEPICKER PLUGIN
 // ======================================================
 
 $datepicker-border-radius:              $card-border-radius; // Datepicker border radius should be same as Bootstrap's card radius for consistency.
@@ -1165,7 +1204,7 @@ $datepicker-cell-border-radius:         50% !default; // Border radius for td el
 $datepicker-cell-width:                 36px !default; // Width for table cells (td & th)
 $datepicker-cell-height:                36px !default; // Height for table cells (td & th)
 
-// JQUERY STEPS PLUGIN
+// #JQUERY STEPS PLUGIN
 // ======================================================
 
 $steps-active-theme-scheme:             primary !default; // Theme color scheme applied to the tab of current step
@@ -1202,7 +1241,7 @@ $steps-circle-title-color:              $gray-800 !default; // Step item title t
 $arrow-wizard-inner-size:               ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle /\.
 
-// SLIDER CONTROL - NOUISLIDER PLUGIN
+// #SLIDER CONTROL - NOUISLIDER PLUGIN
 // ======================================================
 
 // Slider base bar
@@ -1240,30 +1279,27 @@ $slider-tooltip-color:                  $gray-700 !default; // Slider tooltip te
 $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3px rgba($gray-400, 0.2); // Slider tooltip box shadow
 
 
-// PATHS
+// #PATHS
 // ======================================================
-$path-rel: 'images/';
+// Paths for particular assets
 
+$pattern-library-path:                   '../..' !default;
+$font-path:                             '#{$pattern-library-path}/fonts' !default;
+$image-path:                            '#{$pattern-library-path}/img' !default;
 
-// FOOTER
+// #TRANSITION
 // ======================================================
-$footer-min-height: 30px;
-$footer-font-size: $font-size-sm;
-$footer-font-weight: $font-wh-normal;
+$theme-transition-duration:             1.5s; // TODO, delete this if not using.
+$general-transition-time:               0.5s !default;
 
-// TRANSITION
+// #EASING
 // ======================================================
-$theme-transition-duration: 1.5s; // TODO, delete this if not using.
-$general-transition-time: 0.5s !default;
+$ease-in-out-circ:                      cubic-bezier(.27, .01, .38, 1.06);
 
-// EASING
-// ======================================================
-$ease-in-out-circ: cubic-bezier(.27, .01, .38, 1.06);
-
-// PAGE SPECIFIC
+// #PAGE SPECIFIC
 // ======================================================
 
-// HANDLING Z-INDEX LAYERS
+// #HANDLING Z-INDEX LAYERS
 // ======================================================
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
@@ -1272,8 +1308,8 @@ $zindex: (
         overlay : 800,
         footer : 800,
         sidebar :800,
-  //sidebar-mini :800,
-  //sidebar-mini-child :-999,
+        //sidebar-mini :800,
+        //sidebar-mini-child :-999,
         aside : 850,
         header : 860,
         dropdown : 1000,
@@ -1285,7 +1321,7 @@ $zindex: (
         fullscreen_card: 999,
 );
 
-// BREAKPOINTS
+// #BREAKPOINTS
 // ======================================================
 // Media queries breakpoints
 // Grabbed from Bootstrap
@@ -1327,7 +1363,7 @@ $screen-md-max: ($screen-lg-min - 1) !default; /*991px*/
 /* Large devices (desktops, less than 1200px) */
 $screen-lg-max: ($screen-xl-min - 1) !default; /*1999px*/
 
-// LINK SELECTORS
+// #LINK SELECTORS
 // ======================================================
 /* Adapted from https://css-tricks.com/snippets/sass/sass-things-links/ */
 $a-href-tags: '&[href]:hover, &[href]:focus, &[href].focus, &[href]:active, &[href].active, &[href]:active:focus, &[href].active:focus, &[href]:active:hover, &[href].active:hover, &[href]:not([disabled]):not(.disabled):active, &[href]:not([disabled]):not(.disabled).active, &[href]:not([disabled]):not(.disabled):active:focus, &[href]:not([disabled]):not(.disabled).active:focus';
@@ -1341,10 +1377,10 @@ $focus-tags: '&:focus, &.focus';
 $hover-focus-tags: '&:hover, &:focus, &.focus';
 $active-tags: '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
-// DISABLED SELECTORS
+// #DISABLED SELECTORS
 // ======================================================
 $disabled-tags: '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
 
-// ICON SELECTORS
+// #ICON SELECTORS
 // ======================================================
 $icon-tags: 'i[class*="fa-"], i[class*="icon-"]';
