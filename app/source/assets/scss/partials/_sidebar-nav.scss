@@ -197,7 +197,6 @@
 
 .sidebar-mini .sidebar {
   $s: sidebar;
-  //&__nav{ z-index: map-get($zindex, sidebar-mini);}
 
   // Hiding headers, dividers etc
   &__item .badge,
@@ -238,8 +237,6 @@
       .#{$s}__item-title {
         position: fixed;
         display: none;
-        //@include transition;
-        //transform: translateY(50px);
         min-width: $sidebar-width;
         left: $sidebar-mini-width;
         padding: $sidebar-item-padding-y $sidebar-item-padding-x;
@@ -249,16 +246,12 @@
 
     // Sub menu - First level
     > .#{$s}__child {
-      //@include transition;
-      //transform: translateY(50px);
-      //z-index: map-get($zindex, sidebar-mini-child);
       position: absolute;
       min-width: $sidebar-mini-submenu-width;
       left: $sidebar-mini-width;
       box-shadow: $header-shadow;
       height: auto !important;
       display: none;
-      //@extend %o-v-none;
 
       a {
         margin: 0;
@@ -291,19 +284,14 @@
         position: static;
         .#{$s}__item-title {
           display: block;
-          //transform: translateY(0);
         }
       }
-
       > .#{$s}__child {
-        //transform: translateY(0);
         display: block;
-        //@extend %o-v-show;
       }
     }
   }
 }
-
 
 // MINI SIDEBAR FULL HEIGHT TYPE
 // ======================================================

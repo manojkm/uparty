@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : variables.scss
-// Description    : Defining variables used throughout the application.
+// Description    : Defining variables that are used throughout the application.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -33,20 +33,22 @@
 
 // TABLE OF CONTENTS
 
-// 1. COLORS
+// 1. COLOR SCHEME
 // -----------------------------------------------------------------------------
 // 1.1 COLORS
 // 1.2 CONTEXTUAL PALETTE MAP
 
 // 2. TYPOGRAPHY
 // -----------------------------------------------------------------------------
-// 2.1 TYPOGRAPHY, MAP AND RE-USABLE VARIABLES
+// 2.1 FONTS
+// 2.2 TYPOGRAPHY MAP
+// 2.1 TYPOGRAPHY RE-USABLE VARIABLES
 
 // 3. ELEMENTS
 // -----------------------------------------------------------------------------
 // 3.1 HTML
 // 3.2 BODY
-// 3.3 LINKS
+// 3.3 HYPERLINKS
 // 3.4 HEADINGS
 // 3.5 LEAD
 
@@ -74,9 +76,9 @@
 // -----------------------------------------------------------------------------
 // 6.1 MAIN CONTENT WRAPPERS (main.content)
 // 6.2 PAGE TITLE WRAPPERS (.content__page-title)
-// 6.3 HEADER & NAVBAR
-// 6.4 SIDEBAR (section.sidebar)
-// 6.5 FOOTER
+// 6.3 GLOBAL HEADER & NAVBAR
+// 6.4 GLOBAL SIDEBAR (section.sidebar)
+// 6.5 GLOBAL FOOTER
 
 // 7. PAGE SPECIFIC
 // -----------------------------------------------------------------------------
@@ -84,10 +86,10 @@
 
 // 8. COMPONENTS
 // -----------------------------------------------------------------------------
-// 8.1 TABLES
-// 8.2 FORMS
-// 8.3 CUSTOM FORMS
-// 8.4 BUTTONS
+// 8.1 BUTTONS
+// 8.2 TABLES
+// 8.3 FORMS
+// 8.4 CUSTOM FORMS
 // 8.5 DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 // 8.6 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 // 8.7 NAVS
@@ -109,8 +111,8 @@
 // 8.23 ACCORDION EXTENDED
 // 8.24 NUMBER SPINNER
 // 8.25 TOGGLE SWITCH
-// 8.26 SEARCH
-// 8.27 TOGGLERS
+// 8.26 TOGGLERS
+// 8.27 SEARCH
 // 8.28 MEGA MENU
 
 // 9. VENDOR'S VARIABLES
@@ -130,7 +132,7 @@
 
 // ================================================================================================
 
-// 1. COLORS
+// 1. COLOR SCHEME
 // =============================================================================
 //
 // 1.1 COLORS
@@ -196,13 +198,11 @@ $contextual-palette-map: (
 // 2. TYPOGRAPHY
 // =============================================================================
 //
-// 2.1 TYPOGRAPHY, MAP AND RE-USABLE VARIABLES
+// 2.1 FONTS
 // -----------------------------------------------------------------------------
-
 
 // Web fonts
 // We don't want to load web fonts on your site so we stay classic. We recommend using Google fonts.
-// Adapted from sassy-starter http://minamarkham.github.io/sassy-starter/
 // $typefaces: (
 //   'FILENAME': (
 //     family: 'fontname',
@@ -224,7 +224,11 @@ $font-family-default:                   'Source Sans Pro';  // Define Google fon
 $font-family-display:                   $font-family-default; // Define font stack used for headings <h1> <h2> etc...
 $font-family-fallback:                  'Arial', sans-serif; // Define font stack used for fallback
 
-// Typography map
+//
+// 2.2 TYPOGRAPHY MAP
+// -----------------------------------------------------------------------------
+// Add all the above fonts to the map.
+// Make sure all the names match the above variable names for clarity.
 
 $typography: (
         font-default:                   ($font-family-default, $font-family-fallback),
@@ -246,6 +250,9 @@ $typography: (
         size-xl:                        (1.25rem, 1.625rem) // 20px 26px
 );
 
+//
+// 2.3 TYPOGRAPHY RE-USABLE VARIABLES
+// -----------------------------------------------------------------------------
 // Re-usable variable names that will retrieve values from the above $typography map.
 
 // Retrieve font family
@@ -305,7 +312,7 @@ $body-font-weight:                      $font-wh-regular; // Specifies the defau
 $body-line-height:                      $lh-base;  // Specifies the default line height for body text
 
 //
-// 3.3 LINKS
+// 3.3 HYPERLINKS
 // -----------------------------------------------------------------------------
 // Settings for the anchor elements.
 
@@ -349,6 +356,7 @@ $lead-font-weight:                      $font-wh-light !default;
 
 $enable-rounded:                        true !default; // Handle rounded corners
 $enable-breadcrumb:                     true !default; // Breadcrumb
+$enable-sidebar-divider-underline-type: false; // 'true' will disable the divider after-line type.
 
 // 5. UTILITIES FOR LAYOUT
 // =============================================================================
@@ -484,8 +492,6 @@ $zindex: (
         overlay : 800,
         footer : 800,
         sidebar :800,
-        //sidebar-mini :800,
-        //sidebar-mini-child :-999,
         aside : 850,
         header : 860,
         dropdown : 1000,
@@ -535,9 +541,24 @@ $screen-md-max:                         ($screen-lg-min - 1) !default; // 991px
 // Large devices (desktops, less than 1200px)
 $screen-lg-max:                         ($screen-xl-min - 1) !default; // 1999px
 
+// 6. LAYOUT
+// =============================================================================
+//
+// 6.1 MAIN CONTENT WRAPPERS (main.content)
+// -----------------------------------------------------------------------------
+
+$main-content-padding-y:                20px; // Vertical padding for 'main content' wrapper
+$main-content-padding-x:                0; // Horizontal padding for 'main content' wrapper
 
 //
-// #HEADER & NAVBAR
+// 6.2 PAGE TITLE WRAPPERS (.content__page-title)
+// -----------------------------------------------------------------------------
+
+$page-title-padding-y:                  20px; // Vertical padding for 'page title' wrapper
+$page-title-padding-x:                  0; // Horizontal padding for 'page title' wrapper
+
+//
+// 6.3 GLOBAL HEADER & NAVBAR
 // -----------------------------------------------------------------------------
 
 $header-height:                         50px;
@@ -548,158 +569,7 @@ $navbar-text-font-weight:               $font-wh-regular;
 $navbar-item-mobile-bottom-border:      true;
 
 //
-// #DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
-// -----------------------------------------------------------------------------
-
-$dropdown-width:                        200px; // Dropdown menu container width.
-$dropdown-min-width:                    160px;
-$dropdown-max-width:                    320px;
-$dropdown-bg:                           $white-color; // Background color for the dropdown menu container.
-$dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius to add rounded corners
-
-$dropdown-font-size:                    13px; // Dropdown menu item font size.
-$dropdown-header-font-size:             11px; // Dropdown section headers font size.
-
-$dropdown-margin-top:                   15px; // Positioning first level dropdown menu.
-$dropdown-padding-y:                    5px; // Dropdown menu container vertical padding.
-$dropdown-padding-x:                    0px; // Dropdown menu container horizontal padding.
-
-$dropdown-item-padding-y:               8px; // Dropdown menu item vertical padding.
-$dropdown-item-padding-x:               12px; // Dropdown menu item horizontal padding.
-
-$dropdown-link-color:                   $gray-800; // Dropdown link & icon text color.
-
-$dropdown-link-hover-color:             $gray-900; // Hover color for dropdown links.
-$dropdown-link-hover-bg:                $gray-300; // Hover background for dropdown links.
-
-$dropdown-link-active-color:            $gray-900; // Active dropdown menu item text color.
-$dropdown-link-active-bg:               $gray-300; // Active dropdown menu item background color.
-
-$dropdown-link-opacity-disabled-color:  0.6; // Disabled dropdown menu item text color/opacity.
-
-$dropdown-divider-color:                $gray-400; // Divider color for between dropdown items.
-$dropdown-divider-border-width:         $border-thin !default; // Border width of divider between dropdown items.
-
-$dropdown-icon-width:                   20px; // Dropdown menu item icon width for perfect alignment between icons and text.
-
-//
-// DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
-// -----------------------------------------------------------------------------
-
-$dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
-
-//
-// #TOGGLERS
-// -----------------------------------------------------------------------------
-
-// Header nav toggle button - visible on mobile devices only
-
-$navbar-toggler-padding-y:              10px;
-$navbar-toggler-padding-x:              10px;
-
-// Sidebar toggle button
-
-$sidebar-toggler-height:                $header-height - 10;
-$sidebar-toggler-padding-y:             0px;
-$sidebar-toggler-padding-x:             10px;
-
-// Aside toggle button
-
-$aside-toggler-height:                  $header-height;
-$aside-toggler-padding-y:               10px;
-$aside-toggler-padding-x:               10px;
-
-//
-// #SEARCH
-// -----------------------------------------------------------------------------
-
-
-
-
-
-//
-// #BREADCRUMB
-// -----------------------------------------------------------------------------
-
-$breadcrumb-bg:                                 $white-color !default; // Breadcrumb background color.
-
-$breadcrumb-border-radius:                      $border-radius-md !default; // Border radius to add rounded corners
-$breadcrumb-border-size:                        $border-thin;
-$breadcrumb-border-color:                       $gray-400 !default;
-
-$breadcrumb-item-padding-y:                     .40rem !default; // Breadcrumb item vertical padding.
-$breadcrumb-item-padding-x:                     .85rem !default; // Breadcrumb item horizontal padding.
-
-$breadcrumb-font-size:                          $font-size-sm !default;
-$breadcrumb-color:                              $gray-700 !default; // Breadcrumb text color.
-$breadcrumb-line-height:                        $lh-sm !default;  // Centers the text vertically while matching height of breadcrumb item
-$breadcrumb-active-color:                       $gray-600 !default; // Text color of current page in the breadcrumb.
-
-$breadcrumb-divider:                            "/" !default; // Textual separator for between breadcrumb elements.
-$breadcrumb-divider-color:                      $gray-500 !default; // Textual separator color between breadcrumb elements.
-$breadcrumb-divider-angle-right:                "\f054" !default; // Textual separator type - Simple Line Icons unicode.
-$breadcrumb-divider-angle-double-right:         "\f061" !default; // Textual separator type - Simple Line Icons unicode.
-$breadcrumb-divider-caret-right:                "\f0da" !default; // Textual separator type - Simple Line Icons unicode.
-
-$breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text.
-$breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover.
-
-$breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
-$breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
-
-//
-// #BREADCRUMB EXTENDED
-// -----------------------------------------------------------------------------
-
-// Breadcrumb extended(ext) - Arrow type
-
-$breadcrumb-ext-bg:                             $white-color !default; // Breadcrumb container background color.
-$breadcrumb-ext-border-color:                   $gray-300 !default; // Breadcrumb container border color.
-$breadcrumb-ext-item-hover-bg:                  $gray-100 !default; // Hover background color for breadcrumb item.
-$breadcrumb-ext-arrow-bg:                       $breadcrumb-ext-bg !default; // Breadcrumb arrow background color.
-$breadcrumb-ext-arrow-hover-border-color:       $gray-500 !default; // Hover color for breadcrumb arrow.
-$breadcrumb-ext-top-bottom-border-size:         $breadcrumb-size !default; // Computed size to fit the arrow edges perfectly inside the container.
-$breadcrumb-ext-left-border-size:               10px !default; // Breadcrumb arrow extending out size.
-
-// Breadcrumb extended(ext) - Arrow wrap type
-
-$breadcrumb-ext-wrap-bg:                        $white-color !default; // Breadcrumb container background color.
-$breadcrumb-ext-wrap-item-bg:                   $gray-200 !default; // Breadcrumb item background color for previous pages.
-$breadcrumb-ext-wrap-color:                     $gray-600 !default; // Breadcrumb item text color for previous pages.
-$breadcrumb-ext-wrap-left-border-color:         $breadcrumb-ext-wrap-bg !default; // Breadcrumb arrow separator background color.
-
-// Breadcrumb extended(ext) - Arrow wizard type
-
-$breadcrumb-wizard-completed-theme-scheme:      primary !default; //  Theme color scheme applied to background color of completed step in the breadcrumb.
-$breadcrumb-wizard-active-theme-scheme:         secondary !default; // Theme color scheme applied to background color of current step in the breadcrumb.
-$breadcrumb-wizard-incomplete-bg:               $gray-200 !default; // Background color of next/incomplete step in the breadcrumb.
-$breadcrumb-wizard-incomplete-color:            $gray-600 !default; // Text color of next/incomplete step in the breadcrumb.
-
-// Breadcrumb type with menu on the end
-
-$breadcrumb-menu-color:                         $gray-600 !default; // Breadcrumb item text color
-$breadcrumb-menu-hover-color:                   $gray-800 !default; // Hover text color for breadcrumb item.
-
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------
-// #LAYOUT VARIABLES
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//
-// #MAIN CONTENT WRAPPERS (main.content)
-// -----------------------------------------------------------------------------
-
-$main-content-padding-y:                20px; // Vertical padding for 'main content' wrapper
-$main-content-padding-x:                0; // Horizontal padding for 'main content' wrapper
-
-//
-// #PAGE TITLE WRAPPERS (.content__page-title)
-// -----------------------------------------------------------------------------
-
-$page-title-padding-y:                  20px; // Vertical padding for 'page title' wrapper
-$page-title-padding-x:                  0; // Horizontal padding for 'page title' wrapper
-
-//
-// #SIDEBAR (section.sidebar)
+// 6.4 GLOBAL SIDEBAR (section.sidebar)
 // -----------------------------------------------------------------------------
 
 // Theme color scheme applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
@@ -742,7 +612,6 @@ $sidebar-submenu-item-padding-x:        $sidebar-padding-x;
 
 // Sidebar divider (.sidebar__divider)
 
-$enable-sidebar-divider-underline-type: false; // 'true' will disable the divider after-line type.
 $sidebar-divider-height:                0px;
 $sidebar-divider-margin-y:              0.5rem;
 $sidebar-divider-margin-x:              0px;
@@ -768,7 +637,7 @@ $sidebar-mini-active-menu-width:        $sidebar-width + $sidebar-mini-width;
 $sidebar-mini-full-item-height:         40px;
 
 //
-// #FOOTER
+// 6.5 GLOBAL FOOTER
 // -----------------------------------------------------------------------------
 
 $footer-min-height:                     30px;
@@ -776,7 +645,13 @@ $footer-font-size:                      $font-size-sm;
 $footer-font-weight:                    $font-wh-regular;
 
 //
-// #BUTTONS
+// 7. PAGE SPECIFIC
+// =============================================================================
+
+// 8. COMPONENTS
+// =============================================================================
+//
+// 8.1 BUTTONS
 // -----------------------------------------------------------------------------
 
 $btn-border-size:                       $border-thin !default;
@@ -865,10 +740,12 @@ $btn-icon-size-xl:                      calc(#{$btn-icon-size-xl-inner} + #{$btn
 
 $btn-disabled-opacity: 0.5;
 
-
+//
+// 8.2 TABLES
+// -----------------------------------------------------------------------------
 
 //
-// #FORMS
+// 8.3 FORMS
 // -----------------------------------------------------------------------------
 
 $input-bg:                              $white-color; // <input> background color
@@ -929,7 +806,7 @@ $form-feedback-invalid-color:           contextual-color(danger); // Retrieve 'd
 $required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk (*) symbol
 
 //
-// #CUSTOM FORMS
+// 8.4 CUSTOM FORMS
 // -----------------------------------------------------------------------------
 
 $custom-control-indicator-size:                         1rem !default;
@@ -984,68 +861,108 @@ $custom-file-button-focus-bg:                           $gray-300 !default;  // 
 $custom-file-text:                                      (en: "\e089   Browse") !default; // Custom file browser button text and icon (Simple Line Icons) unicode.
 
 //
-// #TOGGLE SWITCH
+// 8.5 DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 // -----------------------------------------------------------------------------
 
-$custom-toggle-width:                   50px;
-$custom-toggle-height:                  28px;
-$custom-toggle-border:                  $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
-$custom-toggle-bg:                      $white-color;
-$custom-toggle-border-radius:           100px;
+$dropdown-width:                        200px; // Dropdown menu container width.
+$dropdown-min-width:                    160px;
+$dropdown-max-width:                    320px;
+$dropdown-bg:                           $white-color; // Background color for the dropdown menu container.
+$dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius to add rounded corners
 
-$custom-toggle-knob-bg:                 $white-color; // Knob background color
-$custom-toggle-knob-border-radius:      100px; // To add rounded corners to the Knob
-$custom-toggle-knob-width:              20px; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
-$custom-toggle-knob-height:             20px; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
-$custom-toggle-knob-checked-bg:         $white-color;
-$custom-toggle-knob-active-width:       26px; // Pressing and holding the knob looks little expanded
+$dropdown-font-size:                    13px; // Dropdown menu item font size.
+$dropdown-header-font-size:             11px; // Dropdown section headers font size.
 
-// Mini type
+$dropdown-margin-top:                   15px; // Positioning first level dropdown menu.
+$dropdown-padding-y:                    5px; // Dropdown menu container vertical padding.
+$dropdown-padding-x:                    0px; // Dropdown menu container horizontal padding.
 
-$custom-toggle-mini-height:             10px !default;
-$custom-toggle-mini-bg:                 $gray-200 !default;
+$dropdown-item-padding-y:               8px; // Dropdown menu item vertical padding.
+$dropdown-item-padding-x:               12px; // Dropdown menu item horizontal padding.
 
-// Flip type
+$dropdown-link-color:                   $gray-800; // Dropdown link & icon text color.
 
-$custom-toggle-flip-width:              60px;
-$custom-toggle-flip-height:             30px;
-$custom-toggle-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
-$custom-toggle-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
-$custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
+$dropdown-link-hover-color:             $gray-900; // Hover color for dropdown links.
+$dropdown-link-hover-bg:                $gray-300; // Hover background for dropdown links.
+
+$dropdown-link-active-color:            $gray-900; // Active dropdown menu item text color.
+$dropdown-link-active-bg:               $gray-300; // Active dropdown menu item background color.
+
+$dropdown-link-opacity-disabled-color:  0.6; // Disabled dropdown menu item text color/opacity.
+
+$dropdown-divider-color:                $gray-400; // Divider color for between dropdown items.
+$dropdown-divider-border-width:         $border-thin !default; // Border width of divider between dropdown items.
+
+$dropdown-icon-width:                   20px; // Dropdown menu item icon width for perfect alignment between icons and text.
 
 //
-// #POPOVERS
+// 8.6 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 // -----------------------------------------------------------------------------
 
-$popover-bg:                            $white-color !default; // Popover body background color
-$popover-header-font-size:              $font-size-base !default; // Popover header font size.
-$popover-header-color:                  $gray-700 !default; // Popover header text color.
-$popover-font-size:                     $font-size-sm !default; // Popover body font size.
-$popover-max-width:                     276px; // Popover maximum width
-$popover-border-radius:                 $border-radius-md; // Popover border radius to add rounded corners
+$dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
 
 //
-// #TOOLTIPS
+// 8.7 NAVS
 // -----------------------------------------------------------------------------
 
-$tooltip-bg:                            $gray-900 !default; // Tooltip background color
-$tooltip-color:                         $white-color !default; // Tooltip text color
-$tooltip-padding-y:                     8px !default; // Tooltip body vertical padding.
-$tooltip-padding-x:                     10px !default; // Tooltip body horizontal padding.
-$tooltip-font-size:                     $font-size-sm; // Tooltip font size.
-$tooltip-line-height:                   $lh-sm !default;
+$nav-font-size:                         $font-size-base !default; // Navigation font size (.nav)
+$nav-font-weight:                       $font-wh-regular !default; // Navigation font weight (.nav)
+$nav-link-padding-y:                    .5rem !default; // Navigation link vertical padding (.nav-link).
+$nav-link-padding-x:                    1rem !default; // Navigation link horizontal padding (.nav-link).
+$nav-link-disabled-color:               $gray-400 !default; // Navigation disabled link color (.nav-link).
 
 //
-// #ALERT
+// 8.8 TABS, PILLS
 // -----------------------------------------------------------------------------
 
-$enable-alert-border:                   false; // Quickly adding border by enabling or disabling
-$alert-border-radius:                   $border-radius-md; // Alert border radius to add rounded corners
-$alert-border-size:                     $border-thin; // Alert border width
-$alert-font-size:                       $font-size-base; // Alert font size.
+// Tabs
+
+$nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements like border colors, font colors etc..
+$nav-tabs-border-color:                 $gray-400 !default; // Tabbed navigation border color
+$nav-tabs-border-size:                  $border-thin !default;  // Tabbed navigation borders width
+$nav-tabs-border-radius:                $border-radius-md !default;  // Tabbed navigation item borders radius to add rounded corners
+$nav-tabs-link-hover-border-color:      $gray-300 !default; // Tabbed navigation item border color on hover
+$nav-tabs-link-hover-bg:                $gray-100 !default; // Tabbed navigation item background color on hover
+$nav-tabs-link-color:                   $gray-600 !default; // Text color for tabbed navigation item link
+$nav-tabs-link-active-theme-scheme:     $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to the active tabbed navigation item link
+$nav-tabs-link-active-bg:               $white-color !default; // Background color for active tabbed navigation item
+$nav-tabs-link-active-border-color:     $nav-tabs-border-color !default; // Border color for active tabbed navigation item
+$nav-tabs-icon-width:                   20px;
+
+// Tab content
+
+$tab-content-bg:                        $white-color !default; // Background color active tab content body
+
+// Pills type
+
+$nav-pills-border-radius:                       $nav-tabs-border-radius !default; // Tabbed navigation pill border radius to add rounded corners
+$nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to active pill item
+$nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover
 
 //
-// #CARDS
+// 8.9 TABS EXTENDED
+// -----------------------------------------------------------------------------
+
+// Tabs Extended (ext) - Arrow > type
+
+$nav-tabs-ext-arrow-link-hover-bg:              $white-color !default; // Tabbed navigation item background color on hover
+
+// Tabs Extended (ext) - Boxed type
+
+$nav-tabs-ext-box-bg:                           $gray-200 !default; // Background color for the box area behind the tabs
+$nav-tabs-ext-box-spacing:                      8px !default; // Spacing between navigation items and outer box
+
+// Tabs Extended (ext) - Vertical type
+
+$nav-tabs-ext-v-width:                          200px !default; // Width of the tabbed navigation on left side
+$nav-tabs-ext-v-wrap-active-border-size:        $nav-tabs-border-size !default; // Width of the border around active tabbed navigation item
+
+// Tabs Extended (ext) - Vertical Right line type
+
+$nav-tabs-ext-v-right-line-active-border-size:  $nav-tabs-ext-v-wrap-active-border-size + 1 !default; // Width of the right side line for active tab
+
+//
+// 8.10 CARDS
 // -----------------------------------------------------------------------------
 
 $card-margin-bottom:                    15px !default; // Margin for the bottom of each card so that it is separated from all other cards.
@@ -1075,133 +992,70 @@ $card-toolbar-icon-width:               30px; // Width of the icons for each car
 $card-toolbar-icon-height:              25px; // Height of the icons for Window type actions items
 
 //
-// #ACCORDION / COLLAPSE
+// 8.11 BREADCRUMB
 // -----------------------------------------------------------------------------
 
-// Default accordion
+$breadcrumb-bg:                                 $white-color !default; // Breadcrumb background color.
 
-$accordion-title-color:                         $gray-700 !default; // Text color for accordion title
-$accordion-title-hover-color:                   $gray-900 !default; // Text color for accordion title on hover
-$accordion-title-active-color:                  $gray-900 !default; // Text color for active accordion title
+$breadcrumb-border-radius:                      $border-radius-md !default; // Border radius to add rounded corners
+$breadcrumb-border-size:                        $border-thin;
+$breadcrumb-border-color:                       $gray-400 !default;
 
-$accordion-icon-margin-left:                    10px; // Right margin for accordion icon, so that there is space between icon and title.
-$accordion-body-bg:                             $white-color !default; // Background color for accordion
+$breadcrumb-item-padding-y:                     .40rem !default; // Breadcrumb item vertical padding.
+$breadcrumb-item-padding-x:                     .85rem !default; // Breadcrumb item horizontal padding.
 
-$accordion-header-collapsed-bg:                 $card-header-bg !default; // Background color for accordion header
-$accordion-header-collapsed-hover-bg:           rgba($black-color, .08) !default; // Background color for accordion header on hover
-$accordion-header-active-bg:                    $accordion-header-collapsed-hover-bg !default; // Background color for accordion header on active
+$breadcrumb-font-size:                          $font-size-sm !default;
+$breadcrumb-color:                              $gray-700 !default; // Breadcrumb text color.
+$breadcrumb-line-height:                        $lh-sm !default;  // Centers the text vertically while matching height of breadcrumb item
+$breadcrumb-active-color:                       $gray-600 !default; // Text color of current page in the breadcrumb.
 
-// Accordion caret icon
+$breadcrumb-divider:                            "/" !default; // Textual separator for between breadcrumb elements.
+$breadcrumb-divider-color:                      $gray-500 !default; // Textual separator color between breadcrumb elements.
+$breadcrumb-divider-angle-right:                "\f054" !default; // Textual separator type - Simple Line Icons unicode.
+$breadcrumb-divider-angle-double-right:         "\f061" !default; // Textual separator type - Simple Line Icons unicode.
+$breadcrumb-divider-caret-right:                "\f0da" !default; // Textual separator type - Simple Line Icons unicode.
 
-$accordion-icon-collapsed:                      "\e604" !default; // Collapsed accordion icon (Simple Line Icons) unicode
-$accordion-icon-active:                         "\e607" !default; // Active accordion icon (Simple Line Icons) unicode
+$breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text.
+$breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover.
+
+$breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
+$breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
 
 //
-// #ACCORDION EXTENDED
+// 8.12 BREADCRUMB EXTENDED
 // -----------------------------------------------------------------------------
 
-$accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion
-$accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to 'Extended' accordion on hover
-$accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // Theme color tone applied to 'Extended' accordion on active
-$accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
+// Breadcrumb extended(ext) - Arrow type
+
+$breadcrumb-ext-bg:                             $white-color !default; // Breadcrumb container background color.
+$breadcrumb-ext-border-color:                   $gray-300 !default; // Breadcrumb container border color.
+$breadcrumb-ext-item-hover-bg:                  $gray-100 !default; // Hover background color for breadcrumb item.
+$breadcrumb-ext-arrow-bg:                       $breadcrumb-ext-bg !default; // Breadcrumb arrow background color.
+$breadcrumb-ext-arrow-hover-border-color:       $gray-500 !default; // Hover color for breadcrumb arrow.
+$breadcrumb-ext-top-bottom-border-size:         $breadcrumb-size !default; // Computed size to fit the arrow edges perfectly inside the container.
+$breadcrumb-ext-left-border-size:               10px !default; // Breadcrumb arrow extending out size.
+
+// Breadcrumb extended(ext) - Arrow wrap type
+
+$breadcrumb-ext-wrap-bg:                        $white-color !default; // Breadcrumb container background color.
+$breadcrumb-ext-wrap-item-bg:                   $gray-200 !default; // Breadcrumb item background color for previous pages.
+$breadcrumb-ext-wrap-color:                     $gray-600 !default; // Breadcrumb item text color for previous pages.
+$breadcrumb-ext-wrap-left-border-color:         $breadcrumb-ext-wrap-bg !default; // Breadcrumb arrow separator background color.
+
+// Breadcrumb extended(ext) - Arrow wizard type
+
+$breadcrumb-wizard-completed-theme-scheme:      primary !default; //  Theme color scheme applied to background color of completed step in the breadcrumb.
+$breadcrumb-wizard-active-theme-scheme:         secondary !default; // Theme color scheme applied to background color of current step in the breadcrumb.
+$breadcrumb-wizard-incomplete-bg:               $gray-200 !default; // Background color of next/incomplete step in the breadcrumb.
+$breadcrumb-wizard-incomplete-color:            $gray-600 !default; // Text color of next/incomplete step in the breadcrumb.
+
+// Breadcrumb type with menu on the end
+
+$breadcrumb-menu-color:                         $gray-600 !default; // Breadcrumb item text color
+$breadcrumb-menu-hover-color:                   $gray-800 !default; // Hover text color for breadcrumb item.
 
 //
-// #NAVS
-// -----------------------------------------------------------------------------
-
-$nav-font-size:                         $font-size-base !default; // Navigation font size (.nav)
-$nav-font-weight:                       $font-wh-regular !default; // Navigation font weight (.nav)
-$nav-link-padding-y:                    .5rem !default; // Navigation link vertical padding (.nav-link).
-$nav-link-padding-x:                    1rem !default; // Navigation link horizontal padding (.nav-link).
-$nav-link-disabled-color:               $gray-400 !default; // Navigation disabled link color (.nav-link).
-
-//
-// #TABS, PILLS
-// -----------------------------------------------------------------------------
-
-// Tabs
-
-$nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements like border colors, font colors etc..
-$nav-tabs-border-color:                 $gray-400 !default; // Tabbed navigation border color
-$nav-tabs-border-size:                  $border-thin !default;  // Tabbed navigation borders width
-$nav-tabs-border-radius:                $border-radius-md !default;  // Tabbed navigation item borders radius to add rounded corners
-$nav-tabs-link-hover-border-color:      $gray-300 !default; // Tabbed navigation item border color on hover
-$nav-tabs-link-hover-bg:                $gray-100 !default; // Tabbed navigation item background color on hover
-$nav-tabs-link-color:                   $gray-600 !default; // Text color for tabbed navigation item link
-$nav-tabs-link-active-theme-scheme:     $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to the active tabbed navigation item link
-$nav-tabs-link-active-bg:               $white-color !default; // Background color for active tabbed navigation item
-$nav-tabs-link-active-border-color:     $nav-tabs-border-color !default; // Border color for active tabbed navigation item
-$nav-tabs-icon-width:                   20px;
-
-// Tab content
-
-$tab-content-bg:                        $white-color !default; // Background color active tab content body
-
-// Pills type
-
-$nav-pills-border-radius:                       $nav-tabs-border-radius !default; // Tabbed navigation pill border radius to add rounded corners
-$nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to active pill item
-$nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover
-
-//
-// #TABS EXTENDED
-// -----------------------------------------------------------------------------
-
-// Tabs Extended (ext) - Arrow > type
-
-$nav-tabs-ext-arrow-link-hover-bg:              $white-color !default; // Tabbed navigation item background color on hover
-
-// Tabs Extended (ext) - Boxed type
-
-$nav-tabs-ext-box-bg:                           $gray-200 !default; // Background color for the box area behind the tabs
-$nav-tabs-ext-box-spacing:                      8px !default; // Spacing between navigation items and outer box
-
-// Tabs Extended (ext) - Vertical type
-
-$nav-tabs-ext-v-width:                          200px !default; // Width of the tabbed navigation on left side
-$nav-tabs-ext-v-wrap-active-border-size:        $nav-tabs-border-size !default; // Width of the border around active tabbed navigation item
-
-// Tabs Extended (ext) - Vertical Right line type
-
-$nav-tabs-ext-v-right-line-active-border-size:  $nav-tabs-ext-v-wrap-active-border-size + 1 !default; // Width of the right side line for active tab
-
-//
-// #MODAL
-// -----------------------------------------------------------------------------
-
-$modal-content-bg:                      $white-color !default; // Background color of modal content area
-
-$modal-border-radius:                   $border-radius-md !default; // Modal border radius to add rounded corners
-$modal-body-padding:                    15px 25px !default; // Padding around the modal body
-
-$modal-backdrop-bg:                     $black-color !default; // Modal backdrop background color
-$modal-backdrop-opacity:                .7 !default; // Modal backdrop opacity
-
-$modal-header-border-size:              $border-thin !default; // Modal header border bottom width
-$modal-header-border-color:             $gray-400;  // Modal header border bottom color
-$modal-header-padding:                  10px 25px !default; ; // Modal header vertical and horizontal padding.
-
-$modal-footer-border-width:             $border-thin !default; // Modal footer border top width
-$modal-footer-border-color:             $gray-400; // Modal footer border top color
-$modal-footer-padding:                  15px 25px !default; // Modal footer vertical and horizontal padding.
-
-//
-// #CAROUSEL
-// -----------------------------------------------------------------------------
-
-$carousel-control-icon-size:                            40px !default; // Left/right controls size
-$carousel-control-icon-font-size:                       1.5rem; // Left/right controls icon font size
-$carousel-control-icon-bg:                              rgba(0, 0, 0, .0); // Left/right controls background color
-$carousel-control-next-icon:                            '\e606'; // Next icon (Simple Line Icons) unicode.
-$carousel-control-prev-icon:                            '\e605'; // Prev icon (Simple Line Icons) unicode.
-$carousel-control-prev-icon-text-shadow:                1px 2px 2px rgba(0, 0, 0, 0.5); // Next/Prev icons text shadow.
-$carousel-control-border-size:                          $border-thin; // Left/right controls border width
-$carousel-control-border-color:                         $white-color !default; // Left/right controls border color
-
-$carousel-indicator-light-active-bg:                    $black-color !default; // Carousel indicator background color for lighter theme
-
-//
-// #PAGINATION
+// 8.13 PAGINATION
 // -----------------------------------------------------------------------------
 
 $pagination-bg:                         $white-color !default; // Page link background color
@@ -1246,7 +1100,7 @@ $pagination-line-height-lg:             $btn-line-height-lg !default; // Use the
 $pagination-border-radius-lg:           $btn-border-radius-lg !default; // Use the same border radius as in 'large' size button for a consistent look
 
 //
-// #PAGINATION EXTENDED
+// 8.14 PAGINATION EXTENDED
 // -----------------------------------------------------------------------------
 
 // Pagination extended(ext) - Round type
@@ -1298,37 +1152,8 @@ $pagination-ext-border-size-lg:         $pagination-border-size * 2 !default;
 $pagination-ext-inner-lg:               ($pagination-font-size-lg * $pagination-line-height-lg) + ($pagination-padding-y-lg * 2) !default;
 $pagination-ext-size-lg:                calc(#{$pagination-ext-inner-lg} + #{$pagination-ext-border-size-lg}) !default;
 
-
-
 //
-// #MEGA MENU
-// -----------------------------------------------------------------------------
-
-//
-// #PROGRESS BAR
-// -----------------------------------------------------------------------------
-$progress-bg:                           $gray-200 !default; // Background color of the whole progress component
-$progress-label-font-size:              $font-size-xs !default; // Font size for progress label
-$progress-border-radius:                $border-radius-xxl; // Border radius to add rounded corners on progress bar.
-
-// Small size
-
-$progress-height-sm:                    0.25rem !default;
-
-// Regular size
-
-$progress-height:                       0.5rem !default;
-
-// Large size
-
-$progress-height-lg:                    0.75rem !default;
-
-//
-// #TABLES
-// -----------------------------------------------------------------------------
-
-//
-// #BADGES
+// 8.15 BADGES
 // -----------------------------------------------------------------------------
 
 $badge-border-radius:                   $border-radius-sm; // Border radius to add rounded corners
@@ -1364,27 +1189,198 @@ $badge-size:                            calc(#{$badge-inner}) !default;
 $badge-disabled-opacity:                0.5; // Disabled badges opacity.
 
 //
-// #NUMBER SPINNER
+// 8.16 ALERT
+// -----------------------------------------------------------------------------
+
+$enable-alert-border:                   false; // Quickly adding border by enabling or disabling
+$alert-border-radius:                   $border-radius-md; // Alert border radius to add rounded corners
+$alert-border-size:                     $border-thin; // Alert border width
+$alert-font-size:                       $font-size-base; // Alert font size.
+
+//
+// 8.17 PROGRESS BAR
+// -----------------------------------------------------------------------------
+
+$progress-bg:                           $gray-200 !default; // Background color of the whole progress component
+$progress-label-font-size:              $font-size-xs !default; // Font size for progress label
+$progress-border-radius:                $border-radius-xxl; // Border radius to add rounded corners on progress bar.
+
+// Small size
+
+$progress-height-sm:                    0.25rem !default;
+
+// Regular size
+
+$progress-height:                       0.5rem !default;
+
+// Large size
+
+$progress-height-lg:                    0.75rem !default;
+
+//
+// 8.18 MODAL
+// -----------------------------------------------------------------------------
+
+$modal-content-bg:                      $white-color !default; // Background color of modal content area
+
+$modal-border-radius:                   $border-radius-md !default; // Modal border radius to add rounded corners
+$modal-body-padding:                    15px 25px !default; // Padding around the modal body
+
+$modal-backdrop-bg:                     $black-color !default; // Modal backdrop background color
+$modal-backdrop-opacity:                .7 !default; // Modal backdrop opacity
+
+$modal-header-border-size:              $border-thin !default; // Modal header border bottom width
+$modal-header-border-color:             $gray-400;  // Modal header border bottom color
+$modal-header-padding:                  10px 25px !default; ; // Modal header vertical and horizontal padding.
+
+$modal-footer-border-width:             $border-thin !default; // Modal footer border top width
+$modal-footer-border-color:             $gray-400; // Modal footer border top color
+$modal-footer-padding:                  15px 25px !default; // Modal footer vertical and horizontal padding.
+
+//
+// 8.19 POPOVERS
+// -----------------------------------------------------------------------------
+
+$popover-bg:                            $white-color !default; // Popover body background color
+$popover-header-font-size:              $font-size-base !default; // Popover header font size.
+$popover-header-color:                  $gray-700 !default; // Popover header text color.
+$popover-font-size:                     $font-size-sm !default; // Popover body font size.
+$popover-max-width:                     276px; // Popover maximum width
+$popover-border-radius:                 $border-radius-md; // Popover border radius to add rounded corners
+
+//
+// 8.20 TOOLTIPS
+// -----------------------------------------------------------------------------
+
+$tooltip-bg:                            $gray-900 !default; // Tooltip background color
+$tooltip-color:                         $white-color !default; // Tooltip text color
+$tooltip-padding-y:                     8px !default; // Tooltip body vertical padding.
+$tooltip-padding-x:                     10px !default; // Tooltip body horizontal padding.
+$tooltip-font-size:                     $font-size-sm; // Tooltip font size.
+$tooltip-line-height:                   $lh-sm !default;
+
+//
+// 8.21 CAROUSEL
+// -----------------------------------------------------------------------------
+
+$carousel-control-icon-size:                            40px !default; // Left/right controls size
+$carousel-control-icon-font-size:                       1.5rem; // Left/right controls icon font size
+$carousel-control-icon-bg:                              rgba(0, 0, 0, .0); // Left/right controls background color
+$carousel-control-next-icon:                            '\e606'; // Next icon (Simple Line Icons) unicode.
+$carousel-control-prev-icon:                            '\e605'; // Prev icon (Simple Line Icons) unicode.
+$carousel-control-prev-icon-text-shadow:                1px 2px 2px rgba(0, 0, 0, 0.5); // Next/Prev icons text shadow.
+$carousel-control-border-size:                          $border-thin; // Left/right controls border width
+$carousel-control-border-color:                         $white-color !default; // Left/right controls border color
+$carousel-indicator-light-active-bg:                    $black-color !default; // Carousel indicator background color for lighter theme
+
+//
+// 8.22 ACCORDION / COLLAPSE
+// -----------------------------------------------------------------------------
+
+// Default accordion
+
+$accordion-title-color:                         $gray-700 !default; // Text color for accordion title
+$accordion-title-hover-color:                   $gray-900 !default; // Text color for accordion title on hover
+$accordion-title-active-color:                  $gray-900 !default; // Text color for active accordion title
+
+$accordion-icon-margin-left:                    10px; // Right margin for accordion icon, so that there is space between icon and title.
+$accordion-body-bg:                             $white-color !default; // Background color for accordion
+
+$accordion-header-collapsed-bg:                 $card-header-bg !default; // Background color for accordion header
+$accordion-header-collapsed-hover-bg:           rgba($black-color, .08) !default; // Background color for accordion header on hover
+$accordion-header-active-bg:                    $accordion-header-collapsed-hover-bg !default; // Background color for accordion header on active
+
+// Accordion caret icon
+
+$accordion-icon-collapsed:                      "\e604" !default; // Collapsed accordion icon (Simple Line Icons) unicode
+$accordion-icon-active:                         "\e607" !default; // Active accordion icon (Simple Line Icons) unicode
+
+//
+// 8.23 ACCORDION EXTENDED
+// -----------------------------------------------------------------------------
+
+$accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion
+$accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to 'Extended' accordion on hover
+$accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // Theme color tone applied to 'Extended' accordion on active
+$accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
+
+//
+// 8.24 NUMBER SPINNER
 // -----------------------------------------------------------------------------
 
 $spinner-icon-width:                    20px;
 $spinner-icon-font-size:                $font-size-xs;
 
+//
+// 8.25 TOGGLE SWITCH
+// -----------------------------------------------------------------------------
 
+$custom-toggle-width:                   50px;
+$custom-toggle-height:                  28px;
+$custom-toggle-border:                  $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
+$custom-toggle-bg:                      $white-color;
+$custom-toggle-border-radius:           100px;
 
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------
-// #VENDOR'S VARIABLES
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+$custom-toggle-knob-bg:                 $white-color; // Knob background color
+$custom-toggle-knob-border-radius:      100px; // To add rounded corners to the Knob
+$custom-toggle-knob-width:              20px; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
+$custom-toggle-knob-height:             20px; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
+$custom-toggle-knob-checked-bg:         $white-color;
+$custom-toggle-knob-active-width:       26px; // Pressing and holding the knob looks little expanded
+
+// Mini type
+
+$custom-toggle-mini-height:             10px !default;
+$custom-toggle-mini-bg:                 $gray-200 !default;
+
+// Flip type
+
+$custom-toggle-flip-width:              60px;
+$custom-toggle-flip-height:             30px;
+$custom-toggle-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
+$custom-toggle-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
+$custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
 
 //
-// #TOASTR PLUGIN
+// 8.26 TOGGLERS
+// -----------------------------------------------------------------------------
+
+// Header nav toggle button - visible on mobile devices only
+
+$navbar-toggler-padding-y:              10px;
+$navbar-toggler-padding-x:              10px;
+
+// Sidebar toggle button
+
+$sidebar-toggler-height:                $header-height - 10;
+$sidebar-toggler-padding-y:             0px;
+$sidebar-toggler-padding-x:             10px;
+
+// Aside toggle button
+
+$aside-toggler-height:                  $header-height;
+$aside-toggler-padding-y:               10px;
+$aside-toggler-padding-x:               10px;
+
+//
+// 8.27 SEARCH
+// -----------------------------------------------------------------------------
+
+//
+// 8.28 MEGA MENU
+// -----------------------------------------------------------------------------
+
+// 9. VENDOR'S VARIABLES
+// =============================================================================
+//
+// 9.1 TOASTR PLUGIN
 // -----------------------------------------------------------------------------
 
 $toastr-radius:                         $alert-border-radius !default; // Radius should be same as Bootstrap's alert radius for consistency.
 $toastr-opacity:                        0.9; // Toastr container opacity
 
 //
-// #CHOSEN SELECT PLUGIN
+// 9.2 CHOSEN SELECT PLUGIN
 // -----------------------------------------------------------------------------
 
 $chosen-search-icon-color:                              $gray-600 !default; // Search lens icon color that appear on search input
@@ -1406,7 +1402,7 @@ $chosen-search-multi-search-choice-padding:             3px 20px 3px 5px; // Sel
 $chosen-search-multi-search-choice-rtl-padding:         3px 5px 3px 19px; // Selected options vertical, horizontal padding for Right-to-Left variant
 
 //
-// #DROPZONE JS PLUGIN
+// 9.3 DROPZONE JS PLUGIN
 // -----------------------------------------------------------------------------
 
 $dropzone-bg:                           $gray-200; // Background color for drag’n’drop area
@@ -1424,7 +1420,7 @@ $dropzone-message-icon:                 "\e084" !default; // Drag’n’drop ico
 $dropzone-message-icon-font-size:       2rem !default; // Drag’n’drop icon font size
 
 //
-// #BOOTSTRAP DATEPICKER PLUGIN
+// 9.4 BOOTSTRAP DATEPICKER PLUGIN
 // -----------------------------------------------------------------------------
 
 $datepicker-border-radius:              $card-border-radius; // Datepicker border radius should be same as Bootstrap's card radius for consistency.
@@ -1436,7 +1432,7 @@ $datepicker-cell-width:                 36px !default; // Width for table cells 
 $datepicker-cell-height:                36px !default; // Height for table cells (td & th)
 
 //
-// #JQUERY STEPS PLUGIN
+// 9.5 JQUERY STEPS PLUGIN
 // -----------------------------------------------------------------------------
 
 $steps-active-theme-scheme:             primary !default; // Theme color scheme applied to the tab of current step
@@ -1474,7 +1470,7 @@ $arrow-wizard-inner-size:               ($btn-font-size-lg * $btn-line-height-lg
 $arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle /\.
 
 //
-// #NOUISLIDER PLUGIN
+// 9.6 NOUISLIDER PLUGIN
 // -----------------------------------------------------------------------------
 
 // Slider base bar
@@ -1512,24 +1508,16 @@ $slider-tooltip-color:                  $gray-700 !default; // Slider tooltip te
 $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3px rgba($gray-400, 0.2); // Slider tooltip box shadow
 
 
-
-
-
+// 10. SELECTORS LIST
+// =============================================================================
 //
-// #PAGE SPECIFIC
+// 10.1 LINK SELECTORS
 // -----------------------------------------------------------------------------
-
-
-
-
-//
-// #LINK SELECTORS
-// -----------------------------------------------------------------------------
-/* Adapted from https://css-tricks.com/snippets/sass/sass-things-links/ */
+// Adapted from https://css-tricks.com/snippets/sass/sass-things-links/
 $a-href-tags: '&[href]:hover, &[href]:focus, &[href].focus, &[href]:active, &[href].active, &[href]:active:focus, &[href].active:focus, &[href]:active:hover, &[href].active:hover, &[href]:not([disabled]):not(.disabled):active, &[href]:not([disabled]):not(.disabled).active, &[href]:not([disabled]):not(.disabled):active:focus, &[href]:not([disabled]):not(.disabled).active:focus';
 
-/* Beta 3 Migration changes */
-/* - Removed &:focus, &.focus due to the focus issues on buttons */
+// Beta 3 Migration changes
+// Removed &:focus, &.focus due to the focus issues on buttons
 $a-tags: '&:hover, &:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
 $hover-tags: '&:hover';
@@ -1538,11 +1526,11 @@ $hover-focus-tags: '&:hover, &:focus, &.focus';
 $active-tags: '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
 //
-// #DISABLED SELECTORS
+// 10.2 DISABLED SELECTORS
 // -----------------------------------------------------------------------------
 $disabled-tags: '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
 
 //
-// #ICON SELECTORS
+// 10.3 ICON SELECTORS
 // -----------------------------------------------------------------------------
 $icon-tags: 'i[class*="fa-"], i[class*="icon-"]';
