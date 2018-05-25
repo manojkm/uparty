@@ -17,14 +17,6 @@
 // '$component-state-property-size' formula for consistent naming.
 // Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 // ================================================================================================
-
-// TABLE OF CONTENTS TODO USE THIS WAY TOMORROW https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
-// // https://github.com/andaistvan/bardoni-theme/blob/2f6c72e67a4fde923884cac79a2b75ef19004cab/assets/theme/_variables.scss
-// 1. #COLORS:                             Base, palette and theme color definitions + application
-// 2. #CONTEXTUAL COLOR MAP:
-// 3. #TYPOGRAPHY:                         Font definitions and scales
-
-
 // TODO: Fill the below comment block with proper text following robust admin theme.
 // TODO get variable namings fro https://www.bootstrap-live-customizer.com/.
 // TODO... usefull for wordings... -> https://github.com/hershko765/swift10minuteemail/blob/d1983eaced83fe12242b1fd4524e97f62df19a08/web/media/sass/_variables.scss
@@ -36,13 +28,119 @@
 // https://github.com/twbs/ratchet/blob/master/sass/
 // https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
 
-// 1. #COLORS
-// ======================================================
+// TODO USE THIS WAY TOMORROW https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
+// https://github.com/andaistvan/bardoni-theme/blob/2f6c72e67a4fde923884cac79a2b75ef19004cab/assets/theme/_variables.scss
+
+// TABLE OF CONTENTS
+
+// 1. COLORS
+// -----------------------------------------------------------------------------
+// 1.1 COLORS
+// 1.2 CONTEXTUAL PALETTE MAP
+
+// 2. TYPOGRAPHY
+// -----------------------------------------------------------------------------
+// 2.1 TYPOGRAPHY, MAP AND RE-USABLE VARIABLES
+
+// 3. ELEMENTS
+// -----------------------------------------------------------------------------
+// 3.1 HTML
+// 3.2 BODY
+// 3.3 LINKS
+// 3.4 HEADINGS
+// 3.5 LEAD
+
+// 4. CONFIGS
+// -----------------------------------------------------------------------------
+// 4.1 CONFIGS
+
+// 5. UTILITIES FOR LAYOUT
+// -----------------------------------------------------------------------------
+// 5.1 SELECTIONS
+// 5.2 BORDERS
+// 5.3 MARK
+// 5.4 SIZES
+// 5.5 OVERLAY
+// 5.6 WHITE OPACITY
+// 5.7 BLACK OPACITY
+// 5.8 SHADOWS
+// 5.9 PATHS
+// 5.10 EASING
+// 5.11 TRANSITION
+// 5.12 Z-INDEX LAYERS
+// 5.13 BREAKPOINTS
+
+// 6. LAYOUT
+// -----------------------------------------------------------------------------
+// 6.1 MAIN CONTENT WRAPPERS (main.content)
+// 6.2 PAGE TITLE WRAPPERS (.content__page-title)
+// 6.3 HEADER & NAVBAR
+// 6.4 SIDEBAR (section.sidebar)
+// 6.5 FOOTER
+
+// 7. PAGE SPECIFIC
+// -----------------------------------------------------------------------------
+// 7.1 PAGE SPECIFIC
+
+// 8. COMPONENTS
+// -----------------------------------------------------------------------------
+// 8.1 TABLES
+// 8.2 FORMS
+// 8.3 CUSTOM FORMS
+// 8.4 BUTTONS
+// 8.5 DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
+// 8.6 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
+// 8.7 NAVS
+// 8.8 TABS, PILLS
+// 8.9 TABS EXTENDED
+// 8.10 CARDS
+// 8.11 BREADCRUMB
+// 8.12 BREADCRUMB EXTENDED
+// 8.13 PAGINATION
+// 8.14 PAGINATION EXTENDED
+// 8.15 BADGES
+// 8.16 ALERT
+// 8.17 PROGRESS BAR
+// 8.18 MODAL
+// 8.19 TOOLTIPS
+// 8.20 POPOVERS
+// 8.21 CAROUSEL
+// 8.22 ACCORDION / COLLAPSE
+// 8.23 ACCORDION EXTENDED
+// 8.24 NUMBER SPINNER
+// 8.25 TOGGLE SWITCH
+// 8.26 SEARCH
+// 8.27 TOGGLERS
+// 8.28 MEGA MENU
+
+// 9. VENDOR'S VARIABLES
+// -----------------------------------------------------------------------------
+// 9.1 TOASTR PLUGIN
+// 9.2 CHOSEN SELECT PLUGIN
+// 9.3 DROPZONE JS PLUGIN
+// 9.4 BOOTSTRAP DATEPICKER PLUGIN
+// 9.5 JQUERY STEPS PLUGIN
+// 9.6 NOUISLIDER PLUGIN
+
+// 10. SELECTORS LIST
+// -----------------------------------------------------------------------------
+// 10.1 LINK SELECTORS
+// 10.2 DISABLED SELECTORS
+// 10.3 ICON SELECTORS
+
+// ================================================================================================
+
+// 1. COLORS
+// =============================================================================
+//
+// 1.1 COLORS
+// -----------------------------------------------------------------------------
 // It's quite good to have all color variables in a separate file as it's may quite heavy.
 // Please check helpers/_colors.scss,
 
-// #CONTEXTUAL COLOR MAP
-// ======================================================
+//
+// 1.2 CONTEXTUAL PALETTE MAP
+// -----------------------------------------------------------------------------
 
 $contextual-palette-map: (
         'success': (
@@ -95,12 +193,15 @@ $contextual-palette-map: (
         ),
 );
 
-// 2. #TYPOGRAPHY, MAP AND RE-USABLE VARIABLES
-// ======================================================
-// We don't want to load many fonts on your site so we stayclassic.
+// 2. TYPOGRAPHY
+// =============================================================================
+//
+// 2.1 TYPOGRAPHY, MAP AND RE-USABLE VARIABLES
+// -----------------------------------------------------------------------------
+
 
 // Web fonts
-
+// We don't want to load web fonts on your site so we stay classic. We recommend using Google fonts.
 // Adapted from sassy-starter http://minamarkham.github.io/sassy-starter/
 // $typefaces: (
 //   'FILENAME': (
@@ -113,8 +214,8 @@ $contextual-palette-map: (
 // Google fonts
 
 // Includes:
-//  - Source Sans Pro:                     Light, Regular, Medium, Semi-bold, Bold;
-//  - Roboto Mono:                         Light, Regular, Medium, Semi-bold, Bold;
+// - Source Sans Pro:                   Light, Regular, Medium, Semi-bold, Bold;
+// - Roboto Mono:                       Light, Regular, Medium, Semi-bold, Bold;
 $google-fonts-import:                   'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700|Roboto+Mono:300,400,500,600,700';
 
 // Config font stacks
@@ -122,7 +223,6 @@ $google-fonts-import:                   'https://fonts.googleapis.com/css?family
 $font-family-default:                   'Source Sans Pro';  // Define Google font stack used for body, paragraphs.
 $font-family-display:                   $font-family-default; // Define font stack used for headings <h1> <h2> etc...
 $font-family-fallback:                  'Arial', sans-serif; // Define font stack used for fallback
-
 
 // Typography map
 
@@ -132,7 +232,7 @@ $typography: (
         color-default:                  $gray-800, // Global text color on <body>
         color-headings:                 $gray-800,
         weight-light:                   300,
-        weight-regular:                  400,
+        weight-regular:                 400,
         weight-medium:                  500,
         weight-semi:                    600,
         weight-bold:                    700,
@@ -184,13 +284,17 @@ $font-wh-medium:                        get-typography(weight-medium) !default; 
 $font-wh-semi:                          get-typography(weight-semi) !default; // 600
 $font-wh-bold:                          get-typography(weight-bold) !default; // 700
 
-// 3. #HTML
-// ======================================================
+// 3. ELEMENTS
+// =============================================================================
+//
+// 3.1 HTML
+// -----------------------------------------------------------------------------
 
 $html-font-size:                        $font-size-100; // Font size for <html>.
 
-// 4. #BODY
-// ======================================================
+//
+// 3.2 BODY
+// -----------------------------------------------------------------------------
 // Settings for the '<body>' element.
 
 $body-bg:                               $white-color; // Background color for <body>.
@@ -200,16 +304,18 @@ $body-font-size:                        $font-size-base; // Specifies the defaul
 $body-font-weight:                      $font-wh-regular; // Specifies the default font weight for body text
 $body-line-height:                      $lh-base;  // Specifies the default line height for body text
 
-// #LINKS
-// ======================================================
-// Style anchor elements.
+//
+// 3.3 LINKS
+// -----------------------------------------------------------------------------
+// Settings for the anchor elements.
 
 $link-color:                            $font-color-default; // Global textual link color.
 $link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
 $link-hover-decoration:                 underline; // Global textual link hover decoration.
 
-// #HEADINGS
-// ======================================================
+//
+// 3.4 HEADINGS
+// -----------------------------------------------------------------------------
 // Settings for the '<h1>, <h2>' etc.. elements. By default, this inherits from the '<body>'.
 
 $headings-color:                        $font-color-headings; // Text color for headings <h1> <h2> etc...
@@ -227,27 +333,35 @@ $h4-font-size:                          $font-size-base * 1.5 !default; // <h4> 
 $h5-font-size:                          $font-size-base * 1.25 !default; // <h5> font size
 $h6-font-size:                          $font-size-base !default; // <h6> font size
 
-// #LEAD
-// ======================================================
+//
+// 3.5 LEAD
+// -----------------------------------------------------------------------------
 
 $lead-font-size:                        ($font-size-base * 1.25) !default;
 $lead-font-weight:                      $font-wh-light !default;
 
-// #CONFIGS
-// ======================================================
+// 4. CONFIGS
+// =============================================================================
+//
+// 4.1 CONFIGS
+// -----------------------------------------------------------------------------
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-rounded:                        true !default; // Handle rounded corners
 $enable-breadcrumb:                     true !default; // Breadcrumb
 
-// #SELECTIONS
-// ======================================================
+// 5. UTILITIES FOR LAYOUT
+// =============================================================================
+//
+// 5.1 SELECTIONS
+// -----------------------------------------------------------------------------
 
-$selection-bg:                          #f9f6f0 !default; // Background color for highlighting the selection
-$selection-color:                       #818892 !default; // Text color for selected text
+$selection-bg-theme-scheme:             primary !default; // Background color for highlighting the selection
+$selection-color-theme-tone:            primary !default; // Text color for selected text
 
-// #BORDERS
-// ======================================================
+//
+// 5.2 BORDERS
+// -----------------------------------------------------------------------------
 
 $border:                                1px solid !default;
 $border-thin:                           1px !default;
@@ -265,8 +379,166 @@ $border-radius-xxl:                     0.5rem !default; // 8px
 $border-radius-50:                      50% !default;
 $border-radius-100:                     100% !default;
 
+//
+// 5.3 MARK
+// -----------------------------------------------------------------------------
+
+$mark-underline-height-xs:              0.125rem; // 2px. Extra small (.mark-xs)
+$mark-underline-height-sm:              0.25rem; // 4px. Small (.mark-sm)
+$mark-underline-height:                 0.5rem; // 8px. Regular
+$mark-underline-height-lg:              0.75rem; // 12px. Large (.mark-lg)
+$mark-underline-height-xl:              1rem; // 16px. Extra large (.mark-xl)
+
+//
+// 5.4 SIZES
+// -----------------------------------------------------------------------------
+
+$sizes: (
+        5: 5%,
+        10: 10%,
+        15: 15%,
+) !default;
+
+//
+// 5.5 OVERLAY
+// -----------------------------------------------------------------------------
+
+$overlay:                               rgba(0, 0, 0, .5);
+
+//
+// 5.6 WHITE OPACITY
+// -----------------------------------------------------------------------------
+
+$opacity-white-1:                       rgba(255, 255, 255, .1) !default;
+$opacity-white-2:                       rgba(255, 255, 255, .2) !default;
+$opacity-white-3:                       rgba(255, 255, 255, .3) !default;
+$opacity-white-4:                       rgba(255, 255, 255, .4) !default;
+$opacity-white-5:                       rgba(255, 255, 255, .5) !default;
+$opacity-white-6:                       rgba(255, 255, 255, .6) !default;
+$opacity-white-7:                       rgba(255, 255, 255, .7) !default;
+$opacity-white-8:                       rgba(255, 255, 255, .8) !default;
+$opacity-white-9:                       rgba(255, 255, 255, .9) !default;
+
+//
+// 5.7 BLACK OPACITY
+// -----------------------------------------------------------------------------
+
+$opacity-black-1:                       rgba(0, 0, 0, .1) !default;
+$opacity-black-2:                       rgba(0, 0, 0, .2) !default;
+$opacity-black-3:                       rgba(0, 0, 0, .3) !default;
+$opacity-black-4:                       rgba(0, 0, 0, .4) !default;
+$opacity-black-5:                       rgba(0, 0, 0, .5) !default;
+$opacity-black-6:                       rgba(0, 0, 0, .6) !default;
+$opacity-black-7:                       rgba(0, 0, 0, .7) !default;
+$opacity-black-8:                       rgba(0, 0, 0, .8) !default;
+$opacity-black-9:                       rgba(0, 0, 0, .9) !default;
+
+//
+// 5.8 SHADOWS TODO, make the below perfect later ->  https://github.com/backstopmedia/riot-book-example/blob/843c5f79ac02727cc4b3eecc7ad043e2aa55e1db/src/assets/styles/mixins/shadow.scss
+// -----------------------------------------------------------------------------
+
+$container-shadow:                              0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
+$dropdown-shadow:                               0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
+$header-shadow:                                 0 1px 3px rgba($black-color, .2);
+$popover-shadow:                                0 5px 10px rgba($black-color, .1);
+$sidebar-footer-shadow:                         0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
+$progress-box-shadow:                           inset 0 .1rem .1rem rgba($gray-800, .15) !default;
+$card-box-shadow:                               0 1px 2px rgba(0, 0, 0, .075) !default;
+$card-box-header-inset-shadow:                  inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
+$pagination-ext-indicator-box-shadow:           inset 0 .1rem .1rem rgba($gray-800, .5) !default;
+$modal-content-box-shadow-xs:                   0 5px 10px rgba($black-color, .1);
+$chosen-select-box-shadow:                      0 5px 10px rgba($black-color, .1);
+$multiple-select-box-shadow:                    0 5px 10px rgba($black-color, .1);
+$slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-800, .15) !default;
+$toastr-box-shadow:                             0 5px 10px rgba($black-color, .1);
+
+//
+// 5.9 PATHS
+// -----------------------------------------------------------------------------
+// Paths for particular assets
+
+$pattern-library-path:                   '../..' !default;
+$font-path:                             '#{$pattern-library-path}/fonts' !default;
+$image-path:                            '#{$pattern-library-path}/img' !default;
+
+//
+// 5.10 EASING
+// -----------------------------------------------------------------------------
+
+$ease-in-out-circ:                      cubic-bezier(.27, .01, .38, 1.06);
+
+//
+// 5.11 TRANSITION
+// -----------------------------------------------------------------------------
+
+$theme-transition-duration:             1.5s; // TODO, delete this if not using.
+$general-transition-time:               0.5s !default;
+
+//
+// 5.12 Z-INDEX LAYERS
+// -----------------------------------------------------------------------------
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+$zindex: (
+        overlay : 800,
+        footer : 800,
+        sidebar :800,
+        //sidebar-mini :800,
+        //sidebar-mini-child :-999,
+        aside : 850,
+        header : 860,
+        dropdown : 1000,
+        chosen-drop:1010,
+        modal-backdrop:1040,
+        modal : 1050,
+        popover: 1060,
+        tooltip: 1070,
+        fullscreen_card: 999,
+);
+
+//
+// 5.13 BREAKPOINTS
+// -----------------------------------------------------------------------------
+
+// Extra small devices (portrait phones, 480px and up)
+$screen-xs:                             480px !default;
+$screen-xs-min:                         $screen-xs !default;
+
+// Small devices (landscape phones, 576px and up)
+$screen-sm:                             576px !default;
+$screen-sm-min:                         $screen-sm !default;
+
+// Medium devices (tablets, 768px and up)
+$screen-md:                             768px !default;
+$screen-md-min:                         $screen-md !default;
+
+// Large devices (desktops, 992px and up)
+$screen-lg:                             992px !default;
+$screen-lg-min:                         $screen-lg !default;
+
+// Extra large devices (large desktops, 1200px and up))
+$screen-xl:                             1200px !default;
+$screen-xl-min:                         $screen-lg !default;
+
+// So media queries don't overlap when required, provide a maximum
+
+// Extra small devices (portrait phones, less than 576px)
+$screen-xs-max:                         ($screen-sm-min - 1) !default; // 575px
+
+// Small devices (landscape phones, less than 768px)
+$screen-sm-max:                         ($screen-md-min - 1) !default; // 767px
+
+// Medium devices (tablets, less than 992px)
+$screen-md-max:                         ($screen-lg-min - 1) !default; // 991px
+
+// Large devices (desktops, less than 1200px)
+$screen-lg-max:                         ($screen-xl-min - 1) !default; // 1999px
+
+
+//
 // #HEADER & NAVBAR
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $header-height:                         50px;
 $navbar-font-size:                      $font-size-sm;
@@ -275,8 +547,9 @@ $navbar-text-font-size:                 $navbar-font-size;
 $navbar-text-font-weight:               $font-wh-regular;
 $navbar-item-mobile-bottom-border:      true;
 
+//
 // #DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $dropdown-width:                        200px; // Dropdown menu container width.
 $dropdown-min-width:                    160px;
@@ -309,13 +582,15 @@ $dropdown-divider-border-width:         $border-thin !default; // Border width o
 
 $dropdown-icon-width:                   20px; // Dropdown menu item icon width for perfect alignment between icons and text.
 
-// #BOOTSTRAP DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
-// ======================================================
+//
+// DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
+// -----------------------------------------------------------------------------
 
 $dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
 
-// #TOGGLERS ADJUSTMENTS
-// ======================================================
+//
+// #TOGGLERS
+// -----------------------------------------------------------------------------
 
 // Header nav toggle button - visible on mobile devices only
 
@@ -334,44 +609,17 @@ $aside-toggler-height:                  $header-height;
 $aside-toggler-padding-y:               10px;
 $aside-toggler-padding-x:               10px;
 
+//
 // #SEARCH
-// ======================================================
+// -----------------------------------------------------------------------------
 
-// #PADDINGS //TODO, not using anywhere.. remove later if required.
-// ======================================================
 
-$padding-base-y:                        .5rem !default;
-$padding-base-x:                        .7rem !default;
 
-$padding-simple-y:                      10px !default;
-$padding-simple-x:                      17px !default;
 
-$padding-large-y:                       15px !default;
-$padding-large-x:                       48px !default;
 
-$padding-small-y:                       5px !default;
-$padding-small-x:                       15px !default;
-
-// #SHADOWS //TODO, make the below perfect later
-// ======================================================
-
-$container-shadow:                              0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
-$dropdown-shadow:                               0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
-$header-shadow:                                 0 1px 3px rgba($black-color, .2);
-$popover-shadow:                                0 5px 10px rgba($black-color, .1);
-$sidebar-footer-shadow:                         0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
-$progress-box-shadow:                           inset 0 .1rem .1rem rgba($gray-800, .15) !default;
-$card-box-shadow:                               0 1px 2px rgba(0, 0, 0, .075) !default;
-$card-box-header-inset-shadow:                  inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
-$pagination-ext-indicator-box-shadow:           inset 0 .1rem .1rem rgba($gray-800, .5) !default;
-$modal-content-box-shadow-xs:                   0 5px 10px rgba($black-color, .1);
-$chosen-select-box-shadow:                      0 5px 10px rgba($black-color, .1);
-$multiple-select-box-shadow:                    0 5px 10px rgba($black-color, .1);
-$slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-800, .15) !default;
-$toastr-box-shadow:                             0 5px 10px rgba($black-color, .1);
-
+//
 // #BREADCRUMB
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $breadcrumb-bg:                                 $white-color !default; // Breadcrumb background color.
 
@@ -399,8 +647,9 @@ $breadcrumb-link-hover-theme-tone:              dark !default; // Theme color to
 $breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
 $breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
 
+//
 // #BREADCRUMB EXTENDED
-// ======================================================
+// -----------------------------------------------------------------------------
 
 // Breadcrumb extended(ext) - Arrow type
 
@@ -431,24 +680,27 @@ $breadcrumb-wizard-incomplete-color:            $gray-600 !default; // Text colo
 $breadcrumb-menu-color:                         $gray-600 !default; // Breadcrumb item text color
 $breadcrumb-menu-hover-color:                   $gray-800 !default; // Hover text color for breadcrumb item.
 
-// ============================================================================================================
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // #LAYOUT VARIABLES
-// ============================================================================================================
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+//
 // #MAIN CONTENT WRAPPERS (main.content)
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $main-content-padding-y:                20px; // Vertical padding for 'main content' wrapper
 $main-content-padding-x:                0; // Horizontal padding for 'main content' wrapper
 
+//
 // #PAGE TITLE WRAPPERS (.content__page-title)
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $page-title-padding-y:                  20px; // Vertical padding for 'page title' wrapper
 $page-title-padding-x:                  0; // Horizontal padding for 'page title' wrapper
 
+//
 // #SIDEBAR (section.sidebar)
-// ======================================================
+// -----------------------------------------------------------------------------
 
 // Theme color scheme applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
 $sidebar-theme-scheme:                  sidebar !default;
@@ -515,15 +767,17 @@ $sidebar-mini-active-menu-width:        $sidebar-width + $sidebar-mini-width;
 
 $sidebar-mini-full-item-height:         40px;
 
+//
 // #FOOTER
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $footer-min-height:                     30px;
 $footer-font-size:                      $font-size-sm;
 $footer-font-weight:                    $font-wh-regular;
 
+//
 // #BUTTONS
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $btn-border-size:                       $border-thin !default;
 $btn-font-weight:                       $font-wh-regular !default;
@@ -611,21 +865,11 @@ $btn-icon-size-xl:                      calc(#{$btn-icon-size-xl-inner} + #{$btn
 
 $btn-disabled-opacity: 0.5;
 
-// #MARK
-// ======================================================
 
-$mark-underline-height-xs:              0.125rem; // 2px. Extra small (.mark-xs)
 
-$mark-underline-height-sm:              0.25rem; // 4px. Small (.mark-sm)
-
-$mark-underline-height:                 0.5rem; // 8px. Regular
-
-$mark-underline-height-lg:              0.75rem; // 12px. Large (.mark-lg)
-
-$mark-underline-height-xl:              1rem; // 16px. Extra large (.mark-xl)
-
+//
 // #FORMS
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $input-bg:                              $white-color; // <input> background color
 $input-color:                           $gray-700; // Text color for inputs
@@ -684,8 +928,9 @@ $form-feedback-invalid-color:           contextual-color(danger); // Retrieve 'd
 
 $required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk (*) symbol
 
+//
 // #CUSTOM FORMS
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $custom-control-indicator-size:                         1rem !default;
 $custom-control-indicator-bg:                           $white-color !default; // Background color for checkboxes and radios
@@ -738,8 +983,9 @@ $custom-file-button-bg:                                 $gray-200 !default; // B
 $custom-file-button-focus-bg:                           $gray-300 !default;  // Background color for custom file browser button on focus
 $custom-file-text:                                      (en: "\e089   Browse") !default; // Custom file browser button text and icon (Simple Line Icons) unicode.
 
-// #CUSTOM TOGGLE SWITCH
-// ======================================================
+//
+// #TOGGLE SWITCH
+// -----------------------------------------------------------------------------
 
 $custom-toggle-width:                   50px;
 $custom-toggle-height:                  28px;
@@ -767,8 +1013,9 @@ $custom-toggle-flip-border-radius:      $input-border-radius; // Border radius s
 $custom-toggle-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
 $custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
 
+//
 // #POPOVERS
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $popover-bg:                            $white-color !default; // Popover body background color
 $popover-header-font-size:              $font-size-base !default; // Popover header font size.
@@ -777,8 +1024,9 @@ $popover-font-size:                     $font-size-sm !default; // Popover body 
 $popover-max-width:                     276px; // Popover maximum width
 $popover-border-radius:                 $border-radius-md; // Popover border radius to add rounded corners
 
+//
 // #TOOLTIPS
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $tooltip-bg:                            $gray-900 !default; // Tooltip background color
 $tooltip-color:                         $white-color !default; // Tooltip text color
@@ -787,16 +1035,18 @@ $tooltip-padding-x:                     10px !default; // Tooltip body horizonta
 $tooltip-font-size:                     $font-size-sm; // Tooltip font size.
 $tooltip-line-height:                   $lh-sm !default;
 
+//
 // #ALERT
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $enable-alert-border:                   false; // Quickly adding border by enabling or disabling
 $alert-border-radius:                   $border-radius-md; // Alert border radius to add rounded corners
 $alert-border-size:                     $border-thin; // Alert border width
 $alert-font-size:                       $font-size-base; // Alert font size.
 
+//
 // #CARDS
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $card-margin-bottom:                    15px !default; // Margin for the bottom of each card so that it is separated from all other cards.
 $card-spacer-y:                         .75rem !default; // Card vertical padding helper variable.
@@ -824,8 +1074,9 @@ $card-toolbar-icon-width:               30px; // Width of the icons for each car
 
 $card-toolbar-icon-height:              25px; // Height of the icons for Window type actions items
 
+//
 // #ACCORDION / COLLAPSE
-// ======================================================
+// -----------------------------------------------------------------------------
 
 // Default accordion
 
@@ -845,16 +1096,18 @@ $accordion-header-active-bg:                    $accordion-header-collapsed-hove
 $accordion-icon-collapsed:                      "\e604" !default; // Collapsed accordion icon (Simple Line Icons) unicode
 $accordion-icon-active:                         "\e607" !default; // Active accordion icon (Simple Line Icons) unicode
 
+//
 // #ACCORDION EXTENDED
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion
 $accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to 'Extended' accordion on hover
 $accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // Theme color tone applied to 'Extended' accordion on active
 $accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
 
+//
 // #NAVS
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $nav-font-size:                         $font-size-base !default; // Navigation font size (.nav)
 $nav-font-weight:                       $font-wh-regular !default; // Navigation font weight (.nav)
@@ -862,8 +1115,9 @@ $nav-link-padding-y:                    .5rem !default; // Navigation link verti
 $nav-link-padding-x:                    1rem !default; // Navigation link horizontal padding (.nav-link).
 $nav-link-disabled-color:               $gray-400 !default; // Navigation disabled link color (.nav-link).
 
+//
 // #TABS, PILLS
-// ======================================================
+// -----------------------------------------------------------------------------
 
 // Tabs
 
@@ -889,8 +1143,9 @@ $nav-pills-border-radius:                       $nav-tabs-border-radius !default
 $nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to active pill item
 $nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover
 
+//
 // #TABS EXTENDED
-// ======================================================
+// -----------------------------------------------------------------------------
 
 // Tabs Extended (ext) - Arrow > type
 
@@ -910,9 +1165,9 @@ $nav-tabs-ext-v-wrap-active-border-size:        $nav-tabs-border-size !default; 
 
 $nav-tabs-ext-v-right-line-active-border-size:  $nav-tabs-ext-v-wrap-active-border-size + 1 !default; // Width of the right side line for active tab
 
-
+//
 // #MODAL
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $modal-content-bg:                      $white-color !default; // Background color of modal content area
 
@@ -930,8 +1185,9 @@ $modal-footer-border-width:             $border-thin !default; // Modal footer b
 $modal-footer-border-color:             $gray-400; // Modal footer border top color
 $modal-footer-padding:                  15px 25px !default; // Modal footer vertical and horizontal padding.
 
+//
 // #CAROUSEL
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $carousel-control-icon-size:                            40px !default; // Left/right controls size
 $carousel-control-icon-font-size:                       1.5rem; // Left/right controls icon font size
@@ -944,9 +1200,9 @@ $carousel-control-border-color:                         $white-color !default; /
 
 $carousel-indicator-light-active-bg:                    $black-color !default; // Carousel indicator background color for lighter theme
 
-
+//
 // #PAGINATION
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $pagination-bg:                         $white-color !default; // Page link background color
 $pagination-border-size:                $btn-border-size !default; // Page link border width
@@ -989,8 +1245,9 @@ $pagination-padding-x-lg:               $btn-padding-x-lg !default; // Use the s
 $pagination-line-height-lg:             $btn-line-height-lg !default; // Use the same line height as in 'large' size button for a consistent look
 $pagination-border-radius-lg:           $btn-border-radius-lg !default; // Use the same border radius as in 'large' size button for a consistent look
 
+//
 // #PAGINATION EXTENDED
-// ======================================================
+// -----------------------------------------------------------------------------
 
 // Pagination extended(ext) - Round type
 
@@ -1042,15 +1299,14 @@ $pagination-ext-inner-lg:               ($pagination-font-size-lg * $pagination-
 $pagination-ext-size-lg:                calc(#{$pagination-ext-inner-lg} + #{$pagination-ext-border-size-lg}) !default;
 
 
-// #OVERLAY
-// ======================================================
-$overlay:                               rgba(0, 0, 0, .5);
 
-// #MAIN MENU
-// ======================================================
+//
+// #MEGA MENU
+// -----------------------------------------------------------------------------
 
+//
 // #PROGRESS BAR
-// ======================================================
+// -----------------------------------------------------------------------------
 $progress-bg:                           $gray-200 !default; // Background color of the whole progress component
 $progress-label-font-size:              $font-size-xs !default; // Font size for progress label
 $progress-border-radius:                $border-radius-xxl; // Border radius to add rounded corners on progress bar.
@@ -1067,11 +1323,13 @@ $progress-height:                       0.5rem !default;
 
 $progress-height-lg:                    0.75rem !default;
 
+//
 // #TABLES
-// ======================================================
+// -----------------------------------------------------------------------------
 
+//
 // #BADGES
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $badge-border-radius:                   $border-radius-sm; // Border radius to add rounded corners
 $badge-border-size:                     $border-thin; // Badges border width
@@ -1105,58 +1363,29 @@ $badge-size:                            calc(#{$badge-inner}) !default;
 
 $badge-disabled-opacity:                0.5; // Disabled badges opacity.
 
+//
 // #NUMBER SPINNER
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $spinner-icon-width:                    20px;
 $spinner-icon-font-size:                $font-size-xs;
 
-// #SIZES
-// ======================================================
-
-$sizes: (
-        5: 5%,
-        10: 10%,
-        15: 15%,
-) !default;
 
 
-// #WHITE OPACITY
-// ======================================================
-$opacity-white-1:                       rgba(255, 255, 255, .1) !default;
-$opacity-white-2:                       rgba(255, 255, 255, .2) !default;
-$opacity-white-3:                       rgba(255, 255, 255, .3) !default;
-$opacity-white-4:                       rgba(255, 255, 255, .4) !default;
-$opacity-white-5:                       rgba(255, 255, 255, .5) !default;
-$opacity-white-6:                       rgba(255, 255, 255, .6) !default;
-$opacity-white-7:                       rgba(255, 255, 255, .7) !default;
-$opacity-white-8:                       rgba(255, 255, 255, .8) !default;
-$opacity-white-9:                       rgba(255, 255, 255, .9) !default;
-
-// #BLACK OPACITY
-// ======================================================
-$opacity-black-1:                       rgba(0, 0, 0, .1) !default;
-$opacity-black-2:                       rgba(0, 0, 0, .2) !default;
-$opacity-black-3:                       rgba(0, 0, 0, .3) !default;
-$opacity-black-4:                       rgba(0, 0, 0, .4) !default;
-$opacity-black-5:                       rgba(0, 0, 0, .5) !default;
-$opacity-black-6:                       rgba(0, 0, 0, .6) !default;
-$opacity-black-7:                       rgba(0, 0, 0, .7) !default;
-$opacity-black-8:                       rgba(0, 0, 0, .8) !default;
-$opacity-black-9:                       rgba(0, 0, 0, .9) !default;
-
-// ============================================================================================================
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // #VENDOR'S VARIABLES
-// ============================================================================================================
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+//
 // #TOASTR PLUGIN
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $toastr-radius:                         $alert-border-radius !default; // Radius should be same as Bootstrap's alert radius for consistency.
 $toastr-opacity:                        0.9; // Toastr container opacity
 
+//
 // #CHOSEN SELECT PLUGIN
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $chosen-search-icon-color:                              $gray-600 !default; // Search lens icon color that appear on search input
 $chosen-search-bg-size:                                 15px 15px; // In pixels because image dimensions
@@ -1176,8 +1405,9 @@ $chosen-search-multi-search-choice-margin:              0 2px; // Selected optio
 $chosen-search-multi-search-choice-padding:             3px 20px 3px 5px; // Selected options vertical, horizontal padding
 $chosen-search-multi-search-choice-rtl-padding:         3px 5px 3px 19px; // Selected options vertical, horizontal padding for Right-to-Left variant
 
+//
 // #DROPZONE JS PLUGIN
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $dropzone-bg:                           $gray-200; // Background color for drag’n’drop area
 $dropzone-hover-bg:                     $gray-300;  // Background color for drag’n’drop area on hover
@@ -1193,8 +1423,9 @@ $dropzone-message-line-height:          $btn-line-height-lg;  // Drag’n’drop
 $dropzone-message-icon:                 "\e084" !default; // Drag’n’drop icon (Simple Line Icons) unicode.
 $dropzone-message-icon-font-size:       2rem !default; // Drag’n’drop icon font size
 
+//
 // #BOOTSTRAP DATEPICKER PLUGIN
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $datepicker-border-radius:              $card-border-radius; // Datepicker border radius should be same as Bootstrap's card radius for consistency.
 $datepicker-dropdown-padding:           20px 22px !default; // Datepicker vertical and horizontal padding.
@@ -1204,8 +1435,9 @@ $datepicker-cell-border-radius:         50% !default; // Border radius for td el
 $datepicker-cell-width:                 36px !default; // Width for table cells (td & th)
 $datepicker-cell-height:                36px !default; // Height for table cells (td & th)
 
+//
 // #JQUERY STEPS PLUGIN
-// ======================================================
+// -----------------------------------------------------------------------------
 
 $steps-active-theme-scheme:             primary !default; // Theme color scheme applied to the tab of current step
 $steps-done-theme-scheme:               primary !default; // Theme color scheme applied to the tabs of previous steps
@@ -1241,8 +1473,9 @@ $steps-circle-title-color:              $gray-800 !default; // Step item title t
 $arrow-wizard-inner-size:               ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle /\.
 
-// #SLIDER CONTROL - NOUISLIDER PLUGIN
-// ======================================================
+//
+// #NOUISLIDER PLUGIN
+// -----------------------------------------------------------------------------
 
 // Slider base bar
 
@@ -1279,92 +1512,19 @@ $slider-tooltip-color:                  $gray-700 !default; // Slider tooltip te
 $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3px rgba($gray-400, 0.2); // Slider tooltip box shadow
 
 
-// #PATHS
-// ======================================================
-// Paths for particular assets
 
-$pattern-library-path:                   '../..' !default;
-$font-path:                             '#{$pattern-library-path}/fonts' !default;
-$image-path:                            '#{$pattern-library-path}/img' !default;
 
-// #TRANSITION
-// ======================================================
-$theme-transition-duration:             1.5s; // TODO, delete this if not using.
-$general-transition-time:               0.5s !default;
 
-// #EASING
-// ======================================================
-$ease-in-out-circ:                      cubic-bezier(.27, .01, .38, 1.06);
-
+//
 // #PAGE SPECIFIC
-// ======================================================
+// -----------------------------------------------------------------------------
 
-// #HANDLING Z-INDEX LAYERS
-// ======================================================
-// Warning: Avoid customizing these values. They're used for a bird's eye view
-// of components dependent on the z-axis and are designed to all work together.
 
-$zindex: (
-        overlay : 800,
-        footer : 800,
-        sidebar :800,
-        //sidebar-mini :800,
-        //sidebar-mini-child :-999,
-        aside : 850,
-        header : 860,
-        dropdown : 1000,
-        chosen-drop:1010,
-        modal-backdrop:1040,
-        modal : 1050,
-        popover: 1060,
-        tooltip: 1070,
-        fullscreen_card: 999,
-);
 
-// #BREAKPOINTS
-// ======================================================
-// Media queries breakpoints
-// Grabbed from Bootstrap
-// --------------------------------------
-// TODO, the below is based on boot3 after reading the below link, so pls update asap.
-// https://www.quackit.com/bootstrap/bootstrap_4/tutorial/bootstrap_grid_system.cfm. So
 
-/* Extra small devices (portrait phones, 480px and up) */
-$screen-xs: 480px !default;
-$screen-xs-min: $screen-xs !default;
-
-/* Small devices (landscape phones, 576px and up) */
-$screen-sm: 576px !default;
-$screen-sm-min: $screen-sm !default;
-
-/* Medium devices (tablets, 768px and up) */
-$screen-md: 768px !default;
-$screen-md-min: $screen-md !default;
-
-/* Large devices (desktops, 992px and up) */
-$screen-lg: 992px !default;
-$screen-lg-min: $screen-lg !default;
-
-/* Extra large devices (large desktops, 1200px and up)) */
-$screen-xl: 1200px !default;
-$screen-xl-min: $screen-lg !default;
-
-/* So media queries don't overlap when required, provide a maximum */
-
-/* Extra small devices (portrait phones, less than 576px) */
-$screen-xs-max: ($screen-sm-min - 1) !default; /*575px*/
-
-/* Small devices (landscape phones, less than 768px) */
-$screen-sm-max: ($screen-md-min - 1) !default; /*767px*/
-
-/* Medium devices (tablets, less than 992px) */
-$screen-md-max: ($screen-lg-min - 1) !default; /*991px*/
-
-/* Large devices (desktops, less than 1200px) */
-$screen-lg-max: ($screen-xl-min - 1) !default; /*1999px*/
-
+//
 // #LINK SELECTORS
-// ======================================================
+// -----------------------------------------------------------------------------
 /* Adapted from https://css-tricks.com/snippets/sass/sass-things-links/ */
 $a-href-tags: '&[href]:hover, &[href]:focus, &[href].focus, &[href]:active, &[href].active, &[href]:active:focus, &[href].active:focus, &[href]:active:hover, &[href].active:hover, &[href]:not([disabled]):not(.disabled):active, &[href]:not([disabled]):not(.disabled).active, &[href]:not([disabled]):not(.disabled):active:focus, &[href]:not([disabled]):not(.disabled).active:focus';
 
@@ -1377,10 +1537,12 @@ $focus-tags: '&:focus, &.focus';
 $hover-focus-tags: '&:hover, &:focus, &.focus';
 $active-tags: '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
+//
 // #DISABLED SELECTORS
-// ======================================================
+// -----------------------------------------------------------------------------
 $disabled-tags: '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
 
+//
 // #ICON SELECTORS
-// ======================================================
+// -----------------------------------------------------------------------------
 $icon-tags: 'i[class*="fa-"], i[class*="icon-"]';

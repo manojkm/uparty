@@ -62,18 +62,15 @@ hr.color-line {
 // SELECTIONS
 // ======================================================
 ::selection {
-  color: $selection-color;
-  background: $selection-bg;
+  @include background-text-theme($selection-bg-theme-scheme);
 }
 
 ::-webkit-selection {
-  color: $selection-color;
-  background: $selection-bg;
+  @include background-text-theme($selection-bg-theme-scheme);
 }
 
 ::-moz-selection {
-  color: $selection-color;
-  background: $selection-bg;
+  @include background-text-theme($selection-bg-theme-scheme);
 }
 
 img::selection {
