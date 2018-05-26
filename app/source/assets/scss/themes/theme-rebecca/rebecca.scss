@@ -69,12 +69,12 @@ $rebecca-palette-map: (
         'main-colors': (
                 'primary': (
                         'base': $primary-background,
-                        'light': lighten($primary-background, $color-shade-amount),
-                        'x-light': lighten($primary-background, ($color-shade-amount * 2)),
-                        'xx-light': lighten($primary-background, ($color-shade-amount  * 3)),
-                        'dark':darken($primary-background, $color-shade-amount),
-                        'x-dark':darken($primary-background, ($color-shade-amount * 2)),
-                        'xx-dark':darken($primary-background, ($color-shade-amount * 3)),
+                        'light': lighten($primary-background, $color-shade-amount), // Light form of base value
+                        'x-light': lighten($primary-background, ($color-shade-amount * 2)), // Lighter form of base value
+                        'xx-light': lighten($primary-background, ($color-shade-amount  * 3)), // Lightest form of base value
+                        'dark':darken($primary-background, $color-shade-amount), // Dark form of base value
+                        'x-dark':darken($primary-background, ($color-shade-amount * 2)), // Darker form of base value
+                        'xx-dark':darken($primary-background, ($color-shade-amount * 3)), // Darkest form of base value
                         'font-color':$primary-foreground,
                 ),
                 'secondary': (

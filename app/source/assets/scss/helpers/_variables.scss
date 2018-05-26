@@ -53,7 +53,8 @@
 
 // 4. CONFIGS
 // -----------------------------------------------------------------------------
-// 4.1 CONFIGS
+// 4.1 LAYOUT/STYLING CONFIGS
+// 4.2 ASSETS PATHS VARIABLE CONFIG
 
 // 5. UTILITIES FOR LAYOUT
 // -----------------------------------------------------------------------------
@@ -65,11 +66,10 @@
 // 5.6 WHITE OPACITY
 // 5.7 BLACK OPACITY
 // 5.8 SHADOWS
-// 5.9 PATHS
-// 5.10 EASING
-// 5.11 TRANSITION
-// 5.12 Z-INDEX LAYERS
-// 5.13 BREAKPOINTS
+// 5.9 EASING
+// 5.10 TRANSITION
+// 5.11 Z-INDEX LAYERS
+// 5.12 BREAKPOINTS
 
 // 6. LAYOUT
 // -----------------------------------------------------------------------------
@@ -149,10 +149,10 @@
 $contextual-palette-map: (
         'success': (
                 'base': $grass,
-                'light': lighten($grass, 6%),
-                'x-light': lighten($grass, 10%),
-                'dark': darken($grass, 6%),
-                'x-dark': darken($grass, 10%),
+                'light': lighten($grass, 6%), // Light form of base value
+                'x-light': lighten($grass, 10%), // Lighter form of base value
+                'dark': darken($grass, 6%), // Dark form of base value
+                'x-dark': darken($grass, 10%), // Darker form of base value
                 'font-color': #fff,
         ),
         'danger': (
@@ -352,13 +352,26 @@ $lead-font-weight:                      $font-wh-light !default;
 // 4. CONFIGS
 // =============================================================================
 //
-// 4.1 CONFIGS
+// 4.1 LAYOUT/STYLING CONFIGS
 // -----------------------------------------------------------------------------
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-rounded:                        true !default; // Handle rounded corners
 $enable-breadcrumb:                     true !default; // If set to 'false' the breadcrumb will be disabled.
 $enable-sidebar-divider-underline-type: true; // If set to 'true' the sidebar divider 'after-line' type will be disabled.
+$enable-fonts-import:                   true !default;
+
+//
+// 4.2 ASSETS PATHS VARIABLE CONFIG
+// -----------------------------------------------------------------------------
+// Paths for particular assets.
+// Use with #{} interpolation syntax:
+// background-image: url('#{$image-path}/arrow-down.png')
+
+$assets-relative-path-prod:             '../../' !default; // Set the directory relative to production assets path.
+$font-path:                             '#{$assets-relative-path-prod}fonts' !default;
+$image-path:                            '#{$assets-relative-path-prod}img' !default;
+
 
 // 5. UTILITIES FOR LAYOUT
 // =============================================================================
@@ -462,30 +475,22 @@ $multiple-select-box-shadow:                    0 5px 10px rgba($black-color, .1
 $slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 $toastr-box-shadow:                             0 5px 10px rgba($black-color, .1);
 
-//
-// 5.9 PATHS
-// -----------------------------------------------------------------------------
-// Paths for particular assets
-
-$pattern-library-path:                   '../..' !default;
-$font-path:                             '#{$pattern-library-path}/fonts' !default;
-$image-path:                            '#{$pattern-library-path}/img' !default;
 
 //
-// 5.10 EASING
+// 5.9 EASING
 // -----------------------------------------------------------------------------
 
 $ease-in-out-circ:                      cubic-bezier(.27, .01, .38, 1.06);
 
 //
-// 5.11 TRANSITION
+// 5.10 TRANSITION
 // -----------------------------------------------------------------------------
 
 $theme-transition-duration:             1.5s; // TODO, delete this if not using.
 $general-transition-time:               0.5s !default;
 
 //
-// 5.12 Z-INDEX LAYERS
+// 5.11 Z-INDEX LAYERS
 // -----------------------------------------------------------------------------
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
@@ -506,7 +511,7 @@ $zindex: (
 );
 
 //
-// 5.13 BREAKPOINTS
+// 5.12 BREAKPOINTS
 // -----------------------------------------------------------------------------
 
 // Extra small devices (portrait phones, 480px and up)
@@ -791,7 +796,7 @@ $input-height:                          calc(#{$input-height-inner} + #{$input-h
 
 // Large input (.form-control-lg)
 
-$input-font-size-lg:                    $font-size-lg !default; // Font size for large input  
+$input-font-size-lg:                    $font-size-lg !default; // Font size for large input
 $input-border-radius-lg:                $border-radius-lg !default; // Border radius to add rounded corners
 $input-height-inner-lg:                 ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
@@ -899,7 +904,7 @@ $dropdown-icon-width:                   20px; // Dropdown menu item icon width f
 // 8.6 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 // -----------------------------------------------------------------------------
 
-$dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
+$dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 //
 // 8.7 NAVS

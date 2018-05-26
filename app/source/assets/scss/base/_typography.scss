@@ -20,6 +20,11 @@
 // BASE
 // ======================================================
 
+@if $enable-fonts-import {
+  @import url($google-fonts-import);
+}
+
+
 html {
   font-size: $html-font-size;
 }
