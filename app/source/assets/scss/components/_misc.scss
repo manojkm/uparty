@@ -13,7 +13,7 @@
 // ======================================================
 // Base styles
 hr {
-  border-top: 1px solid $gray-300;
+  @include add-border(1px, $gray-300, top);
   position: relative;
 }
 
@@ -62,15 +62,15 @@ hr.color-line {
 // SELECTIONS
 // ======================================================
 ::selection {
-  @include background-text-theme($selection-bg-theme-scheme);
+  @include background-text-theme($selection-bg-theme-scheme, $selection-bg-theme-tone);
 }
 
 ::-webkit-selection {
-  @include background-text-theme($selection-bg-theme-scheme);
+  @include background-text-theme($selection-bg-theme-scheme, $selection-bg-theme-tone);
 }
 
 ::-moz-selection {
-  @include background-text-theme($selection-bg-theme-scheme);
+  @include background-text-theme($selection-bg-theme-scheme, $selection-bg-theme-tone);
 }
 
 img::selection {

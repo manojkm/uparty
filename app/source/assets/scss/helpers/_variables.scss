@@ -27,22 +27,21 @@
 // https://repos.cakemail.com/projects/COM/repos/ui-bootstrap/browse/lib/dist/sass/components?at=59a0e4e0708d0df6467bc6c0d2c3d98f1e114463
 // https://github.com/twbs/ratchet/blob/master/sass/
 // https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
-
-// TODO USE THIS WAY TOMORROW https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
+// USE THIS WAY TOMORROW https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
 // https://github.com/andaistvan/bardoni-theme/blob/2f6c72e67a4fde923884cac79a2b75ef19004cab/assets/theme/_variables.scss
 
 // TABLE OF CONTENTS
 
 // 1. COLOR SCHEME
 // -----------------------------------------------------------------------------
-// 1.1 COLORS
+// 1.1 PALETTE
 // 1.2 CONTEXTUAL PALETTE MAP
 
 // 2. TYPOGRAPHY
 // -----------------------------------------------------------------------------
 // 2.1 FONTS
 // 2.2 TYPOGRAPHY MAP
-// 2.1 TYPOGRAPHY RE-USABLE VARIABLES
+// 2.1 TYPOGRAPHY RE-USABLE VARIABLES MAPPING
 
 // 3. ELEMENTS
 // -----------------------------------------------------------------------------
@@ -135,14 +134,17 @@
 // 1. COLOR SCHEME
 // =============================================================================
 //
-// 1.1 COLORS
+// 1.1 PALETTE
 // -----------------------------------------------------------------------------
 // It's quite good to have all color variables in a separate file as it's may quite heavy.
-// Please check helpers/_colors.scss,
+// Please check helpers/_palette.scss,
 
 //
 // 1.2 CONTEXTUAL PALETTE MAP
 // -----------------------------------------------------------------------------
+// Any theme defined in the $themes-map get CSS generated for each keys listed
+// below for variants of components like '.btn-danger', '.alert-info' etc... and
+// utility variants like '.bg-warning', '.border-success', '.text-info' etc...
 
 $contextual-palette-map: (
         'success': (
@@ -251,7 +253,7 @@ $typography: (
 );
 
 //
-// 2.3 TYPOGRAPHY RE-USABLE VARIABLES
+// 2.3 TYPOGRAPHY RE-USABLE VARIABLES MAPPING
 // -----------------------------------------------------------------------------
 // Re-usable variable names that will retrieve values from the above $typography map.
 
@@ -355,8 +357,8 @@ $lead-font-weight:                      $font-wh-light !default;
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-rounded:                        true !default; // Handle rounded corners
-$enable-breadcrumb:                     true !default; // Breadcrumb
-$enable-sidebar-divider-underline-type: false; // 'true' will disable the divider after-line type.
+$enable-breadcrumb:                     true !default; // If set to 'false' the breadcrumb will be disabled.
+$enable-sidebar-divider-underline-type: true; // If set to 'true' the sidebar divider 'after-line' type will be disabled.
 
 // 5. UTILITIES FOR LAYOUT
 // =============================================================================
@@ -364,8 +366,8 @@ $enable-sidebar-divider-underline-type: false; // 'true' will disable the divide
 // 5.1 SELECTIONS
 // -----------------------------------------------------------------------------
 
-$selection-bg-theme-scheme:             primary !default; // Background color for highlighting the selection
-$selection-color-theme-tone:            primary !default; // Text color for selected text
+$selection-bg-theme-scheme:             primary !default; // Background color scheme for highlighting the selection. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
+$selection-bg-theme-tone:               light !default; // Theme color tone applied to selected text. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 //
 // 5.2 BORDERS
@@ -572,10 +574,8 @@ $navbar-item-mobile-bottom-border:      true;
 // 6.4 GLOBAL SIDEBAR (section.sidebar)
 // -----------------------------------------------------------------------------
 
-// Theme color scheme applied to sidebar. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
-$sidebar-theme-scheme:                  sidebar !default;
-// Theme color scheme applied to active sidebar menu item. (Possible variables are 'primary' and 'secondary', use only what you really need)
-$sidebar-active-border-theme-scheme:    primary !default;
+$sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. NOTE: Retrieved from active theme palette map from themes/theme-*
+$sidebar-active-border-theme-scheme:    primary !default; // Theme color scheme applied to active sidebar menu item. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
 $sidebar-width:                         200px; // Width of sidebar
 $sidebar-padding-y:                     0px; // Sidebar vertical padding.
 $sidebar-padding-x:                     10px; // Sidebar horizontal padding
@@ -618,9 +618,9 @@ $sidebar-divider-margin-x:              0px;
 
 // Sidebar footer
 
-$sidebar-footer-theme-color:            $sidebar-theme-scheme !default; // Theme color applied to sidebar footer. Theme colors are retrieved from active theme palette map that can be found in themes/theme-*
-$sidebar-footer-active-theme-scheme:    primary !default; // Theme color scheme applied to active item
-$sidebar-footer-width:                  $sidebar-width; // Width of sidebar footer
+$sidebar-footer-theme-scheme:           $sidebar-theme-scheme !default; // So that sidebar footer takes the same theme scheme of the sidebar.
+$sidebar-footer-active-theme-scheme:    primary !default; // Theme color scheme applied to active item. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$sidebar-footer-width:                  $sidebar-width; // So that sidebar footer takes the same width of the sidebar.
 $sidebar-footer-height:                 40px; // Height of sidebar footer
 $sidebar-footer-child-border-top-size:  $border-thin; // Width of the top 'border'for submenu.
 $sidebar-footer-font-size:              $sidebar-submenu-item-font-size; // Submenu item font size (.sidebar__footer-child .sidebar__footer-item > a).
@@ -629,7 +629,7 @@ $sidebar-footer-icon-font-size:         15px;
 // Mini sidebar adjustments
 
 $sidebar-mini-width:                    50px;
-$sidebar-mini-submenu-width:            $sidebar-width;
+$sidebar-mini-submenu-width:            $sidebar-width; // So that submenu takes the same width of the sidebar.
 $sidebar-mini-active-menu-width:        $sidebar-width + $sidebar-mini-width;
 
 // Mini sidebar 'full' type adjustments
@@ -654,20 +654,20 @@ $footer-font-weight:                    $font-wh-regular;
 // 8.1 BUTTONS
 // -----------------------------------------------------------------------------
 
-$btn-border-size:                       $border-thin !default;
-$btn-font-weight:                       $font-wh-regular !default;
+$btn-border-size:                       $border-thin !default; // Border width applied for all buttons (.btn)
+$btn-font-weight:                       $font-wh-regular !default; // Font weight applied for all buttons (.btn)
 
 // Button with icon (.has-icon-left / .has-icon-right)
 
-$btn-icon-padding-left:                 5px !default;
-$btn-icon-padding-right:                5px !default;
-$btn-icon-lh:                           1 !default;
+$btn-icon-padding-left:                 5px !default; // Left padding for icon with buttons on right
+$btn-icon-padding-right:                5px !default; // Right padding for icon with buttons on left
+$btn-icon-lh:                           1 !default; // // Line height for icon to align vertically with the button.
 
 // Small button (.btn-sm)
 
-$btn-font-size-sm:                      $font-size-sm;
-$btn-padding-y-sm:                      0.25rem !default; // 4px
-$btn-padding-x-sm:                      0.5rem !default; // 8px
+$btn-font-size-sm:                      $font-size-sm;  // Font size for small button
+$btn-padding-y-sm:                      0.25rem !default; // 4px. Small button vertical padding.
+$btn-padding-x-sm:                      0.5rem !default; // 8px. Small button horizontal padding.
 $btn-min-width-sm:                      80px !default;
 $btn-min-height-sm:                     0px !default;
 $btn-line-height-sm:                    $lh-sm !default;
@@ -675,9 +675,9 @@ $btn-border-radius-sm:                  $border-radius-sm; // Border radius to a
 
 // Regular button (.btn)
 
-$btn-font-size:                         $font-size-base !default;
-$btn-padding-y:                         0.375rem !default; // 6px
-$btn-padding-x:                         0.75rem !default; // 12px
+$btn-font-size:                         $font-size-base !default; // Font size for regular button
+$btn-padding-y:                         0.375rem !default; // 6px. Regular button vertical padding.
+$btn-padding-x:                         0.75rem !default; // 12px. Regular button horizontal padding.
 $btn-min-width:                         100px !default;
 $btn-min-height:                        0px !default;
 $btn-line-height:                       $lh-base !default;
@@ -685,9 +685,9 @@ $btn-border-radius:                     $border-radius-md !default; // Border ra
 
 // Large button (.btn-lg)
 
-$btn-font-size-lg:                      $font-size-lg !default;
-$btn-padding-y-lg:                      0.5rem !default; // 8px
-$btn-padding-x-lg:                      1rem !default; // 16px
+$btn-font-size-lg:                      $font-size-lg !default; // Font size for large button
+$btn-padding-y-lg:                      0.5rem !default; // 8px. Large button vertical padding.
+$btn-padding-x-lg:                      1rem !default; // 16px. Large button horizontal padding.
 $btn-min-width-lg:                      120px !default;
 $btn-min-height-lg:                     0px !default;
 $btn-line-height-lg:                    $lh-lg !default;
@@ -695,9 +695,9 @@ $btn-border-radius-lg:                  $border-radius-lg; // Border radius to a
 
 // Extra Large button (.btn-xl)
 
-$btn-font-size-xl:                      $font-size-xl !default;
-$btn-padding-y-xl:                      0.625rem !default; // 10px
-$btn-padding-x-xl:                      1.25rem !default; // 20px
+$btn-font-size-xl:                      $font-size-xl !default; // Font size for extra Large button
+$btn-padding-y-xl:                      0.625rem !default; // 10px. Extra Large button vertical padding.
+$btn-padding-x-xl:                      1.25rem !default; // 20px. Extra Large button horizontal padding.
 $btn-min-width-xl:                      140px !default;
 $btn-min-height-xl:                     0px !default;
 $btn-line-height-xl:                    $lh-xl !default;
@@ -705,7 +705,7 @@ $btn-border-radius-xl:                  $border-radius-xl; // Border radius to a
 
 // Rounded button type (.btn-round)
 
-$btn-round-radius:                      30px;
+$btn-round-radius:                      30px; // Extra border radius to add more rounded corners
 
 // Raised button type (.btn-raised)
 
@@ -714,31 +714,31 @@ $btn-raised-box-shadow-y-offset-hover:  7px;
 
 // Small icon button (.btn-icon.btn-sm)
 
-$btn-icon-font-size-sm:                 $btn-font-size-sm;
-$btn-icon-size-sm-inner:                ($btn-icon-font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
-$btn-icon-size-sm:                      calc(#{$btn-icon-size-sm-inner} + #{$btn-border-size * 2}) !default;
+$btn-icon-font-size-sm:                 $btn-font-size-sm; // Font size for icon
+$btn-icon-size-sm-inner:                ($btn-icon-font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default; // Required to compute icon button height and width
+$btn-icon-size-sm:                      calc(#{$btn-icon-size-sm-inner} + #{$btn-border-size * 2}) !default; // Compute the height and width so the icon button will have the same size as 'small' button (.btn-sm)
 
 // Regular icon button (.btn-icon)
 
-$btn-icon-font-size:                    $btn-font-size;
-$btn-icon-size-inner:                   ($btn-icon-font-size * $btn-line-height) + ($btn-padding-y * 2) !default;
-$btn-icon-size:                         calc(#{$btn-icon-size-inner} + #{$btn-border-size *2}) !default;
+$btn-icon-font-size:                    $btn-font-size; // Font size for icon
+$btn-icon-size-inner:                   ($btn-icon-font-size * $btn-line-height) + ($btn-padding-y * 2) !default; // Required to compute icon button height and width
+$btn-icon-size:                         calc(#{$btn-icon-size-inner} + #{$btn-border-size *2}) !default; // Compute the height and width so the icon button will have the same size as 'regular' button (.btn)
 
 // Large icon button (.btn-icon.btn-lg)
 
-$btn-icon-font-size-lg:                 $btn-font-size-lg;
-$btn-icon-size-lg-inner:                ($btn-icon-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
-$btn-icon-size-lg:                      calc(#{$btn-icon-size-lg-inner} + #{$btn-border-size * 2}) !default;
+$btn-icon-font-size-lg:                 $btn-font-size-lg; // Font size for icon
+$btn-icon-size-lg-inner:                ($btn-icon-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default; // Required to compute icon button height and width
+$btn-icon-size-lg:                      calc(#{$btn-icon-size-lg-inner} + #{$btn-border-size * 2}) !default; // Compute the height and width so the icon button will have the same size as 'Large' button (.btn-lg)
 
 // Extra Large icon button (.btn-icon.btn-xl)
 
-$btn-icon-font-size-xl:                 $btn-font-size-xl;
-$btn-icon-size-xl-inner:                ($btn-icon-font-size-xl * $btn-line-height-xl) + ($btn-padding-y-xl * 2) !default;
-$btn-icon-size-xl:                      calc(#{$btn-icon-size-xl-inner} + #{$btn-border-size * 2}) !default;
+$btn-icon-font-size-xl:                 $btn-font-size-xl; // Font size for icon
+$btn-icon-size-xl-inner:                ($btn-icon-font-size-xl * $btn-line-height-xl) + ($btn-padding-y-xl * 2) !default; // Required to compute icon button height and width
+$btn-icon-size-xl:                      calc(#{$btn-icon-size-xl-inner} + #{$btn-border-size * 2}) !default; // Compute the height and width so the icon button will have the same size as 'extra large' button (.btn-xl)
 
 // Disabled button opacity
 
-$btn-disabled-opacity: 0.5;
+$btn-disabled-opacity:                  0.5;
 
 //
 // 8.2 TABLES
@@ -754,17 +754,17 @@ $input-label-color:                     $gray-800; // Text color for inputs labe
 $input-placeholder-color:               $gray-500; // Placeholder text color
 $input-round-radius:                    $btn-round-radius; // Rounded input (.form-control.input-round) type border radius
 $input-border-color:                    $gray-400; // Border color for inputs
-$input-border-size:                     $border-thin; // '.form-control' border size/width
+$input-border-size:                     $border-thin; // '.form-control' border width
 $input-focus-color:                     $gray-700; // Text color for inputs on focus
-$input-focus-border-theme-scheme:       primary !default; // Theme color scheme applied to border of inputs on focus
-$input-focus-border-theme-tone:         base !default; // Theme color tone applied to border of inputs on focus
+$input-focus-border-theme-scheme:       primary !default; // Theme color scheme applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$input-focus-border-theme-tone:         base !default; // Theme color tone applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from themes/theme-*.
 $input-hover-border-color:              $gray-500; // Border color for inputs on hover
 
 // Disabled state
 
-$input-disabled-color:                  $gray-600;
-$input-disabled-border-color:           $gray-300;
-$input-disabled-bg:                     $gray-200;
+$input-disabled-color:                  $gray-600; // Text color for disabled inputs
+$input-disabled-border-color:           $gray-300; // Border color for disabled inputs
+$input-disabled-bg:                     $gray-200; // Background color for disabled inputs
 
 // Input group
 
@@ -777,33 +777,33 @@ $input-height-border:                   $input-border-size * 2 !default; // Requ
 
 // Small input (.form-control-sm)
 
-$input-font-size-sm:                    $font-size-sm !default;
+$input-font-size-sm:                    $font-size-sm !default; // Font size for small input
 $input-border-radius-sm:                $border-radius-sm !default; // Border radius to add rounded corners
 $input-height-inner-sm:                 ($font-size-sm * $btn-line-height-sm) + ($btn-padding-y-sm * 2) !default;
 $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Regular (Default) input (.form-control)
 
-$input-font-size:                       $font-size-base !default;
+$input-font-size:                       $font-size-base !default; // Font size for regular input
 $input-border-radius:                   $border-radius-md !default; // Border radius to add rounded corners
 $input-height-inner:                    ($font-size-base * $btn-line-height) + ($btn-padding-y * 2) !default;
 $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Large input (.form-control-lg)
 
-$input-font-size-lg:                    $font-size-lg !default;
+$input-font-size-lg:                    $font-size-lg !default; // Font size for large input  
 $input-border-radius-lg:                $border-radius-lg !default; // Border radius to add rounded corners
 $input-height-inner-lg:                 ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Validation
 
-$form-feedback-valid-color:             contextual-color(success); // Retrieve 'success' color from contextual color map ($contextual-palette-map)
-$form-feedback-invalid-color:           contextual-color(danger); // Retrieve 'danger' color from contextual color map ($contextual-palette-map)
+$form-feedback-valid-color:             contextual-color(success); // Retrieve 'success' color from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
+$form-feedback-invalid-color:           contextual-color(danger); // Retrieve 'danger' color from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
 
 // Required field
 
-$required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk (*) symbol
+$required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk (*) symbol. NOTE: Retrieved from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
 
 //
 // 8.4 CUSTOM FORMS
@@ -815,9 +815,9 @@ $custom-control-indicator-bg-size:                      50% 50% !default;
 $custom-control-indicator-border-size:                  $border-thin;
 $custom-control-indicator-border-color:                 $input-border-color; // Border color for checkboxes and radios
 $custom-control-indicator-checked-color:                $white-color;
-$custom-control-indicator-checked-bg:                   success !default; // Contextual color scheme applied to checked/selected checkboxes and radios
+$custom-control-indicator-checked-bg:                   success !default; // Contextual color scheme applied to checked/selected checkboxes and radios. NOTE: Retrieved from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
 $custom-control-indicator-active-color:                 $white-color;
-$custom-control-indicator-active-bg:                    lighten(contextual-color(success), 25%) !default; // Contextual color scheme applied to active state checkboxes and radios
+$custom-control-indicator-active-bg:                    lighten(contextual-color(success), 25%) !default; // Contextual color scheme applied to active state checkboxes and radios. NOTE: Retrieved from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
 
 // Disabled state
 
@@ -917,7 +917,7 @@ $nav-link-disabled-color:               $gray-400 !default; // Navigation disabl
 
 // Tabs
 
-$nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements like border colors, font colors etc..
+$nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements like border colors, font colors etc.. NOTE: Retrieved from active theme palette map from themes/theme-*.
 $nav-tabs-border-color:                 $gray-400 !default; // Tabbed navigation border color
 $nav-tabs-border-size:                  $border-thin !default;  // Tabbed navigation borders width
 $nav-tabs-border-radius:                $border-radius-md !default;  // Tabbed navigation item borders radius to add rounded corners
@@ -936,8 +936,8 @@ $tab-content-bg:                        $white-color !default; // Background col
 // Pills type
 
 $nav-pills-border-radius:                       $nav-tabs-border-radius !default; // Tabbed navigation pill border radius to add rounded corners
-$nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !default; // Theme color scheme applied to active pill item
-$nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover
+$nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !default;  // So that the active pill item takes the same theme color scheme of active tab elements.
+$nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 //
 // 8.9 TABS EXTENDED
@@ -1015,8 +1015,8 @@ $breadcrumb-divider-angle-right:                "\f054" !default; // Textual sep
 $breadcrumb-divider-angle-double-right:         "\f061" !default; // Textual separator type - Simple Line Icons unicode.
 $breadcrumb-divider-caret-right:                "\f0da" !default; // Textual separator type - Simple Line Icons unicode.
 
-$breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text.
-$breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover.
+$breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 $breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
 $breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
@@ -1044,8 +1044,8 @@ $breadcrumb-ext-wrap-left-border-color:         $breadcrumb-ext-wrap-bg !default
 
 // Breadcrumb extended(ext) - Arrow wizard type
 
-$breadcrumb-wizard-completed-theme-scheme:      primary !default; //  Theme color scheme applied to background color of completed step in the breadcrumb.
-$breadcrumb-wizard-active-theme-scheme:         secondary !default; // Theme color scheme applied to background color of current step in the breadcrumb.
+$breadcrumb-wizard-completed-theme-scheme:      primary !default; //  Theme color scheme applied to background color of completed step in the breadcrumb. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$breadcrumb-wizard-active-theme-scheme:         secondary !default; // Theme color scheme applied to background color of current step in the breadcrumb. NOTE: Retrieved from active theme palette map from themes/theme-*.
 $breadcrumb-wizard-incomplete-bg:               $gray-200 !default; // Background color of next/incomplete step in the breadcrumb.
 $breadcrumb-wizard-incomplete-color:            $gray-600 !default; // Text color of next/incomplete step in the breadcrumb.
 
@@ -1063,7 +1063,7 @@ $pagination-border-size:                $btn-border-size !default; // Page link 
 $pagination-border-color:               $gray-400 !default; // Page link border color
 $pagination-font-weight:                $btn-font-weight !default; // Page link font weight
 
-$pagination-link-theme-scheme:          primary !default; // Theme color scheme applied to page link
+$pagination-link-theme-scheme:          primary !default; // Theme color scheme applied to page link. NOTE: Retrieved from active theme palette map from themes/theme-*.
 $pagination-link-active-theme-scheme:   $pagination-link-theme-scheme !default; // Theme color scheme applied to current page link
 
 $pagination-hover-bg:                   $gray-100 !default; // Background color for page link on hover
@@ -1299,9 +1299,9 @@ $accordion-icon-active:                         "\e607" !default; // Active acco
 // 8.23 ACCORDION EXTENDED
 // -----------------------------------------------------------------------------
 
-$accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion
-$accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to 'Extended' accordion on hover
-$accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // Theme color tone applied to 'Extended' accordion on active
+$accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to 'Extended' accordion on hover. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // So that the theme color tone applied on active takes the same colour of hover state
 $accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
 
 //
@@ -1435,9 +1435,9 @@ $datepicker-cell-height:                36px !default; // Height for table cells
 // 9.5 JQUERY STEPS PLUGIN
 // -----------------------------------------------------------------------------
 
-$steps-active-theme-scheme:             primary !default; // Theme color scheme applied to the tab of current step
-$steps-done-theme-scheme:               primary !default; // Theme color scheme applied to the tabs of previous steps
-$steps-error-theme-scheme:              danger; // Theme color scheme applied to tabs if current step have any validation errors
+$steps-active-theme-scheme:             primary !default; // Theme color scheme applied to the tab of current step. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$steps-done-theme-scheme:               primary !default; // Theme color scheme applied to the tabs of previous/completed steps. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$steps-error-theme-scheme:              danger; // Theme color scheme applied to tabs if current step have any validation errors. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 $steps-disabled-bg:                     $gray-200 !default; // Background color of next/incomplete steps.
 $steps-disabled-opacity:                $btn-disabled-opacity !default; // Opacity applied to the tabs of previous steps

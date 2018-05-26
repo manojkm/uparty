@@ -180,9 +180,8 @@
         // Right arrow tip
         &:after {
           content: "";
-          border-top: $breadcrumb-ext-top-bottom-border-size solid transparent;
-          border-bottom: $breadcrumb-ext-top-bottom-border-size solid transparent;
-          border-left: $breadcrumb-ext-left-border-size solid $breadcrumb-ext-wrap-item-bg;
+          @include add-border($breadcrumb-ext-top-bottom-border-size, transparent, top-bottom);
+          @include add-border($breadcrumb-ext-left-border-size, $breadcrumb-ext-wrap-item-bg, left);
           position: absolute;
           left: 100%;
           top: 0;
@@ -192,9 +191,8 @@
         // Left inset arrow
         &:before {
           content: "";
-          border-top: $breadcrumb-ext-top-bottom-border-size solid transparent;
-          border-bottom: $breadcrumb-ext-top-bottom-border-size solid transparent;
-          border-left: $breadcrumb-ext-left-border-size solid $breadcrumb-ext-wrap-left-border-color;
+          @include add-border($breadcrumb-ext-top-bottom-border-size, transparent, top-bottom);
+          @include add-border($breadcrumb-ext-left-border-size, $breadcrumb-ext-wrap-left-border-color, left);
           position: absolute;
           left: 0;
           top: 0;

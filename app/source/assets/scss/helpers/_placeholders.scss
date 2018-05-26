@@ -94,9 +94,8 @@
   display: block;
   width: 0;
   height: 0;
-  border-top: $breadcrumb-ext-top-bottom-border-size solid transparent;
-  border-bottom: $breadcrumb-ext-top-bottom-border-size solid transparent;
-  border-left: $breadcrumb-ext-left-border-size solid transparent;
+  @include add-border($breadcrumb-ext-top-bottom-border-size, transparent, top-bottom);
+  @include add-border($breadcrumb-ext-left-border-size, transparent, left);
   position: absolute;
   top: 0;
   //top: 50%;

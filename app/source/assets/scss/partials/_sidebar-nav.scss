@@ -49,29 +49,30 @@
     opacity: $sidebar-item-header-opacity !important;
     position: relative;
 
+    // Sidebar divider 'after-line' type
     @if bool($enable-sidebar-divider-underline-type) == false {
       &:after {
         @include border-theme($sidebar-theme-scheme, 'xx-light', 'bottom');
+        @include add-border(1px, transparent, bottom);
         position: absolute;
         top: 50%;
         width: 100%;
         height: 1px;
         margin: -1px 0 0 5px;
         content: '';
-        border-bottom: 1px solid;
       }
     }
 
   }
-  // Sidebar divider
+  // Sidebar divider 'underline' type
   &__divider {
     @include transition;
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
 
     @if bool($enable-sidebar-divider-underline-type) == true {
-      @include border-theme($sidebar-theme-scheme, 'xx-light', 'top');
-      border-top: 1px solid;
+      @include border-theme($sidebar-theme-scheme, 'xx-light', 'bottom');
+      @include add-border(1px, transparent, bottom);
     }
   }
 

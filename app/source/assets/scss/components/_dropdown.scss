@@ -281,9 +281,8 @@
 
   & .dropdown-divider {
     @include border-theme($dropdown-extended-theme-scheme, 'light', $position: top);
-    border-top: 1px solid;
+    @include add-border(1px, transparent, top);
   }
-
 }
 
 // Remove the arrow in dropdown to replace with Icon (.no-arr)
