@@ -1,0 +1,35 @@
+// ================================================================================================
+// File Name      : fonts.scss
+// Description    : Web fonts and Google Fonts
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//
+// WEB FONTS
+// ======================================================
+// We don't want to load web fonts on your site so we stay classic. We recommend using Google fonts.
+
+//@include font-face("source-sans-pro","fonts/source-sans-pro-regular",("woff2", "woff")
+//) {
+//  font-style: normal;
+//  font-weight: 400;
+//}
+
+//
+// GOOGLE FONTS
+// ======================================================
+
+// Includes:
+// Source Sans Pro:                     Light, Regular, Medium, Semi-bold, Bold;
+// Roboto Mono:                         Light, Regular, Medium, Semi-bold, Bold;
+$google-fonts-import:                   'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700|Roboto+Mono:300,400,500,600,700';
+
+// Config font stacks
+
+$font-family-default:                   'Source Sans Pro';  // Define Google font stack used for body, paragraphs.
+$font-family-display:                   $font-family-default; // Define font stack used for headings <h1> <h2> etc...
+$font-family-fallback:                  'Arial', sans-serif; // Define font stack used for fallback

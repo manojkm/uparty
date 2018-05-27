@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 
     var optionsGruntContribSass = {
         loadPath: [
-            require('node-bourbon').includePaths,
+            require('bourbon').includePaths,
             grunt.getPath('node') + 'bootstrap/scss'
         ],
         sourcemap: (isProd) ? 'none' : 'auto',
@@ -18,7 +18,7 @@ module.exports = function (grunt) {
 
     var optionsGruntSass = {
         includePaths: [
-            require('node-bourbon').includePaths,
+            require('bourbon').includePaths,
             grunt.getPath('node') + 'bootstrap/scss'
         ],
         banner: '<%= meta.banner %>',

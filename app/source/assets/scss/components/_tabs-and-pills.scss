@@ -10,8 +10,10 @@
 
 /* TODO:  Responsive bootstrap tabs https://codepen.io/devben/pen/EaLdeJ */
 
+//
 // TABS
 // ======================================================
+
 .nav-tabs {
   @include add-border($nav-tabs-border-size, $nav-tabs-border-color, bottom);
   .nav-link {
@@ -55,8 +57,10 @@
   }
 }
 
+//
 // TABS EXTENDED
 // ======================================================
+
 .nav-tabs {
   &.extended {
     .nav-link {
@@ -90,8 +94,10 @@
   }
 }
 
+//
 // TABS EXTENDED - BOXED TYPE
 // ======================================================
+
 .nav-tabs.extended-boxed {
 
   @include set-border-radius($nav-tabs-border-radius);
@@ -143,8 +149,10 @@
 
 }
 
+//
 // TABS EXTENDED - ARROW TYPE
 // ======================================================
+
 .nav-tabs {
 
   &.extended-arrow {
@@ -221,8 +229,10 @@
 
 }
 
+//
 // TABS EXTENDED - VERTICAL TYPE
 // ======================================================
+
 .extended-vertical {
 
   display: flex;
@@ -332,8 +342,10 @@
 
 }
 
+//
 // PILLS TYPE
 // ======================================================
+
 .nav-pills {
 
   .nav-link {

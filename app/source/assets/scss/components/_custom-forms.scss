@@ -9,6 +9,7 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+//
 // CUSTOM FORMS
 // ======================================================
 
@@ -16,7 +17,7 @@
   min-height: (1rem * $lh-base);
 
   .custom-control-label {
-    @include transition(color $general-transition-time $ease-in-out-circ);
+    @include transition(color $general-transition-duration $ease-in-out-circ);
     line-height: $lh-base;
   }
 
@@ -87,6 +88,7 @@
   }
 }
 
+//
 // CHECKBOXES
 // ======================================================
 
@@ -131,6 +133,7 @@
   }
 }
 
+//
 // RADIOS
 // ======================================================
 
@@ -162,6 +165,7 @@
 
 }
 
+//
 // CUSTOM SELECT
 // ======================================================
 
@@ -196,6 +200,7 @@
   @include form-control-disabled();
 }
 
+//
 // CUSTOM SELECT SIZING
 // ======================================================
 
@@ -213,6 +218,7 @@
   line-height: $btn-line-height-lg;
 }
 
+//
 // CUSTOM FILE INPUT
 // ======================================================
 
@@ -307,6 +313,7 @@
   }
 }
 
+//
 // FILE INPUT SIZING
 // ======================================================
 .custom-file-sm {
@@ -351,6 +358,7 @@
   }
 }
 
+//
 // TOGGLE SWITCH
 // ======================================================
 .custom-toggle {
@@ -453,6 +461,7 @@
   }
 }
 
+//
 // TOGGLE FLIP SWITCH
 // ======================================================
 

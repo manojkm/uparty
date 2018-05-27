@@ -31,7 +31,7 @@
 // https://github.com/andaistvan/bardoni-theme/blob/2f6c72e67a4fde923884cac79a2b75ef19004cab/assets/theme/_variables.scss
 
 // TABLE OF CONTENTS
-
+//
 // 1. COLOR SCHEME
 // -----------------------------------------------------------------------------
 // 1.1 PALETTE
@@ -66,8 +66,8 @@
 // 5.6 WHITE OPACITY
 // 5.7 BLACK OPACITY
 // 5.8 SHADOWS
-// 5.9 EASING
-// 5.10 TRANSITION
+// 5.9 EASINGS
+// 5.10 TRANSITIONS
 // 5.11 Z-INDEX LAYERS
 // 5.12 BREAKPOINTS
 
@@ -202,35 +202,14 @@ $contextual-palette-map: (
 //
 // 2.1 FONTS
 // -----------------------------------------------------------------------------
-
-// Web fonts
-// We don't want to load web fonts on your site so we stay classic. We recommend using Google fonts.
-// $typefaces: (
-//   'FILENAME': (
-//     family: 'fontname',
-//     weight: 300,
-//     style: normal,
-//   ),
-// );
-
-// Google fonts
-
-// Includes:
-// - Source Sans Pro:                   Light, Regular, Medium, Semi-bold, Bold;
-// - Roboto Mono:                       Light, Regular, Medium, Semi-bold, Bold;
-$google-fonts-import:                   'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700|Roboto+Mono:300,400,500,600,700';
-
-// Config font stacks
-
-$font-family-default:                   'Source Sans Pro';  // Define Google font stack used for body, paragraphs.
-$font-family-display:                   $font-family-default; // Define font stack used for headings <h1> <h2> etc...
-$font-family-fallback:                  'Arial', sans-serif; // Define font stack used for fallback
+// It's quite good to have all fonts variables in a separate file as it's may become quite heavy.
+// Please check helpers/_fonts.scss,
 
 //
 // 2.2 TYPOGRAPHY MAP
 // -----------------------------------------------------------------------------
-// Add all the above fonts to the map.
-// Make sure all the names match the above variable names for clarity.
+// Add all the above fonts (helpers/_fonts.scss) to the map.
+// Make sure all the names match the above fonts variable names (helpers/_fonts.scss) for clarity.
 
 $typography: (
         font-default:                   ($font-family-default, $font-family-fallback),
@@ -320,7 +299,7 @@ $body-line-height:                      $lh-base;  // Specifies the default line
 
 $link-color:                            $font-color-default; // Global textual link color.
 $link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
-$link-hover-decoration:                 underline; // Global textual link hover decoration.
+$link-hover-decoration:                 none; // Global textual link hover decoration.
 
 //
 // 3.4 HEADINGS
@@ -359,7 +338,6 @@ $lead-font-weight:                      $font-wh-light !default;
 $enable-rounded:                        true !default; // Handle rounded corners
 $enable-breadcrumb:                     true !default; // If set to 'false' the breadcrumb will be disabled.
 $enable-sidebar-divider-underline-type: true; // If set to 'true' the sidebar divider 'after-line' type will be disabled.
-$enable-fonts-import:                   true !default;
 
 //
 // 4.2 ASSETS PATHS VARIABLE CONFIG
@@ -372,7 +350,6 @@ $assets-relative-path-prod:             '../../' !default; // Set the directory 
 $font-path:                             '#{$assets-relative-path-prod}fonts' !default;
 $image-path:                            '#{$assets-relative-path-prod}img' !default;
 
-
 // 5. UTILITIES FOR LAYOUT
 // =============================================================================
 //
@@ -380,7 +357,7 @@ $image-path:                            '#{$assets-relative-path-prod}img' !defa
 // -----------------------------------------------------------------------------
 
 $selection-bg-theme-scheme:             primary !default; // Background color scheme for highlighting the selection. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
-$selection-bg-theme-tone:               light !default; // Theme color tone applied to selected text. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$selection-bg-theme-tone:               dark !default; // Theme color tone applied to selected text. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 //
 // 5.2 BORDERS
@@ -475,19 +452,18 @@ $multiple-select-box-shadow:                    0 5px 10px rgba($black-color, .1
 $slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 $toastr-box-shadow:                             0 5px 10px rgba($black-color, .1);
 
-
 //
-// 5.9 EASING
+// 5.9 EASINGS
 // -----------------------------------------------------------------------------
 
 $ease-in-out-circ:                      cubic-bezier(.27, .01, .38, 1.06);
 
 //
-// 5.10 TRANSITION
+// 5.10 TRANSITIONS
 // -----------------------------------------------------------------------------
 
 $theme-transition-duration:             1.5s; // TODO, delete this if not using.
-$general-transition-time:               0.5s !default;
+$general-transition-duration:               0.5s !default;
 
 //
 // 5.11 Z-INDEX LAYERS
@@ -1024,7 +1000,12 @@ $breadcrumb-link-theme-scheme:                  primary !default; // Theme color
 $breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 $breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
-$breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size}) / 2) !default; // Compute breadcrumb container height.
+$breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size - 1}) / 2) !default; // Compute breadcrumb container height.
+
+//$arrow-wizard-inner-size:               ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
+//$arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle /\.
+//
+
 
 //
 // 8.12 BREADCRUMB EXTENDED
@@ -1512,30 +1493,30 @@ $slider-tooltip-border-radius:          $border-radius-md !default; // Slider to
 $slider-tooltip-color:                  $gray-700 !default; // Slider tooltip text color
 $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3px rgba($gray-400, 0.2); // Slider tooltip box shadow
 
-
 // 10. SELECTORS LIST
 // =============================================================================
 //
 // 10.1 LINK SELECTORS
 // -----------------------------------------------------------------------------
 // Adapted from https://css-tricks.com/snippets/sass/sass-things-links/
-$a-href-tags: '&[href]:hover, &[href]:focus, &[href].focus, &[href]:active, &[href].active, &[href]:active:focus, &[href].active:focus, &[href]:active:hover, &[href].active:hover, &[href]:not([disabled]):not(.disabled):active, &[href]:not([disabled]):not(.disabled).active, &[href]:not([disabled]):not(.disabled):active:focus, &[href]:not([disabled]):not(.disabled).active:focus';
+
+$a-href-tags:                           '&[href]:hover, &[href]:focus, &[href].focus, &[href]:active, &[href].active, &[href]:active:focus, &[href].active:focus, &[href]:active:hover, &[href].active:hover, &[href]:not([disabled]):not(.disabled):active, &[href]:not([disabled]):not(.disabled).active, &[href]:not([disabled]):not(.disabled):active:focus, &[href]:not([disabled]):not(.disabled).active:focus';
 
 // Beta 3 Migration changes
 // Removed &:focus, &.focus due to the focus issues on buttons
-$a-tags: '&:hover, &:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
+$a-tags:                                '&:hover, &:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
-$hover-tags: '&:hover';
-$focus-tags: '&:focus, &.focus';
-$hover-focus-tags: '&:hover, &:focus, &.focus';
-$active-tags: '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
+$hover-tags:                            '&:hover';
+$focus-tags:                            '&:focus, &.focus';
+$hover-focus-tags:                      '&:hover, &:focus, &.focus';
+$active-tags:                           '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
 //
 // 10.2 DISABLED SELECTORS
 // -----------------------------------------------------------------------------
-$disabled-tags: '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
+$disabled-tags:                         '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
 
 //
 // 10.3 ICON SELECTORS
 // -----------------------------------------------------------------------------
-$icon-tags: 'i[class*="fa-"], i[class*="icon-"]';
+$icon-tags:                             'i[class*="fa-"], i[class*="icon-"]';

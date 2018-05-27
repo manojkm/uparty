@@ -396,8 +396,8 @@
       }
 
       &:before {
-        left: 0;
         @include add-border($arrow-wizard-border-size, $white-color, left);
+        left: 0;
         z-index: 0;
       }
     }

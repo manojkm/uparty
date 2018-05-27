@@ -135,10 +135,17 @@
     // Current item
     &.active {
       @include border-theme($sidebar-active-border-theme-scheme, $position: left); // Make borders visible
+      &:before {
+        @include color($sidebar-theme-scheme, 'active-color');
+        content: "•";
+        position: absolute;
+        left: 10%;
+      }
       > a {
         @include background-theme($sidebar-theme-scheme, 'dark');
         @include text-theme($sidebar-theme-scheme, 'active-color');
       }
+
     }
   }
 
@@ -153,11 +160,11 @@
 
     .#{$s}__item {
       border: 0;
-      ///* &:before {
-      //   @include color('sidebar', 'light');
-      //   content:"•";
-      //   position: absolute;
-      // }*/
+      //&:before {
+      //  @include color('sidebar', 'light');
+      //  content:"•";
+      //  position: absolute;
+      //}
       &:last-of-type {
         padding-bottom: 10px;
       }
@@ -201,6 +208,7 @@
 
   // Hiding headers, dividers etc
   &__item .badge,
+  &__item.active:before,
   &__item.has-button,
   &__item-header,
   &__divider {

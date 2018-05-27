@@ -9,8 +9,10 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+//
 // HORIZONTAL RULE
 // ======================================================
+
 // Base styles
 hr {
   @include add-border(1px, $gray-300, top);
@@ -59,8 +61,10 @@ hr.color-line {
   }
 }
 
+//
 // SELECTIONS
 // ======================================================
+
 ::selection {
   @include background-text-theme($selection-bg-theme-scheme, $selection-bg-theme-tone);
 }

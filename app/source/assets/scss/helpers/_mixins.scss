@@ -8,8 +8,10 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+//
 // THEMIFY
 // ======================================================
+
 // Adapted from https://github.com/nborracha/plainID-DemoApp/blob/61b66cf018e918bcb17aa87f243fce2bc95d9833/app/styles/mixins.scss
 
 @mixin themify($property, $key, $color-variant:null, $sledge-hammer:'', $themes: $themes-map) {
@@ -127,9 +129,10 @@
   @include themify('font-family', $arguments...);
 }
 
-//------------------------------------------------------*\
+//
 // CONTEXTUAL & THEME BACKGROUND VARIANTS
-//------------------------------------------------------*/
+// ======================================================
+
 @mixin background-theme($scheme, $tone:base, $font-color:font-color, $sledge-hammer:null) {
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
@@ -139,9 +142,10 @@
   }
 }
 
-//------------------------------------------------------*\
+//
 // CONTEXTUAL & THEME BACKGROUND VARIANTS WITH TEXT COLOR
-//------------------------------------------------------*/
+// ======================================================
+
 @mixin background-text-theme($scheme, $tone:base, $font-color:font-color, $sledge-hammer:null) {
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
@@ -153,8 +157,10 @@
   }
 }
 
+//
 // CONTEXTUAL & THEME BORDER VARIANTS
 // ======================================================
+
 @mixin border-theme($scheme, $tone:base, $position:all, $sledge-hammer:null) {
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
@@ -206,8 +212,10 @@
   }
 }
 
+//
 // CONTEXTUAL & THEME TEXT VARIANTS
 // ======================================================
+
 @mixin text-theme($scheme, $font-color:base, $sledge-hammer:null) {
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
@@ -218,8 +226,10 @@
 
 }
 
+//
 // CONTEXTUAL & THEME TEXT LINK VARIANTS
 // ======================================================
+
 @mixin text-link-theme($scheme, $font-color:base, $hover-color:dark, $tone-active:x-dark, $sledge-hammer:null) {
   @at-root a#{&} {
     #{$hover-tags} {
@@ -241,17 +251,21 @@
   }
 }
 
+//
 // REM FONT SIZING  - ADVANCED
 // ======================================================
 // Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
 // Usage @include fontSize(16px);
+
 @mixin font-size($size) {
   font-size: $size; //Fallback in px
   font-size: calculateRem($size);
 }
 
+//
 // TEXT SHADOW
 // ======================================================
+
 @mixin text-shadow($tShadow : 0px 1px 3px rgba(0,0,0,.5)) {
   -webkit-box-shadow: $tShadow;
   -moz-box-shadow: $tShadow;
@@ -259,19 +273,23 @@
   box-shadow: $tShadow;
 }
 
+//
 // TRANSITIONS
 // ======================================================
 // Usage @include transition(color .3s ease); @include transition;
-@mixin transition($transitionvalue : all $general-transition-time ease) {
+
+@mixin transition($transitionvalue : all $general-transition-duration ease) {
   -webkit-transition: $transitionvalue;
   -o-transition: $transitionvalue;
   -moz-transition: $transitionvalue;
   transition: $transitionvalue;
 }
 
+//
 // BORDER RADIUS
 // ======================================================
 // Usage @include border-radius(4px);
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -288,6 +306,7 @@
   }
 }
 
+//
 // BORDER
 // ======================================================
 // Usage
@@ -318,6 +337,7 @@
   }
 }
 
+//
 // OPACITY
 // ======================================================
 // Usage @include opacity(1);
@@ -329,8 +349,10 @@
   filter: #{alpha(opacity=$opacity-ie)};
 }
 
+//
 // VENDOR PREFIX
 // ======================================================
+
 @mixin vendor($property, $value...) {
   -webkit-#{$property}: $value;
   -moz-#{$property}: $value;
@@ -339,6 +361,7 @@
   #{$property}: $value;
 }
 
+//
 // CLEARFIX FOR IE8 & ABOVE
 // ======================================================
 // Adapted from http://css-tricks.com/snippets/css/clear-fix/
@@ -351,6 +374,7 @@
   }
 }
 
+//
 // CENTERING
 // ======================================================
 // Center vertically and/or horizontally an absolute positioned element
@@ -373,6 +397,7 @@
   }
 }
 
+//
 // BUTTONS
 // ======================================================
 
@@ -451,6 +476,7 @@
 
 }
 
+//
 // SOCIAL BUTTONS
 // ======================================================
 
@@ -498,6 +524,7 @@
 
 }
 
+//
 // BUTTON SIZES
 // ======================================================
 
@@ -510,6 +537,7 @@
   line-height: $line-height;
 }
 
+//
 // BADGES
 // ======================================================
 
@@ -551,8 +579,10 @@
 
 }
 
+//
 // BREADCRUMB EXTENDED - WIZARD
 // ======================================================
+
 @mixin breadcrumb-wizard-status($scheme, $tone:base, $tone-hover:dark, $tone-border:x-dark, $font-color:font-color) {
 
   @include background-theme($scheme, $tone);
@@ -583,6 +613,7 @@
 
 }
 
+//
 // POPOVERS
 // ======================================================
 
@@ -617,8 +648,10 @@
   }
 }
 
+//
 // TAB EXTENDED - BOXED
 // ======================================================
+
 @mixin tab-extended-boxed-theme($scheme, $tone:base, $font-color:font-color) {
 
   @include background-theme($scheme, $tone);
@@ -641,6 +674,7 @@
 
 }
 
+//
 // TOOLTIP
 // ======================================================
 
@@ -671,8 +705,10 @@
 
 }
 
+//
 // PAGINATION SIZE
 // ======================================================
+
 @mixin pagination-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
   .page-link {
     padding: $padding-y $padding-x;
@@ -694,8 +730,10 @@
   }
 }
 
+//
 // MODEL
 // ======================================================
+
 @mixin modal-theme($scheme, $tone:base, $border-tone:dark, $font-color:font-color) {
 
   .modal-header {
@@ -713,8 +751,10 @@
   }
 }
 
+//
 // CUSTOM TOGGLE
 // ======================================================
+
 @mixin custom-toggle($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
 
   $cci: custom-control-input;
@@ -739,8 +779,10 @@
 
 }
 
+//
 // CUSTOM TOGGLE FLIP
 // ======================================================
+
 @mixin custom-toggle-flip($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
 
   $ctf: custom-toggle-flip;
@@ -755,8 +797,10 @@
 
 }
 
+//
 // ALERT
 // ======================================================
+
 @mixin alert-theme($scheme, $tone:base, $tone-hover:light, $tone-border:dark, $font-color:font-color) {
 
   @include border-theme($scheme, $tone-border);
@@ -782,8 +826,10 @@
 
 }
 
+//
 // PROGRESS BARS
 // ======================================================
+
 @mixin progress-bar-theme($scheme, $tone:base, $font-color:font-color) {
   span.progress-label {
     @include background-text-theme($scheme);
@@ -793,6 +839,7 @@
   }
 }
 
+//
 // FORMS
 // ======================================================
 
@@ -957,6 +1004,7 @@
   }
 }
 
+//
 // TRANSPARENT FORMS
 // ======================================================
 

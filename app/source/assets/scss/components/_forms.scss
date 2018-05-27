@@ -9,6 +9,7 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+//
 // TEXTUAL FORM CONTROLS
 // ======================================================
 .form-control {
@@ -37,6 +38,7 @@
   }
 }
 
+//
 // TEXTAREA
 // ======================================================
 textarea.form-control {
@@ -47,6 +49,7 @@ textarea.textarea-no-resize {
   resize: none;
 }
 
+//
 // SELECT
 // ======================================================
 
@@ -78,6 +81,7 @@ form {
 
 }
 
+//
 // LABEL SIZING
 // ======================================================
 // For use with horizontal and inline forms, when you need the label text to align with the form controls.
@@ -103,6 +107,7 @@ form {
   line-height: $btn-line-height-sm;
 }
 
+//
 // REQUIRED FIELD LABEL
 // ======================================================
 .required-field {
@@ -116,6 +121,7 @@ form {
   }
 }
 
+//
 // LEGENDS
 // ======================================================
 // For use with horizontal and inline forms, when you need the legend text to be the same size as
@@ -138,6 +144,7 @@ form {
   border-width: $input-border-size 0;
 }
 
+//
 // FORM CONTROL SIZING
 // ======================================================
 .form-control-sm {
@@ -168,8 +175,10 @@ select.form-control-lg {
   }
 }
 
+//
 // FORM VALIDATION
 // ======================================================
+
 // Valid
 @include form-validation-state("valid", $form-feedback-valid-color);
 //@warn '';
@@ -177,6 +186,7 @@ select.form-control-lg {
 // In valid
 @include form-validation-state("invalid", $form-feedback-invalid-color);
 
+//
 // TRANSPARENT FORM ELEMENTS
 // ======================================================
 .has-bg-dark {

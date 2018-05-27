@@ -56,8 +56,10 @@
   }
 }
 
+//
 // PAGINATION SIZES
 // ======================================================
+
 // Large
 .pagination-lg {
   @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $pagination-font-size-lg, $pagination-line-height-lg, $border-radius-lg);
@@ -68,8 +70,10 @@
   @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $pagination-font-size-sm, $pagination-line-height-sm, $border-radius-sm);
 }
 
+//
 // PAGINATION EXTENDED
 // ======================================================
+
 .pagination {
 
   &.extended {
@@ -138,8 +142,10 @@ r
 
 }
 
+//
 // PAGINATION EXTENDED - OUTLINE TYPE
 // ======================================================
+
 .pagination {
 
   &.extended-outline {
@@ -198,8 +204,10 @@ r
 
 }
 
+//
 // PAGINATION EXTENDED - SQUARE TYPE
 // ======================================================
+
 .pagination {
 
   &.extended-square {
@@ -255,6 +263,7 @@ r
 
 }
 
+//
 // PAGINATION EXTENDED - INDICATOR TYPE
 // ======================================================
 
@@ -298,8 +307,10 @@ r
 
 }
 
+//
 // DISABLED PAGINATION
 // ======================================================
+
 .page-item {
   &.disabled {
     cursor: not-allowed;

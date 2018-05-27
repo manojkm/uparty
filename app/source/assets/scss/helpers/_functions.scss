@@ -8,6 +8,7 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+//
 // MAP GET ERROR HANDLING
 // ======================================================
 // This function should warn if a theme requirement isn't met,
@@ -24,6 +25,7 @@
   }
 }
 
+//
 // REM FONT SIZE CALCULATING
 // ======================================================
 // Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
@@ -33,8 +35,10 @@
   @return #{$remSize}rem;
 }
 
+//
 // CHECK BOOLEAN VALUE
 // ======================================================
+
 @function bool($value: false) {
   @if $value == false or
           $value == "" or
@@ -46,8 +50,10 @@
   @return true;
 }
 
+//
 // ROUNDING DECIMALS
 // ======================================================
+
 // Round a number to specified digits.
 //
 // @param  {Number} $number A number to round
@@ -126,29 +132,36 @@
   @return decimal-round($number, $digits, floor);
 }
 
+//
 // FONT-FACE
 // ======================================================
 // Adapted from sassy-starter http://minamarkham.github.io/sassy-starter/
 
-// Load fonts from this directory.
-@if variable-exists(typefaces) {
-  @each $file, $option in $typefaces {
-    @font-face {
-      font-family: map-get(map-get($typefaces, $file), family);
-      font-style: map-get(map-get($typefaces, $file), style);
-      font-weight: map-get(map-get($typefaces, $file), weight);
-      src: url('#{$font-path}/#{$file}.eot'); // IE9 Compat Modes
-      src: url('#{$font-path}/#{$file}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
-           url('#{$font-path}/#{$file}.woff') format('woff'),  // Pretty Modern Browsers
-           url('#{$font-path}/#{$file}.woff2') format('woff2'), // Super Modern Browsers
-           url('#{$font-path}/#{$file}.ttf') format('truetype'), // Safari, Android, iOS
-           url('#{$font-path}/#{$file}.svg') format('svg'); // Legacy iOS
-    }
-  }
+@if variable-exists(google-fonts-import) {
+  @import url($google-fonts-import);
 }
 
+// Load fonts from this directory.
+//@if variable-exists(typefaces) {
+//  @each $file, $option in $typefaces {
+//    @font-face {
+//      font-family: map-get(map-get($typefaces, $file), family);
+//      font-style: map-get(map-get($typefaces, $file), style);
+//      font-weight: map-get(map-get($typefaces, $file), weight);
+//      src: url('#{$font-path}/#{$file}.eot'); // IE9 Compat Modes
+//      src: url('#{$font-path}/#{$file}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+//           url('#{$font-path}/#{$file}.woff') format('woff'),  // Pretty Modern Browsers
+//           url('#{$font-path}/#{$file}.woff2') format('woff2'), // Super Modern Browsers
+//           url('#{$font-path}/#{$file}.ttf') format('truetype'), // Safari, Android, iOS
+//           url('#{$font-path}/#{$file}.svg') format('svg'); // Legacy iOS
+//    }
+//  }
+//}
+
+//
 // RETRIEVE COLORS VALUE FROM DEFINED 'CONTEXTUAL' MAPS ($contextual-palette-map)
 // ======================================================
+
 // Adapted from https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
 @function contextual-color($scheme, $tone:base) {
   @if type-of(map-get-strict(map-get-strict($contextual-palette-map, $scheme), $tone)) == color {
@@ -158,8 +171,10 @@
   }
 }
 
+//
 // RETRIEVE MAIN COLORS VALUE FROM DEFINED 'THEMES' MAPS ($themes-map)
 // ======================================================
+
 @function theme-color($scheme, $tone) {
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
@@ -171,8 +186,10 @@
   }
 }
 
+//
 // RETRIEVE VALUES FROM DEFINED 'TYPOGRAPHY' MAP ($typography)
 // ======================================================
+
 @function get-typography($key: size-md, $property:null) {
 
   @if ($property != null) {
@@ -194,6 +211,7 @@
 
 }
 
+//
 // Replace `$search` with `$replace` in `$string
 // ======================================================
 // Used on our SVG icon backgrounds for custom forms.
