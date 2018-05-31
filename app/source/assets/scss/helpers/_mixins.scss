@@ -300,7 +300,7 @@
 // Usage @include set-border-radius($input-border-radius-lg);
 @mixin set-border-radius($radius) {
   @if bool($enable-rounded) == true {
-    @include border-radius($radius);
+    border-radius: $radius;
   } @else {
     border-radius: 0;
   }

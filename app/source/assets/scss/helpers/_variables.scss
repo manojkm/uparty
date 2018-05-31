@@ -43,33 +43,34 @@
 // 2.2 TYPOGRAPHY MAP
 // 2.1 TYPOGRAPHY RE-USABLE VARIABLES MAPPING
 
-// 3. ELEMENTS
+// 3. CONFIGS
 // -----------------------------------------------------------------------------
-// 3.1 HTML
-// 3.2 BODY
-// 3.3 HYPERLINKS
-// 3.4 HEADINGS
-// 3.5 LEAD
+// 3.1 LAYOUT/STYLING CONFIGS
+// 3.2 ASSETS PATHS VARIABLE CONFIG
 
-// 4. CONFIGS
+// 4. UTILITIES FOR LAYOUT
 // -----------------------------------------------------------------------------
-// 4.1 LAYOUT/STYLING CONFIGS
-// 4.2 ASSETS PATHS VARIABLE CONFIG
+// 4.1 SELECTIONS
+// 4.2 BORDERS
+// 4.3 MARK
+// 4.4 SIZES
+// 4.5 WHITE OPACITY
+// 4.6 BLACK OPACITY
+// 4.7 OVERLAY
+// 4.8 SHADOWS
+// 4.9 EASINGS
+// 4.10 TRANSITIONS
+// 4.11 Z-INDEX LAYERS
+// 4.12 BREAKPOINTS
+// 4.13 CURSORS
 
-// 5. UTILITIES FOR LAYOUT
+// 5. ELEMENTS
 // -----------------------------------------------------------------------------
-// 5.1 SELECTIONS
-// 5.2 BORDERS
-// 5.3 MARK
-// 5.4 SIZES
-// 5.5 OVERLAY
-// 5.6 WHITE OPACITY
-// 5.7 BLACK OPACITY
-// 5.8 SHADOWS
-// 5.9 EASINGS
-// 5.10 TRANSITIONS
-// 5.11 Z-INDEX LAYERS
-// 5.12 BREAKPOINTS
+// 5.1 HTML
+// 5.2 BODY
+// 5.3 HYPERLINKS
+// 5.4 HEADINGS
+// 5.5 LEAD
 
 // 6. LAYOUT
 // -----------------------------------------------------------------------------
@@ -136,7 +137,7 @@
 //
 // 1.1 PALETTE
 // -----------------------------------------------------------------------------
-// It's quite good to have all color variables in a separate file as it's may quite heavy.
+// It's quite good to have all color variables in a separate file as it's may become quite heavy.
 // Please check helpers/_palette.scss,
 
 //
@@ -208,7 +209,7 @@ $contextual-palette-map: (
 //
 // 2.2 TYPOGRAPHY MAP
 // -----------------------------------------------------------------------------
-// Add all the above fonts (helpers/_fonts.scss) to the map.
+// Add all the above font variables (helpers/_fonts.scss) to the map.
 // Make sure all the names match the above fonts variable names (helpers/_fonts.scss) for clarity.
 
 $typography: (
@@ -272,75 +273,19 @@ $font-wh-medium:                        get-typography(weight-medium) !default; 
 $font-wh-semi:                          get-typography(weight-semi) !default; // 600
 $font-wh-bold:                          get-typography(weight-bold) !default; // 700
 
-// 3. ELEMENTS
+// 3. CONFIGS
 // =============================================================================
 //
-// 3.1 HTML
-// -----------------------------------------------------------------------------
-
-$html-font-size:                        $font-size-100; // Font size for <html>.
-
-//
-// 3.2 BODY
-// -----------------------------------------------------------------------------
-// Settings for the '<body>' element.
-
-$body-bg:                               $white-color; // Background color for <body>.
-$body-color:                            $font-color-default; // Global text color on <body>.
-$body-font-family:                      $font-family-default; // Specifies the default font family for body text
-$body-font-size:                        $font-size-base; // Specifies the default font size for body text
-$body-font-weight:                      $font-wh-regular; // Specifies the default font weight for body text
-$body-line-height:                      $lh-base;  // Specifies the default line height for body text
-
-//
-// 3.3 HYPERLINKS
-// -----------------------------------------------------------------------------
-// Settings for the anchor elements.
-
-$link-color:                            $font-color-default; // Global textual link color.
-$link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
-$link-hover-decoration:                 none; // Global textual link hover decoration.
-
-//
-// 3.4 HEADINGS
-// -----------------------------------------------------------------------------
-// Settings for the '<h1>, <h2>' etc.. elements. By default, this inherits from the '<body>'.
-
-$headings-color:                        $font-color-headings; // Text color for headings <h1> <h2> etc...
-$headings-font-family:                  $font-family-headings; // Font family for headings
-$headings-font-weight:                  $font-wh-medium; // Font weight for headings
-$headings-line-height:                  1.2;
-$headings-letter-spacing:               -.0625rem !default; // ~1px, Character spacing for headings.
-
-// Font sizing
-
-$h1-font-size:                          $font-size-base * 2.5 !default; // <h1> font size
-$h2-font-size:                          $font-size-base * 2 !default; // <h2> font size
-$h3-font-size:                          $font-size-base * 1.75 !default; // <h3> font size
-$h4-font-size:                          $font-size-base * 1.5 !default; // <h4> font size
-$h5-font-size:                          $font-size-base * 1.25 !default; // <h5> font size
-$h6-font-size:                          $font-size-base !default; // <h6> font size
-
-//
-// 3.5 LEAD
-// -----------------------------------------------------------------------------
-
-$lead-font-size:                        ($font-size-base * 1.25) !default;
-$lead-font-weight:                      $font-wh-light !default;
-
-// 4. CONFIGS
-// =============================================================================
-//
-// 4.1 LAYOUT/STYLING CONFIGS
+// 3.1 LAYOUT/STYLING CONFIGS
 // -----------------------------------------------------------------------------
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-rounded:                        true !default; // Handle rounded corners
-$enable-breadcrumb:                     true !default; // If set to 'false' the breadcrumb will be disabled.
-$enable-sidebar-divider-underline-type: true; // If set to 'true' the sidebar divider 'after-line' type will be disabled.
+$enable-rounded:                                true !default; // Handle rounded corners
+$enable-breadcrumb:                             true !default; // If set to 'false' the breadcrumb will be disabled.
+$enable-sidebar-divider-underline-type:         false; // If set to 'true' the sidebar menu divider 'after-line' type will be disabled.
 
 //
-// 4.2 ASSETS PATHS VARIABLE CONFIG
+// 3.2 ASSETS PATHS VARIABLE CONFIG
 // -----------------------------------------------------------------------------
 // Paths for particular assets.
 // Use with #{} interpolation syntax:
@@ -350,18 +295,19 @@ $assets-relative-path-prod:             '../../' !default; // Set the directory 
 $font-path:                             '#{$assets-relative-path-prod}fonts' !default;
 $image-path:                            '#{$assets-relative-path-prod}img' !default;
 
-// 5. UTILITIES FOR LAYOUT
+// 4. UTILITIES FOR LAYOUT
 // =============================================================================
 //
-// 5.1 SELECTIONS
+// 4.1 SELECTIONS
 // -----------------------------------------------------------------------------
 
 $selection-bg-theme-scheme:             primary !default; // Background color scheme for highlighting the selection. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
 $selection-bg-theme-tone:               dark !default; // Theme color tone applied to selected text. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 //
-// 5.2 BORDERS
+// 4.2 BORDERS
 // -----------------------------------------------------------------------------
+// We use these to make sure border size and radius matches unless we want it different.
 
 $border:                                1px solid !default;
 $border-thin:                           1px !default;
@@ -380,7 +326,7 @@ $border-radius-50:                      50% !default;
 $border-radius-100:                     100% !default;
 
 //
-// 5.3 MARK
+// 4.3 MARK
 // -----------------------------------------------------------------------------
 
 $mark-underline-height-xs:              0.125rem; // 2px. Extra small (.mark-xs)
@@ -390,7 +336,7 @@ $mark-underline-height-lg:              0.75rem; // 12px. Large (.mark-lg)
 $mark-underline-height-xl:              1rem; // 16px. Extra large (.mark-xl)
 
 //
-// 5.4 SIZES
+// 4.4 SIZES
 // -----------------------------------------------------------------------------
 
 $sizes: (
@@ -400,41 +346,41 @@ $sizes: (
 ) !default;
 
 //
-// 5.5 OVERLAY
+// 4.5 WHITE OPACITY
 // -----------------------------------------------------------------------------
 
-$overlay:                               rgba(0, 0, 0, .5);
+$opacity-white-1:                       rgba($white-color, .1) !default;
+$opacity-white-2:                       rgba($white-color, .2) !default;
+$opacity-white-3:                       rgba($white-color, .3) !default;
+$opacity-white-4:                       rgba($white-color, .4) !default;
+$opacity-white-5:                       rgba($white-color, .5) !default;
+$opacity-white-6:                       rgba($white-color, .6) !default;
+$opacity-white-7:                       rgba($white-color, .7) !default;
+$opacity-white-8:                       rgba($white-color, .8) !default;
+$opacity-white-9:                       rgba($white-color, .9) !default;
 
 //
-// 5.6 WHITE OPACITY
+// 4.6 BLACK OPACITY
 // -----------------------------------------------------------------------------
 
-$opacity-white-1:                       rgba(255, 255, 255, .1) !default;
-$opacity-white-2:                       rgba(255, 255, 255, .2) !default;
-$opacity-white-3:                       rgba(255, 255, 255, .3) !default;
-$opacity-white-4:                       rgba(255, 255, 255, .4) !default;
-$opacity-white-5:                       rgba(255, 255, 255, .5) !default;
-$opacity-white-6:                       rgba(255, 255, 255, .6) !default;
-$opacity-white-7:                       rgba(255, 255, 255, .7) !default;
-$opacity-white-8:                       rgba(255, 255, 255, .8) !default;
-$opacity-white-9:                       rgba(255, 255, 255, .9) !default;
+$opacity-black-1:                       rgba($black-color, .1) !default;
+$opacity-black-2:                       rgba($black-color, .2) !default;
+$opacity-black-3:                       rgba($black-color, .3) !default;
+$opacity-black-4:                       rgba($black-color, .4) !default;
+$opacity-black-5:                       rgba($black-color, .5) !default;
+$opacity-black-6:                       rgba($black-color, .6) !default;
+$opacity-black-7:                       rgba($black-color, .7) !default;
+$opacity-black-8:                       rgba($black-color, .8) !default;
+$opacity-black-9:                       rgba($black-color, .9) !default;
 
 //
-// 5.7 BLACK OPACITY
+// 4.7 OVERLAY
 // -----------------------------------------------------------------------------
 
-$opacity-black-1:                       rgba(0, 0, 0, .1) !default;
-$opacity-black-2:                       rgba(0, 0, 0, .2) !default;
-$opacity-black-3:                       rgba(0, 0, 0, .3) !default;
-$opacity-black-4:                       rgba(0, 0, 0, .4) !default;
-$opacity-black-5:                       rgba(0, 0, 0, .5) !default;
-$opacity-black-6:                       rgba(0, 0, 0, .6) !default;
-$opacity-black-7:                       rgba(0, 0, 0, .7) !default;
-$opacity-black-8:                       rgba(0, 0, 0, .8) !default;
-$opacity-black-9:                       rgba(0, 0, 0, .9) !default;
+$overlay-bg:                            $opacity-black-5; // Background color for overlay.
 
 //
-// 5.8 SHADOWS TODO, make the below perfect later ->  https://github.com/backstopmedia/riot-book-example/blob/843c5f79ac02727cc4b3eecc7ad043e2aa55e1db/src/assets/styles/mixins/shadow.scss
+// 4.8 SHADOWS TODO, make the below perfect later ->  https://github.com/backstopmedia/riot-book-example/blob/843c5f79ac02727cc4b3eecc7ad043e2aa55e1db/src/assets/styles/mixins/shadow.scss
 // -----------------------------------------------------------------------------
 
 $container-shadow:                              0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
@@ -453,41 +399,41 @@ $slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-8
 $toastr-box-shadow:                             0 5px 10px rgba($black-color, .1);
 
 //
-// 5.9 EASINGS
+// 4.9 EASINGS
 // -----------------------------------------------------------------------------
 
 $ease-in-out-circ:                      cubic-bezier(.27, .01, .38, 1.06);
 
 //
-// 5.10 TRANSITIONS
+// 4.10 TRANSITIONS
 // -----------------------------------------------------------------------------
 
 $theme-transition-duration:             1.5s; // TODO, delete this if not using.
-$general-transition-duration:               0.5s !default;
+$general-transition-duration:           0.5s !default;
 
 //
-// 5.11 Z-INDEX LAYERS
+// 4.11 Z-INDEX LAYERS
 // -----------------------------------------------------------------------------
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
 
 $zindex: (
-        overlay : 800,
-        footer : 800,
-        sidebar :800,
-        aside : 850,
-        header : 860,
-        dropdown : 1000,
-        chosen-drop:1010,
-        modal-backdrop:1040,
-        modal : 1050,
-        popover: 1060,
-        tooltip: 1070,
-        fullscreen_card: 999,
+        overlay:                        800,
+        footer:                         800,
+        sidebar:                        800,
+        aside:                          850,
+        header:                         860,
+        dropdown:                       1000,
+        chosen-drop:                    1010,
+        modal-backdrop:                 1040,
+        modal:                          1050,
+        popover:                        1060,
+        tooltip:                        1070,
+        fullscreen_card:                999,
 );
 
 //
-// 5.12 BREAKPOINTS
+// 4.12 BREAKPOINTS
 // -----------------------------------------------------------------------------
 
 // Extra small devices (portrait phones, 480px and up)
@@ -523,6 +469,77 @@ $screen-md-max:                         ($screen-lg-min - 1) !default; // 991px
 
 // Large devices (desktops, less than 1200px)
 $screen-lg-max:                         ($screen-xl-min - 1) !default; // 1999px
+
+//
+// 4.12 BREAKPOINTS
+// -----------------------------------------------------------------------------
+// Cursors values for enabling the option of having custom cursors
+
+$cursor-crosshair:              crosshair;
+$cursor-default:                default;
+$cursor-pointer:                pointer;
+$cursor-help:                   help;
+$cursor-text:                   text;
+$cursor-text:                   text;
+$cursor-not-allowed:            not-allowed;
+$cursor-grab:                   grab;
+$cursor-grabbing:               grabbing;
+
+// 5. ELEMENTS
+// =============================================================================
+//
+// 5.1 HTML
+// -----------------------------------------------------------------------------
+
+$html-font-size:                        $font-size-100; // Font size for <html>.
+
+//
+// 5.2 BODY
+// -----------------------------------------------------------------------------
+// Settings for the '<body>' element.
+
+$body-bg:                               $white-color; // Background color for <body>.
+$body-color:                            $font-color-default; // Global text color on <body>.
+$body-font-family:                      $font-family-default; // Specifies the default font family for body text
+$body-font-size:                        $font-size-base; // Specifies the default font size for body text
+$body-font-weight:                      $font-wh-regular; // Specifies the default font weight for body text
+$body-line-height:                      $lh-base;  // Specifies the default line height for body text
+
+//
+// 5.3 HYPERLINKS
+// -----------------------------------------------------------------------------
+// Settings for the anchor elements.
+
+$link-color:                            $font-color-default; // Global textual link color.
+$link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
+$link-hover-decoration:                 none; // Global textual link hover decoration.
+
+//
+// 5.4 HEADINGS
+// -----------------------------------------------------------------------------
+// Settings for the '<h1>, <h2>' etc.. elements. By default, this inherits from the '<body>'.
+
+$headings-color:                        $font-color-headings; // Text color for headings <h1> <h2> etc...
+$headings-font-family:                  $font-family-headings; // Font family for headings
+$headings-font-weight:                  $font-wh-medium; // Font weight for headings
+$headings-line-height:                  1.2;
+$headings-letter-spacing:               -.0625rem !default; // ~1px, Character spacing for headings.
+
+// Font sizing
+
+$h1-font-size:                          $font-size-base * 2.5 !default; // <h1> font size
+$h2-font-size:                          $font-size-base * 2 !default; // <h2> font size
+$h3-font-size:                          $font-size-base * 1.75 !default; // <h3> font size
+$h4-font-size:                          $font-size-base * 1.5 !default; // <h4> font size
+$h5-font-size:                          $font-size-base * 1.25 !default; // <h5> font size
+$h6-font-size:                          $font-size-base !default; // <h6> font size
+
+//
+// 5.5 LEAD
+// -----------------------------------------------------------------------------
+
+$lead-font-size:                        ($font-size-base * 1.25) !default;
+$lead-font-weight:                      $font-wh-light !default;
 
 // 6. LAYOUT
 // =============================================================================

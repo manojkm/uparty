@@ -252,7 +252,7 @@
   }
 
   &:hover {
-    cursor: pointer;
+    cursor: $cursor-pointer;
     & ~ .custom-file-label,
     & ~ .custom-file-label:after {
       border-color: $input-hover-border-color;
@@ -386,7 +386,7 @@
     margin-right: 10px;
 
     &:hover {
-      cursor: pointer;
+      cursor: $cursor-pointer;
     }
 
     &:after {
@@ -479,7 +479,7 @@
     width: $custom-toggle-flip-width;
     height: $custom-toggle-flip-height;
     display: block;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     user-select: none;
     perspective: $custom-toggle-flip-width + $custom-toggle-flip-height;
     margin-right: 10px;

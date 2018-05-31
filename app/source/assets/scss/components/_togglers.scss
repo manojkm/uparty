@@ -35,7 +35,7 @@
   padding: $sidebar-toggler-padding-y $sidebar-toggler-padding-x;
   height: $sidebar-toggler-height;
   border: 0;
-  cursor: pointer;
+  cursor: $cursor-pointer;
 
   &:hover {
     @include background-theme('primary', 'light');
@@ -66,7 +66,7 @@
   padding: $aside-toggler-padding-y $aside-toggler-padding-x;
   height: $aside-toggler-height;
   border: 0;
-  cursor: pointer;
+  cursor: $cursor-pointer;
 
   // Hamburger icon
   & .icon-bar {
@@ -94,7 +94,7 @@
   background: transparent;
   position: relative;
   border: 0;
-  cursor: pointer;
+  cursor: $cursor-pointer;
   height: $sidebar-footer-height;
   flex: 1;
 

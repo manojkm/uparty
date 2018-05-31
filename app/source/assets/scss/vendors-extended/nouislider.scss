@@ -43,16 +43,12 @@
 
   // Change the cursor to a grab hand on hover.
   &:hover {
-    cursor: grab;
-    cursor: -webkit-grab;
-    cursor:-moz-grab;
+    cursor: $cursor-grab;
   }
 
   // Change the cursor to a grabbing hand on active.
   &:active {
-    cursor: grabbing;
-    cursor: -webkit-grabbing;
-    cursor:-moz-grabbing;
+    cursor: $cursor-grabbing;
   }
 
   &:before,
