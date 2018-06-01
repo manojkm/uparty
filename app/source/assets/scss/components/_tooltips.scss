@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : tooltips-and-popovers.scss
-// Description    : Adjustments/Override for Bootstrap's tooltips and popovers.
+// Description    : Adjustments/Override for Bootstrap's tooltips.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -62,60 +62,4 @@
     }
   }
 
-}
-
-//
-// POPOVERS
-// ======================================================
-
-.popover {
-  @include set-border-radius($popover-border-radius);
-  font-size: $popover-font-size;
-  max-width: $popover-max-width;
-  box-shadow: $popover-shadow;
-  z-index: map-get($zindex, popover);
-  text-align: left;
-  white-space: normal;
-  background-color: $popover-bg;
-
-  //&.bs-popover-top .arrow:before,
-  //&.bs-popover-left .arrow:before,
-  //&.bs-popover-right .arrow:before,
-  //&.bs-popover-bottom .arrow:before {
-  //  //border-top-color: transparent;
-  //  //border-left-color: transparent;
-  //  //border-right-color: transparent;
-  //  //border-bottom-color: transparent;
-  //}
-
-  .popover-header {
-    @include set-border-radius($popover-border-radius);
-    @include border-bottom-radius(0);
-    font-size: $popover-header-font-size;
-    //text-transform: capitalize;
-    font-weight: $font-wh-bold;
-    color: $popover-header-color;
-  }
-
-  // Theme variations
-  @each $themeName, $value in $themes-map {
-    $colors: map-get-strict($value, 'main-colors');
-    @each $scheme, $value in $colors {
-      &.popover-#{$scheme} {
-        @include popover-theme($scheme);
-      }
-    }
-  }
-
-  // Contextual variations
-  @each $scheme, $value in $contextual-palette-map {
-    &.popover-#{$scheme} {
-      @include popover-theme($scheme);
-    }
-  }
-}
-
-// Mouse pointer to be displayed when pointing over the image.
-img.has-popover {
-  cursor: $cursor-pointer;
 }

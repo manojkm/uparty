@@ -131,7 +131,7 @@
     .disabled a:hover,
     .disabled a:active {
       @include opacity($steps-disabled-opacity);
-      cursor: default;
+      cursor: $cursor-default;
       pointer-events: none;
     }
     a i {
@@ -199,14 +199,14 @@
     .disabled a:active {
       background: $steps-disabled-bg;
       color: $steps-disabled-color;
-      cursor: default;
+      cursor: $cursor-default;
     }
 
     .current a,
     .current a:hover,
     .current a:active {
       @include background-text-theme($steps-active-theme-scheme);
-      cursor: default;
+      cursor: $cursor-default;
     }
 
     .done a,
@@ -346,7 +346,7 @@
     .disabled,
     .current {
       a {
-        cursor: default;
+        cursor: $cursor-default;
       }
     }
 
@@ -455,7 +455,7 @@
 
     .current a {
       @include background-text-theme($steps-active-theme-scheme, dark);
-      cursor: default;
+      cursor: $cursor-default;
       &:after {
         @include border-theme($steps-active-theme-scheme, dark, $position: left);
       }
@@ -464,7 +464,7 @@
     .disabled a {
       background: $steps-disabled-bg;
       color: $steps-disabled-color;
-      cursor: default;
+      cursor: $cursor-default;
       &:after {
         border-left-color: $steps-disabled-bg;
       }
@@ -550,7 +550,7 @@
     .current a:active {
       @include background-text-theme($steps-active-theme-scheme);
       @include border-theme($steps-active-theme-scheme);
-      cursor: default;
+      cursor: $cursor-default;
     }
 
   }

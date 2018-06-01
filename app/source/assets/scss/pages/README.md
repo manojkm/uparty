@@ -1,3 +1,7 @@
-//TODO correct the below.
-About: third party libraries and dependencies import
-#https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_lib.scss
+# Pages
+
+If you have page-specific styles, it is better to put them in a `pages/` folder, in a file named after the page. For instance, it’s not uncommon to have very specific styles for the home page hence the need for a `_home.scss` file in `pages/`.
+
+*Note - These files should be processed on their own to avoid merging them with the others in the resulting stylesheet.*
+
+Reference: [Sass Guidelines](http://sass-guidelin.es/) > [Architecture](http://sass-guidelin.es/#architecture) > [Pages folder](http://sass-guidelin.es/#pages-folder)

@@ -1,7 +1,13 @@
-@charset "UTF-8"; // Make sure the charset is set appropriately
+@charset "UTF-8"; // Make sure the charset is set appropriately and it is the very first
+// element of the stylesheet and there is no character of any kind before it.
 // ================================================================================================
 // File Name: app.scss
 // Description:
+// One file to rule them all.
+// One file to find them.
+// One file to bring them all.
+// And in the sassy way merge them.
+//
 // Sass manifest file and your entry point to compile scss.
 // Following the 7-1 Pattern - https://sass-guidelin.es/#architecture.
 // Importing order & guidelines are mentioned under the title MAIN FILE -
@@ -24,7 +30,8 @@
 
 // BOURBON MIXINS
 // ======================================================
-// http://bourbon.io/docs/
+// Use Bourbon ('cause it rocks!), http://bourbon.io/docs/
+
 @import
 	'bourbon';
 
@@ -35,32 +42,51 @@
 
 // CONFIGURATION & HELPERS
 // ======================================================
+// Sass code that doesn't output to any CSS
+// (ie. mixins, functions and more.)
+
 @import
 	'helpers/all';
 
 // VENDORS
 // ======================================================
+// Contains third-party styles to merging them with the
+// others in the resulting stylesheet.
+// (ie. media-queries, normalize, and so on.)
 // TODO, check what this guy is doing https://github.com/clawfire/Brasserie-Schuman/blob/ac0221058b295dafd1a58644ac9033604c0b639a/_sass/lib/_lib.scss
+
 @import
 	'vendors-include/all';
 
 // BASE STUFF
 // ======================================================
+// Contains global styles
+// (ie. typography, body, html, and so on.)
+
 @import
 	'base/all';
 
 // UTILITIES
 // ======================================================
+// Contains utility classes
+// (ie. .border-primary, .text-primary, .bg-primary, and so on.)
+
 @import
 	'utilities/all';
 
 // PARTIALS
 // ======================================================
+// Contains partial styles
+// (ie. header, footer, sidebar, and so on.)
+
 @import
 	'partials/all';
 
 // ENHANCEMENT COMPONENTS
 // ======================================================
+// Contains reusable components styles
+// (ie. forms, buttons, badges, and so on.)
+
 @import
 	'components/all';
 

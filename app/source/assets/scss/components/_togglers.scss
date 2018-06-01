@@ -15,7 +15,7 @@
 
   // Hamburger icon
   & .icon-bar {
-    @include background-theme('primary');
+    @include background-theme($navbar-toggler-icon-bar-theme-scheme, $navbar-toggler-icon-bar-theme-tone);
   }
   &.collapsed {
     &:hover {
@@ -31,15 +31,14 @@
 
 // Sidebar toggle button
 .sidebar--toggler {
-  @include background-theme('primary');
+  @include background-theme($sidebar-toggler-bg-theme-scheme);
   padding: $sidebar-toggler-padding-y $sidebar-toggler-padding-x;
   height: $sidebar-toggler-height;
   border: 0;
   cursor: $cursor-pointer;
 
   &:hover {
-    @include background-theme('primary', 'light');
-
+    @include background-theme($sidebar-toggler-bg-theme-scheme, $sidebar-toggler-hover-bg-theme-tone);
   }
 
   &.collapsed {
@@ -54,13 +53,13 @@
 
   // Hamburger icon
   & .icon-bar {
-    @include background-theme('primary', 'font-color');
+    @include background-theme($sidebar-toggler-bg-theme-scheme, 'font-color');
   }
 }
 
 // Aside toggle button
 .aside--toggler {
-  @include background-theme('header');
+  @include background-theme($aside-toggler-bg-theme-scheme);
   @include transition;
   position: relative;
   padding: $aside-toggler-padding-y $aside-toggler-padding-x;
@@ -70,16 +69,16 @@
 
   // Hamburger icon
   & .icon-bar {
-    @include background-theme('primary');
+    @include background-theme($aside-toggler-icon-bar-active-theme-scheme);
   }
 
   &.collapsed {
     .icon-bar {
-      @include background-theme('header', 'link-color');
+      @include background-theme($aside-toggler-bg-theme-scheme, 'link-color');
     }
     &:hover {
       .icon-bar {
-        @include background-theme('header', 'hover-color');
+        @include background-theme($aside-toggler-bg-theme-scheme, 'hover-color');
         + .icon-bar {
           margin-top: 6px;
         }
@@ -100,18 +99,18 @@
 
   // Hamburger icon
   & .icon-bar {
-    @include background-theme('sidebar', 'link-color');
+    @include background-theme($sidebar-footer-theme-scheme, 'link-color');
   }
 
   &:hover {
-    @include background-theme('sidebar', 'dark');
+    @include background-theme($sidebar-footer-theme-scheme, 'dark');
     .icon-bar {
       @include background-theme($sidebar-footer-active-theme-scheme);
     }
   }
 
   &.collapsed {
-    @include background-theme('sidebar', 'dark');
+    @include background-theme($sidebar-footer-theme-scheme, 'dark');
     .icon-bar {
       @include background-theme($sidebar-footer-active-theme-scheme);
     }
@@ -211,7 +210,6 @@
 
 .rarr .icon-bar:nth-of-type(2) {
   /* transform: scale(0.75); */
-;
 }
 
 .rarr .icon-bar:nth-of-type(3) {

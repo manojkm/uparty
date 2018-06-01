@@ -47,20 +47,20 @@
     flex-direction: column;
 
     // Scrollbar style for webkit browsers
-   /* &::-webkit-scrollbar-track {
-      border-radius: 2px;
-    }
+    /* &::-webkit-scrollbar-track {
+       border-radius: 2px;
+     }
 
-    &::-webkit-scrollbar {
-      width: 15px;
-      @include background-theme($sidebar-theme-scheme);
-    }
+     &::-webkit-scrollbar {
+       width: 15px;
+       @include background-theme($sidebar-theme-scheme);
+     }
 
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-      @include background-theme($sidebar-theme-scheme, 'light');
-    }*/
+     &::-webkit-scrollbar-thumb {
+       border-radius: 10px;
+       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+       @include background-theme($sidebar-theme-scheme, 'light');
+     }*/
 
     &::-webkit-scrollbar {
       width: 6px;
@@ -128,7 +128,7 @@
     @extend %o-v-none;
     @include background-theme($sidebar-footer-theme-scheme);
     @include border-theme($sidebar-footer-theme-scheme, 'dark', $position: top);
-    @include add-border(1px , transparent, top);
+    @include add-border(1px, transparent, top);
     min-height: $sidebar-footer-height;
     box-shadow: $sidebar-footer-shadow;
     position: fixed;

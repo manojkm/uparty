@@ -37,17 +37,20 @@
 // 1.1 PALETTE
 // 1.2 CONTEXTUAL PALETTE MAP
 
+//
 // 2. TYPOGRAPHY
 // -----------------------------------------------------------------------------
 // 2.1 FONTS
 // 2.2 TYPOGRAPHY MAP
 // 2.1 TYPOGRAPHY RE-USABLE VARIABLES MAPPING
 
+//
 // 3. CONFIGS
 // -----------------------------------------------------------------------------
 // 3.1 LAYOUT/STYLING CONFIGS
 // 3.2 ASSETS PATHS VARIABLE CONFIG
 
+//
 // 4. UTILITIES FOR LAYOUT
 // -----------------------------------------------------------------------------
 // 4.1 SELECTIONS
@@ -64,6 +67,7 @@
 // 4.12 BREAKPOINTS
 // 4.13 CURSORS
 
+//
 // 5. ELEMENTS
 // -----------------------------------------------------------------------------
 // 5.1 HTML
@@ -72,6 +76,7 @@
 // 5.4 HEADINGS
 // 5.5 LEAD
 
+//
 // 6. LAYOUT
 // -----------------------------------------------------------------------------
 // 6.1 MAIN CONTENT WRAPPERS (main.content)
@@ -80,10 +85,12 @@
 // 6.4 GLOBAL SIDEBAR (section.sidebar)
 // 6.5 GLOBAL FOOTER
 
+//
 // 7. PAGE SPECIFIC
 // -----------------------------------------------------------------------------
 // 7.1 PAGE SPECIFIC
 
+//
 // 8. COMPONENTS
 // -----------------------------------------------------------------------------
 // 8.1 BUTTONS
@@ -115,6 +122,7 @@
 // 8.27 SEARCH
 // 8.28 MEGA MENU
 
+//
 // 9. VENDOR'S VARIABLES
 // -----------------------------------------------------------------------------
 // 9.1 TOASTR PLUGIN
@@ -124,6 +132,7 @@
 // 9.5 JQUERY STEPS PLUGIN
 // 9.6 NOUISLIDER PLUGIN
 
+//
 // 10. SELECTORS LIST
 // -----------------------------------------------------------------------------
 // 10.1 LINK SELECTORS
@@ -132,6 +141,7 @@
 
 // ================================================================================================
 
+//
 // 1. COLOR SCHEME
 // =============================================================================
 //
@@ -198,6 +208,7 @@ $contextual-palette-map: (
         ),
 );
 
+//
 // 2. TYPOGRAPHY
 // =============================================================================
 //
@@ -229,7 +240,7 @@ $typography: (
         size-sm:                        (0.875rem, 1.25rem), // 14px 20px
         size-md:                        (1rem, 1.375rem), // 16px 22px, font size of the <body> element
         size-lg:                        (1.125rem, 1.5rem), // 18px 24px
-        size-xl:                        (1.25rem, 1.625rem) // 20px 26px
+        size-xl:                        (1.25rem, 1.625rem), // 20px 26px
 );
 
 //
@@ -273,8 +284,10 @@ $font-wh-medium:                        get-typography(weight-medium) !default; 
 $font-wh-semi:                          get-typography(weight-semi) !default; // 600
 $font-wh-bold:                          get-typography(weight-bold) !default; // 700
 
+//
 // 3. CONFIGS
 // =============================================================================
+
 //
 // 3.1 LAYOUT/STYLING CONFIGS
 // -----------------------------------------------------------------------------
@@ -295,6 +308,7 @@ $assets-relative-path-prod:             '../../' !default; // Set the directory 
 $font-path:                             '#{$assets-relative-path-prod}fonts' !default;
 $image-path:                            '#{$assets-relative-path-prod}img' !default;
 
+//
 // 4. UTILITIES FOR LAYOUT
 // =============================================================================
 //
@@ -349,29 +363,29 @@ $sizes: (
 // 4.5 WHITE OPACITY
 // -----------------------------------------------------------------------------
 
-$opacity-white-1:                       rgba($white-color, .1) !default;
-$opacity-white-2:                       rgba($white-color, .2) !default;
-$opacity-white-3:                       rgba($white-color, .3) !default;
-$opacity-white-4:                       rgba($white-color, .4) !default;
-$opacity-white-5:                       rgba($white-color, .5) !default;
-$opacity-white-6:                       rgba($white-color, .6) !default;
-$opacity-white-7:                       rgba($white-color, .7) !default;
-$opacity-white-8:                       rgba($white-color, .8) !default;
-$opacity-white-9:                       rgba($white-color, .9) !default;
+$opacity-white-1:                       rgba($white-color, 0.1) !default;
+$opacity-white-2:                       rgba($white-color, 0.2) !default;
+$opacity-white-3:                       rgba($white-color, 0.3) !default;
+$opacity-white-4:                       rgba($white-color, 0.4) !default;
+$opacity-white-5:                       rgba($white-color, 0.5) !default;
+$opacity-white-6:                       rgba($white-color, 0.6) !default;
+$opacity-white-7:                       rgba($white-color, 0.7) !default;
+$opacity-white-8:                       rgba($white-color, 0.8) !default;
+$opacity-white-9:                       rgba($white-color, 0.9) !default;
 
-//
+//0
 // 4.6 BLACK OPACITY
 // -----------------------------------------------------------------------------
 
-$opacity-black-1:                       rgba($black-color, .1) !default;
-$opacity-black-2:                       rgba($black-color, .2) !default;
-$opacity-black-3:                       rgba($black-color, .3) !default;
-$opacity-black-4:                       rgba($black-color, .4) !default;
-$opacity-black-5:                       rgba($black-color, .5) !default;
-$opacity-black-6:                       rgba($black-color, .6) !default;
-$opacity-black-7:                       rgba($black-color, .7) !default;
-$opacity-black-8:                       rgba($black-color, .8) !default;
-$opacity-black-9:                       rgba($black-color, .9) !default;
+$opacity-black-1:                       rgba($black-color, 0.1) !default;
+$opacity-black-2:                       rgba($black-color, 0.2) !default;
+$opacity-black-3:                       rgba($black-color, 0.3) !default;
+$opacity-black-4:                       rgba($black-color, 0.4) !default;
+$opacity-black-5:                       rgba($black-color, 0.5) !default;
+$opacity-black-6:                       rgba($black-color, 0.6) !default;
+$opacity-black-7:                       rgba($black-color, 0.7) !default;
+$opacity-black-8:                       rgba($black-color, 0.8) !default;
+$opacity-black-9:                       rgba($black-color, 0.9) !default;
 
 //
 // 4.7 OVERLAY
@@ -385,18 +399,18 @@ $overlay-bg:                            $opacity-black-5; // Background color fo
 
 $container-shadow:                              0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
 $dropdown-shadow:                               0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
-$header-shadow:                                 0 1px 3px rgba($black-color, .2);
-$popover-shadow:                                0 5px 10px rgba($black-color, .1);
+$header-shadow:                                 0 1px 3px rgba($black-color, 0.2);
+$popover-shadow:                                0 5px 10px rgba($black-color, 0.1);
 $sidebar-footer-shadow:                         0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
 $progress-box-shadow:                           inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 $card-box-shadow:                               0 1px 2px rgba(0, 0, 0, .075) !default;
 $card-box-header-inset-shadow:                  inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
-$pagination-ext-indicator-box-shadow:           inset 0 .1rem .1rem rgba($gray-800, .5) !default;
-$modal-content-box-shadow-xs:                   0 5px 10px rgba($black-color, .1);
-$chosen-select-box-shadow:                      0 5px 10px rgba($black-color, .1);
-$multiple-select-box-shadow:                    0 5px 10px rgba($black-color, .1);
-$slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-800, .15) !default;
-$toastr-box-shadow:                             0 5px 10px rgba($black-color, .1);
+$pagination-ext-indicator-box-shadow:           inset 0 .1rem .1rem rgba($gray-800, 00.5) !default;
+$modal-content-box-shadow-xs:                   0 5px 10px rgba($black-color, 0.1);
+$chosen-select-box-shadow:                      0 5px 10px rgba($black-color, 0.1);
+$multiple-select-box-shadow:                    0 5px 10px rgba($black-color, 0.1);
+$slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-800, 0.15) !default;
+$toastr-box-shadow:                             0 5px 10px rgba($black-color, 0.1);
 
 //
 // 4.9 EASINGS
@@ -485,6 +499,7 @@ $cursor-not-allowed:            not-allowed;
 $cursor-grab:                   grab;
 $cursor-grabbing:               grabbing;
 
+//
 // 5. ELEMENTS
 // =============================================================================
 //
@@ -527,11 +542,11 @@ $headings-letter-spacing:               -.0625rem !default; // ~1px, Character s
 
 // Font sizing
 
-$h1-font-size:                          $font-size-base * 2.5 !default; // <h1> font size
-$h2-font-size:                          $font-size-base * 2 !default; // <h2> font size
-$h3-font-size:                          $font-size-base * 1.75 !default; // <h3> font size
-$h4-font-size:                          $font-size-base * 1.5 !default; // <h4> font size
-$h5-font-size:                          $font-size-base * 1.25 !default; // <h5> font size
+$h1-font-size:                          ($font-size-base * 2.5) !default; // <h1> font size
+$h2-font-size:                          ($font-size-base * 2) !default; // <h2> font size
+$h3-font-size:                          ($font-size-base * 1.75) !default; // <h3> font size
+$h4-font-size:                          ($font-size-base * 1.5) !default; // <h4> font size
+$h5-font-size:                          ($font-size-base * 1.25) !default; // <h5> font size
 $h6-font-size:                          $font-size-base !default; // <h6> font size
 
 //
@@ -541,6 +556,7 @@ $h6-font-size:                          $font-size-base !default; // <h6> font s
 $lead-font-size:                        ($font-size-base * 1.25) !default;
 $lead-font-weight:                      $font-wh-light !default;
 
+//
 // 6. LAYOUT
 // =============================================================================
 //
@@ -628,7 +644,7 @@ $sidebar-footer-icon-font-size:         15px;
 
 $sidebar-mini-width:                    50px;
 $sidebar-mini-submenu-width:            $sidebar-width; // So that submenu takes the same width of the sidebar.
-$sidebar-mini-active-menu-width:        $sidebar-width + $sidebar-mini-width;
+$sidebar-mini-active-menu-width:        ($sidebar-width + $sidebar-mini-width);
 
 // Mini sidebar 'full' type adjustments
 
@@ -646,6 +662,7 @@ $footer-font-weight:                    $font-wh-regular;
 // 7. PAGE SPECIFIC
 // =============================================================================
 
+//
 // 8. COMPONENTS
 // =============================================================================
 //
@@ -771,7 +788,7 @@ $input-addon-hover-focus-color:         $input-focus-color; // Color for textual
 $input-addon-bg:                        $gray-100; // Background color for textual input group’s addons
 $input-addon-min-width:                 40px; // Minimum width of input group’s addons
 
-$input-height-border:                   $input-border-size * 2 !default; // Required to compute input height
+$input-height-border:                   ($input-border-size * 2) !default; // Required to compute input height
 
 // Small input (.form-control-sm)
 
@@ -957,7 +974,7 @@ $nav-tabs-ext-v-wrap-active-border-size:        $nav-tabs-border-size !default; 
 
 // Tabs Extended (ext) - Vertical Right line type
 
-$nav-tabs-ext-v-right-line-active-border-size:  $nav-tabs-ext-v-wrap-active-border-size + 1 !default; // Width of the right side line for active tab
+$nav-tabs-ext-v-right-line-active-border-size:  ($nav-tabs-ext-v-wrap-active-border-size + 1) !default; // Width of the right side line for active tab
 
 //
 // 8.10 CARDS
@@ -970,10 +987,10 @@ $card-spacer-x:                         1.25rem !default; // Card horizontal pad
 $card-bg:                               $white-color; // Background color for entire card
 $card-border-radius:                    $border-radius-lg; // Card border radius to add rounded corners
 $card-border-size:                      $border-thin; // Card border width
-$card-border-color:                     rgba($black-color, .155) !default; // Card border color
+$card-border-color:                     rgba($black-color, 0.2) !default; // Card border color
 $card-inner-border-radius:              calc(#{$card-border-radius} - #{$card-border-size}) !default; // Compute card inside radius, so that elements inside the card will proper radius.
 
-$card-header-bg:                        rgba($black-color, .03) !default; // Background color for card header
+$card-header-bg:                        rgba($black-color, 0.03) !default; // Background color for card header
 $card-footer-bg:                        $card-header-bg; // Background color for card footer
 
 $card-link-color:                       $gray-600 !default; // Text color for card links (a.card-link)
@@ -1019,10 +1036,8 @@ $breadcrumb-link-hover-theme-tone:              dark !default; // Theme color to
 $breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
 $breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size - 1}) / 2) !default; // Compute breadcrumb container height.
 
-//$arrow-wizard-inner-size:               ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
-//$arrow-wizard-border-size:              calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle /\.
-//
-
+//$arrow-wizard-inner-size:                     ($btn-font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
+//$arrow-wizard-border-size:                    calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle /\.
 
 //
 // 8.12 BREADCRUMB EXTENDED
@@ -1137,21 +1152,21 @@ $pagination-ext-indicator-margin-x:                     4px;  // Right margin fo
 // Small size
 
 // Compute the pagination height so the pagination will have the same height as 'small' size buttons
-$pagination-ext-border-size-sm:         $pagination-border-size * 2 !default;
+$pagination-ext-border-size-sm:         ($pagination-border-size * 2) !default;
 $pagination-ext-inner-sm:               ($pagination-font-size-sm * $pagination-line-height-sm) + ($pagination-padding-y-sm * 2) !default;
 $pagination-ext-size-sm:                calc(#{$pagination-ext-inner-sm} + #{$pagination-ext-border-size-sm}) !default;
 
 // Regular size
 
 // Compute the pagination height so the pagination will have the same height as 'regular' size buttons
-$pagination-ext-border-size:            $pagination-border-size * 2 !default;
+$pagination-ext-border-size:            ($pagination-border-size * 2) !default;
 $pagination-ext-inner:                  ($pagination-font-size * $pagination-line-height) + ($pagination-padding-y * 2) !default;
 $pagination-ext-size:                   calc(#{$pagination-ext-inner} + #{$pagination-ext-border-size}) !default;
 
 // Large size
 
 // Compute the pagination height so the pagination will have the same height as 'large' size buttons
-$pagination-ext-border-size-lg:         $pagination-border-size * 2 !default;
+$pagination-ext-border-size-lg:         ($pagination-border-size * 2) !default;
 $pagination-ext-inner-lg:               ($pagination-font-size-lg * $pagination-line-height-lg) + ($pagination-padding-y-lg * 2) !default;
 $pagination-ext-size-lg:                calc(#{$pagination-ext-inner-lg} + #{$pagination-ext-border-size-lg}) !default;
 
@@ -1230,7 +1245,7 @@ $modal-border-radius:                   $border-radius-md !default; // Modal bor
 $modal-body-padding:                    15px 25px !default; // Padding around the modal body
 
 $modal-backdrop-bg:                     $black-color !default; // Modal backdrop background color
-$modal-backdrop-opacity:                .7 !default; // Modal backdrop opacity
+$modal-backdrop-opacity:                0.7 !default; // Modal backdrop opacity
 
 $modal-header-border-size:              $border-thin !default; // Modal header border bottom width
 $modal-header-border-color:             $gray-400;  // Modal header border bottom color
@@ -1268,7 +1283,7 @@ $tooltip-line-height:                   $lh-sm !default;
 
 $carousel-control-icon-size:                            40px !default; // Left/right controls size
 $carousel-control-icon-font-size:                       1.5rem; // Left/right controls icon font size
-$carousel-control-icon-bg:                              rgba(0, 0, 0, .0); // Left/right controls background color
+$carousel-control-icon-bg:                              rgba(0, 0, 0, 0.0); // Left/right controls background color
 $carousel-control-next-icon:                            '\e606'; // Next icon (Simple Line Icons) unicode.
 $carousel-control-prev-icon:                            '\e605'; // Prev icon (Simple Line Icons) unicode.
 $carousel-control-prev-icon-text-shadow:                1px 2px 2px rgba(0, 0, 0, 0.5); // Next/Prev icons text shadow.
@@ -1290,7 +1305,7 @@ $accordion-icon-margin-left:                    10px; // Right margin for accord
 $accordion-body-bg:                             $white-color !default; // Background color for accordion
 
 $accordion-header-collapsed-bg:                 $card-header-bg !default; // Background color for accordion header
-$accordion-header-collapsed-hover-bg:           rgba($black-color, .08) !default; // Background color for accordion header on hover
+$accordion-header-collapsed-hover-bg:           rgba($black-color, 0.08) !default; // Background color for accordion header on hover
 $accordion-header-active-bg:                    $accordion-header-collapsed-hover-bg !default; // Background color for accordion header on active
 
 // Accordion caret icon
@@ -1350,20 +1365,26 @@ $custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color 
 
 // Header nav toggle button - visible on mobile devices only
 
-$navbar-toggler-padding-y:              10px;
-$navbar-toggler-padding-x:              10px;
+$navbar-toggler-padding-y:                      10px;
+$navbar-toggler-padding-x:                      10px;
+$navbar-toggler-icon-bar-theme-scheme:          primary !default; // Color scheme for Hamburger icon bar. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
+$navbar-toggler-icon-bar-theme-tone:            base !default; // Theme color tone applied to Hamburger icon bar. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 // Sidebar toggle button
 
-$sidebar-toggler-height:                $header-height - 10;
-$sidebar-toggler-padding-y:             0px;
-$sidebar-toggler-padding-x:             10px;
+$sidebar-toggler-height:                        $header-height - 10;
+$sidebar-toggler-padding-y:                     0px;
+$sidebar-toggler-padding-x:                     10px;
+$sidebar-toggler-bg-theme-scheme:               primary !default; // Background color scheme for toggle button. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
+$sidebar-toggler-hover-bg-theme-tone:           light !default; // Theme color tone applied to toggle button on hover. NOTE: Retrieved from active theme palette map from themes/theme-*.
 
 // Aside toggle button
 
-$aside-toggler-height:                  $header-height;
-$aside-toggler-padding-y:               10px;
-$aside-toggler-padding-x:               10px;
+$aside-toggler-height:                          $header-height;
+$aside-toggler-padding-y:                       10px;
+$aside-toggler-padding-x:                       10px;
+$aside-toggler-bg-theme-scheme:                 header !default; // Background color scheme for toggle button. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
+$aside-toggler-icon-bar-active-theme-scheme:    primary !default; // Color scheme for Hamburger icon bar on active. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
 
 //
 // 8.27 SEARCH
@@ -1373,6 +1394,7 @@ $aside-toggler-padding-x:               10px;
 // 8.28 MEGA MENU
 // -----------------------------------------------------------------------------
 
+//
 // 9. VENDOR'S VARIABLES
 // =============================================================================
 //
@@ -1510,6 +1532,7 @@ $slider-tooltip-border-radius:          $border-radius-md !default; // Slider to
 $slider-tooltip-color:                  $gray-700 !default; // Slider tooltip text color
 $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3px rgba($gray-400, 0.2); // Slider tooltip box shadow
 
+//
 // 10. SELECTORS LIST
 // =============================================================================
 //

@@ -1,7 +1,7 @@
 // ================================================================================================
 // File Name      : colors.scss
-// Description    : Common file to include color palette. It's quite good to have all
-// color variables in a separate file as it's may quite heavy.
+// Description    : Common file to include color palette, referred to in variables.scss
+// It's quite good to have all color variables in a separate file as it's may quite heavy.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -20,8 +20,8 @@
 // ======================================================
 // Basic colors like black, white and gray.
 
-$black-color: #000;
-$white-color: #fff;
+$black-color: #000 !default;
+$white-color: #fff !default;
 
 // Collection of grayscale colors
 

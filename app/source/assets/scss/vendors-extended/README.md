@@ -1,7 +1,8 @@
-About: third party libraries and dependencies import
-#https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_lib.scss
+# Vendors Extended
 
-#https://github.com/techyrajeev/TestProject/blob/326d66baf1840909bc7ad04c4e66f7b762a5c151/sass/vendors_extenstion/README.md
-If we have to override a section of any vendor, in vendors-extensions/ we create files named exactly after the vendors they overwrite.
-For instance, vendors-extensions/_bootstrap.scss is a file containing all CSS rules intended to re-declare some of Bootstrap’s default CSS.
+The `vendors-extended/` directory is for vendors styles override and dependencies import. If we have to override a section of any vendor, in `vendors-extended/` we create files named exactly after the vendors they overwrite.
+
+For instance, vendors-extensions/_chosen.scss is a file containing CSS rules intended to re-declare some of Chosen’s default CSS.
 This is to avoid editing the vendor files themselves, which is generally not a good idea.
+
+Adapted from: [Sass Guidelines](http://sass-guidelin.es/) > [Architecture](http://sass-guidelin.es/#architecture) > [Vendors folder](http://sass-guidelin.es/#vendors-folder)

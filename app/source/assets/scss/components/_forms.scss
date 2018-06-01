@@ -12,6 +12,7 @@
 //
 // TEXTUAL FORM CONTROLS
 // ======================================================
+
 .form-control {
   @include transition;
   @include set-border-radius($input-border-radius);
@@ -41,6 +42,7 @@
 //
 // TEXTAREA
 // ======================================================
+
 textarea.form-control {
   height: auto;
 }
@@ -110,6 +112,7 @@ form {
 //
 // REQUIRED FIELD LABEL
 // ======================================================
+
 .required-field {
 
   &::after {
@@ -147,6 +150,7 @@ form {
 //
 // FORM CONTROL SIZING
 // ======================================================
+
 .form-control-sm {
   @include set-border-radius($input-border-radius-sm);
   padding: $btn-padding-y-sm $btn-padding-x-sm;
@@ -189,6 +193,7 @@ select.form-control-lg {
 //
 // TRANSPARENT FORM ELEMENTS
 // ======================================================
+
 .has-bg-dark {
   @include transparent-forms($opacity-white-2, $opacity-white-3, $opacity-white-2, $opacity-white-3, $white-color, $white-color, $opacity-white-5);
 }

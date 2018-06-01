@@ -155,7 +155,7 @@
     #{$disabled-tags} {
       //@include add-border(2px, transparent, left);
       background-color: transparent;
-      cursor: not-allowed;
+      cursor: $cursor-not-allowed;
       background-image: none;
       @include opacity($dropdown-link-opacity-disabled-color);
       filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)";
@@ -228,6 +228,7 @@
 //
 // BOOTSTRAP DROPDOWN MENU - EXTENDED - THEMED
 // ======================================================
+
 .dropdown-menu.extended.themed {
 
   &,

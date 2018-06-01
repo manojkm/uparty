@@ -12,15 +12,17 @@
 // CONTEXTUAL & THEME BACKGROUND VARIANTS WITH TEXT COLOR
 //--------------------------------------------*/
 
-.bg-primary {
-  @include background-text-theme(primary, $sledge-hammer: !important);
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .bg-#{$scheme} {
+      @include background-text-theme($scheme, $sledge-hammer: !important);
+    }
+  }
 }
 
-.bg-secondary {
-  @include background-text-theme(secondary, $sledge-hammer: !important);
-}
-
-/* Contextual variations */
+// Contextual variations
 @each $scheme, $value in $contextual-palette-map {
   .bg-#{$scheme} {
     @include background-text-theme($scheme, $sledge-hammer: !important);
@@ -31,12 +33,14 @@
 // CONTEXTUAL & THEME BORDER VARIANTS
 //----------------------------------*/
 
-.border-primary {
-  @include border-theme(primary, $sledge-hammer: !important);
-}
-
-.border-secondary {
-  @include border-theme(secondary, $sledge-hammer: !important);
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .border-#{$scheme} {
+      @include border-theme($scheme, $sledge-hammer: !important);
+    }
+  }
 }
 
 /* Contextual variations */
@@ -50,17 +54,18 @@
 // CONTEXTUAL & THEME TEXT VARIANTS
 //----------------------------------*/
 
-.text-primary {
-  @include text-theme(primary, $sledge-hammer: !important);
-  @include text-link-theme(primary, $sledge-hammer: !important);
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .text-#{$scheme} {
+      @include text-theme($scheme, $sledge-hammer: !important);
+      @include text-link-theme($scheme, $sledge-hammer: !important)
+    }
+  }
 }
 
-.text-secondary {
-  @include text-theme(secondary, $sledge-hammer: !important);
-  @include text-link-theme(secondary, $sledge-hammer: !important);
-}
-
-/* Contextual variations */
+// Contextual variations
 @each $scheme, $value in $contextual-palette-map {
   .text-#{$scheme} {
     @include text-theme($scheme, $sledge-hammer: !important);

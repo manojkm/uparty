@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : fonts.scss
-// Description    : Web fonts and Google Fonts
+// Description    : Web fonts and Google Fonts, referred to in variables.scss
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -32,4 +32,4 @@ $google-fonts-import:                   'https://fonts.googleapis.com/css?family
 
 $font-family-default:                   'Source Sans Pro';  // Define Google font stack used for body, paragraphs.
 $font-family-display:                   $font-family-default; // Define font stack used for headings <h1> <h2> etc...
-$font-family-fallback:                  'Arial', sans-serif; // Define font stack used for fallback
+$font-family-fallback:                  'Arial', sans-serif; // Define font to ensure embedded fonts fall back to appropriate system fonts.

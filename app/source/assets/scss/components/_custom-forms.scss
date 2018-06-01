@@ -50,7 +50,7 @@
 
     ~ .#{$cc}-label {
       color: $custom-control-label-disabled-color;
-      cursor: not-allowed;
+      cursor: $cursor-not-allowed;
 
       &::before {
         border-color: $custom-control-indicator-disabled-border-color;
@@ -260,7 +260,7 @@
   }
 
   &:disabled {
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
   }
 
   &:disabled + .custom-file-label {
@@ -316,6 +316,7 @@
 //
 // FILE INPUT SIZING
 // ======================================================
+
 .custom-file-sm {
   height: $input-height-sm;
   font-size: $input-font-size-sm;
@@ -361,6 +362,7 @@
 //
 // TOGGLE SWITCH
 // ======================================================
+
 .custom-toggle {
   $ct: custom-toggle;
   $cci: custom-control-input;
@@ -432,7 +434,7 @@
   // Disabled state
   .#{$cci}:disabled + .#{$ccind} {
     background-color: $custom-control-indicator-disabled-bg;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
   }
   .#{$cci}:disabled:active + .#{$ccind}:after {
     width: $custom-toggle-knob-width;
@@ -527,7 +529,7 @@
   .#{$cci}:disabled + .#{$ccind} {
     background-color: $custom-control-indicator-disabled-bg;
     color: $custom-control-indicator-disabled-color;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
   }
 
   // Checked + Disabled state

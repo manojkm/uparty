@@ -11,6 +11,7 @@
 //
 // BUTTON
 // ======================================================
+
 %button {
   @include set-border-radius($btn-border-radius);
   font-size: $btn-font-size;
@@ -30,6 +31,7 @@
 //
 // CLEARFIX
 // ======================================================
+
 %cf {
   @include clearfix;
 }
@@ -55,6 +57,7 @@
 //
 // ACCORDION PSEUDO
 // ======================================================
+
 %acc-pseudo {
   @include center(y);
   font-family: 'simple-line-icons';
@@ -79,6 +82,7 @@
 //
 // DROPZONE PSEUDO
 // ======================================================
+
 %dropzone-pseudo {
   //@include center(y);
   font-family: 'simple-line-icons';
@@ -95,6 +99,7 @@
 //
 // BREADCRUMB EXTENDED ARROW PSEUDO
 // ======================================================
+
 %abreadcrumb-ext-arrow-pseudo {
   content: " ";
   display: block;
@@ -113,6 +118,7 @@
 //
 // CHOSEN SELECT BOX PSEUDO
 // ======================================================
+
 %search-choice-close-pseudo,
 %chosen-close-pseudo {
   font-family: 'simple-line-icons';

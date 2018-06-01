@@ -87,7 +87,7 @@
 
     &.disabled {
       @include opacity(0.3);
-      cursor: not-allowed;
+      cursor: $cursor-not-allowed;
       background-color: transparent;
     }
 
