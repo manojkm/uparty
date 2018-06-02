@@ -1,9 +1,9 @@
 // ================================================================================================
 // File Name      : toastr.scss
 // Description    : Custom overrides of Toastr Plugin
-// (https://github.com/CodeSeven/toastr/blob/master/toastr.scss)
-// These styles are required for Toastr to function. You probably don't need to change these
-// rules to apply your design.
+//                  (https://github.com/CodeSeven/toastr/blob/master/toastr.scss)
+//                  These styles are required for Toastr to function.
+//                  You probably don't need to change these rules.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -11,14 +11,18 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// VENDORS DEPENDENCIES
+//
+// VENDORS DEPENDENCIES IMPORT
 // ======================================================
-@import
-    '_dependencies';
-// Please make sure to keep the dependencies included above as they're necessary for all vendors extensions to function.
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
 
+@import
+    'dependencies';
+
+//
 // TOASTR
 // ======================================================
+
 #toast-container > div {
   @include set-border-radius($toastr-radius);
   @include opacity($toastr-opacity);

@@ -1,14 +1,16 @@
 //
-// THEME DEPENDENCIES
+// THEME DEPENDENCIES IMPORT
 // ======================================================
+// Please make sure to import the dependencies as they're necessary for all themes to function.
+
 @import
-    '../../custom-variables', // Your custom variables and variable overwrites.
-    '../../helpers/palette'; // Default color variables.
+    '../config/dependencies';
 
 //
 // BRAND COLORS VARIABLES // TODO.. https://github.com/manojkm/flask
 // ======================================================
-// Begin by defining base colours. You can simply define these inside the below palette map instead,
+// It's highly recommended to change the default colors to match your app's branding.
+// You can simply define these inside the below palette map instead,
 // but separate variables outside of the map make it easier.
 
 // Primary
@@ -48,15 +50,15 @@ $color-shade-amount: 4%; // Used to generate base, light & dark color shades.
 // TODO for  tomorrow https://stackoverflow.com/questions/33856034/dynamically-build-up-a-sass-map-and-then-use-the-values
 //
 // DEFINE PALETTE MAP FOR YOUR THEME
-// ======================================================
+// ================================================================================================
 // Add all the above colors to the map. This makes it possible to auto generate various background
 // color variations etc.
 // Make sure all the different names match the above variable names for clarity.
 //
 // Theme palette are all stored in a map data-structure which gives flexibility when traversing
 // based on keys and also looking up values based on strings.
-// ================================================================================================
-// WARNING        : You probably don't need to change the below settings except 'Palette name' as
+// ------------------------------------------------------------------------------------------------
+// WARNING: You probably don't need to change the below settings except 'Palette name' as
 // it affects the colors of all design elements and are designed to all work together.
 // Theme palette help to ensure that different components in the application will coordinate with
 // each other and contribute to a unified look.

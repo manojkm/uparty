@@ -1,9 +1,9 @@
 // ================================================================================================
 // File Name      : chosen.scss
 // Description    : Custom overrides of Chosen Plugin
-// (https://github.com/harvesthq/chosen/blob/master/sass/chosen.scss)
-// These styles are required for Chosen to function. You probably don't need to change these
-// rules to apply your design.
+//                  (https://github.com/harvesthq/chosen/blob/master/sass/chosen.scss)
+//                  These styles are required for Chosen to function.
+//                  You probably don't need to change these rules.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -11,12 +11,15 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// VENDORS DEPENDENCIES
+//
+// VENDORS DEPENDENCIES IMPORT
 // ======================================================
-@import
-    '_dependencies';
-// Please make sure to keep the dependencies included above as they're necessary for all vendors extensions to function.
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
 
+@import
+    'dependencies';
+
+//
 // CHOSEN
 // ======================================================
 
@@ -308,4 +311,3 @@
     }
   }
 }
-

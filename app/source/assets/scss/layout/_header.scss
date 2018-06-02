@@ -1,17 +1,20 @@
 // ================================================================================================
-// File Name: header.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : header.scss
+// Description    : This file contains all styles related to the header layout, but not navbar.
+//                  Due to the complexity of the navbar, we will likely have a file dedicated to it,
+//                  please check 'layout/_header-nav.scss`.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// Wraps all header elements
 .master-header {
-  @include background-theme('header');
   @include transition;
   @include clearfix;
+  @include background-theme($header-theme-scheme);
   position: absolute;
   left: 0;
   right: 0;
@@ -22,9 +25,10 @@
   display: flex;
   align-items: center;
 
-  &__wrap {
+  // Header inner wrapper
+  &__inner-wrap {
+    @include color($header-theme-scheme, 'font-color');
     width: 100%;
-    @include color('header', 'font-color');
   }
 
   .header-fixed & {
@@ -42,13 +46,4 @@
   .sidebar-is-open.sidebar-mini .header-fixed & {
     margin-left: $sidebar-mini-width;
   }
-
-  //.sidebar-is-open & {
-  //  margin-left: $sidebar-width;
-  //}
-  //
-  //.sidebar-is-open.sidebar-mini & {
-  //  margin-left: $sidebar-mini-width;
-  //}
-
 }

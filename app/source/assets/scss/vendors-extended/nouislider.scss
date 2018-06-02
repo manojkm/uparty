@@ -1,9 +1,9 @@
 // ================================================================================================
 // File Name      : nouislider.scss
 // Description    : Custom overrides of noUiSlider Plugin
-// (https://github.com/leongersen/noUiSlider/blob/master/distribute/nouislider.css)
-// These styles are required for noUiSlider to function. You probably don't need to change these
-// rules to apply your design.
+//                  (https://github.com/leongersen/noUiSlider/blob/master/distribute/nouislider.css)
+//                  These styles are required for noUiSlider to function.
+//                  You probably don't need to change these rules.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -11,12 +11,15 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// VENDORS DEPENDENCIES
+//
+// VENDORS DEPENDENCIES IMPORT
 // ======================================================
-@import
-    '_dependencies';
-// Please make sure to keep the dependencies included above as they're necessary for all vendors extensions to function.
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
 
+@import
+    'dependencies';
+
+//
 // noUi SLIDER
 // ======================================================
 
@@ -117,6 +120,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 // Contextual variations
+
 @each $scheme, $value in $contextual-palette-map {
   .slider-#{$scheme} {
     .noUi-connect { @include background-theme($scheme);}

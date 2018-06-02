@@ -1,0 +1,35 @@
+// ================================================================================================
+// File Name      : aside.scss
+// Description    : This file contains all styles related to the aside (2nd sidebar).
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+// Wraps all aside elements
+.aside {
+  @include background-color($aside-theme-scheme, 'base');
+  @include color($aside-theme-scheme, 'font-color');
+  @include transition;
+  transform: translateX(115%); // Hiding aide as default
+  width: $sidebar-width;
+  padding-bottom: $footer-min-height;
+  position: absolute;
+  top: $header-height;
+  right: 0;
+  bottom: 0;
+  z-index: map-get($zindex, aside);
+
+  .header-fixed & {
+    position: fixed;
+  }
+
+  .aside-is-open & {
+    transform: translateX(0); // Showing aside if body has .aside-is-open class
+  }
+
+  &__inner-wrap {
+  }
+}

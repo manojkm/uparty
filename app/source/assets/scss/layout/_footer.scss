@@ -1,16 +1,19 @@
 // ================================================================================================
-// File Name: footer.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : footer.scss
+// Description    : This file contains all styles related to the footer layout, but not footer
+//                  navigation. Due to the complexity of the footer navigation, we will likely have
+//                  a file dedicated to it, please check 'layout/_footer-nav.scss`.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// Wraps all footer elements
 .master-footer {
   @include transition;
-  @include background-color('footer', 'base');
+  @include background-color($footer-theme-scheme, 'base');
   position: absolute;
   left: 0;
   right: 0;
@@ -22,8 +25,9 @@
   align-items: center;
   z-index: map-get($zindex, footer);
 
-  &__wrap {
-    @include color('footer', 'font-color');
+  // Header inner wrapper
+  &__inner-wrap {
+    @include color($footer-theme-scheme, 'font-color');
   }
 
   .footer-fixed & {

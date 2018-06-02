@@ -1,22 +1,30 @@
 // ================================================================================================
-// File Name      : dependencies.scss
-// Description    : Vendors dependencies. This file should only comprise of @imports.
+// File Name      : all.scss
+// Description    : Sass manifest file for layout. This file should only comprise of @imports.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
 // Author         : MANOJ
 // Author URL     : http://www.themeforest.net/user/xxx
 // ------------------------------------------------------------------------------------------------
-// NOTE           : Make sure to import this dependencies file for all vendors extensions as
-//                  they're necessary for all vendors extensions to function.
+// Guidelines	  : One @import per folder;
+// 				  : A linebreak after @import;
+// 				  : Each file on its own line;
+// 				  : A new line after the last import from a folder;
+// 				  : File extensions and leading underscores omitted.
 // ================================================================================================
 
 //
-// VENDORS DEPENDENCIES
+// LAYOUTS
 // ======================================================
 
 @import
-    'bourbon',
-    '../themes/config/config',
-    '../vendors-include/media-queries',
-    '../helpers/all';
+	'main-wrappers',
+	'header',
+	'header-nav',
+	'sidebar',
+	'sidebar-nav',
+	'aside',
+	'footer',
+	'footer-nav';
+

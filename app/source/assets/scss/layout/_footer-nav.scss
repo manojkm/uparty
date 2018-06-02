@@ -10,21 +10,21 @@
 
 .master-footer__nav {
 
-  /* Footer menu links */
+  // Footer menu links
   .nav-link {
-    @include color('footer', 'link-color');
+    @include color($footer-theme-scheme, 'link-color');
     @include transition;
     font-size:$footer-font-size;
     font-weight: $footer-font-weight;
 
-    /* Change the hover, focus, active state links for better highlighting */
+    // Change the hover, focus, active state links for better highlighting
     #{$hover-tags} {
-      @include color('footer', 'hover-color');
+      @include color($footer-theme-scheme, 'hover-color');
     }
 
     #{$focus-tags},
     #{$active-tags} {
-      @include color('footer', 'active-color');
+      @include color($footer-theme-scheme, 'active-color');
     }
     &.disabled {
       @include opacity(0.3);

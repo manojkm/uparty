@@ -1,0 +1,124 @@
+// ================================================================================================
+// File Name      : main-wrappers.scss
+// Description    : Depending on the complexity of the app, we will likely have a file dedicated
+//                  to main(outer) wrappers.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ------------------------------------------------------------------------------------------------
+// The page layout is as follows:
+// - .main-wrap         : body > .main-wrap
+// - .app               : body > .main-wrap > .app
+// - .master-header     : body > .main-wrap > .app > .master-header
+// - .sidebar           : body > .main-wrap > .app > .sidebar
+// - .breadcrumb__wrap  : body > .main-wrap > .app > .breadcrumb__wrap
+// - .content           : body > .main-wrap > .app > .content
+// - .aside             : body > .main-wrap > .app > .aside
+// - .master-footer     : body > .main-wrap > .app > .master-footer
+// ================================================================================================
+
+//
+// MAIN WRAPPERS
+// ======================================================
+
+.main-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app {
+  @include transition;
+  position: relative;
+  padding-left: 0;
+  min-height: 100vh;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: $gray-200;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .sidebar-is-open & {
+    @include transition;
+    margin-left: $sidebar-width;
+  }
+  .sidebar-mobile.sidebar-is-open & {
+    margin-right: -$sidebar-width;
+  }
+  .sidebar-is-open.sidebar-mini & {
+    @include transition;
+    margin-left: $sidebar-mini-width;
+  }
+}
+
+//
+// HEADER WRAPPERS
+// ======================================================
+// It's quite good to have all header wrappers, styles in a separate file as it's quite heavy.
+// Please check `layout/_header.scss`.
+
+//
+// SIDEBAR WRAPPERS
+// ======================================================
+// It's quite good to have all sidebar wrappers, styles in a separate file as it's quite heavy.
+// Please check `layout/_sidebar.scss`
+
+//
+// BREADCRUMB WRAPPERS
+// ======================================================
+.breadcrumb__wrap {
+  @if bool($enable-breadcrumb) == false {
+    display: none;
+  }
+  padding-top: $header-height;
+
+  .breadcrumb {
+    @include add-border($breadcrumb-border-size, $breadcrumb-border-color, bottom);
+    margin: 0;
+    &,
+    & .breadcrumb-item {
+      &:first-child,
+      &:first-child a {
+        @include set-border-radius(0);
+      }
+    }
+  }
+}
+
+//
+// MAIN CONTENT WRAPPERS
+// ======================================================
+
+// Main content
+.content {
+  &__inner-wrap {
+    @if bool($enable-breadcrumb) == true {
+      padding: $main-content-padding-y $main-content-padding-x ($footer-min-height + $main-content-padding-y);
+    } @else {
+      padding: ($header-height + $main-content-padding-y) $main-content-padding-x ($footer-min-height + $main-content-padding-y);
+    }
+    min-height: 100vh;
+  }
+
+  // Page title
+  &__page-title {
+    margin-top: -$main-content-padding-y;
+    padding: $page-title-padding-y $page-title-padding-x;
+  }
+}
+
+//
+// ASIDE (2nd sidebar) WRAPPERS
+// ======================================================
+// It's quite good to have all aside wrappers, styles in a separate file as it's quite heavy.
+// Please check `layout/_aside.scss`
+
+//
+// FOOTER WRAPPERS
+// ======================================================
+// It's quite good to have all footer wrappers, styles in a separate file as it's quite heavy.
+// Please check `layout/_footer.scss`

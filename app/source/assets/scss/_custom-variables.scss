@@ -1,16 +1,22 @@
 // ================================================================================================
 // File Name      : custom-variables.scss
 // Description    : Override the xxx(themename) default variables here, leaving the original copy
-// of the file intact. You can also specify custom variables and other content variations.
+//                  of the file intact.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
 // Author         : MANOJ
 // Author URL     : http://www.themeforest.net/user/xxx
+// ------------------------------------------------------------------------------------------------
+// GUIDELINES     : To customize the look and feel of this app, you can override the Sass
+//                  variables found in xxx(themename) source scss files. To get a sense:
+//                  - You can use any xxx(themename) variable from `helpers/_variables.scss`.
+//                  - You can use any font variable from `helpers/_fonts.scss`.
+//                  - You can use any palette variable from `helpers/_palette.scss`.
+//                  Of course you can also add your own custom variable definitions here.
+// ------------------------------------------------------------------------------------------------
+// ATTENTION      : Do NOT add any SASS declarations that compile to actual CSS in this file,
+//                  since this file will be imported in various helpers, so only define variables
+//                  here. We suggest you to define such SASS declarations into the provided
+//                  `scss/_custom.scss` file.
 // ================================================================================================
-// ================================================================================================
-// Use this file to override xxx(themename) variables and color pallete variables.
-// You can use any xxx(themename) variable from scss/helpers/_variables.scss
-// You can use any color pallete variable from  scss/helpers/_colors.scss
-// ================================================================================================
-

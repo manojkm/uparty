@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : sidebar-nav.scss
-// Description    : Contains all the styles of sidebar navigation
+// Description    : Handles styling exclusive to the page's sidebar navigation.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -10,8 +10,10 @@
 
 // TODO https://gist.github.com/jareware/4738651
 
+//
 // SIDEBAR MENU
 // ======================================================
+
 .sidebar {
   $s: sidebar;
 
@@ -64,6 +66,7 @@
     }
 
   }
+
   // Sidebar divider 'underline' type
   &__divider {
     @include transition;
@@ -200,6 +203,7 @@
 
 }
 
+//
 // MINI SIDEBAR MENU & MODIFIERS
 // ======================================================
 
@@ -302,6 +306,7 @@
   }
 }
 
+//
 // MINI SIDEBAR FULL HEIGHT TYPE
 // ======================================================
 

@@ -1,0 +1,30 @@
+// ================================================================================================
+// File Name      : background.scss
+// Description    :
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//
+// BACKGROUND VARIANTS WITH TEXT COLOR
+// ======================================================
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .bg-#{$scheme} {
+      @include background-text-theme($scheme, $sledge-hammer: !important);
+    }
+  }
+}
+
+// Contextual variations
+@each $scheme, $value in $contextual-palette-map {
+  .bg-#{$scheme} {
+    @include background-text-theme($scheme, $sledge-hammer: !important);
+  }
+}

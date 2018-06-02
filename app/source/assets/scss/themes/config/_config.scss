@@ -1,20 +1,18 @@
 // ================================================================================================
 // File Name      : config.scss
-// Description    : Themes configuration. Sass manifest file for themes.
-// Importing order & guidelines are mentioned under the title MAIN FILE
-// - https://sass-guidelin.es/#architecture.
+// Description    : Themes configuration ans sass manifest file for themes.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
 // Author         : MANOJ
 // Author URL     : http://www.themeforest.net/user/xxx
+// ------------------------------------------------------------------------------------------------
+// THEME SWITCHING TIP : This project is shipped with 2 themes out of the box. Rebecca (default),
+//                       Unicorn.  To switch theme, change the class attribute on the <body> in the
+//                       index.html file. For instance, to use the Unicorn theme change:
+//                       <body class="theme-unicorn">
 // ================================================================================================
-// ================================================================================================
-// THEME SWITCHING TIP:
-// This project is shipped with 2 themes out of the box. Light (default) , Dark.
-// To switch theme, change the class attribute on the <body> in the index.html file.
-// For instance, to use the Dark theme change:  <body class="theme-dark">
-// ================================================================================================
+
 // TODO, please refer the below links for theme changing tutorial, doc etc.. Copy paste this in my own doc later and then remove below line.
 // https://github.com/nborracha/plainID-DemoApp/tree/61b66cf018e918bcb17aa87f243fce2bc95d9833
 // https://codepen.io/jakealbaugh/post/using-sass-functions-to-access-complex-variable-maps
@@ -31,17 +29,20 @@
 //
 // ENABLE DYNAMIC THEMES
 // ======================================================
+
 $dynamicTheme: false;
 
 //
 // ACTIVE THEME NAME
 // ======================================================
+
 $activeTheme: 'rebecca';
 
 //
 // IMPORT THEMES
 // ======================================================
 // Import your themes here.
+
 @import
     '../theme-rebecca/rebecca',
     '../theme-unicorn/unicorn';

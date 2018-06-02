@@ -1,9 +1,9 @@
 // ================================================================================================
 // File Name      : jquery.steps.scss
 // Description    : Custom overrides of Jquery-Steps Plugin
-// (https://github.com/rstaib/jquery-steps)
-// These styles are required for Jquery.Steps to function. You probably don't need to change these
-// rules to apply your design.
+//                  (https://github.com/rstaib/jquery-steps)
+//                  These styles are required for Jquery.Steps to function.
+//                  You probably don't need to change these rules.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -11,14 +11,18 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// VENDORS DEPENDENCIES
+//
+// VENDORS DEPENDENCIES IMPORT
 // ======================================================
-@import
-    '_dependencies';
-// Please make sure to keep the dependencies included above as they're necessary for all vendors extensions to function.
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
 
+@import
+    'dependencies';
+
+//
 // JQUERY STEPS
 // ======================================================
+
 .wizard {
   display: flex;
   flex-direction: column;
@@ -146,8 +150,10 @@
 
 }
 
+//
 // VERTICAL WIZARD TYPE
 // ======================================================
+
 .wizard.vertical {
   @include max-screen($screen-xs-max) {
     flex-direction: column;
@@ -180,8 +186,10 @@
 
 }
 
+//
 // PILLS WIZARD TYPE
 // ======================================================
+
 .wizard.pills-wizard {
   > .steps {
     a,
@@ -225,8 +233,10 @@
 
 }
 
+//
 // CIRCLE WIZARD TYPE
 // ======================================================
+
 .wizard.circle-wizard {
 
   > .steps {
@@ -354,8 +364,10 @@
 
 }
 
+//
 // CIRCLE WIZARD - VERTICAL TYPE
 // ======================================================
+
 .wizard.circle-wizard.vertical {
   > .steps {
     ul li {
@@ -367,8 +379,10 @@
   }
 }
 
+//
 // ARROW WIZARD TYPE
 // ======================================================
+
 //TODO https://codepen.io/jonangel247/pen/XKmMVJ
 .wizard.arrow-wizard {
   > .steps {
@@ -481,8 +495,10 @@
 
 }
 
+//
 // ARROW WIZARD - VERTICAL TYPE
 // ======================================================
+
 .wizard.arrow-wizard.vertical {
   > .steps {
     ul li {
@@ -509,8 +525,10 @@
   }
 }
 
+//
 // TAB WIZARD TYPE
 // ======================================================
+
 .wizard.tab-wizard {
   > .steps {
     //@include add-border($nav-tabs-border-size, $nav-tabs-border-color, bottom);
@@ -561,7 +579,9 @@
   }
 }
 
+//
 // MISC
 // ======================================================
+
 .wizard > .loading {}
 .wizard > .loading .spinner {}

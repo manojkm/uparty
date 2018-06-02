@@ -6,16 +6,18 @@
 // Version        : 1.2
 // Author         : MANOJ
 // Author URL     : http://www.themeforest.net/user/xxx
-// ================================================================================================
-// ================================================================================================
-// WARNING        : PLEASE DO NOT CHANGE THIS VARIABLE FILE. THIS FILE WILL GET OVERWRITTEN WITH
-// EACH XXXX TEMPLATE RELEASE.
-// TIP            : We suggest you to copy variables from this file into the provided
-// '_custom-variables.scss' to override the xxx(themename) defaults.
 // ------------------------------------------------------------------------------------------------
-// VAR STRUCTURE  : Like in Bootstrap, variables should follow the
-// '$component-state-property-size' formula for consistent naming.
-// Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+// WARNING        : PLEASE DO NOT CHANGE THIS VARIABLE FILE. THIS FILE WILL GET OVERWRITTEN WITH
+//                  EACH XXXX TEMPLATE RELEASE. ORDER IS ALSO VERY IMPORTANT.
+// TIP            : We suggest you to copy variables from this file into the provided
+//                  `scss/_custom-variables.scss` file to override the xxx(themename) defaults.
+// NOTE           : Even though all variables have the `!default` directive, most of them  should
+//                  not be changed as they are dependent one another. This can cause visual
+//                  distortions (like alignment issues) that are hard to track down and fix.
+// ------------------------------------------------------------------------------------------------
+// VAR STRUCTURE  : Like in Bootstrap, variables should follow the '$component-state-property-size'
+//                  formula for consistent naming.
+//                  Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 // ================================================================================================
 // TODO: Fill the below comment block with proper text following robust admin theme.
 // TODO get variable namings fro https://www.bootstrap-live-customizer.com/.
@@ -79,11 +81,12 @@
 //
 // 6. LAYOUT
 // -----------------------------------------------------------------------------
-// 6.1 MAIN CONTENT WRAPPERS (main.content)
-// 6.2 PAGE TITLE WRAPPERS (.content__page-title)
+// 6.1 MAIN CONTENT WRAPPERS
+// 6.2 PAGE TITLE WRAPPERS
 // 6.3 GLOBAL HEADER & NAVBAR
-// 6.4 GLOBAL SIDEBAR (section.sidebar)
-// 6.5 GLOBAL FOOTER
+// 6.4 GLOBAL SIDEBAR
+// 6.5 GLOBAL ASIDE - 2nd SIDEBAR
+// 6.6 GLOBAL FOOTER
 
 //
 // 7. PAGE SPECIFIC
@@ -140,6 +143,8 @@
 // 10.3 ICON SELECTORS
 
 // ================================================================================================
+// DECLARATIONS OF SASS VARIABLES BEGINS
+// ================================================================================================
 
 //
 // 1. COLOR SCHEME
@@ -147,8 +152,8 @@
 //
 // 1.1 PALETTE
 // -----------------------------------------------------------------------------
-// It's quite good to have all color variables in a separate file as it's may become quite heavy.
-// Please check helpers/_palette.scss,
+// It's quite good to have all color variables in a separate file as it's may become quite heavy in future.
+// Please check `helpers/_palette.scss`
 
 //
 // 1.2 CONTEXTUAL PALETTE MAP
@@ -215,13 +220,13 @@ $contextual-palette-map: (
 // 2.1 FONTS
 // -----------------------------------------------------------------------------
 // It's quite good to have all fonts variables in a separate file as it's may become quite heavy.
-// Please check helpers/_fonts.scss,
+// Please check `helpers/_fonts.scss`
 
 //
 // 2.2 TYPOGRAPHY MAP
 // -----------------------------------------------------------------------------
-// Add all the above font variables (helpers/_fonts.scss) to the map.
-// Make sure all the names match the above fonts variable names (helpers/_fonts.scss) for clarity.
+// Add all the above font variables (`helpers/_fonts.scss`) to the map.
+// Make sure all the names match the above fonts variable names (`helpers/_fonts.scss`) for clarity.
 
 $typography: (
         font-default:                   ($font-family-default, $font-family-fallback),
@@ -246,7 +251,7 @@ $typography: (
 //
 // 2.3 TYPOGRAPHY RE-USABLE VARIABLES MAPPING
 // -----------------------------------------------------------------------------
-// Re-usable variable names that will retrieve values from the above $typography map.
+// Re-usable variable names that will retrieve values from the above `$typography` map.
 
 // Retrieve font family
 
@@ -315,8 +320,8 @@ $image-path:                            '#{$assets-relative-path-prod}img' !defa
 // 4.1 SELECTIONS
 // -----------------------------------------------------------------------------
 
-$selection-bg-theme-scheme:             primary !default; // Background color scheme for highlighting the selection. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
-$selection-bg-theme-tone:               dark !default; // Theme color tone applied to selected text. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$selection-bg-theme-scheme:             primary !default; // Background color scheme for highlighting the selection. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
+$selection-bg-theme-tone:               dark !default; // Theme color tone applied to selected text. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 //
 // 4.2 BORDERS
@@ -373,7 +378,7 @@ $opacity-white-7:                       rgba($white-color, 0.7) !default;
 $opacity-white-8:                       rgba($white-color, 0.8) !default;
 $opacity-white-9:                       rgba($white-color, 0.9) !default;
 
-//0
+//
 // 4.6 BLACK OPACITY
 // -----------------------------------------------------------------------------
 
@@ -560,14 +565,14 @@ $lead-font-weight:                      $font-wh-light !default;
 // 6. LAYOUT
 // =============================================================================
 //
-// 6.1 MAIN CONTENT WRAPPERS (main.content)
+// 6.1 MAIN CONTENT WRAPPERS
 // -----------------------------------------------------------------------------
 
 $main-content-padding-y:                20px; // Vertical padding for 'main content' wrapper
 $main-content-padding-x:                0; // Horizontal padding for 'main content' wrapper
 
 //
-// 6.2 PAGE TITLE WRAPPERS (.content__page-title)
+// 6.2 PAGE TITLE WRAPPERS
 // -----------------------------------------------------------------------------
 
 $page-title-padding-y:                  20px; // Vertical padding for 'page title' wrapper
@@ -576,7 +581,7 @@ $page-title-padding-x:                  0; // Horizontal padding for 'page title
 //
 // 6.3 GLOBAL HEADER & NAVBAR
 // -----------------------------------------------------------------------------
-
+$header-theme-scheme:                   header !default; // Theme color scheme applied to header. NOTE: Retrieved from active theme palette map from `themes/theme-*`
 $header-height:                         50px;
 $navbar-font-size:                      $font-size-sm;
 $navbar-font-weight:                    $font-wh-regular;
@@ -585,12 +590,12 @@ $navbar-text-font-weight:               $font-wh-regular;
 $navbar-item-mobile-bottom-border:      true;
 
 //
-// 6.4 GLOBAL SIDEBAR (section.sidebar)
+// 6.4 GLOBAL SIDEBAR
 // -----------------------------------------------------------------------------
 
-$sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. NOTE: Retrieved from active theme palette map from themes/theme-*
-$sidebar-active-border-theme-scheme:    primary !default; // Theme color scheme applied to active sidebar menu item. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
-$sidebar-width:                         200px; // Width of sidebar
+$sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. NOTE: Retrieved from active theme palette map from `themes/theme-*`
+$sidebar-active-border-theme-scheme:    primary !default; // Theme color scheme applied to active sidebar menu item. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
+$sidebar-width:                         200px; // Sidebar Size
 $sidebar-padding-y:                     0px; // Sidebar vertical padding.
 $sidebar-padding-x:                     10px; // Sidebar horizontal padding
 
@@ -633,7 +638,7 @@ $sidebar-divider-margin-x:              0px;
 // Sidebar footer
 
 $sidebar-footer-theme-scheme:           $sidebar-theme-scheme !default; // So that sidebar footer takes the same theme scheme of the sidebar.
-$sidebar-footer-active-theme-scheme:    primary !default; // Theme color scheme applied to active item. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$sidebar-footer-active-theme-scheme:    primary !default; // Theme color scheme applied to active item. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $sidebar-footer-width:                  $sidebar-width; // So that sidebar footer takes the same width of the sidebar.
 $sidebar-footer-height:                 40px; // Height of sidebar footer
 $sidebar-footer-child-border-top-size:  $border-thin; // Width of the top 'border'for submenu.
@@ -651,9 +656,14 @@ $sidebar-mini-active-menu-width:        ($sidebar-width + $sidebar-mini-width);
 $sidebar-mini-full-item-height:         40px;
 
 //
-// 6.5 GLOBAL FOOTER
+// 6.5 GLOBAL ASIDE - 2nd SIDEBAR
 // -----------------------------------------------------------------------------
+$aside-theme-scheme:                   aside !default; // Theme color scheme applied to aside(2nd sidebar). NOTE: Retrieved from active theme palette map from `themes/theme-*`
 
+//
+// 6.6 GLOBAL FOOTER
+// -----------------------------------------------------------------------------
+$footer-theme-scheme:                   footer !default; // Theme color scheme applied to footer. NOTE: Retrieved from active theme palette map from `themes/theme-*`
 $footer-min-height:                     30px;
 $footer-font-size:                      $font-size-sm;
 $footer-font-weight:                    $font-wh-regular;
@@ -771,8 +781,8 @@ $input-round-radius:                    $btn-round-radius; // Rounded input (.fo
 $input-border-color:                    $gray-400; // Border color for inputs
 $input-border-size:                     $border-thin; // '.form-control' border width
 $input-focus-color:                     $gray-700; // Text color for inputs on focus
-$input-focus-border-theme-scheme:       primary !default; // Theme color scheme applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from themes/theme-*.
-$input-focus-border-theme-tone:         base !default; // Theme color tone applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$input-focus-border-theme-scheme:       primary !default; // Theme color scheme applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$input-focus-border-theme-tone:         base !default; // Theme color tone applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $input-hover-border-color:              $gray-500; // Border color for inputs on hover
 
 // Disabled state
@@ -914,7 +924,8 @@ $dropdown-icon-width:                   20px; // Dropdown menu item icon width f
 // 8.6 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 // -----------------------------------------------------------------------------
 
-$dropdown-extended-theme-scheme:         header !default; // Theme color scheme applied to dropdown. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$dropdown-ext-theme-scheme:             header !default; // Theme color scheme applied to dropdown. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$dropdown-ext-item-border-theme-scheme: primary !default; // Theme color scheme applied to dropdown menu item border. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 //
 // 8.7 NAVS
@@ -932,7 +943,7 @@ $nav-link-disabled-color:               $gray-400 !default; // Navigation disabl
 
 // Tabs
 
-$nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements like border colors, font colors etc.. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$nav-tabs-active-theme-scheme:          primary !default; // Theme color scheme applied to active tab elements like border colors, font colors etc.. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $nav-tabs-border-color:                 $gray-400 !default; // Tabbed navigation border color
 $nav-tabs-border-size:                  $border-thin !default;  // Tabbed navigation borders width
 $nav-tabs-border-radius:                $border-radius-md !default;  // Tabbed navigation item borders radius to add rounded corners
@@ -952,7 +963,7 @@ $tab-content-bg:                        $white-color !default; // Background col
 
 $nav-pills-border-radius:                       $nav-tabs-border-radius !default; // Tabbed navigation pill border radius to add rounded corners
 $nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !default;  // So that the active pill item takes the same theme color scheme of active tab elements.
-$nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 //
 // 8.9 TABS EXTENDED
@@ -1030,8 +1041,8 @@ $breadcrumb-divider-angle-right:                "\f054" !default; // Textual sep
 $breadcrumb-divider-angle-double-right:         "\f061" !default; // Textual separator type - Simple Line Icons unicode.
 $breadcrumb-divider-caret-right:                "\f0da" !default; // Textual separator type - Simple Line Icons unicode.
 
-$breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text. NOTE: Retrieved from active theme palette map from themes/theme-*.
-$breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 $breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
 $breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size - 1}) / 2) !default; // Compute breadcrumb container height.
@@ -1062,8 +1073,8 @@ $breadcrumb-ext-wrap-left-border-color:         $breadcrumb-ext-wrap-bg !default
 
 // Breadcrumb extended(ext) - Arrow wizard type
 
-$breadcrumb-wizard-completed-theme-scheme:      primary !default; //  Theme color scheme applied to background color of completed step in the breadcrumb. NOTE: Retrieved from active theme palette map from themes/theme-*.
-$breadcrumb-wizard-active-theme-scheme:         secondary !default; // Theme color scheme applied to background color of current step in the breadcrumb. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$breadcrumb-wizard-completed-theme-scheme:      primary !default; //  Theme color scheme applied to background color of completed step in the breadcrumb. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$breadcrumb-wizard-active-theme-scheme:         secondary !default; // Theme color scheme applied to background color of current step in the breadcrumb. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $breadcrumb-wizard-incomplete-bg:               $gray-200 !default; // Background color of next/incomplete step in the breadcrumb.
 $breadcrumb-wizard-incomplete-color:            $gray-600 !default; // Text color of next/incomplete step in the breadcrumb.
 
@@ -1081,7 +1092,7 @@ $pagination-border-size:                $btn-border-size !default; // Page link 
 $pagination-border-color:               $gray-400 !default; // Page link border color
 $pagination-font-weight:                $btn-font-weight !default; // Page link font weight
 
-$pagination-link-theme-scheme:          primary !default; // Theme color scheme applied to page link. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$pagination-link-theme-scheme:          primary !default; // Theme color scheme applied to page link. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $pagination-link-active-theme-scheme:   $pagination-link-theme-scheme !default; // Theme color scheme applied to current page link
 
 $pagination-hover-bg:                   $gray-100 !default; // Background color for page link on hover
@@ -1317,8 +1328,8 @@ $accordion-icon-active:                         "\e607" !default; // Active acco
 // 8.23 ACCORDION EXTENDED
 // -----------------------------------------------------------------------------
 
-$accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion. NOTE: Retrieved from active theme palette map from themes/theme-*.
-$accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to 'Extended' accordion on hover. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$accordion-ext-hover-theme-tone:                dark !default; // Theme color tone applied to 'Extended' accordion on hover. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone !default; // So that the theme color tone applied on active takes the same colour of hover state
 $accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
 
@@ -1367,24 +1378,24 @@ $custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color 
 
 $navbar-toggler-padding-y:                      10px;
 $navbar-toggler-padding-x:                      10px;
-$navbar-toggler-icon-bar-theme-scheme:          primary !default; // Color scheme for Hamburger icon bar. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
-$navbar-toggler-icon-bar-theme-tone:            base !default; // Theme color tone applied to Hamburger icon bar. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$navbar-toggler-icon-bar-theme-scheme:          primary !default; // Color scheme for Hamburger icon bar. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
+$navbar-toggler-icon-bar-theme-tone:            base !default; // Theme color tone applied to Hamburger icon bar. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 // Sidebar toggle button
 
 $sidebar-toggler-height:                        $header-height - 10;
 $sidebar-toggler-padding-y:                     0px;
 $sidebar-toggler-padding-x:                     10px;
-$sidebar-toggler-bg-theme-scheme:               primary !default; // Background color scheme for toggle button. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
-$sidebar-toggler-hover-bg-theme-tone:           light !default; // Theme color tone applied to toggle button on hover. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$sidebar-toggler-bg-theme-scheme:               primary !default; // Background color scheme for toggle button. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
+$sidebar-toggler-hover-bg-theme-tone:           light !default; // Theme color tone applied to toggle button on hover. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 // Aside toggle button
 
 $aside-toggler-height:                          $header-height;
 $aside-toggler-padding-y:                       10px;
 $aside-toggler-padding-x:                       10px;
-$aside-toggler-bg-theme-scheme:                 header !default; // Background color scheme for toggle button. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
-$aside-toggler-icon-bar-active-theme-scheme:    primary !default; // Color scheme for Hamburger icon bar on active. NOTE: Retrieved from active theme palette map from themes/theme-*. Possible values  are 'primary' and 'secondary'.
+$aside-toggler-bg-theme-scheme:                 header !default; // Background color scheme for toggle button. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
+$aside-toggler-icon-bar-active-theme-scheme:    primary !default; // Color scheme for Hamburger icon bar on active. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
 
 //
 // 8.27 SEARCH
@@ -1460,9 +1471,9 @@ $datepicker-cell-height:                36px !default; // Height for table cells
 // 9.5 JQUERY STEPS PLUGIN
 // -----------------------------------------------------------------------------
 
-$steps-active-theme-scheme:             primary !default; // Theme color scheme applied to the tab of current step. NOTE: Retrieved from active theme palette map from themes/theme-*.
-$steps-done-theme-scheme:               primary !default; // Theme color scheme applied to the tabs of previous/completed steps. NOTE: Retrieved from active theme palette map from themes/theme-*.
-$steps-error-theme-scheme:              danger; // Theme color scheme applied to tabs if current step have any validation errors. NOTE: Retrieved from active theme palette map from themes/theme-*.
+$steps-active-theme-scheme:             primary !default; // Theme color scheme applied to the tab of current step. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$steps-done-theme-scheme:               primary !default; // Theme color scheme applied to the tabs of previous/completed steps. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$steps-error-theme-scheme:              danger; // Theme color scheme applied to tabs if current step have any validation errors. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 $steps-disabled-bg:                     $gray-200 !default; // Background color of next/incomplete steps.
 $steps-disabled-opacity:                $btn-disabled-opacity !default; // Opacity applied to the tabs of previous steps

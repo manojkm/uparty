@@ -8,18 +8,17 @@
 // One file to bring them all.
 // And in the sassy way merge them.
 //
-// Sass manifest file and your entry point to compile scss.
+// Sass manifest file and your entry point to compile scss. This file should only comprise of @imports.
 // Following the 7-1 Pattern - https://sass-guidelin.es/#architecture.
 // Importing order & guidelines are mentioned under the title MAIN FILE -
 // https://sass-guidelin.es/#architecture.
+// WARNING: Order is very important
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
 // Author: MANOJ
 // Author URL: http://www.themeforest.net/user/xxx
-// ================================================================================================
-
-// ================================================================================================
+// ----------------------------------------------------------------------------------------------
 // Guidelines :
 // One @import per folder;
 // A linebreak after @import;
@@ -28,18 +27,21 @@
 // File extensions and leading underscores omitted.
 // ================================================================================================
 
+//
 // BOURBON MIXINS
 // ======================================================
-// Use Bourbon ('cause it rocks!), http://bourbon.io/docs/
+// Use Bourbon, a Sass mixin library ('cause it rocks!), http://bourbon.io/docs/
 
 @import
 	'bourbon';
 
+//
 // THEMES
 // ======================================================
 @import
 	'themes/config/config';
 
+//
 // CONFIGURATION & HELPERS
 // ======================================================
 // Sass code that doesn't output to any CSS
@@ -48,6 +50,7 @@
 @import
 	'helpers/all';
 
+//
 // VENDORS
 // ======================================================
 // Contains third-party styles to merging them with the
@@ -58,6 +61,7 @@
 @import
 	'vendors-include/all';
 
+//
 // BASE STUFF
 // ======================================================
 // Contains global styles
@@ -68,19 +72,20 @@
 
 // UTILITIES
 // ======================================================
-// Contains utility classes
+// Contains utility reusable classes
 // (ie. .border-primary, .text-primary, .bg-primary, and so on.)
 
 @import
 	'utilities/all';
 
-// PARTIALS
+//
+// LAYOUT
 // ======================================================
-// Contains partial styles
-// (ie. header, footer, sidebar, and so on.)
+// Contains main layout and partial styles
+// (ie. main wrappers, header, footer, sidebar, and so on.)
 
 @import
-	'partials/all';
+	'layout/all';
 
 // ENHANCEMENT COMPONENTS
 // ======================================================
@@ -90,7 +95,11 @@
 @import
 	'components/all';
 
+//
 // CUSTOM STYLES
 // ======================================================
+// Write the bulk of your custom SCSS
+// This import comes last so that the above stuffs can be used.
+
 @import
 	'custom';

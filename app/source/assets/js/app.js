@@ -410,7 +410,7 @@ var appMaster = {
 
         function set_heights() {
             var footerHeight = $('.master-footer').height();
-            $('.content__wrap').css('padding-bottom', footerHeight + 'px');
+            $('.content__inner-wrap').css('padding-bottom', footerHeight + 'px');
         }
 
         set_heights();

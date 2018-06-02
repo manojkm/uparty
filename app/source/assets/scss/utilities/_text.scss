@@ -1,0 +1,32 @@
+// ================================================================================================
+// File Name: utilities.scss
+// Description:
+// ----------------------------------------------------------------------------------------------
+// Item Name: xxx - Responsive Admin Theme
+// Version: 1.2
+// Author: MANOJ
+// Author URL: http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//----------------------------------*\
+// CONTEXTUAL & THEME TEXT VARIANTS
+//----------------------------------*/
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .text-#{$scheme} {
+      @include text-theme($scheme, $sledge-hammer: !important);
+      @include text-link-theme($scheme, $sledge-hammer: !important)
+    }
+  }
+}
+
+// Contextual variations
+@each $scheme, $value in $contextual-palette-map {
+  .text-#{$scheme} {
+    @include text-theme($scheme, $sledge-hammer: !important);
+    @include text-link-theme($scheme, $sledge-hammer: !important);
+  }
+}

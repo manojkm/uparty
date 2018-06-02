@@ -1,14 +1,12 @@
 // ================================================================================================
-// File Name: header-nav.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : header-nav.scss
+// Description    : Handles styling exclusive to the page's navbar.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
-
-//TODO: Fix the lineheight and padding properly
 
 .master-header__navbar {
   position: relative;
@@ -16,22 +14,19 @@
 
   // Change the brand and text color
   .navbar-brand {
-    @include color('primary', 'base');
+    @include color($header-theme-scheme, 'font-color');
   }
 
   .navbar-text {
-    @include color('header', 'font-color');
+    @include color($header-theme-scheme, 'font-color');
     @include opacity(0.8);
     font-size: $navbar-text-font-size;
-    font-weight:$navbar-text-font-weight;
-    //min-height: $header-height;
-    /* Flexbox */
+    font-weight: $navbar-text-font-weight;
     display: flex;
     align-items: center;
   }
 
   .navbar-nav {
-    /* Flexbox */
     display: flex;
     align-items: stretch;
   }
@@ -39,14 +34,13 @@
   .nav-item {
     position: relative;
     text-align: center;
-    /* Flexbox */
     display: flex;
     //align-items: center;
     flex-direction: row;
 
     @include max-screen($screen-md-max) {
       @if bool($navbar-item-mobile-bottom-border) == true {
-        @include border-bottom-color('header', 'light');
+        @include border-bottom-color($header-theme-scheme, 'light');
         border-bottom: 1px solid;
       } @else {
         border-bottom: 0
@@ -57,19 +51,19 @@
       border-bottom: 0
     }
 
-    /* Change the color of open, show, active links for better highlighting */
+    // Change the color of open, show, active links for better highlighting
     &.open > .nav-link,
     &.show > .nav-link,
     &.active > .nav-link {
-      @include background-color('header', 'light');
-      @include color('header', 'active-color');
+      @include background-color($header-theme-scheme, 'light');
+      @include color($header-theme-scheme, 'active-color');
     }
   }
 
   // Navbar menu links
   .nav-link {
-    @include color('header', 'link-color');
     @include transition;
+    @include color($header-theme-scheme, 'link-color');
     font-size: $navbar-font-size;
     font-weight: $navbar-font-weight;
     position: relative;
@@ -91,20 +85,20 @@
       background-color: transparent;
     }
 
-    /* Change the hover, focus, active state links for better highlighting */
+    // Change the hover, focus, active state links for better highlighting
 
     #{$hover-tags} {
-      @include color('header', 'hover-color');
-      @include background-color('header', 'light');
+      @include color($header-theme-scheme, 'hover-color');
+      @include background-color($header-theme-scheme, 'light');
     }
 
     #{$focus-tags},
     #{$active-tags} {
-      @include background-color('header', 'light');
-      @include color('header', 'active-color');
+      @include background-color($header-theme-scheme, 'light');
+      @include color($header-theme-scheme, 'active-color');
     }
 
-    /* Navbar menu notification badge */
+    // Navbar menu notification badge
     .badge {
       /* position: absolute;
        right: 0.33rem;

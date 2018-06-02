@@ -119,7 +119,7 @@
     // Showing left border styling on hover for better highlighting
     &::before {
       @include transition;
-      @include background-theme('primary');
+      @include background-theme($dropdown-ext-item-border-theme-scheme);
       content: '';
       position: absolute;
       bottom: 0;
@@ -233,23 +233,23 @@
 
   &,
   .dropdown-menu {
-    @include background-theme($dropdown-extended-theme-scheme, 'base');
+    @include background-theme($dropdown-ext-theme-scheme, 'base');
     border: 0;
   }
 
   // Dropdown top arrow colors
   &:before {
-    @include border-theme($dropdown-extended-theme-scheme, $position: bottom);
+    @include border-theme($dropdown-ext-theme-scheme, $position: bottom);
   }
 
   &:after {
-    @include border-theme($dropdown-extended-theme-scheme, 'dark', $position: bottom);
+    @include border-theme($dropdown-ext-theme-scheme, 'dark', $position: bottom);
     display: none;
   }
 
   // Dropdown section headers
   .dropdown-header {
-    @include text-theme($dropdown-extended-theme-scheme, 'font-color');
+    @include text-theme($dropdown-ext-theme-scheme, 'font-color');
   }
 
   // Dropdown menu links
@@ -257,20 +257,20 @@
 
     &,
     i {
-      @include text-theme($dropdown-extended-theme-scheme, 'link-color');
+      @include text-theme($dropdown-ext-theme-scheme, 'link-color');
     }
 
     // Change the hover, focus, active state links for better highlighting
     &:hover,
     &:focus {
-      @include background-text-theme($dropdown-extended-theme-scheme, 'light', 'hover-color');
+      @include background-text-theme($dropdown-ext-theme-scheme, 'light', 'hover-color');
     }
 
     &.active,
     &.active:focus,
     &.active:hover,
     &:active {
-      @include background-text-theme($dropdown-extended-theme-scheme, 'light', 'active-color');
+      @include background-text-theme($dropdown-ext-theme-scheme, 'light', 'active-color');
     }
 
     &.disabled,
@@ -284,7 +284,7 @@
   }
 
   & .dropdown-divider {
-    @include border-theme($dropdown-extended-theme-scheme, 'light', $position: top);
+    @include border-theme($dropdown-ext-theme-scheme, 'light', $position: top);
     @include add-border(1px, transparent, top);
   }
 }

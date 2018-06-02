@@ -1,9 +1,9 @@
 // ================================================================================================
 // File Name      : dropzone.scss
 // Description    : Custom overrides of Dropzone Plugin
-// (https://github.com/enyo/dropzone/blob/master/dist/dropzone.css)
-// These styles are required for Dropzone to function. You probably don't need to change these
-// rules to apply your design.
+//                  (https://github.com/enyo/dropzone/blob/master/dist/dropzone.css)
+//                  These styles are required for Dropzone to function.
+//                  You probably don't need to change these rules.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -11,14 +11,18 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// VENDORS DEPENDENCIES
+//
+// VENDORS DEPENDENCIES IMPORT
 // ======================================================
-@import
-    '_dependencies';
-// Please make sure to keep the dependencies included above as they're necessary for all vendors extensions to function.
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
 
+@import
+    'dependencies';
+
+//
 // DROPZONE
 // ======================================================
+
 .dropzone {
   @include transition;
   @include set-border-radius($dropzone-border-radius);
@@ -35,7 +39,7 @@
     line-height: $dropzone-message-line-height;
 
     &:before {
-      /* symbol for "collapsed" panels */
+      // symbol for "collapsed" panels
       @extend %dropzone-pseudo;
     }
   }

@@ -1,21 +1,27 @@
 // ================================================================================================
-// File Name: multi-select.scss
-// Description: Custom overrides of Multi-select Plugin (https://github.com/lou/multi-select/blob/master/scss/multi-select.scss)
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : multi-select.scss
+// Description    : Custom overrides of Multi-select Plugin
+//                  (https://github.com/lou/multi-select/blob/master/scss/multi-select.scss)
+//                  These styles are required for Multi-select to function.
+//                  You probably don't need to change these rules.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
-// VENDORS DEPENDENCIES
-//----------------------------------*/
+//
+// VENDORS DEPENDENCIES IMPORT
+// ======================================================
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
+
 @import
-'_dependencies';
+    'dependencies';
 
-/* Please make sure to keep the dependencies included above as they're necessary for all vendors extensions. */
-
+//
+// MULTI SELECT
+// ======================================================
 
 .ms-container {
   width: 100%;

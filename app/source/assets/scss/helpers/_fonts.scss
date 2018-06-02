@@ -6,6 +6,11 @@
 // Version        : 1.2
 // Author         : MANOJ
 // Author URL     : http://www.themeforest.net/user/xxx
+// ------------------------------------------------------------------------------------------------
+// WARNING        : PLEASE DO NOT CHANGE THIS VARIABLE FILE. THIS FILE WILL GET OVERWRITTEN WITH
+//                  EACH XXXX TEMPLATE RELEASE.
+// TIP            : We suggest you to copy variables from this file into the provided
+//                  '_custom-variables.scss' to override the default font variables.
 // ================================================================================================
 
 //
@@ -26,10 +31,10 @@
 // Includes:
 // Source Sans Pro:                     Light, Regular, Medium, Semi-bold, Bold;
 // Roboto Mono:                         Light, Regular, Medium, Semi-bold, Bold;
-$google-fonts-import:                   'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700|Roboto+Mono:300,400,500,600,700';
+$google-fonts-import:                   'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700|Roboto+Mono:300,400,500,600,700' !default;
 
 // Config font stacks
 
-$font-family-default:                   'Source Sans Pro';  // Define Google font stack used for body, paragraphs.
-$font-family-display:                   $font-family-default; // Define font stack used for headings <h1> <h2> etc...
-$font-family-fallback:                  'Arial', sans-serif; // Define font to ensure embedded fonts fall back to appropriate system fonts.
+$font-family-default:                   'Source Sans Pro' !default;  // Define Google font stack used for body, paragraphs.
+$font-family-display:                   $font-family-default !default; // Define font stack used for headings <h1> <h2> etc...
+$font-family-fallback:                  'Arial', sans-serif !default; // Define font to ensure embedded fonts fall back to appropriate system fonts.

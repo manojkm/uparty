@@ -1,6 +1,8 @@
 // ================================================================================================
 // File Name      : sidebar.scss
-// Description    : Contains all the styles of sidebar layout
+// Description    : This file contains all styles related to the sidebar layout, but not sidebar
+//                  navigation. Due to the complexity of the sidebar navigation, we will likely
+//                  have a file dedicated to it, please check `layout/_sidebar-nav.scss`.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -16,6 +18,7 @@
 // https://forums.imore.com/iphone-6s-plus/361561-photos-emailed-upside-down.html
 // https://codepen.io/j_holtslander/pen/XmpMEp
 
+// Wraps all sidebar elements
 .sidebar {
   $s: sidebar;
   @include transition;
@@ -31,8 +34,8 @@
   display: flex;
   flex-direction: column;
 
-  // Sidebar wrapper
-  &__wrap {
+  // Sidebar inner wrapper
+  &__inner-wrap {
 
     @include text-theme($sidebar-theme-scheme, 'font-color');
     height: calc(100vh - #{$sidebar-footer-height});
@@ -102,7 +105,7 @@
   // Hiding sidebar if body has class (.sidebar-is-closed)
   &-is-closed {
     // TODO Adapted from https://codepen.io/tonkec/pen/gryZmg
-    .#{$s}__wrap * {
+    .#{$s}__inner-wrap * {
       @include transition;
       @extend %o-v-none;
       transform: translateX(-100px);
@@ -110,7 +113,7 @@
   }
   // Showing sidebar if body has class (.sidebar-is-open)
   &-is-open {
-    .#{$s}__wrap * {
+    .#{$s}__inner-wrap * {
       @extend %o-v-show;
     }
   }
