@@ -135,11 +135,29 @@
 //
 // FONT-FACE
 // ======================================================
-// Import if Google Fonts URL is defined
-//**introspective function that returns whether a variable with a given name exists in our project**
+//**Introspective function that returns whether a variable with a given name exists in our project**
+
+// Import if Google Fonts variable is defined
 
 @if variable-exists(google-fonts-import) {
   @import url($google-fonts-import);
+}
+
+// If typefaces variable is defined
+
+@if variable-exists(typefaces) {
+  @each $font-file-name, $option in $typefaces {
+
+    // Bourbon font-face mixin - https://www.bourbon.io/docs/latest/#font-face
+    @include font-face(
+                    map-get(map-get($typefaces, $font-file-name), family),
+                    "../fonts/#{$font-file-name}",
+                    map-get(map-get($typefaces, $font-file-name), file-formats)
+    ) {
+      font-style: map-get(map-get($typefaces, $font-file-name), style);
+      font-weight: map-get(map-get($typefaces, $font-file-name), weight);
+    }
+  }
 }
 
 //

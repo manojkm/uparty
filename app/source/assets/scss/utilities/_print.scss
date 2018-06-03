@@ -1,0 +1,35 @@
+// ================================================================================================
+// File Name      : print.scss
+// Description    : Print styles. Remember to add things that won't make sense to print.
+//                  Things like nav, ads, sidebar etc... should be set to display none.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+@media print {
+
+  * {
+    background: transparent !important;
+    color: black !important; // Black prints faster
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+  a, a:visited {
+    color: #444 !important;
+  }
+  body {
+    margin: 0; // This affects the margin on the content before sending to printer
+  }
+
+  // Hide content people who print don't need to see
+
+  .sidebar,
+  .aside,
+  .master-footer {
+    display: none;
+  }
+}

@@ -4,7 +4,8 @@ module.exports = function (grunt) {
     var optionsGruntContribSass = {
         loadPath: [
             require('bourbon').includePaths,
-            grunt.getPath('node') + 'bootstrap/scss'
+            grunt.getPath('node') + 'bootstrap/scss',
+            grunt.getPath('node') + 'sass-mediaqueries'
         ],
         sourcemap: (isProd) ? 'none' : 'auto',
         cacheLocation: grunt.getPath('tmp') + '.sass-cache',
@@ -19,7 +20,8 @@ module.exports = function (grunt) {
     var optionsGruntSass = {
         includePaths: [
             require('bourbon').includePaths,
-            grunt.getPath('node') + 'bootstrap/scss'
+            grunt.getPath('node') + 'bootstrap/scss',
+            grunt.getPath('node') + 'sass-mediaqueries'
         ],
         banner: '<%= meta.banner %>',
         // outDir: grunt.importPaths,

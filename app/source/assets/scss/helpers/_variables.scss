@@ -358,10 +358,11 @@ $mark-underline-height-xl:              1rem; // 16px. Extra large (.mark-xl)
 // 4.4 SIZES
 // -----------------------------------------------------------------------------
 
-$sizes: (
+$extra-sizes: (
         5: 5%,
         10: 10%,
         15: 15%,
+        20: 20%,
 ) !default;
 
 //
@@ -530,7 +531,7 @@ $body-line-height:                      $lh-base;  // Specifies the default line
 // -----------------------------------------------------------------------------
 // Settings for the anchor elements.
 
-$link-color:                            $font-color-default; // Global textual link color.
+$link-color:                            $font-color-default !default; // Global textual link color.
 $link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
 $link-hover-decoration:                 none; // Global textual link hover decoration.
 
@@ -582,7 +583,7 @@ $page-title-padding-x:                  0; // Horizontal padding for 'page title
 // 6.3 GLOBAL HEADER & NAVBAR
 // -----------------------------------------------------------------------------
 $header-theme-scheme:                   header !default; // Theme color scheme applied to header. NOTE: Retrieved from active theme palette map from `themes/theme-*`
-$header-height:                         50px;
+$header-height:                         50px !default;
 $navbar-font-size:                      $font-size-sm;
 $navbar-font-weight:                    $font-wh-regular;
 $navbar-text-font-size:                 $navbar-font-size;

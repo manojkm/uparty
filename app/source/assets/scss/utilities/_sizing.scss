@@ -1,19 +1,20 @@
 // ================================================================================================
-// File Name: utilities.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : sizing.scss
+// Description    : Expand the Bootstrap's sizing utility to allow few more sizes.
+//                  Generated from the '$extra-sizes' Sass map in `helpers/_variables.scss`.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
+//
 // SIZING
-//----------------------------------*/
+// ======================================================
 
 @each $prop, $abbrev in (width: w, height: h) {
-  @each $size, $length in $sizes {
+  @each $size, $length in $extra-sizes {
     .#{$abbrev}-#{$size} {
       #{$prop}: $length !important;
     }

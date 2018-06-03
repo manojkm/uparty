@@ -1,16 +1,16 @@
 // ================================================================================================
-// File Name: utilities.scss
-// Description:
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
+// File Name      : border.scss
+// Description    : Adjustments for Bootstrap's border utility.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-//----------------------------------*\
+//
 // CONTEXTUAL & THEME BORDER VARIANTS
-//----------------------------------*/
+// ======================================================
 
 // Theme variations
 @each $themeName, $value in $themes-map {
@@ -22,7 +22,7 @@
   }
 }
 
-/* Contextual variations */
+// Contextual variations
 @each $scheme, $value in $contextual-palette-map {
   .border-#{$scheme} {
     @include border-theme($scheme, $sledge-hammer: !important);

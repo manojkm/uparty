@@ -7,22 +7,36 @@
 // Author         : MANOJ
 // Author URL     : http://www.themeforest.net/user/xxx
 // ------------------------------------------------------------------------------------------------
-// WARNING        : PLEASE DO NOT CHANGE THIS VARIABLE FILE. THIS FILE WILL GET OVERWRITTEN WITH
+// WARNING        : PLEASE DO NOT CHANGE THIS FILE. THIS FILE WILL GET OVERWRITTEN WITH
 //                  EACH XXXX TEMPLATE RELEASE.
 // TIP            : We suggest you to copy variables from this file into the provided
-//                  '_custom-variables.scss' to override the default font variables.
+//                  'scss/_custom-variables.scss' to override the default font variables.
 // ================================================================================================
 
 //
-// WEB FONTS
+// CUSTOM FONTS
 // ======================================================
-// We don't want to load web fonts on your site so we stay classic. We recommend using Google fonts.
+// NOTE: We don't want to load custom fonts on your site/app so we stay classic. We recommend using Google fonts.
+// To embed your own fonts, copy-paste this syntax into the provided `scss/_custom-variables.scss` file.
+// Be sure to remove the comment syntax and`!default` directive.
+// Place your fonts inside the 'fonts' folder at the same level as the SCSS folder.
+// $typefaces - {map}
+// @font-file-name - {string}. WITHOUT the file extension. ie 'Source-Sans-Pro'
+// @family - {string}
+// @weight - {integer} or {keyword} i.e. 800, bold
+// @style - {keyword} i.e. normal, italic
+// @file-formats - {string|list}. List of the font file formats to include. i.e. "ttf", "woff2", "woff"
+// @adapted - https://github.com/minamarkham/sassy-starter/blob/master/src/scss/utilities/_fonts.scss
+// @usage:
 
-//@include font-face("source-sans-pro","fonts/source-sans-pro-regular",("woff2", "woff")
-//) {
-//  font-style: normal;
-//  font-weight: 400;
-//}
+// $typefaces: (
+//         'font-file-name': (
+//                 family: 'font-name',
+//                 weight: 100,
+//                 style: normal,
+//                 file-formats:("ttf", "woff2", "woff")
+//         )
+// )!default;
 
 //
 // GOOGLE FONTS
@@ -33,7 +47,9 @@
 // Roboto Mono:                         Light, Regular, Medium, Semi-bold, Bold;
 $google-fonts-import:                   'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700|Roboto+Mono:300,400,500,600,700' !default;
 
-// Config font stacks
+//
+// CONFIG FONTS STACKS
+// ======================================================
 
 $font-family-default:                   'Source Sans Pro' !default;  // Define Google font stack used for body, paragraphs.
 $font-family-display:                   $font-family-default !default; // Define font stack used for headings <h1> <h2> etc...

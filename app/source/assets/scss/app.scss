@@ -1,39 +1,38 @@
 @charset "UTF-8"; // Make sure the charset is set appropriately and it is the very first
 // element of the stylesheet and there is no character of any kind before it.
+
 // ================================================================================================
-// File Name: app.scss
-// Description:
-// One file to rule them all.
-// One file to find them.
-// One file to bring them all.
-// And in the sassy way merge them.
-//
-// Sass manifest file and your entry point to compile scss. This file should only comprise of @imports.
-// Following the 7-1 Pattern - https://sass-guidelin.es/#architecture.
-// Importing order & guidelines are mentioned under the title MAIN FILE -
-// https://sass-guidelin.es/#architecture.
-// WARNING: Order is very important
-// ----------------------------------------------------------------------------------------------
-// Item Name: xxx - Responsive Admin Theme
-// Version: 1.2
-// Author: MANOJ
-// Author URL: http://www.themeforest.net/user/xxx
-// ----------------------------------------------------------------------------------------------
-// Guidelines :
-// One @import per folder;
-// A linebreak after @import;
-// Each file on its own line;
-// A new line after the last import from a folder;
-// File extensions and leading underscores omitted.
+// File Name      : app.scss
+// Description    : Sass manifest file and your entry point to compile scss.
+// 					- One file to rule them all.
+// 					- One file to find them.
+// 					- One file to bring them all.
+// 					- And in the sassy way merge them.
+// 					This file should only comprise of @imports.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ------------------------------------------------------------------------------------------------
+// Guidelines     : One @import per folder;
+//                  A linebreak after @import;
+//                  Each file on its own line;
+//                  A new line after the last import from a folder;
+//                  File extensions and leading underscores omitted;
+// ------------------------------------------------------------------------------------------------
+// WARNING        : Order is very important
 // ================================================================================================
 
 //
-// BOURBON MIXINS
+// IMPORT THIRD PARTY NODE MODULES
 // ======================================================
-// Use Bourbon, a Sass mixin library ('cause it rocks!), http://bourbon.io/docs/
+// NOTE: To import Node Modules, the SASS compiler resolves each @import by considering each path
+// declared to 'includePaths' option in `grunt/sass.js` task file.
 
 @import
-	'bourbon';
+	'bourbon', // Use Bourbon, a Sass mixin library ('cause it rocks!), http://bourbon.io/docs/
+	'media-queries'; // Media Queries mixins for Sass, http://rafalbromirski.github.com/sass
 
 //
 // THEMES
@@ -55,7 +54,7 @@
 // ======================================================
 // Contains third-party styles to merging them with the
 // others in the resulting stylesheet.
-// (ie. media-queries, normalize, and so on.)
+// (ie. select2, jquery-ui and so on.)
 // TODO, check what this guy is doing https://github.com/clawfire/Brasserie-Schuman/blob/ac0221058b295dafd1a58644ac9033604c0b639a/_sass/lib/_lib.scss
 
 @import
