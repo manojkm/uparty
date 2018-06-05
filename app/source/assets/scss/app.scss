@@ -1,6 +1,16 @@
 @charset "UTF-8"; // Make sure the charset is set appropriately and it is the very first
 // element of the stylesheet and there is no character of any kind before it.
-
+/*!
+// ================================================================================================
+// XXX : Responsive Admin Theme
+// Based on: Bootstrap v4.0 (https://getbootstrap.com)
+// ================================================================================================
+// Product Page   : http://www.xxxxx.com
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+*/
 // ================================================================================================
 // File Name      : app.scss
 // Description    : Sass manifest file and your entry point to compile scss.
@@ -10,18 +20,13 @@
 // 					- And in the sassy way merge them.
 // 					This file should only comprise of @imports.
 // ------------------------------------------------------------------------------------------------
-// Item Name      : xxx - Responsive Admin Theme
-// Version        : 1.2
-// Author         : MANOJ
-// Author URL     : http://www.themeforest.net/user/xxx
-// ------------------------------------------------------------------------------------------------
 // Guidelines     : One @import per folder;
 //                  A linebreak after @import;
 //                  Each file on its own line;
 //                  A new line after the last import from a folder;
 //                  File extensions and leading underscores omitted;
 // ------------------------------------------------------------------------------------------------
-// WARNING        : Order is very important
+// WARNING        : Order is very important.
 // ================================================================================================
 
 //
@@ -38,7 +43,7 @@
 // THEMES
 // ======================================================
 @import
-	'themes/config/config';
+	'themes/config';
 
 //
 // CONFIGURATION & HELPERS

@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : config.scss
-// Description    : Themes configuration ans sass manifest file for themes.
+// Description    : Themes configuration and sass manifest file for themes.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -36,7 +36,7 @@ $dynamicTheme: false;
 // ACTIVE THEME NAME
 // ======================================================
 
-$activeTheme: 'rebecca';
+$activeTheme: 'unicorn';
 
 //
 // IMPORT THEMES
@@ -44,8 +44,8 @@ $activeTheme: 'rebecca';
 // Import your themes here.
 
 @import
-    '../theme-rebecca/rebecca',
-    '../theme-unicorn/unicorn';
+    'theme-rebecca/rebecca',
+    'theme-unicorn/unicorn';
 
 //
 // DEFINE THEMES MAP

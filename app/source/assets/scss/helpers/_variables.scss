@@ -158,10 +158,12 @@
 //
 // 1.2 CONTEXTUAL PALETTE MAP
 // -----------------------------------------------------------------------------
-// Any theme defined in the $themes-map get CSS generated for each keys listed
-// below for variants of components like '.btn-danger', '.alert-info' etc... and
-// utility variants like '.bg-warning', '.border-success', '.text-info' etc...
+// Thanks to SASS Map, we can define all contextual colors at one place.
+// NOTE: Any theme defined in the $themes-map (`themes/_config.scss`) get CSS generated for each
+// keys listed below for variants of components like '.btn-danger', '.alert-info' etc... and utility
+// variants like '.bg-warning', '.border-success', '.text-info' etc...
 
+//TODO , whats happening ?? https://github.com/DanPurdy/angular-profile/blob/befc7625059d5a566df39f3bcadd7c50720c2c97/app/styles/functions/_functions.scss
 $contextual-palette-map: (
         'success': (
                 'base': $grass,

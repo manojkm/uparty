@@ -28,7 +28,7 @@ module.exports = function (grunt) {
     // Retrieve active theme name from SCSS file
     const sassExtract = require('sass-extract');
     const rendered = sassExtract.renderSync({
-        file: getPath('sass_themes', true) + 'config/_config.scss'
+        file: getPath('sass_themes', true) + '_config.scss'
 
     }, {plugins: ['serialize']});
     var activeTheme = rendered.vars.global.$activeTheme.value;
