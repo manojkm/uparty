@@ -1,7 +1,6 @@
 ---
 title: "Buttons"
 subtitle: Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
-
 components: true
 posted: 2017-12-18
 ---
@@ -64,6 +63,15 @@ posted: 2017-12-18
                     </div>
                 </div>
                 <div class="card-body">
+                    {{data.sass_files.main.src }}
+
+                    {{#list myData.nav}}
+                        <a href="{{url}}">{{title}}</a>
+                    {{/list}}
+
+                    {{ greeting }}
+                    {{ button 'thing' }}
+
                     <p>Create raised buttons, by adding <code>.btn-raised</code>. </p>
                     <button type="button" class="btn btn-primary btn-raised">Primary</button>
                     <button type="button" class="btn btn-secondary btn-raised">Secondary</button>

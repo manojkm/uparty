@@ -1,0 +1,20 @@
+{
+  "sass_files": {
+    "main": {
+      "src": "<%= site.src_assets %>/scss/app.scss",
+      "dest": "<%= site.dev_assets %>/css/<%=site.name %>.css"
+    },
+    "bootstrap": {
+      "src": "<%= site.src_assets %>/scss/bootstrap-extended/index.scss",
+      "dest": "<%= site.dev_assets %>/css/bootstrap-extended/bootstrap.css"
+    },
+    "pages": {
+      "src": "<%= site.src_assets %>/scss/pages/",
+      "dest": "<%= site.dev_assets %>/css/pages/"
+    },
+    "vendors_extensions": {
+      "src": "<%= site.src_assets %>/scss/vendors-extensions/",
+      "dest": "<%= site.dev_assets %>/css/vendors/"
+    }
+  }
+}
