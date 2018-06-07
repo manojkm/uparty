@@ -1,5 +1,6 @@
 // TODO https://github.com/freshjones/meteorapp/blob/6e700d76fbfd7a7a2f5f6f0daa83ed92a73b327d/client/lib/helpers/user-helpers.js,
 // https://github.com/xiplias/styring/blob/master/client/helpers/handlebar.js
+// https://gist.github.com/danharper/1755604
 
 
 module.exports.register = function (Handlebars, options) {
