@@ -30,14 +30,9 @@ posted: 2017-12-18
                 </div>
                 <div class="card-body">
                     <p>Use any of the available button classes to quickly create a styled button.</p>
-                    <button type="button" class="btn btn-primary">Primary</button>
-                    <button type="button" class="btn btn-secondary">Secondary</button>
-                    <button type="button" class="btn btn-success">Success</button>
-                    <button type="button" class="btn btn-danger">Danger</button>
-                    <button type="button" class="btn btn-warning">Warning</button>
-                    <button type="button" class="btn btn-info">Info</button>
-                    <button type="button" class="btn btn-light">Light</button>
-                    <button type="button" class="btn btn-dark">Dark</button>
+                    {{#btn_list data.btn}}
+                        <button type="button" class="{{class}}">{{text}}</button>
+                    {{/btn_list}}
                 </div>
             </div>
         </div>
@@ -63,24 +58,10 @@ posted: 2017-12-18
                     </div>
                 </div>
                 <div class="card-body">
-                    {{data.sass_files.main.src }}
-
-                    {{#list myData.nav}}
-                        <a href="{{url}}">{{title}}</a>
-                    {{/list}}
-
-                    {{ greeting }}
-                    {{ button 'thing' }}
-
                     <p>Create raised buttons, by adding <code>.btn-raised</code>. </p>
-                    <button type="button" class="btn btn-primary btn-raised">Primary</button>
-                    <button type="button" class="btn btn-secondary btn-raised">Secondary</button>
-                    <button type="button" class="btn btn-success btn-raised">Success</button>
-                    <button type="button" class="btn btn-danger btn-raised">Danger</button>
-                    <button type="button" class="btn btn-warning btn-raised">Warning</button>
-                    <button type="button" class="btn btn-info btn-raised">Info</button>
-                    <button type="button" class="btn btn-light btn-raised">Light</button>
-                    <button type="button" class="btn btn-dark btn-raised">Dark</button>
+                    {{#btn_list data.btn}}
+                        <button type="button" class="{{class}} btn-raised">{{text}}</button>
+                    {{/btn_list}}
                 </div>
             </div>
         </div>
@@ -98,14 +79,9 @@ posted: 2017-12-18
                 </div>
                 <div class="card-body">
                     <p>Create rounded buttons, by adding <code>.btn-round</code>. </p>
-                    <button type="button" class="btn btn-round btn-primary">Primary</button>
-                    <button type="button" class="btn btn-round btn-secondary">Secondary</button>
-                    <button type="button" class="btn btn-round btn-success">Success</button>
-                    <button type="button" class="btn btn-round btn-danger">Danger</button>
-                    <button type="button" class="btn btn-round btn-warning">Warning</button>
-                    <button type="button" class="btn btn-round btn-info">Info</button>
-                    <button type="button" class="btn btn-round btn-light">Light</button>
-                    <button type="button" class="btn btn-round btn-dark">Dark</button>
+                    {{#btn_list data.btn}}
+                        <button type="button" class="{{class}} btn-round">{{text}}</button>
+                    {{/btn_list}}
                 </div>
             </div>
         </div>
@@ -124,16 +100,12 @@ posted: 2017-12-18
                 </div>
                 <div class="card-body">
                     <p>
-                        Create outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> ones to remove all background images and colors on any button.
+                        Create outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> ones to remove all background images and
+                        colors on any button.
                     </p>
-                    <button type="button" class="btn btn-outline-primary">Primary</button>
-                    <button type="button" class="btn btn-outline-secondary">Secondary</button>
-                    <button type="button" class="btn btn-outline-success">Success</button>
-                    <button type="button" class="btn btn-outline-danger">Danger</button>
-                    <button type="button" class="btn btn-outline-warning">Warning</button>
-                    <button type="button" class="btn btn-outline-info">Info</button>
-                    <button type="button" class="btn btn-outline-light">Light</button>
-                    <button type="button" class="btn btn-outline-dark">Dark</button>
+                    {{#btn_list data.btn_outline}}
+                        <button type="button" class="{{class}}">{{text}}</button>
+                    {{/btn_list}}
                 </div>
             </div>
         </div>
@@ -153,17 +125,12 @@ posted: 2017-12-18
                 <div class="card-body">
 
                     <p>
-                        Create rounded outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-round</code> ones to remove all background images and colors on any button.
+                        Create rounded outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-round</code> ones to
+                        remove all background images and colors on any button.
                     </p>
-
-                    <button type="button" class="btn btn-round btn-outline-primary">Primary</button>
-                    <button type="button" class="btn btn-round btn-outline-secondary">Secondary</button>
-                    <button type="button" class="btn btn-round btn-outline-success">Success</button>
-                    <button type="button" class="btn btn-round btn-outline-danger">Danger</button>
-                    <button type="button" class="btn btn-round btn-outline-warning">Warning</button>
-                    <button type="button" class="btn btn-round btn-outline-info">Info</button>
-                    <button type="button" class="btn btn-round btn-outline-light">Light</button>
-                    <button type="button" class="btn btn-round btn-outline-dark">Dark</button>
+                    {{#btn_list data.btn_outline}}
+                        <button type="button" class="{{class}} btn-round">{{text}}</button>
+                    {{/btn_list}}
                 </div>
             </div>
         </div>
@@ -183,26 +150,16 @@ posted: 2017-12-18
                 <div class="card-body">
 
                     <p>Use the <code>&lt;a&gt;</code> tag to create a link button.</p>
-                    <a href="#" class="btn btn-link btn-primary" role="button">Primary</a>
-                    <a href="#" class="btn btn-link btn-secondary" role="button">Secondary</a>
-                    <a href="#" class="btn btn-link btn-success" role="button">Success</a>
-                    <a href="#" class="btn btn-link btn-danger" role="button">Danger</a>
-                    <a href="#" class="btn btn-link btn-warning" role="button">Warning</a>
-                    <a href="#" class="btn btn-link btn-info" role="button">Info</a>
-                    <a href="#" class="btn btn-link btn-light" role="button">Light</a>
-                    <a href="#" class="btn btn-link btn-dark" role="button">Dark</a>
+                    {{#btn_list data.btn}}
+                        <a href="#" class="{{class}} btn-link" role="button">{{text}}</a>
+                    {{/btn_list}}
 
                     <br><br>
                     <p>We can also use the <code>&lt;button&gt;</code> tag to create a link button.</p>
+                    {{#btn_list data.btn}}
+                        <button type="button" class="{{class}} btn-link">Primary</button>
+                    {{/btn_list}}
 
-                    <button type="button" class="btn btn-link btn-primary">Primary</button>
-                    <button type="button" class="btn btn-link btn-secondary">Secondary</button>
-                    <button type="button" class="btn btn-link btn-success">Success</button>
-                    <button type="button" class="btn btn-link btn-danger">Danger</button>
-                    <button type="button" class="btn btn-link btn-warning">Warning</button>
-                    <button type="button" class="btn btn-link btn-info">Info</button>
-                    <button type="button" class="btn btn-link btn-light">Light</button>
-                    <button type="button" class="btn btn-link btn-dark">Dark</button>
                 </div>
             </div>
         </div>
@@ -285,7 +242,6 @@ posted: 2017-12-18
             </div>
         </div>
     </div>
-
 
 
     <div class="row">
@@ -503,7 +459,6 @@ posted: 2017-12-18
     </div>
 
 
-
     <div class="row">
         <div class="col-md-6 pr-2">
             <div class="card">
@@ -539,15 +494,15 @@ posted: 2017-12-18
                 <div class="card-body">
                     <p>A button can show it is currently unable to be interacted with</p>
                     <a href="#" class="btn btn-primary disabled" role="button" aria-disabled="true">Primary link</a>
-                    <button type="button" class="btn btn-primary" disabled >Primary</button>
-                    <button type="button" class="btn btn-outline-primary" disabled >Primary</button>
-                    <button type="button" class="btn btn-secondary btn-round" disabled >Secondary</button>
-                    <button type="button" class="btn btn-outline-secondary btn-round" disabled >Secondary</button>
-                    <button type="button" class="btn btn-success btn-icon" disabled ><i class="icon-check"></i></button>
-                    <button type="button" class="btn btn-outline-success btn-icon" disabled ><i class="icon-check"></i></button>
-                    <button type="button" class="btn btn-danger btn-icon btn-round" disabled ><i class="icon-envelope"></i></button>
-                    <button type="button" class="btn btn-outline-danger btn-icon btn-round" disabled ><i class="icon-envelope"></i></button>
-                    <button type="button" class="btn btn-warning btn-link" disabled >Warning</button>
+                    <button type="button" class="btn btn-primary" disabled>Primary</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Primary</button>
+                    <button type="button" class="btn btn-secondary btn-round" disabled>Secondary</button>
+                    <button type="button" class="btn btn-outline-secondary btn-round" disabled>Secondary</button>
+                    <button type="button" class="btn btn-success btn-icon" disabled><i class="icon-check"></i></button>
+                    <button type="button" class="btn btn-outline-success btn-icon" disabled><i class="icon-check"></i></button>
+                    <button type="button" class="btn btn-danger btn-icon btn-round" disabled><i class="icon-envelope"></i></button>
+                    <button type="button" class="btn btn-outline-danger btn-icon btn-round" disabled><i class="icon-envelope"></i></button>
+                    <button type="button" class="btn btn-warning btn-link" disabled>Warning</button>
                 </div>
             </div>
         </div>
@@ -570,66 +525,128 @@ posted: 2017-12-18
 
                     <div class="row">
                         <div class="col">
-                        <p><button type="button" class="btn btn-primary btn-xl">Extra large button</button></p>
-                        <p><button type="button" class="btn btn-primary btn-lg">Large button</button></p>
-                        <p><button type="button" class="btn btn-primary">Default button</button></p>
-                        <p><button type="button" class="btn btn-primary btn-sm">Small button</button></p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-xl">Extra large button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary">Default button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-sm">Small button</button>
+                            </p>
                         </div>
 
                         <div class="col">
-                            <p> <button type="button" class="btn btn-primary btn-round btn-lg">Large button</button></p>
-                            <p> <button type="button" class="btn btn-primary btn-round">Default button</button></p>
-                            <p> <button type="button" class="btn btn-primary btn-round btn-sm">Small button</button></p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-round btn-lg">Large button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-round">Default button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-round btn-sm">Small button</button>
+                            </p>
                         </div>
 
                         <div class="col">
-                            <p><button type="button" class="btn btn-primary btn-icon btn-round btn-lg"><i class="icon-heart"></i></button></p>
-                            <p><button type="button" class="btn btn-primary btn-icon btn-round"><i class="icon-heart"></i></button></p>
-                            <p><button type="button" class="btn btn-primary btn-icon btn-round btn-sm"><i class="icon-heart"></i></button></p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-icon btn-round btn-lg"><i class="icon-heart"></i></button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-icon btn-round"><i class="icon-heart"></i></button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-icon btn-round btn-sm"><i class="icon-heart"></i></button>
+                            </p>
                         </div>
 
                         <div class="col">
-                            <p><button type="button" class="btn btn-primary btn-icon btn-lg"><i class="icon-heart"></i></button></p>
-                            <p><button type="button" class="btn btn-primary btn-icon"><i class="icon-heart"></i></button></p>
-                            <p><button type="button" class="btn btn-primary btn-icon btn-sm"><i class="icon-heart"></i></button></p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-icon btn-lg"><i class="icon-heart"></i></button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-icon"><i class="icon-heart"></i></button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-icon btn-sm"><i class="icon-heart"></i></button>
+                            </p>
                         </div>
 
                         <div class="col">
-                            <p><button type="button" class="btn btn-outline-primary btn-lg">Large button</button></p>
-                            <p> <button type="button" class="btn btn-outline-primary">Default button</button></p>
-                            <p><button type="button" class="btn btn-outline-primary btn-sm">Small button</button></p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-lg">Large button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary">Default button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-sm">Small button</button>
+                            </p>
                         </div>
 
                         <div class="col">
-                            <p><button type="button" class="btn btn-outline-primary btn-round btn-lg">Large button</button></p>
-                            <p><button type="button" class="btn btn-outline-primary btn-round">Default button</button></p>
-                            <p><button type="button" class="btn btn-outline-primary btn-round btn-sm">Small button</button></p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-round btn-lg">Large button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-round">Default button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-round btn-sm">Small button</button>
+                            </p>
                         </div>
 
                         <div class="col">
-                            <p><button type="button" class="btn btn-outline-primary btn-icon btn-round btn-lg"><i class="icon-heart"></i></button></p>
-                            <p><button type="button" class="btn btn-outline-primary btn-icon btn-round"><i class="icon-heart"></i></button></p>
-                            <p><button type="button" class="btn btn-outline-primary btn-icon btn-round btn-sm"><i class="icon-heart"></i></button></p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-icon btn-round btn-lg"><i class="icon-heart"></i></button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-icon btn-round"><i class="icon-heart"></i></button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-icon btn-round btn-sm"><i class="icon-heart"></i></button>
+                            </p>
                         </div>
 
                         <div class="col">
-                            <p><button type="button" class="btn btn-outline-primary btn-icon btn-lg"><i class="icon-heart"></i></button></p>
-                            <p><button type="button" class="btn btn-outline-primary btn-icon"><i class="icon-heart"></i></button></p>
-                            <p><button type="button" class="btn btn-outline-primary btn-icon btn-sm"><i class="icon-heart"></i></button></p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-icon btn-lg"><i class="icon-heart"></i></button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-icon"><i class="icon-heart"></i></button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-outline-primary btn-icon btn-sm"><i class="icon-heart"></i></button>
+                            </p>
                         </div>
 
                         <div class="col">
-                            <p><button type="button" class="btn btn-primary btn-link btn-lg">Large button</button></p>
-                            <p><button type="button" class="btn btn-primary btn-link">Default button</button></p>
-                            <p><button type="button" class="btn btn-primary btn-link btn-sm">Small button</button></p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-link btn-lg">Large button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-link">Default button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-link btn-sm">Small button</button>
+                            </p>
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p><button type="button" class="btn btn-primary btn-raised btn-lg">Large button</button></p>
-                            <p><button type="button" class="btn btn-primary btn-raised">Default button</button></p>
-                            <p><button type="button" class="btn btn-primary btn-raised btn-sm">Small button</button></p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-raised btn-lg">Large button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-raised">Default button</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary btn-raised btn-sm">Small button</button>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -650,7 +667,7 @@ posted: 2017-12-18
                 </div>
                 <div class="card-body">
                     <p>The <code>.btn</code> classes are designed to be used with the <code
-                           >&lt;button&gt;</code> element. However, you can also use these
+                    >&lt;button&gt;</code> element. However, you can also use these
                         classes on <code>&lt;a&gt;</code> or <code>
                             &lt;input&gt;</code> elements (though some browsers may apply a slightly different
                         rendering).</p>
