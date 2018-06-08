@@ -10,103 +10,49 @@ posted: 2017-12-18
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Default Buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-wrench"></i>
-                        </a>
-                        <div class="dropdown-menu extended themed dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Default Buttons'}}}
+                {{#card_body}}
                     <p>Use any of the available button classes to quickly create a styled button.</p>
                     {{#btn_list data.btn}}
                         <button type="button" class="{{class}}">{{text}}</button>
                     {{/btn_list}}
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Raised Buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-wrench"></i>
-                        </a>
-                        <div class="dropdown-menu extended themed dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Raised Buttons'}}}
+                {{#card_body}}
                     <p>Create raised buttons, by adding <code>.btn-raised</code>. </p>
                     {{#btn_list data.btn}}
                         <button type="button" class="{{class}} btn-raised">{{text}}</button>
                     {{/btn_list}}
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Rounded Buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Rounded Buttons'}}}
+                {{#card_body}}
                     <p>Create rounded buttons, by adding <code>.btn-round</code>. </p>
                     {{#btn_list data.btn}}
                         <button type="button" class="{{class}} btn-round">{{text}}</button>
                     {{/btn_list}}
-                </div>
-            </div>
-
-            {{#card 'taskForm'}}
-                {{{card_header 'New Story'}}}
-                {{#card_body}}
-                   sss
                 {{/card_body}}
             {{/card}}
-
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Outline buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Outline Buttons'}}}
+                {{#card_body}}
                     <p>
                         Create outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> ones to remove all background images and
                         colors on any button.
@@ -114,24 +60,16 @@ posted: 2017-12-18
                     {{#btn_list data.btn_outline}}
                         <button type="button" class="{{class}}">{{text}}</button>
                     {{/btn_list}}
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Rounded outline buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
+            {{#card}}
+                {{{card_header 'Rounded outline buttons'}}}
+                {{#card_body}}
                     <p>
                         Create rounded outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-round</code> ones to
                         remove all background images and colors on any button.
@@ -139,37 +77,27 @@ posted: 2017-12-18
                     {{#btn_list data.btn_outline}}
                         <button type="button" class="{{class}} btn-round">{{text}}</button>
                     {{/btn_list}}
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Buttons Links</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
+            {{#card}}
+                {{{card_header 'Rounded outline buttons'}}}
+                {{#card_body}}
                     <p>Use the <code>&lt;a&gt;</code> tag to create a link button.</p>
                     {{#btn_list data.btn}}
                         <a href="#" class="{{class}} btn-link" role="button">{{text}}</a>
                     {{/btn_list}}
-
                     <br><br>
                     <p>We can also use the <code>&lt;button&gt;</code> tag to create a link button.</p>
                     {{#btn_list data.btn}}
-                        <button type="button" class="{{class}} btn-link">Primary</button>
+                        <button type="button" class="{{class}} btn-link">{{text}}</button>
                     {{/btn_list}}
-
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
 
@@ -195,6 +123,10 @@ posted: 2017-12-18
                 </div>
                 <div class="card-body">
                     <p>
+                        {{#btn_list data.btn_icons}}
+                            <button type="button" class="{{class}} has-icon-left"><i class="{{icon_class}}"></i>{{text}}</button>
+                        {{/btn_list}}
+
                         <button type="button" class="btn btn-primary has-icon-left"><i class="icon-heart"></i>Primary</button>
                         <button type="button" class="btn btn-secondary has-icon-left"><i class="icon-list"></i>Secondary</button>
                         <button type="button" class="btn btn-success has-icon-left"><i class="icon-check"></i>Success</button>
