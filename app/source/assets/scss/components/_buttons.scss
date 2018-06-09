@@ -26,6 +26,10 @@ button, .button {
     box-shadow: none;
   }
 
+  // Square buttons
+  &.btn-square{
+    border-radius: 0;
+  }
   // Icon Buttons
   &.btn-icon {
     min-width: $btn-icon-size;
@@ -101,6 +105,11 @@ button, .button {
       padding: 0 0 0 $btn-icon-padding-left;
     }
   }
+}
+
+// Block button
+.btn-block {
+  display: block!important;
 }
 
 // Apply the mixin to the button variants.

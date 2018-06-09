@@ -167,50 +167,62 @@
 $contextual-palette-map: (
         'success': (
                 'base': $grass,
-                'light': lighten($grass, 6%), // Light form of base value
-                'x-light': lighten($grass, 10%), // Lighter form of base value
-                'dark': darken($grass, 6%), // Dark form of base value
-                'x-dark': darken($grass, 10%), // Darker form of base value
+                'light': lighten($grass, $color-shade-amount), // Light form of base value
+                'x-light': lighten($grass, ($color-shade-amount * 2)), // Lighter form of base value
+                'xx-light': lighten($grass, ($color-shade-amount  * 3)), // Lightest form of base value
+                'dark':darken($grass, $color-shade-amount), // Dark form of base value
+                'x-dark':darken($grass, ($color-shade-amount * 2)), // Darker form of base value
+                'xx-dark':darken($grass, ($color-shade-amount * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
         'danger': (
                 'base': $grapefruit,
-                'light': lighten($grapefruit, 6%),
-                'x-light': lighten($grapefruit, 10%),
-                'dark': darken($grapefruit, 6%),
-                'x-dark': darken($grapefruit, 10%),
+                'light': lighten($grapefruit, $color-shade-amount), // Light form of base value
+                'x-light': lighten($grapefruit, ($color-shade-amount * 2)), // Lighter form of base value
+                'xx-light': lighten($grapefruit, ($color-shade-amount  * 3)), // Lightest form of base value
+                'dark':darken($grapefruit, $color-shade-amount), // Dark form of base value
+                'x-dark':darken($grapefruit, ($color-shade-amount * 2)), // Darker form of base value
+                'xx-dark':darken($grapefruit, ($color-shade-amount * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
         'warning': (
                 'base': $sunflower,
-                'light': lighten($sunflower, 6%),
-                'x-light': lighten($sunflower, 10%),
-                'dark': darken($sunflower, 6%),
-                'x-dark': darken($sunflower, 10%),
+                'light': lighten($sunflower, $color-shade-amount), // Light form of base value
+                'x-light': lighten($sunflower, ($color-shade-amount * 2)), // Lighter form of base value
+                'xx-light': lighten($sunflower, ($color-shade-amount  * 3)), // Lightest form of base value
+                'dark':darken($sunflower, $color-shade-amount), // Dark form of base value
+                'x-dark':darken($sunflower, ($color-shade-amount * 2)), // Darker form of base value
+                'xx-dark':darken($sunflower, ($color-shade-amount * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
         'info': (
                 'base': $aqua,
-                'light': lighten($aqua, 6%),
-                'x-light': lighten($aqua, 10%),
-                'dark': darken($aqua, 6%),
-                'x-dark': darken($aqua, 10%),
+                'light': lighten($aqua, $color-shade-amount), // Light form of base value
+                'x-light': lighten($aqua, ($color-shade-amount * 2)), // Lighter form of base value
+                'xx-light': lighten($aqua, ($color-shade-amount  * 3)), // Lightest form of base value
+                'dark':darken($aqua, $color-shade-amount), // Dark form of base value
+                'x-dark':darken($aqua, ($color-shade-amount * 2)), // Darker form of base value
+                'xx-dark':darken($aqua, ($color-shade-amount * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
         'light': (
                 'base': $light,
-                'light': lighten($light, 6%),
-                'x-light': lighten($light, 10%),
-                'dark': darken($light, 6%),
-                'x-dark': darken($light, 10%),
+                'light': lighten($light, $color-shade-amount), // Light form of base value
+                'x-light': lighten($light, ($color-shade-amount * 2)), // Lighter form of base value
+                'xx-light': lighten($light, ($color-shade-amount  * 3)), // Lightest form of base value
+                'dark':darken($light, $color-shade-amount), // Dark form of base value
+                'x-dark':darken($light, ($color-shade-amount * 2)), // Darker form of base value
+                'xx-dark':darken($light, ($color-shade-amount * 3)), // Darkest form of base value
                 'font-color': #000,
         ),
         'dark': (
                 'base': $dark,
-                'light': lighten($dark, 6%),
-                'x-light': lighten($dark, 10%),
-                'dark': darken($dark, 6%),
-                'x-dark': darken($dark, 10%),
+                'light': lighten($dark, $color-shade-amount), // Light form of base value
+                'x-light': lighten($dark, ($color-shade-amount * 2)), // Lighter form of base value
+                'xx-light': lighten($dark, ($color-shade-amount  * 3)), // Lightest form of base value
+                'dark':darken($dark, $color-shade-amount), // Dark form of base value
+                'x-dark':darken($dark, ($color-shade-amount * 2)), // Darker form of base value
+                'xx-dark':darken($dark, ($color-shade-amount * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
 );
@@ -685,12 +697,6 @@ $footer-font-weight:                    $font-wh-regular;
 $btn-border-size:                       $border-thin !default; // Border width applied for all buttons (.btn)
 $btn-font-weight:                       $font-wh-regular !default; // Font weight applied for all buttons (.btn)
 
-// Button with icon (.has-icon-left / .has-icon-right)
-
-$btn-icon-padding-left:                 5px !default; // Left padding for icon with buttons on right
-$btn-icon-padding-right:                5px !default; // Right padding for icon with buttons on left
-$btn-icon-lh:                           1 !default; // // Line height for icon to align vertically with the button.
-
 // Small button (.btn-sm)
 
 $btn-font-size-sm:                      $font-size-sm;  // Font size for small button
@@ -730,6 +736,12 @@ $btn-min-width-xl:                      140px !default;
 $btn-min-height-xl:                     0px !default;
 $btn-line-height-xl:                    $lh-xl !default;
 $btn-border-radius-xl:                  $border-radius-xl; // Border radius to add rounded corners
+
+// Button with icon (.has-icon-left / .has-icon-right)
+
+$btn-icon-padding-left:                 5px !default; // Left padding for icon with buttons on right
+$btn-icon-padding-right:                5px !default; // Right padding for icon with buttons on left
+$btn-icon-lh:                           $btn-line-height !default; // // Line height for icon to align vertically with the button.
 
 // Rounded button type (.btn-round)
 

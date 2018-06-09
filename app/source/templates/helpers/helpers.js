@@ -5,6 +5,7 @@
 // https://github.com/doowb/octobox.js/blob/master/app/helpers/notifications.js
 // https://github.com/chian88/course_260/blob/master/trello3/public/javascripts/handlebars_utility.js
 // https://tutorialzine.com/2015/01/learn-handlebars-in-10-minutes
+// https://github.com/chapmanu/cascade-assets/tree/development/subprojects/degrees-and-programs/source/static/app/assemble/helpers
 
 
 module.exports.register = function (Handlebars, options) {
@@ -41,6 +42,26 @@ module.exports.register = function (Handlebars, options) {
         return new Handlebars.SafeString("Hello World");
     });
 
+
+//
+// IMAGE PLACEHOLDER
+// ======================================================
+// Usage: {{img_placeholder '300' '200' '300x200' }}
+    Handlebars.registerHelper('img_placeholder', function (w, h, text) {
+        function isValid(str) {
+            return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
+        }
+
+        var width = (isValid(w)) ? w : '300';
+        var height = (isValid(h)) ? 'x' + h : '';
+        var text = (isValid(text)) ? '?text=' + encodeURI(text) : '';
+
+        var url = 'http://placehold.it/' + width + height + text;
+
+        return new Handlebars.SafeString('<img src="' + url + '" alt="Placeholder Image" />')
+
+    });
+
 //
 // BUTTONS
 // ======================================================
@@ -49,7 +70,12 @@ module.exports.register = function (Handlebars, options) {
         return '<button type="button" class="btn btn-' + context + '">' + options.fn(this) + '</button>';
     });
 
-// Usage: {{#btn_list data.btn}} <button type="button" class="{{class}}">{{text}}</button>{{/btn_list}}
+// Usage: {{#btn_disabled "primary"}}Primary{{/btn}}
+    Handlebars.registerHelper('btn_disabled', function (context, options) {
+        return '<button type="button" class="btn btn-' + context + '" disabled>' + options.fn(this) + '</button>';
+    });
+
+// Usage: {{#btn_list button.btn}} <button type="button" class="{{class}}">{{text}}</button>{{/btn_list}}
     Handlebars.registerHelper('btn_list', function (context, options) {
         var html = "";
         for (var i = 0, j = context.length; i < j; i++) {
@@ -68,20 +94,28 @@ module.exports.register = function (Handlebars, options) {
         return '<div class="card">' + content + '</div>';
     });
 
-    // Handlebars.registerHelper('cardtest', function (context, options) {
-    //     context = context || '';
-    //     var content = options.fn(this);
-    //     if (context == '') {
-    //         return '<div class="card">' + content + '</div>';
-    //     }
-    //     else {
-    //         return '<div class="card" id="' + context + '">' + content + '</div>';
-    //     }
-    // });
+    // Card wrapper with id & class
+    // Usage : {{#card_has 'my-class' 'my-id'}}
+    Handlebars.registerHelper('card_has', function (cl, id, options) {
+        function isValid(str) {
+            return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
+        }
+
+        var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
+        var class_selector = (isValid(cl)) ? 'class="card' + ' ' + cl + '"' : 'class="card"';
+        var content = options.fn(this);
+
+        return '<div ' + class_selector + ' ' + id_selector + '>' + content + '</div>';
+    });
+
+    // Card title
+    Handlebars.registerHelper('card_title', function (context) {
+        return '<h5 class="card-title">' + context + '</h5>';
+    });
 
     // Card header
     Handlebars.registerHelper('card_header', function (context) {
-        return '<div class="card-header"><h6 class="card-title">' + context + '</h6><div class="card__actions window ml-auto">' +
+        return '<div class="card-header"><h5 class="card-title">' + context + '</h5><div class="card__actions window ml-auto">' +
             '<a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>' +
             '<a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>' +
             '<a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a></div></div>';

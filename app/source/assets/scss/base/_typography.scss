@@ -92,7 +92,7 @@ p {
 // LINKS
 // ======================================================
 
-a, a:visited {
+a:not(.btn), a:visited:not(.btn) {
   color: $link-color;
   text-decoration: none;
   transition: color 250ms ease-in-out;

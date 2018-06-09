@@ -1,47 +1,60 @@
 ---
-title: "Buttons"
-subtitle: Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
+title: <%= page.button.title %>
+lead: <%= page.button.lead %>
 components: true
 posted: 2017-12-18
 ---
 
 <!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
 <div class="container-fluid">
-
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
             {{#card}}
-                {{{card_header 'Default Buttons'}}}
+                {{{card_header 'Basic Buttons'}}}
                 {{#card_body}}
                     <p>Use any of the available button classes to quickly create a styled button.</p>
-                    {{#btn_list data.btn}}
-                        <button type="button" class="{{class}}">{{text}}</button>
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier}} mb-1">{{text}}</button>
                     {{/btn_list}}
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
+            {{#card}}
+                {{{card_header 'Squared Buttons'}}}
+                {{#card_body}}
+                    <p>Create squared buttons, by adding <code>.btn-square</code>. </p>
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier}} btn-square mb-1">{{text}}</button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
             {{#card}}
                 {{{card_header 'Raised Buttons'}}}
                 {{#card_body}}
                     <p>Create raised buttons, by adding <code>.btn-raised</code>. </p>
-                    {{#btn_list data.btn}}
-                        <button type="button" class="{{class}} btn-raised">{{text}}</button>
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier}} btn-raised">{{text}}</button>
                     {{/btn_list}}
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
             {{#card}}
                 {{{card_header 'Rounded Buttons'}}}
                 {{#card_body}}
                     <p>Create rounded buttons, by adding <code>.btn-round</code>. </p>
-                    {{#btn_list data.btn}}
-                        <button type="button" class="{{class}} btn-round">{{text}}</button>
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier}} btn-round mb-1">{{text}}</button>
                     {{/btn_list}}
                 {{/card_body}}
             {{/card}}
@@ -49,7 +62,7 @@ posted: 2017-12-18
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
             {{#card}}
                 {{{card_header 'Outline Buttons'}}}
                 {{#card_body}}
@@ -57,8 +70,8 @@ posted: 2017-12-18
                         Create outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> ones to remove all background images and
                         colors on any button.
                     </p>
-                    {{#btn_list data.btn_outline}}
-                        <button type="button" class="{{class}}">{{text}}</button>
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier_outline}} mb-1">{{text}}</button>
                     {{/btn_list}}
                 {{/card_body}}
             {{/card}}
@@ -66,7 +79,42 @@ posted: 2017-12-18
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
+            {{#card}}
+                {{{card_header 'Squared outline Buttons'}}}
+                {{#card_body}}
+                    <p>
+                        Create squared outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-square</code> ones to
+                        remove all background images and colors on any button.
+                    </p>
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-square mb-1">{{text}}</button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{#card}}
+                {{{card_header 'Raised outline Buttons'}}}
+                {{#card_body}}
+                    <p>
+                        Create raised outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-raised</code> ones to
+                        remove all background images and colors on any button.
+                    </p>
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-raised">{{text}}</button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
             {{#card}}
                 {{{card_header 'Rounded outline buttons'}}}
                 {{#card_body}}
@@ -74,9 +122,246 @@ posted: 2017-12-18
                         Create rounded outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-round</code> ones to
                         remove all background images and colors on any button.
                     </p>
-                    {{#btn_list data.btn_outline}}
-                        <button type="button" class="{{class}} btn-round">{{text}}</button>
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-round mb-1">{{text}}</button>
                     {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{#card}}
+                {{{card_header 'Link buttons'}}}
+                {{#card_body}}
+                    <p>Use the <code>&lt;a&gt;</code> tag to create a link button.</p>
+                    {{#btn_list button.btn}}
+                        <a href="#" class="{{class}} {{modifier}} btn-link" role="button">{{text}}</a>
+                    {{/btn_list}}
+                    <br><br>
+                    <p>We can also use the <code>&lt;button&gt;</code> tag to create a link button.</p>
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier}} btn-link">{{text}}</button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{#card}}
+                {{{card_header 'Buttons with icon'}}}
+                {{#card_body}}
+                    <p>Buttons with icon on left side.</p>
+                    <p>
+                        {{#btn_list button.btn}}
+                            <button type="button" class="{{class}} {{modifier}} has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
+                        {{/btn_list}}
+                    </p>
+                    <p>Rounded buttons with icon on right side.</p>
+                    <p>
+                        {{#btn_list button.btn}}
+                            <button type="button" class="{{class}} {{modifier}} btn-round has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
+                        {{/btn_list}}
+                    </p>
+                    <p>Outlined buttons with icon on left side.</p>
+                    <p>
+                        {{#btn_list button.btn}}
+                            <button type="button" class="{{class}} {{modifier_outline}} has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
+                        {{/btn_list}}
+                    </p>
+                    <p>Outlined buttons with icon on right side.</p>
+                    <p>
+                        {{#btn_list button.btn}}
+                            <button type="button" class="{{class}} {{modifier_outline}} btn-round has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
+                        {{/btn_list}}
+                    </p>
+                    <p>Link buttons with icon on left side.</p>
+                    <p>
+                        {{#btn_list button.btn}}
+                            <button type="button" class="{{class}} {{modifier_outline}} btn-link has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
+                        {{/btn_list}}
+                    </p>
+                    <p>Link buttons with icon on right side.</p>
+                    <p>
+                        {{#btn_list button.btn}}
+                            <button type="button" class="{{class}} {{modifier_outline}} btn-link has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
+                        {{/btn_list}}
+                    </p>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-2">
+            {{#card}}
+                {{{card_header 'Icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier}} btn-icon mb-1"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-2">
+            {{#card}}
+                {{{card_header 'Outline icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon mb-1"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-2">
+            {{#card}}
+                {{{card_header 'Circle icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-2">
+            {{#card}}
+                {{{card_header 'Outline circle icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 pr-2">
+            {{#card}}
+                {{{card_header 'Link icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn}}
+                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-link mb-1"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-2">
+            {{#card}}
+                {{{card_header 'Social link icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn_social}}
+                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-round btn-link"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-2">
+            {{#card}}
+                {{{card_header 'Social buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn_social}}
+                        <button type="button" class="{{class}} {{modifier}} has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-2">
+            {{#card}}
+                {{{card_header 'Social outline buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn_social}}
+                        <button type="button" class="{{class}} {{modifier_outline}} has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6 pr-2">
+            {{#card}}
+                {{{card_header 'Social Icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn_social}}
+                        <button type="button" class="{{class}} {{modifier}} btn-icon"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-2">
+            {{#card}}
+                {{{card_header 'Social outline icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn_social}}
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-2">
+            {{#card}}
+                {{{card_header 'Social circle icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn_social}}
+                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-round"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-2">
+            {{#card}}
+                {{{card_header 'Social outline circle icon buttons'}}}
+                {{#card_body}}
+                    {{#btn_list button.btn_social}}
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-round"><i class="{{class_i}}"></i></button>
+                    {{/btn_list}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-2">
+            {{#card}}
+                {{{card_header 'Disabled state'}}}
+                {{#card_body}}
+                    <p>A button can show it is currently unable to be interacted with</p>
+                    <a href="#" class="btn btn-primary disabled mb-1" role="button" aria-disabled="true">Primary link</a>
+                    {{#btn_disabled "primary mb-1"}}Primary{{/btn_disabled}}
+                    {{#btn_disabled "outline-primary mb-1"}}Primary{{/btn_disabled}}
+                    {{#btn_disabled "secondary btn-round mb-1"}}Secondary{{/btn_disabled}}
+                    {{#btn_disabled "outline-secondary btn-round mb-1"}}Secondary{{/btn_disabled}}
+                    {{#btn_disabled "success btn-icon mb-1"}}<i class="icon-check"></i>{{/btn_disabled}}
+                    {{#btn_disabled "outline-success btn-icon mb-1"}}<i class="icon-check"></i>{{/btn_disabled}}
+                    {{#btn_disabled "danger btn-icon btn-round mb-1"}}<i class="icon-close"></i>{{/btn_disabled}}
+                    {{#btn_disabled "outline-danger btn-icon btn-round mb-1"}}<i class="icon-close"></i>{{/btn_disabled}}
+                    {{#btn_disabled "danger btn-link mb-1"}}Warning{{/btn_disabled}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-2">
+            {{#card}}
+                {{{card_header 'Active state'}}}
+                {{#card_body}}
+                    <p>A button can show it is currently the active user selection</p>
+                    {{#btn "primary active"}}Primary{{/btn}}
+                    {{#btn "secondary btn-round active"}}Secondary{{/btn}}
+                    {{#btn "success btn-icon active"}}<i class="icon-check"></i>{{/btn}}
+                    {{#btn "danger btn-icon btn-round active"}}<i class="icon-close"></i>{{/btn}}
+                    {{#btn "warning btn-link active"}}Warning{{/btn}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -85,17 +370,109 @@ posted: 2017-12-18
     <div class="row">
         <div class="col-md-12">
             {{#card}}
-                {{{card_header 'Rounded outline buttons'}}}
+                {{{card_header 'Button Sizes'}}}
                 {{#card_body}}
-                    <p>Use the <code>&lt;a&gt;</code> tag to create a link button.</p>
-                    {{#btn_list data.btn}}
-                        <a href="#" class="{{class}} btn-link" role="button">{{text}}</a>
-                    {{/btn_list}}
-                    <br><br>
-                    <p>We can also use the <code>&lt;button&gt;</code> tag to create a link button.</p>
-                    {{#btn_list data.btn}}
-                        <button type="button" class="{{class}} btn-link">{{text}}</button>
-                    {{/btn_list}}
+                    <p>A button can have different sizes. Add <code>.btn-xl</code> , <code>.btn-lg</code> or <code>.btn-sm</code> class for additional sizes.</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-primary {{size}}">{{text}}</button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-primary has-icon-left mb-1 {{size}}"><i class="icon-heart"></i>{{text}}</button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-primary btn-round {{size}}">{{text}}</button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-primary btn-raised {{size}}">{{text}}</button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-outline-primary {{size}}">{{text}}</button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-outline-primary has-icon-left mb-1 {{size}}"><i class="icon-heart"></i>{{text}}</button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-outline-primary btn-round {{size}}">{{text}}</button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-outline-primary btn-raised {{size}}">{{text}}</button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+
+                        <div class="col col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-primary btn-icon {{size}}"><i class="icon-heart"></i></button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-outline-primary btn-icon {{size}}"><i class="icon-heart"></i></button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-primary btn-icon btn-round {{size}}"><i class="icon-heart"></i></button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p>
+                                    <button type="button" class="{{class}} btn-outline-primary btn-icon btn-round {{size}}"><i class="icon-heart"></i></button>
+                                </p>
+                            {{/btn_list}}
+                        </div>
+
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p><button type="button" class="{{class}} btn-facebook has-icon-left {{size}}"><i class="fab fa-facebook-f"></i>Facebook</button></p>
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <p><button type="button" class="{{class}} btn-primary btn-link {{size}}">{{text}}</button></p>
+                            {{/btn_list}}
+                        </div>
+
+                    </div>
                 {{/card_body}}
             {{/card}}
         </div>
@@ -103,542 +480,44 @@ posted: 2017-12-18
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Buttons with icon</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-wrench"></i>
-                        </a>
-                        <div class="dropdown-menu extended themed dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>
-                        {{#btn_list data.btn_icons}}
-                            <button type="button" class="{{class}} has-icon-left"><i class="{{icon_class}}"></i>{{text}}</button>
-                        {{/btn_list}}
-
-                        <button type="button" class="btn btn-primary has-icon-left"><i class="icon-heart"></i>Primary</button>
-                        <button type="button" class="btn btn-secondary has-icon-left"><i class="icon-list"></i>Secondary</button>
-                        <button type="button" class="btn btn-success has-icon-left"><i class="icon-check"></i>Success</button>
-                        <button type="button" class="btn btn-danger has-icon-left"><i class="icon-envelope"></i>Danger</button>
-                        <button type="button" class="btn btn-warning has-icon-left"><i class="icon-bell"></i>Warning</button>
-                        <button type="button" class="btn btn-info has-icon-left"><i class="icon-link"></i>Info</button>
-                        <button type="button" class="btn btn-light has-icon-left"><i class="icon-bubbles"></i>Light</button>
-                        <button type="button" class="btn btn-dark has-icon-left"><i class="icon-pin"></i>Dark</button>
-                    </p>
-                    <p>
-                        <button type="button" class="btn btn-round btn-primary has-icon-right">Primary<i class="icon-heart"></i></button>
-                        <button type="button" class="btn btn-round btn-secondary has-icon-right">Secondary<i class="icon-list"></i></button>
-                        <button type="button" class="btn btn-round btn-success has-icon-right">Success<i class="icon-check"></i></button>
-                        <button type="button" class="btn btn-round btn-danger has-icon-right">Danger<i class="icon-envelope"></i></button>
-                        <button type="button" class="btn btn-round btn-warning has-icon-right">Warning<i class="icon-bell"></i></button>
-                        <button type="button" class="btn btn-round btn-info has-icon-right">Info<i class="icon-link"></i></button>
-                        <button type="button" class="btn btn-round btn-light has-icon-right">Light<i class="icon-bubbles"></i></button>
-                        <button type="button" class="btn btn-round btn-dark has-icon-right">Dark<i class="icon-pin"></i></button>
-                    </p>
-
-                    <p>
-                        <button type="button" class="btn btn-outline-primary has-icon-left"><i class="icon-heart"></i>Primary</button>
-                        <button type="button" class="btn btn-outline-secondary has-icon-left"><i class="icon-list"></i>Secondary</button>
-                        <button type="button" class="btn btn-outline-success has-icon-left"><i class="icon-check"></i>Success</button>
-                        <button type="button" class="btn btn-outline-danger has-icon-left"><i class="icon-envelope"></i>Danger</button>
-                        <button type="button" class="btn btn-outline-warning has-icon-left"><i class="icon-bell"></i>Warning</button>
-                        <button type="button" class="btn btn-outline-info has-icon-left"><i class="icon-link"></i>Info</button>
-                        <button type="button" class="btn btn-outline-light has-icon-left"><i class="icon-bubbles"></i>Light</button>
-                        <button type="button" class="btn btn-outline-dark has-icon-left"><i class="icon-pin"></i>Dark</button>
-                    </p>
-                    <p>
-                        <button type="button" class="btn btn-round btn-outline-primary has-icon-right">Primary<i class="icon-heart"></i></button>
-                        <button type="button" class="btn btn-round btn-outline-secondary has-icon-right">Secondary<i class="icon-list"></i></button>
-                        <button type="button" class="btn btn-round btn-outline-success has-icon-right">Success<i class="icon-check"></i></button>
-                        <button type="button" class="btn btn-round btn-outline-danger has-icon-right">Danger<i class="icon-envelope"></i></button>
-                        <button type="button" class="btn btn-round btn-outline-warning has-icon-right">Warning<i class="icon-bell"></i></button>
-                        <button type="button" class="btn btn-round btn-outline-info has-icon-right">Info<i class="icon-link"></i></button>
-                        <button type="button" class="btn btn-round btn-outline-light has-icon-right">Light<i class="icon-bubbles"></i></button>
-                        <button type="button" class="btn btn-round btn-outline-dark has-icon-right">Dark<i class="icon-pin"></i></button>
-                    </p>
-
-                    <p>
-                        <a href="#" class="btn btn-link btn-primary has-icon-left" role="button"><i class="icon-heart"></i>Primary</a>
-                        <a href="#" class="btn btn-link btn-secondary has-icon-left" role="button"><i class="icon-list"></i>Secondary</a>
-                        <a href="#" class="btn btn-link btn-success has-icon-left" role="button"><i class="icon-check"></i>Success</a>
-                        <a href="#" class="btn btn-link btn-danger has-icon-left" role="button"><i class="icon-envelope"></i>Danger</a>
-                        <a href="#" class="btn btn-link btn-warning has-icon-left" role="button"><i class="icon-bell"></i>Warning</a>
-                        <a href="#" class="btn btn-link btn-info has-icon-left" role="button"><i class="icon-link"></i>Info</a>
-                        <a href="#" class="btn btn-link btn-light has-icon-left" role="button"><i class="icon-bubbles"></i>Light</a>
-                        <a href="#" class="btn btn-link btn-dark has-icon-left" role="button"><i class="icon-pin"></i>Dark</a>
-                    </p>
-                </div>
-            </div>
+            {{#card}}
+                {{{card_header 'Button tags'}}}
+                {{#card_body}}
+                    <p>The <code>.btn</code> classes are designed to be used with the <code>&lt;button&gt;</code> element.
+                        However, you can also use these classes on <code>&lt;a&gt;</code> or <code> input&gt;</code> elements
+                        (though some browsers may apply a slightly different rendering).</p>
+                    <a class="btn btn-primary mb-1" href="#" role="button">Link</a>
+                    <button class="btn btn-primary mb-1" type="submit">Button</button>
+                    <input class="btn btn-primary mb-1" type="button" value="Input">
+                    <input class="btn btn-primary mb-1" type="submit" value="Submit">
+                    <input class="btn btn-primary mb-1" type="reset" value="Reset">
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Icon buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-primary btn-icon"><i class="icon-heart"></i></button>
-                    <button type="button" class="btn btn-secondary btn-icon"><i class="icon-list"></i></button>
-                    <button type="button" class="btn btn-success btn-icon"><i class="icon-check"></i></button>
-                    <button type="button" class="btn btn-danger btn-icon"><i class="icon-envelope"></i></button>
-                    <button type="button" class="btn btn-warning btn-icon"><i class="icon-bell"></i></button>
-                    <button type="button" class="btn btn-info btn-icon"><i class="icon-link"></i></button>
-                    <button type="button" class="btn btn-light btn-icon"><i class="icon-bubbles"></i></button>
-                    <button type="button" class="btn btn-dark btn-icon"><i class="icon-pin"></i></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Outline icon buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary btn-icon"><i class="icon-heart"></i></button>
-                    <button type="button" class="btn btn-outline-secondary btn-icon"><i class="icon-list"></i></button>
-                    <button type="button" class="btn btn-outline-success btn-icon"><i class="icon-check"></i></button>
-                    <button type="button" class="btn btn-outline-danger btn-icon"><i class="icon-envelope"></i></button>
-                    <button type="button" class="btn btn-outline-warning btn-icon"><i class="icon-bell"></i></button>
-                    <button type="button" class="btn btn-outline-info btn-icon"><i class="icon-link"></i></button>
-                    <button type="button" class="btn btn-outline-light btn-icon"><i class="icon-bubbles"></i></button>
-                    <button type="button" class="btn btn-outline-dark btn-icon"><i class="icon-pin"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Circle icon buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-primary btn-icon btn-round"><i class="icon-heart"></i></button>
-                    <button type="button" class="btn btn-secondary btn-icon btn-round"><i class="icon-list"></i></button>
-                    <button type="button" class="btn btn-success btn-icon btn-round"><i class="icon-check"></i></button>
-                    <button type="button" class="btn btn-danger btn-icon btn-round"><i class="icon-envelope"></i></button>
-                    <button type="button" class="btn btn-warning btn-icon btn-round"><i class="icon-bell"></i></button>
-                    <button type="button" class="btn btn-info btn-icon btn-round"><i class="icon-link"></i></button>
-                    <button type="button" class="btn btn-light btn-icon btn-round"><i class="icon-bubbles"></i></button>
-                    <button type="button" class="btn btn-dark btn-icon btn-round"><i class="icon-pin"></i></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Outline Circle icon buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary btn-icon btn-round"><i class="icon-heart"></i></button>
-                    <button type="button" class="btn btn-outline-secondary btn-icon btn-round"><i class="icon-list"></i></button>
-                    <button type="button" class="btn btn-outline-success btn-icon btn-round"><i class="icon-check"></i></button>
-                    <button type="button" class="btn btn-outline-danger btn-icon btn-round"><i class="icon-envelope"></i></button>
-                    <button type="button" class="btn btn-outline-warning btn-icon btn-round"><i class="icon-bell"></i></button>
-                    <button type="button" class="btn btn-outline-info btn-icon btn-round"><i class="icon-link"></i></button>
-                    <button type="button" class="btn btn-outline-light btn-icon btn-round"><i class="icon-bubbles"></i></button>
-                    <button type="button" class="btn btn-outline-dark btn-icon btn-round"><i class="icon-pin"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Social Icon buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-facebook btn-icon"><i class="fab fa-facebook-f"></i></button>
-                    <button type="button" class="btn btn-twitter btn-icon"><i class="fab fa-twitter"></i></button>
-                    <button type="button" class="btn btn-google-plus btn-icon"><i class="fab fa-google-plus-g"></i></button>
-                    <button type="button" class="btn btn-linkedin btn-icon"><i class="fab fa-linkedin-in"></i></button>
-                    <button type="button" class="btn btn-instagram btn-icon"><i class="fab fa-instagram"></i></button>
-                    <button type="button" class="btn btn-pinterest btn-icon"><i class="fab fa-pinterest-p"></i></button>
-                    <button type="button" class="btn btn-dribbble btn-icon"><i class="fab fa-dribbble"></i></button>
-                    <button type="button" class="btn btn-youtube btn-icon"><i class="fab fa-youtube"></i></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Social Outline icon buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-outline-facebook btn-icon"><i class="fab fa-facebook-f"></i></button>
-                    <button type="button" class="btn btn-outline-twitter btn-icon"><i class="fab fa-twitter"></i></button>
-                    <button type="button" class="btn btn-outline-google-plus btn-icon"><i class="fab fa-google-plus-g"></i></button>
-                    <button type="button" class="btn btn-outline-linkedin btn-icon"><i class="fab fa-linkedin-in"></i></button>
-                    <button type="button" class="btn btn-outline-instagram btn-icon"><i class="fab fa-instagram"></i></button>
-                    <button type="button" class="btn btn-outline-pinterest btn-icon"><i class="fab fa-pinterest-p"></i></button>
-                    <button type="button" class="btn btn-outline-dribbble btn-icon"><i class="fab fa-dribbble"></i></button>
-                    <button type="button" class="btn btn-outline-youtube btn-icon"><i class="fab fa-youtube"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Social Circle icon buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-facebook btn-icon btn-round"><i class="fab fa-facebook-f"></i></button>
-                    <button type="button" class="btn btn-twitter btn-icon btn-round"><i class="fab fa-twitter"></i></button>
-                    <button type="button" class="btn btn-google-plus btn-icon btn-round"><i class="fab fa-google-plus-g"></i></button>
-                    <button type="button" class="btn btn-linkedin btn-icon btn-round"><i class="fab fa-linkedin-in"></i></button>
-                    <button type="button" class="btn btn-instagram btn-icon btn-round"><i class="fab fa-instagram"></i></button>
-                    <button type="button" class="btn btn-pinterest btn-icon btn-round"><i class="fab fa-pinterest-p"></i></button>
-                    <button type="button" class="btn btn-dribbble btn-icon btn-round"><i class="fab fa-dribbble"></i></button>
-                    <button type="button" class="btn btn-youtube btn-icon btn-round"><i class="fab fa-youtube"></i></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Social Outline Circle icon buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-outline-facebook btn-icon btn-round"><i class="fab fa-facebook-f"></i></button>
-                    <button type="button" class="btn btn-outline-twitter btn-icon btn-round"><i class="fab fa-twitter"></i></button>
-                    <button type="button" class="btn btn-outline-google-plus btn-icon btn-round"><i class="fab fa-google-plus-g"></i></button>
-                    <button type="button" class="btn btn-outline-linkedin btn-icon btn-round"><i class="fab fa-linkedin-in"></i></button>
-                    <button type="button" class="btn btn-outline-instagram btn-icon btn-round"><i class="fab fa-instagram"></i></button>
-                    <button type="button" class="btn btn-outline-pinterest btn-icon btn-round"><i class="fab fa-pinterest-p"></i></button>
-                    <button type="button" class="btn btn-outline-dribbble btn-icon btn-round"><i class="fab fa-dribbble"></i></button>
-                    <button type="button" class="btn btn-outline-youtube btn-icon btn-round"><i class="fab fa-youtube"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Social link icon buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-facebook btn-icon btn-round btn-link"><i class="fab fa-facebook-f"></i></button>
-                    <button type="button" class="btn btn-twitter btn-icon btn-round btn-link"><i class="fab fa-twitter"></i></button>
-                    <button type="button" class="btn btn-google-plus btn-icon btn-round btn-link"><i class="fab fa-google-plus-g"></i></button>
-                    <button type="button" class="btn btn-linkedin btn-icon btn-round btn-link"><i class="fab fa-linkedin-in"></i></button>
-                    <button type="button" class="btn btn-instagram btn-icon btn-round btn-link"><i class="fab fa-instagram"></i></button>
-                    <button type="button" class="btn btn-pinterest btn-icon btn-round btn-link"><i class="fab fa-pinterest-p"></i></button>
-                    <button type="button" class="btn btn-dribbble btn-icon btn-round btn-link"><i class="fab fa-dribbble"></i></button>
-                    <button type="button" class="btn btn-youtube btn-icon btn-round btn-link"><i class="fab fa-youtube"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Active state</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>A button can show it is currently the active user selection</p>
-                    <button type="button" class="btn btn-primary active">Primary</button>
-                    <button type="button" class="btn btn-secondary btn-round active">Secondary</button>
-                    <button type="button" class="btn btn-success btn-icon active"><i class="icon-check"></i></button>
-                    <button type="button" class="btn btn-danger btn-icon btn-round active"><i class="icon-envelope"></i></button>
-                    <button type="button" class="btn btn-warning btn-link active">Warning</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Disabled state</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>A button can show it is currently unable to be interacted with</p>
-                    <a href="#" class="btn btn-primary disabled" role="button" aria-disabled="true">Primary link</a>
-                    <button type="button" class="btn btn-primary" disabled>Primary</button>
-                    <button type="button" class="btn btn-outline-primary" disabled>Primary</button>
-                    <button type="button" class="btn btn-secondary btn-round" disabled>Secondary</button>
-                    <button type="button" class="btn btn-outline-secondary btn-round" disabled>Secondary</button>
-                    <button type="button" class="btn btn-success btn-icon" disabled><i class="icon-check"></i></button>
-                    <button type="button" class="btn btn-outline-success btn-icon" disabled><i class="icon-check"></i></button>
-                    <button type="button" class="btn btn-danger btn-icon btn-round" disabled><i class="icon-envelope"></i></button>
-                    <button type="button" class="btn btn-outline-danger btn-icon btn-round" disabled><i class="icon-envelope"></i></button>
-                    <button type="button" class="btn btn-warning btn-link" disabled>Warning</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Button Sizes</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>A button can have different sizes. Add <code>.btn-lg</code> or <code>.btn-sm</code> class for additional sizes.</p>
-
-                    <div class="row">
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-primary btn-xl">Extra large button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-lg">Large button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary">Default button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-sm">Small button</button>
-                            </p>
-                        </div>
-
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-primary btn-round btn-lg">Large button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-round">Default button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-round btn-sm">Small button</button>
-                            </p>
-                        </div>
-
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-primary btn-icon btn-round btn-lg"><i class="icon-heart"></i></button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-icon btn-round"><i class="icon-heart"></i></button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-icon btn-round btn-sm"><i class="icon-heart"></i></button>
-                            </p>
-                        </div>
-
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-primary btn-icon btn-lg"><i class="icon-heart"></i></button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-icon"><i class="icon-heart"></i></button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-icon btn-sm"><i class="icon-heart"></i></button>
-                            </p>
-                        </div>
-
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-lg">Large button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-outline-primary">Default button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-sm">Small button</button>
-                            </p>
-                        </div>
-
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-round btn-lg">Large button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-round">Default button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-round btn-sm">Small button</button>
-                            </p>
-                        </div>
-
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-icon btn-round btn-lg"><i class="icon-heart"></i></button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-icon btn-round"><i class="icon-heart"></i></button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-icon btn-round btn-sm"><i class="icon-heart"></i></button>
-                            </p>
-                        </div>
-
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-icon btn-lg"><i class="icon-heart"></i></button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-icon"><i class="icon-heart"></i></button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-outline-primary btn-icon btn-sm"><i class="icon-heart"></i></button>
-                            </p>
-                        </div>
-
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-primary btn-link btn-lg">Large button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-link">Default button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-link btn-sm">Small button</button>
-                            </p>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>
-                                <button type="button" class="btn btn-primary btn-raised btn-lg">Large button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-raised">Default button</button>
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-primary btn-raised btn-sm">Small button</button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Button tags</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>The <code>.btn</code> classes are designed to be used with the <code
-                    >&lt;button&gt;</code> element. However, you can also use these
-                        classes on <code>&lt;a&gt;</code> or <code>
-                            &lt;input&gt;</code> elements (though some browsers may apply a slightly different
-                        rendering).</p>
-                    <a class="btn btn-primary" href="#" role="button">Link</a>
-                    <button class="btn btn-primary" type="submit">Button</button>
-                    <input class="btn btn-primary" type="button" value="Input">
-                    <input class="btn btn-primary" type="submit" value="Submit">
-                    <input class="btn btn-primary" type="reset" value="Reset">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Block Level Buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Block level buttons'}}}
+                {{#card_body}}
                     <p>Create block level buttons—those that span the full width of a parent—by adding <code>.btn-block</code>.</p>
-                    <button type="button" class="btn btn-primary btn-block">Block button</button>
-                    <button type="button" class="btn btn-outline-primary btn-block">Outline Block button</button>
-                    <button type="button" class="btn btn-secondary btn-round btn-block">Rounded Block button</button>
-                    <button type="button" class="btn btn-round btn-outline-secondary btn-block">Rounded Outline Block button</button>
-                </div>
-            </div>
+                    {{#btn "primary btn-block"}}Block button{{/btn}}
+                    {{#btn "outline-primary btn-block"}}Outline Block button{{/btn}}
+                    {{#btn "secondary btn-round btn-block"}}Rounded Block button{{/btn}}
+                    {{#btn "outline-secondary btn-round btn-block"}}Rounded Outline Block button{{/btn}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-2">
+            {{#card}}
+                {{{card_header 'Block level buttons with icon'}}}
+                {{#card_body}}
+                    {{#btn "primary btn-block has-icon-right"}}Block button with icon on right side<i class="icon-heart"></i>{{/btn}}
+                    {{#btn "primary btn-block has-icon-left"}}<i class="icon-heart"></i>Block button with icon on left side{{/btn}}
+                    {{#btn "secondary btn-block has-icon-left"}}<i class="icon-heart float-left"></i>Block button with icon on start{{/btn}}
+                    {{#btn "secondary btn-block has-icon-left"}}Block button with icon on end<i class="icon-heart float-right"></i>{{/btn}}
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
-
-
 </div>
