@@ -5,7 +5,11 @@ components: true
 posted: 2017-12-18
 ---
 
-<!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
+{{!--For buttons you can make use of the handlebars button helpers.
+Saves you having to write out the bulletproof button HTML
+See ../helpers/helpers.js for helpers and ../../data/components/button.json for JSON data.
+OR you can type out the HTML if you prefer--}}
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -196,7 +200,7 @@ posted: 2017-12-18
     </div>
 
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Icon buttons'}}}
                 {{#card_body}}
@@ -206,7 +210,7 @@ posted: 2017-12-18
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             {{#card}}
                 {{{card_header 'Outline icon buttons'}}}
                 {{#card_body}}
@@ -219,7 +223,7 @@ posted: 2017-12-18
     </div>
 
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Circle icon buttons'}}}
                 {{#card_body}}
@@ -229,7 +233,7 @@ posted: 2017-12-18
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             {{#card}}
                 {{{card_header 'Outline circle icon buttons'}}}
                 {{#card_body}}
@@ -241,7 +245,7 @@ posted: 2017-12-18
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Link icon buttons'}}}
                 {{#card_body}}
@@ -251,7 +255,7 @@ posted: 2017-12-18
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             {{#card}}
                 {{{card_header 'Social link icon buttons'}}}
                 {{#card_body}}
@@ -264,7 +268,7 @@ posted: 2017-12-18
     </div>
 
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Social buttons'}}}
                 {{#card_body}}
@@ -274,7 +278,7 @@ posted: 2017-12-18
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             {{#card}}
                 {{{card_header 'Social outline buttons'}}}
                 {{#card_body}}
@@ -286,24 +290,23 @@ posted: 2017-12-18
         </div>
     </div>
 
-
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Social Icon buttons'}}}
                 {{#card_body}}
                     {{#btn_list button.btn_social}}
-                        <button type="button" class="{{class}} {{modifier}} btn-icon"><i class="{{class_i}}"></i></button>
+                        <button type="button" class="{{class}} {{modifier}} btn-icon mb-1"><i class="{{class_i}}"></i></button>
                     {{/btn_list}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             {{#card}}
                 {{{card_header 'Social outline icon buttons'}}}
                 {{#card_body}}
                     {{#btn_list button.btn_social}}
-                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon"><i class="{{class_i}}"></i></button>
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon mb-1"><i class="{{class_i}}"></i></button>
                     {{/btn_list}}
                 {{/card_body}}
             {{/card}}
@@ -311,22 +314,22 @@ posted: 2017-12-18
     </div>
 
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Social circle icon buttons'}}}
                 {{#card_body}}
                     {{#btn_list button.btn_social}}
-                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-round"><i class="{{class_i}}"></i></button>
+                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
                     {{/btn_list}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             {{#card}}
                 {{{card_header 'Social outline circle icon buttons'}}}
                 {{#card_body}}
                     {{#btn_list button.btn_social}}
-                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-round"><i class="{{class_i}}"></i></button>
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
                     {{/btn_list}}
                 {{/card_body}}
             {{/card}}
@@ -334,7 +337,7 @@ posted: 2017-12-18
     </div>
 
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Disabled state'}}}
                 {{#card_body}}
@@ -352,16 +355,16 @@ posted: 2017-12-18
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             {{#card}}
                 {{{card_header 'Active state'}}}
                 {{#card_body}}
                     <p>A button can show it is currently the active user selection</p>
-                    {{#btn "primary active"}}Primary{{/btn}}
-                    {{#btn "secondary btn-round active"}}Secondary{{/btn}}
-                    {{#btn "success btn-icon active"}}<i class="icon-check"></i>{{/btn}}
-                    {{#btn "danger btn-icon btn-round active"}}<i class="icon-close"></i>{{/btn}}
-                    {{#btn "warning btn-link active"}}Warning{{/btn}}
+                    {{#btn "primary active mb-1"}}Primary{{/btn}}
+                    {{#btn "secondary btn-round active mb-1"}}Secondary{{/btn}}
+                    {{#btn "success btn-icon active mb-1"}}<i class="icon-check"></i>{{/btn}}
+                    {{#btn "danger btn-icon btn-round active mb-1"}}<i class="icon-close"></i>{{/btn}}
+                    {{#btn "warning btn-link active mb-1"}}Warning{{/btn}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -376,99 +379,89 @@ posted: 2017-12-18
                     <div class="row">
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-primary {{size}}">{{text}}</button>
-                                </p>
+                                    {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-primary has-icon-left mb-1 {{size}}"><i class="icon-heart"></i>{{text}}</button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-primary btn-round {{size}}">{{text}}</button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-primary btn-raised {{size}}">{{text}}</button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
 
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-outline-primary {{size}}">{{text}}</button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-outline-primary has-icon-left mb-1 {{size}}"><i class="icon-heart"></i>{{text}}</button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-outline-primary btn-round {{size}}">{{text}}</button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-outline-primary btn-raised {{size}}">{{text}}</button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
 
                         <div class="col col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-primary btn-icon {{size}}"><i class="icon-heart"></i></button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-outline-primary btn-icon {{size}}"><i class="icon-heart"></i></button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-primary btn-icon btn-round {{size}}"><i class="icon-heart"></i></button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p>
                                     <button type="button" class="{{class}} btn-outline-primary btn-icon btn-round {{size}}"><i class="icon-heart"></i></button>
-                                </p>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
 
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p><button type="button" class="{{class}} btn-facebook has-icon-left {{size}}"><i class="fab fa-facebook-f"></i>Facebook</button></p>
+                                <button type="button" class="{{class}} btn-facebook has-icon-left {{size}}"><i class="fab fa-facebook-f"></i>Facebook</button>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
                         <div class="col-md-3">
                             {{#btn_list button.btn_size}}
-                                <p><button type="button" class="{{class}} btn-primary btn-link {{size}}">{{text}}</button></p>
+                                <button type="button" class="{{class}} btn-primary btn-link {{size}}">{{text}}</button>
+                                {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
 
@@ -496,7 +489,7 @@ posted: 2017-12-18
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Block level buttons'}}}
                 {{#card_body}}
@@ -508,7 +501,7 @@ posted: 2017-12-18
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             {{#card}}
                 {{{card_header 'Block level buttons with icon'}}}
                 {{#card_body}}

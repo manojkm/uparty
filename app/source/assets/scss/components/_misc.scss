@@ -23,15 +23,15 @@ hr {
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
   @each $scheme, $value in $colors {
-    hr.#{$scheme}-line{
-      @include border-theme($scheme, 'xx-light' , $position: top);
+    hr.#{$scheme}-line {
+      @include border-theme($scheme, 'xx-light', $position: top);
     }
   }
 }
 
 // Contextual variations
 @each $scheme, $value in $contextual-palette-map {
-  hr.#{$scheme}-line{
+  hr.#{$scheme}-line {
     @include border-theme($scheme, 'xx-light', $position: top);
   }
 }
@@ -62,4 +62,15 @@ img::-webkit-selection {
 
 img::-moz-selection {
   background: transparent
+}
+
+//
+// TOOGLE ICON ON ACTIVE STAGE
+// ======================================================
+// Used for toggle the tick icon on a button’s toggle state.
+i.icon-toggle {
+  display: none;
+  .active & {
+    display: block;
+  }
 }

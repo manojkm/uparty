@@ -1,7 +1,7 @@
 // ================================================================================================
 // File Name      : dropdown.scss
-// Description    : Adjustments for Bootstrap's dropdowns that active on hover/click and provide a nice
-// user experience.
+// Description    : Adjustments for Bootstrap's dropdown's that active on hover/click and provide
+//                  a nice user experience.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -29,8 +29,8 @@
     box-shadow: $dropdown-shadow;
 
     @include max-screen($screen-md-max) {
-      width: 100%;
-      max-width: 90%;
+      //width: 100%;
+      //max-width: 90%;
       box-shadow: none;
       margin: $dropdown-margin-top auto;
     }
@@ -76,10 +76,10 @@
   }
 
   @include max-screen($screen-md-max) {
-    &:before,
-    &:after {
-      display: none;
-    }
+    //&:before,
+    //&:after {
+    //  display: none;
+    //}
   }
 
   // Dropdown section headers
@@ -217,7 +217,11 @@
     top: 0;
     left: 100%;
     margin-left: 1px;
-
+    @include max-screen($screen-md-max) {
+      position: static;
+      margin: 0!important;
+     //& .dropdown-item{ padding-left:20px}
+    }
     &:before,
     &:after {
       display: none;

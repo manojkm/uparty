@@ -1,457 +1,240 @@
 ---
-title: "Dropdowns"
-subtitle: Variations for an extended range of possible combinations.
+title: <%= page.dropdowns.title %>
+lead: <%= page.dropdowns.lead %>
 components: true
 posted: 2017-12-23
 ---
 
-<!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
 <div class="container-fluid">
-
     <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Themed - Extended Dropdown</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>
-                        Create themed - extended dropdown, by adding <code>.themed.extended</code>.
-                    </p>
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Themed - Extended Dropdown'}}}
+                {{#card_body}}
+                    <!-- Themed - Extended Dropdown -->
+                    <p>Create themed - extended dropdown, by adding <code>.themed.extended</code> to <code>.dropdown-menu</code>.</p>
                     <div class="row">
                         <div class="col-md example">
-                            <ul class="dropdown-menu themed extended" aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <div class="dropdown-header">Dropdown header</div>
-                                </li>
-
-                                <li><a class="dropdown-item" href="#"><i class=" fas fa-suitcase"></i>Action
-                                    <span class="ml-auto badge badge-info">42</span></a></li>
-                                <li><a class="dropdown-item" href="#"><i class="icon-envelope"></i>Another action
-                                    <span class="ml-auto badge badge-secondary">21</span></a></li>
-                                <li><a class="dropdown-item disabled" href="#"><i class="icon-bubbles"></i>Disabled link
-                                    <span class="ml-auto badge badge-primary">32</span></a></li>
-
-                                <li><a class="dropdown-item" href="#"><i class="icon-bubbles"></i>Something else here
-                                    <span class="ml-auto badge badge-danger">18</span></a></li>
-
-                                <li>
-                                    <div class="dropdown-divider"></div>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Download action <i class="icon-cloud-download ml-auto mr-0"></i></a></li>
-                            </ul>
+                            <p>Dropdown with badges and icons on left side.</p>
+                            {{#dropdown_menu_has 'themed extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}"><i class="{{class_i}}"></i>{{text}}<span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/dropdown_items}}
+                                {{{dropdown_divider}}}
+                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
                         </div>
                         <div class="col-md example">
-                            <ul class="dropdown-menu themed extended" aria-labelledby="navbarDropdownMenuLink">
-                                <li><div class="dropdown-header">Dropdown header</div></li>
-                                <li><a class="dropdown-item" href="#">Action <i class="fas fa-suitcase ml-auto mr-0"></i></a></li>
-                                <li><a class="dropdown-item" href="#">Another action<i class="icon-envelope ml-auto mr-0"></i></a></li>
-                                <li><a class="dropdown-item disabled" href="#">Disabled link<i class="icon-bubbles ml-auto mr-0"></i></a></li>
-                                <li><a class="dropdown-item" href="#">Something else here<i class="icon-bubbles ml-auto mr-0"></i></a></li>
-                                <li>
-                                    <div class="dropdown-divider"></div>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Download action <i class="ml-auto mr-0 icon-cloud-download"></i></a></li>
-                            </ul>
+                            <p>Dropdown with icons on right side.</p>
+                            {{#dropdown_menu_has 'themed extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{{dropdown_divider}}}
+                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
                         </div>
                     </div>
-                </div>
-            </div>
+                    <!-- /Themed - Extended Dropdown -->
+                {{/card_body}}
+            {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Extended Dropdown</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body example">
-                    <p>
-                        Create extended dropdown, by adding <code>.extended</code>.
-                    </p>
-
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Extended Dropdown'}}}
+                {{#card_body}}
+                    <!-- Extended Dropdown -->
+                    <p>Create extended dropdown, by adding <code>.extended</code>.</p>
                     <div class="row">
                         <div class="col-md example">
-                            <ul class="dropdown-menu extended" aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <div class="dropdown-header">Dropdown header</div>
-                                </li>
-
-                                <li><a class="dropdown-item" href="#"><i class=" fas fa-suitcase"></i>Action
-                                    <span class="ml-auto badge badge-info">42</span></a></li>
-                                <li><a class="dropdown-item" href="#"><i class="icon-envelope"></i>Another action
-                                    <span class="ml-auto badge badge-secondary">21</span></a></li>
-                                <li><a class="dropdown-item disabled" href="#"><i class="icon-bubbles"></i>Disabled link
-                                    <span class="ml-auto badge badge-primary">32</span></a></li>
-
-                                <li><a class="dropdown-item" href="#"><i class="icon-bubbles"></i>Something else here
-                                    <span class="ml-auto badge badge-danger">18</span></a></li>
-
-                                <li>
-                                    <div class="dropdown-divider"></div>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Download action <i class="icon-cloud-download ml-auto mr-0"></i></a></li>
-                            </ul>
+                            <p>Dropdown with badges and icons on left side.</p>
+                            {{#dropdown_menu_has 'extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}"><i class="{{class_i}}"></i>{{text}}<span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/dropdown_items}}
+                                {{{dropdown_divider}}}
+                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
                         </div>
                         <div class="col-md example">
-                            <ul class="dropdown-menu extended" aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <div class="dropdown-header">Dropdown header</div>
-                                </li>
-
-                                <li><a class="dropdown-item" href="#">Action <i class="fas fa-suitcase ml-auto mr-0"></i></a></li>
-                                <li><a class="dropdown-item" href="#">Another action<i class="icon-envelope ml-auto mr-0"></i></a></li>
-                                <li><a class="dropdown-item disabled" href="#">Disabled link<i class="icon-bubbles ml-auto mr-0"></i></a></li>
-                                <li><a class="dropdown-item" href="#">Something else here<i class="icon-bubbles ml-auto mr-0"></i></a></li>
-                                <li>
-                                    <div class="dropdown-divider"></div>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Download action <i class="ml-auto mr-0 icon-cloud-download"></i></a></li>
-                            </ul>
+                            <p>Dropdown with icons on right side.</p>
+                            {{#dropdown_menu_has 'extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{{dropdown_divider}}}
+                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
                         </div>
                     </div>
-
-
-                </div>
-            </div>
+                    <!-- /Extended Dropdown -->
+                {{/card_body}}
+            {{/card}}
         </div>
-
     </div>
     <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Dropdowns with submenu</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Dropdown with active and disabled menu'}}}
+                {{#card_body}}
+                    <!-- Dropdown with active and disabled menu -->
+                    <div class="row">
+                        <div class="col-md example">
+                            {{#dropdown_menu_has 'themed extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.item_active_disabled}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{{dropdown_divider}}}
+                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
+                        </div>
+                        <div class="col-md example">
+                            {{#dropdown_menu_has 'extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.item_active_disabled}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{{dropdown_divider}}}
+                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
+                        </div>
                     </div>
-                </div>
-                <div class="card-body example">
-                    <ul class="dropdown-menu themed extended" aria-labelledby="navbarDropdownMenuLink">
-                        <li>
-                            <div class="dropdown-header">Dropdown header</div>
-                        </li>
-
-                        <li><a class="dropdown-item" href="#"><i class=" fas fa-suitcase"></i>Action
-                            <span class="ml-auto badge badge-info">42</span></a></li>
-                        <li><a class="dropdown-item" href="#"><i class="icon-envelope"></i>Another action
-                            <span class="ml-auto badge badge-secondary">42</span></a></li>
-                        <li><a class="dropdown-item disabled" href="#"><i class="icon-bubbles"></i>Disabled link
-                            <span class="ml-auto badge badge-primary">42</span></a></li>
-                        <li class="dropdown-submenu">
-                            <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks"></i>Submenu</a>
-
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Submenu action</a></li>
-                                <li><a class="dropdown-item" href="#">Another submenu action</a></li>
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second
-                                    subsubmenu</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                        </li>
-                        <li>
-                            <div class="dropdown-divider"></div>
-                        </li>
-                        <li><a class="dropdown-item" href="#">Download action <i class="icon-cloud-download ml-auto mr-0"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+                    <!-- /Dropdown with active and disabled menu -->
+                {{/card_body}}
+            {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Default Dropdown</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body example">
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Dropdown with submenu'}}}
+                {{#card_body}}
+                    <p>Click on 'submenu' link to see what happens.</p>
+                    <!-- Dropdown with submenu -->
+                <div class="row">
+                    <div class="col-md example">
+                        <!-- Drop-Right submenu -->
+                        <p>Drop-Right submenu</p>
+                        {{#dropdown_menu_has 'themed extended'}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks"></i>Submenu</a>
 
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second
+                                        subsubmenu</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            {{{dropdown_divider}}}
+                            {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
+                        <!-- /Drop-Right submenu -->
+                    </div>
+                    <div class="col-md example">
+                        <!-- Drop-Left submenu -->
+                        <p>Drop-Left submenu</p>
+                        {{#dropdown_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks"></i>Submenu</a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second
+                                        subsubmenu</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            {{{dropdown_divider}}}
+                            {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
+                        <!-- /Drop-Left submenu -->
+                    </div>
                 </div>
-            </div>
+                    <!-- /Dropdown with submenu -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Default dropdown'}}}
+                {{#card_body}}
+                    <!-- Default dropdown -->
+                    <div class="example">
+                        {{#dropdown_menu_has ''}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                            {{{dropdown_divider}}}
+                            {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
+                    </div>
+                    <!-- /Default dropdown -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Themed Button Dropdowns</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Primary
-                        </button>
-                        <div class="dropdown-menu extended themed">
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
+            {{#card}}
+                {{{card_header 'Themed - Extended Button Dropdowns'}}}
+                {{#card_body}}
+                    <!-- Themed - Extended Button Dropdowns -->
+                    {{#btn_list button.btn}}
+                        <div class="btn-group">
+                            <button type="button" class="{{class}} {{modifier}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                            {{#dropdown_menu_has 'themed extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
                         </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Secondary
-                        </button>
-                        <div class="dropdown-menu extended themed">
-                            <div class="dropdown-header">Dropdown header</div>
-
-                            <a class="dropdown-item" href="#"><i class=" icon-bell"></i>Action
-                                <span class="ml-auto badge badge-info">42</span></a>
-
-                            <a class="dropdown-item" href="#"><i class=" fa fa-file"></i>Another action
-                                <span class="ml-auto badge badge-secondary">26</span></a>
-
-                            <a class="dropdown-item" href="#"><i class=" fa fa-usd"></i>Something else here</a>
-
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Success
-                        </button>
-                        <div class="dropdown-menu extended themed">
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Danger
-                        </button>
-                        <div class="dropdown-menu extended themed">
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Warning
-                        </button>
-                        <div class="dropdown-menu extended themed">
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Info
-                        </button>
-                        <div class="dropdown-menu extended themed">
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Light
-                        </button>
-                        <div class="dropdown-menu extended themed">
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dark
-                        </button>
-                        <div class="dropdown-menu extended themed">
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    {{/btn_list}}
+                    <!-- /Themed - Extended Button Dropdowns -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Button Dropdowns</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Primary
-                        </button>
-                        <div class="dropdown-menu extended">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
+            {{#card}}
+                {{{card_header 'Extended Button Dropdowns'}}}
+                {{#card_body}}
+                    <!-- Extended Button Dropdowns -->
+                    {{#btn_list button.btn}}
+                        <div class="btn-group">
+                            <button type="button" class="{{class}} {{modifier}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                            {{#dropdown_menu_has 'extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
                         </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Secondary
-                        </button>
-                        <div class="dropdown-menu extended">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Success
-                        </button>
-                        <div class="dropdown-menu extended">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Danger
-                        </button>
-                        <div class="dropdown-menu extended">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Warning
-                        </button>
-                        <div class="dropdown-menu extended">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Info
-                        </button>
-                        <div class="dropdown-menu extended">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Light
-                        </button>
-                        <div class="dropdown-menu extended">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dark
-                        </button>
-                        <div class="dropdown-menu extended">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    {{/btn_list}}
+                    <!-- /Extended Button Dropdowns -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
@@ -1323,7 +1106,7 @@ posted: 2017-12-23
     </div>
 
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Icon Button Dropdowns</h6>
@@ -1433,7 +1216,7 @@ posted: 2017-12-23
                 </div>
             </div>
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Outline icon buttons</h6>
@@ -1917,7 +1700,7 @@ posted: 2017-12-23
     </div>
 
     <div class="row">
-        <div class="col-md-3 pr-2">
+        <div class="col-md-3 pr-md-2">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Dropup variation</h6>
@@ -1962,7 +1745,7 @@ posted: 2017-12-23
                 </div>
             </div>
         </div>
-        <div class="col-md-3 px-2">
+        <div class="col-md-3 px-md-2">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Dropright variation</h6>
@@ -2012,7 +1795,7 @@ posted: 2017-12-23
                 </div>
             </div>
         </div>
-        <div class="col-md-3 px-2">
+        <div class="col-md-3 px-md-2">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Dropleft variation</h6>
@@ -2060,7 +1843,7 @@ posted: 2017-12-23
                 </div>
             </div>
         </div>
-        <div class="col-md-3 pl-2">
+        <div class="col-md-3 pl-md-2">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Menu alignment</h6>

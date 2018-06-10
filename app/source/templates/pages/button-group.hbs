@@ -5,13 +5,18 @@ components: true
 posted: 2017-12-24
 ---
 
-<!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
+{{!--For buttons you can make use of the handlebars button helpers.
+Saves you having to write out the bulletproof button HTML
+See ../helpers/helpers.js for helpers and ../../data/components/button.json for JSON data.
+OR you can type out the HTML if you prefer--}}
+
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Group Variations'}}}
                 {{#card_body}}
+                    <!-- Basic example -->
                     <p>This is a group of buttons, ideal for situation where many actions are related to same element.</p>
                     {{{card_title 'Basic example'}}}
                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -19,24 +24,27 @@ posted: 2017-12-24
                         {{#btn "secondary"}}Middle{{/btn}}
                         {{#btn "secondary"}}Right{{/btn}}
                     </div>
+                    {{{spacer-xl-max}}}
                     <div class="btn-group" role="group" aria-label="Basic example">
                         {{#btn "outline-secondary"}}Left{{/btn}}
                         {{#btn "outline-secondary"}}Middle{{/btn}}
                         {{#btn "outline-secondary"}}Right{{/btn}}
                     </div>
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-group" role="group" aria-label="Basic example">
                         {{#btn "secondary btn-round"}}Left{{/btn}}
                         {{#btn "secondary"}}Middle{{/btn}}
                         {{#btn "secondary btn-round"}}Right{{/btn}}
                     </div>
-
+                     {{{spacer-xl-max}}}
                     <div class="btn-group" role="group" aria-label="Basic example">
                         {{#btn "secondary"}}Left{{/btn}}
                         {{#btn "primary"}}Middle{{/btn}}
                         {{#btn "secondary"}}Right{{/btn}}
                     </div>
+                    <!-- /Basic example -->
                     <hr>
+                    <!-- Button toolbar -->
                     {{{card_title 'Button toolbar'}}}
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                         <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -54,7 +62,7 @@ posted: 2017-12-24
                             {{#btn "secondary"}}8{{/btn}}
                         </div>
                     </div>
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                         <div class="btn-group" role="group" aria-label="First group">
                             {{#btn "secondary btn-icon"}}<i class="icon-folder"></i>{{/btn}}
@@ -63,13 +71,14 @@ posted: 2017-12-24
                             {{#btn "secondary btn-icon"}}<i class="icon-wrench"></i>{{/btn}}
                         </div>
                     </div>
-
-                    <br>
+                    <!-- /Button toolbar -->
+                    <hr>
+                    <!-- Nesting horizontal -->
                     {{{card_title 'Nesting horizontal'}}}
+                    <p>Place a <code>.btn-group</code> within another <code>.btn-group</code> when you want dropdown menus mixed with a series of buttons.</p>
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <button type="button" class="btn btn-primary">1</button>
-                        <button type="button" class="btn btn-primary">2</button>
-
+                        {{#btn "primary"}}1{{/btn}}
+                        {{#btn "primary"}}2{{/btn}}
                         <div class="btn-group" role="group">
                             <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown
@@ -80,26 +89,12 @@ posted: 2017-12-24
                             </div>
                         </div>
                     </div>
-
-                    <br> <br>
-                    <h6 class="card-title">Nesting vertical</h6>
-                    <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
-                        <button type="button" class="btn btn-primary">Button</button>
-
+                     {{{spacer-xl-max}}}
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        {{#btn "primary"}}1{{/btn}}
+                        {{#btn "primary"}}2{{/btn}}
                         <div class="btn-group" role="group">
-                            <button id="btnGroupDrop2" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </button>
-                            <div class="dropdown-menu extended themed" aria-labelledby="btnGroupDrop2">
-                                <a class="dropdown-item" href="#">Dropdown link</a>
-                                <a class="dropdown-item" href="#">Dropdown link</a>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-primary">Button</button>
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop3" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
+                            <button id="btnGroupDrop3" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown
                             </button>
                             <div class="dropdown-menu extended themed" aria-labelledby="btnGroupDrop3">
@@ -107,72 +102,168 @@ posted: 2017-12-24
                                 <a class="dropdown-item" href="#">Dropdown link</a>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary">Button</button>
                     </div>
+                     {{{spacer-xl-max}}}
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        {{#btn "outline-primary "}}1{{/btn}}
+                        {{#btn "outline-primary "}}2{{/btn}}
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop2" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button>
+                            <div class="dropdown-menu extended themed" aria-labelledby="btnGroupDrop2">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /Nesting horizontal -->
+                    <hr>
+                    <!-- Nesting vertical -->
+                    {{{card_title 'Nesting vertical'}}}
+                    <p>Make a set of buttons appear vertically stacked rather than horizontally. <strong>Split button dropdowns are not supported here.</strong></p>
+                    <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
+                        {{#btn "primary"}}Button{{/btn}}
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupVerticalDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button>
+                            <div class="dropdown-menu extended themed" aria-labelledby="btnGroupVerticalDrop1">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                            </div>
+                        </div>
+                        {{#btn "primary"}}Button{{/btn}}
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupVerticalDrop2" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button>
+                            <div class="dropdown-menu extended themed" aria-labelledby="btnGroupVerticalDrop2">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                            </div>
+                        </div>
+                        {{#btn "primary"}}Button{{/btn}}
+                    </div>
+                    <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
+                        {{#btn "primary"}}Button{{/btn}}
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupVerticalDrop5" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button>
+                            <div class="dropdown-menu extended themed" aria-labelledby="btnGroupVerticalDrop5">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                            </div>
+                        </div>
+                        {{#btn "primary"}}Button{{/btn}}
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupVerticalDrop6" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button>
+                            <div class="dropdown-menu extended themed" aria-labelledby="btnGroupVerticalDrop6">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                            </div>
+                        </div>
+                        {{#btn "primary"}}Button{{/btn}}
+                    </div>
+                     {{{spacer-xl-max}}}
+                    <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
+                        {{#btn "outline-primary"}}Button{{/btn}}
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupVerticalDrop3" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button>
+                            <div class="dropdown-menu extended themed" aria-labelledby="btnGroupVerticalDrop3">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                            </div>
+                        </div>
+                        {{#btn "outline-primary"}}Button{{/btn}}
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupVerticalDrop4" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button>
+                            <div class="dropdown-menu extended themed" aria-labelledby="btnGroupVerticalDrop4">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                            </div>
+                        </div>
+                        {{#btn "outline-primary"}}Button{{/btn}}
+                    </div>
+                    <!-- /Nesting vertical -->
                 {{/card_body}}
             {{/card}}
 
         </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Toggle Buttons</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Toggle Buttons'}}}
+                {{#card_body}}
                     <p>Button groups can act as a radio or a switch or even a single toggle. Below are some examples click to see what happens</p>
-                    <h6 class="card-title">Toggle states</h6>
-                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Single toggle 1</button>
-                    <button type="button" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off">Single toggle 2</button>
-                    <button type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">Single toggle 3</button>
-                    <br><br>
-                    <h6 class="card-title">Radio toggles</h6>
-
+                    <!-- Toggle states -->
+                    {{{card_title 'Toggle states'}}}
+                    <p>Add <code>data-toggle="button"</code> to toggle a button’s <code>active</code> state. If you’re pre-toggling a button, you must manually add the <code>.active</code> class <strong>and</strong> <code>aria-pressed="true"</code> to the <code>&lt;button&gt;</code>.</p>
+                    <button type="button" class="btn btn-primary mb-2" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="icon-check icon-toggle mr-2"></i>Single toggle 1</button>
+                    <button type="button" class="btn btn-secondary mb-2" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="icon-check icon-toggle mr-2"></i>Single toggle 2</button>
+                    <button type="button" class="btn btn-success mb-2" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="icon-check icon-toggle mr-2"></i>Single toggle 3</button>
+                    <!-- /Toggle states -->
+                    <hr>
+                    <!-- Radio toggles -->
+                    {{{card_title 'Radio toggles'}}}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active">
+                            <i class="icon-check icon-toggle mr-2"></i>
                             <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
                         </label>
                         <label class="btn btn-secondary">
+                            <i class="icon-check icon-toggle mr-2"></i>
                             <input type="radio" name="options" id="option2" autocomplete="off"> Radio
                         </label>
                         <label class="btn btn-secondary">
+                            <i class="icon-check icon-toggle mr-2"></i>
                             <input type="radio" name="options" id="option3" autocomplete="off"> Radio
                         </label>
                     </div>
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-success">
+                            <i class="icon-check icon-toggle mr-2"></i>
                             <input type="radio" name="options" id="option1-1" autocomplete="off"> Yes
                         </label>
                         <label class="btn btn-outline-info">
+                            <i class="icon-check icon-toggle mr-2"></i>
                             <input type="radio" name="options" id="option2-2" autocomplete="off"> Maybe
                         </label>
                         <label class="btn btn-outline-danger">
+                            <i class="icon-check icon-toggle mr-2"></i>
                             <input type="radio" name="options" id="option3-3" autocomplete="off"> No
                         </label>
                     </div>
 
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="row">
                         <div class="col-md-3">
-
-                            <div class="btn-group w-100 btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-outline-success w-50">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-outline-success">
+                                    <i class="icon-check icon-toggle mr-2"></i>
                                     <input type="radio" name="options" id="option1-4" autocomplete="off">Male</label>
-                                <label class="btn btn-outline-info w-50">
+                                <label class="btn btn-outline-info">
+                                    <i class="icon-check icon-toggle mr-2"></i>
                                     <input type="radio" name="options" id="option2-4" autocomplete="off">Female
                                 </label>
                             </div>
                         </div>
                     </div>
-
-
-                    <p></p>
-
+                    {{{spacer-common}}}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-icon btn-secondary">
                             <input type="radio" name="options" id="option11" autocomplete="off" checked><i class="fas fa-align-left"></i>
@@ -187,7 +278,7 @@ posted: 2017-12-24
                             <input type="radio" name="options" id="option44" autocomplete="off"><i class="fas fa-align-justify"></i>
                         </label>
                     </div>
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-icon btn-dark">
                             <input type="radio" name="options" id="fast-backward" autocomplete="off" checked><i class="fas fa-fast-backward"></i>
@@ -211,7 +302,7 @@ posted: 2017-12-24
                             <input type="radio" name="options" id="fast-forward" autocomplete="off"><i class="fas fa-fast-forward"></i>
                         </label>
                     </div>
-
+                    {{{spacer-xl-max}}}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
 
                         <label class="btn btn-icon btn-outline-dark">
@@ -224,8 +315,7 @@ posted: 2017-12-24
                             <input type="radio" name="options" id="random" autocomplete="off"><i class="fas fa-random"></i>
                         </label>
                     </div>
-
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-primary">
                             <input type="radio" name="options" id="feed" autocomplete="off" checked>Feed
@@ -240,7 +330,6 @@ posted: 2017-12-24
                             <input type="radio" name="options" id="photos" autocomplete="off">Photos
                         </label>
                     </div>
-
                     <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-icon btn-secondary">
                             <input type="radio" name="options" id="feed2" autocomplete="off" checked><i class="icon-feed"></i>
@@ -255,8 +344,7 @@ posted: 2017-12-24
                             <input type="radio" name="options" id="photo" autocomplete="off"><i class="icon-picture"></i>
                         </label>
                     </div>
-
-                    <div class="btn-group-vertical  btn-group-toggle" data-toggle="buttons">
+                    <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-icon btn-outline-secondary">
                             <input type="radio" name="options" id="feed3" autocomplete="off" checked><i class="icon-feed"></i>
                         </label>
@@ -270,122 +358,117 @@ posted: 2017-12-24
                             <input type="radio" name="options" id="photo3" autocomplete="off"><i class="icon-picture"></i>
                         </label>
                     </div>
-
-
-                    <br><br>
-                    <h6 class="card-title">Checkbox toggles</h6>
-
+                    <!-- /Radio toggles -->
+                    <hr>
+                    <!-- Checkbox toggles -->
+                    {{{card_title 'Checkbox toggles'}}}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active">
+                            <i class="icon-check icon-toggle mr-2"></i>
                             <input type="checkbox" checked autocomplete="off"> Active
                         </label>
                         <label class="btn btn-secondary">
+                            <i class="icon-check icon-toggle mr-2"></i>
                             <input type="checkbox" autocomplete="off"> Check
                         </label>
                         <label class="btn btn-secondary">
+                            <i class="icon-check icon-toggle mr-2"></i>
                             <input type="checkbox" autocomplete="off"> Check
                         </label>
                     </div>
-
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary">
-                            <input type="checkbox" checked autocomplete="off"><i class="fas fa-bold"></i> Bold
+                            <i class="icon-check icon-toggle mr-2"></i>
+                            <input type="checkbox" checked autocomplete="off"><i class="fas fa-bold mr-2"></i> Bold
                         </label>
                         <label class="btn btn-secondary">
-                            <input type="checkbox" autocomplete="off"><i class="fas fa-underline"></i> Underline
+                            <i class="icon-check icon-toggle mr-2"></i>
+                            <input type="checkbox" autocomplete="off"><i class="fas fa-underline mr-2"></i> Underline
                         </label>
                         <label class="btn btn-secondary">
-                            <input type="checkbox" autocomplete="off"><i class="fas fa-italic"></i> Italic
+                            <i class="icon-check icon-toggle mr-2"></i>
+                            <input type="checkbox" autocomplete="off"><i class="fas fa-italic mr-2"></i> Italic
                         </label>
                     </div>
-
+                    {{{spacer-xl-max}}}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-icon btn-secondary">
+                        <label class="btn btn-icon btn-outline-secondary">
                             <input type="checkbox" checked autocomplete="off"><i class="fas fa-bold"></i>
                         </label>
-                        <label class="btn btn-icon btn-secondary">
+                        <label class="btn btn-icon btn-outline-secondary">
                             <input type="checkbox" autocomplete="off"><i class="fas fa-underline"></i>
                         </label>
-                        <label class="btn btn-icon btn-secondary">
+                        <label class="btn btn-icon btn-outline-secondary">
                             <input type="checkbox" autocomplete="off"><i class="fas fa-italic"></i>
                         </label>
                     </div>
-                    <p></p>
-
-
-                </div>
-
-
-            </div>
+                    <!-- Checkbox toggles -->
+                {{/card_body}}
+            {{/card}}
         </div>
-
     </div>
     <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Justified groups</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+        <!-- /Justified Groups -->
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Justified groups'}}}
+                {{#card_body}}
+                    <p>Button group can be justified. Add <code>.btn-group-justified</code> to <code>.btn-group</code></p>
                     <div class="btn-group btn-group-justified">
                         <a class="btn btn-primary btn-sm" href="#" role="button">Overview</a>
                         <a class="btn btn-secondary btn-sm" href="#" role="button">Specs</a>
                         <a class="btn btn-success btn-sm" href="#" role="button">Warranty</a>
                         <a class="btn btn-danger btn-sm" href="#" role="button">Reviews</a>
                     </div>
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-group btn-group-justified">
                         <a class="btn btn-primary" href="#" role="button">Overview</a>
                         <a class="btn btn-secondary" href="#" role="button">Specs</a>
                         <a class="btn btn-success" href="#" role="button">Support</a>
                     </div>
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-group btn-group-justified">
                         <a class="btn btn-primary btn-lg" href="#" role="button">Overview</a>
                         <a class="btn btn-secondary btn-lg" href="#" role="button">Support</a>
                     </div>
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Sizing</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+        <!-- /Justified Groups -->
+        <!-- Sizing -->
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Sizing'}}}
+                {{#card_body}}
+                    <p>Instead of applying button sizing classes to every button in a group, just add <code>.btn-group-*</code> to each <code>.btn-group</code>, including each one when nesting multiple groups.</p>
+                    <div class="btn-group btn-group-xl" role="group" aria-label="Basic example">
+                        {{#btn "secondary"}}Left{{/btn}}
+                        {{#btn "secondary"}}Middle{{/btn}}
+                        {{#btn "secondary"}}Right{{/btn}}
                     </div>
-                </div>
-                <div class="card-body example">
-
+                    {{{spacer-common}}}
                     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Left</button>
-                        <button type="button" class="btn btn-secondary">Middle</button>
-                        <button type="button" class="btn btn-secondary">Right</button>
+                        {{#btn "secondary"}}Left{{/btn}}
+                        {{#btn "secondary"}}Middle{{/btn}}
+                        {{#btn "secondary"}}Right{{/btn}}
                     </div>
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Left</button>
-                        <button type="button" class="btn btn-secondary">Middle</button>
-                        <button type="button" class="btn btn-secondary">Right</button>
+                        {{#btn "secondary"}}Left{{/btn}}
+                        {{#btn "secondary"}}Middle{{/btn}}
+                        {{#btn "secondary"}}Right{{/btn}}
                     </div>
-                    <p></p>
+                    {{{spacer-common}}}
                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Left</button>
-                        <button type="button" class="btn btn-secondary">Middle</button>
-                        <button type="button" class="btn btn-secondary">Right</button>
+                        {{#btn "secondary"}}Left{{/btn}}
+                        {{#btn "secondary"}}Middle{{/btn}}
+                        {{#btn "secondary"}}Right{{/btn}}
                     </div>
+                {{/card_body}}
+            {{/card}}
 
-                </div>
-            </div>
         </div>
-
+        <!-- /Sizing -->
     </div>
 </div>

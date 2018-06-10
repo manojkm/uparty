@@ -14,16 +14,20 @@
   }
   // Justified groups
   &-justified {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
+    //display: table;
+    //table-layout: fixed;
+    //width: 100%;
+
+    display: flex;
     border-collapse: separate;
 
     > .btn,
     > .btn-group {
-      display: table-cell;
-      float: none;
-      width: auto;
+      //display: table-cell;
+      //float: none;
+      //width: auto;
+
+      flex: 1 0 0;
     }
 
     > .btn-group .btn {
@@ -43,6 +47,11 @@
     margin-left: 0;
   }
 
+}
+
+// Extra large group button
+.btn-group.btn-group-xl .btn {
+  @include btn-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-min-width-xl, $btn-min-height-xl, $btn-font-size-xl, $btn-border-radius-xl, $btn-line-height-xl);
 }
 
 // Large group button

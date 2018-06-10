@@ -85,6 +85,35 @@ module.exports.register = function (Handlebars, options) {
     });
 
 //
+// DROPDOWN
+// ======================================================
+
+// Dropdown wrapper
+    Handlebars.registerHelper('dropdown_menu_has', function (cl, options) {
+        var content = options.fn(this);
+        return ' <ul class="dropdown-menu ' + cl + '" aria-labelledby="navbarDropdownMenuLink">' + content + '</ul>';
+    });
+
+// Dropdown header
+    Handlebars.registerHelper('dropdown_header', function (context) {
+        return '<li><h5 class="dropdown-header">' + context + '</h5></li>';
+    });
+
+// Dropdown divider
+    Handlebars.registerHelper('dropdown_divider', function () {
+        return '<li><div class="dropdown-divider"></div></li>';
+    });
+
+// Dropdown items
+    Handlebars.registerHelper('dropdown_items', function (context, options) {
+        var html = "";
+        for (var i = 0, j = context.length; i < j; i++) {
+            html += "<li>" + options.fn(context[i]) + "</li>";
+        }
+        return html;
+    });
+
+//
 // CARD
 // ======================================================
 
@@ -127,4 +156,16 @@ module.exports.register = function (Handlebars, options) {
         return '<div class="card-body">' + content + '</div>';
     });
 
+//
+// MISC
+// ======================================================
+// Device spacing that sets display: none; on xl and up screens.
+    Handlebars.registerHelper('spacer-xl-max', function () {
+        return '<p class="spacer10 d-xl-none"></p>';
+    });
+
+// Device spacing that sets display: none; on xl and up screens.
+    Handlebars.registerHelper('spacer-common', function () {
+        return '<p class="spacer10"></p>';
+    });
 };
