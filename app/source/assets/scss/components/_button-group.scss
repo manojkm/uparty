@@ -10,7 +10,7 @@
 
 .btn-group {
   .btn {
-    min-width: 0 !important;
+    min-width: initial !important;
   }
   // Justified groups
   &-justified {
@@ -46,21 +46,24 @@
     margin-top: -$btn-border-size;
     margin-left: 0;
   }
-
+  .btn {
+    min-width: initial !important;
+    //min-height: initial;
+  }
 }
 
 // Extra large group button
-.btn-group.btn-group-xl .btn {
+.btn-group-xl .btn {
   @include btn-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-min-width-xl, $btn-min-height-xl, $btn-font-size-xl, $btn-border-radius-xl, $btn-line-height-xl);
 }
 
 // Large group button
-.btn-group.btn-group-lg .btn {
+.btn-group-lg .btn {
   @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-border-radius-lg, $btn-line-height-lg);
 }
 
 // Small group button
-.btn-group.btn-group-sm .btn {
+.btn-group-sm .btn {
   @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
 }
 
