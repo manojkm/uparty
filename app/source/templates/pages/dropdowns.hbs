@@ -19,18 +19,22 @@ posted: 2017-12-23
                             {{#dropdown_menu_has 'themed extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
                                 {{#dropdown_items dropdown.items}}
-                                    <a class="{{class}}" href="{{url}}"><i class="{{class_i}}"></i>{{text}}<span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/dropdown_items}}
+                                    <a class="{{class}}" href="{{url}}"><i class="{{class_i}}"></i>{{text}}<span
+                                            class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/dropdown_items}}
                                 {{{dropdown_divider}}}
-                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                             {{/dropdown_menu_has}}
                         </div>
                         <div class="col-md example">
                             <p>Dropdown with icons on right side.</p>
                             {{#dropdown_menu_has 'themed extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
-                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                                 {{{dropdown_divider}}}
-                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                             {{/dropdown_menu_has}}
                         </div>
                     </div>
@@ -43,25 +47,29 @@ posted: 2017-12-23
                 {{{card_header 'Extended Dropdown'}}}
                 {{#card_body}}
                     <!-- Extended Dropdown -->
-                    <p>Create extended dropdown, by adding <code>.extended</code>.</p>
+                    <p>Create extended dropdown, by adding <code>.extended</code> to .dropdown-menu.</p>
                     <div class="row">
                         <div class="col-md example">
                             <p>Dropdown with badges and icons on left side.</p>
                             {{#dropdown_menu_has 'extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
                                 {{#dropdown_items dropdown.items}}
-                                    <a class="{{class}}" href="{{url}}"><i class="{{class_i}}"></i>{{text}}<span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/dropdown_items}}
+                                    <a class="{{class}}" href="{{url}}"><i class="{{class_i}}"></i>{{text}}<span
+                                            class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/dropdown_items}}
                                 {{{dropdown_divider}}}
-                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                             {{/dropdown_menu_has}}
                         </div>
                         <div class="col-md example">
                             <p>Dropdown with icons on right side.</p>
                             {{#dropdown_menu_has 'extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
-                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                                 {{{dropdown_divider}}}
-                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                             {{/dropdown_menu_has}}
                         </div>
                     </div>
@@ -70,29 +78,38 @@ posted: 2017-12-23
             {{/card}}
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Dropdown with active and disabled menu'}}}
                 {{#card_body}}
+                    <p>Add <code>.active</code> to items in the dropdown to style them as active. Add <code>.disabled</code> to items in the dropdown to style them as
+                        disabled.</p>
                     <!-- Dropdown with active and disabled menu -->
                     <div class="row">
                         <div class="col-md example">
                             {{#dropdown_menu_has 'themed extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
-                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
-                                {{#dropdown_items dropdown.item_active_disabled}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.item_active_disabled}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                                 {{{dropdown_divider}}}
-                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                             {{/dropdown_menu_has}}
                         </div>
                         <div class="col-md example">
                             {{#dropdown_menu_has 'extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
-                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
-                                {{#dropdown_items dropdown.item_active_disabled}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.item_active_disabled}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                                 {{{dropdown_divider}}}
-                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                             {{/dropdown_menu_has}}
                         </div>
                     </div>
@@ -112,7 +129,8 @@ posted: 2017-12-23
                             <p>Drop-Right submenu</p>
                             {{#dropdown_menu_has 'themed extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
-                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks"></i>Submenu</a>
 
@@ -137,7 +155,8 @@ posted: 2017-12-23
 
                                 </li>
                                 {{{dropdown_divider}}}
-                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                             {{/dropdown_menu_has}}
                             <!-- /Drop-Right submenu -->
                         </div>
@@ -146,7 +165,8 @@ posted: 2017-12-23
                             <p>Drop-Left submenu</p>
                             {{#dropdown_menu_has 'themed extended dropdown-menu-right'}}
                                 {{{dropdown_header 'Dropdown header'}}}
-                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks"></i>Submenu</a>
 
@@ -171,7 +191,8 @@ posted: 2017-12-23
 
                                 </li>
                                 {{{dropdown_divider}}}
-                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                                {{#dropdown_items dropdown.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
                             {{/dropdown_menu_has}}
                             <!-- /Drop-Left submenu -->
                         </div>
@@ -180,7 +201,66 @@ posted: 2017-12-23
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-12">
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 pr-md-2">
+            {{#card}}
+                {{{card_header 'Dropdown with text'}}}
+                {{#card_body}}
+                    <!-- Dropdown with text -->
+                    <p>Place any freeform text within a dropdown menu with text and use spacing utilities.</p>
+                    <div class="example">
+                        {{#dropdown_menu_has 'extended themed'}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            <li><p class="px-2 py-2 mb-0 text-white">Some example text that's free-flowing within the dropdown menu.</p></li>
+                            {{#dropdown_items dropdown.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/dropdown_items}}
+                            {{{dropdown_divider}}}
+                            {{#dropdown_items dropdown.items_2}}
+                                <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto mr-0"></i></a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
+                    </div>
+                    <!-- /Dropdown with text -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-3 px-md-2">
+            {{#card}}
+                {{{card_header 'Dropdown with forms'}}}
+                {{#card_body}}
+                    <!-- Dropdown with forms -->
+                    <div class="example">
+                        {{#dropdown_menu_has 'extended themed'}}
+                            <form class="px-3 py-3">
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormEmail1" class="text-white">Email address</label>
+                                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormPassword1" class="text-white">Password</label>
+                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                    <label class="form-check-label text-white" for="dropdownCheck">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2">Sign in</button>
+                            </form>
+                            {{{dropdown_divider}}}
+                            <a class="dropdown-item" href="#">New around here? Sign up</a>
+                            <a class="dropdown-item" href="#">Forgot password?</a>
+                        {{/dropdown_menu_has}}
+                    </div>
+                    <!-- /Dropdown with forms -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-3 px-md-2">
             {{#card}}
                 {{{card_header 'Default dropdown'}}}
                 {{#card_body}}
@@ -197,6 +277,27 @@ posted: 2017-12-23
                 {{/card_body}}
             {{/card}}
         </div>
+        <div class="col-md-3 pl-md-2">
+            {{#card}}
+                {{{card_header 'Offset'}}}
+                {{#card_body}}
+                    <!-- Dropdown offset -->
+                        <p>Use <code>data-offset</code> or <code>data-reference</code> to change the location of the dropdown. Click on the button to see the location .</p>
+                        <div class="btn-group mb-1">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" data-offset="30,20">Offset
+                            </button>
+                            {{#dropdown_menu_has 'extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                                {{{dropdown_divider}}}
+                                {{#dropdown_items dropdown.items_2}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
+                        </div>
+                    <!-- /Dropdown offset -->
+                {{/card_body}}
+            {{/card}}
+        </div>
     </div>
 
     <div class="row">
@@ -206,8 +307,9 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Themed - Extended Button Dropdowns -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
-                            <button type="button" class="{{class}} {{modifier}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                        <div class="btn-group mb-1">
+                            <button type="button" class="{{class}} {{modifier}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">{{text}}</button>
                             {{#dropdown_menu_has 'themed extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
                                 {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -226,8 +328,9 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Extended Button Dropdowns -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
-                            <button type="button" class="{{class}} {{modifier}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                        <div class="btn-group mb-1">
+                            <button type="button" class="{{class}} {{modifier}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">{{text}}</button>
                             {{#dropdown_menu_has 'extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
                                 {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -246,8 +349,9 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Raised Button Dropdowns -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
-                            <button type="button" class="{{class}} {{modifier}} btn-raised dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                        <div class="btn-group mb-2">
+                            <button type="button" class="{{class}} {{modifier}} btn-raised dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">{{text}}</button>
                             {{#dropdown_menu_has 'extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
                                 {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -267,8 +371,9 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Rounded Button Dropdowns -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
-                            <button type="button" class="{{class}} {{modifier}} btn-round dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                        <div class="btn-group mb-1">
+                            <button type="button" class="{{class}} {{modifier}} btn-round dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">{{text}}</button>
                             {{#dropdown_menu_has 'extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
                                 {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -288,8 +393,9 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Outline Button Dropdowns -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
-                            <button type="button" class="{{class}} {{modifier_outline}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                        <div class="btn-group mb-1">
+                            <button type="button" class="{{class}} {{modifier_outline}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">{{text}}</button>
                             {{#dropdown_menu_has 'extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
                                 {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -308,8 +414,9 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Rounded Outline Button Dropdowns -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
-                            <button type="button" class="{{class}} {{modifier_outline}} btn-round dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                        <div class="btn-group mb-1">
+                            <button type="button" class="{{class}} {{modifier_outline}} btn-round dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">{{text}}</button>
                             {{#dropdown_menu_has 'extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
                                 {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -329,7 +436,8 @@ posted: 2017-12-23
                     <!-- link Button Dropdowns -->
                     {{#btn_list button.btn}}
                         <div class="btn-group">
-                            <button type="button" class="{{class}} {{modifier}} btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                            <button type="button" class="{{class}} {{modifier}} btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">{{text}}</button>
                             {{#dropdown_menu_has 'extended'}}
                                 {{{dropdown_header 'Dropdown header'}}}
                                 {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -341,42 +449,47 @@ posted: 2017-12-23
                     <!-- Dropdowns can be triggered from <a> element -->
                     <p class="mt-3">Dropdowns can be triggered from <code>&lt;a&gt;</code> element:</p>
                     <div class="dropdown">
-                        <a class="text-primary dropdown-toggle mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Primary</a>
+                        <a class="text-primary dropdown-toggle mr-4 mb-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">Primary</a>
                         {{#dropdown_menu_has 'extended'}}
                             {{{dropdown_header 'Dropdown header'}}}
                             {{#dropdown_items  dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
                         {{/dropdown_menu_has}}
-                        <a class="text-secondary dropdown-toggle mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Secondary</a>
+                        <a class="text-secondary dropdown-toggle mr-4 mb-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">Secondary</a>
                         {{#dropdown_menu_has 'extended'}}
                             {{{dropdown_header 'Dropdown header'}}}
                             {{#dropdown_items  dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
                         {{/dropdown_menu_has}}
-                        <a class="text-success dropdown-toggle mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Success</a>
+                        <a class="text-success dropdown-toggle mr-4 mb-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">Success</a>
                         {{#dropdown_menu_has 'extended'}}
                             {{{dropdown_header 'Dropdown header'}}}
                             {{#dropdown_items  dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
                         {{/dropdown_menu_has}}
-                        <a class="text-danger dropdown-toggle mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danger</a>
+                        <a class="text-danger dropdown-toggle mr-4 mb-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">Danger</a>
                         {{#dropdown_menu_has 'extended'}}
                             {{{dropdown_header 'Dropdown header'}}}
                             {{#dropdown_items  dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
                         {{/dropdown_menu_has}}
-                        <a class="text-warning dropdown-toggle mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Warning</a>
+                        <a class="text-warning dropdown-toggle mr-4 mb-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">Warning</a>
                         {{#dropdown_menu_has 'extended'}}
                             {{{dropdown_header 'Dropdown header'}}}
                             {{#dropdown_items  dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
                         {{/dropdown_menu_has}}
-                        <a class="text-info dropdown-toggle mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</a>
+                        <a class="text-info dropdown-toggle mr-4 mb-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</a>
                         {{#dropdown_menu_has 'extended'}}
                             {{{dropdown_header 'Dropdown header'}}}
                             {{#dropdown_items  dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
                         {{/dropdown_menu_has}}
-                        <a class="text-light dropdown-toggle mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Light</a>
+                        <a class="text-light dropdown-toggle mr-4 mb-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Light</a>
                         {{#dropdown_menu_has 'extended'}}
                             {{{dropdown_header 'Dropdown header'}}}
                             {{#dropdown_items  dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
                         {{/dropdown_menu_has}}
-                        <a class="text-dark dropdown-toggle mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dark</a>
+                        <a class="text-dark dropdown-toggle mr-4 mb-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dark</a>
                         {{#dropdown_menu_has 'extended'}}
                             {{{dropdown_header 'Dropdown header'}}}
                             {{#dropdown_items  dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -394,9 +507,10 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Split button dropdowns -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
+                        <div class="btn-group mb-1">
                             <button type="button" class="{{class}} {{modifier}}">{{text}}</button>
-                            <button type="button" class="{{class}} {{modifier}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="{{class}} {{modifier}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             {{#dropdown_menu_has 'extended'}}
@@ -418,9 +532,10 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Outline Split button dropdowns -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
+                        <div class="btn-group mb-1">
                             <button type="button" class="{{class}} {{modifier_outline}}">{{text}}</button>
-                            <button type="button" class="{{class}} {{modifier_outline}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="{{class}} {{modifier_outline}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             {{#dropdown_menu_has 'extended'}}
@@ -442,8 +557,9 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Icon Button Dropdowns -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
-                            <button type="button" class="{{class}} {{modifier}} btn-icon has-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="btn-group mb-1">
+                            <button type="button" class="{{class}} {{modifier}} btn-icon has-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
                                 <i class="{{class_i}}"></i>
                             </button>
                             {{#dropdown_menu_has 'extended'}}
@@ -462,8 +578,9 @@ posted: 2017-12-23
                 {{#card_body}}
                     <!-- Outline icon buttons -->
                     {{#btn_list button.btn}}
-                        <div class="btn-group">
-                            <button type="button" class="{{class}} {{modifier_outline}} btn-icon has-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="btn-group mb-1">
+                            <button type="button" class="{{class}} {{modifier_outline}} btn-icon has-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
                                 <i class="{{class_i}}"></i>
                             </button>
                             {{#dropdown_menu_has 'extended'}}
@@ -480,22 +597,17 @@ posted: 2017-12-23
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Button Sizes</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.</p>
+            {{#card}}
+                {{{card_header 'Button sizes'}}}
+                {{#card_body}}
+                    <!-- Button Sizes -->
+                    <p>Button dropdowns work with buttons of all sizes, including default, rounded, outlined and split dropdown buttons.</p>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-md-3">
                             {{#btn_list button.btn_size}}
                                 <div class="btn-group">
-                                    <button type="button" class="{{class}} btn-primary {{size}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                                    <button type="button" class="{{class}} btn-primary {{size}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">{{text}}</button>
                                     {{#dropdown_menu_has 'extended'}}
                                         {{{dropdown_header 'Dropdown header'}}}
                                         {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -504,11 +616,12 @@ posted: 2017-12-23
                                 {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
-                        <div class="col">
+                        <div class="col-md-3">
                             {{#btn_list button.btn_size}}
                                 <div class="btn-group">
                                     <button type="button" class="{{class}} btn-primary {{size}}">{{text_split_button}}</button>
-                                    <button type="button" class="{{class}} btn-primary {{size}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="{{class}} btn-primary {{size}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     {{#dropdown_menu_has 'extended'}}
@@ -519,10 +632,11 @@ posted: 2017-12-23
                                 {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
-                        <div class="col">
+                        <div class="col-md-3">
                             {{#btn_list button.btn_size}}
                                 <div class="btn-group">
-                                    <button type="button" class="{{class}} btn-primary btn-round {{size}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</button>
+                                    <button type="button" class="{{class}} btn-primary btn-round {{size}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">{{text}}</button>
                                     {{#dropdown_menu_has 'extended'}}
                                         {{{dropdown_header 'Dropdown header'}}}
                                         {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -531,10 +645,11 @@ posted: 2017-12-23
                                 {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
-                        <div class="col">
+                        <div class="col-md-3">
                             {{#btn_list button.btn_size}}
                                 <div class="btn-group">
-                                    <button type="button" class="{{class}} btn-primary btn-icon {{size}} has-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-heart"></i></button>
+                                    <button type="button" class="{{class}} btn-primary btn-icon {{size}} has-dropdown dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"><i class="icon-heart"></i></button>
                                     {{#dropdown_menu_has 'extended'}}
                                         {{{dropdown_header 'Dropdown header'}}}
                                         {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
@@ -543,357 +658,181 @@ posted: 2017-12-23
                                 {{{spacer-common}}}
                             {{/btn_list}}
                         </div>
-
-                        <div class="col">
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary  btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Large button
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-                            <p></p>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Default button
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-                            <p></p>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Small button
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col">
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary btn-lg">Large split button</button>
-                                <button type="button" class="btn  btn-lg btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-                            <p></p>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary">Default split button</button>
-                                <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-                            <p></p>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary btn-sm">Small split button</button>
-                                <button type="button" class="btn  btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                        <div class="col">
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary btn-round btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Large button
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-                            <p></p>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary btn-round dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Default button
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-                            <p></p>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary btn-round btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Small button
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col">
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary btn-icon has-dropdown btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-heart"></i>
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-                            <p></p>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary btn-icon has-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-heart"></i>
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-                            <p></p>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary btn-icon has-dropdown btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-heart"></i>
-                                </button>
-                                <div class="dropdown-menu extended">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
-
-                        </div>
-
                     </div>
-                </div>
-            </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <div class="btn-group">
+                                    <button type="button" class="{{class}} btn-outline-primary {{size}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">{{text}}</button>
+                                    {{#dropdown_menu_has 'extended'}}
+                                        {{{dropdown_header 'Dropdown header'}}}
+                                        {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                                    {{/dropdown_menu_has}}
+                                </div>
+                                {{{spacer-common}}}
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <div class="btn-group">
+                                    <button type="button" class="{{class}} btn-outline-primary {{size}}">Large split button</button>
+                                    <button type="button" class="{{class}} btn-outline-primary {{size}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    {{#dropdown_menu_has 'extended'}}
+                                        {{{dropdown_header 'Dropdown header'}}}
+                                        {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                                    {{/dropdown_menu_has}}
+                                </div>
+                                {{{spacer-common}}}
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <div class="btn-group">
+                                    <button type="button" class="{{class}} btn-outline-primary {{size}} btn-round dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                        {{text}}
+                                    </button>
+                                    {{#dropdown_menu_has 'extended'}}
+                                        {{{dropdown_header 'Dropdown header'}}}
+                                        {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                                    {{/dropdown_menu_has}}
+                                </div>
+                                {{{spacer-common}}}
+                            {{/btn_list}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#btn_list button.btn_size}}
+                                <div class="btn-group">
+                                    <button type="button" class="{{class}} btn-outline-primary {{size}} has-dropdown dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"><i class="icon-heart"></i>
+                                    </button>
+                                    {{#dropdown_menu_has 'extended'}}
+                                        {{{dropdown_header 'Dropdown header'}}}
+                                        {{#dropdown_items ../dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                                    {{/dropdown_menu_has}}
+                                </div>
+                                {{{spacer-common}}}
+                            {{/btn_list}}
+                        </div>
+                    </div>
+                    <!-- /Button sizes -->
+                {{/card_body}}
+            {{/card}}
         </div>
-
     </div>
 
     <div class="row">
         <div class="col-md-3 pr-md-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Dropup variation</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Dropup variation'}}}
+                {{#card_body}}
                     <!-- Default dropup button -->
+                    <p>Trigger dropdown menus above elements by adding <code>.dropup</code> to the parent element.</p>
                     <div class="btn-group dropup">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropup
                         </button>
-                        <div class="dropdown-menu extended">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
+                        {{#dropdown_menu_has 'extended'}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
                     </div>
-
                     <!-- Split dropup button -->
                     <div class="btn-group dropup">
-                        <button type="button" class="btn btn-secondary">
-                            Split dropup
-                        </button>
+                        {{#btn "secondary"}}Split dropup{{/btn}}
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
-                        <div class="dropdown-menu extended themed">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
+                        {{#dropdown_menu_has 'extended themed'}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
                     </div>
-
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
         <div class="col-md-3 px-md-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Dropright variation</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
+            {{#card}}
+                {{{card_header 'Dropright variation'}}}
+                {{#card_body}}
+                    <p>Trigger dropdown menus at the right of the elements by adding <code>.dropright</code> to the parent element.</p>
                     <!-- Default dropright button -->
                     <div class="btn-group dropright">
-
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropright
                         </button>
-                        <div class="dropdown-menu extended">
-                            <!-- Dropdown menu links -->
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-
+                        {{#dropdown_menu_has 'extended'}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
                     </div>
 
                     <!-- Split dropright button -->
                     <div class="btn-group dropright">
-                        <button type="button" class="btn btn-secondary">
-                            Split dropright
-                        </button>
+                        {{#btn "secondary"}}Split dropright{{/btn}}
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropright</span>
                         </button>
-                        <div class="dropdown-menu extended">
-                            <!-- Dropdown menu links -->
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
+                        {{#dropdown_menu_has 'extended'}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
                     </div>
-
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
         <div class="col-md-3 px-md-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Dropleft variation</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Dropleft variation'}}}
+                {{#card_body}}
+                    <p>Trigger dropdown menus at the left of the elements by adding <code>.dropleft</code> to the parent element.</p>
                     <!-- Default dropleft button -->
                     <div class="btn-group dropleft">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropleft
                         </button>
-                        <div class="dropdown-menu extended">
-                            <!-- Dropdown menu links -->
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
+                        {{#dropdown_menu_has 'extended'}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
                     </div>
-
                     <!-- Split dropleft button -->
                     <div class="btn-group">
                         <div class="btn-group dropleft" role="group">
-                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
                                 <span class="sr-only">Toggle Dropleft</span>
                             </button>
-                            <div class="dropdown-menu extended">
-                                <!-- Dropdown menu links -->
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
+                            {{#dropdown_menu_has 'extended'}}
+                                {{{dropdown_header 'Dropdown header'}}}
+                                {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                            {{/dropdown_menu_has}}
                         </div>
-                        <button type="button" class="btn btn-secondary">
-                            Split dropleft
-                        </button>
+                        {{#btn "secondary"}}Split dropleft{{/btn}}
                     </div>
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
         <div class="col-md-3 pl-md-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Menu alignment</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Menu alignment'}}}
+                {{#card_body}}
+                    <p> Add <code>.dropdown-menu-right</code> to a <code>.dropdown-menu</code> to right align the dropdown menu.</p>
                     <div class="btn-group">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             This dropdown's menu is right-aligned
                         </button>
-                        <div class="dropdown-menu extended dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Action</button>
-                            <button class="dropdown-item" type="button">Another action</button>
-                            <button class="dropdown-item" type="button">Something else here</button>
-                        </div>
+                        {{#dropdown_menu_has 'extended dropdown-menu-right'}}
+                            {{{dropdown_header 'Dropdown header'}}}
+                            {{#dropdown_items dropdown.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/dropdown_items}}
+                        {{/dropdown_menu_has}}
                     </div>
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
 
@@ -923,7 +862,8 @@ posted: 2017-12-23
                     </div>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                disabled>
                             Primary
                         </button>
                         <div class="dropdown-menu extended">
@@ -937,7 +877,8 @@ posted: 2017-12-23
 
                     <div class="btn-group">
                         <button type="button" class="btn btn-outline-success" disabled>Primary</button>
-                        <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                        <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" disabled>
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu extended">
@@ -951,7 +892,8 @@ posted: 2017-12-23
 
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-danger btn-icon has-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                        <button type="button" class="btn btn-danger btn-icon has-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" disabled>
                             <i class="icon-heart"></i>
                         </button>
                         <div class="dropdown-menu extended">

@@ -106,7 +106,7 @@ module.exports.register = function (Handlebars, options) {
 
 // Dropdown items
     Handlebars.registerHelper('dropdown_items', function (context, options) {
-        var html = "";
+        var html = "<!-- Dropdown menu links -->";
         for (var i = 0, j = context.length; i < j; i++) {
             html += "<li>" + options.fn(context[i]) + "</li>";
         }
