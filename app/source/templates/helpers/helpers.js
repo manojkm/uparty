@@ -70,6 +70,12 @@ module.exports.register = function (Handlebars, options) {
         return '<button type="button" class="btn btn-' + context + '">' + options.fn(this) + '</button>';
     });
 
+// Usage: {{#btn "primary"}}Primary{{/btn}}
+    Handlebars.registerHelper('btn_dropdown', function (context, options) {
+        return '<button type="button" class="btn btn-' + context + '">' + options.fn(this) + '</button>';
+    });
+
+
 // Usage: {{#btn_disabled "primary"}}Primary{{/btn}}
     Handlebars.registerHelper('btn_disabled', function (context, options) {
         return '<button type="button" class="btn btn-' + context + '" disabled>' + options.fn(this) + '</button>';

@@ -410,7 +410,7 @@ OR you can type out the HTML if you prefer--}}
     </div>
     <div class="row">
         <!-- Sizing -->
-        <div class="col-md-7 pr-md-2">
+        <div class="col-12 col-xl-7 pr-xl-2">
             {{#card}}
                 {{{card_header 'Sizing'}}}
                 {{#card_body}}
@@ -418,7 +418,7 @@ OR you can type out the HTML if you prefer--}}
                         But in the case of 'icon button' you should add extra sizing classes <code>.btn-*</code> to each <code>.btn-icon</code> like it shown below.
                     </p>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-12 col-md-6 col-xl-4 mb-2">
                             <div class="btn-group btn-group-xl" role="group" aria-label="Basic example">
                                 {{#btn "secondary"}}Left{{/btn}}
                                 {{#btn "secondary"}}Middle{{/btn}}
@@ -443,65 +443,7 @@ OR you can type out the HTML if you prefer--}}
                                 {{#btn "secondary"}}Right{{/btn}}
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="btn-group-vertical btn-group-toggle btn-group-xl" data-toggle="buttons">
-                                <label class="btn btn-icon btn-xl btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
-                                </label>
-                                <label class="btn btn-icon btn-xl btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
-                                </label>
-                                <label class="btn btn-icon btn-xl btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
-                                </label>
-                                <label class="btn btn-icon btn-xl btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
-                                </label>
-                            </div>
-                            <div class="btn-group-vertical btn-group-toggle btn-group-lg" data-toggle="buttons">
-                                <label class="btn btn-icon btn-lg btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
-                                </label>
-                                <label class="btn btn-icon btn-lg btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
-                                </label>
-                                <label class="btn btn-icon btn-lg btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
-                                </label>
-                                <label class="btn btn-icon btn-lg btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
-                                </label>
-                            </div>
-                            <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-icon btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
-                                </label>
-                                <label class="btn btn-icon btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
-                                </label>
-                                <label class="btn btn-icon btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
-                                </label>
-                                <label class="btn btn-icon btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
-                                </label>
-                            </div>
-                            <div class="btn-group-vertical btn-group-toggle btn-group-sm" data-toggle="buttons">
-                                <label class="btn btn-icon btn-sm btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
-                                </label>
-                                <label class="btn btn-icon btn-sm btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
-                                </label>
-                                <label class="btn btn-icon btn-sm btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
-                                </label>
-                                <label class="btn btn-icon btn-sm btn-secondary">
-                                    <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-12 col-md-6 col-xl-4 mb-2">
                             <div class="btn-group btn-group-toggle btn-group-xl" data-toggle="buttons">
                                 <label class="btn btn-icon btn-xl btn-secondary">
                                     <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-align-left"></i>
@@ -562,6 +504,64 @@ OR you can type out the HTML if you prefer--}}
                                 </label>
                             </div>
                         </div>
+                        <div class="col-12 col-xl-4 mb-2">
+                            <div class="btn-group-vertical btn-group-toggle btn-group-xl" data-toggle="buttons">
+                                <label class="btn btn-icon btn-xl btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
+                                </label>
+                                <label class="btn btn-icon btn-xl btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
+                                </label>
+                                <label class="btn btn-icon btn-xl btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
+                                </label>
+                                <label class="btn btn-icon btn-xl btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
+                                </label>
+                            </div>
+                            <div class="btn-group-vertical btn-group-toggle btn-group-lg" data-toggle="buttons">
+                                <label class="btn btn-icon btn-lg btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
+                                </label>
+                                <label class="btn btn-icon btn-lg btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
+                                </label>
+                                <label class="btn btn-icon btn-lg btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
+                                </label>
+                                <label class="btn btn-icon btn-lg btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
+                                </label>
+                            </div>
+                            <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-icon btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
+                                </label>
+                                <label class="btn btn-icon btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
+                                </label>
+                                <label class="btn btn-icon btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
+                                </label>
+                                <label class="btn btn-icon btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
+                                </label>
+                            </div>
+                            <div class="btn-group-vertical btn-group-toggle btn-group-sm" data-toggle="buttons">
+                                <label class="btn btn-icon btn-sm btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
+                                </label>
+                                <label class="btn btn-icon btn-sm btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
+                                </label>
+                                <label class="btn btn-icon btn-sm btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
+                                </label>
+                                <label class="btn btn-icon btn-sm btn-secondary">
+                                    <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 {{/card_body}}
             {{/card}}
@@ -569,7 +569,7 @@ OR you can type out the HTML if you prefer--}}
         </div>
         <!-- /Sizing -->
         <!-- /Justified Groups -->
-        <div class="col-md-5 pl-md-2">
+        <div class="col-12 col-xl-5 pl-xl-2">
             {{#card}}
                 {{{card_header 'Justified groups'}}}
                 {{#card_body}}
