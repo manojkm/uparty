@@ -25,12 +25,16 @@
   color: $breadcrumb-color;
 
   + .breadcrumb-item::before {
-    font-family: "Font Awesome 5 Solid";
-    font-style: normal;
+    font-family: "Font Awesome 5 Free";
     color: $breadcrumb-divider-color;
     content: "#{$breadcrumb-divider}";
     position: relative;
     line-height: 1;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
 
   }
 
@@ -52,7 +56,9 @@
       display: inline-block;
       white-space: nowrap;
       vertical-align: top;
-      &:hover {
+
+      &:hover,
+      &:active{
         @include transition;
         width: auto;
       }
@@ -69,25 +75,53 @@
 // ======================================================
 
 .breadcrumb {
-  &.divider-angle-right {
+  &.divider-type-1 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-angle-right}";
+        content: "#{$breadcrumb-divider-type-1}";
+        font-weight: 900;
       }
     }
   }
 
-  &.divider-angle-double-right {
+  &.divider-type-2 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-angle-double-right}";
+        content: "#{$breadcrumb-divider-type-2}";
+        font-weight: 900;
       }
     }
   }
-  &.divider-caret-right {
+  &.divider-type-3 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-caret-right}";
+        content: "#{$breadcrumb-divider-type-3}";
+        font-weight: 900;
+      }
+    }
+  }
+  &.divider-type-4 {
+    .breadcrumb-item {
+      + .breadcrumb-item::before {
+        content: "#{$breadcrumb-divider-type-4}";
+        font-weight: 900;
+      }
+    }
+  }
+
+  &.divider-type-5 {
+    .breadcrumb-item {
+      + .breadcrumb-item::before {
+        content: "#{$breadcrumb-divider-type-5}";
+        font-weight: 900;
+      }
+    }
+  }
+  &.divider-type-6 {
+    .breadcrumb-item {
+      + .breadcrumb-item::before {
+        content: "#{$breadcrumb-divider-type-6}";
+        font-weight: 900;
       }
     }
   }

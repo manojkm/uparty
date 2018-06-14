@@ -1065,9 +1065,12 @@ $breadcrumb-active-color:                       $gray-600 !default; // Text colo
 
 $breadcrumb-divider:                            "/" !default; // Textual separator for between breadcrumb elements.
 $breadcrumb-divider-color:                      $gray-500 !default; // Textual separator color between breadcrumb elements.
-$breadcrumb-divider-angle-right:                "\f054" !default; // Textual separator type - Simple Line Icons unicode.
-$breadcrumb-divider-angle-double-right:         "\f061" !default; // Textual separator type - Simple Line Icons unicode.
-$breadcrumb-divider-caret-right:                "\f0da" !default; // Textual separator type - Simple Line Icons unicode.
+$breadcrumb-divider-type-1:                     "\f0da" !default; // Textual separator type - Font Awesome unicode.
+$breadcrumb-divider-type-2:                     "\f152" !default; // Textual separator type - Font Awesome unicode.
+$breadcrumb-divider-type-3:                     "\f061" !default; // Textual separator type - Font Awesome unicode.
+$breadcrumb-divider-type-4:                     "\f0a9" !default; // Textual separator type - Font Awesome unicode.
+$breadcrumb-divider-type-5:                     "\f101" !default; // Textual separator type - Font Awesome unicode.
+$breadcrumb-divider-type-6:                     "\f105" !default; // Textual separator type - Font Awesome unicode.
 
 $breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
@@ -1323,15 +1326,15 @@ $tooltip-line-height:                   $lh-sm !default;
 // 8.21 CAROUSEL
 // -----------------------------------------------------------------------------
 
-$carousel-control-icon-size:                            40px !default; // Left/right controls size
-$carousel-control-icon-font-size:                       1.5rem; // Left/right controls icon font size
-$carousel-control-icon-bg:                              rgba(0, 0, 0, 0.0); // Left/right controls background color
-$carousel-control-next-icon:                            '\e606'; // Next icon (Simple Line Icons) unicode.
-$carousel-control-prev-icon:                            '\e605'; // Prev icon (Simple Line Icons) unicode.
-$carousel-control-prev-icon-text-shadow:                1px 2px 2px rgba(0, 0, 0, 0.5); // Next/Prev icons text shadow.
-$carousel-control-border-size:                          $border-thin; // Left/right controls border width
-$carousel-control-border-color:                         $white-color !default; // Left/right controls border color
-$carousel-indicator-light-active-bg:                    $black-color !default; // Carousel indicator background color for lighter theme
+$carousel-control-icon-size:                   40px !default; // Left/right controls size
+$carousel-control-icon-font-size:              1.5rem; // Left/right controls icon font size
+$carousel-control-icon-bg:                     rgba(0, 0, 0, 0.0); // Left/right controls background color
+$carousel-control-next-icon:                   '\e606'; // Next icon (Simple Line Icons) unicode.
+$carousel-control-prev-icon:                   '\e605'; // Prev icon (Simple Line Icons) unicode.
+$carousel-control-prev-icon-text-shadow:       1px 2px 2px rgba(0, 0, 0, 0.5); // Next/Prev icons text shadow.
+$carousel-control-border-size:                 $border-thin; // Left/right controls border width
+$carousel-control-border-color:                $white-color !default; // Left/right controls border color
+$carousel-indicator-light-active-bg:           $black-color !default; // Carousel indicator background color for lighter theme
 
 //
 // 8.22 ACCORDION / COLLAPSE
