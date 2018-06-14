@@ -28,3 +28,15 @@
     @include border-theme($scheme, $sledge-hammer: !important);
   }
 }
+
+//
+// BORDER SIZES
+// ======================================================
+
+@each $prop, $abbrev in (border-width:border) {
+  @each $size, $length in $border-sizes-map {
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length !important;
+    }
+  }
+}

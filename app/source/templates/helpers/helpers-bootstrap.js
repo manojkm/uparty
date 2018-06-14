@@ -11,70 +11,13 @@
 module.exports.register = function (Handlebars, options) {
     'use strict';
 
-    Handlebars.registerHelper('replaceStr', function (haystack, needle, replacement) {
-        if (haystack && needle) {
-            return haystack.replace(needle, replacement);
-        } else {
-            return '';
-        }
-    });
-
 //
-// TODO
-// ======================================================
-// Usage: {{{modalFooter 'insert'}}}
-    Handlebars.registerHelper('modalFooter', function (type, text) {
-        var buttonType = type === "insert" || type === "update" ? "submit" : "button";
-        return '<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="' + buttonType + '" class="btn btn-primary ' + type + '">' + text + '</button></div>';
-    });
-
-// Usage: {#list data.nav}}<a href="{{url}}">{{title}}</a>{{/list}}
-    Handlebars.registerHelper('list', function (context, options) {
-        var ret = "<ul>";
-        for (var i = 0, j = context.length; i < j; i++) {
-            ret = ret + "<li>" + options.fn(context[i]) + "</li>";
-        }
-        return ret + "</ul>";
-    });
-
-// Usage: {{ greeting }}
-    Handlebars.registerHelper("greeting", function () {
-        return new Handlebars.SafeString("Hello World");
-    });
-
-
-//
-// IMAGE PLACEHOLDER
-// ======================================================
-// Usage: {{img_placeholder '300' '200' '300x200' }}
-    Handlebars.registerHelper('img_placeholder', function (w, h, text) {
-        function isValid(str) {
-            return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
-        }
-
-        var width = (isValid(w)) ? w : '300';
-        var height = (isValid(h)) ? 'x' + h : '';
-        var text = (isValid(text)) ? '?text=' + encodeURI(text) : '';
-
-        var url = 'http://placehold.it/' + width + height + text;
-
-        return new Handlebars.SafeString('<img src="' + url + '" alt="Placeholder Image" />')
-
-    });
-
-//
-// BUTTONS
+// BOOTSTRAP BUTTONS
 // ======================================================
 // Usage: {{#btn "primary"}}Primary{{/btn}}
     Handlebars.registerHelper('btn', function (context, options) {
         return '<button type="button" class="btn btn-' + context + '">' + options.fn(this) + '</button>';
     });
-
-// Usage: {{#btn "primary"}}Primary{{/btn}}
-    Handlebars.registerHelper('btn_dropdown', function (context, options) {
-        return '<button type="button" class="btn btn-' + context + '">' + options.fn(this) + '</button>';
-    });
-
 
 // Usage: {{#btn_disabled "primary"}}Primary{{/btn}}
     Handlebars.registerHelper('btn_disabled', function (context, options) {
@@ -82,7 +25,7 @@ module.exports.register = function (Handlebars, options) {
     });
 
 // Usage: {{#btn_list button.btn}} <button type="button" class="{{class}}">{{text}}</button>{{/btn_list}}
-    Handlebars.registerHelper('btn_list', function (context, options) {
+    Handlebars.registerHelper('btns', function (context, options) {
         var html = "";
         for (var i = 0, j = context.length; i < j; i++) {
             html += options.fn(context[i]);
@@ -91,27 +34,27 @@ module.exports.register = function (Handlebars, options) {
     });
 
 //
-// DROPDOWN
+// BOOTSTRAP DROPDOWN
 // ======================================================
 
 // Dropdown wrapper
-    Handlebars.registerHelper('dropdown_menu_has', function (cl, options) {
+    Handlebars.registerHelper('ddw_menu_has', function (cl, options) {
         var content = options.fn(this);
         return ' <ul class="dropdown-menu ' + cl + '" aria-labelledby="navbarDropdownMenuLink">' + content + '</ul>';
     });
 
 // Dropdown header
-    Handlebars.registerHelper('dropdown_header', function (context) {
+    Handlebars.registerHelper('ddw_header', function (context) {
         return '<li><h5 class="dropdown-header">' + context + '</h5></li>';
     });
 
 // Dropdown divider
-    Handlebars.registerHelper('dropdown_divider', function () {
+    Handlebars.registerHelper('ddw_divider', function () {
         return '<li><div class="dropdown-divider"></div></li>';
     });
 
 // Dropdown items
-    Handlebars.registerHelper('dropdown_items', function (context, options) {
+    Handlebars.registerHelper('ddw_items', function (context, options) {
         var html = "<!-- Dropdown menu links -->";
         for (var i = 0, j = context.length; i < j; i++) {
             html += "<li>" + options.fn(context[i]) + "</li>";
@@ -120,7 +63,17 @@ module.exports.register = function (Handlebars, options) {
     });
 
 //
-// CARD
+// BOOTSTRAP ALERT
+// ======================================================
+
+// Usage {{#alert "primary"}}Alert{{/alert}}
+    Handlebars.registerHelper("alert", function (context, options) {
+        var content = '<div class="alert alert-' + context + '" role="alert">' + options.fn(this) + '</div>';
+        return new Handlebars.SafeString(content);
+    });
+
+//
+// BOOTSTRAP CARD
 // ======================================================
 
     // Card wrapper
@@ -145,7 +98,8 @@ module.exports.register = function (Handlebars, options) {
 
     // Card title
     Handlebars.registerHelper('card_title', function (context) {
-        return '<h5 class="card-title">' + context + '</h5>';
+        var content = '<h5 class="card-title">' + context + '</h5>';
+        return new Handlebars.SafeString(content);
     });
 
     // Card header
@@ -159,19 +113,7 @@ module.exports.register = function (Handlebars, options) {
     // Card body
     Handlebars.registerHelper('card_body', function (options) {
         var content = options.fn(this);
-        return '<div class="card-body">' + content + '</div>';
+        return new Handlebars.SafeString('<div class="card-body">' + content + '</div>');
     });
 
-//
-// MISC
-// ======================================================
-// Device spacing that sets display: none; on xl and up screens.
-    Handlebars.registerHelper('spacer-xl-max', function () {
-        return '<p class="spacer10 d-xl-none"></p>';
-    });
-
-// Device spacing that sets display: none; on xl and up screens.
-    Handlebars.registerHelper('spacer-common', function () {
-        return '<p class="spacer10"></p>';
-    });
 };

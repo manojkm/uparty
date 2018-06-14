@@ -5,9 +5,9 @@ components: true
 posted: 2017-12-24
 ---
 
-{{!--For buttons you can make use of the handlebars button helpers.
-Saves you having to write out the bulletproof button HTML
-See ../helpers/helpers.js for helpers and ../../data/components/button.json for JSON data.
+{{!--For dropdown, we make use of the handlebars helpers.
+Saves us having to write out the bulletproof button HTML
+See ../helpers/helpers-bootstrap.js for helpers and ../../data/components/buttons.json for JSON data.
 OR you can type out the HTML if you prefer--}}
 
 <div class="container-fluid">
@@ -53,6 +53,7 @@ OR you can type out the HTML if you prefer--}}
                             {{#btn "secondary"}}3{{/btn}}
                             {{#btn "secondary"}}4{{/btn}}
                         </div>
+                        {{{spacer-xl-max}}}
                         <div class="btn-group mr-2" role="group" aria-label="Second group">
                             {{#btn "secondary"}}5{{/btn}}
                             {{#btn "secondary"}}6{{/btn}}

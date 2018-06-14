@@ -801,7 +801,7 @@
 // ALERT
 // ======================================================
 
-@mixin alert-theme($scheme, $tone:base, $tone-hover:light, $tone-border:dark, $font-color:font-color) {
+@mixin alert-theme($scheme, $tone:light, $tone-border:dark, $font-color:font-color) {
 
   @include border-theme($scheme, $tone-border);
   @include background-text-theme($scheme, $tone, $font-color);

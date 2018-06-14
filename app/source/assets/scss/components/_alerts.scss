@@ -17,11 +17,11 @@
   font-weight: $font-wh-regular;
   position: relative;
 
-  @if bool($enable-alert-border) == true {
-    border: $alert-border-size solid;
-  } @else {
-    border: 0;
-  }
+  //@if bool($enable-alert-border) == true {
+  //  border: $alert-border-size solid;
+  //} @else {
+  //  border: 0;
+  //}
 
   // Theme variations
   @each $themeName, $value in $themes-map {

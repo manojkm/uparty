@@ -5,9 +5,9 @@ components: true
 posted: 2017-12-18
 ---
 
-{{!--For buttons you can make use of the handlebars button helpers.
-Saves you having to write out the bulletproof button HTML
-See ../helpers/helpers.js for helpers and ../../data/components/button.json for JSON data.
+{{!--For dropdown, we make use of the handlebars helpers.
+Saves us having to write out the bulletproof button HTML
+See ../helpers/helpers-bootstrap.js for helpers and ../../data/components/buttons.json for JSON data.
 OR you can type out the HTML if you prefer--}}
 
 <div class="container-fluid">
@@ -17,9 +17,9 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Basic Buttons'}}}
                 {{#card_body}}
                     <p>Use any of the available button classes to quickly create a styled button.</p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier}} mb-1">{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -30,9 +30,9 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Squared Buttons'}}}
                 {{#card_body}}
                     <p>Create squared buttons, by adding <code>.btn-square</code>. </p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier}} btn-square mb-1">{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -44,9 +44,9 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Raised Buttons'}}}
                 {{#card_body}}
                     <p>Create raised buttons, by adding <code>.btn-raised</code>. </p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier}} btn-raised">{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -57,9 +57,9 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Rounded Buttons'}}}
                 {{#card_body}}
                     <p>Create rounded buttons, by adding <code>.btn-round</code>. </p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier}} btn-round mb-1">{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -74,9 +74,9 @@ OR you can type out the HTML if you prefer--}}
                         Create outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> ones to remove all background images and
                         colors on any button.
                     </p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier_outline}} mb-1">{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -91,9 +91,9 @@ OR you can type out the HTML if you prefer--}}
                         Create squared outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-square</code> ones to
                         remove all background images and colors on any button.
                     </p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier_outline}} btn-square mb-1">{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -108,9 +108,9 @@ OR you can type out the HTML if you prefer--}}
                         Create raised outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-raised</code> ones to
                         remove all background images and colors on any button.
                     </p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier_outline}} btn-raised">{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -126,9 +126,9 @@ OR you can type out the HTML if you prefer--}}
                         Create rounded outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-round</code> ones to
                         remove all background images and colors on any button.
                     </p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier_outline}} btn-round mb-1">{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -140,14 +140,14 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Link buttons'}}}
                 {{#card_body}}
                     <p>Use the <code>&lt;a&gt;</code> tag to create a link button.</p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <a href="#" class="{{class}} {{modifier}} btn-link" role="button">{{text}}</a>
-                    {{/btn_list}}
+                    {{/btns}}
                     <br><br>
                     <p>We can also use the <code>&lt;button&gt;</code> tag to create a link button.</p>
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier}} btn-link">{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -160,39 +160,39 @@ OR you can type out the HTML if you prefer--}}
                 {{#card_body}}
                     <p>Buttons with icon on left side.</p>
                     <p>
-                        {{#btn_list button.btn}}
+                        {{#btns buttons.list}}
                             <button type="button" class="{{class}} {{modifier}} has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
-                        {{/btn_list}}
+                        {{/btns}}
                     </p>
                     <p>Rounded buttons with icon on right side.</p>
                     <p>
-                        {{#btn_list button.btn}}
+                        {{#btns buttons.list}}
                             <button type="button" class="{{class}} {{modifier}} btn-round has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
-                        {{/btn_list}}
+                        {{/btns}}
                     </p>
                     <p>Outlined buttons with icon on left side.</p>
                     <p>
-                        {{#btn_list button.btn}}
+                        {{#btns buttons.list}}
                             <button type="button" class="{{class}} {{modifier_outline}} has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
-                        {{/btn_list}}
+                        {{/btns}}
                     </p>
                     <p>Outlined buttons with icon on right side.</p>
                     <p>
-                        {{#btn_list button.btn}}
+                        {{#btns buttons.list}}
                             <button type="button" class="{{class}} {{modifier_outline}} btn-round has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
-                        {{/btn_list}}
+                        {{/btns}}
                     </p>
                     <p>Link buttons with icon on left side.</p>
                     <p>
-                        {{#btn_list button.btn}}
+                        {{#btns buttons.list}}
                             <button type="button" class="{{class}} {{modifier_outline}} btn-link has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
-                        {{/btn_list}}
+                        {{/btns}}
                     </p>
                     <p>Link buttons with icon on right side.</p>
                     <p>
-                        {{#btn_list button.btn}}
+                        {{#btns buttons.list}}
                             <button type="button" class="{{class}} {{modifier_outline}} btn-link has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
-                        {{/btn_list}}
+                        {{/btns}}
                     </p>
                 {{/card_body}}
             {{/card}}
@@ -204,9 +204,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier}} btn-icon mb-1"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -214,9 +214,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Outline icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier_outline}} btn-icon mb-1"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -227,9 +227,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Circle icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -237,9 +237,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Outline circle icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -249,9 +249,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Link icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn}}
+                    {{#btns buttons.list}}
                         <button type="button" class="{{class}} {{modifier}} btn-icon btn-link mb-1"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -259,9 +259,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Social link icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn_social}}
+                    {{#btns buttons.list_social}}
                         <button type="button" class="{{class}} {{modifier}} btn-icon btn-round btn-link"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -272,9 +272,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Social buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn_social}}
+                    {{#btns buttons.list_social}}
                         <button type="button" class="{{class}} {{modifier}} has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -282,9 +282,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Social outline buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn_social}}
+                    {{#btns buttons.list_social}}
                         <button type="button" class="{{class}} {{modifier_outline}} has-icon-left mb-1"><i class="{{class_i}}"></i>{{text}}</button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -295,9 +295,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Social Icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn_social}}
+                    {{#btns buttons.list_social}}
                         <button type="button" class="{{class}} {{modifier}} btn-icon mb-1"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -305,9 +305,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Social outline icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn_social}}
+                    {{#btns buttons.list_social}}
                         <button type="button" class="{{class}} {{modifier_outline}} btn-icon mb-1"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -318,9 +318,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Social circle icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn_social}}
+                    {{#btns buttons.list_social}}
                         <button type="button" class="{{class}} {{modifier}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -328,9 +328,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Social outline circle icon buttons'}}}
                 {{#card_body}}
-                    {{#btn_list button.btn_social}}
+                    {{#btns buttons.list_social}}
                         <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
-                    {{/btn_list}}
+                    {{/btns}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -378,91 +378,91 @@ OR you can type out the HTML if you prefer--}}
                     <p>A button can have different sizes. Add <code>.btn-xl</code> , <code>.btn-lg</code> or <code>.btn-sm</code> class for additional sizes.</p>
                     <div class="row">
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-primary {{size}}">{{text}}</button>
                                     {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-primary has-icon-left mb-1 {{size}}"><i class="icon-heart"></i>{{text}}</button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-primary btn-round {{size}}">{{text}}</button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-primary btn-raised {{size}}">{{text}}</button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
 
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-outline-primary {{size}}">{{text}}</button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-outline-primary has-icon-left mb-1 {{size}}"><i class="icon-heart"></i>{{text}}</button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-outline-primary btn-round {{size}}">{{text}}</button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-outline-primary btn-raised {{size}}">{{text}}</button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
 
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-primary btn-icon {{size}}"><i class="icon-heart"></i></button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-outline-primary btn-icon {{size}}"><i class="icon-heart"></i></button>
-                                {{{spacer-common}}}
-                            {{/btn_list}}
+                                {{{spacer-common}}} 
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-primary btn-icon btn-round {{size}}"><i class="icon-heart"></i></button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-outline-primary btn-icon btn-round {{size}}"><i class="icon-heart"></i></button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
 
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                 <button type="button" class="{{class}} btn-facebook has-icon-left {{size}}"><i class="fab fa-facebook-f"></i>Facebook</button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
                         <div class="col">
-                            {{#btn_list button.btn_size}}
+                            {{#btns buttons.list_size}}
                                 <button type="button" class="{{class}} btn-primary btn-link {{size}}">{{text}}</button>
                                 {{{spacer-common}}}
-                            {{/btn_list}}
+                            {{/btns}}
                         </div>
 
                     </div>

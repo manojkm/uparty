@@ -345,7 +345,8 @@ $selection-bg-theme-tone:               dark !default; // Theme color tone appli
 $border:                                1px solid !default;
 $border-thin:                           1px !default;
 $border-thick:                          2px !default;
-$border-thicker:                        4px !default;
+$border-thicker:                        3px !default;
+$border-thickest:                       4px !default;
 
 // Border radius variables for setting rounded corners
 
@@ -357,6 +358,19 @@ $border-radius-xl:                      0.375rem !default; // 6px
 $border-radius-xxl:                     0.5rem !default; // 8px
 $border-radius-50:                      50% !default;
 $border-radius-100:                     100% !default;
+
+// Border size map to generate utility classes (ie. .border-0, .border-1, and so on.) to add or remove an element’s borders.
+$border-sizes-map: (
+        1: 1px,
+        2: 2px,
+        3: 3px,
+        4: 4px,
+        5: 5px,
+        6: 6px,
+        7: 7px,
+        8: 8px,
+) !default;
+
 
 //
 // 4.3 MARK
@@ -1236,7 +1250,7 @@ $badge-disabled-opacity:                0.5; // Disabled badges opacity.
 // 8.16 ALERT
 // -----------------------------------------------------------------------------
 
-$enable-alert-border:                   false; // Quickly adding border by enabling or disabling
+//$enable-alert-border:                   false; // Quickly adding border by enabling or disabling
 $alert-border-radius:                   $border-radius-md; // Alert border radius to add rounded corners
 $alert-border-size:                     $border-thin; // Alert border width
 $alert-font-size:                       $font-size-base; // Alert font size.
