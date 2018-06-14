@@ -217,6 +217,27 @@
 }
 
 //
+// REQUEST A THEME COLOR LEVEL
+// ======================================================
+
+@function theme-color-level($scheme, $tone, $level: 0) {
+
+  $color: null;
+
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
+    $color: contextual-color($scheme, $tone);
+  } @else { // Theme variations
+    $color: theme-color($scheme, $tone);
+  }
+
+  $color-base: if($level > 0, #000, #fff);
+  $level: abs($level);
+
+  @return mix($color-base, $color, $level * $theme-color-interval);
+}
+
+
+//
 // Replace '$search' with '$replace' in '$string
 // ======================================================
 // Used on our SVG icon backgrounds for custom forms.

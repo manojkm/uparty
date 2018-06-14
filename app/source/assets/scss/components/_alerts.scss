@@ -17,18 +17,12 @@
   font-weight: $font-wh-regular;
   position: relative;
 
-  //@if bool($enable-alert-border) == true {
-  //  border: $alert-border-size solid;
-  //} @else {
-  //  border: 0;
-  //}
-
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
       &.#{$a}-#{$scheme} {
-        @include alert-theme($scheme);
+        @include alert-theme(theme-color-level($scheme, base, $alert-bg-level), theme-color-level($scheme, base, $alert-border-level), theme-color-level($scheme, base, $alert-color-level));
       }
     }
   }
@@ -36,7 +30,7 @@
   // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
     &.#{$a}-#{$scheme} {
-      @include alert-theme($scheme);
+      @include alert-theme(theme-color-level($scheme, base, $alert-bg-level), theme-color-level($scheme, base, $alert-border-level), theme-color-level($scheme, base, $alert-color-level));
     }
   }
 

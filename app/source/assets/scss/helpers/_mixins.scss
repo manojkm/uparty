@@ -801,30 +801,35 @@
 // ALERT
 // ======================================================
 
-@mixin alert-theme($scheme, $tone:light, $tone-border:dark, $font-color:font-color) {
+@mixin alert-theme($background, $border, $color) {
 
-  @include border-theme($scheme, $tone-border);
-  @include background-text-theme($scheme, $tone, $font-color);
+  color: $color;
+  border-color: $border;
+  background-color: $background;
+
+  hr {
+    border-top-color: darken($border, 5%);
+  }
 
   // Close button
   @at-root &.alert-dismissible > .close {
-    @include text-theme($scheme, $font-color);
-
+    color: $color;
   }
 
   // Link color
   & .alert-link {
     &,
     #{$hover-focus-tags} {
-      @include text-theme($scheme, $font-color);
+      color: darken($color, 10%);
     }
   }
 
   p {
-    @include text-theme($scheme, $font-color);
+    color: $color;
   }
 
 }
+
 
 //
 // PROGRESS BARS

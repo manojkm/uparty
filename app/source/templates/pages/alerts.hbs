@@ -45,10 +45,26 @@ OR you can type out the HTML if you prefer--}}
                 {{/card_body}}
             {{/card}}
         </div>
-
     </div>
+
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6 pr-2">
+            {{#card}}
+                {{{card_header 'Alerts with solid background'}}}
+                {{#card_body}}
+                    <p>To use solid background alerts, add background utility classes such as <code>.bg-*</code> to the <code>.alert</code> and color utility classes such as <code>.text-*</code> to the <code>.alert-link</code> class.</p>
+                    <!-- Alerts with solid background -->
+                    {{#each alerts.list}}
+                        {{{card_title title}}}
+                        <div class="{{class}} {{modifier_bg}} border-0" role="alert">
+                            <i class="{{class_i}} mr-2"></i> {{text}} <a href="#" class="alert-link {{modifier_link}}">Alert link</a>
+                        </div>
+                    {{/each}}
+                    <!-- /Alerts with solid background -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-2">
             {{#card}}
                 {{{card_header 'Dismissable alerts'}}}
                 {{#card_body}}
@@ -56,6 +72,7 @@ OR you can type out the HTML if you prefer--}}
                         positions the <code>.close</code> button.</p>
                     <!-- Dismissable alerts -->
                     {{#each alerts.list}}
+                        {{{card_title title}}}
                         <div class="{{class}} {{modifier}} alert-dismissible fade show" role="alert">
                             <i class="{{class_i}} mr-2"></i> {{text}} <a href="#" class="alert-link">Alert link</a>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

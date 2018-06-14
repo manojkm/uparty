@@ -306,7 +306,6 @@ $font-wh-bold:                          get-typography(weight-bold) !default; //
 //
 // 3. CONFIGS
 // =============================================================================
-
 //
 // 3.1 LAYOUT/STYLING CONFIGS
 // -----------------------------------------------------------------------------
@@ -1250,10 +1249,13 @@ $badge-disabled-opacity:                0.5; // Disabled badges opacity.
 // 8.16 ALERT
 // -----------------------------------------------------------------------------
 
-//$enable-alert-border:                   false; // Quickly adding border by enabling or disabling
 $alert-border-radius:                   $border-radius-md; // Alert border radius to add rounded corners
 $alert-border-size:                     $border-thin; // Alert border width
 $alert-font-size:                       $font-size-base; // Alert font size.
+
+$alert-bg-level:                        -9 !default;
+$alert-border-level:                    -6 !default;
+$alert-color-level:                     6 !default;
 
 //
 // 8.17 PROGRESS BAR
