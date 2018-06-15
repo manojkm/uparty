@@ -12,35 +12,27 @@ posted: 2017-12-26
                 {{{card_header 'A standard breadcrumb'}}}
                 {{#card_body}}
                     <!-- A standard breadcrumb -->
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">Home</li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb '' ''}}
+                        <li class="breadcrumb-item active" aria-current="page">Home</li>
+                    {{/breadcrumb}}
 
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Registration</li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb '' ''}}
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Registration</li>
+                    {{/breadcrumb}}
 
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Personal Information</li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb '' ''}}
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Personal Information</li>
+                    {{/breadcrumb}}
 
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb '' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
                     <!-- /A standard breadcrumb -->
                 {{/card_body}}
             {{/card}}
@@ -53,73 +45,71 @@ posted: 2017-12-26
             {{#card}}
                 {{{card_header 'Breadcrumb with actions'}}}
                 {{#card_body}}
+
                     <!-- Breadcrumb with actions -->
                     <p>Breadcrumb with extra actions on right side that can be formated as links, icons or dropdowns.</p>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb has-menu">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Personal Information</li>
-                            <li class="breadcrumb-menu ml-auto">
-                                <ul class="nav justify-content-end">
-                                    <li class="nav-item">
-                                        <a class="nav-link dropdown-toggle px-3" href="#"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu
-                                        </a>
-                                        {{#ddw_menu_has 'extended dropdown-menu-right'}}
-                                            {{{ddw_header 'Dropdown header'}}}
-                                            {{#ddw_items dropdowns.items}}
-                                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}<span
-                                                        class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/ddw_items}}
-                                            {{{ddw_divider}}}
-                                            {{#ddw_items dropdowns.items_2}}
-                                                <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                                        {{/ddw_menu_has}}
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-3" href="#">Share</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-3" href="#">Email</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ol>
-                    </nav>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb extended-arrow  has-menu">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                            <li class="breadcrumb-menu ml-auto">
-                                <ul class="nav justify-content-end">
-                                    <li class="nav-item">
-                                        <a class="nav-link dropdown-toggle px-3" href="#"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-menu"></i>
-                                        </a>
-                                        {{#ddw_menu_has 'extended dropdown-menu-right'}}
-                                            {{{ddw_header 'Dropdown header'}}}
-                                            {{#ddw_items dropdowns.items}}
-                                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}<span
-                                                        class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/ddw_items}}
-                                            {{{ddw_divider}}}
-                                            {{#ddw_items dropdowns.items_2}}
-                                                <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                                        {{/ddw_menu_has}}
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-3" href="#"><i class="fas fa-share"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-3" href="#"><i class="icon-envelope"></i><span class="badge badge-primary pointed arrow-left ml-2">5</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb 'has-menu' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Personal Information</li>
+                        <li class="breadcrumb-menu ml-auto">
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-toggle px-3" href="#"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu
+                                    </a>
+                                    {{#ddw_menu_has 'extended dropdown-menu-right'}}
+                                        {{{ddw_header 'Dropdown header'}}}
+                                        {{#ddw_items dropdowns.items}}
+                                            <a class="{{class}}" href="{{url}}"><i class="{{class_i}} mr-2"></i>{{text}}<span
+                                                    class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/ddw_items}}
+                                        {{{ddw_divider}}}
+                                        {{#ddw_items dropdowns.items_2}}
+                                            <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                                    {{/ddw_menu_has}}
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="#">Share</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="#">Email</a>
+                                </li>
+                            </ul>
+                        </li>
+                    {{/breadcrumb}}
+
+                    {{#breadcrumb 'extended-arrow has-menu' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                        <li class="breadcrumb-menu ml-auto">
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-toggle px-3" href="#"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-menu"></i>
+                                    </a>
+                                    {{#ddw_menu_has 'extended dropdown-menu-right'}}
+                                        {{{ddw_header 'Dropdown header'}}}
+                                        {{#ddw_items dropdowns.items}}
+                                            <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}<span
+                                                    class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/ddw_items}}
+                                        {{{ddw_divider}}}
+                                        {{#ddw_items dropdowns.items_2}}
+                                            <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                                    {{/ddw_menu_has}}
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="#"><i class="fas fa-share"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="#"><i class="icon-envelope"></i><span class="badge badge-primary pointed arrow-left ml-2">5</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    {{/breadcrumb}}
                     <!-- /Breadcrumb with actions -->
+
                 {{/card_body}}
             {{/card}}
         </div>
@@ -134,80 +124,63 @@ posted: 2017-12-26
 
                     <!-- /Divider type 1 -->
                     <p>A breadcrumb can contain a divider to show the relationship between sections.</p>
-                    <p>Add class <code>.divider-type-1</code> to <code>.breadcrumb</code> </p>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb divider-type-1">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+                    <p class="mb-2">Divider type 1: Add class <code>.divider-type-1</code> to <code>.breadcrumb</code></p>
+                    {{#breadcrumb 'divider-type-1' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
                     <!-- Divider type 1 -->
 
                     <!-- Divider type 2 -->
-                    <p>Add class <code>.divider-type-2</code> to <code>.breadcrumb</code> </p>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb divider-type-2">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+                    <p class="mb-2">Divider type 2: Add class <code>.divider-type-2</code> to <code>.breadcrumb</code></p>
+                    {{#breadcrumb 'divider-type-2' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
                     <!-- /Divider type 2 -->
 
                     <!-- Divider type 3 -->
-                    <p>Add class <code>.divider-type-3</code> to <code>.breadcrumb</code> </p>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb divider-type-3">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+                    <p class="mb-2">Divider type 3: Add class <code>.divider-type-3</code> to <code>.breadcrumb</code></p>
+                    {{#breadcrumb 'divider-type-3' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
                     <!-- Divider type 3 -->
 
-                    <p>Add class <code>.divider-type-4</code> to <code>.breadcrumb</code> </p>
+                    <p class="mb-2">Divider type 4: Add class <code>.divider-type-4</code> to <code>.breadcrumb</code></p>
                     <!-- Divider type 4 -->
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb divider-type-4">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb 'divider-type-4' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
                     <!-- /Divider type 4 -->
 
-                    <p>Add class <code>.divider-type-5</code> to <code>.breadcrumb</code> </p>
+                    <p class="mb-2">Divider type 5: Add class <code>.divider-type-5</code> to <code>.breadcrumb</code></p>
                     <!-- Divider type 5 -->
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb divider-type-5">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb 'divider-type-5' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
                     <!-- /Divider type 5 -->
 
-                    <p>Add class <code>.divider-type-6</code> to <code>.breadcrumb</code> </p>
+                    <p class="mb-2">Divider type 6: Add class <code>.divider-type-6</code> to <code>.breadcrumb</code></p>
                     <!-- Divider type 6 -->
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb divider-type-6">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb 'divider-type-6' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
                     <!-- /Divider type 6 -->
 
                     <!-- /Divider types -->
@@ -223,48 +196,48 @@ posted: 2017-12-26
                 {{#card_body}}
 
                     <!-- Auto hidden -->
-                    <p>Show the first few words, but expand to show the full text on hover. Add class <code>.collapsed</code> to <code>&lt;a&gt;</code> elements except last item.</p>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#" class="collapsed"><i class="icon-home mr-1" aria-hidden="true"></i>Home</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="collapsed">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="collapsed">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb extended-arrow has-menu">
-                            <li class="breadcrumb-item"><a href="#" class="collapsed"><i class="icon-home mr-1" aria-hidden="true"></i>Home</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="collapsed">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#" class="collapsed">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                            <li class="breadcrumb-menu ml-auto">
-                                <ul class="nav justify-content-end">
-                                    <li class="nav-item">
-                                        <a class="nav-link dropdown-toggle px-3" href="#"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-menu"></i>
-                                        </a>
-                                        {{#ddw_menu_has 'extended dropdown-menu-right'}}
-                                            {{{ddw_header 'Dropdown header'}}}
-                                            {{#ddw_items dropdowns.items}}
-                                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}<span
-                                                        class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/ddw_items}}
-                                            {{{ddw_divider}}}
-                                            {{#ddw_items dropdowns.items_2}}
-                                                <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                                        {{/ddw_menu_has}}
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-3" href="#"><i class="fas fa-share"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-3" href="#"><i class="icon-envelope"></i><span class="badge badge-primary pointed arrow-left ml-2">5</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ol>
-                    </nav>
+                    <p>Show the first few words, but expand to show the full text on hover. Add class <code>.collapsed</code> to <code>&lt;a&gt;</code> elements except
+                        last item.</p>
+                    {{#breadcrumb '' ''}}
+                        <li class="breadcrumb-item"><a href="#" class="collapsed"><i class="icon-home mr-1" aria-hidden="true"></i>Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="collapsed">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="collapsed">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
                     <!-- /Auto hidden -->
+
+                    <!-- /Auto hidden with menu -->
+                    {{#breadcrumb 'extended-arrow has-menu' ''}}
+                        <li class="breadcrumb-item"><a href="#" class="collapsed"><i class="icon-home mr-1" aria-hidden="true"></i>Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="collapsed">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="collapsed">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                        <li class="breadcrumb-menu ml-auto">
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-toggle px-3" href="#"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-menu"></i>
+                                    </a>
+                                    {{#ddw_menu_has 'extended dropdown-menu-right'}}
+                                        {{{ddw_header 'Dropdown header'}}}
+                                        {{#ddw_items dropdowns.items}}
+                                            <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}<span
+                                                    class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/ddw_items}}
+                                        {{{ddw_divider}}}
+                                        {{#ddw_items dropdowns.items_2}}
+                                            <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                                    {{/ddw_menu_has}}
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="#"><i class="fas fa-share"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="#"><i class="icon-envelope"></i><span class="badge badge-primary pointed arrow-left ml-2">5</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    {{/breadcrumb}}
+                    <!-- /Auto hidden with menu -->
 
                 {{/card_body}}
             {{/card}}
@@ -276,27 +249,22 @@ posted: 2017-12-26
             {{#card}}
                 {{{card_header 'Section'}}}
                 {{#card_body}}
+
                     <!-- Section -->
                     <p>A breadcrumb can contain sections that can either be formatted as a link or text.</p>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb divider-type-1">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item">Registration</li>
-                            <li class="breadcrumb-item">Personal Information</li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb 'divider-type-1' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item">Registration</li>
+                        <li class="breadcrumb-item">Personal Information</li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
 
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb divider-type-1">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item">Registration</li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+                    {{#breadcrumb 'divider-type-1' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item">Registration</li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
                     <!-- /Section -->
 
                 {{/card_body}}
@@ -307,59 +275,48 @@ posted: 2017-12-26
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Variations</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <h6 class="card-title">Arrow</h6>
-
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb extended-arrow">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
-
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb extended-arrow">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
-                        </ol>
-                    </nav>
+            {{#card}}
+                {{{card_header 'Variations'}}}
+                {{#card_body}}
 
 
-                    <h6 class="card-title">Arrow wrap</h6>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb extended-arrow-wrap">
-                            <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="#">Photo Upload</a></li>
-                        </ol>
-                    </nav>
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb extended-arrow-wrap">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Registration</a></li>
-                            <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="#">Photo Upload</a></li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+                    {{{card_title 'Arrow'}}}
+                    <!-- Variation - Arrow -->
+                    {{#breadcrumb 'extended-arrow' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
+
+                    {{#breadcrumb 'extended-arrow' ''}}
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
+                    <!-- /Variation - Arrow -->
+
+                    {{{card_title 'Arrow wrap'}}}
+                    <!-- Variation - Arrow wrap -->
+                    {{#breadcrumb 'extended-arrow-wrap' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="#">Photo Upload</a></li>
+                    {{/breadcrumb}}
+
+                    {{#breadcrumb 'extended-arrow-wrap' ''}}
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="#">Photo Upload</a></li>
+                    {{/breadcrumb}}
+                    <!-- Variation - Arrow wrap -->
+
+                {{/card_body}}
+            {{/card}}
+
         </div>
 
     </div>

@@ -21,6 +21,7 @@
 }
 
 .breadcrumb-item {
+  @include transition;
   padding: $breadcrumb-item-padding-y 0;
   color: $breadcrumb-color;
 
@@ -35,12 +36,23 @@
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+  }
 
+  &:after,
+  &:before {
+    @include transition;
   }
 
   // Breadcrumb links
   & a {
+    @include transition;
     @include text-theme($breadcrumb-link-theme-scheme);
+
+    &:after,
+    &:before {
+      @include transition;
+    }
+
     &:focus,
     &:active,
     &:hover {
@@ -48,7 +60,6 @@
     }
 
     &.collapsed {
-      @include transition;
       width: 50px;
       overflow: hidden;
       -o-text-overflow: ellipsis;
@@ -58,8 +69,7 @@
       vertical-align: top;
 
       &:hover,
-      &:active{
-        @include transition;
+      &:active {
         width: auto;
       }
     }
@@ -217,25 +227,25 @@
         margin: 0 10px 0 0;
         color: $breadcrumb-ext-wrap-color;
 
-        // Right arrow tip
-        &:after {
+        &:after,
+        &:before {
           content: "";
           @include add-border($breadcrumb-ext-top-bottom-border-size, transparent, top-bottom);
-          @include add-border($breadcrumb-ext-left-border-size, $breadcrumb-ext-wrap-item-bg, left);
           position: absolute;
-          left: 100%;
           top: 0;
+        }
+
+        // Right arrow tip
+        &:after {
+          @include add-border($breadcrumb-ext-left-border-size, $breadcrumb-ext-wrap-item-bg, left);
+          left: 100%;
           z-index: 1;
         }
 
         // Left inset arrow
         &:before {
-          content: "";
-          @include add-border($breadcrumb-ext-top-bottom-border-size, transparent, top-bottom);
           @include add-border($breadcrumb-ext-left-border-size, $breadcrumb-ext-wrap-left-border-color, left);
-          position: absolute;
           left: 0;
-          top: 0;
         }
 
         &:hover {

@@ -73,6 +73,25 @@ module.exports.register = function (Handlebars, options) {
     });
 
 //
+// BOOTSTRAP BREADCRUMB
+// ======================================================
+
+// Usage {{#breadcrumb "myClass"}}<li class="breadcrumb-item"><a href="#">Home</a></li>{{/breadcrumb}}
+    Handlebars.registerHelper("breadcrumb", function (cl, id, options) {
+
+        function isValid(str) {
+            return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
+        }
+
+        var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
+        var class_selector = (isValid(cl)) ? 'class="breadcrumb' + ' ' + cl + '"' : 'class="breadcrumb"';
+        var content = options.fn(this);
+
+        var html = '<nav aria-label="breadcrumb" ' + id_selector + ' role="navigation"><ol ' + class_selector + '>' + content + '</ol></nav>';
+        return new Handlebars.SafeString(html);
+    });
+
+//
 // BOOTSTRAP CARD
 // ======================================================
 
