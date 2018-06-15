@@ -281,6 +281,7 @@ posted: 2017-12-26
 
 
                     {{{card_title 'Arrow'}}}
+                    <p>Just add <code>.extended-arrow</code> to <code>.breadcrumb</code></p>
                     <!-- Variation - Arrow -->
                     {{#breadcrumb 'extended-arrow' ''}}
                         <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
@@ -298,6 +299,7 @@ posted: 2017-12-26
                     <!-- /Variation - Arrow -->
 
                     {{{card_title 'Arrow wrap'}}}
+                    <p>Just add <code>.extended-arrow-wrap</code> to <code>.breadcrumb</code></p>
                     <!-- Variation - Arrow wrap -->
                     {{#breadcrumb 'extended-arrow-wrap' ''}}
                         <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
@@ -323,16 +325,28 @@ posted: 2017-12-26
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Breadcrumb Wizard</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Breadcrumb Wizard'}}}
+                {{#card_body}}
+
+                    {{{card_title 'Extended arrow'}}}
+                    <p>Just add <code>.extended-arrow.wizard-step</code> to <code>.breadcrumb</code>
+                        and set the <code>.active</code> class on the active step, <code>.completed</code> class on preceding steps and <code>.incomplete</code> class for future steps.
+                    </p>
+                    <nav aria-label="breadcrumb" role="navigation">
+                        <ol class="breadcrumb extended-arrow wizard-step">
+                            <li class="breadcrumb-item completed"><a href="#">Step 1 is done</a></li>
+                            <li class="breadcrumb-item completed"><a href="#">Step 2 is done</a></li>
+                            <li class="breadcrumb-item active"><a href="#">Step 3 is active</a></li>
+                            <li class="breadcrumb-item incomplete"><a href="#">Step 4 is undone</a></li>
+                            <li class="breadcrumb-item incomplete"><a href="#">Step 5 is undone</a></li>
+                        </ol>
+                    </nav>
+
+                    {{{card_title 'Extended arrow wrap'}}}
+                    <p>Just add <code>.extended-arrow-wrap.wizard-step</code> to <code>.breadcrumb</code>
+                        and set the <code>.active</code> class on the active step, <code>.completed</code> class on preceding steps and <code>.incomplete</code> class for future steps.
+                    </p>
                     <nav aria-label="breadcrumb" role="navigation">
                         <ol class="breadcrumb extended-arrow-wrap wizard-step">
                             <li class="breadcrumb-item completed"><a href="#">Step 1 is done</a></li>
@@ -343,17 +357,8 @@ posted: 2017-12-26
                         </ol>
                     </nav>
 
-                    <nav aria-label="breadcrumb" role="navigation">
-                        <ol class="breadcrumb extended-arrow wizard-step">
-                            <li class="breadcrumb-item completed"><a href="#">Step 1 is done</a></li>
-                            <li class="breadcrumb-item completed"><a href="#">Step 2 is done</a></li>
-                            <li class="breadcrumb-item active"><a href="#">Step 3 is active</a></li>
-                            <li class="breadcrumb-item incomplete"><a href="#">Step 4 is undone</a></li>
-                            <li class="breadcrumb-item incomplete"><a href="#">Step 5 is undone</a></li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
 
     </div>
