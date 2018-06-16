@@ -33,6 +33,22 @@ module.exports.register = function (Handlebars, options) {
     });
 
 
+    // Usage  {{{testtest "See more..." href="#" class="story"}}}
+    Handlebars.registerHelper('testtest', function(text, options) {
+        var attrs = [];
+
+        for (var prop in options.hash) {
+            attrs.push(
+                Handlebars.escapeExpression(prop) + '="'
+                + Handlebars.escapeExpression(options.hash[prop]) + '"');
+        }
+
+        return new Handlebars.SafeString(
+            "<a " + attrs.join(" ") + ">" + Handlebars.escapeExpression(text) + "</a>"
+        );
+    });
+
+
 //
 // IMAGE PLACEHOLDER
 // ======================================================
