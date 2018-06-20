@@ -121,6 +121,12 @@ module.exports.register = function (Handlebars, options) {
         return new Handlebars.SafeString(content);
     });
 
+    // Card subtitle
+    Handlebars.registerHelper('card_title_has_subtitle', function (title, subtitle) {
+        var content = '<h5 class="card-title">' + title + '</h5> <h6 class="card-subtitle mb-2 text-muted">' + subtitle + '</h6>';
+        return new Handlebars.SafeString(content);
+    });
+
     // Card header
     Handlebars.registerHelper('card_header', function (context) {
         return '<div class="card-header"><h5 class="card-title">' + context + '</h5><div class="card__actions window ml-auto">' +

@@ -69,6 +69,20 @@ module.exports.register = function (Handlebars, options) {
     });
 
 //
+// PLACEHOLDER LOREM IPSUM TEXT
+// ======================================================
+
+    Handlebars.registerHelper('placeholder-lorem-lng', function () {
+        var content = '<span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. </span>';
+        return new Handlebars.SafeString(content);
+    });
+
+    Handlebars.registerHelper('placeholder-lorem-sht', function () {
+        var content = '<span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. Some quick example text to build on the card title and make up the bulk of the card\'s content.</span>';
+        return new Handlebars.SafeString(content);
+    });
+
+//
 // MISC
 // ======================================================
 // Device spacing that sets display: none; on xl and up screens.
