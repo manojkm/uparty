@@ -40,3 +40,31 @@
     }
   }
 }
+
+//
+// BORDER RADIUS
+// ======================================================
+
+@each $prop, $abbrev in (border-radius:border-radius) {
+  @each $size, $length in $border-radius-map {
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length !important;
+    }
+  }
+}
+
+.rounded-top-0 {
+  @include border-top-radius(0px!important);
+}
+
+.rounded-right-0 {
+  @include border-right-radius(0px!important);
+}
+
+.rounded-bottom-0 {
+  @include border-bottom-radius(0px!important);
+}
+
+.rounded-left-0 {
+  @include border-left-radius(0px!important);
+}

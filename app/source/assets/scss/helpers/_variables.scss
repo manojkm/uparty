@@ -358,8 +358,23 @@ $border-radius-xxl:                     0.5rem !default; // 8px
 $border-radius-50:                      50% !default;
 $border-radius-100:                     100% !default;
 
+// Border radius map to generate utility classes (ie. .border-radius-xs, .border-radius-sm, and so on.) to add or remove an element’s borders.
+$border-radius-map: (
+        0: 0,
+        xs: $border-radius-xs,
+        sm: $border-radius-sm,
+        md: $border-radius-md,
+        lg: $border-radius-lg,
+        xl: $border-radius-xl,
+        xxl:$border-radius-xxl,
+        50: $border-radius-50,
+        100:$border-radius-100
+) !default;
+
+
 // Border size map to generate utility classes (ie. .border-0, .border-1, and so on.) to add or remove an element’s borders.
 $border-sizes-map: (
+        0: 0px,
         1: 1px,
         2: 2px,
         3: 3px,
