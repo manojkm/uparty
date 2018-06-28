@@ -440,6 +440,9 @@ $opacity-black-9:                       rgba($black-color, 0.9) !default;
 // -----------------------------------------------------------------------------
 
 $overlay-bg:                            $opacity-black-5; // Background color for overlay.
+$overlay-bg-level:                      3 !default; // Used for card image overlays. Check `scss/components/_overlays.scss`
+$overlay-opacity-level:                 0.6 !default; // Used for card image overlays. Check `scss/components/_overlays.scss`
+
 
 //
 // 4.8 SHADOWS TODO, make the below perfect later ->  https://github.com/backstopmedia/riot-book-example/blob/843c5f79ac02727cc4b3eecc7ad043e2aa55e1db/src/assets/styles/mixins/shadow.scss

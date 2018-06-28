@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : overlays.scss
-// Description    : Defines styles for fullscreen overlays.
+// Description    : Defines styles for fullscreen overlays and card image overlays.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -19,4 +19,26 @@
   bottom: 0;
   background-color: $overlay-bg;
   z-index: map-get($zindex, overlay);
+}
+
+
+//
+// CONTEXTUAL & THEME OVERLAY VARIANTS
+// ======================================================
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    .overlay-#{$scheme} {
+      background-color: rgba(theme-color-level($scheme, base, $overlay-bg-level), $overlay-opacity-level);
+    }
+  }
+}
+
+// Contextual variations
+@each $scheme, $value in $contextual-palette-map {
+  .overlay-#{$scheme} {
+    background-color: rgba(theme-color-level($scheme, base, $overlay-bg-level), $overlay-opacity-level);
+  }
 }

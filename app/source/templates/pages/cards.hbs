@@ -1015,8 +1015,8 @@ posted: 2017-12-26
         </div>
     </div>
 
-    <h4 class="mt-4">Button</h4>
-    <h6 class="mb-3">A card can contain buttons on header and footer</h6>
+    <h4 class="mt-4">Button on header</h4>
+    <h6 class="mb-3">A card can contain buttons on header</h6>
     <div class="row">
         <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
             <!-- Card with buttons on header variation 1 -->
@@ -1054,8 +1054,10 @@ posted: 2017-12-26
                 <div class="card-header">
                     {{{card_title 'Featured'}}}
                     <div class="btn-group btn-group-sm ml-auto" role="group">
-                        <button type="button" class="btn btn-icon btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Approve"><i class="icon-like"></i></button>
-                        <button type="button" class="btn btn-icon btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Decline"><i class="icon-dislike"></i></button>
+                        <button type="button" class="btn btn-icon btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Approve"><i class="icon-like"></i>
+                        </button>
+                        <button type="button" class="btn btn-icon btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Decline"><i
+                                class="icon-dislike"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -1064,9 +1066,10 @@ posted: 2017-12-26
             </div>
             <!-- Card with buttons on header variation 3 -->
         </div>
-
-
     </div>
+
+    <h4 class="mt-4">Button on footer</h4>
+    <h6 class="mb-3">A card can contain buttons on footer</h6>
     <div class="row">
         <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
             <!-- Card with buttons on footer variation 1 -->
@@ -1133,6 +1136,443 @@ posted: 2017-12-26
             </div>
             <!-- Card with buttons on footer variation 4 -->
         </div>
+    </div>
+
+    <h4 class="mt-4">Card with actions</h4>
+    <h6 class="mb-3">A card can also contains action links in icon format.</h6>
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- Collapsible card -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Collapsible card'}}}
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse">
+                            <i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Collapsible card -->
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Dismissible card -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Dismissible card'}}}
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Dismissible card -->
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Fullscreen card -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Fullscreen card'}}}
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item" data-card="fullscreen">
+                            <i class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="Fullscreen"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Fullscreen card -->
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with dropdowns -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Card with dropdowns'}}}
+                    <div class="card__actions ml-auto">
+                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Card with dropdowns -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12 pr-md-2">
+            <!-- Group actions -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Group actions'}}}
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i></a>
+                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="Fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Group actions -->
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12 pl-md-2">
+            <!-- Group actions - Toolbar style -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Group actions - Toolbar style'}}}
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i></a>
+                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="Fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Group actions - Toolbar style -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12 pr-md-2">
+            <!-- Group actions -->
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h5 class="card-title text-white">Group actions</h5>
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item text-white" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i></a>
+                        <a class="card__actions-item text-white dropdown-toggle" href="#" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                        <a href="#" class="card__actions-item text-white" data-card="fullscreen"><i class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="Fullscreen"></i></a>
+                        <a href="#" class="card__actions-item text-white" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Group actions -->
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12 pl-md-2">
+            <!-- Group actions - Toolbar style -->
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h5 class="card-title text-white">Group actions - Toolbar style</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item text-white" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i></a>
+                        <a class="card__actions-item  text-white dropdown-toggle" href="#" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                        <a href="#" class="card__actions-item text-white" data-card="fullscreen"><i class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="Fullscreen"></i></a>
+                        <a href="#" class="card__actions-item text-white" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Group actions - Toolbar style -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Titles, text, and links</h4>
+    <h6 class="mb-3">A card can contain titles, subtitles, text, links etc... </h6>
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- Titles, text, and links variation 1 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary">Approve</a>
+                    <a href="#" class="btn btn-link btn-danger" role="button">Decline</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Titles, text, and links variation 2 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="card-link h5">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Titles, text, and links variation 3 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="card-link text-primary">Card link</a>
+                    <a href="#" class="card-link text-danger">Another link</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 3 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- Titles, text, and links variation 4 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="card-link text-primary">Card link</a>
+                    <a href="#" class="card-link text-danger float-right">Another link</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 4 -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Text alignment</h4>
+    <h6 class="mb-3">You can quickly change the text alignment of any card—in its entirety or specific parts —with text align classes. </h6>
+
+    <div class="row">
+        <div class="col-xl-4 col-md-4 col-sm-12 pr-md-2">
+            <!-- Text alignment variation 1 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Text align left' 'Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary mb-1">Go somewhere</a>
+                    <a href="#" class="btn btn-secondary mb-1">Take a look</a>
+                </div>
+            </div>
+            <!-- /Text alignment variation 1 -->
+        </div>
+
+        <div class="col-xl-4 col-md-4 col-sm-12 px-md-2">
+            <!-- Text alignment variation 2 -->
+            <div class="card text-center">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Text align center' 'Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary mb-1">Go somewhere</a>
+                    <a href="#" class="btn btn-secondary mb-1">Take a look</a>
+                </div>
+            </div>
+            <!-- /Text alignment variation 2 -->
+        </div>
+
+        <div class="col-xl-4 col-md-4 col-sm-12 pl-md-2">
+            <!-- Text alignment variation 3 -->
+            <div class="card text-right">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Text align right' 'Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary mb-1">Go somewhere</a>
+                    <a href="#" class="btn btn-secondary mb-1">Take a look</a>
+                </div>
+            </div>
+            <!-- /Text alignment variation 3 -->
+        </div>
+
+    </div>
+
+
+    <h4 class="mt-4">Image overlays</h4>
+    <h6 class="mb-3">Turn an image into a card background and overlay your card’s text. Depending on the image, you may or may not need additional styles or utilities like <code>.text-white</code> or <code>.text-dark</code></h6>
+
+    <div class="row">
+        <div class="col-lg-3 pr-lg-2">
+            <!-- Image overlays variation 1 -->
+            <div class="card text-white">
+                <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x650" alt="Card image">
+                <div class="card-img-overlay overlay-primary border-radius-lg">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in
+                        to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-white">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <!-- /Image overlays variation 1 -->
+        </div>
+        <div class="col-lg-3 px-lg-2">
+            <!-- Image overlays variation 2 -->
+            <div class="card text-white">
+                <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x650" alt="Card image">
+                <div class="card-img-overlay overlay-secondary border-radius-lg">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in
+                        to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-white">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <!-- /Image overlays variation 2 -->
+        </div>
+        <div class="col-lg-3 px-lg-2">
+            <!-- Image overlays variation 3 -->
+            <div class="card text-white">
+                <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x650" alt="Card image">
+                <div class="card-img-overlay overlay-warning border-radius-lg">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in
+                        to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-white">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <!-- /Image overlays variation 3 -->
+        </div>
+        <div class="col-lg-3 pl-lg-2">
+            <!-- Image overlays variation 4 -->
+            <div class="card text-white">
+                <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x650" alt="Card image">
+                <div class="card-img-overlay overlay-info border-radius-lg">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in
+                        to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-white">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <!-- /Image overlays variation 4 -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 pr-lg-2">
+            <!-- Image overlays variation 5 -->
+            <div class="card text-white">
+                <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x650" alt="Card image">
+                <div class="card-img-overlay overlay-danger border-radius-lg">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in
+                        to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-white">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <!-- /Image overlays variation 5 -->
+        </div>
+        <div class="col-lg-3 px-lg-2">
+            <!-- Image overlays variation 6 -->
+            <div class="card text-white">
+                <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x650" alt="Card image">
+                <div class="card-img-overlay overlay-success border-radius-lg">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in
+                        to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-white">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <!-- /Image overlays variation 6 -->
+        </div>
+        <div class="col-lg-3 px-lg-2">
+            <!-- Image overlays variation 7 -->
+            <div class="card text-dark">
+                <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x650" alt="Card image">
+                <div class="card-img-overlay overlay-light border-radius-lg">
+                    <h5 class="card-title text-dark">Card title</h5>
+                    <p class="card-text text-dark">This is a wider card with supporting text below as a natural lead-in
+                        to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-dark">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <!-- /Image overlays variation 7 -->
+        </div>
+        <div class="col-lg-3 pl-lg-2">
+            <!-- Image overlays variation 8 -->
+            <div class="card text-white">
+                <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x650" alt="Card image">
+                <div class="card-img-overlay overlay-dark border-radius-lg">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in
+                        to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-white">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <!-- /Image overlays variation 8 -->
+        </div>
+    </div>
+
+
+    <h4 class="mt-4">Colored Background with inverted text</h4>
+    <h6 class="mb-3">A card can specify a color</h6>
+    <div class="row">
+        <div class="col-lg-6 pr-lg-2">
+
+            <div class="card flex-md-row bg-primary border-0">
+                <img src="https://source.unsplash.com/Vq3aUPk0bEk/200x250" alt="Card image" class="card-img-left flex-auto img-fluid">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <h4 class="card-title text-white">Primary card title</h4>
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-secondary btn-lg">Continue reading</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-6 pr-lg-2">ddd</div>
     </div>
 
 </div>
