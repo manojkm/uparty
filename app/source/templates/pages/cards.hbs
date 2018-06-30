@@ -4,6 +4,7 @@ lead: <%= page.cards.lead %>
 components: true
 posted: 2017-12-26
 ---
+
 <div class="container-fluid">
     <h3 class="mt-4">Basic example</h3>
     <h6 class="mb-3">Below is an example of a basic card with mixed content and a fixed width.</h6>
@@ -387,7 +388,287 @@ posted: 2017-12-26
         </div>
     </div>
 
-    <h4 class="mt-4">Carousel cards</h4>
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12 pr-md-2">
+            <h4 class="mt-4">Header</h4>
+            <h6 class="mb-3">A card can contain a header</h6>
+            <!-- Card with header -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Featured'}}}
+                    <span class="badge badge-pill badge-outline-success ml-auto mr-1">Branding</span>
+                    <span class="badge badge-pill badge-outline-info">Design</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with header -->
+        </div>
+
+        <div class="col-xl-6 col-md-6 col-sm-12 pl-md-2">
+            <h4 class="mt-4">Footer</h4>
+            <h6 class="mb-3">A card can contain a footer</h6>
+            <!-- Card with footer -->
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                    <span class="badge badge-pill badge-outline-success ml-auto mr-1">Branding</span>
+                    <span class="badge badge-pill badge-outline-info">Design</span>
+                </div>
+            </div>
+            <!-- /Card with footer -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Button on header</h4>
+    <h6 class="mb-3">A card can contain buttons on header</h6>
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with buttons on header variation 1 -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Featured'}}}
+                    <button type="button" class="btn btn-facebook btn-sm ml-auto">Like</button>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with buttons on header variation 1 -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with buttons on header variation 2 -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Featured'}}}
+                    <div class="btn-group btn-group-sm ml-auto" role="group">
+                        <button type="button" class="btn btn-success has-icon-left"><i class="icon-like"></i>Approve</button>
+                        <button type="button" class="btn btn-danger has-icon-left"><i class="icon-dislike"></i>Decline</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with buttons on header variation 2 -->
+        </div>
+
+        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with buttons on header variation 3 -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Featured'}}}
+                    <div class="btn-group btn-group-sm ml-auto" role="group">
+                        <button type="button" class="btn btn-icon btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Approve"><i class="icon-like"></i>
+                        </button>
+                        <button type="button" class="btn btn-icon btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Decline"><i
+                                class="icon-dislike"></i></button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- Card with buttons on header variation 3 -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Button on footer</h4>
+    <h6 class="mb-3">A card can contain buttons on footer</h6>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with buttons on footer variation 1 -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Featured'}}}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary mr-2">Go somewhere</a>
+                    <a href="#" class="btn btn-secondary">Take a look</a>
+                </div>
+            </div>
+            <!-- /Card with buttons on footer variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with buttons on footer variation 2 -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Featured'}}}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group btn-group-justified">
+                        <a class="btn btn-primary" href="#" role="button">Approve</a>
+                        <a class="btn btn-danger" href="#" role="button">Decline</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card with buttons on footer variation 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with buttons on footer variation 3 -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Featured'}}}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group w-100">
+                        <a class="btn btn-outline-primary w-50" href="#" role="button">Approve</a>
+                        <a class="btn btn-outline-danger w-50" href="#" role="button">Decline</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card with buttons on footer variation 3 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with buttons on footer variation 4 -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Featured'}}}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <a href="#" class="card-footer btn btn-lg btn-primary">Go somewhere</a>
+            </div>
+            <!-- Card with buttons on footer variation 4 -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Titles, text, and links</h4>
+    <h6 class="mb-3">A card can contain titles, subtitles, text, links etc... </h6>
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- Titles, text, and links variation 1 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary">Approve</a>
+                    <a href="#" class="btn btn-link btn-danger" role="button">Decline</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Titles, text, and links variation 2 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="card-link h5">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Titles, text, and links variation 3 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="card-link text-primary">Card link</a>
+                    <a href="#" class="card-link text-danger">Another link</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 3 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- Titles, text, and links variation 4 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="card-link text-primary">Card link</a>
+                    <a href="#" class="card-link text-danger float-right">Another link</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 4 -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Title sizing</h4>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- H1 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">H1 title</h1>
+                    <p class="card-text">Use <code>&lt;h1 class="card-title "&gt;H1 Title&lt;/h1&gt;</code> for H1 title heading.</p>
+                </div>
+            </div>
+            <!-- /H1 title sizing -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- H2 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">H2 title</h2>
+                    <p class="card-text">Use <code>&lt;h2 class="card-title"&gt;H2 title&lt;/h2&gt;</code> for H1 title heading.</p>
+                </div>
+            </div>
+            <!-- /H2 title sizing -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- H3 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">H2 title</h3>
+                    <p class="card-text">Use <code>&lt;h3 class="card-title"&gt;H3 title&lt;/h3&gt;</code> for H1 title heading.</p>
+                </div>
+            </div>
+            <!-- /H3 title sizing -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- H4 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">H4 title</h4>
+                    <p class="card-text">Use <code>&lt;h4 class="card-title"&gt;H4 title&lt;/h4&gt;</code> for H1 title heading.</p>
+                </div>
+            </div>
+            <!-- /H4 title sizing -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- H5 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">H5 title</h5>
+                    <p class="card-text">Use <code>&lt;h5 class="card-title "&gt;H5 Title&lt;/h5&gt;</code> for H5 title heading.</p>
+                </div>
+            </div>
+            <!-- /H5 title sizing -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- H6 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">H2 title</h6>
+                    <p class="card-text">Use <code>&lt;h6 class="card-title"&gt;H6 title&lt;/h6&gt;</code> for H6 title heading.</p>
+                </div>
+            </div>
+            <!-- /H6 title sizing -->
+        </div>
+    </div>
+
+    <hr>
+    <h3 class="mt-4">Carousel cards</h3>
     <h6 class="mb-3">A slideshow component for cycling through elements—images or slides of text—like a carousel. </h6>
     <div class="row">
         <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
@@ -485,8 +766,8 @@ posted: 2017-12-26
             <!-- /Carousel cards variation 2 -->
         </div>
     </div>
-
-    <h4 class="mt-4">Collapse</h4>
+    <hr>
+    <h3 class="mt-4">Collapse</h3>
     <h6 class="mb-3">An accordion allows users to toggle the display of sections of card contents </h6>
     <div class="row">
         <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
@@ -900,8 +1181,8 @@ posted: 2017-12-26
             <!-- /Collapse cards variation 7 -->
         </div>
     </div>
-
-    <h4 class="mt-4">Video embed</h4>
+    <hr>
+    <h3 class="mt-4">Video embed</h3>
     <h6 class="mb-3">Create responsive video embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.</h6>
 
     <div class="row">
@@ -978,167 +1259,8 @@ posted: 2017-12-26
             <!-- /Video embed cards variation 4 -->
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-xl-6 col-md-6 col-sm-12 pr-md-2">
-            <h4 class="mt-4">Header</h4>
-            <h6 class="mb-3">A card can contain a header</h6>
-            <!-- Card with header -->
-            <div class="card">
-                <div class="card-header">
-                    {{{card_title 'Featured'}}}
-                    <span class="badge badge-pill badge-outline-success ml-auto mr-1">Branding</span>
-                    <span class="badge badge-pill badge-outline-info">Design</span>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                </div>
-            </div>
-            <!-- /Card with header -->
-        </div>
-
-        <div class="col-xl-6 col-md-6 col-sm-12 pl-md-2">
-            <h4 class="mt-4">Footer</h4>
-            <h6 class="mb-3">A card can contain a footer</h6>
-            <!-- Card with footer -->
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                </div>
-                <div class="card-footer text-muted">
-                    2 days ago
-                    <span class="badge badge-pill badge-outline-success ml-auto mr-1">Branding</span>
-                    <span class="badge badge-pill badge-outline-info">Design</span>
-                </div>
-            </div>
-            <!-- /Card with footer -->
-        </div>
-    </div>
-
-    <h4 class="mt-4">Button on header</h4>
-    <h6 class="mb-3">A card can contain buttons on header</h6>
-    <div class="row">
-        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
-            <!-- Card with buttons on header variation 1 -->
-            <div class="card">
-                <div class="card-header">
-                    {{{card_title 'Featured'}}}
-                    <button type="button" class="btn btn-facebook btn-sm ml-auto">Like</button>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                </div>
-            </div>
-            <!-- /Card with buttons on header variation 1 -->
-        </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
-            <!-- Card with buttons on header variation 2 -->
-            <div class="card">
-                <div class="card-header">
-                    {{{card_title 'Featured'}}}
-                    <div class="btn-group btn-group-sm ml-auto" role="group">
-                        <button type="button" class="btn btn-success has-icon-left"><i class="icon-like"></i>Approve</button>
-                        <button type="button" class="btn btn-danger has-icon-left"><i class="icon-dislike"></i>Decline</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                </div>
-            </div>
-            <!-- /Card with buttons on header variation 2 -->
-        </div>
-
-        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
-            <!-- Card with buttons on header variation 3 -->
-            <div class="card">
-                <div class="card-header">
-                    {{{card_title 'Featured'}}}
-                    <div class="btn-group btn-group-sm ml-auto" role="group">
-                        <button type="button" class="btn btn-icon btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Approve"><i class="icon-like"></i>
-                        </button>
-                        <button type="button" class="btn btn-icon btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Decline"><i
-                                class="icon-dislike"></i></button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                </div>
-            </div>
-            <!-- Card with buttons on header variation 3 -->
-        </div>
-    </div>
-
-    <h4 class="mt-4">Button on footer</h4>
-    <h6 class="mb-3">A card can contain buttons on footer</h6>
-    <div class="row">
-        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
-            <!-- Card with buttons on footer variation 1 -->
-            <div class="card">
-                <div class="card-header">
-                    {{{card_title 'Featured'}}}
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary mr-2">Go somewhere</a>
-                    <a href="#" class="btn btn-secondary">Take a look</a>
-                </div>
-            </div>
-            <!-- /Card with buttons on footer variation 1 -->
-        </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
-            <!-- Card with buttons on footer variation 2 -->
-            <div class="card">
-                <div class="card-header">
-                    {{{card_title 'Featured'}}}
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                </div>
-                <div class="card-footer">
-                    <div class="btn-group btn-group-justified">
-                        <a class="btn btn-primary" href="#" role="button">Approve</a>
-                        <a class="btn btn-danger" href="#" role="button">Decline</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card with buttons on footer variation 2 -->
-        </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
-            <!-- Card with buttons on footer variation 3 -->
-            <div class="card">
-                <div class="card-header">
-                    {{{card_title 'Featured'}}}
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                </div>
-                <div class="card-footer">
-                    <div class="btn-group w-100">
-                        <a class="btn btn-outline-primary w-50" href="#" role="button">Approve</a>
-                        <a class="btn btn-outline-danger w-50" href="#" role="button">Decline</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card with buttons on footer variation 3 -->
-        </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
-            <!-- Card with buttons on footer variation 4 -->
-            <div class="card">
-                <div class="card-header">
-                    {{{card_title 'Featured'}}}
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                </div>
-                <a href="#" class="card-footer btn btn-lg btn-primary">Go somewhere</a>
-            </div>
-            <!-- Card with buttons on footer variation 4 -->
-        </div>
-    </div>
-
-    <h4 class="mt-4">Card with actions</h4>
+    <hr>
+    <h3 class="mt-4">Card with actions</h3>
     <h6 class="mb-3">A card can also contains action links in icon format.</h6>
 
     <div class="row">
@@ -1353,62 +1475,8 @@ posted: 2017-12-26
             <!-- /Group actions - Toolbar style -->
         </div>
     </div>
-
-    <h4 class="mt-4">Titles, text, and links</h4>
-    <h6 class="mb-3">A card can contain titles, subtitles, text, links etc... </h6>
-
-    <div class="row">
-        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
-            <!-- Titles, text, and links variation 1 -->
-            <div class="card">
-                <div class="card-body">
-                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                    <a href="#" class="btn btn-primary">Approve</a>
-                    <a href="#" class="btn btn-link btn-danger" role="button">Decline</a>
-                </div>
-            </div>
-            <!-- /Titles, text, and links variation 1 -->
-        </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
-            <!-- Titles, text, and links variation 2 -->
-            <div class="card">
-                <div class="card-body">
-                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                    <a href="#" class="card-link h5">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            <!-- /Titles, text, and links variation 2 -->
-        </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
-            <!-- Titles, text, and links variation 3 -->
-            <div class="card">
-                <div class="card-body">
-                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                    <a href="#" class="card-link text-primary">Card link</a>
-                    <a href="#" class="card-link text-danger">Another link</a>
-                </div>
-            </div>
-            <!-- /Titles, text, and links variation 3 -->
-        </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
-            <!-- Titles, text, and links variation 4 -->
-            <div class="card">
-                <div class="card-body">
-                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                    <a href="#" class="card-link text-primary">Card link</a>
-                    <a href="#" class="card-link text-danger float-right">Another link</a>
-                </div>
-            </div>
-            <!-- /Titles, text, and links variation 4 -->
-        </div>
-    </div>
-
-    <h4 class="mt-4">Text alignment</h4>
+    <hr>
+    <h3 class="mt-4">Text alignment</h3>
     <h6 class="mb-3">You can quickly change the text alignment of any card—in its entirety or specific parts —with text align classes. </h6>
 
     <div class="row">
@@ -1453,8 +1521,8 @@ posted: 2017-12-26
 
     </div>
 
-
-    <h4 class="mt-4">Image overlays</h4>
+    <hr>
+    <h3 class="mt-4">Image overlays</h3>
     <h6 class="mb-3">Turn an image into a card background and overlay your card’s text. Depending on the image, you may or may not need additional styles or utilities
         like <code>.text-white</code> or <code>.text-dark</code></h6>
 
@@ -1582,8 +1650,9 @@ posted: 2017-12-26
             <!-- /Image overlays variation 8 -->
         </div>
     </div>
-
-
+    <hr>
+    <h3 class="mt-4">Card Styles</h3>
+    <h6 class="mb-3">Cards include various options for customizing their backgrounds, borders, and color.</h6>
     <h4 class="mt-4">Colored background with inverted text and image</h4>
     <h6 class="mb-3">A card can specify a color</h6>
     <div class="row">
@@ -2293,6 +2362,256 @@ posted: 2017-12-26
                 {{/card_body}}
             {{/card_has}}
             <!-- /Outline variant with colored text/header 7 -->
+        </div>
+    </div>
+
+    <hr>
+    <h3 class="mt-4">Card layout</h3>
+    <h6 class="mb-3">In addition to styling the content within cards, Bootstrap includes a few options for laying out series of cards. For the time being, these layout options are not yet responsive.</h6>
+
+    <h4 class="mt-4">Groups</h4>
+    <h6 class="mb-3">Use card groups to render cards as a single, attached element with equal width and height columns. Card groups use <code>display: flex;</code> to achieve their uniform sizing.</h6>
+    <h6 class="mb-3">When using card groups with footers, their content will automatically line up.</h6>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Card groups -->
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/tNCH0sKSZbA/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Kristy'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>30 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/Y_2vh9QyY-g/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Matthew Hamilton'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/vTL_qy03D1I/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'María Victoria'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/EdA845C1yXc/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Christopher Campbell'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Card groups -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Decks</h4>
+    <h6 class="mb-3">Need a set of equal width and height cards that aren't attached to one another? Use card decks.</h6>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Card decks -->
+            <div class="card-deck">
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Jenny'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>30 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/SJXkKIGdAoA/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Elyse'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/tk-iIF9dy3I/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Molly'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/EObuHoP0L_U/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Matt Giampietro'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Card decks -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Columns</h4>
+
+    <h6 class="mb-3">Cards can be organized into <a href="https://masonry.desandro.com/">Masonry</a>-like columns with just CSS by wrapping them in <code>.card-columns</code>. Cards are built with CSS <code>column</code> properties instead of flexbox for easier alignment. Cards are ordered from top to bottom and left to right.</h6>
+    <h6 class="mb-3"><strong>Heads up!</strong> Your mileage with card columns may vary. To prevent cards breaking across columns, we must set them to <code>display: inline-block</code> as <code>column-break-inside: avoid</code> isn’t a bulletproof solution yet.</h6>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Card columns -->
+            <div class="card-columns">
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/vTL_qy03D1I/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'María Victoria'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+                <div class="card flex-md-row bg-primary border-0">
+                    <div class="card-body d-flex flex-column align-items-start justify-content-center">
+                        <h4 class="card-title text-white">Apple iPhone X (64 GB)</h4>
+                        <p class="card-text text-white">Meet the iPhone X - the device that’s so smart that it responds to a tap, your voice, and even a glance. </p>
+                        <a href="#" class="btn btn-outline-light has-icon-left"><i class="icon-basket"></i> Buy now</a>
+                    </div>
+                </div>
+                <div class="card text-white">
+                    <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x550" alt="Card image">
+                    <div class="card-img-overlay overlay-secondary border-radius-lg">
+                        <h5 class="card-title text-white">Card title</h5>
+                        <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in
+                            to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">
+                            <small class="text-white">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/SJXkKIGdAoA/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Elyse'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Text align center</h5> <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+                        <a href="#" class="btn btn-primary mb-1">Go somewhere</a>
+                        <a href="#" class="btn btn-secondary mb-1">Take a look</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h5 class="card-title">María Victoria<br>
+                            <small class="card-subtitle mb-2 text-muted">Friend of Veronika</small>
+                        </h5>
+                        <img class="rounded-circle w-15 ml-auto" src="https://source.unsplash.com/vTL_qy03D1I/100x100" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+                    </div>
+                    <div class="card-footer d-block bg-white">
+                        <div class="btn-group btn-group-justified">
+                            <a class="btn btn-outline-primary" href="#" role="button">Approve</a>
+                            <a class="btn btn-outline-danger" href="#" role="button">Decline</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in <span class="badge badge-primary pointed arrow-left float-right">New</span></li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">Cras justo odio <span class="badge badge-outline-secondary pointed arrow-left float-right">Sale</span></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Collapsible card</h5>
+                        <div class="card__actions ml-auto">
+                            <a href="#" class="card__actions-item" data-card="collapse">
+                                <i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="" data-original-title="Collapse"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">                    <p class="card-text"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+                    </div>                <div class="card-footer bg-white text-muted">Card footer</div>
+                </div>
+                <div class="card bg-danger border-0">
+                    <div class="card-body d-flex flex-column align-items-center text-center">
+                        <h4 class="card-title text-white">Rich Bass Wireless Bluetooth Headset With Mic</h4>
+                        <p class="card-text text-white">Over-the-ear Bluetooth headphones offer amazing sound quality and powerful bass. </p>
+                        <a href="#" class="btn btn-outline-light has-icon-left"><i class="icon-basket"></i> Buy now</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Card columns -->
         </div>
     </div>
 
