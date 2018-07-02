@@ -6,6 +6,7 @@
 // https://github.com/chian88/course_260/blob/master/trello3/public/javascripts/handlebars_utility.js
 // https://tutorialzine.com/2015/01/learn-handlebars-in-10-minutes
 // https://github.com/chapmanu/cascade-assets/tree/development/subprojects/degrees-and-programs/source/static/app/assemble/helpers
+// https://github.com/BarkleyREI/Front-End-Coding-Standards/blob/7843e8ad0be388b457c8fb1b0a97679591047b8b/app/assemble/helpers/helpers.js
 
 
 module.exports.register = function (Handlebars, options) {
