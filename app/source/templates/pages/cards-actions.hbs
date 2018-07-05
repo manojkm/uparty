@@ -1,0 +1,220 @@
+---
+title: <%= page.cards_with_actions.title %>
+lead: <%= page.cards_with_actions.lead %>
+components: true
+cards: true
+posted: 2017-12-26
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- Collapsible card -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Collapsible card'}}}
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse">
+                            <i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Collapsible card -->
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Dismissible card -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Dismissible card'}}}
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Dismissible card -->
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Fullscreen card -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Fullscreen card'}}}
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item" data-card="fullscreen">
+                            <i class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="Fullscreen"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Fullscreen card -->
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with dropdowns -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Card with dropdowns'}}}
+                    <div class="card__actions ml-auto">
+                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Card with dropdowns -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12 pr-md-2">
+            <!-- Group actions -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Group actions'}}}
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top"
+                                                                                       title="Collapse"></i></a>
+                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand" data-toggle="tooltip" data-placement="top"
+                                                                                         title="Fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Group actions -->
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12 pl-md-2">
+            <!-- Group actions - Toolbar style -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Group actions - Toolbar style'}}}
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top"
+                                                                                       title="Collapse"></i></a>
+                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand" data-toggle="tooltip" data-placement="top"
+                                                                                         title="Fullscreen"></i></a>
+                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Group actions - Toolbar style -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12 pr-md-2">
+            <!-- Group actions -->
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h5 class="card-title text-white">Group actions</h5>
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item text-white" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top"
+                                                                                                  title="Collapse"></i></a>
+                        <a class="card__actions-item text-white dropdown-toggle" href="#" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                        <a href="#" class="card__actions-item text-white" data-card="fullscreen"><i class="fa fa-expand" data-toggle="tooltip" data-placement="top"
+                                                                                                    title="Fullscreen"></i></a>
+                        <a href="#" class="card__actions-item text-white" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top"
+                                                                                               title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Group actions -->
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12 pl-md-2">
+            <!-- Group actions - Toolbar style -->
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h5 class="card-title text-white">Group actions - Toolbar style</h5>
+                    <div class="card__actions window ml-auto">
+                        <a href="#" class="card__actions-item text-white" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top"
+                                                                                                  title="Collapse"></i></a>
+                        <a class="card__actions-item  text-white dropdown-toggle" href="#" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        </a>
+                        {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}
+                                    <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
+                            {{/ddw_items}}
+                        {{/ddw_menu_has}}
+                        <a href="#" class="card__actions-item text-white" data-card="fullscreen"><i class="fa fa-expand" data-toggle="tooltip" data-placement="top"
+                                                                                                    title="Fullscreen"></i></a>
+                        <a href="#" class="card__actions-item text-white" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top"
+                                                                                               title="Close"></i></a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Group actions - Toolbar style -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,703 @@
+---
+title: <%= page.cards.title %>
+lead: <%= page.cards.lead %>
+components: true
+cards: true
+posted: 2017-12-26
+---
+
+<div class="container-fluid">
+    <h3 class="mt-4">Content types</h3>
+    <h6 class="mb-3">Cards support a wide variety of content, including images, text, list groups, links, and more. Mix and match multiple content types to create the
+        card you need.</h6>
+
+    <h4 class="mt-4">List groups</h4>
+    <h6 class="mb-3">Create lists of content in a card with a flush list group.</h6>
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- List groups variation 1 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title 'Card title'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio <span class="badge badge-round badge-primary float-right">5</span></li>
+                    <li class="list-group-item">Dapibus ac facilisis in <span class="badge badge-round badge-secondary float-right">2</span></li>
+                    <li class="list-group-item">Vestibulum at eros <span class="badge badge-round badge-success float-right">3</span></li>
+                    <li class="list-group-item">Cras justo odio <span class="badge badge-round badge-warning float-right">4</span></li>
+                    <li class="list-group-item">Dapibus ac facilisis in <span class="badge badge-round badge-danger float-right">5</span></li>
+                    <li class="list-group-item">Dapibus ac facilisis in <span class="badge badge-round badge-info float-right">5</span></li>
+                    <li class="list-group-item">Vestibulum at eros <span class="badge badge-round badge-light float-right">7</span></li>
+                    <li class="list-group-item">Vestibulum at eros <span class="badge badge-round badge-dark float-right">9</span></li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+
+            </div>
+            <!-- /List groups variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- List groups variation 2 -->
+            <div class="card">
+                <img class="card-img-top" src="https://source.unsplash.com/EObuHoP0L_U/350x150" alt="Card image cap">
+                <div class="card-body">
+                    {{{card_title 'Card title'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link text-primary">Card link</a>
+                    <a href="#" class="card-link text-danger">Another link</a>
+                </div>
+            </div>
+            <!-- /List groups variation 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- List groups variation 3 -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Card title'}}}
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in <span class="badge badge-primary pointed arrow-left float-right">New</span></li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                    <li class="list-group-item">Cras justo odio <span class="badge badge-outline-secondary pointed arrow-left float-right">Sale</span></li>
+                </ul>
+            </div>
+            <!-- /List groups variation 3 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- List groups variation 4 -->
+            <!-- /List groups variation 4 -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="mt-4">Header</h4>
+            <h6 class="mb-3">A card can contain a header</h6>
+            <!-- Card with header -->
+            <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Featured'}}}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with header -->
+        </div>
+    </div>
+
+    <!--<h6 class="mb-3">A card can contain buttons on header</h6>-->
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with buttons on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Button on header'}}}
+                    <div class="heading-elements ml-sm-auto"><button type="button" class="btn btn-facebook btn-sm">Like</button></div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with buttons on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with button group on header 1 -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Button group on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button type="button" class="btn btn-success has-icon-left"><i class="icon-like"></i>Approve</button>
+                            <button type="button" class="btn btn-danger has-icon-left"><i class="icon-dislike"></i>Decline</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with button group on header 1 -->
+        </div>
+
+        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with button group on header 2 -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Button on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button type="button" class="btn btn-icon btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Approve"><i class="icon-like"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Decline"><i
+                                    class="icon-dislike"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- Card with button group on header 2 -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with badges on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Badges on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <span class="badge badge-primary mr-1">Regular badge</span>
+                        <span class="badge badge-pill badge-outline-info">Pill badge</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with badges on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with links on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Links on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <a href="#" class="text-success mr-2">Link 1</a>
+                        <a href="#" class="text-secondary mr-2">Link 2</a>
+                        <a href="#" class="text-danger mr-2">Link 3</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with links on header -->
+        </div>
+
+        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with pagination on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Pagination on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination pagination-sm mb-0">
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with pagination on header -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with multiple checkboxes on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Multiple checkboxes on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" id="customCheckboxInline1">
+                            <label class="custom-control-label" for="customCheckboxInline1">Pizza</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" id="customCheckboxInline2"
+                                   checked>
+                            <label class="custom-control-label" for="customCheckboxInline2">Pasta</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with multiple checkboxes on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with multiple radios on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Multiple radios on header'}}}
+
+                    <div class="heading-elements ml-sm-auto">
+                        <div class="custom-control custom-radio custom-control-inline ml-md-auto">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline"
+                                   class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline1">Pizza</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline"
+                                   class="custom-control-input" checked>
+                            <label class="custom-control-label" for="customRadioInline2">Pasta</label>
+                        </div></div>
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with multiple radios on header -->
+        </div>
+
+        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with dropdown on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Dropdown on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <div class="btn-group ml-auto">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button>
+                            {{#ddw_menu_has 'extended dropdown-menu-right'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with dropdown on header -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with Toggle switch on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Toggle switch on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <fieldset>
+                            <label class="custom-control custom-toggle custom-toggle-primary mb-0">
+                                <input class="custom-control-input" required="" checked="" type="checkbox">
+                                <span class="custom-control-indicator"></span>
+                            </label>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with Toggle switch on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with ratings on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Ratings on header'}}}
+                    <div class="heading-elements ml-sm-auto"><div id="default-star-rating"></div></div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with ratings on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with search on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Search on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <div class="input-group  input-group-sm">
+                            <input class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon" type="text">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-primary"><i class="icon-magnifier"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with search on header -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with white background on header -->
+            <div class="card">
+                <div class="card-header bg-white">
+                    {{{card_title 'Header with white background'}}}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with white background on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+            <!-- Card without border on header -->
+            <div class="card">
+                <div class="card-header bg-white border-0">
+                    {{{card_title 'Header without border'}}}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card without border on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with inline subtitle on header -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Title <small class="card-subtitle text-muted">with inline subtitle on header</small></h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with inline subtitle on header -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with block subtitle on header -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Title <small class="d-block card-subtitle text-muted mt-1">with block subtitle on header</small></h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with block subtitle on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with select menu on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Select menu on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <select class="custom-select custom-select-sm">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with select menu on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with social buttons on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Social buttons on header'}}}
+                    <div class="heading-elements ml-sm-auto">
+                        <button type="button" class="btn btn-facebook btn-icon btn-round btn-sm mb-1"><i class="fab fa-facebook-f"></i></button>
+                        <button type="button" class="btn btn-twitter btn-icon btn-round btn-sm mb-1"><i class="fab fa-twitter"></i></button>
+                        <button type="button" class="btn btn-google-plus btn-icon btn-round btn-sm mb-1"><i class="fab fa-google-plus-g"></i></button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with social buttons on header -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="mt-4">Footer</h4>
+            <h6 class="mb-3">A card can contain a footer</h6>
+            <!-- Card with footer -->
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                </div>
+            </div>
+            <!-- /Card with footer -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with buttons on footer variation 1 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title 'Button on footer'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary mr-2">Go somewhere</a>
+                    <a href="#" class="btn btn-secondary">Take a look</a>
+                </div>
+            </div>
+            <!-- /Card with buttons on footer variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with buttons on footer variation 2 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title 'Button on footer'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group btn-group-justified">
+                        <a class="btn btn-primary" href="#" role="button">Approve</a>
+                        <a class="btn btn-danger" href="#" role="button">Decline</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card with buttons on footer variation 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with buttons on footer variation 3 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title 'Button on footer'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group w-100">
+                        <a class="btn btn-outline-primary w-50" href="#" role="button">Approve</a>
+                        <a class="btn btn-outline-danger w-50" href="#" role="button">Decline</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card with buttons on footer variation 3 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card with buttons on footer variation 4 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title 'Button on footer'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <a href="#" class="card-footer btn btn-lg btn-primary">Go somewhere</a>
+            </div>
+            <!-- Card with buttons on footer variation 4 -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- Card with badges on footer variation 1 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title 'Badges on footer'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer">
+                    <span class="badge badge-primary mr-1">Regular badge</span>
+                    <span class="badge badge-pill badge-outline-info">Pill badge</span>
+                </div>
+            </div>
+            <!-- /Card with badges on footer variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with pagination  on footer variation 1 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title 'Pagination on footer'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer">
+                    <nav aria-label="Page navigation example" class="ml-auto">
+                        <ul class="pagination pagination-sm extended mb-0">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="icon-arrow-left" aria-hidden="true"></i></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true"><i class="icon-arrow-right" aria-hidden="true"></i></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /Card with pagination on footer variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Card with white background on footer -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title 'Footer with white background'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer bg-white">
+                    <a href="#" class="card-link"><i class="icon-heart mr-2"></i>Like</a>
+                    <a href="#" class="card-link ml-auto text-primary">Read more</a>
+                </div>
+            </div>
+            <!-- /Card with white background on footer -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- Card without border on footer -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title 'Footer without border'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted">2 days ago</small>
+                    <a href="#" class="card-link ml-auto text-primary">Read more</a>
+                </div>
+            </div>
+            <!-- /Card without border on footer -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Titles, text, and links</h4>
+    <h6 class="mb-3">A card can contain titles, subtitles, text, links etc... </h6>
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- Titles, text, and links variation 1 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary">Approve</a>
+                    <a href="#" class="btn btn-link btn-danger" role="button">Decline</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Titles, text, and links variation 2 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="card-link h5">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Titles, text, and links variation 3 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="card-link text-primary">Card link</a>
+                    <a href="#" class="card-link text-danger">Another link</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 3 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- Titles, text, and links variation 4 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title''Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="card-link text-primary">Card link</a>
+                    <a href="#" class="card-link text-danger float-right">Another link</a>
+                </div>
+            </div>
+            <!-- /Titles, text, and links variation 4 -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Title sizing</h4>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- H1 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">H1 title</h1>
+                    <p class="card-text">Use <code>&lt;h1 class="card-title "&gt;H1 Title&lt;/h1&gt;</code> for H1 title heading.</p>
+                </div>
+            </div>
+            <!-- /H1 title sizing -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- H2 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">H2 title</h2>
+                    <p class="card-text">Use <code>&lt;h2 class="card-title"&gt;H2 title&lt;/h2&gt;</code> for H1 title heading.</p>
+                </div>
+            </div>
+            <!-- /H2 title sizing -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- H3 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">H2 title</h3>
+                    <p class="card-text">Use <code>&lt;h3 class="card-title"&gt;H3 title&lt;/h3&gt;</code> for H1 title heading.</p>
+                </div>
+            </div>
+            <!-- /H3 title sizing -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- H4 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">H4 title</h4>
+                    <p class="card-text">Use <code>&lt;h4 class="card-title"&gt;H4 title&lt;/h4&gt;</code> for H1 title heading.</p>
+                </div>
+            </div>
+            <!-- /H4 title sizing -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- H5 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">H5 title</h5>
+                    <p class="card-text">Use <code>&lt;h5 class="card-title "&gt;H5 Title&lt;/h5&gt;</code> for H5 title heading.</p>
+                </div>
+            </div>
+            <!-- /H5 title sizing -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- H6 title sizing -->
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">H2 title</h6>
+                    <p class="card-text">Use <code>&lt;h6 class="card-title"&gt;H6 title&lt;/h6&gt;</code> for H6 title heading.</p>
+                </div>
+            </div>
+            <!-- /H6 title sizing -->
+        </div>
+    </div>
+</div>

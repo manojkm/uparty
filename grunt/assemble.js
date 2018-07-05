@@ -16,6 +16,11 @@ module.exports = function (grunt) {
                     sortorder: 'descending'
                 },
                 {
+                    name: 'cards',
+                    sortby: 'posted',
+                    sortorder: 'descending'
+                },
+                {
                     name: 'icons',
                     sortby: 'posted',
                     sortorder: 'descending'
@@ -35,6 +40,7 @@ module.exports = function (grunt) {
             assets: grunt.getPath('assets', false, true),
             img: grunt.getPath('img'),
             script: grunt.getPath('js'),
+            root: grunt.getPath('root'),
             activeTheme: '<%= activeThemeDir %>',
 
             // Templates

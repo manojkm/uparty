@@ -1,0 +1,258 @@
+---
+title: <%= page.cards.title %>
+lead: <%= page.cards.lead %>
+components: true
+cards: true
+posted: 2017-12-26
+---
+
+<div class="container-fluid">
+    <h3 class="mt-4">Card layouts</h3>
+    <h6 class="mb-3">In addition to styling the content within cards, Bootstrap includes a few options for laying out series of cards. For the time being, these layout options are not yet responsive.</h6>
+
+    <h4 class="mt-4">Groups</h4>
+    <h6 class="mb-3">Use card groups to render cards as a single, attached element with equal width and height columns. Card groups use <code>display: flex;</code> to achieve their uniform sizing.</h6>
+    <h6 class="mb-3">When using card groups with footers, their content will automatically line up.</h6>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Card groups -->
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/tNCH0sKSZbA/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Kristy'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>30 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/Y_2vh9QyY-g/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Matthew Hamilton'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/vTL_qy03D1I/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'María Victoria'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/EdA845C1yXc/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Christopher Campbell'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Card groups -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Decks</h4>
+    <h6 class="mb-3">Need a set of equal width and height cards that aren't attached to one another? Use card decks.</h6>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Card decks -->
+            <div class="card-deck">
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Jenny'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>30 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/SJXkKIGdAoA/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Elyse'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/tk-iIF9dy3I/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Molly'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/EObuHoP0L_U/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Matt Giampietro'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Card decks -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Columns</h4>
+
+    <h6 class="mb-3">Cards can be organized into <a href="https://masonry.desandro.com/">Masonry</a>-like columns with just CSS by wrapping them in <code>.card-columns</code>. Cards are built with CSS <code>column</code> properties instead of flexbox for easier alignment. Cards are ordered from top to bottom and left to right.</h6>
+    <h6 class="mb-3"><strong>Heads up!</strong> Your mileage with card columns may vary. To prevent cards breaking across columns, we must set them to <code>display: inline-block</code> as <code>column-break-inside: avoid</code> isn’t a bulletproof solution yet.</h6>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Card columns -->
+            <div class="card-columns">
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/vTL_qy03D1I/350x350" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'María Victoria'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+                <div class="card flex-md-row bg-primary border-0">
+                    <div class="card-body d-flex flex-column align-items-start justify-content-center">
+                        <h4 class="card-title text-white">Apple iPhone X (64 GB)</h4>
+                        <p class="card-text text-white">Meet the iPhone X - the device that’s so smart that it responds to a tap, your voice, and even a glance. </p>
+                        <a href="#" class="btn btn-outline-light has-icon-left"><i class="icon-basket"></i> Buy now</a>
+                    </div>
+                </div>
+                <div class="card text-white">
+                    <img class="card-img" src="https://source.unsplash.com/Vq3aUPk0bEk/600x550" alt="Card image">
+                    <div class="card-img-overlay overlay-secondary border-radius-lg">
+                        <h5 class="card-title text-white">Card title</h5>
+                        <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in
+                            to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">
+                            <small class="text-white">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/SJXkKIGdAoA/350x300" alt="Card image">
+                    <div class="card-body">
+                        {{{card_title 'Elyse'}}}
+                        <h6 class="card-subtitle mb-2">
+                            <small class="text-muted">Joined in 2013</small>
+                        </h6>
+                        <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Text align center</h5> <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+                        <a href="#" class="btn btn-primary mb-1">Go somewhere</a>
+                        <a href="#" class="btn btn-secondary mb-1">Take a look</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h5 class="card-title">María Victoria<br>
+                            <small class="card-subtitle mb-2 text-muted">Friend of Veronika</small>
+                        </h5>
+                        <img class="rounded-circle w-15 ml-auto" src="https://source.unsplash.com/vTL_qy03D1I/100x100" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+                    </div>
+                    <div class="card-footer d-block bg-white">
+                        <div class="btn-group btn-group-justified">
+                            <a class="btn btn-outline-primary" href="#" role="button">Approve</a>
+                            <a class="btn btn-outline-danger" href="#" role="button">Decline</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in <span class="badge badge-primary pointed arrow-left float-right">New</span></li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">Cras justo odio <span class="badge badge-outline-secondary pointed arrow-left float-right">Sale</span></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Collapsible card</h5>
+                        <div class="card__actions ml-auto">
+                            <a href="#" class="card__actions-item" data-card="collapse">
+                                <i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="" data-original-title="Collapse"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">                    <p class="card-text"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+                    </div>                <div class="card-footer bg-white text-muted">Card footer</div>
+                </div>
+                <div class="card bg-danger border-0">
+                    <div class="card-body d-flex flex-column align-items-center text-center">
+                        <h4 class="card-title text-white">Rich Bass Wireless Bluetooth Headset With Mic</h4>
+                        <p class="card-text text-white">Over-the-ear Bluetooth headphones offer amazing sound quality and powerful bass. </p>
+                        <a href="#" class="btn btn-outline-light has-icon-left"><i class="icon-basket"></i> Buy now</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Card columns -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,314 @@
+---
+title: <%= page.cards_basic_fluid.title %>
+lead: <%= page.cards_basic_fluid.lead %>
+components: true
+cards: true
+posted: 2017-12-26
+---
+
+<div class="container-fluid">
+    <h3 class="mt-4">Basic example</h3>
+    <h6 class="mb-3">Below is an example of a basic card with mixed content and a fixed width.</h6>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12">
+            <!-- Basic example 1 -->
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                {{#card_body}}
+                    {{{card_title_has_subtitle 'Card title' 'Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text mt-3">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                {{/card_body}}
+            </div>
+            <!-- /Basic example 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12">
+            <!-- Basic example 2 -->
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title' 'Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text mt-3">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+                <img class="card-img-bottom" src="https://source.unsplash.com/SJXkKIGdAoA/350x300" alt="Card image">
+            </div>
+            <!-- /Basic example 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12">
+            <!-- Basic example 3 -->
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'Card title' 'Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <img  class="w-100" src="https://source.unsplash.com/tk-iIF9dy3I/350x300" alt="Card image">
+                <div class="card-body">
+                    <a href="#" class="card-link text-primary">Card link</a>
+                    <a href="#" class="card-link text-danger">Another link</a>
+                    <p class="card-text mt-3">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+            <!-- /Basic example 3 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12">
+            <!-- Basic example 4 -->
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img class="card-img-top card-img-bottom mb-3" src="https://source.unsplash.com/EObuHoP0L_U/350x350" alt="Card image">
+                    {{{card_title_has_subtitle 'Card title' 'Card subtitle'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text mt-3">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+            <!-- /Basic example 4 -->
+        </div>
+    </div>
+
+    <h4 class="mt-4 mb-3">Few variations</h4>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12">
+            <!-- Basic example variation 1 -->
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://source.unsplash.com/tNCH0sKSZbA/350x350" alt="Card image">
+                <div class="card-body">
+                    {{{card_title 'Kristy'}}}
+                    <h6 class="card-subtitle mb-2">
+                        <small class="text-muted">Joined in 2013</small>
+                    </h6>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer bg-white">
+                    <a href="#" class="card-link"><i class="icon-user mr-2"></i>30 Friends</a>
+                </div>
+            </div>
+            <!-- /Basic example variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12">
+            <!-- Basic example variation 2 -->
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    {{{card_title 'Matthew Hamilton'}}}
+                    <h6 class="card-subtitle mb-2">
+                        <small class="text-muted">Joined in 2013</small>
+                    </h6>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer bg-white">
+                    <a href="#" class="card-link"><i class="icon-user mr-2"></i>25 Friends</a>
+                </div>
+                <img class="card-img-bottom" src="https://source.unsplash.com/Y_2vh9QyY-g/350x350" alt="Card image">
+            </div>
+            <!-- /Basic example variation 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12">
+            <!-- Basic example variation 3 -->
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://source.unsplash.com/vTL_qy03D1I/350x350" alt="Card image">
+                <div class="card-body">
+                    {{{card_title 'María Victoria'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-block btn-primary"><i class="fas fa-plus"></i> Add as friend</a>
+                </div>
+            </div>
+            <!-- /Basic example variation 3 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12">
+            <!-- Basic example variation 4 -->
+            <div class="card extended" style="width: 18rem;">
+                <img class="card-img-top" src="https://source.unsplash.com/EdA845C1yXc/350x350" alt="Card image">
+                <div class="card-body">
+                    {{{card_title 'Christopher Campbell'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary btn-lg btn-icon btn-round" data-toggle="tooltip" data-placement="top" title="Add as friend">
+                        <i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+            <!-- /Basic example variation 4 -->
+        </div>
+    </div>
+
+    <hr>
+    <h3 class="mt-4">Fluid card and few variations</h3>
+    <h6 class="mb-3">A fluid card have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with Bootstrap's
+        various sizing options.</h6>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+            <!-- Fluid card variation 1 -->
+            <div class="card">
+                <img class="card-img-top" src="https://source.unsplash.com/tNCH0sKSZbA/350x350" alt="Card image">
+                <div class="card-body">
+                    {{{card_title 'Kristy'}}}
+                    <h6 class="card-subtitle mb-2">
+                        <small class="text-muted">Friends</small>
+                    </h6>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+
+                <div class="card-footer bg-white">
+                    <a href="#" class="card-link"><i class="icon-bubbles mr-2"></i>3 comments </a>
+                    <a href="#" class="card-link ml-auto"><i class="icon-heart-o mr-2"></i> 65 Likes</a>
+                </div>
+
+                <div class="card-footer bg-white">
+                    <a href="#" class="card-link"><i class="icon-user mr-2"></i>151 Friends</a>
+                    <a href="#" class="card-link ml-auto"><i class="icon-user mr-2"></i>Joined in 2013</a>
+                </div>
+            </div>
+            <!-- /Fluid card variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Fluid card variation 2 -->
+            <div class="card">
+                <img class="card-img-top" src="https://source.unsplash.com/Y_2vh9QyY-g/350x350" alt="Card image">
+                <div class="card-body">
+                    {{{card_title 'Matthew Hamilton'}}}
+                    <h6 class="card-subtitle mb-2">
+                        <small class="text-muted">Friends</small>
+                    </h6>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer bg-white">
+                    <a href="#" class="card-link"><i class="icon-user mr-2"></i>151 Friends</a>
+                    <a href="#" class="card-link ml-auto"><i class="icon-user mr-2"></i>Joined in 2013</a>
+                </div>
+            </div>
+            <!-- /Fluid card variation 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Fluid card variation 3 -->
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h5 class="card-title">María Victoria<br>
+                        <small class="card-subtitle mb-2 text-muted">Friend of Veronika</small>
+                    </h5>
+                    <img class="rounded-circle w-15 ml-auto" src="https://source.unsplash.com/vTL_qy03D1I/100x100" alt="Card image">
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+
+                <div class="card-footer bg-white">
+                    <div class="btn-group">
+                        <a class="btn btn-primary" href="#" role="button">Approve</a>
+                        <a class="btn btn-danger" href="#" role="button">Decline</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Fluid card variation 3 -->
+
+            <!-- Fluid card variation 4 -->
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h5 class="card-title">María Victoria<br>
+                        <small class="card-subtitle mb-2 text-muted">Friend of Veronika</small>
+                    </h5>
+                    <img class="rounded-circle w-15 ml-auto" src="https://source.unsplash.com/vTL_qy03D1I/100x100" alt="Card image">
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+                <div class="card-footer d-block bg-white">
+                    <div class="btn-group btn-group-justified">
+                        <a class="btn btn-outline-primary" href="#" role="button">Approve</a>
+                        <a class="btn btn-outline-danger" href="#" role="button">Decline</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Fluid card variation 4 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- Fluid card variation 5 -->
+            <form>
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <img class="rounded-circle w-15 mr-2" src="https://source.unsplash.com/vTL_qy03D1I/100x100" alt="Card image">
+                        {{{card_title 'María Victoria'}}}
+                        <a href="#" class="card-link ml-auto">14h</a>
+                    </div>
+
+                    <div class="card-body p-0"><img class="img-fluid" src="https://source.unsplash.com/category/nature/800x300" alt="Card image"></div>
+
+                    <div class="card-footer bg-white">
+                        <a href="#" class="card-link"><i class="icon-bubbles mr-2"></i>3 comments</a>
+                        <a href="#" class="card-link ml-auto"><i class="icon-heart mr-2"></i>65 Likes</a>
+                    </div>
+
+                    <div class="card-footer bg-white">
+                        <div class="input-group with-addon-icon-left">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="icon-bubbles"></i></div>
+                            </div>
+                            <input class="form-control" placeholder="Add comment..." type="text">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- /Fluid card variation 5 -->
+
+            <!-- Fluid card variation 6 -->
+            <div class="card">
+                <div class="card-header bg-white">
+                    <img class="rounded-circle w-15 mr-2" src="https://source.unsplash.com/vTL_qy03D1I/100x100" alt="Card image">
+                    <h6 class="card-title">María Victoria<br>
+                        <small class="card-subtitle mb-2 text-muted">2 days ago</small>
+                    </h6>
+                    <a href="#" class="text-primary ml-auto mr-2"><i class="icon-heart mr-2"></i></a>
+                    <a href="#" class="text-primary"><i class="fas fa-star mr-2"></i></a>
+                </div>
+
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+
+                <div class="card-footer bg-white">
+                    <a href="#" class="card-link"><i class="icon-heart mr-2"></i>Like</a>
+                    <a href="#" class="card-link ml-auto"><i class="fas fa-star mr-2"></i>Favorite</a>
+                </div>
+            </div>
+            <!-- /Fluid card variation 6 -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12 pr-md-2">
+            <!-- Fluid card variation 7 -->
+            <div class="card flex-md-row mb-4">
+                <img src="https://source.unsplash.com/Vq3aUPk0bEk/200x250" alt="Card image" class="card-img-left flex-auto d-none d-md-block"
+                     style="width: 200px; height: 250px;">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">World</strong>
+                    <h3 class="card-title"><a class="text-dark" href="#">Featured post</a></h3>
+                    <h6 class="card-subtitle mb-2 text-muted">Nov 12</h6>
+                    <p class="card-text mb-auto">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary btn-sm">Continue reading</a>
+                </div>
+            </div>
+            <!-- /Fluid card variation 7 -->
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12 pl-md-2">
+            <!-- Fluid card variation 8 -->
+            <div class="card flex-md-row mb-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">World</strong>
+                    <h3 class="card-title"><a class="text-dark" href="#">Featured post</a></h3>
+                    <h6 class="card-subtitle mb-2 text-muted">Nov 12</h6>
+                    <p class="card-text mb-auto">{{{placeholder-lorem-sht}}}</p>
+                    <a href="#" class="btn btn-primary btn-sm">Continue reading</a>
+                </div>
+                <img src="https://source.unsplash.com/muOHbrFGEQY/200x250" alt="Card image" class="card-img-right flex-auto d-none d-md-block"
+                     style="width: 200px; height: 250px;">
+            </div>
+            <!-- /Fluid card variation 8 -->
+        </div>
+    </div>
+</div>

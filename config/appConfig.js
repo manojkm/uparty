@@ -25,7 +25,8 @@ var options = {
         TMP: '.tmp/',
         NODE: 'node_modules/',
         VENDORS: 'vendors/',
-        GRUNT: 'grunt/'
+        GRUNT: 'grunt/',
+        ROOT: './'
     }
 
 };
