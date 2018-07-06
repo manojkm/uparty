@@ -1,10 +1,11 @@
 <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb extended-arrow  has-menu">
-        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a>
-        </li>
-        <li class="breadcrumb-item"><a href="#">Registration</a></li>
-        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+        <li class="breadcrumb-item"><a href="index.html"><i class="icon-home" aria-hidden="true"></i></a></li>
+        {{#if page.components }}
+            <li class="breadcrumb-item"><a href="alerts.html">Components</a></li>{{/if}}
+        {{#if page.cards }}
+            <li class="breadcrumb-item"><a href="#">Cards</a></li>{{/if}}
+        <li class="breadcrumb-item active" aria-current="page">{{ this.title }}</li>
         <li class="breadcrumb-menu ml-auto">
             <ul class="nav justify-content-end">
                 <li class="nav-item">

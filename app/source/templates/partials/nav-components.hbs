@@ -4,36 +4,23 @@
         <span class="sidebar__item-icon"><i class="icon-puzzle"></i></span>
         <span class="sidebar__item-title">Components</span>
     </a>
-    <ul class="sidebar__child" aria-expanded="{{#if page.components}}true{{else}}false{{/if}}">
-        <li class="sidebar__item {{#is basename "alerts"}}active{{/is}}"><a href="{{root}}alerts.html">Alerts</a></li>
-        <li class="sidebar__item {{#is basename "badges"}}active{{/is}}"><a href="{{root}}badges.html">Badges<span
-                class="ml-auto badge badge-round badge-primary">4</span></a></li>
-        <li class="sidebar__item {{#is basename "breadcrumb"}}active{{/is}}"><a href="{{root}}breadcrumb.html">Breadcrumb</a></li>
-        <li class="sidebar__item {{#is basename "buttons"}}active{{/is}}"><a href="{{root}}buttons.html">Buttons</a></li>
-        <li class="sidebar__item {{#is basename "button-group"}}active{{/is}}"><a href="{{root}}button-group.html">Button group</a></li>
+    <ul class="sidebar__child" aria-expanded="false">
+        <li class="sidebar__item {{#is basename "alerts"}}active{{/is}}"><a href="{{root}}alerts.html">{{file.alerts.title}}</a></li>
+        <li class="sidebar__item {{#is basename "badges"}}active{{/is}}"><a href="{{root}}badges.html">Badges<span class="ml-auto badge badge-round badge-primary">4</span></a></li>
+        <li class="sidebar__item {{#is basename "breadcrumb"}}active{{/is}}"><a href="{{root}}breadcrumb.html">{{file.breadcrumb.title}}</a></li>
+        <li class="sidebar__item {{#is basename "buttons"}}active{{/is}}"><a href="{{root}}buttons.html">{{file.buttons.title}}</a></li>
+        <li class="sidebar__item {{#is basename "button-group"}}active{{/is}}"><a href="{{root}}button-group.html">{{file.button_group.title}}</a></li>
 
         <li class="sidebar__item has-child {{#if page.cards}} active{{/if}}">
-            <a href="#" class="has-arrow" aria-expanded="{{#if page.cards}}true{{else}}false{{/if}}">Cards</a>
+            <a href="#" class="has-arrow" aria-expanded="{{#if page.cards}}true{{else}}false{{/if}}">{{file.cards.title}}</a>
             <ul class="sidebar__child" aria-expanded="false">
-
                 {{#withSort cards 'data.posted'}}
                     {{#each pages }}
                         <li class="sidebar__item{{#is ../../page.dest this.dest}} active{{/is}}">
-                            <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}</a>
+                            <a href="{{ replaceStr dest 'app/build/' './' }}">{{ data.title }}</a>
                         </li>
                     {{/each}}
                 {{/withSort}}
-
-                <!--<li class="sidebar__item {{#is basename "cards-basic-fluid"}}active{{/is}}"><a href="{{root}}cards-basic-fluid.html">Basic and fluid cards</a></li>-->
-                <!--<li class="sidebar__item {{#is basename "cards-content-types"}}active{{/is}}"><a href="{{root}}cards-content-types.html">Content types</a></li>-->
-                <!--<li class="sidebar__item {{#is basename "cards-carousel"}}active{{/is}}"><a href="{{root}}cards-carousel.html">Carousel cards</a></li>-->
-                <!--<li class="sidebar__item {{#is basename "cards-collapse"}}active{{/is}}"><a href="{{root}}cards-collapse.html">Collapsible content</a></li>-->
-                <!--<li class="sidebar__item {{#is basename "cards-video-embed"}}active{{/is}}"><a href="{{root}}cards-video-embed.html">Video embed</a></li>-->
-                <!--<li class="sidebar__item {{#is basename "cards-actions"}}active{{/is}}"><a href="{{root}}cards-actions.html">Card with actions</a></li>-->
-                <!--<li class="sidebar__item {{#is basename "cards-text-alignment"}}active{{/is}}"><a href="{{root}}cards-text-alignment.html">Text alignment</a></li>-->
-                <!--<li class="sidebar__item {{#is basename "cards-image-overlays"}}active{{/is}}"><a href="{{root}}cards-image-overlays.html">Image overlays</a></li>-->
-                <!--<li class="sidebar__item {{#is basename "cards-styles"}}active{{/is}}"><a href="{{root}}cards-styles.html">Card Styles</a></li>-->
-                <!--<li class="sidebar__item {{#is basename "cards-layouts"}}active{{/is}}"><a href="{{root}}cards-layouts.html">Cards layouts</a></li>-->
             </ul>
         </li>
 
@@ -48,16 +35,24 @@
         <li class="sidebar__item {{#is basename "tabs"}}active{{/is}}"><a href="{{root}}tabs.html">Tabs</a></li>
         <li class="sidebar__item {{#is basename "wizard"}}active{{/is}}"><a href="{{root}}wizard.html">Wizard</a></li>
 
-        {{!--{{#withSort components 'data.posted'}}
-            {{#each pages }}
-                <li class="sidebar__item{{#is ../../page.dest this.dest}} active{{/is}}">
-                    <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}
-                        {{#is data.title "Badges"}}<span class="ml-auto badge badge-round badge-primary">4</span>{{/is}}
-                        {{#is data.title "Modals"}}<i class="fas fa-paper-plane ml-2"></i>{{/is}}
-                    </a>
-                </li>
-            {{/each}}
-        {{/withSort}}--}}
-    </ul>
+{{!--  ------------------------------
+{{#withSort components 'data.posted'}}
+{{#each pages }}
+ <li class="sidebar__item{{#is ../../page.dest this.dest}} active{{/is}}">
+     <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}
+         {{#is data.title "Badges"}}<span class="ml-auto badge badge-round badge-primary">4</span>{{/is}}
+         {{#is data.title "Modals"}}<i class="fas fa-paper-plane ml-2"></i>{{/is}}
+     </a>
+
+     {{#if data.children}}
+         {{#each data.children}}
+             <a class="{{#if this.isCurrentPage}} active{{/if}}" href="{{.}}.html">{{this}}</a>
+         {{/each}}
+     {{/if}}
+ </li>
+{{/each}}
+{{/withSort}}--}}
+
+</ul>
 
 </li>

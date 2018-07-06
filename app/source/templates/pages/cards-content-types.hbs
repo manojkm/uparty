@@ -1,16 +1,12 @@
 ---
-title: <%= page.cards.title %>
-lead: <%= page.cards.lead %>
+title: <%= file.cards_content_types.title %>
+lead: <%= file.cards_content_types.lead %>
 components: true
 cards: true
 posted: 2017-12-26
 ---
 
 <div class="container-fluid">
-    <h3 class="mt-4">Content types</h3>
-    <h6 class="mb-3">Cards support a wide variety of content, including images, text, list groups, links, and more. Mix and match multiple content types to create the
-        card you need.</h6>
-
     <h4 class="mt-4">List groups</h4>
     <h6 class="mb-3">Create lists of content in a card with a flush list group.</h6>
 
@@ -42,6 +38,35 @@ posted: 2017-12-26
         <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
             <!-- List groups variation 2 -->
             <div class="card">
+                <div class="card-header">
+                    {{{card_title 'Card title'}}}
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in <span class="badge badge-primary pointed arrow-left float-right">New</span></li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                    <li class="list-group-item">Cras justo odio <span class="badge badge-outline-secondary pointed arrow-left float-right">Sale</span></li>
+                </ul>
+            </div>
+            <!-- /List groups variation 2 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- List groups variation 3 -->
+
+            <!-- /List groups variation 3 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+            <!-- List groups variation 4 -->
+            <!-- /List groups variation 4 -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Kitchen sink</h4>
+    <h6 class="mb-3">Mix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width card.</h6>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Kitchen sink -->
+            <div class="card"  style="width: 18rem;">
                 <img class="card-img-top" src="https://source.unsplash.com/EObuHoP0L_U/350x150" alt="Card image cap">
                 <div class="card-body">
                     {{{card_title 'Card title'}}}
@@ -57,26 +82,7 @@ posted: 2017-12-26
                     <a href="#" class="card-link text-danger">Another link</a>
                 </div>
             </div>
-            <!-- /List groups variation 2 -->
-        </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
-            <!-- List groups variation 3 -->
-            <div class="card">
-                <div class="card-header">
-                    {{{card_title 'Card title'}}}
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in <span class="badge badge-primary pointed arrow-left float-right">New</span></li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Cras justo odio <span class="badge badge-outline-secondary pointed arrow-left float-right">Sale</span></li>
-                </ul>
-            </div>
-            <!-- /List groups variation 3 -->
-        </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
-            <!-- List groups variation 4 -->
-            <!-- /List groups variation 4 -->
+            <!-- /Kitchen sink -->
         </div>
     </div>
 
