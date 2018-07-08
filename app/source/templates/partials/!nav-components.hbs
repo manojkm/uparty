@@ -1,0 +1,58 @@
+<li class="sidebar__item has-child{{#if page.components}} active{{/if}}">
+
+    <a href="#" class="has-arrow" aria-expanded="{{#if page.components}}true{{else}}false{{/if}}">
+        <span class="sidebar__item-icon"><i class="icon-puzzle"></i></span>
+        <span class="sidebar__item-title">Components</span>
+    </a>
+    <ul class="sidebar__child" aria-expanded="false">
+        <li class="sidebar__item {{#is basename "alerts"}}active{{/is}}"><a href="{{root}}alerts.html">{{file.alerts.title}}</a></li>
+        <li class="sidebar__item {{#is basename "badges"}}active{{/is}}"><a href="{{root}}badges.html">Badges<span class="ml-auto badge badge-round badge-primary">4</span></a></li>
+        <li class="sidebar__item {{#is basename "breadcrumb"}}active{{/is}}"><a href="{{root}}breadcrumb.html">{{file.breadcrumb.title}}</a></li>
+        <li class="sidebar__item {{#is basename "buttons"}}active{{/is}}"><a href="{{root}}buttons.html">{{file.buttons.title}}</a></li>
+        <li class="sidebar__item {{#is basename "button-group"}}active{{/is}}"><a href="{{root}}button-group.html">{{file.button_group.title}}</a></li>
+
+        <li class="sidebar__item has-child {{#if page.cards}} active{{/if}}">
+            <a href="#" class="has-arrow" aria-expanded="{{#if page.cards}}true{{else}}false{{/if}}">{{file.cards.title}}</a>
+            <ul class="sidebar__child" aria-expanded="false">
+                {{#withSort cards 'data.posted'}}
+                    {{#each pages }}
+                        <li class="sidebar__item{{#is ../../page.dest this.dest}} active{{/is}}">
+                            <a href="{{ replaceStr dest 'app/build/' './' }}">{{ data.title }}</a>
+                        </li>
+                    {{/each}}
+                {{/withSort}}
+            </ul>
+        </li>
+
+        <li class="sidebar__item {{#is basename "carousel"}}active{{/is}}"><a href="{{root}}carousel.html">Carousel Slider</a></li>
+        <li class="sidebar__item {{#is basename "collapsible-accordion"}}active{{/is}}"><a href="{{root}}collapsible-accordion.html">Collapsible / Accordion</a></li>
+        <li class="sidebar__item {{#is basename "dropdowns"}}active{{/is}}"><a href="{{root}}dropdowns.html">Dropdowns</a></li>
+        <li class="sidebar__item {{#is basename "modal"}}active{{/is}}"><a href="{{root}}modal.html">Modal<i class="fas fa-paper-plane ml-2"></i></a></li>
+        <li class="sidebar__item {{#is basename "pagination"}}active{{/is}}"><a href="{{root}}pagination.html">Pagination</a></li>
+        <li class="sidebar__item {{#is basename "popovers"}}active{{/is}}"><a href="{{root}}popovers.html">Popovers</a></li>
+        <li class="sidebar__item {{#is basename "progress"}}active{{/is}}"><a href="{{root}}progress.html">Progress bars</a></li>
+        <li class="sidebar__item {{#is basename "tooltips"}}active{{/is}}"><a href="{{root}}tooltips.html">Tooltips</a></li>
+        <li class="sidebar__item {{#is basename "tabs"}}active{{/is}}"><a href="{{root}}tabs.html">Tabs</a></li>
+        <li class="sidebar__item {{#is basename "wizard"}}active{{/is}}"><a href="{{root}}wizard.html">Wizard</a></li>
+
+{{!--  ------------------------------
+{{#withSort components 'data.posted'}}
+{{#each pages }}
+ <li class="sidebar__item{{#is ../../page.dest this.dest}} active{{/is}}">
+     <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}
+         {{#is data.title "Badges"}}<span class="ml-auto badge badge-round badge-primary">4</span>{{/is}}
+         {{#is data.title "Modals"}}<i class="fas fa-paper-plane ml-2"></i>{{/is}}
+     </a>
+
+     {{#if data.children}}
+         {{#each data.children}}
+             <a class="{{#if this.isCurrentPage}} active{{/if}}" href="{{.}}.html">{{this}}</a>
+         {{/each}}
+     {{/if}}
+ </li>
+{{/each}}
+{{/withSort}}--}}
+
+</ul>
+
+</li>

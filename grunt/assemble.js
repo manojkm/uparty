@@ -42,7 +42,6 @@ module.exports = function (grunt) {
             script: grunt.getPath('js'),
             root: grunt.getPath('root'),
             activeTheme: '<%= activeThemeDir %>',
-
             // Templates
             partials: grunt.getPath('partials', true) + '**/*.hbs',
             layoutdir: grunt.getPath('layouts', true),

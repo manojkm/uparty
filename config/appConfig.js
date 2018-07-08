@@ -26,7 +26,7 @@ var options = {
         NODE: 'node_modules/',
         VENDORS: 'vendors/',
         GRUNT: 'grunt/',
-        ROOT: './'
+        ROOT: '/'
     }
 
 };

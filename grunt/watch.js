@@ -29,7 +29,7 @@ module.exports = function (grunt) {
         },
 
         html: {
-            files: [grunt.getPath('templates', true) + '{,*/}*.{md,hbs,yml,js}'],
+            files: [grunt.getPath('templates', true) + '{,**/}*.{md,hbs,yml,js}'],
             tasks: ['concurrent:task_html']
         }
 

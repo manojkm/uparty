@@ -1,15 +1,49 @@
 ---
-title: <%= file.cards_video_embed.title %>
-lead: <%= file.cards_video_embed.lead %>
+title: Video embed
+lead: Create responsive video embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.
 components: true
-cards: true
-posted: 2017-12-26
+categories: Cards
 ---
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
             <!-- Video embed cards variation 1 -->
+            <div class="card">
+                <div class="embed-responsive embed-responsive-16by9 border-radius-lg rounded-bottom-0">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'REO Speedwagon - Can\'t Fight This Feeling' '42,704,968 views'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="http://smarturl.it/REOspot?IQid=REOCFTF" target="_blank" class="card-link text-primary">Click to listen to REO Speedwagon on Spotify</a>
+                    <p class="card-text mt-3">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+            <!-- /Video embed cards variation 1 -->
+        </div>
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Video embed cards variation 2 -->
+            <div class="card">
+                <div class="card-body">
+                    {{{card_title_has_subtitle 'REO Speedwagon - Can\'t Fight This Feeling' '42,704,968 views'}}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <a href="http://smarturl.it/REOspot?IQid=REOCFTF" target="_blank" class="card-link text-primary">Click to listen to REO Speedwagon on Spotify</a>
+                    <p class="card-text mt-3">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+                <div class="embed-responsive embed-responsive-16by9 border-radius-lg rounded-top-0">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <!-- /Video embed cards variation 2 -->
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+            <!-- Video embed cards variation 3 -->
             <div class="card">
                 <div class="card-body">
                     {{{card_title_has_subtitle 'REO Speedwagon - Can\'t Fight This Feeling' '42,704,968 views'}}}
@@ -25,10 +59,11 @@ posted: 2017-12-26
                     </p>
                 </div>
             </div>
-            <!-- /Video embed cards variation 1 -->
+            <!-- /Video embed cards variation 3 -->
         </div>
+
         <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
-            <!-- Video embed cards variation 2 -->
+            <!-- Video embed cards variation 4 -->
             <div class="card">
                 <div class="card-body">
                     {{{card_title_has_subtitle 'REO Speedwagon - Can\'t Fight This Feeling' '42,704,968 views'}}}
@@ -40,42 +75,6 @@ posted: 2017-12-26
                     <p class="card-text mt-3">
                         <small class="text-muted">Last updated 3 mins ago</small>
                     </p>
-                </div>
-            </div>
-            <!-- /Video embed cards variation 2 -->
-        </div>
-
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
-            <!-- Video embed cards variation 3 -->
-            <div class="card">
-                <div class="embed-responsive embed-responsive-16by9 border-radius-lg rounded-bottom-0">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                </div>
-                <div class="card-body">
-                    {{{card_title_has_subtitle 'REO Speedwagon - Can\'t Fight This Feeling' '42,704,968 views'}}}
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                    <a href="http://smarturl.it/REOspot?IQid=REOCFTF" target="_blank" class="card-link text-primary">Click to listen to REO Speedwagon on Spotify</a>
-                    <p class="card-text mt-3">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </p>
-                </div>
-            </div>
-            <!-- /Video embed cards variation 3 -->
-        </div>
-
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
-            <!-- Video embed cards variation 4 -->
-            <div class="card">
-                <div class="card-body">
-                    {{{card_title_has_subtitle 'REO Speedwagon - Can\'t Fight This Feeling' '42,704,968 views'}}}
-                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
-                    <a href="http://smarturl.it/REOspot?IQid=REOCFTF" target="_blank" class="card-link text-primary">Click to listen to REO Speedwagon on Spotify</a>
-                    <p class="card-text mt-3">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </p>
-                </div>
-                <div class="embed-responsive embed-responsive-16by9 border-radius-lg rounded-top-0">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                 </div>
             </div>
             <!-- /Video embed cards variation 4 -->

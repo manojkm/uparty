@@ -1,4 +1,4 @@
-module.exports.register = function (Handlebars, options) {
+module.exports.register = function (Handlebars, options, params) {
     'use strict';
 
     Handlebars.registerHelper('replaceStr', function (haystack, needle, replacement) {
@@ -81,6 +81,22 @@ module.exports.register = function (Handlebars, options) {
         var content = '<span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. Some quick example text to build on the card title and make up the bulk of the card\'s content.</span>';
         return new Handlebars.SafeString(content);
     });
+
+//
+// GENERATE LINK WITH BASEURL SPECIFIED IN ASSEMBLE TASK
+// ======================================================
+// Adapted from "corsaire-chaparral.org" source
+    Handlebars.registerHelper('link', function(url) {
+
+        var baseurl = params.assemble.options.root;
+
+        var combo = baseurl + url;
+        // Trim trailing 'index.html' at the end of the string
+        combo = combo.replace(/(index.html)$/g, '');
+
+        return new Handlebars.SafeString(combo);
+    });
+
 
 //
 // MISC

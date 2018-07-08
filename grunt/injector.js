@@ -49,10 +49,10 @@ module.exports = function (grunt) {
             transform: function (filePath) {
                 if (/^.*\.css$/.test(filePath)) {
                     filePath = filePath.replace(grunt.getPath('node'), grunt.getPath('vendors'));
-                    return '<link rel="stylesheet" href="' + filePath + '">';
+                    return '<link rel="stylesheet" href="' + grunt.getPath('root') + filePath + '">';
                 } else if (/^.*\.js$/.test(filePath)) {
                     filePath = filePath.replace(grunt.getPath('node'), grunt.getPath('vendors'));
-                    return '<script src="' + filePath + '"></script>';
+                    return '<script src="' + grunt.getPath('root') + filePath + '"></script>';
                 }
             },
             /* lineEnding: '\r\n',
