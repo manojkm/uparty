@@ -1,0 +1,18 @@
+---
+title: Cards
+lead: Cards provide a flexible and extensible content container with multiple variants and options.
+components: true
+posted: 2017-12-26
+---
+
+<div class="container-fluid">
+    <ul>
+    {{#each categories }}
+        {{#is category "Cards" }}
+            {{#withSort pages "data.title"}}
+                <li><a href="{{ createLink dest }}">{{ data.title }}</a></li>
+            {{/withSort}}
+        {{/is}}
+    {{/each}}
+    </ul>
+</div>

@@ -4,7 +4,8 @@ module.exports = function (grunt) {
         server: {
             bsFiles: {
                 src: [
-                    grunt.getPath('dest') + '**/*.{css,js,html,png,jpg}'
+                    //grunt.getPath('dest') + '**/*.{css,js,html,png,jpg}'
+                    grunt.getPath('dest') + '**/*.{css}'
                 ]
             },
             options: {
@@ -17,20 +18,20 @@ module.exports = function (grunt) {
                 notify: true,
                 port: 8080,
                 server: {
-                    baseDir: grunt.getPath('dest'),
+                    baseDir: [grunt.getPath('dest')],
                     routes: {
                         '/vendors': './'+ grunt.getPath('node')
                     }
                 },
 
-                plugins: [
-                    {
-                        module: 'bs-html-injector',
-                        options: {
-                            files: [grunt.getPath('dest') + '**/*.html']
-                        }
-                    }
-                ],
+                // plugins: [
+                //     {
+                //         module: 'bs-html-injector',
+                //         options: {
+                //             files: [grunt.getPath('dest') + '**/*.html']
+                //         }
+                //     }
+                // ],
 
                 ghostMode: {
                     clicks: true,

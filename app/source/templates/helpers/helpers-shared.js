@@ -1,10 +1,25 @@
 module.exports.register = function (Handlebars, options, params) {
     'use strict';
+//
+// Replaces part of a string with a string.
+// ======================================================
 
     Handlebars.registerHelper('replaceStr', function (haystack, needle, replacement) {
         if (haystack && needle) {
             return haystack.replace(needle, replacement);
         } else {
+            return '';
+        }
+    });
+
+    Handlebars.registerHelper('createLink', function (path) {
+        if (path) {
+            var baseurl = params.assemble.options.root;
+            var dest = params.assemble.options.dest;
+            // return path.replace('app/build/', '').replace('.html', '');
+            return path.replace(dest, baseurl);
+        }
+        else {
             return '';
         }
     });
@@ -34,7 +49,7 @@ module.exports.register = function (Handlebars, options, params) {
 
 
     // Usage  {{{testtest "See more..." href="#" class="story"}}}
-    Handlebars.registerHelper('testtest', function(text, options) {
+    Handlebars.registerHelper('testtest', function (text, options) {
         var attrs = [];
 
         for (var prop in options.hash) {
@@ -86,7 +101,7 @@ module.exports.register = function (Handlebars, options, params) {
 // GENERATE LINK WITH BASEURL SPECIFIED IN ASSEMBLE TASK
 // ======================================================
 // Adapted from "corsaire-chaparral.org" source
-    Handlebars.registerHelper('link', function(url) {
+    Handlebars.registerHelper('link', function (url) {
 
         var baseurl = params.assemble.options.root;
 

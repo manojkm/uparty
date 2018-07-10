@@ -42,6 +42,7 @@ module.exports = function (grunt) {
             script: grunt.getPath('js'),
             root: grunt.getPath('root'),
             activeTheme: '<%= activeThemeDir %>',
+            dest: grunt.getPath('dest'),
             // Templates
             partials: grunt.getPath('partials', true) + '**/*.hbs',
             layoutdir: grunt.getPath('layouts', true),
@@ -59,7 +60,7 @@ module.exports = function (grunt) {
             files: [{
                 expand: true,
                 cwd: grunt.getPath('pages', true),
-                src: ['**/*.hbs'],
+                src: ['**/*.{hbs,md}'],
                 dest: grunt.getPath('dest')
             }]
         }/*,

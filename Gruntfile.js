@@ -151,7 +151,6 @@ module.exports = function (grunt) {
             vI: grunt.file.readJSON(grunt.getPath('data', true) + 'vendor-injector.json'),
             extendedCSS: grunt.getPath('assets', false, true) + 'theme-' + grunt.activeTheme + '/vendors-extended',
             extendedJS: grunt.getPath('js_vi', false, true),
-
             meta: {
                 /**
                  * Project banner

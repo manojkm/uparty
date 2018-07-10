@@ -11,7 +11,7 @@
 $(document).ready(function () {
     'use strict';
     if ($.fn.raty) {
-        $.fn.raty.defaults.path = "assets/img/",
+        $.fn.raty.defaults.path = "/assets/img/",
             $("#default-star-rating").raty(),
             $("#saved-rating").raty({score: 3}),
             $("#no-of-stars").raty({number: 10}),

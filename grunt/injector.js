@@ -31,7 +31,7 @@ module.exports = function (grunt) {
             ];
             files[dest + 'form-elements-transparent.html'] = ['<%= vI.autosize %>'];
             files[dest + 'form-elements.html'] = ['<%= vI.autosize %>'];
-            files[dest + 'cards.html'] = ['<%= vI.raty %>'];
+            files[dest + 'cards/cards-content-types.html'] = ['<%= vI.raty %>'];
 
             return files;
         }
