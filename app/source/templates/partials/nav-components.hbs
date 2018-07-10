@@ -5,10 +5,8 @@
     </a>
     <ul class="sidebar__child" aria-expanded="false">
         {{#each navigation.components}}
-            <li class="sidebar__item {{#is ../title this.name }}active{{/is}}{{#is this.subnav ../page.categories }}{{#if this.subnav}}active{{/if}}{{/is}}{{#is
-                    this.subnav ../page.top_categories}}{{#if
+            <li class="sidebar__item {{#is ../title this.name }}active{{/is}}{{#is this.subnav ../page.categories }}{{#if this.subnav}}active{{/if}}{{/is}}{{#is this.subnav ../page.top_categories}}{{#if
                     this.subnav }} active{{/if}}{{/is}}{{#if this.subnav }} has-child{{/if}}">
-
                 <a href="{{link url}}" {{#if this.subnav}}class="has-arrow" {{#if ../page.top_categories }}{{#is ../page.top_categories this.name }}aria-expanded="true"
                    {{else}}aria-expanded="false"{{/is}}{{else}}{{#is
                         ../page.categories this.name }}aria-expanded="true"{{else}}aria-expanded="false"{{/is}}{{/if}}
@@ -16,27 +14,24 @@
                 {{#if this.subnav }}
                     <ul class="sidebar__child" aria-expanded="false">
                         <li class="sidebar__item"><a href="{{link url }}">{{ name }}</a></li>
-                        {{#each ../pages }}
+                        {{#withSort ../pages "data.title" }}
                             {{#is data.categories ../this.subnav}}
-                                <li class="sidebar__item{{#if data.subnav }} has-child{{#is ../../page.categories data.subnav }} active{{/is}}{{/if}}{{#is ../../page.dest
-                                                                                                                                                           this.dest}} active{{/is}}">
+                                <li class="sidebar__item{{#if data.subnav }} has-child{{#is ../../page.categories data.subnav }} active{{/is}}{{/if}}{{#is ../../page.dest this.dest}} active{{/is}}">
                                     <a href="{{createLink dest}}" {{#if data.subnav}}class="has-arrow"
                                        aria-expanded="{{#is ../../page.categories data.subnav }}true{{else}}false{{/is}}"{{/if}}>{{ data.title }}</a>
-
                                     {{#if data.subnav }}
                                         <ul class="sidebar__child" aria-expanded="false">
-                                            {{#each ../../pages }}
+                                            {{#withSort ../../pages "data.title"  }}
                                                 {{#is data.categories ../data.subnav }}
                                                     <li class="sidebar__item{{#is ../../../page.dest this.dest}} active{{/is}}"><a
                                                             href="{{createLink dest}}">{{ data.title }}</a></li>
                                                 {{/is}}
-                                            {{/each}}
+                                            {{/withSort}}
                                         </ul>
                                     {{/if}}
-
                                 </li>
                             {{/is}}
-                        {{/each}}
+                        {{/withSort}}
                     </ul>
                 {{/if}}
             </li>

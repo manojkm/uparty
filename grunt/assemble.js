@@ -34,7 +34,6 @@ module.exports = function (grunt) {
             flatten: true,
             layoutext: '.hbs',
 
-            // Metadata
             package: '<%= package %>',
             data: grunt.getPath('data', true) + '**/*.{json,yml}',
             assets: grunt.getPath('assets', false, true),
@@ -43,19 +42,18 @@ module.exports = function (grunt) {
             root: grunt.getPath('root'),
             activeTheme: '<%= activeThemeDir %>',
             dest: grunt.getPath('dest'),
+            helpers: grunt.getPath('helpers', true) + '**/helpers-*.js',
+
             // Templates
             partials: grunt.getPath('partials', true) + '**/*.hbs',
             layoutdir: grunt.getPath('layouts', true),
-            layout: 'master',
-
-            // Extensions
-            helpers: grunt.getPath('helpers', true) + '**/*.js'
+            layout: 'master'
         },
 
         main: {
             options: {
                 // postprocess: require('injector'),
-                production: (isProd) ? true : false // http://assemble.io/docs/Options.html
+                production: (isProd) ? true : false, // http://assemble.io/docs/Options.html
             },
             files: [{
                 expand: true,
