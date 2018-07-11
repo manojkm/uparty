@@ -1,0 +1,86 @@
+---
+title: Card navigation
+lead: Add some navigation to a card’s header (or block) with Bootstrap’s nav components.
+components: true
+categories: Cards
+---
+
+<div class="container-fluid">
+    <h4>Tabbed navigation</h4>
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12">
+            <!-- Tabbed navigation -->
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab-29" data-toggle="tab" href="#home-29" role="tab"
+                               aria-controls="home-29" aria-selected="true">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab-29" data-toggle="tab" href="#profile-29" role="tab"
+                               aria-controls="profile-29" aria-selected="false">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="message-tab-29" data-toggle="tab" href="#message-29" role="tab"
+                               aria-controls="message-29" aria-selected="false">Messages</a>
+                        </li>
+                    </ul>
+                </div>
+                {{#card_body}}
+                    <div class="tab-content" id="myTabContent-29">
+                        <div class="tab-pane fade show active" id="home-29" role="tabpanel" aria-labelledby="home-tab-29">
+                            <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                        </div>
+                        <div class="tab-pane fade" id="profile-29" role="tabpanel" aria-labelledby="profile-tab-29">
+                            <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                        </div>
+                        <div class="tab-pane fade" id="message-29" role="tabpanel" aria-labelledby="message-tab-29">
+                            <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                        </div>
+                    </div>
+                {{/card_body}}
+            </div>
+            <!-- /Tabbed navigation -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Pills navigation</h4>
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12">
+            <!-- Pills navigation -->
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-pills card-header-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab-29" data-toggle="tab" href="#home-30" role="tab"
+                               aria-controls="home-30" aria-selected="true">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab-30" data-toggle="tab" href="#profile-30" role="tab"
+                               aria-controls="profile-30" aria-selected="false">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="message-tab-30" data-toggle="tab" href="#message-30" role="tab"
+                               aria-controls="message-30" aria-selected="false">Messages</a>
+                        </li>
+                    </ul>
+                </div>
+                {{#card_body}}
+                    <div class="tab-content" id="myTabContent-30">
+                        <div class="tab-pane fade show active" id="home-30" role="tabpanel" aria-labelledby="home-tab-30">
+                            <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                        </div>
+                        <div class="tab-pane fade" id="profile-30" role="tabpanel" aria-labelledby="profile-tab-30">
+                            <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                        </div>
+                        <div class="tab-pane fade" id="message-30" role="tabpanel" aria-labelledby="message-tab-30">
+                            <p class="card-text">{{{placeholder-lorem-lng}}}</p>
+                        </div>
+                    </div>
+                {{/card_body}}
+            </div>
+            <!-- /Pills navigation -->
+        </div>
+    </div>
+</div>
