@@ -8,12 +8,14 @@ module.exports = function (grunt) {
                     grunt.getPath('dest') + '**/*.{css,html}'
                 ]
             },
-            watchOptions: {
-                ignoreInitial: true
-            },
             options: {
                 watchTask: true, //Option 'false' will open browser directly without watching grunt tasks.
                 open: false,
+                online: false,
+                background: true,
+                debugInfo: true,
+                logConnections: true,
+                notify: true,
                 port: 8080,
                 server: {
                     baseDir: [grunt.getPath('dest')],

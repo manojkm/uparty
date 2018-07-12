@@ -7,14 +7,12 @@ components: true
 <!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 pr-2">
+        <div class="col-md-6 pr-md-2">
             <div class="row">
                 <div class="col-md-12">
-
                     {{#card}}
                         {{{card_header 'Badges'}}}
                         {{#card_body}}
-
                             {{{card_title 'Basic badges'}}}
                             <p>Use any of the contextual classes <code>.badge-*</code> to change the color of a badge. Note that badges scale to match the size of the
                                 parent element (if any):</p>
@@ -33,10 +31,8 @@ components: true
                                 <span class="{{class}} {{modifier_outline}}">{{text}}</span>
                             {{/each}}
                             <!-- /Outline badges -->
-
                         {{/card_body}}
                     {{/card}}
-
                 </div>
             </div>
             <div class="row">
@@ -74,7 +70,6 @@ components: true
                     {{/card}}
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-12">
 
@@ -135,9 +130,66 @@ components: true
             </div>
         </div>
 
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             <div class="row">
                 <div class="col-md-12">
+                    {{#card}}
+                        {{{card_header 'Round badges'}}}
+                        {{#card_body}}
+                            <!-- Round badges -->
+                            <p>Use the <code>.badge-round</code> modifier class to make round badges.</p>
+                            {{#each badges.list}}
+                                <a href="#" class="{{class}} {{modifier}} badge-round">5</a>
+                            {{/each}}
+                            {{{spacer-common}}}
+                            {{#each badges.list}}
+                                <a href="#" class="{{class}} {{modifier_outline}} badge-round">6</a>
+                            {{/each}}
+                            <!-- /Round badges -->
+                            <hr>
+                            {{{card_title 'Round badge sizes'}}}
+                            <!-- Round badge sizes -->
+                            <p>Badges scale to match the size of the immediate parent element.</p>
+                            <div class="d-flex align-items-center">
+                                <h1><span class="badge badge-round badge-primary mr-1">1</span></h1>
+                                <h2><span class="badge badge-round badge-secondary mr-1">2</span></h2>
+                                <h3><span class="badge badge-round badge-warning mr-1">3</span></h3>
+                                <h4><span class="badge badge-round badge-info mr-1">4</span></h4>
+                                <h5><span class="badge badge-round badge-danger mr-1">5</span></h5>
+                                <h6><span class="badge badge-round badge-dark mr-1">6</span></h6>
+                                <h6>
+                                    <small><span class="badge badge-round badge-light mr-1">7</span></small>
+                                </h6>
+                            </div>
+                            <!-- /Round badge sizes -->
+                        {{/card_body}}
+                    {{/card}}
+
+
+                    {{#card}}
+                        {{{card_header 'Empty badges'}}}
+                        {{#card_body}}
+                            <!-- Empty badges -->
+                            <p>Use the <code>.badge-round.empty</code> modifier class to make empty badges.</p>
+                            {{#each badges.list}}
+                                <a href="#" class="{{class}} {{modifier}} badge-round empty"></a>
+                            {{/each}}
+                            <!-- /Empty badges -->
+                            <hr>
+                            {{{card_title 'Empty badge sizes'}}}
+                            <!-- Empty badges sizes -->
+                            <a href="#" class="badge badge-round empty badge-primary p-0"></a>
+                            <a href="#" class="badge badge-round empty badge-secondary p-1"></a>
+                            <a href="#" class="badge badge-round empty badge-success p-2"></a>
+                            <a href="#" class="badge badge-round empty badge-danger p-3"></a>
+                            <a href="#" class="badge badge-round empty badge-warning p-4"></a>
+                            <a href="#" class="badge badge-round empty badge-info p-3"></a>
+                            <a href="#" class="badge badge-round empty badge-light p-2"></a>
+                            <a href="#" class="badge badge-round empty badge-dark p-1"></a>
+                            <a href="#" class="badge badge-round empty badge-primary p-0"></a>
+                            <!-- /Empty badges sizes -->
+                        {{/card_body}}
+                    {{/card}}
 
                     {{#card}}
                         {{{card_header 'Examples'}}}
@@ -150,54 +202,6 @@ components: true
                             <span class="badge badge-primary"><i class="icon-envelope"></i>23<a href="#" class="ml-2">View email</a></span>
                             <!-- /Badges with icon -->
                             <hr>
-
-                            {{{card_title 'Round badges'}}}
-                            <!-- Round badges -->
-                            {{#each badges.list}}
-                                <a href="#" class="{{class}} {{modifier}} badge-round">5</a>
-                            {{/each}}
-                            {{{spacer-common}}}
-                            {{#each badges.list}}
-                                <a href="#" class="{{class}} {{modifier_outline}} badge-round">6</a>
-                            {{/each}}
-                            <!-- /Round badges -->
-
-                            <h6 class="mt-4">Round badge sizes</h6>
-                            <!-- Round badge sizes -->
-                            <div class="d-flex align-items-center">
-                                <h1><span class="badge badge-round badge-primary mr-1">1</span></h1>
-                                <h2><span class="badge badge-round badge-secondary mr-1">2</span></h2>
-                                <h3><span class="badge badge-round badge-warning mr-1">3</span></h3>
-                                <h4><span class="badge badge-round badge-info mr-1">4</span></h4>
-                                <h5><span class="badge badge-round badge-danger mr-1">5</span></h5>
-                                <h6><span class="badge badge-round badge-dark mr-1">6</span></h6>
-                                <h6><small><span class="badge badge-round badge-light mr-1">7</span></small></h6>
-                            </div>
-                            <!-- /Round badge sizes -->
-                            <hr>
-
-                            <!-- Empty badges -->
-                            {{{card_title 'Empty badges'}}}
-                            {{#each badges.list}}
-                                <a href="#" class="{{class}} {{modifier}} badge-round empty"></a>
-                            {{/each}}
-                            <!-- /Empty badges -->
-
-                            <h6 class="mt-4">Empty badge sizes</h6>
-                            <!-- Empty badges sizes -->
-                            <a href="#" class="badge badge-round empty badge-primary p-0"></a>
-                            <a href="#" class="badge badge-round empty badge-secondary p-1"></a>
-                            <a href="#" class="badge badge-round empty badge-success p-2"></a>
-                            <a href="#" class="badge badge-round empty badge-danger p-3"></a>
-                            <a href="#" class="badge badge-round empty badge-warning p-4"></a>
-                            <a href="#" class="badge badge-round empty badge-info p-3"></a>
-                            <a href="#" class="badge badge-round empty badge-light p-2"></a>
-                            <a href="#" class="badge badge-round empty badge-dark p-1"></a>
-                            <a href="#" class="badge badge-round empty badge-primary p-0"></a>
-                            <!-- /Empty badges sizes -->
-
-                            <hr>
-
                             <!-- Notifications using badges -->
                             {{{card_title 'Notifications using badges'}}}
                             <small class="text-muted d-flex align-items-center">
@@ -222,89 +226,77 @@ components: true
                             <button type="button" class="btn btn-warning btn-icon mr-4">
                                 <i class="icon-bell"></i><span class="badge badge-round badge-danger floating">5</span>
                             </button>
-
                             <!-- /Notifications using badges -->
-
                         {{/card_body}}
                     {{/card}}
 
+                    {{#card}}
+                        {{{card_header 'Image badges'}}}
+                        {{#card_body}}
+                            <!-- Image badges -->
+                            <p>Adding images to the badges by wrapping them in <code>.image.border-0</code> class together with contextual classes <code>.badge-*</code>. </p>
+                            {{#each badges.list}}
+                                <span class="{{class}} {{modifier}} image border-0"><img src="https://semantic-ui.com/images/avatar/small/joe.jpg" alt="">Setvie</span>
+                            {{/each}}
+                            {{{spacer-common}}}
+                            <p>Note that to remove class <code>.border-0</code> to create outline/bordered image badges</p>
+                            {{#each badges.list}}
+                                <span class="{{class}} {{modifier_outline}} image"><img src="https://semantic-ui.com/images/avatar/small/joe.jpg" alt="">Setvie</span>
+                            {{/each}}
+                            <hr>
+                            {{{card_title 'Image badges with link'}}}
+                            {{#each badges.list}}
+                                <a href="#" class="{{class}} {{modifier}} image border-0"><img src="https://semantic-ui.com/images/avatar/small/elliot.jpg" alt="">Elliot</a>
+                            {{/each}}
+                            <!-- /Image badges -->
+                        {{/card_body}}
+                    {{/card}}
 
-                    <div class="card">
-                        <div class="card-header">
-                            <h6 class="card-title">xx</h6>
-                            <div class="card__actions window ml-auto">
-                                <a href="#" class="card__actions-item" data-card="collapse"><i
-                                        class="fa fa-chevron-up"></i></a>
-                                <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                        class="fa fa-expand"></i></a>
-                                <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-
-
-
-                            <p></p>
-                            <h6 class="card-title">Image badges</h6>
-                            <span class="badge badge-primary image"><img
-                                    src="https://semantic-ui.com/images/avatar/small/joe.jpg" alt="">Setvie</span>
-                            <a href="#" class="badge badge-secondary image"><img
-                                    src="https://semantic-ui.com/images/avatar/small/elliot.jpg" alt="">Elliot</a>
-                            <p></p>
-
-                            <p class="mb-0">Badges can be used as part of links or buttons to provide a counter.</p>
+                    {{#card}}
+                        {{{card_header 'Badge inside an Element'}}}
+                        {{#card_body}}
+                            <!-- Badge inside an Element -->
+                            <p>Badges can be used as part of links or buttons to provide a counter.</p>
                             <button type="button" class="btn btn-sm btn-primary">
                                 Notifications <span class="badge badge-danger ml-1">4</span>
                             </button>
-
+                            {{{spacer-common}}}
                             <button type="button" class="btn btn-secondary">
                                 Notifications <span class="badge badge-round badge-info ml-1">4</span>
                             </button>
-
-
+                            {{{spacer-common}}}
                             <button type="button" class="btn btn-lg btn-danger">
                                 Notifications <span class="badge badge-pill badge-warning ml-1">44</span>
                             </button>
-
-
-                        </div>
-                    </div>
+                            <!-- /Badge inside an Element -->
+                        {{/card_body}}
+                    {{/card}}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h6 class="card-title">Match the size</h6>
-                            <div class="card__actions window ml-auto">
-                                <a href="#" class="card__actions-item" data-card="collapse"><i
-                                        class="fa fa-chevron-up"></i></a>
-                                <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                        class="fa fa-expand"></i></a>
-                                <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h1>Example heading <span class="badge badge-secondary">New</span></h1>
-                            <h2>Example heading <span class="badge badge-secondary">New</span></h2>
-                            <h3>Example heading <span class="badge badge-secondary">New</span></h3>
-                            <h4>Example heading <span class="badge badge-secondary">New</span></h4>
-                            <h5>Example heading <span class="badge badge-secondary">New</span></h5>
-                            <h6>Example heading <span class="badge badge-secondary">New</span></h6>
-                            <p></p>
-
-                            <span class="badge badge-primary"><h6 class="m-0 p-0">Heading</h6></span>
-                            <span class="badge badge-primary"><h5 class="m-0 p-0">Heading</h5></span>
-                            <span class="badge badge-primary"><h4 class="m-0 p-0">Heading</h4></span>
-                            <span class="badge badge-primary"><h3 class="m-0 p-0">Heading</h3></span>
-                            <span class="badge badge-primary"><h2 class="m-0 p-0">Heading</h2></span>
-                            <span class="badge badge-primary"><h1 class="m-0 p-0">Heading</h1></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Match the size'}}}
+                {{#card_body}}
+                    <!-- Match the size -->
+                    <h1>Example heading <span class="badge badge-secondary">New</span></h1>
+                    <h2>Example heading <span class="badge badge-secondary">New</span></h2>
+                    <h3>Example heading <span class="badge badge-secondary">New</span></h3>
+                    <h4>Example heading <span class="badge badge-secondary">New</span></h4>
+                    <h5>Example heading <span class="badge badge-secondary">New</span></h5>
+                    <h6>Example heading <span class="badge badge-secondary">New</span></h6>
+                    <p></p>
+                    <span class="badge badge-primary"><h6 class="m-0 p-0">Heading</h6></span>
+                    <span class="badge badge-primary"><h5 class="m-0 p-0">Heading</h5></span>
+                    <span class="badge badge-primary"><h4 class="m-0 p-0">Heading</h4></span>
+                    <span class="badge badge-primary"><h3 class="m-0 p-0">Heading</h3></span>
+                    <span class="badge badge-primary"><h2 class="m-0 p-0">Heading</h2></span>
+                    <span class="badge badge-primary"><h1 class="m-0 p-0">Heading</h1></span>
+                    <!-- /Match the size -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
 </div>

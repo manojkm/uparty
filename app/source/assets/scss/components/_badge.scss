@@ -66,16 +66,16 @@
 
   // Image badges
   &.image {
-    border: 0;
     font-size: $badge-image-font-size;
     font-weight: $badge-image-font-weight;
     line-height: $badge-image-line-height;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
     > img {
-      @include border-left-radius($badge-border-radius);
+      //@include border-left-radius($badge-border-radius);
       vertical-align: top;
       max-width: 100%;
       width: auto !important;
