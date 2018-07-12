@@ -11,6 +11,7 @@
 
 // Base styles
 .card {
+
   @include transition;
   @include set-border-radius($card-border-radius);
   @include add-border($card-border-size, $card-border-color, all);

@@ -5,7 +5,7 @@ module.exports = function (grunt) {
             bsFiles: {
                 src: [
                     //grunt.getPath('dest') + '**/*.{css,js,html,png,jpg}'
-                    grunt.getPath('dest') + '**/*.{css}'
+                    grunt.getPath('dest') + '**/*.{css,html}'
                 ]
             },
             options: {

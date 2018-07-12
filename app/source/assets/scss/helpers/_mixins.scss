@@ -544,18 +544,18 @@
 @mixin badges-theme($scheme, $bg:fill, $tone:base, $tone-hover:dark, $tone-active:x-dark,  $font-color:font-color, $sledge-hammer:null) {
 
   @include border-theme($scheme, $tone);
-  // Filled button
+  // Filled badge
   @if $bg == fill {
-    @include background-theme($scheme, $tone, $sledge-hammer);
-    @include text-theme($scheme, $font-color);
+    @include background-theme($scheme, $tone, '', $sledge-hammer);
+    @include text-theme($scheme, $font-color, $sledge-hammer);
     * {
       @include text-theme($scheme, $font-color, $sledge-hammer);
     }
   }
-  // Outline button
+  // Outline badge
   @if $bg == outline {
     background-color: transparent;
-    @include text-theme($scheme, $tone);
+    @include text-theme($scheme, $tone, $sledge-hammer);
     * {
       @include text-theme($scheme, $tone, $sledge-hammer);
     }
@@ -565,15 +565,15 @@
   @at-root a#{&} {
     #{$hover-tags} {
       @include border-theme($scheme, $tone-hover);
-      @include background-theme($scheme, $tone-hover, $sledge-hammer);
-      @include text-theme($scheme, $font-color);
+      @include background-theme($scheme, $tone-hover, '', $sledge-hammer);
+      @include text-theme($scheme, $font-color, $sledge-hammer);
     }
 
     #{$active-tags},
     #{$focus-tags} {
       @include border-theme($scheme, $tone-active);
-      @include background-theme($scheme, $tone-active, $sledge-hammer);
-      @include text-theme($scheme, $font-color);
+      @include background-theme($scheme, $tone-active, '', $sledge-hammer);
+      @include text-theme($scheme, $font-color, $sledge-hammer);
     }
   }
 
