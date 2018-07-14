@@ -16,13 +16,11 @@ components: true
                             {{{card_title 'Basic badges'}}}
                             <p>Use any of the contextual classes <code>.badge-*</code> to change the color of a badge. Note that badges scale to match the size of the
                                 parent element (if any):</p>
-
                             <!-- Basic badges -->
                             {{#each badges.list}}
                                 <span class="{{class}} {{modifier}}">{{text}}</span>
                             {{/each}}
                             <!-- /Basic badges -->
-
                             <hr>
                             {{{card_title 'Outline variations'}}}
                             <p>Use any of the outline contextual classes <code>.badge-outline-*</code> to create outline/bordered badges:</p>
@@ -30,7 +28,7 @@ components: true
                             {{#each badges.list}}
                                 <span class="{{class}} {{modifier_outline}}">{{text}}</span>
                             {{/each}}
-                            <!-- /Outline badges -->
+                            <!-- /Outline badges --> 
                         {{/card_body}}
                     {{/card}}
                 </div>
@@ -290,11 +288,11 @@ components: true
                     <h6>Example heading <span class="badge badge-secondary">New</span></h6>
                     <p></p>
                     <span class="badge badge-primary"><h6 class="m-0 p-0">Heading</h6></span>
-                    <span class="badge badge-primary"><h5 class="m-0 p-0">Heading</h5></span>
-                    <span class="badge badge-primary"><h4 class="m-0 p-0">Heading</h4></span>
-                    <span class="badge badge-primary"><h3 class="m-0 p-0">Heading</h3></span>
-                    <span class="badge badge-primary"><h2 class="m-0 p-0">Heading</h2></span>
-                    <span class="badge badge-primary"><h1 class="m-0 p-0">Heading</h1></span>
+                    <span class="badge badge-secondary"><h5 class="m-0 p-0">Heading</h5></span>
+                    <span class="badge badge-warning"><h4 class="m-0 p-0">Heading</h4></span>
+                    <span class="badge badge-info"><h3 class="m-0 p-0">Heading</h3></span>
+                    <span class="badge badge-danger"><h2 class="m-0 p-0">Heading</h2></span>
+                    <span class="badge badge-dark"><h1 class="m-0 p-0">Heading</h1></span>
                     <!-- /Match the size -->
                 {{/card_body}}
             {{/card}}

@@ -22,10 +22,32 @@
   }
 }
 
+// Theme variations with border position
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    @each $position in (top, right, bottom, left) {
+      .border-#{$position}-#{$scheme} {
+        @include border-theme($scheme, $position:$position, $sledge-hammer: !important);
+      }
+    }
+  }
+}
+
+
+
 // Contextual variations
 @each $scheme, $value in $contextual-palette-map {
   .border-#{$scheme} {
     @include border-theme($scheme, $sledge-hammer: !important);
+  }
+}
+// Contextual variations with border position
+@each $scheme, $value in $contextual-palette-map {
+  @each $position in (top, right, bottom, left) {
+    .border-#{$position}-#{$scheme} {
+      @include border-theme($scheme, $position:$position, $sledge-hammer: !important);
+    }
   }
 }
 

@@ -11,6 +11,7 @@ top_categories: Cards
     <h6 class="mb-3">
         To add a background color for the card, use contextual classes (<code>.bg-primary</code>, <code>
         .bg-success</code>, <code>.bg-info</code>, <code>.bg-warning</code>, <code>.bg-danger</code>, <code>.bg-secondary</code>, <code>.bg-dark</code>,  <code>.bg-light</code> and <code>.bg-white</code>.
+        Darker colors require the use of <code>.text-white</code>.
     </h6>
     <div class="row">
         <div class="col-lg-6 pr-lg-2">
@@ -723,4 +724,121 @@ top_categories: Cards
             <!-- /Outline variant with colored text/header 7 -->
         </div>
     </div>
+
+    <h4 class="mt-4">Card border sizing</h4>
+    <h6>Want to chage border size of card? Use <code>.border-1</code>,<code>.border-2</code>, <code>.border-3</code>,<code>.border-4</code> upto <code>.border-8</code>
+        class with <code>.card</code>.</h6>
+    <div class="row">
+        <div class="col-md-3 pr-md-2">
+            <!-- Border normal size -->
+            {{#card_has 'border-primary' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border normal size</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border normal size -->
+        </div>
+        <div class="col-md-3 px-md-2">
+            <!-- Border medium size -->
+            {{#card_has 'border-primary border-2' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border medium size</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border medium size -->
+        </div>
+        <div class="col-md-3 px-md-2">
+            <!-- Border large size -->
+            {{#card_has 'border-primary border-3' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border large size</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border large size -->
+        </div>
+        <div class="col-md-3 pl-md-2">
+            <!-- Border extra large size -->
+            {{#card_has 'border-primary border-4' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border extra large size</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border extra large size -->
+        </div>
+    </div>
+
+    <h4 class="mt-4">Card border position</h4>
+
+    <div class="row">
+        <div class="col-md-3 pr-md-2">
+            <!-- Border top -->
+            {{#card_has 'border-top-primary border-right-0 border-left-0 border-bottom-0 rounded-0' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border top</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border top -->
+        </div>
+        <div class="col-md-3 px-md-2">
+            <!-- Border right -->
+            {{#card_has 'border-right-secondary border-top-0 border-left-0 border-bottom-0 rounded-0 border-2' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border right</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border right -->
+        </div>
+        <div class="col-md-3 px-md-2">
+            <!-- Border bottom -->
+            {{#card_has 'border-bottom-danger border-top-0 border-left-0 border-right-0 rounded-0 border-2' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border bottom</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border bottom -->
+        </div>
+        <div class="col-md-3 pl-md-2">
+
+            <!-- Border left -->
+            {{#card_has 'border-left-info border-top-0 border-bottom-0 border-right-0 rounded-0 border-2' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border left</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border left -->
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            <!-- Border top -->
+            {{#card_has 'border-top-primary border-bottom-secondary border-right-0 border-left-0 border-3 rounded-0' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border top & bottom</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border top -->
+        </div>
+        <div class="col-md-6 pl-md-2">
+            <!-- Border left -->
+            {{#card_has 'border-left-danger border-right-warning border-top-0 border-bottom-0 rounded-0 border-4' ''}}
+                {{#card_body}}
+                    <h4 class="card-title">Border left & right</h4>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card_has}}
+            <!-- /Border left -->
+
+        </div>
+    </div>
+
 </div>

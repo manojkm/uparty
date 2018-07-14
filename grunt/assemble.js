@@ -42,7 +42,7 @@ module.exports = function (grunt) {
             root: grunt.getPath('root'),
             activeTheme: '<%= activeThemeDir %>',
             dest: grunt.getPath('dest'),
-            helpers: grunt.getPath('helpers', true) + '**/helpers-*.js',
+            helpers: grunt.getPath('helpers', true) + '**/*.js',
 
             // Templates
             partials: grunt.getPath('partials', true) + '**/*.hbs',
