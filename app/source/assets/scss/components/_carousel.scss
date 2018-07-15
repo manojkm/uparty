@@ -47,16 +47,20 @@
     text-shadow: $carousel-control-prev-icon-text-shadow;
   }
 }
+
 // Next icon
 .carousel-control-next-icon {
   &::before {
     content: $carousel-control-next-icon;
+    color: $carousel-control-next-prev-icon-color;
   }
 }
+
 // Prev icon
 .carousel-control-prev-icon {
   &::before {
     content: $carousel-control-prev-icon;
+    color: $carousel-control-next-prev-icon-color;
   }
 }
 
@@ -67,7 +71,6 @@
     .carousel-caption {
       color: rgba(0, 0, 0, .9);
     }
-
     .carousel-indicators {
       li {
         background-color: rgba($carousel-indicator-light-active-bg, .5);
@@ -76,14 +79,7 @@
         background-color: $carousel-indicator-light-active-bg;
       }
     }
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      &::before {
-        color: $carousel-indicator-light-active-bg;
-      }
-    }
   }
-
 }
 
 //

@@ -424,12 +424,12 @@ var appMaster = {
     expand_collapse: function () {
         $('.expand_all').on('click', function (e) {
             e.preventDefault();
-            $('#accordion-exp-collapse').find('.multi-collapse').collapse('show');
+            $('#accordion-expand-collapse').find('.panel-collapse').collapse('show');
         });
 
         $('.collapse_all').on('click', function (e) {
             e.preventDefault();
-            $('#accordion-exp-collapse').find('.multi-collapse').collapse('hide');
+            $('#accordion-expand-collapse').find('.panel-collapse').collapse('hide');
         });
     },
 

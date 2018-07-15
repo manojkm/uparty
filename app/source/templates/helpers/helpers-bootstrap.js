@@ -129,8 +129,16 @@ module.exports.register = function (Handlebars, options) {
     });
 
     // Card header
-    Handlebars.registerHelper('card_header', function (context) {
-        return '<div class="card-header"><h5 class="card-title">' + context + '</h5><div class="card__actions window ml-auto">' +
+    Handlebars.registerHelper('card_header', function (title) {
+        return '<div class="card-header"><h5 class="card-title">' + title + '</h5><div class="card__actions window ml-auto">' +
+            '<a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>' +
+            '<a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>' +
+            '<a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a></div></div>';
+    });
+
+    // Card header
+    Handlebars.registerHelper('card_header_has_subtitle', function (title, subtitle) {
+        return '<div class="card-header"><h5 class="card-title">' + title + '<small class="card-subtitle text-muted"> ' + subtitle + '</small></h5><div class="card__actions window ml-auto">' +
             '<a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>' +
             '<a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>' +
             '<a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a></div></div>';

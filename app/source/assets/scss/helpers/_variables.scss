@@ -1344,15 +1344,17 @@ $tooltip-line-height:                   $lh-sm !default;
 // 8.21 CAROUSEL
 // -----------------------------------------------------------------------------
 
-$carousel-control-icon-size:                   40px !default; // Left/right controls size
-$carousel-control-icon-font-size:              1.5rem; // Left/right controls icon font size
-$carousel-control-icon-bg:                     rgba(0, 0, 0, 0.0); // Left/right controls background color
-$carousel-control-next-icon:                   '\e606'; // Next icon (Simple Line Icons) unicode.
-$carousel-control-prev-icon:                   '\e605'; // Prev icon (Simple Line Icons) unicode.
-$carousel-control-prev-icon-text-shadow:       1px 2px 2px rgba(0, 0, 0, 0.5); // Next/Prev icons text shadow.
-$carousel-control-border-size:                 $border-thin; // Left/right controls border width
-$carousel-control-border-color:                $white-color !default; // Left/right controls border color
-$carousel-indicator-light-active-bg:           $black-color !default; // Carousel indicator background color for lighter theme
+$carousel-control-icon-size:                    40px !default; // Left/right controls size
+$carousel-control-icon-font-size:               1.5rem; // Left/right controls icon font size
+$carousel-control-icon-bg:                      rgba(0, 0, 0, 0.5); // Left/right controls background color
+$carousel-control-next-icon:                    '\e606'; // Next icon (Simple Line Icons) unicode.
+$carousel-control-prev-icon:                    '\e605'; // Prev icon (Simple Line Icons) unicode.
+$carousel-control-next-prev-icon-color:         $white-color !default; // Carousel indicator background color for lighter theme
+//$carousel-control-prev-icon-text-shadow:      1px 2px 2px rgba(0, 0, 0, 0.5); // Next/Prev icons text shadow.
+$carousel-control-prev-icon-text-shadow:        none; // Next/Prev icons text shadow.
+$carousel-control-border-size:                  $border-thin; // Left/right controls border width
+$carousel-control-border-color:                 transparent !default; // Left/right controls border color
+$carousel-indicator-light-active-bg:            $black-color !default; // Carousel indicator background color for lighter theme
 
 //
 // 8.22 ACCORDION / COLLAPSE
@@ -1365,7 +1367,7 @@ $accordion-title-hover-color:                   $gray-900 !default; // Text colo
 $accordion-title-active-color:                  $gray-900 !default; // Text color for active accordion title
 
 $accordion-icon-margin-left:                    10px; // Right margin for accordion icon, so that there is space between icon and title.
-$accordion-body-bg:                             $white-color !default; // Background color for accordion
+$accordion-body-bg:                             transparent !default; // Background color for accordion
 
 $accordion-header-collapsed-bg:                 $card-header-bg !default; // Background color for accordion header
 $accordion-header-collapsed-hover-bg:           rgba($black-color, 0.08) !default; // Background color for accordion header on hover

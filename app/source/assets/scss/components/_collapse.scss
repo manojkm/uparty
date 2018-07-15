@@ -14,6 +14,9 @@
 // TODO https://www.codeply.com/go/506qHaPe9M
 
 .accordion {
+  .card {
+    overflow: hidden
+  }
   .card-header {
     position: relative;
     > i {
@@ -66,7 +69,6 @@
   & .card-body {
     background-color: $accordion-body-bg;
   }
-
 
 }
 

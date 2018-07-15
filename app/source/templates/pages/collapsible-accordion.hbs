@@ -1,135 +1,94 @@
 ---
-title: "Collapsible / Accordion"
-subtitle: An accordion allows users to toggle the display of sections of content
+title: "Collapse / Accordion"
+lead: An accordion allows users to toggle the display of sections of content
 components: true
-posted: 2017-12-26
 ---
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Standard accordion</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div id="accordion-standard" role="tablist">
-
+            {{#card}}
+                {{{card_header 'Standard accordion'}}}
+                {{#card_body}}
+                    <!-- Standard accordion -->
+                    <div id="accordion-standard">
                         <div>
-                            <p><a class="accordion pl-4 h6" data-toggle="collapse" href="#collapseOne-egS"
-                                  aria-expanded="true" aria-controls="collapseOne-egS" role="tab" id="headingOne-egS">
-                                Documentation
-                            </a>
+                            <p>
+                                <a class="accordion pl-4 h6" data-toggle="collapse" href="#collapseOne-egS" aria-expanded="true" aria-controls="collapseOne-egS" role="tab" id="headingOne-egS">
+                                    Documentation
+                                </a>
                             </p>
-
-                            <div id="collapseOne-egS" class="collapse show" role="tabpanel"
-                                 aria-labelledby="headingOne-egS"
-                                 data-parent="#accordion-standard">
+                            <div id="collapseOne-egS" class="collapse show" aria-labelledby="headingOne-egS" data-parent="#accordion-standard">
                                 <div class="card card-body">
-                                    <p class="mb-0"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
+                                    <p class="card-text">{{{placeholder-lorem-lng}}}</p>
                                 </div>
                             </div>
-
                             <p>
-                                <a class="accordion collapsed pl-4 h6" data-toggle="collapse" href="#collapseTwo-egS"
-                                   aria-expanded="false" aria-controls="collapseTwo-egS" role="tab" id="headingTwo-egS">
+                                <a class="accordion collapsed pl-4 h6" data-toggle="collapse" href="#collapseTwo-egS" aria-expanded="false" aria-controls="collapseTwo-egS" role="tab" id="headingTwo-egS">
                                     Events & Task Management
                                 </a>
                             </p>
-                            <div id="collapseTwo-egS" class="collapse" role="tabpanel" aria-labelledby="headingTwo-egS"
-                                 data-parent="#accordion-standard">
+                            <div id="collapseTwo-egS" class="collapse" aria-labelledby="headingTwo-egS" data-parent="#accordion-standard">
                                 <div class="card card-body">
-                                    <p class="mb-0"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
+                                    <p class="card-text">{{{placeholder-lorem-lng}}}</p>
                                 </div>
                             </div>
-
                             <p>
-                                <a class="accordion collapsed pl-4 h6" data-toggle="collapse" href="#collapseThree-egS"
-                                   aria-expanded="false" aria-controls="collapseThree-egS" role="tab"
-                                   id="headingThree-egS">
+                                <a class="accordion collapsed pl-4 h6" data-toggle="collapse" href="#collapseThree-egS" aria-expanded="false" aria-controls="collapseThree-egS" role="tab" id="headingThree-egS">
                                     Invoicing & Financial
                                 </a>
                             </p>
-                            <div id="collapseThree-egS" class="collapse" role="tabpanel"
-                                 aria-labelledby="headingThree-egS"
-                                 data-parent="#accordion-standard">
+                            <div id="collapseThree-egS" class="collapse" aria-labelledby="headingThree-egS" data-parent="#accordion-standard">
                                 <div class="card card-body">
-                                    <p class="mb-0"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
+                                    <p class="card-text">{{{placeholder-lorem-lng}}}</p>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
-                </div>
-            </div>
+                    <!-- /Standard accordion -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Default Accordion</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Default accordion'}}}
+                {{#card_body}}
+                    <p>Using the card component, you can extend the default collapse behavior to create an accordion. The outermost wrapper element should have the <code>.accordion</code> class.</p>
+                    <!-- Default accordion -->
                     <div id="accordion" class="accordion" role="tablist">
                         <div class="card mb-1">
-                            <a class="card-header h6 mb-0" data-toggle="collapse" href="#collapseOne"
-                               aria-expanded="true" aria-controls="collapseOne" role="tab" id="headingOne">
+                            <a class="card-header h6 mb-0" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" role="tab" id="headingOne">
                                 Documentation
                             </a>
 
-                            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne"
-                                 data-parent="#accordion">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                         <div class="card mb-1">
-                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo"
-                               aria-expanded="false" aria-controls="collapseTwo" role="tab" id="headingTwo">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" role="tab" id="headingTwo">
                                 Events & Task Management
                             </a>
-                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo"
-                                 data-parent="#accordion">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                         <div class="card mb-1">
-                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree"
-                               aria-expanded="false" aria-controls="collapseThree" role="tab" id="headingThree">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" role="tab" id="headingThree">
                                 Invoicing & Financial
                             </a>
-                            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree"
-                                 data-parent="#accordion">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                     </div>
-                    <h6 class="card-title mt-4 mb-3">Styled
-                        <small class="card-subtitle mb-2 text-muted">with primary border & active background</small>
-                    </h6>
+                    <!-- /Default accordion -->
+                    <hr>
+                    {{{card_title_has_subtitle 'Styled' 'with primary border & active background'}}}
+                    <p>Add class <code>.accordion.extended.outline</code> to outermost wrapper element.</p>
+                    <!-- Default accordion styled with primary border & active background -->
                     <div id="accordion-eg2" class="accordion extended outline" role="tablist">
                         <div class="card mb-1">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg2"
@@ -139,11 +98,7 @@ posted: 2017-12-26
 
                             <div id="collapseOne-eg2" class="collapse" role="tabpanel"
                                  aria-labelledby="headingOne-eg2" data-parent="#accordion-eg2">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
-                                </div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                         <div class="card mb-1">
@@ -153,11 +108,7 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseTwo-eg2" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg2"
                                  data-parent="#accordion-eg2">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
-                                </div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                         <div class="card mb-1">
@@ -167,78 +118,52 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseThree-eg2" class="collapse" role="tabpanel"
                                  aria-labelledby="headingThree-eg2" data-parent="#accordion-eg2">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
-                                </div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                     </div>
-
-                    <h6 class="card-title mt-4 mb-3">Styled
-                        <small class="card-subtitle mb-2 text-muted">with primary background</small>
-                    </h6>
+                    <!-- /Default accordion styled with primary border & active background -->
+                    <hr>
+                    {{{card_title_has_subtitle 'Styled' 'with primary background'}}}
+                    <p>Add class <code>.accordion.extended</code> to outermost wrapper element.</p>
+                    <!-- Default accordion styled with primary background -->
                     <div id="accordion-eg7" class="accordion extended" role="tablist">
                         <div class="card mb-1">
-                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7"
-                               aria-expanded="false" aria-controls="collapseOne-eg7" role="tab" id="headingOne-eg7">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7" aria-expanded="false" aria-controls="collapseOne-eg7" role="tab" id="headingOne-eg7">
                                 Documentation
                             </a>
 
-                            <div id="collapseOne-eg7" class="collapse" role="tabpanel"
-                                 aria-labelledby="headingOne-eg7" data-parent="#accordion-eg7">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
-                                </div>
+                            <div id="collapseOne-eg7" class="collapse" role="tabpanel" aria-labelledby="headingOne-eg7" data-parent="#accordion-eg7">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                         <div class="card mb-1">
-                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7"
-                               aria-expanded="false" aria-controls="collapseTwo-eg7" role="tab" id="headingTwo-eg7">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7" aria-expanded="false" aria-controls="collapseTwo-eg7" role="tab" id="headingTwo-eg7">
                                 Events & Task Management
                             </a>
-                            <div id="collapseTwo-eg7" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg7"
-                                 data-parent="#accordion-eg7">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
-                                </div>
+                            <div id="collapseTwo-eg7" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg7" data-parent="#accordion-eg7">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                         <div class="card mb-1">
-                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7"
-                               aria-expanded="false" aria-controls="collapseThree-eg7" role="tab" id="headingThree-eg7">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7" aria-expanded="false" aria-controls="collapseThree-eg7" role="tab" id="headingThree-eg7">
                                 Invoicing & Financial
                             </a>
-                            <div id="collapseThree-eg7" class="collapse" role="tabpanel"
-                                 aria-labelledby="headingThree-eg7" data-parent="#accordion-eg7">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
-                                </div>
+                            <div id="collapseThree-eg7" class="collapse" role="tabpanel" aria-labelledby="headingThree-eg7" data-parent="#accordion-eg7">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                     </div>
-
-                </div>
-            </div>
+                    <!-- /Default accordion styled with primary background -->
+                {{/card_body}}
+            {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Group Accordion</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Group Accordion'}}}
+                {{#card_body}}
+                    <p>Wrap all cards into a single <code>.card</code> class to render as a group. Be sure to add class <code>.accordion</code> to outermost wrapper element.</p>
+                    <!-- Group Accordion -->
                     <div id="accordion-eg3" class="accordion" role="tablist">
                         <div class="card">
                             <a class="h6 mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg3"
@@ -248,10 +173,7 @@ posted: 2017-12-26
 
                             <div id="collapseOne-eg3" class="collapse show" role="tabpanel"
                                  aria-labelledby="headingOne-eg3" data-parent="#accordion-eg3">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
 
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg3"
@@ -260,10 +182,7 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseTwo-eg3" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg3"
                                  data-parent="#accordion-eg3">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
 
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg3"
@@ -272,16 +191,15 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseThree-eg3" class="collapse" role="tabpanel"
                                  aria-labelledby="headingThree-eg3" data-parent="#accordion-eg3">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                     </div>
-                    <h6 class="card-title mt-4 mb-3">Styled
-                        <small class="card-subtitle mb-2 text-muted">with primary border & active background</small>
-                    </h6>
+                    <!-- /Group Accordion -->
+                    <hr>
+                    {{{card_title_has_subtitle 'Styled' 'with primary border & active background'}}}
+                    <p>Be sure to add class <code>.accordion.extended.outline</code> to outermost wrapper element.</p>
+                    <!-- Group Accordion styled with primary border & active background -->
                     <div id="accordion-eg4" class="accordion extended outline" role="tablist">
                         <div class="card">
                             <a class="h6 collapsed mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg4"
@@ -291,10 +209,7 @@ posted: 2017-12-26
 
                             <div id="collapseOne-eg4" class="collapse" role="tabpanel"
                                  aria-labelledby="headingOne-eg4" data-parent="#accordion-eg4">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
 
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg4"
@@ -303,10 +218,7 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseTwo-eg4" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg4"
                                  data-parent="#accordion-eg4">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
 
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg4"
@@ -315,17 +227,15 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseThree-eg4" class="collapse" role="tabpanel"
                                  aria-labelledby="headingThree-eg4" data-parent="#accordion-eg4">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                     </div>
-
-                    <h6 class="card-title mt-4 mb-3">Styled
-                        <small class="card-subtitle mb-2 text-muted">with primary background</small>
-                    </h6>
+                    <!-- /Group Accordion styled with primary border & active background -->
+                    <hr>
+                    {{{card_title_has_subtitle 'Styled' 'with primary background'}}}
+                    <p>Be sure to add class <code>.accordion.extended</code> to outermost wrapper element.</p>
+                    <!-- Group Accordion styled with primary background -->
                     <div id="accordion-eg8" class="accordion extended" role="tablist">
                         <div class="card">
                             <a class="h6 collapsed mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg8"
@@ -335,10 +245,7 @@ posted: 2017-12-26
 
                             <div id="collapseOne-eg8" class="collapse" role="tabpanel"
                                  aria-labelledby="headingOne-eg8" data-parent="#accordion-eg8">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
 
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg8"
@@ -347,10 +254,7 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseTwo-eg8" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg8"
                                  data-parent="#accordion-eg8">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
 
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg8"
@@ -359,54 +263,34 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseThree-eg8" class="collapse" role="tabpanel"
                                  aria-labelledby="headingThree-eg8" data-parent="#accordion-eg8">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                     </div>
-
-
-                </div>
-            </div>
+                    <!-- /Group Accordion styled with primary background -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Group Accordion<br>
-                        <small class="card-subtitle mb-2 text-muted">with icon and subtitle</small>
-                    </h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header_has_subtitle 'Group accordion' 'with icon and subtitle'}}}
+                {{#card_body}}
+                    <!-- Group accordion with icon and subtitle - variation1 -->
                     <div id="accordion-eg5" class="accordion" role="tablist">
-                        <div class="card">
+                        {{#card}}
                             <a class="h5 mb-0 collapsed card-header" data-toggle="collapse" href="#collapseOne-eg5"
                                aria-expanded="false" aria-controls="collapseOne-eg5" role="tab" id="headingOne-eg5">
                                 <i class="icon-docs"></i>
-                                <div class="card-title">Documentation
-                                    <br>
-                                    <small class="card-subtitle mb-2">Our documentation to fix bugs and add features
-                                    </small>
+                                <div class="card-title">Documentation<br>
+                                    <small class="card-subtitle mb-2">Our documentation to fix bugs and add features</small>
                                 </div>
-
-                                {{!--<p class="h6 mt-2 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>--}}
                             </a>
 
                             <div id="collapseOne-eg5" class="collapse" role="tabpanel" aria-labelledby="headingOne-eg5"
                                  data-parent="#accordion-eg5">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
 
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg5"
@@ -419,17 +303,15 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseTwo-eg5" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg5"
                                  data-parent="#accordion-eg5">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-                        </div>
+                        {{/card}}
                     </div>
-
-                    <h6 class="card-title mt-4 mb-3">Styled
-                        <small class="card-subtitle mb-2 text-muted">with primary background</small>
-                    </h6>
+                    <!-- /Group accordion with icon and subtitle - variation1 -->
+                    <hr>
+                    {{{card_title_has_subtitle 'Styled' 'with primary background'}}}
+                    <p>Add class <code>.accordion.extended</code> to outermost wrapper element.</p>
+                    <!-- Group accordion with icon and subtitle - variation2 -->
                     <div id="accordion-eg6" class="accordion extended" role="tablist">
                         <div class="card">
                             <a class="h5 mb-0 collapsed card-header" data-toggle="collapse" href="#collapseOne-eg6"
@@ -446,10 +328,7 @@ posted: 2017-12-26
 
                             <div id="collapseOne-eg6" class="collapse" role="tabpanel" aria-labelledby="headingOne-eg6"
                                  data-parent="#accordion-eg6">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
 
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg6"
@@ -462,246 +341,172 @@ posted: 2017-12-26
                             </a>
                             <div id="collapseTwo-eg6" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg6"
                                  data-parent="#accordion-eg6">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p></div>
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                     </div>
-
-
-                </div>
-            </div>
+                    <!-- /Group accordion with icon and subtitle - variation2 -->
+                {{/card_body}}
+            {{/card}}
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header_has_subtitle 'Underline' 'A styled accordion with underline adds basic formatting'}}}
+                {{#card_body}}
+                    <p>Add class <code>.accordion.extended-underline</code> to outermost wrapper element.</p>
+                    <!-- Underline accordion -->
+                    <div id="accordion-eg9" class="accordion extended-underline" role="tablist">
+                        <div class="card mb-1">
+                            <a class="h6 collapsed mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg9" aria-expanded="false" aria-controls="collapseOne" role="tab" id="headingOne-eg9">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg9" class="collapse" role="tabpanel" aria-labelledby="headingOne-eg9" data-parent="#accordion-eg9">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg9" aria-expanded="false" aria-controls="collapseTwo" role="tab" id="headingTwo-eg9">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg9" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg9" data-parent="#accordion-eg9">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg9" aria-expanded="false" aria-controls="collapseThree" role="tab" id="headingThree-eg9">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg9" class="collapse" role="tabpanel" aria-labelledby="headingThree-eg9" data-parent="#accordion-eg9">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Underline accordion -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header_has_subtitle 'Left line' 'A styled accordion with left line adds basic formatting'}}}
+                {{#card_body}}
+                    <p>Add class <code>.accordion.extended-left-line</code> to outermost wrapper element.</p>
+                    <!-- Left line accordion -->
+                    <div id="accordion-eg10" class="accordion extended-left-line" role="tablist">
+                        <div class="card mb-1">
+                            <a class="h6 collapsed mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg10" aria-expanded="false" aria-controls="collapseOne" role="tab" id="headingOne-eg10">
+                                Documentation
+                            </a>
 
+                            <div id="collapseOne-eg10" class="collapse" role="tabpanel" aria-labelledby="headingOne-eg10" data-parent="#accordion-eg10">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg10"
+                               aria-expanded="false" aria-controls="collapseTwo" role="tab" id="headingTwo-eg10">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg10" class="collapse" role="tabpanel"
+                                 aria-labelledby="headingTwo-eg10" data-parent="#accordion-eg10">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg10"
+                               aria-expanded="false" aria-controls="collapseThree" role="tab" id="headingThree-eg10">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg10" class="collapse" role="tabpanel"
+                                 aria-labelledby="headingThree-eg10" data-parent="#accordion-eg10">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Left line accordion -->
+                {{/card_body}}
+            {{/card}}
+        </div>
     </div>
 
     <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h6 class="card-title">Variations</h6>
-
-                <h6 class="card-title"></h6>
-                <div class="card__actions window ml-auto">
-                    <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                    <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                    <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h6 class="card-title mb-3">Underline
-                            <small class="card-subtitle mb-2 text-muted">A styled accordion with underline adds basic
-                                formatting
-                            </small>
-                        </h6>
-                        <div id="accordion-eg9" class="accordion extended-underline" role="tablist">
-                            <div class="card mb-1">
-                                <a class="h6 mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg9"
-                                   aria-expanded="true" aria-controls="collapseOne" role="tab" id="headingOne-eg9">
-                                    Documentation
-                                </a>
-
-                                <div id="collapseOne-eg9" class="collapse show" role="tabpanel" aria-labelledby="headingOne-eg9"
-                                     data-parent="#accordion-eg9">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                        </p></div>
-                                </div>
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Expand All / Collpase All'}}}
+                {{#card_body}}
+                    <p>Just add two buttons or links with class <code>.expand_all</code> and <code>.collapse_all</code> to expand/collapse the content div of the accordion. Be sure to add
+                        <code>#accordion-expand-collapse</code> to outermost wrapper element and add <code>.panel-collapse</code> class along with <code>.carousel</code>.</p>
+                    <div class="row mb-2">
+                        <div class="col-sm text-right d-flex align-items-center justify-content-end">
+                            <a class="text-primary small expand_all mr-2" href="#">Expand all</a>
+                            <a class="text-primary small collapse_all" href="#">Collapse all</a>
+                        </div>
+                    </div>
+                    <div id="accordion-expand-collapse" class="accordion extended outline" role="tablist">
+                        <div class="card">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg11"
+                               aria-expanded="false" aria-controls="collapseOne-eg11" data-parent="#accordion-exp-collapse" role="tab" id="headingOne-eg11">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg11" class="collapse panel-collapse">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-                            <div class="card mb-1">
-                                <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg9"
-                                   aria-expanded="false" aria-controls="collapseTwo" role="tab" id="headingTwo-eg9">
-                                    Events & Task Management
-                                </a>
-                                <div id="collapseTwo-eg9" class="collapse" role="tabpanel" aria-labelledby="headingTwo-eg9"
-                                     data-parent="#accordion-eg9">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                        </p></div>
-                                </div>
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg11"
+                               aria-expanded="false" aria-controls="collapseTwo-eg11" data-parent="#accordion-exp-collapse" role="tab" id="headingTwo-eg11">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg11" class="collapse panel-collapse">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-                            <div class="card mb-1">
-                                <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg9"
-                                   aria-expanded="false" aria-controls="collapseThree" role="tab" id="headingThree-eg9">
-                                    Invoicing & Financial
-                                </a>
-                                <div id="collapseThree-eg9" class="collapse" role="tabpanel"
-                                     aria-labelledby="headingThree-eg9" data-parent="#accordion-eg9">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                        </p></div>
-                                </div>
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg11"
+                               aria-expanded="false" aria-controls="collapseThree-eg11" data-parent="#accordion-exp-collapse" role="tab" id="headingThree-eg11">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg11" class="collapse panel-collapse">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <h6 class="card-title mb-3">Left line
-                            <small class="card-subtitle mb-2 text-muted">A styled accordion with left line adds basic
-                                formatting
-                            </small>
-                        </h6>
-                        <div id="accordion-eg10" class="accordion extended-left-line" role="tablist">
-                            <div class="card mb-1">
-                                <a class="h6 mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg10"
-                                   aria-expanded="true" aria-controls="collapseOne" role="tab" id="headingOne-eg10">
-                                    Documentation
-                                </a>
-
-                                <div id="collapseOne-eg10" class="collapse show" role="tabpanel"
-                                     aria-labelledby="headingOne-eg10" data-parent="#accordion-eg10">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                        </p></div>
-                                </div>
-                            </div>
-                            <div class="card mb-1">
-                                <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg10"
-                                   aria-expanded="false" aria-controls="collapseTwo" role="tab" id="headingTwo-eg10">
-                                    Events & Task Management
-                                </a>
-                                <div id="collapseTwo-eg10" class="collapse" role="tabpanel"
-                                     aria-labelledby="headingTwo-eg10" data-parent="#accordion-eg10">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                        </p></div>
-                                </div>
-                            </div>
-                            <div class="card mb-1">
-                                <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg10"
-                                   aria-expanded="false" aria-controls="collapseThree" role="tab" id="headingThree-eg10">
-                                    Invoicing & Financial
-                                </a>
-                                <div id="collapseThree-eg10" class="collapse" role="tabpanel"
-                                     aria-labelledby="headingThree-eg10" data-parent="#accordion-eg10">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                        </p></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
-    </div>
-    </div>
-
-
-
-    <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Multiple targets</h6>
-
-                    <h6 class="card-title"></h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body"><p>
-                    <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
-                </p>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Multiple targets'}}}
+                {{#card_body}}
+                    <p>A <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> can show and hide multiple elements by referencing them with a JQuery selector in its <code>href</code> or <code>data-target</code>
+                        attribute.
+                        Multiple <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> can show and hide an element if they each reference it with their <code>href</code> or <code>data-target</code> attribute</p>
+                    <!-- Multiple targets -->
+                    <p>
+                        <a class="btn btn-primary mb-2" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+                        <button class="btn btn-primary mb-2" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element
+                        </button>
+                        <button class="btn btn-primary mb-2" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle
+                            both
+                            elements
+                        </button>
+                    </p>
                     <div class="row">
                         <div class="col">
                             <div class="collapse multi-collapse" id="multiCollapseExample1">
                                 <div class="card card-body">
-                                    <p class="mb-0"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
+                                    <p class="card-text">{{{placeholder-lorem-lng}}}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col">
                             <div class="collapse multi-collapse" id="multiCollapseExample2">
                                 <div class="card card-body">
-                                    <p class="mb-0"><span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                    </p>
+                                    <p class="card-text">{{{placeholder-lorem-lng}}}</p>
                                 </div>
                             </div>
                         </div>
-                    </div></div>
-            </div>
+                    </div>
+                    <!-- /Multiple targets -->
+                {{/card_body}}
+            {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-            <div class="card-header">
-                <h6 class="card-title">Expand All / Collpase All</h6>
-
-                <h6 class="card-title"></h6>
-                <div class="card__actions window ml-auto">
-                    <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                    <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                    <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="row mb-2">
-                    <div class="col-sm text-right d-flex align-items-center justify-content-end">
-                        <a class="text-primary small expand_all mr-2" href="#">Expand all</a>
-                        <a class="text-primary small collapse_all" href="#">Collapse all</a>
-                    </div>
-                </div>
-
-                <div id="accordion-exp-collapse" class="accordion extended outline" role="tablist">
-                    <div class="card">
-                        <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg11"
-                           aria-expanded="false" aria-controls="collapseOne-eg11" data-parent="#accordion-exp-collapse" role="tab" id="headingOne-eg11">
-                            Documentation
-                        </a>
-                        <div id="collapseOne-eg11" class="collapse multi-collapse">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                </p>
-                            </div>
-                            </div>
-                        <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg11"
-                           aria-expanded="false" aria-controls="collapseTwo-eg11" data-parent="#accordion-exp-collapse" role="tab" id="headingTwo-eg11">
-                            Events & Task Management
-                        </a>
-                        <div id="collapseTwo-eg11" class="collapse multi-collapse">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                </p>
-                            </div>
-                        </div>
-                        <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg11"
-                           aria-expanded="false" aria-controls="collapseThree-eg11" data-parent="#accordion-exp-collapse" role="tab" id="headingThree-eg11">
-                            Invoicing & Financial
-                        </a>
-                        <div id="collapseThree-eg11" class="collapse multi-collapse" >
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using. This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</span>
-                                </p>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div></div>
-
-
-
+    </div>
 </div>
