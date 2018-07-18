@@ -27,12 +27,6 @@ module.exports.register = function (Handlebars, options, params) {
 //
 // TODO
 // ======================================================
-// Usage: {{{modalFooter 'insert'}}}
-    Handlebars.registerHelper('modalFooter', function (type, text) {
-        var buttonType = type === "insert" || type === "update" ? "submit" : "button";
-        return '<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="' + buttonType + '" class="btn btn-primary ' + type + '">' + text + '</button></div>';
-    });
-
 // Usage: {#list data.nav}}<a href="{{url}}">{{title}}</a>{{/list}}
     Handlebars.registerHelper('list', function (context, options) {
         var ret = "<ul>";

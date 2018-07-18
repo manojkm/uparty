@@ -41,6 +41,14 @@
   }
 }
 
+// Minimal modal
+.minimal.modal{
+  & .modal-content {
+    background:transparent;
+    box-shadow:none;
+  }
+}
+
 // Modal background
 .modal-backdrop {
   z-index: map-get($zindex, modal-backdrop);

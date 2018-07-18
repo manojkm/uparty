@@ -150,4 +150,29 @@ module.exports.register = function (Handlebars, options) {
         return new Handlebars.SafeString('<div class="card-body">' + content + '</div>');
     });
 
+
+//
+// BOOTSTRAP MODAL
+// ======================================================
+
+    Handlebars.registerHelper('modal', function(cl, context, options) {
+        var content =  options.fn(this);
+        return '<div class="modal '+ cl +'" id="' + context + '" tabindex="-1" role="dialog" aria-labelledby="'+ context +'Label" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">' + content + '</div></div></div>';
+    });
+
+    Handlebars.registerHelper('modalHeader', function(title) {
+        return '<div class="modal-header"><h5 class="modal-title">' + title + '</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+    });
+
+    Handlebars.registerHelper('modalContent', function(options) {
+        var content =  options.fn(this);
+
+        return '<div class="modal-body">' + content + '</div>';
+    });
+
+    Handlebars.registerHelper('modalFooter', function(type, text, btnclass) {
+        var buttonType = type === "insert" || type === "update" ? "submit" : "button";
+        return '<div class="modal-footer"><button type="button" class="btn btn-light" data-dismiss="modal">Close</button><button type="' + buttonType + '" class="btn btn-'+ btnclass +'">' + text + '</button></div>';
+    });
+
 };
