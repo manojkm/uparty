@@ -155,9 +155,9 @@ module.exports.register = function (Handlebars, options) {
 // BOOTSTRAP MODAL
 // ======================================================
 
-    Handlebars.registerHelper('modal', function(cl, context, options) {
+    Handlebars.registerHelper('modal', function(cl, context, cl_modal_dialog, options) {
         var content =  options.fn(this);
-        return '<div class="modal '+ cl +'" id="' + context + '" tabindex="-1" role="dialog" aria-labelledby="'+ context +'Label" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">' + content + '</div></div></div>';
+        return '<div class="modal '+ cl +'" id="' + context + '" tabindex="-1" role="dialog" aria-labelledby="'+ context +'Label" aria-hidden="true"><div class="modal-dialog '+ cl_modal_dialog +'" role="document"><div class="modal-content">' + content + '</div></div></div>';
     });
 
     Handlebars.registerHelper('modalHeader', function(title) {
