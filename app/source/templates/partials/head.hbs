@@ -60,3 +60,19 @@
         commonly used to create interactive effects within web browsers.</p>
     <p><a href="https://goo.gl/koeeaJ">How to enable JavaScript?</a></p>
 </noscript>
+
+{{#if stylesheets_vendors}}
+    {{#each stylesheets_vendors}}
+        <link rel="stylesheet" href="{{../vendors}}{{ this }}.css">
+    {{/each}}
+{{/if}}
+{{#if stylesheets_vendors_extended}}
+    {{#each stylesheets_vendors_extended}}
+        <link rel="stylesheet" href="{{../assets}}{{../activeTheme}}/vendors-extended/{{ this }}.css">
+    {{/each}}
+{{/if}}
+
+{{#if stylesheets_app}}
+    {{#each stylesheets_app}}
+    {{/each}}
+{{/if}}

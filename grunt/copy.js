@@ -5,6 +5,13 @@ module.exports = function (grunt) {
             noProcess: ['.DS_Store', '.gitignore', '.sass-cache', 'node_modules']
         },
 
+        vendors: {
+            files: [
+                {expand: true, cwd: grunt.getPath('node') +'metismenu', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'metismenu', filter: 'isFile'},
+                {expand: true, cwd: grunt.getPath('node') +'animate.css', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'animate.css', filter: 'isFile'},
+            ]
+        },
+
         vendors_extended: {
             files: [
                 {expand: true, cwd: grunt.getPath('js_vi', true), src: ['**/*.js'], dest: grunt.getPath('js_vi', false, true), filter: 'isFile'}
