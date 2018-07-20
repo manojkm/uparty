@@ -40,7 +40,7 @@ module.exports = function (grunt) {
             img: grunt.getPath('img'),
             script: grunt.getPath('js'),
             root: grunt.getPath('root'),
-            vendors: grunt.getPath('vendors'),
+            vendors: grunt.getPath('vendors').replace('assets/', ''),
             activeTheme: '<%= activeThemeDir %>',
             dest: grunt.getPath('dest'),
             helpers: grunt.getPath('helpers', true) + '**/*.js',

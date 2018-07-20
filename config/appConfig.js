@@ -9,6 +9,7 @@ var options = {
         FONTS: 'assets/fonts/',
         JS: 'assets/js/',
         JS_VI: 'assets/js/vendors-extended/',
+        VENDORS: 'assets/vendors/',
         SASS: 'assets/scss/',
         SASS_PAGES: 'assets/scss/pages',
         SASS_THEMES: 'assets/scss/themes/',
@@ -24,7 +25,6 @@ var options = {
 
         TMP: '.tmp/',
         NODE: 'node_modules/',
-        VENDORS: 'vendors/',
         GRUNT: 'grunt/',
         ROOT: '/'
     }
