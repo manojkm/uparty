@@ -35,14 +35,14 @@ module.exports = function (grunt) {
             layoutext: '.hbs',
 
             package: '<%= package %>',
-            data: grunt.getPath('data', true) + '**/*.{json,yml}',
             assets: grunt.getPath('assets', false, true),
-            img: grunt.getPath('img'),
-            script: grunt.getPath('js'),
-            root: grunt.getPath('root'),
+            img: grunt.getPath('img').replace('assets/', ''),
+            script: grunt.getPath('js').replace('assets/', ''),
             vendors: grunt.getPath('vendors').replace('assets/', ''),
             activeTheme: '<%= activeThemeDir %>',
+            root: grunt.getPath('root'),
             dest: grunt.getPath('dest'),
+            data: grunt.getPath('data', true) + '**/*.{json,yml}',
             helpers: grunt.getPath('helpers', true) + '**/*.js',
 
             // Templates

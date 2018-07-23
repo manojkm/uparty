@@ -1,15 +1,28 @@
 <!-- BEGIN GLOBAL VENDORS :JS -->
-<script src="assets/vendors/jquery/dist/jquery.js"></script>
-<script src="assets/vendors/nicescroll/jquery.nicescroll.js"></script>
-<script src="assets/vendors/metismenu/dist/metisMenu.js"></script>
-<script src="assets/vendors/popper.js/dist/umd/popper.js"></script>
-<script src="assets/vendors/bootstrap/dist/js/bootstrap.js"></script>
-<!-- END GLOBAL VENDORS :JS -->
+<script src="{{assets}}{{vendors}}jquery/dist/jquery.js"></script>
+<script src="{{assets}}{{vendors}}nicescroll/jquery.nicescroll.js"></script>
+<script src="{{assets}}{{vendors}}metismenu/dist/metisMenu.js"></script>
+<script src="{{assets}}{{vendors}}popper.js/dist/umd/popper.js"></script>
+<script src="{{assets}}{{vendors}}bootstrap/dist/js/bootstrap.js"></script>
+<!-- /END GLOBAL VENDORS :JS -->
 
-<!-- BEGIN PAGE LEVEL VENDORS AND ITS EXTENSIONS :JS -->
-<!-- END PAGE LEVEL VENDORS AND ITS EXTENSIONS :JS -->
+<!-- BEGIN PAGE LEVEL VENDORS :JS -->
+{{#if js_vendors}}
+    {{#each js_vendors}}
+        <script src="{{../assets}}{{../vendors}}{{ this }}.js"></script>
+    {{/each}}
+{{/if}}
+<!-- /END PAGE LEVEL VENDORS :JS -->
 
-<!-- BEGIN OBEUS :JS-->
+<!-- BEGIN PAGE LEVEL VENDORS EXTENDED :JS -->
+{{#if js_vendors_extended}}
+    {{#each js_vendors_extended}}
+        <script src="{{../assets}}{{../script}}vendors-extended/{{ this }}.js"></script>
+    {{/each}}
+{{/if}}
+<!-- /END PAGE LEVEL VENDORS EXTENDED :JS -->
+
+<!-- BEGIN OBEUS :JS -->
 <!-- Custom JavaScript code for all pages-->
-<script src="{{root}}{{script}}{{ package.name }}{{#if production}}.min{{/if}}.js"></script>
-<!-- END OBEUS :JS-->
+<script src="{{assets}}{{script}}{{ package.name }}{{#if production}}.min{{/if}}.js"></script>
+<!-- /END OBEUS :JS -->

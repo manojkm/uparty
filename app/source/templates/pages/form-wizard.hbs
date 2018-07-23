@@ -1,8 +1,15 @@
 ---
 title: "Form Wizard"
-subtitle: Component which allows you to easily create wizard-like interfaces.
+lead: Component which allows you to easily create wizard-like interfaces.
 forms: true
-posted: 2018-02-23
+css_vendors_extended:
+- jquery.steps
+js_vendors:
+- jquery-steps/build/jquery.steps
+- jquery-validation/dist/jquery.validate
+js_vendors_extended:
+- jquery.steps
+- jquery.validate
 ---
 
 {{!--https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/documentation-form-wizard.html--}}
@@ -269,7 +276,8 @@ posted: 2018-02-23
                                 <div class="col-md-12">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input required" id="agree-eg3" name="agree">
-                                        <label class="custom-control-label" for="agree-eg3">I agree to the Terms and Conditions<span class="required-field"></span></label>
+                                        <label class="custom-control-label" for="agree-eg3">I agree to the Terms and Conditions<span
+                                                class="required-field"></span></label>
                                     </div>
                                 </div>
                             </div>
