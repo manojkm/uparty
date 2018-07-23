@@ -5,13 +5,6 @@ module.exports = function (grunt) {
             noProcess: ['.DS_Store', '.gitignore', '.sass-cache', 'node_modules']
         },
 
-        main: {
-            files: [
-                {expand: true, cwd: grunt.getPath('node') + 'metismenu', src: ['**'], dest: grunt.getPath('vendors', false, true)},
-            ],
-        },
-
-
         vendors: {
             files: [
                 {expand: true, cwd: grunt.getPath('node') + 'metismenu', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'metismenu'},
@@ -35,13 +28,13 @@ module.exports = function (grunt) {
                 {expand: true, cwd: grunt.getPath('node') + 'jquery-steps', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery-steps'},
                 {expand: true, cwd: grunt.getPath('node') + 'jquery.repeater', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery.repeater'},
                 {expand: true, cwd: grunt.getPath('node') + 'bootstrap-maxlength', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'bootstrap-maxlength'}
+                // TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
             ]
         },
 
         vendors_extended: {
             files: [
                 {expand: true, cwd: grunt.getPath('js_vi', true), src: ['**/*.js'], dest: grunt.getPath('js_vi', false, true), filter: 'isFile'}
-                // TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
             ]
         },
 

@@ -1,11 +1,12 @@
 task_clean:
   - 'clean'
+task_vendors:
+  - 'copy:vendors'
 task_css_dev:
   - 'sass'
   - 'csslint'
   - 'autoprefixer'
 task_css_prod:
-# - TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
   - 'task_css_dev'
   - 'cssmin'
 task_js_dev:
@@ -26,9 +27,9 @@ task_img_prod:
 task_fonts:
   - 'copy:fonts'
 task_html_dev:
-  - 'injector:vendors_global'
+  #- 'injector:vendors_global'
   - 'assemble'
-  - 'injector:vendors_pageLevel'
+  #- 'injector:vendors_pageLevel'
   - 'htmlhint'
 task_html_prod:
   - 'task_html_dev'
@@ -43,6 +44,7 @@ task_banner: # - TODO .. this is not yet included with final build below...
 
 dev:
   - 'task_clean'
+  - 'task_vendors'
   - 'task_css_dev'
   - 'notify:css'
   - 'task_js_dev'
@@ -58,6 +60,7 @@ dev:
 
 prod:
   - 'task_clean'
+  - 'task_vendors'
   - 'task_css_prod'
   - 'notify:css'
   - 'task_js_prod'

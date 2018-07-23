@@ -64,18 +64,18 @@ module.exports = function (grunt) {
             }]
         }/*,
 
-        rtl: {
-            options: {
-                layout: 'master',
-                rtl: true
-            },
-            files: [{
-                expand: true,
-                cwd: grunt.getPath('pages', true),
-                src: ['**!/!*.hbs'],
-                 dest: grunt.getPath('dest') + 'rtl'
-            }]
-        }*/
+         rtl: {
+         options: {
+         layout: 'master',
+         rtl: true
+         },
+         files: [{
+         expand: true,
+         cwd: grunt.getPath('pages', true),
+         src: ['**!/!*.hbs'],
+         dest: grunt.getPath('dest') + 'rtl'
+         }]
+         }*/
     };
 
 };
