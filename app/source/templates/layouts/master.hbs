@@ -4,7 +4,7 @@
     <!-- Meta, title, CSS, favicons, etc. -->
     {{> head }}
 </head>
-<body class="{{activeTheme}}">
+<body class="{{activeTheme}}{{#if body_class}} {{body_class}}{{/if}}">
 
 <div class="main-wrap">
     <div class="overlay"></div>
@@ -50,7 +50,7 @@
 
         <!-- Footer -->
         <footer class="master-footer">
-            <div class="master-footer__inner-wrap">footer</div>
+            <div class="master-footer__inner-wrap">{{> footer }}</div>
         </footer>
         <!-- /Footer -->
 
