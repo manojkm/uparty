@@ -9,7 +9,7 @@ components: true
         <div class="col-md-6 pr-md-2">
             {{#card}}
                 {{{card_header 'Default modal'}}}
-                <div class="card-body example bg-dark">
+                {{#card_body_has 'example bg-dark'''}}
                     <!-- Default modal -->
                     {{#modal '''defaultModal' ''}}
                         {{{modalHeader 'Modal title'}}}
@@ -19,14 +19,14 @@ components: true
                         {{{modalFooter 'button' 'Save changes' 'primary'}}}
                     {{/modal}}
                     <!-- /Default modal -->
-                </div>
+                {{/card_body_has}}
             {{/card}}
         </div>
         <div class="col-md-6 pl-md-2">
 
             {{#card}}
                 {{{card_header 'Extended modal'}}}
-                <div class="card-body example bg-dark">
+                {{#card_body_has 'example bg-dark'''}}
                     <!-- Extended modal -->
                     {{#modal 'modal-primary''extendedModal' ''}}
                         {{{modalHeader 'Modal title'}}}
@@ -36,7 +36,7 @@ components: true
                         {{{modalFooter 'button' 'Save changes' 'primary'}}}
                     {{/modal}}
                     <!-- /Extended modal -->
-                </div>
+                {{/card_body_has}}
             {{/card}}
         </div>
     </div>
@@ -44,7 +44,7 @@ components: true
         <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Minimal modal'}}}
-                <div class="card-body example bg-dark">
+                {{#card_body_has 'example bg-dark'''}}
                     <!-- Minimal modal -->
                     {{#modal 'minimal''minimalModal' ''}}
                         {{#modalContent}}
@@ -57,7 +57,7 @@ components: true
                         </div>
                     {{/modal}}
                     <!-- /Minimal modal -->
-                </div>
+                    {{/card_body_has}}
             {{/card}}
         </div>
     </div>

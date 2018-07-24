@@ -150,6 +150,18 @@ module.exports.register = function (Handlebars, options) {
         return new Handlebars.SafeString('<div class="card-body">' + content + '</div>');
     });
 
+    // Card body
+    Handlebars.registerHelper('card_body_has', function (cl, id, options) {
+        function isValid(str) {
+            return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
+        }
+        var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
+        var class_selector = (isValid(cl)) ? 'class="card-body' + ' ' + cl + '"' : 'class="card-body"';
+        var content = options.fn(this);
+
+        return '<div ' + class_selector + ' ' + id_selector + '>' + content + '</div>';
+    });
+
 
 //
 // BOOTSTRAP MODAL

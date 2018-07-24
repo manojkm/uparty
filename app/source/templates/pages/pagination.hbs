@@ -1,6 +1,6 @@
 ---
 title: "Pagination"
-subtitle: A pagination menu is specially formatted to present links to pages of content.
+lead: A pagination menu is specially formatted to present links to pages of content.
 components: true
 posted: 2018-01-03
 ---
@@ -8,19 +8,13 @@ posted: 2018-01-03
 <!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Rounded Pagination</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <nav aria-label="Page navigation example">
+        <div class="col-md-4 pr-md-2">
+            {{#card}}
+                {{{card_header 'Rounded pagination'}}}
+                {{#card_body}}
+                    <p>Add <code>.extended</code> class to the <code>.pagination</code></p>
+                    <!-- Rounded pagination -->
+                    <nav aria-label="Rounded pagination example">
                         <ul class="pagination extended justify-content-center mb-0">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
@@ -39,12 +33,12 @@ posted: 2018-01-03
                             </li>
                         </ul>
                     </nav>
+                    <!-- /Rounded pagination -->
+                {{/card_body}}
 
-
-                </div>
-                <div class="card-body bg-light">
-
-                    <nav aria-label="Page navigation example">
+                {{#card_body_has 'bg-light'''}}
+                    <!-- Rounded pagination on dark background -->
+                    <nav aria-label="Rounded pagination example">
                         <ul class="pagination extended justify-content-center mb-0">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
@@ -63,23 +57,17 @@ posted: 2018-01-03
                             </li>
                         </ul>
                     </nav>
-
-
-                </div>
-            </div>
+                    <!-- Rounded pagination on dark background -->
+                {{/card_body_has}}
+            {{/card}}
         </div>
-        <div class="col-md-4 px-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Rounded outline Pagination</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <nav aria-label="Page navigation example">
+        <div class="col-md-4 pr-md-2">
+            {{#card}}
+                {{{card_header 'Rounded outline pagination'}}}
+                {{#card_body}}
+                    <p>Add <code>.extended-outline</code> class to the <code>.pagination</code></p>
+                    <!-- Rounded outline pagination -->
+                    <nav aria-label="Rounded outline pagination example">
                         <ul class="pagination extended-outline justify-content-center mb-0">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
@@ -98,11 +86,12 @@ posted: 2018-01-03
                             </li>
                         </ul>
                     </nav>
+                    <!-- /Rounded outline pagination -->
+                {{/card_body}}
 
-
-                </div>
-                <div class="card-body bg-light">
-                    <nav aria-label="Page navigation example">
+                {{#card_body_has 'bg-light'''}}
+                    <!-- RRounded outline pagination on dark background -->
+                    <nav aria-label="Rounded outline pagination example">
                         <ul class="pagination extended-outline justify-content-center mb-0">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
@@ -121,23 +110,17 @@ posted: 2018-01-03
                             </li>
                         </ul>
                     </nav>
-
-
-                </div>
-            </div>
+                    <!-- RRounded outline pagination on dark background -->
+                {{/card_body_has}}
+            {{/card}}
         </div>
-        <div class="col-md-4 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Square Pagination</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <nav aria-label="Page navigation example">
+        <div class="col-md-4 pl-md-2">
+            {{#card}}
+                {{{card_header 'Square pagination'}}}
+                {{#card_body}}
+                    <p>Add <code>.extended-square</code> class to the <code>.pagination</code></p>
+                    <!-- Square pagination -->
+                    <nav aria-label="Square pagination example">
                         <ul class="pagination extended-square justify-content-center mb-0">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
@@ -156,10 +139,12 @@ posted: 2018-01-03
                             </li>
                         </ul>
                     </nav>
+                    <!-- /Square pagination -->
+                {{/card_body}}
 
-                </div>
-                <div class="card-body bg-light">
-                    <nav aria-label="Page navigation example">
+                {{#card_body_has 'bg-light'''}}
+                    <!-- Square pagination on dark background -->
+                    <nav aria-label="Square pagination example">
                         <ul class="pagination extended-square justify-content-center mb-0">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
@@ -178,25 +163,19 @@ posted: 2018-01-03
                             </li>
                         </ul>
                     </nav>
-
-                </div>
-            </div>
+                    <!-- Square pagination on dark background -->
+                {{/card_body_has}}
+            {{/card}}
         </div>
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Wizard Pagination</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
+            {{#card}}
+                {{{card_header 'Wizard pagination'}}}
+                {{#card_body}}
+                    <p>Add <code>.extended.pg-wizard</code> class to the <code>.pagination</code></p>
+                    <!-- Wizard pagination -->
                     <div class="row">
-                        <div class="col-md-4 pr-2">
-                            <nav aria-label="Page navigation example">
+                        <div class="col">
+                            <nav aria-label="Wizard pagination example">
                                 <ul class="pagination extended pg-wizard justify-content-center mb-0">
 
                                     <li class="page-item disabled">
@@ -229,8 +208,8 @@ posted: 2018-01-03
                                 </ul>
                             </nav>
                         </div>
-                        <div class="col-md-4 px-2">
-                            <nav aria-label="Page navigation example">
+                        <div class="col">
+                            <nav aria-label="Wizard pagination example">
                                 <ul class="pagination extended pg-wizard justify-content-center mb-0">
 
                                     <li class="page-item">
@@ -263,8 +242,8 @@ posted: 2018-01-03
                                 </ul>
                             </nav>
                         </div>
-                        <div class="col-md-4 pl-2">
-                            <nav aria-label="Page navigation example">
+                        <div class="col">
+                            <nav aria-label="Wizard pagination example">
                                 <ul class="pagination extended pg-wizard justify-content-center mb-0">
 
                                     <li class="page-item">
@@ -298,23 +277,19 @@ posted: 2018-01-03
                             </nav>
                         </div>
                     </div>
-
-                </div>
-
-            </div>
+                    <!-- /Wizard pagination -->
+                {{/card_body}}
+            {{/card}}
         </div>
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Indicator Pagination with Tooltip</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <nav aria-label="Page navigation example">
+            {{#card}}
+                {{{card_header 'Indicator pagination with Tooltip'}}}
+                {{#card_body}}
+                    <p>Add <code>.extended-indicator</code> class to the <code>.pagination</code>
+                         and required markup for a tooltip, ie <code>data-toggle="tooltip"</code>, <code>data-placement="auto | top | bottom | left | right"</code> and title to <code>.page-link</code>
+                    </p>
+                    <!-- Indicator pagination with Tooltip -->
+                    <nav aria-label="Indicator pagination with Tooltip example">
                         <ul class="pagination extended-indicator justify-content-center mb-0">
                             <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 1">1</a></li>
                             <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 2">2</a></li>
@@ -323,26 +298,19 @@ posted: 2018-01-03
                             <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 5">5</a></li>
                         </ul>
                     </nav>
-                </div>
-            </div>
+                    <!-- /Indicator pagination with Tooltip -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Default Pagination</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <h6 class="card-title">Simple Pagination</h6>
-
-                    <nav aria-label="Page navigation example">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Default pagination'}}}
+                {{#card_body}}
+                    {{{card_title 'Simple pagination'}}}
+                    <!-- Simple pagination -->
+                    <nav aria-label="Simple pagination example">
                         <ul class="pagination">
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -350,9 +318,10 @@ posted: 2018-01-03
                             <li class="page-item"><a class="page-link" href="#">4</a></li>
                         </ul>
                     </nav>
-
-                    <h6 class="card-title">Pagination with Next/Prev Arrows, Icons</h6>
-
+                    <!-- /Simple pagination -->
+                    <hr>
+                    {{{card_title 'Pagination with Next/Prev Arrows, Icons'}}}
+                    <!-- Pagination with Next/Prev Arrows, Icons -->
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
                             <li class="page-item">
@@ -510,11 +479,11 @@ posted: 2018-01-03
 
                         </ul>
                     </nav>
-
-
-                    <h6 class="card-title">Pagination with Next/Prev Link</h6>
-
-                    <nav aria-label="Page navigation example">
+                    <!-- /Pagination with Next/Prev Arrows, Icons -->
+                    <hr>
+                    {{{card_title 'Pagination with Next/Prev Link'}}}
+                    <!-- Pagination with Next/Prev Link -->
+                    <nav aria-label="Pagination with Next/Prev Link example">
                         <ul class="pagination">
                             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -525,12 +494,11 @@ posted: 2018-01-03
                             <li class="page-item"><a class="page-link" href="#">Next</a></li>
                         </ul>
                     </nav>
-
-
-                </div>
-            </div>
+                    <!-- /Pagination with Next/Prev Link -->
+                {{/card_body}}
+            {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-md-6 pl-md-2">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Disabled and active states</h6>
@@ -623,18 +591,18 @@ posted: 2018-01-03
 
                     <!--<p class="text-center">Center Align</p>-->
                     <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
 
                     <!--<p class="text-right">Right Align</p>-->
                     <nav aria-label="Page navigation example">
@@ -650,7 +618,6 @@ posted: 2018-01-03
                             </li>
                         </ul>
                     </nav>
-
 
 
                 </div>
