@@ -61,7 +61,7 @@ posted: 2018-01-03
                 {{/card_body_has}}
             {{/card}}
         </div>
-        <div class="col-md-4 pr-md-2">
+        <div class="col-md-4 px-md-2">
             {{#card}}
                 {{{card_header 'Rounded outline pagination'}}}
                 {{#card_body}}
@@ -167,6 +167,8 @@ posted: 2018-01-03
                 {{/card_body_has}}
             {{/card}}
         </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Wizard pagination'}}}
@@ -278,27 +280,6 @@ posted: 2018-01-03
                         </div>
                     </div>
                     <!-- /Wizard pagination -->
-                {{/card_body}}
-            {{/card}}
-        </div>
-        <div class="col-md-12">
-            {{#card}}
-                {{{card_header 'Indicator pagination with Tooltip'}}}
-                {{#card_body}}
-                    <p>Add <code>.extended-indicator</code> class to the <code>.pagination</code>
-                         and required markup for a tooltip, ie <code>data-toggle="tooltip"</code>, <code>data-placement="auto | top | bottom | left | right"</code> and title to <code>.page-link</code>
-                    </p>
-                    <!-- Indicator pagination with Tooltip -->
-                    <nav aria-label="Indicator pagination with Tooltip example">
-                        <ul class="pagination extended-indicator justify-content-center mb-0">
-                            <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 1">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 2">2</a></li>
-                            <li class="page-item active"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 3">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 4">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 5">5</a></li>
-                        </ul>
-                    </nav>
-                    <!-- /Indicator pagination with Tooltip -->
                 {{/card_body}}
             {{/card}}
         </div>
@@ -499,20 +480,32 @@ posted: 2018-01-03
             {{/card}}
         </div>
         <div class="col-md-6 pl-md-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Disabled and active states</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <h6 class="card-title">Simple Pagination</h6>
-
-                    <nav aria-label="Page navigation example">
+            {{#card}}
+                {{{card_header 'Indicator pagination with Tooltip'}}}
+                {{#card_body}}
+                    <p>Add <code>.extended-indicator</code> class to the <code>.pagination</code>
+                        and required markup for a tooltip, ie <code>data-toggle="tooltip"</code>, <code>data-placement="auto | top | bottom | left | right"</code> and title to <code>.page-link</code>
+                    </p>
+                    <!-- Indicator pagination with Tooltip -->
+                    <nav aria-label="Indicator pagination with Tooltip example">
+                        <ul class="pagination extended-indicator justify-content-center mb-0">
+                            <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 1">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 2">2</a></li>
+                            <li class="page-item active"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 3">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 4">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#" data-toggle="tooltip" data-placement="top" title="Page 5">5</a></li>
+                        </ul>
+                    </nav>
+                    <!-- /Indicator pagination with Tooltip -->
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                {{{card_header 'Disabled and active states'}}}
+                {{#card_body}}
+                    <p>Pagination links are customizable for different circumstances. Use <code>.disabled</code> for links that appear un-clickable and <code>.active</code> to indicate the current page.</p>
+                    <!-- Disabled and active states example 1 -->
+                    {{{card_title 'Simple pagination'}}}
+                    <nav aria-label="Simple pagination example">
                         <ul class="pagination">
                             <li class="page-item disabled"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -521,9 +514,10 @@ posted: 2018-01-03
                             <li class="page-item"><a class="page-link" href="#">5</a></li>
                         </ul>
                     </nav>
-
-                    <h6 class="card-title">Pagination with Next/Prev Arrows</h6>
-
+                    <!-- /Disabled and active states example 1  -->
+                    <hr>
+                    <!-- Disabled and active states example 2 -->
+                    {{{card_title 'Pagination with Next/Prev Arrows'}}}
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
                             <li class="page-item disabled">
@@ -545,9 +539,10 @@ posted: 2018-01-03
                             </li>
                         </ul>
                     </nav>
-
-                    <h6 class="card-title">Pagination with Next/Prev Link</h6>
-
+                    <!-- /Disabled and active states example 2  -->
+                    <hr>
+                    <!-- Disabled and active states example 3 -->
+                    {{{card_title 'Pagination with Next/Prev Links'}}}
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
                             <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
@@ -559,87 +554,84 @@ posted: 2018-01-03
                             <li class="page-item"><a class="page-link" href="#">Next</a></li>
                         </ul>
                     </nav>
-
-
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Pagination Positions</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <!--<p class="text-left">Left Align</p>-->
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-start">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-
-                    <!--<p class="text-center">Center Align</p>-->
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <!--<p class="text-right">Right Align</p>-->
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-
-                </div>
-            </div>
+                    <!-- /Disabled and active states example 3  -->
+                {{/card_body}}
+            {{/card}}
         </div>
-
     </div>
+
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Pagination sizes</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Pagination positions'}}}
+                {{#card_body}}
+                    <p>To align left, use class <code>.justify-content-start</code>. To align center, use class <code>.justify-content-center</code>. To align right, use class <code>.justify-content-end.</code></p>
                     <div class="row">
-                        <div class="col-md-3 pr-2">
-                            <nav aria-label="Page navigation example">
+                        <div class="col-xl-4 col-lg-12">
+                            <p class="text-left">Left Align</p>
+                            <!-- Pagination positions example 1 -->
+                            <nav aria-label="Pagination positions example">
+                                <ul class="pagination justify-content-start">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <!-- /Pagination positions example 1 -->
+                        </div>
+                        <div class="col-xl-4 col-lg-12">
+                            <p class="text-center">Center Align</p>
+                            <!-- Pagination positions example 2 -->
+                            <nav aria-label="Pagination positions example">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <!-- /Pagination positions example 2 -->
+                        </div>
+                        <div class="col-xl-4 col-lg-12">
+                            <p class="text-right">Right Align</p>
+                            <!-- Pagination positions example 3 -->
+                            <nav aria-label="Pagination positions example">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </nav>
+                            <!-- /Pagination positions example 3 -->
+                        </div>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Pagination sizes'}}}
+                {{#card_body}}
+                    <p>Fancy larger or smaller pagination? Use class  <code>.pagination-lg</code> for large size pagination &  Use class  <code>.pagination-sm</code> for small size pagination. For Default size no classes required.</p>
+                    <div class="row">
+                        <div class="col-12 col-lg-3 pr-lg-2">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination pagination-lg">
                                     <li class="page-item disabled">
                                         <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -653,7 +645,7 @@ posted: 2018-01-03
                                 </ul>
                             </nav>
 
-                            <nav aria-label="Page navigation example">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination">
                                     <li class="page-item disabled">
                                         <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -667,7 +659,7 @@ posted: 2018-01-03
                                 </ul>
                             </nav>
 
-                            <nav aria-label="Page navigation example">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination pagination-sm">
                                     <li class="page-item disabled">
                                         <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -682,8 +674,8 @@ posted: 2018-01-03
                             </nav>
 
                         </div>
-                        <div class="col-md-3 px-2">
-                            <nav aria-label="Page navigation example">
+                        <div class="col-12 col-lg-3 px-lg-2">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination pagination-lg extended">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -702,7 +694,7 @@ posted: 2018-01-03
                                     </li>
                                 </ul>
                             </nav>
-                            <nav aria-label="Page navigation example">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination extended">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -721,7 +713,7 @@ posted: 2018-01-03
                                     </li>
                                 </ul>
                             </nav>
-                            <nav aria-label="Page navigation example">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination pagination-sm extended">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -742,8 +734,8 @@ posted: 2018-01-03
                             </nav>
 
                         </div>
-                        <div class="col-md-3 px-2">
-                            <nav aria-label="Page navigation example">
+                        <div class="col-12 col-lg-3 px-lg-2">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination pagination-lg extended-outline">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -762,7 +754,7 @@ posted: 2018-01-03
                                     </li>
                                 </ul>
                             </nav>
-                            <nav aria-label="Page navigation example">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination extended-outline">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -781,7 +773,7 @@ posted: 2018-01-03
                                     </li>
                                 </ul>
                             </nav>
-                            <nav aria-label="Page navigation example">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination pagination-sm extended-outline">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -802,8 +794,8 @@ posted: 2018-01-03
                             </nav>
 
                         </div>
-                        <div class="col-md-3 pl-2">
-                            <nav aria-label="Page navigation example">
+                        <div class="col-12 col-lg-3 pl-lg-2">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination pagination-lg extended-square">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -822,7 +814,7 @@ posted: 2018-01-03
                                     </li>
                                 </ul>
                             </nav>
-                            <nav aria-label="Page navigation example">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination extended-square">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -841,7 +833,7 @@ posted: 2018-01-03
                                     </li>
                                 </ul>
                             </nav>
-                            <nav aria-label="Page navigation example">
+                            <nav aria-label="Pagination sizes example">
                                 <ul class="pagination pagination-sm extended-square">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -863,8 +855,8 @@ posted: 2018-01-03
 
                         </div>
                     </div>
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
 </div>
