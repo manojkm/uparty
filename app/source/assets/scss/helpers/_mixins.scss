@@ -714,6 +714,12 @@
     padding: $padding-y $padding-x;
     font-size: $font-size;
     line-height: $line-height;
+
+    // Next/Prev icons
+    #{$icon-tags} {
+      font-size: $font-size;
+      line-height: $line-height;
+    }
   }
 
   .page-item {

@@ -45,6 +45,7 @@
   // Next/Prev icons
   #{$icon-tags} {
     font-size: $pagination-icon-font-size;
+    line-height: $pagination-line-height;
   }
 
   &:focus,
@@ -79,7 +80,7 @@
   &.extended {
 
     .page-item {
-      margin: 0 2px;
+      margin: 0 3px;
     }
 
     .page-link {
@@ -90,6 +91,10 @@
       line-height: $pagination-ext-size;
       padding: 0;
       text-align: center;
+      // Next/Prev icons
+      #{$icon-tags} {
+        line-height: inherit;
+      }
     }
 
     &.pagination-lg {
@@ -99,6 +104,10 @@
         min-width: $pagination-ext-size-lg;
         height: $pagination-ext-size-lg;
         line-height: $pagination-ext-size-lg;
+        // Next/Prev icons
+        #{$icon-tags} {
+          line-height: inherit;
+        }
       }
 
     }
@@ -110,6 +119,9 @@
         min-width: $pagination-ext-size-sm;
         height: $pagination-ext-size-sm;
         line-height: $pagination-ext-size-sm;
+        #{$icon-tags} {
+          line-height: inherit;
+        }
       }
 
     }
@@ -151,7 +163,7 @@
   &.extended-outline {
 
     .page-item {
-      margin: 0 2px;
+      margin: 0 3px;
     }
 
     .page-link {
@@ -159,11 +171,19 @@
       @include set-border-radius($pagination-ext-outline-border-radius);
       min-width: $pagination-ext-size;
       height: $pagination-ext-size;
+      line-height: $pagination-ext-size;
       padding: 0;
-      text-align: center;
-      box-sizing: border-box;
-      display: table-cell;
-      vertical-align: middle;
+      //box-sizing: border-box;
+      //display: table-cell;
+      //vertical-align: middle;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      // Next/Prev icons
+      #{$icon-tags} {
+        line-height: $pagination-ext-size;
+      }
     }
 
     .page-item {
@@ -179,6 +199,11 @@
         @include set-border-radius($pagination-ext-outline-border-radius);
         min-width: $pagination-ext-size-lg;
         height: $pagination-ext-size-lg;
+        line-height: $pagination-ext-size-lg;
+        // Next/Prev icons
+        #{$icon-tags} {
+          line-height: $pagination-ext-size-lg;
+        }
       }
 
     }
@@ -188,6 +213,11 @@
         @include set-border-radius($pagination-ext-outline-border-radius);
         min-width: $pagination-ext-size-sm;
         height: $pagination-ext-size-sm;
+        line-height: $pagination-ext-size-sm;
+        // Next/Prev icons
+        #{$icon-tags} {
+          line-height: $pagination-ext-size-sm;
+        }
       }
 
     }
@@ -217,11 +247,15 @@
       @include set-border-radius($pagination-border-radius);
       min-width: $pagination-ext-size;
       height: $pagination-ext-size;
+      line-height: $pagination-ext-size;
       padding: 0;
-      text-align: center;
-      box-sizing: border-box;
-      display: table-cell;
-      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // Next/Prev icons
+      #{$icon-tags} {
+        line-height: $pagination-ext-size;
+      }
     }
 
     &.pagination-lg {
@@ -230,6 +264,11 @@
         @include set-border-radius($pagination-border-radius-lg);
         min-width: $pagination-ext-size-lg;
         height: $pagination-ext-size-lg;
+        line-height: $pagination-ext-size-lg;
+        // Next/Prev icons
+        #{$icon-tags} {
+          line-height: $pagination-ext-size-lg;
+        }
       }
 
     }
@@ -240,12 +279,17 @@
         @include set-border-radius($pagination-border-radius-sm);
         min-width: $pagination-ext-size-sm;
         height: $pagination-ext-size-sm;
+        line-height: $pagination-ext-size-sm;
+        // Next/Prev icons
+        #{$icon-tags} {
+          line-height: $pagination-ext-size-sm;
+        }
       }
 
     }
 
     .page-item {
-      margin: 0 2px;
+      margin: 0 3px;
 
       &.active .page-link {
         @include border-theme($pagination-link-active-theme-scheme);
