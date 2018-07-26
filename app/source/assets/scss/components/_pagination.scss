@@ -89,7 +89,7 @@
       min-width: $pagination-ext-size;
       height: $pagination-ext-size;
       line-height: $pagination-ext-size;
-      padding: 0;
+      padding: $pagination-ext-padding-y $pagination-ext-padding-x;
       text-align: center;
       // Next/Prev icons
       #{$icon-tags} {
@@ -104,6 +104,7 @@
         min-width: $pagination-ext-size-lg;
         height: $pagination-ext-size-lg;
         line-height: $pagination-ext-size-lg;
+        padding: $pagination-ext-padding-y-lg $pagination-ext-padding-x-lg;
         // Next/Prev icons
         #{$icon-tags} {
           line-height: inherit;
@@ -119,6 +120,7 @@
         min-width: $pagination-ext-size-sm;
         height: $pagination-ext-size-sm;
         line-height: $pagination-ext-size-sm;
+        padding: $pagination-ext-padding-y-sm $pagination-ext-padding-x-sm;
         #{$icon-tags} {
           line-height: inherit;
         }
@@ -172,7 +174,7 @@
       min-width: $pagination-ext-size;
       height: $pagination-ext-size;
       line-height: $pagination-ext-size;
-      padding: 0;
+      padding: $pagination-ext-padding-y $pagination-ext-padding-x;
       //box-sizing: border-box;
       //display: table-cell;
       //vertical-align: middle;
@@ -200,6 +202,7 @@
         min-width: $pagination-ext-size-lg;
         height: $pagination-ext-size-lg;
         line-height: $pagination-ext-size-lg;
+        padding: $pagination-ext-padding-y-lg $pagination-ext-padding-x-lg;
         // Next/Prev icons
         #{$icon-tags} {
           line-height: $pagination-ext-size-lg;
@@ -214,6 +217,7 @@
         min-width: $pagination-ext-size-sm;
         height: $pagination-ext-size-sm;
         line-height: $pagination-ext-size-sm;
+        padding: $pagination-ext-padding-y-sm $pagination-ext-padding-x-sm;
         // Next/Prev icons
         #{$icon-tags} {
           line-height: $pagination-ext-size-sm;
@@ -235,12 +239,12 @@
 }
 
 //
-// PAGINATION EXTENDED - SQUARE TYPE
+// PAGINATION EXTENDED - SPLIT TYPE
 // ======================================================
 
 .pagination {
 
-  &.extended-square {
+  &.extended-split {
 
     .page-link {
       @include border-theme($pagination-link-active-theme-scheme);
@@ -248,7 +252,7 @@
       min-width: $pagination-ext-size;
       height: $pagination-ext-size;
       line-height: $pagination-ext-size;
-      padding: 0;
+      padding: $pagination-ext-padding-y $pagination-ext-padding-x;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -265,6 +269,7 @@
         min-width: $pagination-ext-size-lg;
         height: $pagination-ext-size-lg;
         line-height: $pagination-ext-size-lg;
+        padding: $pagination-ext-padding-y-lg $pagination-ext-padding-x-lg;
         // Next/Prev icons
         #{$icon-tags} {
           line-height: $pagination-ext-size-lg;
@@ -280,6 +285,7 @@
         min-width: $pagination-ext-size-sm;
         height: $pagination-ext-size-sm;
         line-height: $pagination-ext-size-sm;
+        padding: $pagination-ext-padding-y-sm $pagination-ext-padding-x-sm;
         // Next/Prev icons
         #{$icon-tags} {
           line-height: $pagination-ext-size-sm;

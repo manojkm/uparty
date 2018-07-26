@@ -1,84 +1,106 @@
 ---
 title: "Popovers"
-subtitle: Add small overlay content, like those found in iOS, to any element for housing secondary information.
+lead: Add small overlay content, like those found in iOS, to any element for housing secondary information.
 components: true
-posted: 2018-01-01
 ---
 
 <!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
 <div class="container-fluid">
-
     <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Titled & All Four Directions</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body bg-dark">
-
-                    <div class="row">
-                        <div class="col-md-6 example">
-                            <div class="popover bs-popover-right show mx-auto">
-                                <div class="arrow" style="top: 31px;"></div>
-                                <h3 class="popover-header">Popover right</h3>
-                                <div class="popover-body">
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                                </div>
+        <div class="col-xl-6 col-md-12 pr-md-2">{{#card}}
+            {{{card_header 'All four directions - Static demo'}}}
+            {{#card_body_has 'bg-dark'''}}
+                <!-- All four directions - Static demo -->
+                <div class="row py-2">
+                    <div class="col-md-6 example">
+                        <div class="popover bs-popover-right show mx-auto">
+                            <div class="arrow" style="top: 31px;"></div>
+                            <h3 class="popover-header">Popover right</h3>
+                            <div class="popover-body">
+                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
                             </div>
-
-                            <div class="popover bs-popover-left show mt-5 mx-auto">
-                                <div class="arrow" style="top: 31px;"></div>
-                                <h3 class="popover-header">Popover left</h3>
-                                <div class="popover-body">
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                                </div>
-                            </div>
-
-
                         </div>
-                        <div class="col-md-6 example">
-
-                            <div class="popover bs-popover-top show mx-auto">
-                                <div class="arrow" style="left: 124px;"></div>
-                                <h3 class="popover-header">Popover top</h3>
-                                <div class="popover-body">
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                                </div>
+                        <div class="popover bs-popover-left show mt-5 mx-auto">
+                            <div class="arrow" style="top: 31px;"></div>
+                            <h3 class="popover-header">Popover left</h3>
+                            <div class="popover-body">
+                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
                             </div>
-
-                            <div class="popover bs-popover-bottom show mt-5 mx-auto">
-                                <div class="arrow" style="left: 124px;"></div>
-                                <h3 class="popover-header">Popover bottom</h3>
-                                <div class="popover-body">
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                                </div>
-                            </div>
-
                         </div>
-
-
                     </div>
-
-
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Style variations</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
+                    <div class="col-md-6 example">
+                        <div class="popover bs-popover-top show mx-auto">
+                            <div class="arrow" style="left: 124px;"></div>
+                            <h3 class="popover-header">Popover top</h3>
+                            <div class="popover-body">
+                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
+                            </div>
+                        </div>
+                        <div class="popover bs-popover-bottom show mt-5 mx-auto">
+                            <div class="arrow" style="left: 124px;"></div>
+                            <h3 class="popover-header">Popover bottom</h3>
+                            <div class="popover-body">
+                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card-body">
+                <!-- /All four directions - Static demo -->
+            {{/card_body_has}}
+        {{/card}}</div>
+        <div class="col-xl-6 col-md-12 pl-md-2">{{#card}}
+            {{{card_header 'Basic Example'}}}
+            {{#card_body}}
+                <p>Use the <code>data-placement</code> attribute to set the position of the popover on top, bottom, left or the right side of the element:</p>
+                <!-- Basic Example -->
+                <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
+                        data-toggle="popover" data-placement="top" title="Popover on top"
+                        data-content="And here's some amazing content. It's very engaging. Right?">Popover on top
+                </button>
+                <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
+                        data-toggle="popover" data-placement="right" title="Popover on right"
+                        data-content="And here's some amazing content. It's very engaging. Right?">Popover on right
+                </button>
+                <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
+                        data-toggle="popover" data-placement="bottom" title="Popover on bottom"
+                        data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom
+                </button>
+                <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
+                        data-toggle="popover" data-placement="left" title="Popover on left"
+                        data-content="And here's some amazing content. It's very engaging. Right?">Popover on left
+                </button>
+                <!-- /Basic Example -->
+            {{/card_body}}
+        {{/card}}{{#card}}
+            {{{card_header 'Basic Example without title'}}}
+            {{#card_body}}
+                <p>Just remove the <code>title</code> attribute that is used to specify the header text of the popover.</p>
+                <!-- Basic Example without title -->
+                <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
+                   data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. Right?">Popover
+                    on top</a>
 
-                    <button type="button" class="btn btn-primary btn-icon btn-round" data-color="primary"
+                <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
+                   data-toggle="popover" data-placement="right" data-content="And here's some amazing content. It's very engaging. Right?">Popover on right</a>
+
+                <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
+                   data-toggle="popover" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom</a>
+
+                <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
+                   data-toggle="popover" data-placement="left" data-content="And here's some amazing content. It's very engaging. Right?">Popover
+                    on left</a>
+                <!-- /Basic Example without title -->
+            {{/card_body}}
+        {{/card}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6 col-md-12 pr-md-2">
+            {{#card}}
+                {{{card_header 'Style variations'}}}
+                {{#card_body}}
+                    <p>Add <code>data-color</code> attribute (like <code>data-color="primary"</code>) for popovers with all theme colors.</p>
+                    <!-- Style variations -->
+                    <button type="button" class="btn btn-primary btn-icon btn-round mb-1" data-color="primary"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
                             data-placement="top" title="Primary popover"
@@ -86,7 +108,7 @@ posted: 2018-01-01
                         <i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-secondary btn-icon btn-round" data-color="secondary"
+                    <button type="button" class="btn btn-secondary btn-icon btn-round mb-1" data-color="secondary"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
                             data-placement="top" title="Secondary popover"
@@ -94,7 +116,7 @@ posted: 2018-01-01
                         <i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-success btn-icon btn-round" data-color="success"
+                    <button type="button" class="btn btn-success btn-icon btn-round mb-1" data-color="success"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
                             data-placement="top" title="Success popover"
@@ -102,7 +124,7 @@ posted: 2018-01-01
                         <i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-danger btn-icon btn-round" data-color="danger"
+                    <button type="button" class="btn btn-danger btn-icon btn-round mb-1" data-color="danger"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
                             data-placement="top" title="Danger popover"
@@ -110,7 +132,7 @@ posted: 2018-01-01
                         <i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-warning btn-icon btn-round" data-color="warning"
+                    <button type="button" class="btn btn-warning btn-icon btn-round mb-1" data-color="warning"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
                             data-placement="top" title="Warning popover"
@@ -118,7 +140,7 @@ posted: 2018-01-01
                         <i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-info btn-icon btn-round" data-color="info"
+                    <button type="button" class="btn btn-info btn-icon btn-round mb-1" data-color="info"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
                             data-placement="top" title="Info popover"
@@ -126,7 +148,7 @@ posted: 2018-01-01
                         <i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-light btn-icon btn-round" data-color="light"
+                    <button type="button" class="btn btn-light btn-icon btn-round mb-1" data-color="light"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
                             data-placement="top" title="Light popover"
@@ -134,124 +156,22 @@ posted: 2018-01-01
                         <i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-dark btn-icon btn-round" data-color="dark"
+                    <button type="button" class="btn btn-dark btn-icon btn-round mb-1" data-color="dark"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
                             data-placement="top" title="Dark popover"
                             data-content="And here's some amazing content. It's very engaging. Right?">
                         <i class="icon-heart"></i>
                     </button>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Basic Example without title</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
-                       data-toggle="popover"
-                       data-placement="top" data-content="And here's some amazing content. It's very engaging. Right?">Popover
-                        on top</a>
-
-                    <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
-                       data-toggle="popover"
-                       data-placement="right"
-                       data-content="And here's some amazing content. It's very engaging. Right?">Popover on right</a>
-
-                    <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
-                       data-toggle="popover"
-                       data-placement="bottom"
-                       data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom</a>
-
-                    <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
-                       data-toggle="popover"
-                       data-placement="left" data-content="And here's some amazing content. It's very engaging. Right?">Popover
-                        on left</a>
-
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Clickable</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <img src="https://semantic-ui.com/images/avatar2/large/elyse.png"
-                         class="has-popover rounded-circle w-5 mr-2"
-                         data-container="body" data-toggle="popover"
-                         data-placement="top" title="Kristy" alt="Kristy"
-                         data-content="Kristy is an art director living in New York.">
-
-                    <img src="https://semantic-ui.com/images/avatar2/large/molly.png"
-                         class="has-popover rounded-circle w-5 mr-2"
-                         data-container="body" data-toggle="popover"
-                         data-placement="right" title="Molly" alt="Molly"
-                         data-content="Molly is a copywriter working in New York.">
-
-                    <img src="https://semantic-ui.com/images/avatar/large/daniel.jpg"
-                         class="has-popover rounded-circle w-5 mr-2"
-                         data-container="body" data-toggle="popover"
-                         data-placement="bottom" title="Daniel Louise" alt="Daniel Louise"
-                         data-content="Daniel Louise is an project manager living in Australia.">
-
-                    <img src="https://semantic-ui.com/images/avatar2/large/matthew.png"
-                         class="has-popover rounded-circle w-5 mr-2"
-                         data-container="body" data-toggle="popover"
-                         data-placement="left" title="Matt Giampietro" alt="Matt Giampietro"
-                         data-content="Matt Giampietro is a personal assistant living in Paris.">
-
-                    <p></p>
-                    <button type="button" class="btn btn-primary mr-3" data-container="body" data-toggle="popover"
-                            data-placement="top" title="Popover on top"
-                            data-content="And here's some amazing content. It's very engaging. Right?">
-                        Popover on top
-                    </button>
-                    {{!--
-
-                                        <a href="#" class="h6 text-secondary mr-3" data-container="body" data-toggle="popover"
-                                           data-placement="top" title="Popover on top"
-                                           data-content="And here's some amazing content. It's very engaging. Right?">Popover on top</a>
-                    --}}
-
-                    <a class="btn btn-link btn-secondary" data-container="body" data-toggle="popover"
-                       data-placement="right" title="Popover on right"
-                       data-content="And here's some amazing content. It's very engaging. Right?">Popover on right</a>
-
-                    <a class="btn btn-link btn-secondary" data-container="body" data-toggle="popover"
-                       data-placement="bottom" title="Popover on bottom"
-                       data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom</a>
-
-                    <a class="btn btn-link btn-secondary" data-container="body" data-toggle="popover"
-                       data-placement="left" title="Popover on left"
-                       data-content="And here's some amazing content. It's very engaging. Right?">Popover on left</a>
-
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Hoverable</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
+                    <!-- /Style variations -->
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                {{{card_header 'Hoverable'}}}
+                {{#card_body}}
+                    <p>If you want the popover to be displayed when you move the mouse pointer over the element, use the <code>data-trigger</code> attribute with a value
+                        of "hover"</p>
+                    <!-- Hoverable -->
                     <img src="https://semantic-ui.com/images/avatar2/large/elyse.png"
                          class="has-popover rounded-circle w-5 mr-2"
                          data-trigger="hover"
@@ -286,38 +206,106 @@ posted: 2018-01-01
                     <a tabindex="0" class="btn btn-link btn-sm btn-secondary" role="button" data-toggle="popover"
                        data-trigger="hover" title="Hoverable"
                        data-content="And here's some amazing content. It's very engaging. Right?">Hoverable popover</a>
+                    <!-- /Hoverable -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-xl-6 col-md-12 pl-md-2">
+            {{#card}}
+                {{{card_header 'Clickable'}}}
+                {{#card_body}}
+                    <!-- Clickable -->
 
-                </div>
-            </div>
+                    <img src="https://semantic-ui.com/images/avatar2/large/elyse.png"
+                         class="has-popover rounded-circle w-5 mr-2"
+                         data-container="body" data-toggle="popover"
+                         data-placement="top" title="Kristy" alt="Kristy"
+                         data-content="Kristy is an art director living in New York.">
 
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Dismiss on next click</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+                    <img src="https://semantic-ui.com/images/avatar2/large/molly.png"
+                         class="has-popover rounded-circle w-5 mr-2"
+                         data-container="body" data-toggle="popover"
+                         data-placement="right" title="Molly" alt="Molly"
+                         data-content="Molly is a copywriter working in New York.">
+
+                    <img src="https://semantic-ui.com/images/avatar/large/daniel.jpg"
+                         class="has-popover rounded-circle w-5 mr-2"
+                         data-container="body" data-toggle="popover"
+                         data-placement="bottom" title="Daniel Louise" alt="Daniel Louise"
+                         data-content="Daniel Louise is an project manager living in Australia.">
+
+                    <img src="https://semantic-ui.com/images/avatar2/large/matthew.png"
+                         class="has-popover rounded-circle w-5 mr-2"
+                         data-container="body" data-toggle="popover"
+                         data-placement="left" title="Matt Giampietro" alt="Matt Giampietro"
+                         data-content="Matt Giampietro is a personal assistant living in Paris.">
+
+                    <p></p>
+                    <button type="button" class="btn btn-primary mr-3" data-container="body" data-toggle="popover"
+                            data-placement="top" title="Popover on top"
+                            data-content="And here's some amazing content. It's very engaging. Right?">Popover on top
+                    </button>
+                    <a class="btn btn-link btn-secondary" data-container="body" data-toggle="popover"
+                       data-placement="right" title="Popover on right"
+                       data-content="And here's some amazing content. It's very engaging. Right?">Popover on right</a>
+
+                    <a class="btn btn-link btn-secondary" data-container="body" data-toggle="popover"
+                       data-placement="bottom" title="Popover on bottom"
+                       data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom</a>
+
+                    <a class="btn btn-link btn-secondary" data-container="body" data-toggle="popover"
+                       data-placement="left" title="Popover on left"
+                       data-content="And here's some amazing content. It's very engaging. Right?">Popover on left</a>
+                    <!-- /Clickable -->
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                {{{card_header 'Dismiss on next click'}}}
+                {{#card_body}}
+                    <p>By default, the popover is closed when you click on the element again. However, you can use the <code>data-trigger="focus"</code> attribute which
+                        will close the popover when clicking outside the element</p>
+                    <!-- Dismiss on next click -->
                     <button type="button" class="btn btn-sm btn-danger" data-container="body" data-toggle="popover"
                             data-trigger="focus" data-placement="top" title="Dismissible"
                             data-content="And here's some amazing content. It's very engaging. Right?">
                         Dismissible popover
                     </button>
-
                     <a tabindex="0" class="btn btn-link btn-sm btn-danger" role="button" data-toggle="popover"
                        data-trigger="focus" title="Dismissible"
-                       data-content="And here's some amazing content. It's very engaging. Right?">Dismissible
-                        popover</a>
-
-                </div>
-            </div>
-
-
+                       data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+                    <!-- /Dismiss on next click -->
+                {{/card_body}}
+            {{/card}}
         </div>
-
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Popover options'}}}
+                {{#card_body}}
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
+                            <p>Use <code>data-animation="false"</code> to remove fade animation. Default is true.</p>
+                            <button type="button" class="btn btn-sm btn-danger" data-container="body" data-toggle="popover"
+                                    data-trigger="focus" data-placement="top" title="Dismissible"
+                                    data-animation="false"
+                                    data-content="And here's some amazing content. It's very engaging. Right?">
+                                Disabled animation
+                            </button>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
+                            <p>Delay showing and hiding the popover (ms) - does not apply to manual trigger type. Use <code>data-delay="500"</code></p>
+                            <button type="button" class="btn btn-sm btn-danger" data-container="body" data-toggle="popover"
+                                    data-trigger="focus" data-placement="top" title="Dismissible"
+                                    data-delay="500" data-content="And here's some amazing content. It's very engaging. Right?">
+                                Delay popover
+                            </button>
+                        </div>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
 
 </div>
