@@ -92,9 +92,9 @@
   // Round badges
   &.badge-round {
     @include border-radius($badge-round-border-radius);
-    width: $badge-round-size;
+    min-width: $badge-round-size;
     height: $badge-round-size;
-    padding: $badge-round-padding;
+    padding: $badge-round-padding-y $badge-round-padding-x;
     line-height: $badge-round-line-height;
     text-align: center;
     display: inline-flex;

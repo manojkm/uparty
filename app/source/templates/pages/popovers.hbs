@@ -7,7 +7,8 @@ components: true
 <!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-6 col-md-12 pr-md-2">{{#card}}
+        <div class="col-xl-6 col-md-12 pr-md-2">
+            {{#card}}
             {{{card_header 'All four directions - Static demo'}}}
             {{#card_body_has 'bg-dark'''}}
                 <!-- All four directions - Static demo -->
@@ -48,7 +49,8 @@ components: true
                 <!-- /All four directions - Static demo -->
             {{/card_body_has}}
         {{/card}}</div>
-        <div class="col-xl-6 col-md-12 pl-md-2">{{#card}}
+        <div class="col-xl-6 col-md-12 pl-md-2">
+            {{#card}}
             {{{card_header 'Basic Example'}}}
             {{#card_body}}
                 <p>Use the <code>data-placement</code> attribute to set the position of the popover on top, bottom, left or the right side of the element:</p>
@@ -71,7 +73,8 @@ components: true
                 </button>
                 <!-- /Basic Example -->
             {{/card_body}}
-        {{/card}}{{#card}}
+        {{/card}}
+            {{#card}}
             {{{card_header 'Basic Example without title'}}}
             {{#card_body}}
                 <p>Just remove the <code>title</code> attribute that is used to specify the header text of the popover.</p>
@@ -79,19 +82,17 @@ components: true
                 <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
                    data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. Right?">Popover
                     on top</a>
-
                 <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
                    data-toggle="popover" data-placement="right" data-content="And here's some amazing content. It's very engaging. Right?">Popover on right</a>
-
                 <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
                    data-toggle="popover" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom</a>
-
                 <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
                    data-toggle="popover" data-placement="left" data-content="And here's some amazing content. It's very engaging. Right?">Popover
                     on left</a>
                 <!-- /Basic Example without title -->
             {{/card_body}}
-        {{/card}}</div>
+        {{/card}}
+        </div>
     </div>
     <div class="row">
         <div class="col-xl-6 col-md-12 pr-md-2">
@@ -107,7 +108,6 @@ components: true
                             data-content="And here's some amazing content. It's very engaging. Right?">
                         <i class="icon-heart"></i>
                     </button>
-
                     <button type="button" class="btn btn-secondary btn-icon btn-round mb-1" data-color="secondary"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
@@ -115,7 +115,6 @@ components: true
                             data-content="And here's some amazing content. It's very engaging. Right?">
                         <i class="icon-heart"></i>
                     </button>
-
                     <button type="button" class="btn btn-success btn-icon btn-round mb-1" data-color="success"
                             data-trigger="hover"
                             data-container="body" data-toggle="popover"
@@ -215,7 +214,6 @@ components: true
                 {{{card_header 'Clickable'}}}
                 {{#card_body}}
                     <!-- Clickable -->
-
                     <img src="https://semantic-ui.com/images/avatar2/large/elyse.png"
                          class="has-popover rounded-circle w-5 mr-2"
                          data-container="body" data-toggle="popover"
@@ -239,7 +237,6 @@ components: true
                          data-container="body" data-toggle="popover"
                          data-placement="left" title="Matt Giampietro" alt="Matt Giampietro"
                          data-content="Matt Giampietro is a personal assistant living in Paris.">
-
                     <p></p>
                     <button type="button" class="btn btn-primary mr-3" data-container="body" data-toggle="popover"
                             data-placement="top" title="Popover on top"
@@ -284,28 +281,55 @@ components: true
             {{#card}}
                 {{{card_header 'Popover options'}}}
                 {{#card_body}}
+                    <!-- Popover options -->
                     <div class="row">
                         <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
-                            <p>Use <code>data-animation="false"</code> to remove fade animation. Default is true.</p>
-                            <button type="button" class="btn btn-sm btn-danger" data-container="body" data-toggle="popover"
-                                    data-trigger="focus" data-placement="top" title="Dismissible"
+                            <!-- Disabled animation -->
+                            <button type="button" class="btn btn-sm btn-danger m-2" data-container="body" data-toggle="popover"
+                                    data-trigger="focus" data-placement="top" title="Disabled animation"
                                     data-animation="false"
                                     data-content="And here's some amazing content. It's very engaging. Right?">
                                 Disabled animation
                             </button>
+                            <!-- /Disabled animation -->
+                            <p>Use <code>data-animation="false"</code> to remove fade animation. Default is true.</p>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
-                            <p>Delay showing and hiding the popover (ms) - does not apply to manual trigger type. Use <code>data-delay="500"</code></p>
-                            <button type="button" class="btn btn-sm btn-danger" data-container="body" data-toggle="popover"
-                                    data-trigger="focus" data-placement="top" title="Dismissible"
+                            <!-- Delay popover -->
+                            <button type="button" class="btn btn-sm btn-danger  m-2" data-container="body" data-toggle="popover"
+                                    data-trigger="focus" data-placement="top" title="Delay popover"
                                     data-delay="500" data-content="And here's some amazing content. It's very engaging. Right?">
                                 Delay popover
                             </button>
+                            <!-- /Delay popover -->
+                            <p>Delay showing and hiding the popover (ms) - does not apply to manual trigger type. Use <code>data-delay="500"</code></p>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
+                            <!-- HTML popover -->
+                            <button type="button" class="btn btn-sm btn-danger  m-2" data-container="body" data-toggle="popover"
+                                    data-trigger="focus" data-placement="top" data-html="true" title="This is <i>HTML</i> <u>popover</u>"
+                                    data-content="And here's some amazing content. It's very engaging. Right?">
+                                HTML popover
+                            </button>
+                            <!-- /HTML popover -->
+                            <p>Insert HTML into the popover. Use <code>data-html="true"</code> for HTML supported trigger.</p>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
+                            <!-- Popover template -->
+                            <button type="button" class="btn btn-sm btn-danger  m-2" data-container="body" data-toggle="popover"
+                                    data-trigger="focus" data-placement="top" title="Default Template Structure"
+                                    data-content="<div class='popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body'></div></div>">
+                                Popover template
+                            </button>
+                            <!-- /Popover template -->
+                            <p>Base HTML to use when creating the popover. The popover's <code>title</code> will be injected into the <code>.popover-header</code>.
+                                The popover's <code>content</code> will be injected into the <code>.popover-body</code>.<code>.arrow</code> will become the popover's
+                                arrow. The outermost wrapper element should have the <code>.popover</code> class.</p>
                         </div>
                     </div>
+                    <!-- /Popover options -->
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
-
 </div>

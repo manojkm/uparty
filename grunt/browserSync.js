@@ -11,10 +11,7 @@ module.exports = function (grunt) {
             options: {
                 watchTask: true, //Option 'false' will open browser directly without watching grunt tasks.
                 open: false,
-                port: 8080,
-                server: {
-                    baseDir: [grunt.getPath('dest')],
-                },
+                proxy: "http://obeus.com",
 
                 // plugins: [
                 //     {

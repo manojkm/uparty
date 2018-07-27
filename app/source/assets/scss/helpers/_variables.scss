@@ -1263,9 +1263,11 @@ $badge-pill-border-radius:              10rem !default; // Border radius to add 
 
 // Round badges
 
-$badge-round-border-radius:             $border-radius-100; // Create a circle around the badges
+$badge-round-border-radius:             $border-radius-30-px; // Create a circle around the badges
 $badge-round-size:                      1.5em;  // Size used for both width and height to make perfect circle/rounded shape. When the value changes/increase the badge could get bigger
-$badge-round-padding:                   0.70em; // Used to add extra padding around the round badges.
+$badge-round-padding-y:                 .18rem !default; // Used to add vertical padding around the round badges. Make sure that for small value, the badge will be big enough.
+$badge-round-padding-x:                 .3rem !default; // Used to add horizontal padding around the round badges. Make sure that for small value, the badge will be big enough.
+
 $badge-round-line-height:               1em;
 
 // Empty badges
