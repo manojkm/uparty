@@ -72,6 +72,79 @@ components: true
 
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Sizes'}}}
+                {{#card_body_has 'example'''}}
+                    <p>Fancy larger or smaller progress bars? Use class <code>.progress-sm</code> for small size progress bar & Use class .progress-lg for small size
+                        progress bar. For Default size no classes required.</p>
+                    <!-- Sizes -->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 15%" aria-valuenow="15"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 30%" aria-valuenow="30"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 45%" aria-valuenow="45"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <!-- /Sizes -->
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'With label'}}}
+                {{#card_body_has 'example'''}}
+                    <p>Add labels to your progress bars by placing text within the <code>.progress-bar</code>.</p>
+                    <!-- With label -->
+                    <div class="progress progress-lg">
+                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100">25%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 30%" aria-valuenow="30"
+                             aria-valuemin="0" aria-valuemax="100">30%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 45%" aria-valuenow="45"
+                             aria-valuemin="0" aria-valuemax="100">45%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60"
+                             aria-valuemin="0" aria-valuemax="100">60%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75"
+                             aria-valuemin="0" aria-valuemax="100">75%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100">100%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-dark" role="progressbar" style="width: 80%" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100">80%
+                        </div>
+                    </div>
+                    <!-- /With label -->
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             {{#card}}
@@ -136,58 +209,10 @@ components: true
     <div class="row">
         <div class="col-md-12">
             {{#card}}
-                {{{card_header 'Sizes'}}}
+                {{{card_header 'Multiple bars'}}}
                 {{#card_body_has 'example'''}}
-                    <p>Fancy larger or smaller progress bars? Use class <code>.progress-sm</code> for small size progress bar & Use class .progress-lg for small size
-                        progress bar. For Default size no classes required.</p>
-                    <!-- Sizes -->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 15%" aria-valuenow="15"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 30%" aria-valuenow="30"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress progress-lg">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 45%" aria-valuenow="45"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <!-- /Sizes -->
-                {{/card_body_has}}
-            {{/card}}
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            {{#card}}
-                {{{card_header 'With label'}}}
-                {{#card_body_has 'example'''}}
-                    <p>Add labels to your progress bars by placing text within the <code>.progress-bar</code>.</p>
-                    <!-- With label -->
-                    <div class="progress progress-lg">
-                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                             aria-valuemin="0" aria-valuemax="100">25%
-                        </div>
-                    </div>
-                    <!-- /With label -->
-                {{/card_body_has}}
-            {{/card}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Multiple bars</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body example">
+                    <p>Include multiple progress bars in a progress component if you need.</p>
+                    <!-- Multiple bars -->
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15"
                              aria-valuemin="0" aria-valuemax="100"></div>
@@ -196,48 +221,118 @@ components: true
                         <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20"
                              aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                </div>
-            </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="15"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="30"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width:30%" aria-valuenow="30"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-dark" role="progressbar" style="width: 55%" aria-valuenow="50"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <!-- /Multiple bars -->
+                {{/card_body_has}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Striped</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body example">
+            {{#card}}
+                {{{card_header 'Striped'}}}
+                {{#card_body_has 'example'''}}
+                    <p>Add <code>.progress-bar-striped</code> to any <code>.progress-bar</code> to apply a stripe via CSS gradient over the progress bar’s background color.
+                    </p>
+                    <!-- Striped -->
                     <div class="progress progress-lg">
-                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%"
-                             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 25%"
+                             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                </div>
-            </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 30%" aria-valuenow="30"
+                             aria-valuemin="0" aria-valuemax="100">30%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 45%" aria-valuenow="45"
+                             aria-valuemin="0" aria-valuemax="100">45%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 60%" aria-valuenow="60"
+                             aria-valuemin="0" aria-valuemax="100">60%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75"
+                             aria-valuemin="0" aria-valuemax="100">75%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100">100%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped bg-dark" role="progressbar" style="width: 80%" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100">80%
+                        </div>
+                    </div>
+                    <!-- /Striped -->
+                {{/card_body_has}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Animated stripes</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body example">
+
+            {{#card}}
+                {{{card_header 'Animated stripes'}}}
+                {{#card_body_has 'example'''}}
+                    <p>The striped gradient can also be animated. Add <code>.progress-bar-animated</code> to <code>.progress-bar</code> to animate the stripes right to left via CSS3 animations.
+                    </p>
+                    <!-- Animated stripes -->
                     <div class="progress progress-lg">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 25%"
+                             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                     </div>
-                </div>
-            </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 30%" aria-valuenow="30"
+                             aria-valuemin="0" aria-valuemax="100">30%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 45%" aria-valuenow="45"
+                             aria-valuemin="0" aria-valuemax="100">45%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 60%" aria-valuenow="60"
+                             aria-valuemin="0" aria-valuemax="100">60%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75"
+                             aria-valuemin="0" aria-valuemax="100">75%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100">100%
+                        </div>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark" role="progressbar" style="width: 80%" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100">80%
+                        </div>
+                    </div>
+                    <!-- /Animated stripes -->
+                {{/card_body_has}}
+            {{/card}}
         </div>
     </div>
 </div>
