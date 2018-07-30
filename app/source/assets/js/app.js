@@ -336,7 +336,21 @@ var appMaster = {
                 template: '<div class="tooltip tooltip-' + color + ' ' + animate + '" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
             });
         });
+
+        $(appMaster._tooltip).click(function () {
+            if ($(this).hasClass("manual")) {
+                $(this).tooltip("show");
+            }
+        });
+
+        $(appMaster._tooltip).mouseout(function () {
+            if ($(this).hasClass("manual")) {
+                $(this).tooltip("hide");
+            }
+        });
+
     },
+
 
     popover: function () {
         //TODO close button https://jsfiddle.net/vivekkupadhyay/bdkbq5sd/10/
