@@ -4,94 +4,93 @@ lead: Add small overlay content, like those found in iOS, to any element for hou
 components: true
 ---
 
-<!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
 <div class="container-fluid">
     <div class="row">
         <div class="col-xl-6 col-md-12 pr-md-2">
             {{#card}}
-            {{{card_header 'All four directions - Static demo'}}}
-            {{#card_body_has 'bg-dark'''}}
-                <!-- All four directions - Static demo -->
-                <div class="row py-2">
-                    <div class="col-md-6 example">
-                        <div class="popover bs-popover-right show mx-auto">
-                            <div class="arrow" style="top: 31px;"></div>
-                            <h3 class="popover-header">Popover right</h3>
-                            <div class="popover-body">
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
+                {{{card_header 'All four directions - Static demo'}}}
+                {{#card_body_has 'bg-dark'''}}
+                    <!-- All four directions - Static demo -->
+                    <div class="row py-2">
+                        <div class="col-md-6 example">
+                            <div class="popover bs-popover-right show mx-auto">
+                                <div class="arrow" style="top: 31px;"></div>
+                                <h3 class="popover-header">Popover right</h3>
+                                <div class="popover-body">
+                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
+                                </div>
+                            </div>
+                            <div class="popover bs-popover-left show mt-5 mx-auto">
+                                <div class="arrow" style="top: 31px;"></div>
+                                <h3 class="popover-header">Popover left</h3>
+                                <div class="popover-body">
+                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="popover bs-popover-left show mt-5 mx-auto">
-                            <div class="arrow" style="top: 31px;"></div>
-                            <h3 class="popover-header">Popover left</h3>
-                            <div class="popover-body">
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
+                        <div class="col-md-6 example">
+                            <div class="popover bs-popover-top show mx-auto">
+                                <div class="arrow" style="left: 124px;"></div>
+                                <h3 class="popover-header">Popover top</h3>
+                                <div class="popover-body">
+                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
+                                </div>
+                            </div>
+                            <div class="popover bs-popover-bottom show mt-5 mx-auto">
+                                <div class="arrow" style="left: 124px;"></div>
+                                <h3 class="popover-header">Popover bottom</h3>
+                                <div class="popover-body">
+                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 example">
-                        <div class="popover bs-popover-top show mx-auto">
-                            <div class="arrow" style="left: 124px;"></div>
-                            <h3 class="popover-header">Popover top</h3>
-                            <div class="popover-body">
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </div>
-                        </div>
-                        <div class="popover bs-popover-bottom show mt-5 mx-auto">
-                            <div class="arrow" style="left: 124px;"></div>
-                            <h3 class="popover-header">Popover bottom</h3>
-                            <div class="popover-body">
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /All four directions - Static demo -->
-            {{/card_body_has}}
-        {{/card}}</div>
+                    <!-- /All four directions - Static demo -->
+                {{/card_body_has}}
+            {{/card}}</div>
         <div class="col-xl-6 col-md-12 pl-md-2">
             {{#card}}
-            {{{card_header 'Basic Example'}}}
-            {{#card_body}}
-                <p>Use the <code>data-placement</code> attribute to set the position of the popover on top, bottom, left or the right side of the element:</p>
-                <!-- Basic Example -->
-                <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
-                        data-toggle="popover" data-placement="top" title="Popover on top"
-                        data-content="And here's some amazing content. It's very engaging. Right?">Popover on top
-                </button>
-                <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
-                        data-toggle="popover" data-placement="right" title="Popover on right"
-                        data-content="And here's some amazing content. It's very engaging. Right?">Popover on right
-                </button>
-                <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
-                        data-toggle="popover" data-placement="bottom" title="Popover on bottom"
-                        data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom
-                </button>
-                <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
-                        data-toggle="popover" data-placement="left" title="Popover on left"
-                        data-content="And here's some amazing content. It's very engaging. Right?">Popover on left
-                </button>
-                <!-- /Basic Example -->
-            {{/card_body}}
-        {{/card}}
+                {{{card_header 'Basic Example'}}}
+                {{#card_body}}
+                    <p>Use the <code>data-placement</code> attribute to set the position of the popover on top, bottom, left or the right side of the element:</p>
+                    <!-- Basic Example -->
+                    <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
+                            data-toggle="popover" data-placement="top" title="Popover on top"
+                            data-content="And here's some amazing content. It's very engaging. Right?">Popover on top
+                    </button>
+                    <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
+                            data-toggle="popover" data-placement="right" title="Popover on right"
+                            data-content="And here's some amazing content. It's very engaging. Right?">Popover on right
+                    </button>
+                    <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
+                            data-toggle="popover" data-placement="bottom" title="Popover on bottom"
+                            data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom
+                    </button>
+                    <button type="button" class="btn btn-primary mb-1" role="button" data-container="body"
+                            data-toggle="popover" data-placement="left" title="Popover on left"
+                            data-content="And here's some amazing content. It's very engaging. Right?">Popover on left
+                    </button>
+                    <!-- /Basic Example -->
+                {{/card_body}}
+            {{/card}}
             {{#card}}
-            {{{card_header 'Basic Example without title'}}}
-            {{#card_body}}
-                <p>Just remove the <code>title</code> attribute that is used to specify the header text of the popover.</p>
-                <!-- Basic Example without title -->
-                <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
-                   data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. Right?">Popover
-                    on top</a>
-                <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
-                   data-toggle="popover" data-placement="right" data-content="And here's some amazing content. It's very engaging. Right?">Popover on right</a>
-                <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
-                   data-toggle="popover" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom</a>
-                <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
-                   data-toggle="popover" data-placement="left" data-content="And here's some amazing content. It's very engaging. Right?">Popover
-                    on left</a>
-                <!-- /Basic Example without title -->
-            {{/card_body}}
-        {{/card}}
+                {{{card_header 'Basic Example without title'}}}
+                {{#card_body}}
+                    <p>Just remove the <code>title</code> attribute that is used to specify the header text of the popover.</p>
+                    <!-- Basic Example without title -->
+                    <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
+                       data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. Right?">Popover
+                        on top</a>
+                    <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
+                       data-toggle="popover" data-placement="right" data-content="And here's some amazing content. It's very engaging. Right?">Popover on right</a>
+                    <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
+                       data-toggle="popover" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Popover on bottom</a>
+                    <a href="#" class="btn btn-link btn-primary" role="button" data-container="body"
+                       data-toggle="popover" data-placement="left" data-content="And here's some amazing content. It's very engaging. Right?">Popover
+                        on left</a>
+                    <!-- /Basic Example without title -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
@@ -273,6 +272,23 @@ components: true
                     <!-- /Dismiss on next click -->
                 {{/card_body}}
             {{/card}}
+
+            {{#card}}
+                {{{card_header 'Disabled elements'}}}
+                {{#card_body}}
+                    <p>Elements with the <code class="highlighter-rouge">disabled</code> attribute aren’t interactive, meaning users cannot hover or click them to trigger
+                        a popover (or tooltip). As a workaround, you’ll want to trigger the popover from a wrapper <code class="highlighter-rouge">&lt;div&gt;</code> or
+                        <code class="highlighter-rouge">&lt;span&gt;</code> and override the <code class="highlighter-rouge">pointer-events</code> on the disabled
+                        element.</p>
+                    <!-- Disabled elements -->
+                    <span class="d-inline-block" data-toggle="popover" data-content="Disabled popover">
+                    <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
+                    </span>
+                    <!-- /Disabled elements -->
+                {{/card_body}}
+            {{/card}}
+
+
         </div>
     </div>
 
