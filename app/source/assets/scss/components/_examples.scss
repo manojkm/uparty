@@ -10,10 +10,6 @@ Author URL     : http://www.themeforest.net/user/xxx
 ================================================================================================
 */
 
-//
-// DROPDOWN
-// ======================================================
-
 .example {
   > .dropdown-menu {
     position: relative;
@@ -28,7 +24,7 @@ Author URL     : http://www.themeforest.net/user/xxx
     display: block;
   }
 
-  .popover {
+  .popover, .tooltip {
     position: relative;
   }
 
@@ -36,7 +32,7 @@ Author URL     : http://www.themeforest.net/user/xxx
     margin-bottom: 20px
   }
 
-  .list-icon i{
+  .list-icon i {
     @include transition;
     font-size: 14px;
     width: 40px;
@@ -63,12 +59,12 @@ span.placeholder code,
 span.placeholder a {
   background: hsl(0, 0%, 90%);
   color: hsl(0, 0%, 90%);
-  line-height:1.70rem;
+  line-height: 1.70rem;
 }
 
-span.placeholder code{
-  padding-top:0;
-  padding-bottom:0;
+span.placeholder code {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 hr.placeholder {
@@ -77,6 +73,7 @@ hr.placeholder {
   background: hsla(0, 0%, 80%, .25);
   margin: 2rem 0;
 }
+
 button span.placeholder,
 button span.placeholder a {
   background: hsl(0, 0%, 100%);

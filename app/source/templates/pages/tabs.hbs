@@ -1,57 +1,30 @@
 ---
 title: "Tabs"
-subtitle: A tab is a hidden section of content activated by a menu.
+lead: A tab is a hidden section of content activated by a menu.
 components: true
-posted: 2018-01-09
 ---
 
-<!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Basic</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                               aria-controls="home" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                               aria-controls="profile" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab" data-toggle="tab" href="#message" role="tab"
-                               aria-controls="message" aria-selected="false">Messages</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent">
-                        <div class="tab-pane p-3 fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message" role="tabpanel" aria-labelledby="message-tab">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
+        <div class="col-md-6 pr-md-2">
 
-                    <h6 class="card-title mt-4">Justified</h6>
+            {{#card}}
+                {{{card_header 'Basic'}}}
+                {{#card_body}}
+                    <p>Turn the nav menu into navigation tabs with the <code>.nav-tabs</code> class. Add the <code>.active</code> class to the active/current link.</p>
+                    <!-- Basic tab -->
+                    {{#tab_has 'nav-tabs''myTab' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-tab" data-toggle="tab" href="#{{id}}" role="tab" aria-controls="{{id}}" aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder''myTabContent' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}" role="tabpanel" aria-labelledby="{{id}}-tab"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Basic tab -->
+
+                    <hr>
+                    {{{card_title 'Justified'}}}
+                    <p>Add the <code>.nav-justified</code> class to justify the nav.</p>
+                    <!-- Justified -->
                     <ul class="nav nav-tabs nav-justified" id="myTab-3" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab-3" data-toggle="tab" href="#home-3" role="tab"
@@ -65,7 +38,6 @@ posted: 2018-01-09
                             <a class="nav-link" id="message-tab-3" data-toggle="tab" href="#message-3" role="tab"
                                aria-controls="message-3" aria-selected="false">Messages</a>
                         </li>
-
                     </ul>
                     <div class="tab-content hasborder" id="myTabContent-3">
                         <div class="tab-pane p-3 fade show active" id="home-3" role="tabpanel"
@@ -85,7 +57,7 @@ posted: 2018-01-09
                             </p>
                         </div>
                     </div>
-
+                    <!-- Justified -->
 
                     <h6 class="card-title mt-4">Centered</h6>
                     <ul class="nav nav-tabs justify-content-center" id="myTab-5" role="tablist">
@@ -157,8 +129,9 @@ posted: 2018-01-09
                         </div>
                     </div>
 
-                </div>
-            </div>
+
+                {{/card_body}}
+            {{/card}}
 
 
             <div class="card">

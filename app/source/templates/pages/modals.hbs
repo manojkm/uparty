@@ -57,7 +57,7 @@ components: true
                         </div>
                     {{/modal}}
                     <!-- /Minimal modal -->
-                    {{/card_body_has}}
+                {{/card_body_has}}
             {{/card}}
         </div>
     </div>
@@ -232,7 +232,7 @@ components: true
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                             {{{card_title 'Small modal size'}}}
-                            <p>Add class <code>.modal-sm</code> to .modal-dialog to use small size of modal.</p>
+                            <p>Add class <code>.modal-sm</code> to <code>.modal-dialog</code> to use small size of modal.</p>
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#smallSizeModal">Small modal</button>
                             <!-- Small modal size -->
                             {{#modal 'fade modal-success' 'smallSizeModal' 'modal-sm'}}
@@ -260,7 +260,7 @@ components: true
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                             {{{card_title 'Large modal size'}}}
-                            <p>Add class <code>.modal-lg</code> to .modal-dialog to use large size of modal.</p>
+                            <p>Add class <code>.modal-lg</code> to <code>.modal-dialog</code> to use large size of modal.</p>
                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#largeSizeModal">Large modal</button>
                             <!-- Large modal size -->
                             {{#modal 'fade modal-secondary' 'largeSizeModal' 'modal-lg'}}
@@ -274,7 +274,7 @@ components: true
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                             {{{card_title 'Full Screen modal size'}}}
-                            <p>Add class <code>.modal-fullscreen</code> to .modal-dialog to use full screen size of modal.</p>
+                            <p>Add class <code>.modal-fullscreen</code> to <code>.modal-dialog</code> to use full screen size of modal.</p>
                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#fullscreenSizeModal">Full Screen modal</button>
                             <!-- Full Screen modal size -->
                             {{#modal 'fade modal-info' 'fullscreenSizeModal' 'modal-fullscreen'}}
@@ -286,6 +286,36 @@ components: true
                             {{/modal}}
                             <!-- /Full Screen modal size -->
                         </div>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Modal animation'}}}
+                {{#card_body}}
+                    <div class="row">
+                        {{#each modal.anim_list}}
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                                <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#animated{{modifier}}Modal">{{text}}</button>
+                                <p>Add class <code>.{{class}}.{{modifier}}</code> to <code>.modal-dialog</code></p>
+                                <!-- {{text}} animation -->
+                                <div class="modal fade modal-success" id="animated{{modifier}}Modal" tabindex="-1" role="dialog" aria-labelledby="animated{{modifier}}Modal" aria-hidden="true">
+                                    <div class="modal-dialog {{class}} {{modifier}}" role="document">
+                                        <div class="modal-content">
+                                            {{{modalHeader 'Modal title'}}}
+                                            {{#modalContent}}
+                                                <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                                            {{/modalContent}}
+                                            {{{modalFooter 'button' 'Save changes' 'success'}}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /{{text}} animation -->
+                            </div>
+                        {{/each}}
                     </div>
                 {{/card_body}}
             {{/card}}
@@ -376,7 +406,7 @@ components: true
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ignoreBackdropClickModal">Launch modal</button>
                     <!-- Ignore backdrop click -->
                     <div class="modal fade modal-info" id="ignoreBackdropClickModal" tabindex="-1" role="dialog" aria-labelledby="ignoreBackdropClickModalLabel"
-                         aria-hidden="true"  data-backdrop="static">
+                         aria-hidden="true" data-backdrop="static">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 {{{modalHeader 'Modal title'}}}

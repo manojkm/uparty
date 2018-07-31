@@ -330,10 +330,18 @@ var appMaster = {
 
     tooltip: function () {
         $(appMaster._tooltip).each(function () {
+            function isValid(str) {
+                return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
+            }
+
             var animate = $(this).data('animate');
             var color = $(this).data('color');
+
+            var color_selector = (isValid(color)) ? ' ' + 'tooltip-' + color : '';
+            var animate_selector = (isValid(animate)) ? ' ' + animate : '';
+
             $(this).tooltip({
-                template: '<div class="tooltip tooltip-' + color + ' ' + animate + '" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
+                template: '<div class="tooltip' + color_selector + animate_selector + '" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
             });
         });
 
@@ -349,15 +357,30 @@ var appMaster = {
             }
         });
 
+        $(appMaster._tooltip).click(function () {
+            if ($(this).hasClass("template")) {
+                console.log('<div class="tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>')
+            }
+        });
+
     },
 
 
     popover: function () {
         //TODO close button https://jsfiddle.net/vivekkupadhyay/bdkbq5sd/10/
         $(appMaster._popover).each(function () {
+            function isValid(str) {
+                return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
+            }
+
+            var animate = $(this).data('animate');
             var color = $(this).data('color');
+
+            var color_selector = (isValid(color)) ? ' ' + 'popover-' + color : '';
+            var animate_selector = (isValid(animate)) ? ' ' + animate : '';
+
             $(this).popover({
-                template: '<div class="popover popover-' + color + '" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+                template: '<div class="popover' + color_selector + animate_selector + '" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
             });
         });
     },

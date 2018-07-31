@@ -64,6 +64,28 @@ module.exports.register = function (Handlebars, options) {
     });
 
 //
+// BOOTSTRAP NAV TABS
+// ======================================================
+
+// Tabs wrapper
+    Handlebars.registerHelper('tab_has', function (cl, id, context, options) {
+        var html = '<ul class="nav ' + cl + '" id="' + id + '" role="tablist">';
+        for (var i = 0, j = context.length; i < j; i++) {
+            html = html + '<li class="nav-item">' + options.fn(context[i]) + '</li>';
+        }
+        return html + '</ul>';
+    });
+
+// Tab content
+    Handlebars.registerHelper('tab_content_has', function (cl, id, context, options) {
+        var html = '<div class="tab-content ' + cl + '" id="' + id + '" role="tablist">';
+        for (var i = 0, j = context.length; i < j; i++) {
+            html = html + options.fn(context[i]);
+        }
+        return html + '</div>';
+    });
+
+//
 // BOOTSTRAP ALERT
 // ======================================================
 
@@ -77,7 +99,7 @@ module.exports.register = function (Handlebars, options) {
 // BOOTSTRAP BREADCRUMB
 // ======================================================
 
-// Usage {{#breadcrumb "myClass"}}<li class="breadcrumb-item"><a href="#">Home</a></li>{{/breadcrumb}}
+// Usage {{#breadcrumb "myClass" "myId"}}<li class="breadcrumb-item"><a href="#">Home</a></li>{{/breadcrumb}}
     Handlebars.registerHelper("breadcrumb", function (cl, id, options) {
 
         function isValid(str) {
@@ -155,6 +177,7 @@ module.exports.register = function (Handlebars, options) {
         function isValid(str) {
             return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
         }
+
         var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
         var class_selector = (isValid(cl)) ? 'class="card-body' + ' ' + cl + '"' : 'class="card-body"';
         var content = options.fn(this);
@@ -167,24 +190,24 @@ module.exports.register = function (Handlebars, options) {
 // BOOTSTRAP MODAL
 // ======================================================
 
-    Handlebars.registerHelper('modal', function(cl, context, cl_modal_dialog, options) {
-        var content =  options.fn(this);
-        return '<div class="modal '+ cl +'" id="' + context + '" tabindex="-1" role="dialog" aria-labelledby="'+ context +'Label" aria-hidden="true"><div class="modal-dialog '+ cl_modal_dialog +'" role="document"><div class="modal-content">' + content + '</div></div></div>';
+    Handlebars.registerHelper('modal', function (cl, context, cl_modal_dialog, options) {
+        var content = options.fn(this);
+        return '<div class="modal ' + cl + '" id="' + context + '" tabindex="-1" role="dialog" aria-labelledby="' + context + 'Label" aria-hidden="true"><div class="modal-dialog ' + cl_modal_dialog + '" role="document"><div class="modal-content">' + content + '</div></div></div>';
     });
 
-    Handlebars.registerHelper('modalHeader', function(title) {
+    Handlebars.registerHelper('modalHeader', function (title) {
         return '<div class="modal-header"><h5 class="modal-title">' + title + '</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
     });
 
-    Handlebars.registerHelper('modalContent', function(options) {
-        var content =  options.fn(this);
+    Handlebars.registerHelper('modalContent', function (options) {
+        var content = options.fn(this);
 
         return '<div class="modal-body">' + content + '</div>';
     });
 
-    Handlebars.registerHelper('modalFooter', function(type, text, btnclass) {
+    Handlebars.registerHelper('modalFooter', function (type, text, btnclass) {
         var buttonType = type === "insert" || type === "update" ? "submit" : "button";
-        return '<div class="modal-footer"><button type="button" class="btn btn-light" data-dismiss="modal">Close</button><button type="' + buttonType + '" class="btn btn-'+ btnclass +'">' + text + '</button></div>';
+        return '<div class="modal-footer"><button type="button" class="btn btn-light" data-dismiss="modal">Close</button><button type="' + buttonType + '" class="btn btn-' + btnclass + '">' + text + '</button></div>';
     });
 
 };

@@ -6,25 +6,63 @@ components: true
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-xl-6 col-md-12 pr-xl-2">
+            {{#card}}
+                {{{card_header 'Static demo'}}}
+                {{#card_body_has 'example'''}}
+                    <p>By default, the tooltip will appear on top of the element. Use the <code>data-placement</code> attribute to set the position of the tooltip on top, bottom, left or the right side of the element:
+                    </p>
+                    <!-- Static demo -->
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-2">
+                            <div class="tooltip bs-tooltip-top show" role="tooltip">
+                                <div class="arrow" style="left: 50%; margin-left: -5px;"></div>
+                                <div class="tooltip-inner" style="max-width: none;">Tooltip on top</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-2">
+                            <div class="tooltip bs-tooltip-bottom show" role="tooltip">
+                                <div class="arrow" style="left: 50%; margin-left: -5px;"></div>
+                                <div class="tooltip-inner" style="max-width: none;">Tooltip on bottom</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-2">
+                            <div class="tooltip bs-tooltip-right show" role="tooltip">
+                                <div class="arrow" style="top: 50%; margin-top: -5px;"></div>
+                                <div class="tooltip-inner" style="max-width: none;">Tooltip on right</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-2">
+                            <div class="tooltip bs-tooltip-left show" role="tooltip">
+                                <div class="arrow" style="top: 50%; margin-top: -5px;"></div>
+                                <div class="tooltip-inner" style="max-width: none;">Tooltip on left</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Static demo -->
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+        <div class="col-xl-6 col-md-12 pl-xl-2">
             {{#card}}
                 {{{card_header 'Interactive demo'}}}
                 {{#card_body}}
                     <p class="text-muted">Hover over the links below to see tooltips:</p>
                     <!-- Interactive demo -->
                     <p><span class="placeholder small">Tight pants next level keffiyeh</span>
-                        <a href="#" data-toggle="tooltip" title="" data-original-title="Default tooltip">you probably</a> <span class="placeholder small">haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel</span>
-                        <a href="#" data-toggle="tooltip" title="" data-original-title="Another tooltip">have a</a> <span class="placeholder small">terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan</span>
-                        <a href="#" data-toggle="tooltip" title="" data-original-title="Another one here too">whatever keytar</a>, <span class="placeholder small">scenester farm-to-table banksy Austin</span>
-                        <a href="#" data-toggle="tooltip" title="" data-original-title="The last tip!">twitter handle</a> <span class="placeholder small">freegan cred raw denim single-origin coffee viral.</span>
+                        <a href="#" data-toggle="tooltip" title="Default tooltip">you probably</a> <span class="placeholder small">haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel</span>
+                        <a href="#" data-toggle="tooltip" title="Another tooltip">have a</a> <span class="placeholder small">terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan</span>
+                        <a href="#" data-toggle="tooltip" title="Another one here too">whatever keytar</a>, <span class="placeholder small">scenester farm-to-table banksy Austin</span>
+                        <a href="#" data-toggle="tooltip" title="The last tip!">twitter handle</a> <span class="placeholder small">freegan cred raw denim...</span>
                     </p>
                     <!-- /Interactive demo -->
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
+
     <div class="row">
-        <div class="col-xl-12 col-md-12 pr-xl-2">
+        <div class="col-xl-12 col-md-12">
             {{#card}}
                 {{{card_header 'All Four Directions'}}}
                 {{#card_body}}
@@ -70,7 +108,7 @@ components: true
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-12 col-md-12 pl-xl-2">
+        <div class="col-xl-12 col-md-12">
             {{#card}}
                 {{{card_header 'Tooltip triggers'}}}
                 {{#card_body}}
@@ -79,36 +117,94 @@ components: true
                     <!-- Tooltip triggers -->
                     <div class="row">
                         <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
-                            <button type="button" class="btn btn-info" data-toggle="tooltip" data-original-title="Click Triggered" data-trigger="click">
+                            <!-- On click trigger -->
+                            <button type="button" class="btn btn-info" data-toggle="tooltip" title="Click Triggered" data-trigger="click">
                                 On click trigger
                             </button>
+                            <!-- /On click trigger -->
                             <p>Use <code>data-trigger="click"</code> for click trigger.</p>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
-                            <button type="button" class="btn btn-info" data-toggle="tooltip" data-original-title="Focus Triggered" data-trigger="focus">
+                            <!-- On focus trigger -->
+                            <button type="button" class="btn btn-info" data-toggle="tooltip" title="Focus Triggered" data-trigger="focus">
                                 On focus trigger
                             </button>
+                            <!-- /On focus trigger -->
                             <p>Use <code>data-trigger="focus"</code> for focus trigger.</p>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
-                            <button type="button" class="btn btn-info" data-toggle="tooltip" data-original-title="Hover Triggered" data-trigger="hover">
+                            <!-- On hover trigger -->
+                            <button type="button" class="btn btn-info" data-toggle="tooltip" title="Hover Triggered" data-trigger="hover">
                                 On hover trigger
                             </button>
+                            <!-- /On hover trigger -->
                             <p>Use <code>data-trigger="hover"</code> for hover trigger. This is a default trigger.</p>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
-                            <button type="button" class="btn btn-info manual" data-toggle="tooltip" data-original-title="Manual Triggered" data-trigger="manual">
+                            <!-- On manual trigger -->
+                            <button type="button" class="btn btn-info manual" data-toggle="tooltip" title="Manual Triggered" data-trigger="manual">
                                 On manual trigger
                             </button>
+                            <!-- .On manual trigger -->
                             <p>Use <code>data-trigger="manual"</code> for manual trigger. You can do show/hide using js</p>
                         </div>
                     </div>
                     <!-- /Tooltip triggers -->
 
-                    <button type="button" class="btn btn-danger btn-sm" data-animate=" animated fadeInDown" data-toggle="tooltip" data-original-title="Hover Triggered"
-                            data-trigger="hover">
+                    <button type="button" class="btn btn-danger btn-sm" data-animate="animated fadeInDown" data-toggle="tooltip" title="Hover Triggered"
+                            data-trigger="hover" data-placement="top">
                         Animation testing.. delete later.. bcoz tooltip is appearing top left
                     </button>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12 col-md-12">
+            {{#card}}
+                {{{card_header 'Tooltip options'}}}
+                {{#card_body}}
+                    <!-- Tooltip options -->
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
+                            <!-- Disabled animation -->
+                            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-animation="false" title="Disabled animation">
+                                Disabled animation
+                            </button>
+                            <!-- /Disabled animation -->
+                            <p>Use <code>data-animation="false"</code> to remove fade animation. Default is true.</p>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
+                            <!-- Delay tooltip -->
+                            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-delay="500" title="Delay tooltip">
+                                Delay tooltip
+                            </button>
+                            <!-- Delay tooltip -->
+                            <p>Delay showing and hiding the tooltip (ms) - does not apply to manual trigger type. Use <code>data-delay="500"</code></p>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
+                            <!-- Tooltip with HTML -->
+                            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-html="true"
+                                    title="<em>Tooltip</em> <u>with</u> <b>HTML</b> <i class='icon-heart'></i>">
+                                Tooltip with HTML
+                            </button>
+                            <!-- /Tooltip with HTML -->
+                            <p>Insert HTML into the tooltip. Use <code>data-html="true"</code> for HTML supported trigger.</p>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 text-center">
+                            <!-- Tooltip template -->
+                            <button type="button" class="btn btn-primary template" data-toggle="tooltip" title="Please check console for default template structure">
+                                Tooltip template
+                            </button>
+                            <!-- /Tooltip template -->
+                            <p>Base HTML to use when creating the tooltip. The tooltip's
+                                title will be injected into the <code>.tooltip-inner</code>.
+                                <code>.tooltip-arrow</code> will become the tooltip's arrow.The
+                                outermost wrapper element should have the <code>.tooltip</code> class.</p>
+                        </div>
+                    </div>
+                    <!-- /Tooltip options -->
                 {{/card_body}}
             {{/card}}
         </div>
@@ -121,128 +217,86 @@ components: true
                 {{#card_body}}
 
                     <!-- /Style variations -->
-
                     <p>Add <code>data-color</code> attribute (like <code>data-color="primary"</code>) for tooltip with all theme colors.</p>
-                    <button type="button" class="btn btn-primary btn-icon btn-sm" data-toggle="tooltip" data-color="primary" data-original-title="Primary tooltip"
+                    <button type="button" class="btn btn-primary btn-icon" data-toggle="tooltip" data-color="primary" title="Primary tooltip"
                             data-trigger="hover"><i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-secondary btn-icon btn-sm" data-toggle="tooltip" data-color="secondary" data-original-title="Secondary tooltip"
+                    <button type="button" class="btn btn-secondary btn-icon" data-toggle="tooltip" data-color="secondary" title="Secondary tooltip"
                             data-trigger="hover"><i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-success btn-icon btn-sm" data-toggle="tooltip" data-color="success" data-original-title="Success tooltip"
+                    <button type="button" class="btn btn-success btn-icon" data-toggle="tooltip" data-color="success" title="Success tooltip"
                             data-trigger="hover"><i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-color="danger" data-original-title="Danger tooltip"
+                    <button type="button" class="btn btn-danger btn-icon" data-toggle="tooltip" data-color="danger" title="Danger tooltip"
                             data-trigger="hover"><i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-warning btn-icon btn-sm" data-toggle="tooltip" data-color="warning" data-original-title="Warning tooltip"
+                    <button type="button" class="btn btn-warning btn-icon" data-toggle="tooltip" data-color="warning" title="Warning tooltip"
                             data-trigger="hover"><i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-info btn-icon btn-sm" data-toggle="tooltip" data-color="info" data-original-title="Info tooltip"
+                    <button type="button" class="btn btn-info btn-icon" data-toggle="tooltip" data-color="info" title="Info tooltip"
                             data-trigger="hover"><i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-light btn-icon btn-sm" data-toggle="tooltip" data-color="light" data-original-title="Light tooltip"
+                    <button type="button" class="btn btn-light btn-icon" data-toggle="tooltip" data-color="light" title="Light tooltip"
                             data-trigger="hover"><i class="icon-heart"></i>
                     </button>
 
-                    <button type="button" class="btn btn-dark btn-icon btn-sm" data-toggle="tooltip" data-color="dark" data-original-title="Dark tooltip"
+                    <button type="button" class="btn btn-dark btn-icon" data-toggle="tooltip" data-color="dark" title="Dark tooltip"
                             data-trigger="hover"><i class="icon-heart"></i>
                     </button>
-
                     <!-- /Style variations -->
                 {{/card_body}}
             {{/card}}
-
         </div>
         <div class="col-md-6 pl-md-2">
             {{#card}}
-                {{{card_header 'Tooltip with HTML'}}}
+                {{{card_header 'Multiple triggers on same element'}}}
                 {{#card_body}}
-                    <p>Use <code>data-html="true"</code> for HTML supported trigger.</p>
-                    <!-- Tooltip with HTML -->
-                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-html="true"
-                            title="<em>Tooltip</em> <u>with</u> <b>HTML</b> <i class='icon-heart'></i>">
-                        Tooltip with HTML
-                    </button>
-                    <!-- /Tooltip with HTML -->
+
+                    <!-- Multiple triggers -->
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <p>The tooltip is for information when the user hovers, and the modal is to show extra information when they click.
+                                Trigger the modal from a wrapper <code>&lt;span&gt;</code>.</p>
+                            <!-- Tooltip + Modal -->
+                            <span data-toggle="modal" data-target="#myLeadsModal">
+                                <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Tooltip + Modal">
+                                Tooltip + Modal<span class="badge badge-danger ml-1">4</span>
+                                </button>
+                            </span>
+                            <!-- /Tooltip + Modal -->
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <p>The tooltip is for information when the user hovers, and the popover is for a confirmation box when they click.
+                                Trigger the tooltip from a wrapper <code>&lt;span&gt;</code>.</p>
+                            <!-- Tooltip + Popover -->
+                            <span data-toggle="tooltip" data-placement="right" title="Tooltip + Popover">
+                            <button type="button" class="btn btn-danger" data-container="body" data-toggle="popover"
+                                    data-placement="left" title="Popover on left"
+                                    data-content="And here's some amazing content. It's very engaging. Right?">
+                            Tooltip + Popover <span class="badge badge-info ml-1">4</span>
+                            </button>
+                             </span>
+                            <!-- /Tooltip + Popover -->
+                        </div>
+                    </div>
+                    <!-- /Multiple triggers -->
+
+                    {{#modal 'fade''myLeadsModal' ''}}
+                        {{{modalHeader 'Modal title'}}}
+                        {{#modalContent}}
+                            <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                        {{/modalContent}}
+                        {{{modalFooter 'button' 'Save changes' 'secondary'}}}
+                    {{/modal}}
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Multiple events</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <span data-toggle="modal" data-target="#myLeadsModal">
-                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Tooltip on top">
-                   Tooltip + Modal
-                    <span class="badge badge-danger ml-1">4</span>
-                    </button>
-                    </span>
-
-                    <div class="modal fade" id="myLeadsModal" tabindex="-1" role="dialog" aria-labelledby="myLeadsModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered " role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="myLeadsModalLabel">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    asd
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <span data-toggle="tooltip" data-placement="right" title="Tooltip on top">
-                    <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
-                            data-placement="left" title="Popover on left"
-                            data-content="And here's some amazing content. It's very engaging. Right?">
-                   Tooltip + Popover
-                         <span class="badge badge-info ml-1">4</span>
-                    </button>
-                    </span>
-
-
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Tooltip Triggers</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="card-body"></div>
-            </div>
-        </div>
-    </div>
 </div>
