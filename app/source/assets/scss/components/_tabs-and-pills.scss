@@ -49,7 +49,7 @@
 }
 
 .tab-content {
-  margin-top: (-$nav-tabs-border-size) - 1;
+  margin-top: -$nav-tabs-border-size;
   box-sizing: border-box;
   &.hasborder {
     background: $tab-content-bg;
@@ -355,13 +355,26 @@
     margin: 0 5px 3px 0;
 
     &.active,
-    &.active:hover,
-    .show > & {
+    &.active:hover {
       @include background-text-theme($nav-pills-link-active-theme-scheme);
     }
 
     &:hover {
       @include background-text-theme($nav-pills-link-active-theme-scheme, $nav-pills-link-hover-bg-theme-tone);
     }
+
+    // Tab icon
+    i {
+      font-size: inherit;
+      width: $nav-tabs-icon-width;
+      display: inline-block;
+      color: inherit;
+      text-align: center;
+    }
   }
+
+  .nav-item.show > .nav-link {
+    @include background-text-theme($nav-pills-link-active-theme-scheme);
+  }
+
 }

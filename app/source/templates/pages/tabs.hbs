@@ -6,7 +6,7 @@ components: true
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 pr-md-2">
+        <div class="col-xl-6 col-md-12 pr-xl-2">
 
             {{#card}}
                 {{{card_header 'Basic'}}}
@@ -142,10 +142,10 @@ components: true
 
                     <!-- Basic pills -->
                     {{#tab_has 'nav-pills''pill' tabs.items}}
-                        <a class="{{class}}" id="{{id}}-pill" data-toggle="tab" href="#{{id}}-tab-pill" role="tab" aria-controls="{{id}}"
+                        <a class="{{class}}" id="{{id}}-pill" data-toggle="pill" href="#{{id}}-tab-pill" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}">{{text}}</a>
                     {{/tab_has}}
-                    {{#tab_content_has '''tabContent-pill' tabs.items}}
+                    {{#tab_content_has 'pt-3''tabContent-pill' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-pill" role="tabpanel" aria-labelledby="{{id}}-pill"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
                     <!-- /Basic pills -->
@@ -156,23 +156,61 @@ components: true
 
                     <!-- Justified pills -->
                     {{#tab_has 'nav-pills nav-justified''pill-2' tabs.items}}
-                        <a class="{{class}}" id="{{id}}-pill-2" data-toggle="tab" href="#{{id}}-tab-pill-2" role="tab" aria-controls="{{id}}"
+                        <a class="{{class}}" id="{{id}}-pill-2" data-toggle="pill" href="#{{id}}-tab-pill-2" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}">{{text}}</a>
                     {{/tab_has}}
-                    {{#tab_content_has '''tabContent-pill-2' tabs.items}}
+                    {{#tab_content_has 'pt-3''tabContent-pill-2' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-2" role="tabpanel" aria-labelledby="{{id}}-pill-2"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
                     <!-- /Justified pills -->
 
-
+                    <hr>
+                    {{{card_title 'Vertical pills'}}}
+                    <p>Stack your navigation by changing the flex item direction with the <code>.flex-column</code> utility</p>
+                    <!-- Vertical pills -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            {{#tab_has 'nav-pills flex-column''pill-4' tabs.items}}
+                                <a class="{{class}}" id="{{id}}-pill-4" data-toggle="pill" href="#{{id}}-tab-pill-4" role="tab" aria-controls="{{id}}"
+                                   aria-selected="{{aria-selected}}">{{text}}</a>
+                            {{/tab_has}}
+                        </div>
+                        <div class="col-md-8">
+                            {{#tab_content_has '''tabContent-pill-4' tabs.items}}
+                                <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-4" role="tabpanel" aria-labelledby="{{id}}-pill-4"><p>{{{placeholder-lorem-sht}}}</p></div>
+                            {{/tab_content_has}}
+                        </div>
+                    </div>
+                    <!-- /Vertical pills -->
                 {{/card_body}}
             {{/card}}
-
-
             {{#card}}
-                {{{card_header 'Pills with dropdown'}}}
+                {{{card_header 'Pills with dropdowns'}}}
                 {{#card_body}}
-
+                    <!-- Pills with dropdowns -->
+                    <ul class="nav nav-pills" id="pill-3" role="tablist">
+                        {{#each tabs.items}}
+                            <li class="nav-item">
+                                <a class="{{class}}" id="{{id}}-pill-3" data-toggle="pill" href="#{{id}}-tab-pill-3" role="tab" aria-controls="{{id}}"
+                                   aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                            </li>
+                        {{/each}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            {{#ddw_menu_has 'extended'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                    </ul>
+                    {{#tab_content_has 'pt-3''tabContent-pill-3' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-3" role="tabpanel" aria-labelledby="{{id}}-pill-3"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Pills with dropdowns -->
                 {{/card_body}}
             {{/card}}
 
@@ -183,14 +221,14 @@ components: true
                     <!-- Pill card -->
                     {{#card}}
                         <div class="card-header">
-                            {{#tab_has 'nav-pills card-header-pills''pill-4' tabs.items}}
-                                <a class="{{class}} mb-0" id="{{id}}-pill-4" data-toggle="tab" href="#{{id}}-tab-pill-4" role="tab" aria-controls="{{id}}"
+                            {{#tab_has 'nav-pills card-header-pills''pill-5' tabs.items}}
+                                <a class="{{class}} mb-0" id="{{id}}-pill-5" data-toggle="pill" href="#{{id}}-tab-pill-5" role="tab" aria-controls="{{id}}"
                                    aria-selected="{{aria-selected}}">{{text}}</a>
                             {{/tab_has}}
                         </div>
                         {{#card_body}}
-                            {{#tab_content_has '''tabContent-pill-4' tabs.items}}
-                                <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-4" role="tabpanel" aria-labelledby="{{id}}-pill-4"><p>{{{placeholder-lorem-sht}}}</p>
+                            {{#tab_content_has '''tabContent-pill-5' tabs.items}}
+                                <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-5" role="tabpanel" aria-labelledby="{{id}}-pill-5"><p>{{{placeholder-lorem-sht}}}</p>
                                 </div>
                             {{/tab_content_has}}
                         {{/card_body}}
@@ -200,17 +238,10 @@ components: true
             {{/card}}
 
 
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Vertical</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
+            {{#card}}
+                {{{card_header 'Vertical'}}}
+                {{#card_body}}
+                    <!-- Vertical -->
                     <h6 class="card-title">Right line</h6>
                     <div class="extended-vertical right-line">
                         <ul class="nav nav-tabs" id="myTab-8" role="tablist">
@@ -364,12 +395,13 @@ components: true
                             </div>
                         </div>
                     </div>
+                    <!-- /Vertical -->
+                {{/card_body}}
+            {{/card}}
 
-                </div>
-            </div>
 
         </div>
-        <div class="col-md-6 pl-2">
+        <div class="col-xl-6 col-md-12 pl-xl-2">
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Extended</h6>
