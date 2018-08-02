@@ -177,7 +177,8 @@ components: true
                         </div>
                         <div class="col-md-8">
                             {{#tab_content_has '''tabContent-pill-4' tabs.items}}
-                                <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-4" role="tabpanel" aria-labelledby="{{id}}-pill-4"><p>{{{placeholder-lorem-sht}}}</p></div>
+                                <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-4" role="tabpanel" aria-labelledby="{{id}}-pill-4"><p>{{{placeholder-lorem-sht}}}</p>
+                                </div>
                             {{/tab_content_has}}
                         </div>
                     </div>
@@ -242,82 +243,33 @@ components: true
                 {{{card_header 'Vertical'}}}
                 {{#card_body}}
                     <!-- Vertical -->
-                    <h6 class="card-title">Right line</h6>
+                    {{{card_title 'Right line'}}}
+                    <p>Wrap tabs and tab content with <code>.extended-vertical.right-line</code> class.</p>
+                    <!-- Right line -->
                     <div class="extended-vertical right-line">
-                        <ul class="nav nav-tabs" id="myTab-8" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab-8" data-toggle="tab" href="#home-8" role="tab"
-                                   aria-controls="home-8" aria-selected="true"><i class="icon-home mr-2"></i>Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab-8" data-toggle="tab" href="#profile-8" role="tab"
-                                   aria-controls="profile-8" aria-selected="false"><i class="icon-user mr-2"></i>Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="message-tab-8" data-toggle="tab" href="#message-8" role="tab"
-                                   aria-controls="message-8" aria-selected="false"><i class="icon-envelope mr-2"></i>Messages</a>
-                            </li>
-
-                        </ul>
-                        <div class="tab-content px-3" id="myTabContent-8">
-                            <div class="tab-pane fade show active" id="home-8" role="tabpanel"
-                                 aria-labelledby="home-tab-8">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="profile-8" role="tabpanel"
-                                 aria-labelledby="profile-tab-8">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="message-8" role="tabpanel"
-                                 aria-labelledby="message-tab-8">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                                </p>
-                            </div>
-                        </div>
+                        {{#tab_has 'nav-tabs''v-1' tabs.items}}
+                            <a class="{{class}}" id="{{id}}-v-1" data-toggle="tab" href="#{{id}}-tab-v-1" role="tab" aria-controls="{{id}}"
+                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                        {{/tab_has}}
+                        {{#tab_content_has 'px-3''tabContent-v-1' tabs.items}}
+                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-1" role="tabpanel" aria-labelledby="{{id}}-v-1"><p>{{{placeholder-lorem-sht}}}</p></div>
+                        {{/tab_content_has}}
                     </div>
-
-                    <h6 class="card-title mt-4">Outline</h6>
+                    <!-- Right line -->
+                    <hr>
+                    {{{card_title 'Outline'}}}
+                    <p>Wrap tabs and tab content with <code>.extended-vertical.outline</code> class.</p>
+                    <!-- Outline -->
                     <div class="extended-vertical outline">
-                        <ul class="nav nav-tabs" id="myTab-9" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab-9" data-toggle="tab" href="#home-9" role="tab"
-                                   aria-controls="home-9" aria-selected="true"><i class="icon-home mr-2"></i>Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab-9" data-toggle="tab" href="#profile-9" role="tab"
-                                   aria-controls="profile-9" aria-selected="false"><i class="icon-user mr-2"></i>Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="message-tab-9" data-toggle="tab" href="#message-9" role="tab"
-                                   aria-controls="message-9" aria-selected="false"><i class="icon-envelope mr-2"></i>Messages</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content px-3" id="myTabContent-9">
-                            <div class="tab-pane fade show active" id="home-9" role="tabpanel"
-                                 aria-labelledby="home-tab-9">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="profile-9" role="tabpanel"
-                                 aria-labelledby="profile-tab-9">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="message-9" role="tabpanel"
-                                 aria-labelledby="message-tab-9">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                                </p>
-                            </div>
-                        </div>
+                        {{#tab_has 'nav-tabs''v-2' tabs.items}}
+                            <a class="{{class}}" id="{{id}}-v-2" data-toggle="tab" href="#{{id}}-tab-v-2" role="tab" aria-controls="{{id}}"
+                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                        {{/tab_has}}
+                        {{#tab_content_has 'px-3''tabContent-v-2' tabs.items}}
+                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-2" role="tabpanel" aria-labelledby="{{id}}-v-2"><p>{{{placeholder-lorem-sht}}}</p></div>
+                        {{/tab_content_has}}
                     </div>
+                    <!-- Outline -->
 
                     <h6 class="card-title mt-5">Primary outline</h6>
                     <div class="extended-vertical outline-primary">
