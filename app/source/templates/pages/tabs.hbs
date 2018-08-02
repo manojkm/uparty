@@ -17,7 +17,7 @@ components: true
                         <a class="{{class}}" id="{{id}}-basic" data-toggle="tab" href="#{{id}}-tab-basic" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}">{{text}}</a>
                     {{/tab_has}}
-                    {{#tab_content_has 'hasborder p-3''tabContent-basic' tabs.items}}
+                    {{#tab_content_has 'py-3''tabContent-basic' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-basic" role="tabpanel" aria-labelledby="{{id}}-basic"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
                     <!-- /Basic tab -->
@@ -240,9 +240,9 @@ components: true
 
 
             {{#card}}
-                {{{card_header 'Vertical'}}}
+                {{{card_header 'Vertical left tabs'}}}
                 {{#card_body}}
-                    <!-- Vertical -->
+                    <!-- Vertical variations -->
                     {{{card_title 'Right line'}}}
                     <p>Wrap tabs and tab content with <code>.extended-vertical.right-line</code> class.</p>
                     <!-- Right line -->
@@ -271,296 +271,158 @@ components: true
                     </div>
                     <!-- Outline -->
 
-                    <h6 class="card-title mt-5">Primary outline</h6>
+                    <hr>
+                    {{{card_title 'Primary outline'}}}
+                    <p>Wrap tabs and tab content with <code>.extended-vertical.outline-primary</code> class.</p>
+                    <!-- Outline -->
                     <div class="extended-vertical outline-primary">
-                        <ul class="nav nav-tabs" id="myTab-10" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab-10" data-toggle="tab" href="#home-10" role="tab"
-                                   aria-controls="home-10" aria-selected="true">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab-10" data-toggle="tab" href="#profile-10" role="tab"
-                                   aria-controls="profile-10" aria-selected="false">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="message-tab-10" data-toggle="tab" href="#message-10" role="tab"
-                                   aria-controls="message-10" aria-selected="false">Messages</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content px-3" id="myTabContent-10">
-                            <div class="tab-pane fade show active" id="home-10" role="tabpanel"
-                                 aria-labelledby="home-tab-10">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="profile-10" role="tabpanel"
-                                 aria-labelledby="profile-tab-10">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="message-10" role="tabpanel"
-                                 aria-labelledby="message-tab-10">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                                </p>
-                            </div>
-                        </div>
+                        {{#tab_has 'nav-tabs''v-3' tabs.items}}
+                            <a class="{{class}}" id="{{id}}-v-3" data-toggle="tab" href="#{{id}}-tab-v-3" role="tab" aria-controls="{{id}}"
+                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                        {{/tab_has}}
+                        {{#tab_content_has 'px-3''tabContent-v-3' tabs.items}}
+                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-3" role="tabpanel" aria-labelledby="{{id}}-v-3"><p>{{{placeholder-lorem-sht}}}</p></div>
+                        {{/tab_content_has}}
                     </div>
+                    <!-- Outline -->
 
-                    <h6 class="card-title mt-5">Primary filled</h6>
+                    <hr>
+                    {{{card_title 'Primary filled'}}}
+                    <p>Wrap tabs and tab content with <code>.extended-vertical.primary-filled</code> class.</p>
+                    <!-- Outline -->
                     <div class="extended-vertical primary-filled">
-                        <ul class="nav nav-tabs" id="myTab-11" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab-11" data-toggle="tab" href="#home-11" role="tab"
-                                   aria-controls="home-11" aria-selected="true">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab-11" data-toggle="tab" href="#profile-11" role="tab"
-                                   aria-controls="profile-11" aria-selected="false">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="message-tab-11" data-toggle="tab" href="#message-11" role="tab"
-                                   aria-controls="message-11" aria-selected="false">Messages</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content px-3" id="myTabContent-11">
-                            <div class="tab-pane fade show active" id="home-11" role="tabpanel"
-                                 aria-labelledby="home-tab-11">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="profile-11" role="tabpanel"
-                                 aria-labelledby="profile-tab-11">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="message-11" role="tabpanel"
-                                 aria-labelledby="message-tab-11">
-                                <p>
-                                    <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                                </p>
-                            </div>
-                        </div>
+                        {{#tab_has 'nav-tabs''v-4' tabs.items}}
+                            <a class="{{class}}" id="{{id}}-v-4" data-toggle="tab" href="#{{id}}-tab-v-4" role="tab" aria-controls="{{id}}"
+                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                        {{/tab_has}}
+                        {{#tab_content_has 'px-3''tabContent-v-4' tabs.items}}
+                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-4" role="tabpanel" aria-labelledby="{{id}}-v-4"><p>{{{placeholder-lorem-sht}}}</p></div>
+                        {{/tab_content_has}}
                     </div>
-                    <!-- /Vertical -->
+                    <!-- Outline -->
+
+                    <!-- /Vertical variations -->
                 {{/card_body}}
             {{/card}}
 
 
         </div>
         <div class="col-xl-6 col-md-12 pl-xl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Extended</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <ul class="nav nav-tabs extended" id="myTab-12" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-12" data-toggle="tab" href="#home-12" role="tab"
-                               aria-controls="home-12" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-12" data-toggle="tab" href="#profile-12" role="tab"
-                               aria-controls="profile-12" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-12" data-toggle="tab" href="#message-12" role="tab"
-                               aria-controls="message-12" aria-selected="false">Messages</a>
-                        </li>
 
-                    </ul>
-                    <div class="tab-content" id="myTabContent-12">
-                        <div class="tab-pane py-2 fade show active" id="home-12" role="tabpanel"
-                             aria-labelledby="home-tab-12">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane py-2 fade" id="profile-12" role="tabpanel"
-                             aria-labelledby="profile-tab-12">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane py-2 fade" id="message-12" role="tabpanel"
-                             aria-labelledby="message-tab-12">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
+            {{#card}}
+                {{{card_header 'Extended bordered type'}}}
+                {{#card_body}}
+                    <!-- Extended tabs -->
 
-                    <h6 class="card-title">Justified </h6>
+                    {{{card_title 'Extended'}}}
+                    <p>Use <code>.extended</code> class to <code>.nav</code> for bottom bordered active status type.</p>
+                    <!-- Extended -->
+                    {{#tab_has 'nav-tabs extended''ext' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext" data-toggle="tab" href="#{{id}}-tab-ext" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'py-3''tabContent-ext' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext" role="tabpanel" aria-labelledby="{{id}}-ext"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended -->
+                    <hr>
+                    {{{card_title 'Justified'}}}
+                    <p>To justify the extended type nav, add <code>.extended.nav-justified</code> class to <code>.nav</code>.</p>
 
-                    <ul class="nav nav-tabs nav-justified extended" id="myTab-13" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-13" data-toggle="tab" href="#home-13" role="tab"
-                               aria-controls="home-13" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-13" data-toggle="tab" href="#profile-13" role="tab"
-                               aria-controls="profile-13" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-13" data-toggle="tab" href="#message-13" role="tab"
-                               aria-controls="message-13" aria-selected="false">Messages</a>
-                        </li>
+                    <!-- Extended-justified -->
+                    {{#tab_has 'nav-tabs extended nav-justified''ext-2' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-2" data-toggle="tab" href="#{{id}}-tab-ext-2" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'py-3''tabContent-ext-2' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-2" role="tabpanel" aria-labelledby="{{id}}-ext-2"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended-justified -->
 
-                    </ul>
-                    <div class="tab-content" id="myTabContent-13">
-                        <div class="tab-pane py-2 fade show active" id="home-13" role="tabpanel"
-                             aria-labelledby="home-tab-13">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane py-2 fade" id="profile-13" role="tabpanel"
-                             aria-labelledby="profile-tab-13">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane py-2 fade" id="message-13" role="tabpanel"
-                             aria-labelledby="message-tab-13">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Extended Arrow</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <ul class="nav nav-tabs extended-arrow" id="myTab-26" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-26" data-toggle="tab" href="#home-26" role="tab"
-                               aria-controls="home-26" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-26" data-toggle="tab" href="#profile-26" role="tab"
-                               aria-controls="profile-26" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-26" data-toggle="tab" href="#message-26" role="tab"
-                               aria-controls="message-26" aria-selected="false">Messages</a>
-                        </li>
-
-                    </ul>
-                    <div class="tab-content" id="myTabContent-26">
-                        <div class="tab-pane py-3 fade show active" id="home-26" role="tabpanel"
-                             aria-labelledby="home-tab-26">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane py-3 fade" id="profile-26" role="tabpanel"
-                             aria-labelledby="profile-tab-26">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane py-3 fade" id="message-26" role="tabpanel"
-                             aria-labelledby="message-tab-26">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <h6 class="card-title">Box arrow</h6>
-
-                    <ul class="nav nav-tabs extended-arrow" id="myTab-27" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-27" data-toggle="tab" href="#home-27" role="tab"
-                               aria-controls="home-27" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-27" data-toggle="tab" href="#profile-27" role="tab"
-                               aria-controls="profile-27" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-27" data-toggle="tab" href="#message-27" role="tab"
-                               aria-controls="message-27" aria-selected="false">Messages</a>
-                        </li>
-
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-27">
-                        <div class="tab-pane p-3 fade show active" id="home-27" role="tabpanel"
-                             aria-labelledby="home-tab-27">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-27" role="tabpanel" aria-labelledby="profile-tab-27">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-27" role="tabpanel" aria-labelledby="message-tab-27">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
+                    <!-- /Extended tabs -->
+                {{/card_body}}
+            {{/card}}
 
 
-                    <h6 class="card-title mt-4">Filled arrow</h6>
-                    <ul class="nav nav-tabs extended-arrow filled" id="myTab-28" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-28" data-toggle="tab" href="#home-28" role="tab"
-                               aria-controls="home-28" aria-selected="true"><i class="icon-home mr-2"></i>Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-28" data-toggle="tab" href="#profile-28" role="tab"
-                               aria-controls="profile-28" aria-selected="false"><i class="icon-user mr-2"></i>Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-28" data-toggle="tab" href="#message-28" role="tab"
-                               aria-controls="message-28" aria-selected="false"><i class="icon-envelope mr-2"></i>Messages</a>
-                        </li>
 
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-28">
-                        <div class="tab-pane p-3 fade show active" id="home-28" role="tabpanel"
-                             aria-labelledby="home-tab-28">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-28" role="tabpanel" aria-labelledby="profile-tab-28">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-28" role="tabpanel" aria-labelledby="message-tab-28">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
+            {{#card}}
+                {{{card_header 'Extended arrow type'}}}
+                {{#card_body}}
+                    <!-- Extended arrow type -->
+
+                    {{{card_title 'Extended arrow'}}}
+                    <p>Use <code>.extended-arrow</code> class to <code>.nav</code> for bottom arrow active status type.</p>
+                    <!-- Extended arrow -->
+                    {{#tab_has 'nav-tabs extended-arrow''ext-3' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-3" data-toggle="tab" href="#{{id}}-tab-ext-3" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'py-3''tabContent-ext-3' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-3" role="tabpanel" aria-labelledby="{{id}}-ext-3"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended arrow -->
+
+                    <hr>
+                    {{{card_title 'Extended box arrow'}}}
+                    <p>Add <code>.extended-arrow</code> class to <code>.nav</code> and <code>.hasborder</code> class to <code>.tab-content</code></p>
+                    <!-- Extended box arrow -->
+                    {{#tab_has 'nav-tabs extended-arrow''ext-4' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-4" data-toggle="tab" href="#{{id}}-tab-ext-4" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-4' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-4" role="tabpanel" aria-labelledby="{{id}}-ext-4"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box arrow -->
+
+                    <hr>
+                    {{{card_title 'Extended filled arrow'}}}
+                    <p>Add <code>.extended-arrow.filled</code> class to <code>.nav</code> and <code>.hasborder</code> class to <code>.tab-content</code></p>
+                    <!-- Extended filled arrow -->
+                    {{#tab_has 'nav-tabs extended-arrow filled''ext-5' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-5" data-toggle="tab" href="#{{id}}-tab-ext-5" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-5' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-5" role="tabpanel" aria-labelledby="{{id}}-ext-5"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended filled arrow -->
+
+                    <!-- /Extended arrow type -->
+                {{/card_body}}
+            {{/card}}
+
+            {{#card}}
+                {{{card_header 'Extended boxed type'}}}
+                {{#card_body}}
+
+                    {{{card_title 'Extended boxed'}}}
+                    <p>Add <code>.extended-boxed</code> class to <code>.nav</code></p>
+                    <!-- Extended boxed -->
+                    {{#tab_has 'nav-tabs extended-boxed''ext-6' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-6" data-toggle="tab" href="#{{id}}-tab-ext-6" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-6' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-6" role="tabpanel" aria-labelledby="{{id}}-ext-6"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended boxed -->
+                    <hr>
+                    {{{card_title 'Extended boxed justified'}}}
+                    <p>Use <code>.extended-boxed.nav-justified</code> class to set tabs justified.</p>
+                    <!-- Extended boxed type -->
+                    {{#tab_has 'nav-tabs extended-boxed nav-justified''ext-7' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-7" data-toggle="tab" href="#{{id}}-tab-ext-7" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-7' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-7" role="tabpanel" aria-labelledby="{{id}}-ext-7"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended boxed type -->
+                {{/card_body}}
+            {{/card}}
 
 
-                </div>
-            </div>
             <div class="card">
                 <div class="card-header">
                     <h6 class="card-title">Extended Boxed</h6>
@@ -571,74 +433,6 @@ components: true
                     </div>
                 </div>
                 <div class="card-body">
-                    <ul class="nav nav-tabs extended-boxed" id="myTab-15" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link" id="home-tab-15" data-toggle="tab" href="#home-15" role="tab"
-                               aria-controls="home-15" aria-selected="true"><i class="icon-home"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" id="profile-tab-15" data-toggle="tab" href="#profile-15" role="tab"
-                               aria-controls="profile-15" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-15" data-toggle="tab" href="#message-15" role="tab"
-                               aria-controls="message-15" aria-selected="false">Messages</a>
-                        </li>
-
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-15">
-                        <div class="tab-pane p-3 fade" id="home-15" role="tabpanel"
-                             aria-labelledby="home-tab-15">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade show active" id="profile-15" role="tabpanel" aria-labelledby="profile-tab-15">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-15" role="tabpanel" aria-labelledby="message-tab-15">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <h6 class="card-title mt-4">Justified</h6>
-                    <ul class="nav nav-tabs nav-justified extended-boxed" id="myTab-16" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-16" data-toggle="tab" href="#home-16" role="tab"
-                               aria-controls="home-16" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-16" data-toggle="tab" href="#profile-16" role="tab"
-                               aria-controls="profile-16" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-16" data-toggle="tab" href="#message-16" role="tab"
-                               aria-controls="message-16" aria-selected="false">Messages</a>
-                        </li>
-
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-16">
-                        <div class="tab-pane p-3 fade show active" id="home-16" role="tabpanel"
-                             aria-labelledby="home-tab-16">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-16" role="tabpanel" aria-labelledby="profile-tab-16">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-16" role="tabpanel" aria-labelledby="message-tab-16">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
 
                     <h6 class="card-title mt-4">Titled</h6>
                     <ul class="nav nav-tabs extended-boxed" id="myTab-17" role="tablist">
