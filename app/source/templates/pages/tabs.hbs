@@ -310,13 +310,12 @@ components: true
         <div class="col-xl-6 col-md-12 pl-xl-2">
 
             {{#card}}
-                {{{card_header 'Extended bordered type'}}}
+                {{{card_header 'Extended bordered tabs'}}}
                 {{#card_body}}
-                    <!-- Extended tabs -->
-
-                    {{{card_title 'Extended'}}}
+                    <!-- Extended bordered tabs -->
+                    {{{card_title 'Extended tab'}}}
                     <p>Use <code>.extended</code> class to <code>.nav</code> for bottom bordered active status type.</p>
-                    <!-- Extended -->
+                    <!-- Extended tab -->
                     {{#tab_has 'nav-tabs extended''ext' tabs.items}}
                         <a class="{{class}}" id="{{id}}-ext" data-toggle="tab" href="#{{id}}-tab-ext" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}">{{text}}</a>
@@ -324,12 +323,12 @@ components: true
                     {{#tab_content_has 'py-3''tabContent-ext' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-ext" role="tabpanel" aria-labelledby="{{id}}-ext"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
-                    <!-- /Extended -->
+                    <!-- /Extended tab -->
                     <hr>
-                    {{{card_title 'Justified'}}}
+                    {{{card_title 'Extended tab justified'}}}
                     <p>To justify the extended type nav, add <code>.extended.nav-justified</code> class to <code>.nav</code>.</p>
 
-                    <!-- Extended-justified -->
+                    <!-- Extended tab justified -->
                     {{#tab_has 'nav-tabs extended nav-justified''ext-2' tabs.items}}
                         <a class="{{class}}" id="{{id}}-ext-2" data-toggle="tab" href="#{{id}}-tab-ext-2" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}">{{text}}</a>
@@ -337,22 +336,22 @@ components: true
                     {{#tab_content_has 'py-3''tabContent-ext-2' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-2" role="tabpanel" aria-labelledby="{{id}}-ext-2"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
-                    <!-- /Extended-justified -->
+                    <!-- /Extended tab justified -->
 
-                    <!-- /Extended tabs -->
+                    <!-- /Extended bordered tabs -->
                 {{/card_body}}
             {{/card}}
 
 
 
             {{#card}}
-                {{{card_header 'Extended arrow type'}}}
+                {{{card_header 'Extended arrow tabs'}}}
                 {{#card_body}}
-                    <!-- Extended arrow type -->
+                    <!-- Extended arrow tabs -->
 
-                    {{{card_title 'Extended arrow'}}}
+                    {{{card_title 'Extended arrow tab'}}}
                     <p>Use <code>.extended-arrow</code> class to <code>.nav</code> for bottom arrow active status type.</p>
-                    <!-- Extended arrow -->
+                    <!-- Extended arrow tab -->
                     {{#tab_has 'nav-tabs extended-arrow''ext-3' tabs.items}}
                         <a class="{{class}}" id="{{id}}-ext-3" data-toggle="tab" href="#{{id}}-tab-ext-3" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}">{{text}}</a>
@@ -360,12 +359,12 @@ components: true
                     {{#tab_content_has 'py-3''tabContent-ext-3' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-3" role="tabpanel" aria-labelledby="{{id}}-ext-3"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
-                    <!-- /Extended arrow -->
+                    <!-- /Extended arrow tab -->
 
                     <hr>
-                    {{{card_title 'Extended box arrow'}}}
+                    {{{card_title 'Extended arrow tab box'}}}
                     <p>Add <code>.extended-arrow</code> class to <code>.nav</code> and <code>.hasborder</code> class to <code>.tab-content</code></p>
-                    <!-- Extended box arrow -->
+                    <!-- Extended arrow tab box -->
                     {{#tab_has 'nav-tabs extended-arrow''ext-4' tabs.items}}
                         <a class="{{class}}" id="{{id}}-ext-4" data-toggle="tab" href="#{{id}}-tab-ext-4" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}">{{text}}</a>
@@ -373,12 +372,12 @@ components: true
                     {{#tab_content_has 'hasborder p-3''tabContent-ext-4' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-4" role="tabpanel" aria-labelledby="{{id}}-ext-4"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
-                    <!-- /Extended box arrow -->
+                    <!-- /Extended arrow tab box -->
 
                     <hr>
-                    {{{card_title 'Extended filled arrow'}}}
+                    {{{card_title 'Extended filled arrow tab'}}}
                     <p>Add <code>.extended-arrow.filled</code> class to <code>.nav</code> and <code>.hasborder</code> class to <code>.tab-content</code></p>
-                    <!-- Extended filled arrow -->
+                    <!-- Extended filled arrow tab -->
                     {{#tab_has 'nav-tabs extended-arrow filled''ext-5' tabs.items}}
                         <a class="{{class}}" id="{{id}}-ext-5" data-toggle="tab" href="#{{id}}-tab-ext-5" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
@@ -386,19 +385,19 @@ components: true
                     {{#tab_content_has 'hasborder p-3''tabContent-ext-5' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-5" role="tabpanel" aria-labelledby="{{id}}-ext-5"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
-                    <!-- /Extended filled arrow -->
+                    <!-- /Extended filled arrow tab -->
 
-                    <!-- /Extended arrow type -->
+                    <!-- /Extended arrow tabs -->
                 {{/card_body}}
             {{/card}}
 
             {{#card}}
-                {{{card_header 'Extended boxed type'}}}
+                {{{card_header 'Extended boxed tabs'}}}
                 {{#card_body}}
-
-                    {{{card_title 'Extended boxed'}}}
+                    <!-- Extended boxed tabs -->
+                    {{{card_title 'Extended box tab'}}}
                     <p>Add <code>.extended-boxed</code> class to <code>.nav</code></p>
-                    <!-- Extended boxed -->
+                    <!-- Extended box tab -->
                     {{#tab_has 'nav-tabs extended-boxed''ext-6' tabs.items}}
                         <a class="{{class}}" id="{{id}}-ext-6" data-toggle="tab" href="#{{id}}-tab-ext-6" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
@@ -406,11 +405,11 @@ components: true
                     {{#tab_content_has 'hasborder p-3''tabContent-ext-6' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-6" role="tabpanel" aria-labelledby="{{id}}-ext-6"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
-                    <!-- /Extended boxed -->
+                    <!-- /Extended box tab -->
                     <hr>
-                    {{{card_title 'Extended boxed justified'}}}
+                    {{{card_title 'Extended box tab justified'}}}
                     <p>Use <code>.extended-boxed.nav-justified</code> class to set tabs justified.</p>
-                    <!-- Extended boxed type -->
+                    <!-- Extended box tab justified -->
                     {{#tab_has 'nav-tabs extended-boxed nav-justified''ext-7' tabs.items}}
                         <a class="{{class}}" id="{{id}}-ext-7" data-toggle="tab" href="#{{id}}-tab-ext-7" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}">{{text}}</a>
@@ -418,361 +417,161 @@ components: true
                     {{#tab_content_has 'hasborder p-3''tabContent-ext-7' tabs.items}}
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-7" role="tabpanel" aria-labelledby="{{id}}-ext-7"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
-                    <!-- /Extended boxed type -->
+                    <!-- /Extended box tab justified -->
+
+                    <hr>
+                    {{{card_title 'Extended box tab titled'}}}
+                    <p>To make the titled box, create the wrapper with <code>.mr-auto</code> to the first <code>&lt;li class="nav-item"&gt;</code>.
+                        Then add the title and wrap it with <code>.boxed-tab-title</code>.
+                    </p>
+                    <!-- Extended box tab titled -->
+                    <ul class="nav nav-tabs extended-boxed" id="ext-8" role="tablist">
+                        <li class="nav-item mr-auto">
+                            <h6 class="boxed-tab-title m-0 pl-2">CONTENT BOX TITLE</h6>
+                        </li>
+                        {{#each tabs.items}}
+                            <li class="nav-item">
+                                <a class="{{class}}" id="{{id}}-ext-8" data-toggle="tab" href="#{{id}}-tab-ext-8" role="tab" aria-controls="{{id}}"
+                                   aria-selected="{{aria-selected}}">{{text}}</a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-8' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-8" role="tabpanel" aria-labelledby="{{id}}-ext-8"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box tab titled -->
+
+                    <!-- /Extended boxed tabs -->
+
                 {{/card_body}}
             {{/card}}
 
+            {{#card}}
+                {{{card_header 'Extended box tab themes'}}}
+                {{#card_body}}
+                    <!-- Extended box tab themes -->
+                    <p>Extended box themes are created with the <code>.extended-boxed</code> class, followed by one of the contextual classes
+                        <code>.success-box</code>, <code>.info-box</code>, <code>.warning-box</code>, <code>.danger-box</code>, <code>.primary-box</code>, <code>.secondary-box</code>, <code>.light-box</code> or <code>.dark-box</code>
+                    </p>
 
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="card-title">Extended Boxed</h6>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <h6 class="card-title mt-4">Titled</h6>
-                    <ul class="nav nav-tabs extended-boxed" id="myTab-17" role="tablist">
+                    {{{card_title 'Primary'}}}
+                    <!-- Extended box tab primary theme -->
+                    <ul class="nav nav-tabs extended-boxed primary-box" id="ext-9" role="tablist">
                         <li class="nav-item mr-auto">
                             <h6 class="boxed-tab-title m-0 pl-2">CONTENT BOX TITLE</h6>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-17" data-toggle="tab" href="#home-17" role="tab"
-                               aria-controls="home-17" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-17" data-toggle="tab" href="#profile-17" role="tab"
-                               aria-controls="profile-17" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-17" data-toggle="tab" href="#message-17" role="tab"
-                               aria-controls="message-17" aria-selected="false">Messages</a>
-                        </li>
-
+                        {{#each tabs.items}}
+                            <li class="nav-item">
+                                <a class="{{class}}" id="{{id}}-ext-9" data-toggle="tab" href="#{{id}}-tab-ext-9" role="tab" aria-controls="{{id}}"
+                                   aria-selected="{{aria-selected}}">{{text}}</a>
+                            </li>
+                        {{/each}}
                     </ul>
-                    <div class="tab-content hasborder" id="myTabContent-17">
-                        <div class="tab-pane p-3 fade show active" id="home-17" role="tabpanel"
-                             aria-labelledby="home-tab-17">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-17" role="tabpanel" aria-labelledby="profile-tab-17">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-17" role="tabpanel" aria-labelledby="message-tab-17">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <h6 class="card-title mt-4">Primary</h6>
-                    <ul class="nav nav-tabs extended-boxed primary-box" id="myTab-18" role="tablist">
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-9' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-9" role="tabpanel" aria-labelledby="{{id}}-ext-9"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box tab primary theme -->
+                    <hr>
+                    {{{card_title 'Secondary'}}}
+                    <!-- Extended box tab secondary theme -->
+                    <ul class="nav nav-tabs extended-boxed secondary-box" id="ext-10" role="tablist">
                         <li class="nav-item mr-auto">
                             <h6 class="boxed-tab-title m-0 pl-2">CONTENT BOX TITLE</h6>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-18" data-toggle="tab" href="#home-18" role="tab"
-                               aria-controls="home-18" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-18" data-toggle="tab" href="#profile-18" role="tab"
-                               aria-controls="profile-18" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-18" data-toggle="tab" href="#message-18" role="tab"
-                               aria-controls="message-18" aria-selected="false">Messages</a>
-                        </li>
-
+                        {{#each tabs.items}}
+                            <li class="nav-item">
+                                <a class="{{class}}" id="{{id}}-ext-10" data-toggle="tab" href="#{{id}}-tab-ext-10" role="tab" aria-controls="{{id}}"
+                                   aria-selected="{{aria-selected}}">{{text}}</a>
+                            </li>
+                        {{/each}}
                     </ul>
-                    <div class="tab-content hasborder" id="myTabContent-18">
-                        <div class="tab-pane p-3 fade show active" id="home-18" role="tabpanel"
-                             aria-labelledby="home-tab-18">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-18" role="tabpanel" aria-labelledby="profile-tab-18">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-18" role="tabpanel" aria-labelledby="message-tab-18">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                            </p>
-                        </div>
-                    </div>
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-10' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-10" role="tabpanel" aria-labelledby="{{id}}-ext-10"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box tab secondary theme -->
 
-                    <h6 class="card-title mt-4">Secondary</h6>
-                    <ul class="nav nav-tabs extended-boxed secondary-box" id="myTab-19" role="tablist">
+                    <hr>
+                    {{{card_title 'Info'}}}
+                    <!-- Extended box tab info theme -->
+                    <ul class="nav nav-tabs extended-boxed info-box" id="ext-11" role="tablist">
                         <li class="nav-item mr-auto">
                             <h6 class="boxed-tab-title m-0 pl-2">CONTENT BOX TITLE</h6>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-19" data-toggle="tab" href="#home-19" role="tab"
-                               aria-controls="home-19" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-19" data-toggle="tab" href="#profile-19" role="tab"
-                               aria-controls="profile-19" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-19" data-toggle="tab" href="#message-19" role="tab"
-                               aria-controls="message-19" aria-selected="false">Messages</a>
-                        </li>
-
+                        {{#each tabs.items}}
+                            <li class="nav-item">
+                                <a class="{{class}}" id="{{id}}-ext-11" data-toggle="tab" href="#{{id}}-tab-ext-11" role="tab" aria-controls="{{id}}"
+                                   aria-selected="{{aria-selected}}">{{text}}</a>
+                            </li>
+                        {{/each}}
                     </ul>
-                    <div class="tab-content hasborder" id="myTabContent-19">
-                        <div class="tab-pane p-3 fade show active" id="home-19" role="tabpanel"
-                             aria-labelledby="home-tab-19">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-19" role="tabpanel" aria-labelledby="profile-tab-19">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-19" role="tabpanel" aria-labelledby="message-tab-19">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. </span>
-                            </p>
-                        </div>
-                    </div>
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-11' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-11" role="tabpanel" aria-labelledby="{{id}}-ext-11"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box tab info theme -->
 
-                    <h6 class="card-title mt-4">Info</h6>
-                    <ul class="nav nav-tabs extended-boxed info-box" id="myTab-20" role="tablist">
-                        <li class="nav-item mr-auto">
-                            <h6 class="boxed-tab-title m-0 pl-2">CONTENT BOX TITLE</h6>
-                        </li>
+                    <hr>
+                    {{{card_title 'Success'}}}
+                    <!-- Extended box tab success theme -->
+                    {{#tab_has 'nav-tabs extended-boxed success-box''ext-12' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-12" data-toggle="tab" href="#{{id}}-tab-ext-12" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-12' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-12" role="tabpanel" aria-labelledby="{{id}}-ext-12"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box tab success theme -->
 
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-20" data-toggle="tab" href="#home-20" role="tab"
-                               aria-controls="home-20" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-20" data-toggle="tab" href="#profile-20" role="tab"
-                               aria-controls="profile-20" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-20" data-toggle="tab" href="#message-20" role="tab"
-                               aria-controls="message-20" aria-selected="false">Messages</a>
-                        </li>
+                    <hr>
+                    {{{card_title 'Warning'}}}
+                    <!-- Extended box tab warning theme -->
+                    {{#tab_has 'nav-tabs extended-boxed warning-box''ext-13' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-13" data-toggle="tab" href="#{{id}}-tab-ext-13" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-13' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-13" role="tabpanel" aria-labelledby="{{id}}-ext-13"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box tab warning theme -->
 
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-20">
-                        <div class="tab-pane p-3 fade show active" id="home-20" role="tabpanel"
-                             aria-labelledby="home-tab-20">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-20" role="tabpanel" aria-labelledby="profile-tab-20">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-20" role="tabpanel" aria-labelledby="message-tab-20">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. </span>
-                            </p>
-                        </div>
-                    </div>
+                    <hr>
+                    {{{card_title 'Danger'}}}
+                    <!-- Extended box tab danger theme -->
+                    {{#tab_has 'nav-tabs extended-boxed danger-box''ext-14' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-14" data-toggle="tab" href="#{{id}}-tab-ext-14" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-14' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-14" role="tabpanel" aria-labelledby="{{id}}-ext-14"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box tab danger theme -->
 
-                    <h6 class="card-title mt-4">Success</h6>
-                    <ul class="nav nav-tabs extended-boxed success-box" id="myTab-21" role="tablist">
+                    <hr>
+                    {{{card_title 'Light'}}}
+                    <!-- Extended box tab light theme -->
+                    {{#tab_has 'nav-tabs extended-boxed light-box''ext-15' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-15" data-toggle="tab" href="#{{id}}-tab-ext-15" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-15' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-15" role="tabpanel" aria-labelledby="{{id}}-ext-15"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box tab light theme -->
 
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-21" data-toggle="tab" href="#home-21" role="tab"
-                               aria-controls="home-21" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-21" data-toggle="tab" href="#profile-21" role="tab"
-                               aria-controls="profile-21" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-21" data-toggle="tab" href="#message-21" role="tab"
-                               aria-controls="message-21" aria-selected="false">Messages</a>
-                        </li>
+                    <hr>
+                    {{{card_title 'Dark'}}}
+                    <!-- Extended box tab dark theme -->
+                    {{#tab_has 'nav-tabs extended-boxed dark-box''ext-16' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-ext-16" data-toggle="tab" href="#{{id}}-tab-ext-16" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}">{{text}}</a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'hasborder p-3''tabContent-ext-16' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-ext-16" role="tabpanel" aria-labelledby="{{id}}-ext-16"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Extended box tab dark theme -->
 
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-21">
-                        <div class="tab-pane p-3 fade show active" id="home-21" role="tabpanel"
-                             aria-labelledby="home-tab-21">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-21" role="tabpanel" aria-labelledby="profile-tab-21">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-21" role="tabpanel" aria-labelledby="message-tab-21">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. </span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <h6 class="card-title mt-4">Warning</h6>
-                    <ul class="nav nav-tabs extended-boxed warning-box" id="myTab-22" role="tablist">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-22" data-toggle="tab" href="#home-22" role="tab"
-                               aria-controls="home-22" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-22" data-toggle="tab" href="#profile-22" role="tab"
-                               aria-controls="profile-22" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-22" data-toggle="tab" href="#message-22" role="tab"
-                               aria-controls="message-22" aria-selected="false">Messages</a>
-                        </li>
-
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-22">
-                        <div class="tab-pane p-3 fade show active" id="home-22" role="tabpanel"
-                             aria-labelledby="home-tab-22">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-22" role="tabpanel" aria-labelledby="profile-tab-22">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-22" role="tabpanel" aria-labelledby="message-tab-22">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. </span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <h6 class="card-title mt-4">Danger</h6>
-                    <ul class="nav nav-tabs extended-boxed danger-box" id="myTab-23" role="tablist">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-23" data-toggle="tab" href="#home-23" role="tab"
-                               aria-controls="home-23" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-23" data-toggle="tab" href="#profile-23" role="tab"
-                               aria-controls="profile-23" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-23" data-toggle="tab" href="#message-23" role="tab"
-                               aria-controls="message-23" aria-selected="false">Messages</a>
-                        </li>
-
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-23">
-                        <div class="tab-pane p-3 fade show active" id="home-23" role="tabpanel"
-                             aria-labelledby="home-tab-23">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-23" role="tabpanel" aria-labelledby="profile-tab-23">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-23" role="tabpanel" aria-labelledby="message-tab-23">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. </span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <h6 class="card-title mt-4">Light</h6>
-                    <ul class="nav nav-tabs extended-boxed light-box" id="myTab-24" role="tablist">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-24" data-toggle="tab" href="#home-24" role="tab"
-                               aria-controls="home-24" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-24" data-toggle="tab" href="#profile-24" role="tab"
-                               aria-controls="profile-24" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-24" data-toggle="tab" href="#message-24" role="tab"
-                               aria-controls="message-24" aria-selected="false">Messages</a>
-                        </li>
-
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-24">
-                        <div class="tab-pane p-3 fade show active" id="home-24" role="tabpanel"
-                             aria-labelledby="home-tab-24">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-24" role="tabpanel" aria-labelledby="profile-tab-24">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-24" role="tabpanel" aria-labelledby="message-tab-24">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. </span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <h6 class="card-title mt-4">Dark</h6>
-                    <ul class="nav nav-tabs extended-boxed dark-box" id="myTab-25" role="tablist">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab-25" data-toggle="tab" href="#home-25" role="tab"
-                               aria-controls="home-25" aria-selected="true">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-25" data-toggle="tab" href="#profile-25" role="tab"
-                               aria-controls="profile-25" aria-selected="false">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="message-tab-25" data-toggle="tab" href="#message-25" role="tab"
-                               aria-controls="message-25" aria-selected="false">Messages</a>
-                        </li>
-
-                    </ul>
-                    <div class="tab-content hasborder" id="myTabContent-25">
-                        <div class="tab-pane p-3 fade show active" id="home-25" role="tabpanel"
-                             aria-labelledby="home-tab-25">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="profile-25" role="tabpanel" aria-labelledby="profile-tab-25">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>.</span>
-                            </p>
-                        </div>
-                        <div class="tab-pane p-3 fade" id="message-25" role="tabpanel" aria-labelledby="message-tab-25">
-                            <p>
-                                <span class="placeholder small">This is actually text. Unbelievable, I know…  For proper styling, just remove <code>.placeholder</code>. </span>
-                            </p>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+                    <!-- /Extended box tab themes -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
 </div>

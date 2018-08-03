@@ -130,6 +130,45 @@
 }
 
 //
+// COLOR CONTRAST
+// ======================================================
+// Used to fix colors on light outlined buttons, tabs etc..
+@mixin text-theme-color-yiq($scheme, $font-color:base, $sledge-hammer:null) {
+
+  $r: red(contextual-color($scheme, $font-color));
+  $g: green(contextual-color($scheme, $font-color));
+  $b: blue(contextual-color($scheme, $font-color));
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >= 150) {
+    color: darken(contextual-color($scheme, $font-color), 50) $sledge-hammer;
+  } @else {
+    color: contextual-color($scheme, $font-color) $sledge-hammer;
+  }
+
+}
+
+
+//
+// CONTEXTUAL & THEME TEXT VARIANTS
+// ======================================================
+
+@mixin text-theme($scheme, $font-color:base, $sledge-hammer:null) {
+
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
+    @if ($scheme == 'light') {  // Fix colors on light outlined buttons, tabs etc..
+      @include text-theme-color-yiq($scheme, $font-color, $sledge-hammer);
+    } @else {
+      color: contextual-color($scheme, $font-color) $sledge-hammer;
+    }
+  } @else { // Theme variations
+    @include color($scheme, $font-color, $sledge-hammer);
+  }
+
+}
+
+//
 // CONTEXTUAL & THEME BACKGROUND VARIANTS
 // ======================================================
 
@@ -150,10 +189,10 @@
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
     background-color: contextual-color($scheme, $tone) $sledge-hammer;
-    color: contextual-color($scheme, $font-color) $sledge-hammer;
+    @include text-theme($scheme, $font-color, $sledge-hammer);
   } @else { // Theme variations
     @include background-color($scheme, $tone, $sledge-hammer);
-    @include color($scheme, $font-color, $sledge-hammer);
+    @include text-theme($scheme, $font-color, $sledge-hammer);
   }
 }
 
@@ -212,19 +251,6 @@
   }
 }
 
-//
-// CONTEXTUAL & THEME TEXT VARIANTS
-// ======================================================
-
-@mixin text-theme($scheme, $font-color:base, $sledge-hammer:null) {
-
-  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-    color: contextual-color($scheme, $font-color) $sledge-hammer;
-  } @else { // Theme variations
-    @include color($scheme, $font-color, $sledge-hammer);
-  }
-
-}
 
 //
 // CONTEXTUAL & THEME TEXT LINK VARIANTS
@@ -234,18 +260,18 @@
   @at-root a#{&} {
     #{$hover-tags} {
       @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-        color: contextual-color($scheme, $hover-color) $sledge-hammer;
+        @include text-theme($scheme, $hover-color, $sledge-hammer);
       } @else { // Theme variations
-        @include color($scheme, $hover-color, $sledge-hammer);
+        @include text-theme($scheme, $hover-color, $sledge-hammer);
       }
     }
 
     #{$active-tags},
     #{$focus-tags} {
       @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-        color: contextual-color($scheme, $tone-active) $sledge-hammer;
+        @include text-theme($scheme, $tone-active, $sledge-hammer);
       } @else { // Theme variations
-        @include color($scheme, $tone-active, $sledge-hammer);
+        @include text-theme($scheme, $tone-active, $sledge-hammer);
       }
     }
   }
@@ -414,6 +440,14 @@
   @if $bg == outline {
     background-color: transparent;
     @include text-theme($scheme, $tone);
+    /*    // Fix light outlined buttons
+        @if ($scheme == 'light') {
+          //color: theme-color-level($scheme, $tone, 6)
+          @include text-theme-color-yiq($scheme, $tone);
+        } @else {
+          @include text-theme($scheme, $tone);
+        }*/
+
   }
 
   #{$hover-tags} {
@@ -657,7 +691,7 @@
   @include background-theme($scheme, $tone);
 
   .nav-link {
-    @include opacity(0.6);
+    @include opacity(0.8);
   }
   .nav-link,
   .boxed-tab-title {
@@ -835,7 +869,6 @@
   }
 
 }
-
 
 //
 // PROGRESS BARS

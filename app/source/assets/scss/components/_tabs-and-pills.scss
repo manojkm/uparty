@@ -111,12 +111,12 @@
   }
 
   .nav-link {
+    @include transition;
     margin-top: $nav-tabs-ext-box-spacing;
 
-    // &:hover {
-    //   border-color:transparent;
-    //   background-color: transparent;
-    // }
+     &:hover {
+       @include transition;
+     }
 
   }
   + .tab-content {
@@ -132,12 +132,13 @@
   }
 
   // Theme variations
-  &.primary-box {
-    @include tab-extended-boxed-theme(primary);
-  }
-
-  &.secondary-box {
-    @include tab-extended-boxed-theme(secondary);
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $value in $colors {
+      &.#{$scheme}-box {
+        @include tab-extended-boxed-theme($scheme);
+      }
+    }
   }
 
   // Contextual variations
