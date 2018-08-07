@@ -24,7 +24,7 @@ components: true
 
                     <hr>
                     {{{card_title 'Justified'}}}
-                    <p>To justify the nav, add <code>.nav-justified</code> class to <code>.nav</code>.</p>
+                    <p>To justify the nav, add <code>.nav-justified</code> class to <code>.nav</code> and <code>.hasborder</code> class to <code>.tab-content</code>.</p>
                     <!-- Justified -->
                     {{#tab_has 'nav-tabs nav-justified''basic-2' tabs.items}}
                         <a class="{{class}}" id="{{id}}-basic-2" data-toggle="tab" href="#{{id}}-tab-basic-2" role="tab" aria-controls="{{id}}"
@@ -34,7 +34,6 @@ components: true
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-basic-2" role="tabpanel" aria-labelledby="{{id}}-basic-2"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
                     <!-- Justified -->
-
                     <hr>
                     {{{card_title 'Centered'}}}
                     <p>To center the nav, add <code>.justify-content-center</code> class to <code>.nav</code>.</p>
@@ -182,7 +181,26 @@ components: true
                             {{/tab_content_has}}
                         </div>
                     </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-8">
+                            {{#tab_content_has '''tabContent-pill-6' tabs.items}}
+                                <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-6" role="tabpanel" aria-labelledby="{{id}}-pill-6"><p>{{{placeholder-lorem-sht}}}</p>
+                                </div>
+                            {{/tab_content_has}}
+                        </div>
+                        <div class="col-md-4">
+                            {{#tab_has 'nav-pills flex-column''pill-6' tabs.items}}
+                                <a class="{{class}}" id="{{id}}-pill-6" data-toggle="pill" href="#{{id}}-tab-pill-6" role="tab" aria-controls="{{id}}"
+                                   aria-selected="{{aria-selected}}">{{text}}</a>
+                            {{/tab_has}}
+                        </div>
+                    </div>
+
+
                     <!-- /Vertical pills -->
+
+
                 {{/card_body}}
             {{/card}}
             {{#card}}
@@ -247,7 +265,7 @@ components: true
                     <p>Wrap tabs and tab content with <code>.extended-vertical.right-line</code> class.</p>
                     <!-- Right line -->
                     <div class="extended-vertical right-line">
-                        {{#tab_has 'nav-tabs''v-1' tabs.items}}
+                        {{#tab_has 'nav-tabs tabs-left''v-1' tabs.items}}
                             <a class="{{class}}" id="{{id}}-v-1" data-toggle="tab" href="#{{id}}-tab-v-1" role="tab" aria-controls="{{id}}"
                                aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
                         {{/tab_has}}
@@ -256,6 +274,23 @@ components: true
                         {{/tab_content_has}}
                     </div>
                     <!-- Right line -->
+
+                    <hr>
+                    {{{card_title 'Left line'}}}
+                    <p>Wrap tabs and tab content with <code>.extended-vertical.right-line</code> class.</p>
+                    <!-- Right line -->
+                    <div class="extended-vertical right-line">
+                        {{#tab_has 'nav-tabs tabs-right order-1''v-5' tabs.items}}
+                            <a class="{{class}}" id="{{id}}-v-5" data-toggle="tab" href="#{{id}}-tab-v-5" role="tab" aria-controls="{{id}}"
+                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                        {{/tab_has}}
+                        {{#tab_content_has 'px-3''tabContent-v-5 order-0' tabs.items}}
+                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-5" role="tabpanel" aria-labelledby="{{id}}-v-5"><p>{{{placeholder-lorem-sht}}}</p></div>
+                        {{/tab_content_has}}
+                    </div>
+                    <!-- Right line -->
+
+
                     <hr>
                     {{{card_title 'Outline'}}}
                     <p>Wrap tabs and tab content with <code>.extended-vertical.outline</code> class.</p>

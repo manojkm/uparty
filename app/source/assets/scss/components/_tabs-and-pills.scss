@@ -114,9 +114,9 @@
     @include transition;
     margin-top: $nav-tabs-ext-box-spacing;
 
-     &:hover {
-       @include transition;
-     }
+    &:hover {
+      @include transition;
+    }
 
   }
   + .tab-content {
@@ -240,16 +240,11 @@
   flex-direction: row;
 
   .nav-tabs {
-    @include add-border($nav-tabs-ext-v-wrap-active-border-size, $nav-tabs-border-color, right);
     border-bottom: none;
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: $nav-tabs-ext-v-width;
-
-    .nav-item {
-      margin-right: -$nav-tabs-ext-v-wrap-active-border-size;
-    }
 
     .nav-link {
       @include add-border($nav-tabs-ext-v-wrap-active-border-size, transparent, all);
@@ -264,7 +259,20 @@
     .nav-item.show .nav-link {
       background: none
     }
+  }
 
+  .nav-tabs.tabs-left {
+    @include add-border($nav-tabs-ext-v-wrap-active-border-size, $nav-tabs-border-color, right);
+    .nav-item {
+      margin-right: -$nav-tabs-ext-v-wrap-active-border-size;
+    }
+  }
+
+  .nav-tabs.tabs-right {
+    @include add-border($nav-tabs-ext-v-wrap-active-border-size, $nav-tabs-border-color, left);
+    .nav-item {
+      margin-left: -$nav-tabs-ext-v-wrap-active-border-size;
+    }
   }
 
   // Right Line type
@@ -272,22 +280,47 @@
 
     .nav-link {
 
-      &::after {
+      &::after,
+      &::before{
         @include transition;
         @include background-theme($nav-tabs-active-theme-scheme);
         content: "";
         width: $nav-tabs-ext-v-right-line-active-border-size;
         position: absolute;
         height: 100%;
-        right: -$nav-tabs-ext-v-right-line-active-border-size;
         top: 0;
         transform: scale(0);
       }
     }
 
+    .tabs-left {
+      .nav-link {
+        &::after {
+          right: -$nav-tabs-ext-v-right-line-active-border-size;
+        }
+        &::before{
+          display: none;
+        }
+      }
+    }
+
+    .tabs-right {
+      .nav-link {
+        &::before {
+          left: -$nav-tabs-ext-v-right-line-active-border-size;
+        }
+        &::after{
+          display: none;
+        }
+
+      }
+    }
+
     .nav-link.active,
     .nav-item.show .nav-link {
-      &::after {
+      &::after,
+      &::before
+      {
         transform: scale(1)
       }
     }
