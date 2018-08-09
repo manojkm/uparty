@@ -18,8 +18,9 @@
 // ======================================================
 // NOTE: We don't want to load custom fonts on your site/app, so we stay classic. We recommend using Google fonts.
 // To embed your own fonts, copy-paste this syntax into the provided `scss/_custom-variables.scss` file.
-// Be sure to remove the comment syntax and`!default` directive.
+// Be sure to set '$enable-typefaces' to 'true' and remove`!default` directive.
 // Place your fonts inside the 'fonts' folder at the same level as the SCSS folder.
+// The parameters of the map are detailed below:
 // $typefaces - {map}
 // @font-file-name - {string}. WITHOUT the file extension. ie 'Source-Sans-Pro'
 // @family - {string}
@@ -29,28 +30,40 @@
 // @adapted - https://github.com/minamarkham/sassy-starter/blob/master/src/scss/utilities/_fonts.scss
 // @usage:
 
-// $typefaces: (
-//         'font-file-name': (
-//                 family: 'font-name',
-//                 weight: 100,
-//                 style: normal,
-//                 file-formats:("ttf", "woff2", "woff")
-//         )
-// )!default;
+// Quickly enable or disable the `@font-face` directive for load custom "font face" fonts.
+//
+// If it is `true` the values ​​of the `$typefaces` map will be read.
+// @type Boolen
+$enable-typefaces:                      false !default;
+
+// Typefaces map
+$typefaces: (
+        'font-file-name':(
+                family: 'font-name',
+                weight: 100,
+                style: normal,
+                file-formats:("ttf", "woff2", "woff")
+        )
+) !default;
 
 //
 // GOOGLE FONTS
 // ======================================================
+// Quickly enable or disable the `@import` directive for load Google fonts.
+//
+// If it is `true` the values ​​of the `$google-fonts-import` will be read.
+// @type Boolen
+$enable-google-fonts-import:            true !default;
 
 // Includes:
 // Source Sans Pro:                     Light, Regular, Medium, Semi-bold, Bold;
 // Roboto Mono:                         Light, Regular, Medium, Semi-bold, Bold;
-$google-fonts-import:                   'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700|Roboto+Mono:300,400,500,600,700' !default;
+$google-fonts-import:                   unquote("Source+Sans+Pro:300,400,500,600,700|Roboto+Mono:300,400,500,600,700") !default;
 
 //
 // CONFIG FONTS STACKS
 // ======================================================
 
-$font-family-default:                   'Source Sans Pro' !default;  // Define Google font stack used for body, paragraphs.
+$font-family-default:                   'Source Sans Pro' !default; // Define Google font stack used for body, paragraphs.
 $font-family-display:                   $font-family-default !default; // Define font stack used for headings <h1> <h2> etc...
 $font-family-fallback:                  'Arial', sans-serif !default; // Define font to ensure embedded fonts fall back to appropriate system fonts.

@@ -18,5 +18,25 @@
 @import
     'bourbon',
     'media-queries',
-    '../themes/config',
+    '../themes/config';
+
+//
+// DISABLE GOOGLE FONT IMPORT
+// ======================================================
+// Ensure to disable the `@import` directive for load Google fonts as they are already imported on compiled sass manifest file (app.css)
+
+$enable-google-fonts-import: false;
+
+//
+// DISABLE CUSTOM FONTS
+// ======================================================
+// Ensure to disable the `@font-face` directive for load custom "font face" fonts as they are already imported on compiled sass manifest file (app.css)
+
+$enable-typefaces: false;
+
+//
+// VENDORS DEPENDENCIES
+// ======================================================
+
+@import
     '../helpers/all';

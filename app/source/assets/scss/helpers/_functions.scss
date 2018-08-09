@@ -137,27 +137,33 @@
 // ======================================================
 //**Introspective function that returns whether a variable with a given name exists in our project**
 
-// Import if Google Fonts variable is defined
+// Import if Google Fonts variable `google-fonts-import` is defined and `$enable-google-fonts-import` is true
 
 @if variable-exists(google-fonts-import) {
-  @import url($google-fonts-import);
+  //@import url($google-fonts-import);
+  @if $enable-google-fonts-import {
+    @import url("http://fonts.googleapis.com/css?family=#{$google-fonts-import}");
+  }
 }
 
-// If typefaces variable is defined
+// If typefaces variable `$typefaces` is defined and `$enable-typefaces` is true
 
 @if variable-exists(typefaces) {
-  @each $font-file-name, $option in $typefaces {
+  @if $enable-typefaces {
+    @each $font-file-name, $option in $typefaces {
 
-    // Bourbon font-face mixin - https://www.bourbon.io/docs/latest/#font-face
-    @include font-face(
-                    map-get(map-get($typefaces, $font-file-name), family),
-                    "../fonts/#{$font-file-name}",
-                    map-get(map-get($typefaces, $font-file-name), file-formats)
-    ) {
-      font-style: map-get(map-get($typefaces, $font-file-name), style);
-      font-weight: map-get(map-get($typefaces, $font-file-name), weight);
+      // Bourbon font-face mixin - https://www.bourbon.io/docs/latest/#font-face
+      @include font-face(
+                      map-get(map-get($typefaces, $font-file-name), family),
+                      "../fonts/#{$font-file-name}",
+                      map-get(map-get($typefaces, $font-file-name), file-formats)
+      ) {
+        font-style: map-get(map-get($typefaces, $font-file-name), style);
+        font-weight: map-get(map-get($typefaces, $font-file-name), weight);
+      }
     }
   }
+
 }
 
 //
@@ -235,7 +241,6 @@
 
   @return mix($color-base, $color, $level * $theme-color-interval);
 }
-
 
 //
 // Replace '$search' with '$replace' in '$string
