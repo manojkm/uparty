@@ -8,8 +8,6 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-/* TODO:  Responsive bootstrap tabs https://codepen.io/devben/pen/EaLdeJ */
-
 //
 // TABS
 // ======================================================
@@ -85,6 +83,7 @@
         transform: scale(0);
       }
     }
+
     .nav-link.active,
     .nav-item.show .nav-link {
       &::before {
@@ -111,6 +110,7 @@
   }
 
   .nav-link {
+    @include opacity(0.8);
     @include transition;
     margin-top: $nav-tabs-ext-box-spacing;
 
@@ -119,6 +119,13 @@
     }
 
   }
+  .nav-link.active,
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-item.show .nav-link {
+    @include opacity(1);
+  }
+
   + .tab-content {
     @include set-border-radius($nav-tabs-border-radius);
     @include border-top-radius(0);
@@ -242,10 +249,15 @@
   .nav-tabs {
     border-bottom: none;
     flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: $nav-tabs-ext-v-width;
+    @include min-screen($screen-md-min) {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: $nav-tabs-ext-v-width;
+    }
 
+    .nav-item {
+      white-space: nowrap;
+    }
     .nav-link {
       @include add-border($nav-tabs-ext-v-wrap-active-border-size, transparent, all);
       @include border-radius(0);
@@ -260,11 +272,20 @@
       background: none
     }
   }
+  .nav-item:first-child {
+    margin-top: 10px;
+  }
+  .nav-item:last-child {
+    margin-bottom: 10px;
+  }
 
   .nav-tabs.tabs-left {
     @include add-border($nav-tabs-ext-v-wrap-active-border-size, $nav-tabs-border-color, right);
     .nav-item {
       margin-right: -$nav-tabs-ext-v-wrap-active-border-size;
+    }
+    .nav-link {
+      @include border-left-radius($nav-tabs-border-radius);
     }
   }
 
@@ -273,19 +294,29 @@
     .nav-item {
       margin-left: -$nav-tabs-ext-v-wrap-active-border-size;
     }
+    .nav-link {
+      @include border-right-radius($nav-tabs-border-radius);
+    }
   }
 
   // Right Line type
-  &.right-line {
+  &.vertical-line {
+
+    .nav-item:first-child {
+      margin-top: 0;
+    }
+    .nav-item:last-child {
+      margin-bottom: 0;
+    }
 
     .nav-link {
 
       &::after,
-      &::before{
+      &::before {
         @include transition;
         @include background-theme($nav-tabs-active-theme-scheme);
         content: "";
-        width: $nav-tabs-ext-v-right-line-active-border-size;
+        width: $nav-tabs-ext-v-line-active-border-size;
         position: absolute;
         height: 100%;
         top: 0;
@@ -296,9 +327,9 @@
     .tabs-left {
       .nav-link {
         &::after {
-          right: -$nav-tabs-ext-v-right-line-active-border-size;
+          right: -$nav-tabs-ext-v-line-active-border-size;
         }
-        &::before{
+        &::before {
           display: none;
         }
       }
@@ -307,9 +338,9 @@
     .tabs-right {
       .nav-link {
         &::before {
-          left: -$nav-tabs-ext-v-right-line-active-border-size;
+          left: -$nav-tabs-ext-v-line-active-border-size;
         }
-        &::after{
+        &::after {
           display: none;
         }
 
@@ -319,8 +350,7 @@
     .nav-link.active,
     .nav-item.show .nav-link {
       &::after,
-      &::before
-      {
+      &::before {
         transform: scale(1)
       }
     }
@@ -328,15 +358,27 @@
 
   // Outline type
   &.outline {
+
     .nav-link {
       border-width: $nav-tabs-ext-v-wrap-active-border-size;
-      @include border-left-radius($nav-tabs-border-radius);
     }
 
-    .nav-link.active,
-    .nav-item.show .nav-link {
-      border-color: $nav-tabs-border-color;
-      border-right-color: $nav-tabs-link-active-bg;
+    .tabs-left {
+      .nav-link.active,
+      .nav-item.show .nav-link {
+        border-color: $nav-tabs-border-color;
+        border-right-color: $nav-tabs-link-active-bg;
+        @include add-border($nav-tabs-ext-outline-active-border-size, theme-color($nav-tabs-active-theme-scheme), left);
+      }
+    }
+
+    .tabs-right {
+      .nav-link.active,
+      .nav-item.show .nav-link {
+        border-color: $nav-tabs-border-color;
+        border-left-color: $nav-tabs-link-active-bg;
+        @include add-border($nav-tabs-ext-outline-active-border-size, theme-color($nav-tabs-active-theme-scheme), right);
+      }
     }
   }
 
@@ -348,14 +390,24 @@
     }
     .nav-link {
       @include add-border($nav-tabs-ext-v-wrap-active-border-size, transparent, all);
-      @include border-left-radius($nav-tabs-border-radius);
     }
 
-    .nav-link.active,
-    .nav-item.show .nav-link {
-      @include border-theme($nav-tabs-active-theme-scheme);
-      border-right-color: $nav-tabs-link-active-bg !important;
+    .tabs-left {
+      .nav-link.active,
+      .nav-item.show .nav-link {
+        @include border-theme($nav-tabs-active-theme-scheme);
+        border-right-color: $nav-tabs-link-active-bg !important;
+      }
     }
+
+    .tabs-right {
+      .nav-link.active,
+      .nav-item.show .nav-link {
+        @include border-theme($nav-tabs-active-theme-scheme);
+        border-left-color: $nav-tabs-link-active-bg !important;
+      }
+    }
+
   }
 
   // Primary filled type
@@ -363,9 +415,6 @@
 
     .nav-tabs {
       @include border-theme($nav-tabs-active-theme-scheme);
-    }
-    .nav-link {
-      @include border-left-radius($nav-tabs-border-radius);
     }
 
     .nav-link.active,

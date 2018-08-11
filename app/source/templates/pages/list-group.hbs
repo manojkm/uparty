@@ -1,0 +1,329 @@
+---
+title: List group
+lead: List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
+components: true
+---
+
+{{!--For alert, we make use of the handlebars helpers.
+Saves us having to write out the bulletproof button HTML
+See ../helpers/helpers-bootstrap.js for helpers and ../../data/components/alerts.json for JSON data.
+OR you can type out the HTML if you prefer--}}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Basic list groups'}}}
+                {{#card_body}}
+                    <p>The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that follow, or with your own CSS as needed.
+                    </p>
+                    <!-- Basic list groups -->
+                    <ul class="list-group">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <!-- /Basic list groups -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Active state'}}}
+                {{#card_body}}
+                    <p>Add <code>.active</code> to a <code>.list-group-item</code> to indicate the current active selection.</p>
+                    <!-- Active state -->
+                    <ul class="list-group">
+                        <li class="list-group-item active">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <!-- /Active state -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Flush / Remove Borders'}}}
+                {{#card_body}}
+                    <p>Use the <code>.list-group-flush</code> class to remove some borders and rounded corners:</p>
+                    <!-- Flush / Remove Borders -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <!-- /Flush / Remove Borders -->
+                {{/card_body}}
+            {{/card}}
+
+        </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Disabled items'}}}
+                {{#card_body}}
+                    <p>Add <code>.disabled</code> to a <code>.list-group-item</code> to make it appear disabled.</p>
+                    <!-- Disabled items -->
+                    <ul class="list-group">
+                        <li class="list-group-item disabled">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item disabled">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <!-- /Disabled items -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <h4 class="mt-4">List group themes</h4>
+    <h6 class="mb-3">Use contextual classes to style list items with a stateful background and color.
+       The classes for coloring list-items are: <code>list-group-item-primary</code>, <code>list-group-item-secondary</code>, <code>.list-group-item-success</code>, <code>list-group-item-info</code>, <code>
+            list-group-item-warning</code>, <code>.list-group-item-danger</code>, <code>list-group-item-dark</code> and <code>list-group-item-light</code>.
+    </h6>
+
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6 pr-lg-2">
+            {{#card}}
+                {{{card_header 'Contextual classes'}}}
+                {{#card_body}}
+                    <!-- Contextual classes -->
+                    <ul class="list-group">
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
+                        <li class="list-group-item list-group-item-secondary">This is a secondary list group item</li>
+                        <li class="list-group-item list-group-item-success">This is a success list group item</li>
+                        <li class="list-group-item list-group-item-danger">This is a danger list group item</li>
+                        <li class="list-group-item list-group-item-warning">This is a warning list group item</li>
+                        <li class="list-group-item list-group-item-info">This is a info list group item</li>
+                        <li class="list-group-item list-group-item-light">This is a light list group item</li>
+                        <li class="list-group-item list-group-item-dark">This is a dark list group item</li>
+                    </ul>
+                    <!-- /Contextual classes -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-lg-4 col-md-6 pr-lg-2">
+            {{#card}}
+                {{{card_header 'Link items with contextual classes'}}}
+                {{#card_body}}
+                    <!-- Link items with contextual classes -->
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">This is a primary list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">This is a secondary list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-success">This is a success list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">This is a danger list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-warning">This is a warning list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-info">This is a info list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a light list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-dark">This is a dark list group item</a>
+                    </div>
+                    <!-- /Link items with contextual classes -->
+                {{/card_body}}
+            {{/card}}
+
+
+        </div>
+        <div class="col-lg-4 col-md-6 pl-lg-2">
+            {{#card}}
+                {{{card_header 'Link items with active state'}}}
+                {{#card_body}}
+                    <!-- Link items with active state -->
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">This is a primary list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary active">This is a secondary list group item with active state</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-success">This is a success list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger active">This is a danger list group item with active state</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-warning">This is a warning list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-info active">This is a info list group item with active state</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a light list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-dark">This is a dark list group item</a>
+                    </div>
+                    <!-- /Link items with active state -->
+                {{/card_body}}
+            {{/card}}
+
+
+        </div>
+    </div>
+
+
+    <h4 class="mt-4">List group with linked items using anchors and buttons</h4>
+    <h6 class="mb-3">To create a list group with linked items, use <code>&lt;div&gt;</code> instead of <code>&lt;ul&gt;</code>
+        and <code>&lt;a&gt;</code> instead of <code>&lt;li&gt;</code>.
+        Optionally, add the <code>.list-group-item-action</code> class if you want a grey background color on
+        hover:</h6>
+
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'With anchors'}}}
+                {{#card_body}}
+                    <!-- With anchors -->
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active">Cras justo odio</a>
+                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                        <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+                    </div>
+                    <!-- /With anchors -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'With buttons'}}}
+                {{#card_body}}
+                    <!-- With buttons -->
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action active">Cras justo odio</button>
+                        <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                        <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                        <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                        <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+                    </div>
+                    <!-- /With buttons -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <h4 class="mt-4">List group with icons</h4>
+    <h6 class="mb-3">Left Icons and Right Icons need icon class before and after text of list group.</h6>
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Left icons'}}}
+                {{#card_body}}
+                    <!-- Left icons -->
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex align-items-center active"><i class="icon-like mr-2"></i> Cras justo odio</li>
+                        <li class="list-group-item d-flex align-items-center"><i class="icon-like mr-2"></i>Dapibus ac facilisis in</li>
+                        <li class="list-group-item d-flex align-items-center"><i class="icon-like mr-2"></i>Morbi leo risus</li>
+                    </ul>
+                    <!-- /Left icons -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Right icons'}}}
+                {{#card_body}}
+                    <!-- Right icons -->
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex align-items-center active">Cras justo odio<i class="icon-like ml-auto"></i></li>
+                        <li class="list-group-item d-flex align-items-center">Dapibus ac facilisis in<i class="icon-like ml-auto"></i></li>
+                        <li class="list-group-item d-flex align-items-center">Morbi leo risus<i class="icon-like ml-auto"></i></li>
+                    </ul>
+                    <!-- /Right icons -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <h4 class="mt-4">List group with badges</h4>
+    <h6 class="mb-3">Add badges to any list group item to show unread counts, activity, and more with the help of some utilities.</h6>
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Left badges'}}}
+                {{#card_body}}
+                    <!-- Left badges-->
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex align-items-center">
+                            <span class="badge badge-primary badge-round mr-2">14</span>
+                            Cras justo odio
+                        </li>
+                        <li class="list-group-item d-flex align-items-center active">
+                            <span class="badge badge-light badge-round mr-2">2</span>
+                            Dapibus ac facilisis in
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <span class="badge badge-primary badge-round mr-2">1</span>
+                            Morbi leo risus
+                        </li>
+                    </ul>
+                    <!-- /Left badges-->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Right badges'}}}
+                {{#card_body}}
+                    <!-- Right badges-->
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Cras justo odio
+                            <span class="badge badge-primary badge-round">14</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center active">
+                            Dapibus ac facilisis in
+                            <span class="badge badge-light badge-round">2</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Morbi leo risus
+                            <span class="badge badge-primary badge-round">1</span>
+                        </li>
+                    </ul>
+                    <!-- /Right badges-->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <h4 class="mt-4">Custom content</h4>
+    <h6 class="mb-3">Add nearly any HTML within, even for linked list groups like the one below, with the help of flexbox utilities.</h6>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'List group with HTML content'}}}
+                {{#card_body}}
+                    <!-- List group with HTML content -->
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 text-white">List group item heading</h5>
+                                <small class="text-white">3 days ago</small>
+                            </div>
+                            <p class="mb-1 text-white">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-white">Donec id elit non mi porta.</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small class="text-muted">3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small class="text-muted">3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                        </a>
+                    </div>
+                    <!-- /List group with HTML content -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+</div>

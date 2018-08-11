@@ -137,6 +137,7 @@ components: true
                 {{{card_header 'Pills'}}}
                 {{#card_body}}
 
+                    {{{card_title 'Basic'}}}
                     <p>Turn the nav menu into more rounded with the <code>.nav-pills</code> class.</p>
 
                     <!-- Basic pills -->
@@ -148,6 +149,17 @@ components: true
                         <div class="{{class_tab_pane}}" id="{{id}}-tab-pill" role="tabpanel" aria-labelledby="{{id}}-pill"><p>{{{placeholder-lorem-sht}}}</p></div>
                     {{/tab_content_has}}
                     <!-- /Basic pills -->
+
+                    {{{card_title 'Basic with icons only'}}}
+                    <!-- Basic with icons only -->
+                    {{#tab_has 'nav-pills''pill-7' tabs.items}}
+                        <a class="{{class}}" id="{{id}}-pill-7" data-toggle="pill" href="#{{id}}-tab-pill-7" role="tab" aria-controls="{{id}}"
+                           aria-selected="{{aria-selected}}"><i class="{{class_i}}"></i></a>
+                    {{/tab_has}}
+                    {{#tab_content_has 'pt-3''tabContent-pill-7' tabs.items}}
+                        <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-7" role="tabpanel" aria-labelledby="{{id}}-pill-7"><p>{{{placeholder-lorem-sht}}}</p></div>
+                    {{/tab_content_has}}
+                    <!-- /Basic with icons only -->
 
                     <hr>
                     {{{card_title 'Justified'}}}
@@ -164,9 +176,9 @@ components: true
                     <!-- /Justified pills -->
 
                     <hr>
-                    {{{card_title 'Vertical pills'}}}
+                    {{{card_title 'Vertical left pills'}}}
                     <p>Stack your navigation by changing the flex item direction with the <code>.flex-column</code> utility</p>
-                    <!-- Vertical pills -->
+                    <!-- Vertical left pills -->
                     <div class="row">
                         <div class="col-md-4">
                             {{#tab_has 'nav-pills flex-column''pill-4' tabs.items}}
@@ -181,24 +193,27 @@ components: true
                             {{/tab_content_has}}
                         </div>
                     </div>
+                    <!-- /Vertical left pills -->
                     <hr>
+                    {{{card_title 'Vertical right pills'}}}
+                    <p>Change the visual order of pills navigation to right side with flex <code>.order-*</code> utility</p>
+
+                    <!-- Vertical right pills -->
                     <div class="row">
-                        <div class="col-md-8">
-                            {{#tab_content_has '''tabContent-pill-6' tabs.items}}
-                                <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-6" role="tabpanel" aria-labelledby="{{id}}-pill-6"><p>{{{placeholder-lorem-sht}}}</p>
-                                </div>
-                            {{/tab_content_has}}
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 order-1">
                             {{#tab_has 'nav-pills flex-column''pill-6' tabs.items}}
                                 <a class="{{class}}" id="{{id}}-pill-6" data-toggle="pill" href="#{{id}}-tab-pill-6" role="tab" aria-controls="{{id}}"
                                    aria-selected="{{aria-selected}}">{{text}}</a>
                             {{/tab_has}}
                         </div>
+                        <div class="col-md-8 order-0">
+                            {{#tab_content_has '''tabContent-pill-6' tabs.items}}
+                                <div class="{{class_tab_pane}}" id="{{id}}-tab-pill-6" role="tabpanel" aria-labelledby="{{id}}-pill-6"><p>{{{placeholder-lorem-sht}}}</p>
+                                </div>
+                            {{/tab_content_has}}
+                        </div>
                     </div>
-
-
-                    <!-- /Vertical pills -->
+                    <!-- /Vertical right pills -->
 
 
                 {{/card_body}}
@@ -258,13 +273,14 @@ components: true
 
 
             {{#card}}
-                {{{card_header 'Vertical left tabs'}}}
+                {{{card_header 'Vertical tabs'}}}
                 {{#card_body}}
                     <!-- Vertical variations -->
-                    {{{card_title 'Right line'}}}
-                    <p>Wrap tabs and tab content with <code>.extended-vertical.right-line</code> class.</p>
-                    <!-- Right line -->
-                    <div class="extended-vertical right-line">
+                    {{{card_title 'Vertical line left tabs'}}}
+                    <p>Wrap tabs and tab content with <code>.extended-vertical.vertical-line</code> class.
+                        To add left navigation use <code>.tabs-left</code> class to <code>.nav-tabs</code>.</p>
+                    <!-- Vertical line left tabs -->
+                    <div class="extended-vertical vertical-line">
                         {{#tab_has 'nav-tabs tabs-left''v-1' tabs.items}}
                             <a class="{{class}}" id="{{id}}-v-1" data-toggle="tab" href="#{{id}}-tab-v-1" role="tab" aria-controls="{{id}}"
                                aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
@@ -273,45 +289,31 @@ components: true
                             <div class="{{class_tab_pane}}" id="{{id}}-tab-v-1" role="tabpanel" aria-labelledby="{{id}}-v-1"><p>{{{placeholder-lorem-sht}}}</p></div>
                         {{/tab_content_has}}
                     </div>
-                    <!-- Right line -->
+                    <!-- Vertical line left tabs -->
 
                     <hr>
-                    {{{card_title 'Left line'}}}
-                    <p>Wrap tabs and tab content with <code>.extended-vertical.right-line</code> class.</p>
-                    <!-- Right line -->
-                    <div class="extended-vertical right-line">
-                        {{#tab_has 'nav-tabs tabs-right order-1''v-5' tabs.items}}
-                            <a class="{{class}}" id="{{id}}-v-5" data-toggle="tab" href="#{{id}}-tab-v-5" role="tab" aria-controls="{{id}}"
-                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
-                        {{/tab_has}}
-                        {{#tab_content_has 'px-3''tabContent-v-5 order-0' tabs.items}}
-                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-5" role="tabpanel" aria-labelledby="{{id}}-v-5"><p>{{{placeholder-lorem-sht}}}</p></div>
-                        {{/tab_content_has}}
-                    </div>
-                    <!-- Right line -->
-
-
-                    <hr>
-                    {{{card_title 'Outline'}}}
-                    <p>Wrap tabs and tab content with <code>.extended-vertical.outline</code> class.</p>
-                    <!-- Outline -->
-                    <div class="extended-vertical outline">
-                        {{#tab_has 'nav-tabs''v-2' tabs.items}}
+                    {{{card_title 'Vertical line right tabs'}}}
+                     <p>Change the visual order of tabs navigation to right side with flex <code>.order-*</code> utility.
+                         To add right navigation use <code>.tabs-right</code> class to <code>.nav-tabs</code>.</p>
+                    <!-- Vertical line right tabs -->
+                    <div class="extended-vertical vertical-line">
+                        {{#tab_has 'nav-tabs tabs-right order-1''v-2' tabs.items}}
                             <a class="{{class}}" id="{{id}}-v-2" data-toggle="tab" href="#{{id}}-tab-v-2" role="tab" aria-controls="{{id}}"
                                aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
                         {{/tab_has}}
-                        {{#tab_content_has 'px-3''tabContent-v-2' tabs.items}}
+                        {{#tab_content_has 'px-3 order-0''tabContent-v-2' tabs.items}}
                             <div class="{{class_tab_pane}}" id="{{id}}-tab-v-2" role="tabpanel" aria-labelledby="{{id}}-v-2"><p>{{{placeholder-lorem-sht}}}</p></div>
                         {{/tab_content_has}}
                     </div>
-                    <!-- Outline -->
+                    <!-- Vertical line right tabs -->
 
                     <hr>
-                    {{{card_title 'Primary outline'}}}
-                    <p>Wrap tabs and tab content with <code>.extended-vertical.outline-primary</code> class.</p>
-                    <!-- Outline -->
-                    <div class="extended-vertical outline-primary">
-                        {{#tab_has 'nav-tabs''v-3' tabs.items}}
+                    {{{card_title 'Outline left tabs'}}}
+                    <p>Wrap tabs and tab content with <code>.extended-vertical.outline</code> class.
+                        To add left navigation use <code>.tabs-left</code> class to <code>.nav-tabs</code>.</p>
+                    <!-- Outline left tabs -->
+                    <div class="extended-vertical outline">
+                        {{#tab_has 'nav-tabs tabs-left''v-3' tabs.items}}
                             <a class="{{class}}" id="{{id}}-v-3" data-toggle="tab" href="#{{id}}-tab-v-3" role="tab" aria-controls="{{id}}"
                                aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
                         {{/tab_has}}
@@ -319,22 +321,89 @@ components: true
                             <div class="{{class_tab_pane}}" id="{{id}}-tab-v-3" role="tabpanel" aria-labelledby="{{id}}-v-3"><p>{{{placeholder-lorem-sht}}}</p></div>
                         {{/tab_content_has}}
                     </div>
-                    <!-- Outline -->
+                    <!-- Outline left tabs -->
 
                     <hr>
-                    {{{card_title 'Primary filled'}}}
-                    <p>Wrap tabs and tab content with <code>.extended-vertical.primary-filled</code> class.</p>
-                    <!-- Outline -->
-                    <div class="extended-vertical primary-filled">
-                        {{#tab_has 'nav-tabs''v-4' tabs.items}}
+                    {{{card_title 'Outline right tabs'}}}
+                    <p>Change the visual order of tabs navigation to right side with flex <code>.order-*</code> utility.
+                        To add right navigation use <code>.tabs-right</code> class to <code>.nav-tabs</code>.</p>
+                    <!-- Outline right tabs -->
+                    <div class="extended-vertical outline">
+                        {{#tab_has 'nav-tabs tabs-right order-1''v-4' tabs.items}}
                             <a class="{{class}}" id="{{id}}-v-4" data-toggle="tab" href="#{{id}}-tab-v-4" role="tab" aria-controls="{{id}}"
                                aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
                         {{/tab_has}}
-                        {{#tab_content_has 'px-3''tabContent-v-4' tabs.items}}
+                        {{#tab_content_has 'px-3 order-0''tabContent-v-4' tabs.items}}
                             <div class="{{class_tab_pane}}" id="{{id}}-tab-v-4" role="tabpanel" aria-labelledby="{{id}}-v-4"><p>{{{placeholder-lorem-sht}}}</p></div>
                         {{/tab_content_has}}
                     </div>
-                    <!-- Outline -->
+                    <!-- Outline right tabs -->
+
+                    <hr>
+                    {{{card_title 'Primary outline left tabs'}}}
+                    <p>Wrap tabs and tab content with <code>.extended-vertical.outline-primary</code> class.
+                        To add left navigation use <code>.tabs-left</code> class to <code>.nav-tabs</code>.</p>
+                    <!-- Primary outline left tabs -->
+                    <div class="extended-vertical outline-primary">
+                        {{#tab_has 'nav-tabs tabs-left''v-5' tabs.items}}
+                            <a class="{{class}}" id="{{id}}-v-5" data-toggle="tab" href="#{{id}}-tab-v-5" role="tab" aria-controls="{{id}}"
+                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                        {{/tab_has}}
+                        {{#tab_content_has 'px-3''tabContent-v-5' tabs.items}}
+                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-5" role="tabpanel" aria-labelledby="{{id}}-v-5"><p>{{{placeholder-lorem-sht}}}</p></div>
+                        {{/tab_content_has}}
+                    </div>
+                    <!-- Primary outline left tabs -->
+
+                    <hr>
+                    {{{card_title 'Primary outline right tabs'}}}
+                    <p>Change the visual order of tabs navigation to right side with flex <code>.order-*</code> utility.
+                        To add right navigation use <code>.tabs-right</code> class to <code>.nav-tabs</code>.</p>
+                    <!-- Primary outline right tabs -->
+                    <div class="extended-vertical outline-primary">
+                        {{#tab_has 'nav-tabs tabs-right order-1''v-6' tabs.items}}
+                            <a class="{{class}}" id="{{id}}-v-6" data-toggle="tab" href="#{{id}}-tab-v-6" role="tab" aria-controls="{{id}}"
+                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                        {{/tab_has}}
+                        {{#tab_content_has 'px-3 order-0''tabContent-v-6' tabs.items}}
+                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-6" role="tabpanel" aria-labelledby="{{id}}-v-6"><p>{{{placeholder-lorem-sht}}}</p></div>
+                        {{/tab_content_has}}
+                    </div>
+                    <!-- Primary outline right tabs -->
+
+                    <hr>
+                    {{{card_title 'Primary filled left tabs'}}}
+                    <p>Wrap tabs and tab content with <code>.extended-vertical.primary-filled</code> class.
+                        To add left navigation use <code>.tabs-left</code> class to <code>.nav-tabs</code>.</p>
+                    <!-- Primary filled left tabs -->
+                    <div class="extended-vertical primary-filled">
+                        {{#tab_has 'nav-tabs tabs-left''v-7' tabs.items}}
+                            <a class="{{class}}" id="{{id}}-v-7" data-toggle="tab" href="#{{id}}-tab-v-7" role="tab" aria-controls="{{id}}"
+                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                        {{/tab_has}}
+                        {{#tab_content_has 'px-3''tabContent-v-7' tabs.items}}
+                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-7" role="tabpanel" aria-labelledby="{{id}}-v-7"><p>{{{placeholder-lorem-sht}}}</p></div>
+                        {{/tab_content_has}}
+                    </div>
+                    <!-- Primary filled left tabs -->
+
+
+                    <hr>
+                    {{{card_title 'Primary filled right tabs'}}}
+                    <p>Change the visual order of tabs navigation to right side with flex <code>.order-*</code> utility.
+                        To add right navigation use <code>.tabs-right</code> class to <code>.nav-tabs</code>.</p>
+                    <!-- Primary filled right tabs -->
+                    <div class="extended-vertical primary-filled">
+                        {{#tab_has 'nav-tabs tabs-right order-1''v-8' tabs.items}}
+                            <a class="{{class}}" id="{{id}}-v-8" data-toggle="tab" href="#{{id}}-tab-v-8" role="tab" aria-controls="{{id}}"
+                               aria-selected="{{aria-selected}}"><i class="{{class_i}} mr-2"></i>{{text}}</a>
+                        {{/tab_has}}
+                        {{#tab_content_has 'px-3 order-0''tabContent-v-8' tabs.items}}
+                            <div class="{{class_tab_pane}}" id="{{id}}-tab-v-8" role="tabpanel" aria-labelledby="{{id}}-v-8"><p>{{{placeholder-lorem-sht}}}</p></div>
+                        {{/tab_content_has}}
+                    </div>
+                    <!-- Primary filled right tabs -->
+
 
                     <!-- /Vertical variations -->
                 {{/card_body}}

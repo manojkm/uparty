@@ -149,7 +149,6 @@
 
 }
 
-
 //
 // CONTEXTUAL & THEME TEXT VARIANTS
 // ======================================================
@@ -157,7 +156,7 @@
 @mixin text-theme($scheme, $font-color:base, $sledge-hammer:null) {
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-    @if ($scheme == 'light') {  // Fix colors on light outlined buttons, tabs etc..
+    @if ($scheme == 'light') { // Fix colors on light outlined buttons, tabs etc..
       @include text-theme-color-yiq($scheme, $font-color, $sledge-hammer);
     } @else {
       color: contextual-color($scheme, $font-color) $sledge-hammer;
@@ -250,7 +249,6 @@
 
   }
 }
-
 
 //
 // CONTEXTUAL & THEME TEXT LINK VARIANTS
@@ -440,14 +438,6 @@
   @if $bg == outline {
     background-color: transparent;
     @include text-theme($scheme, $tone);
-    /*    // Fix light outlined buttons
-        @if ($scheme == 'light') {
-          //color: theme-color-level($scheme, $tone, 6)
-          @include text-theme-color-yiq($scheme, $tone);
-        } @else {
-          @include text-theme($scheme, $tone);
-        }*/
-
   }
 
   #{$hover-tags} {
@@ -690,9 +680,6 @@
 
   @include background-theme($scheme, $tone);
 
-  .nav-link {
-    @include opacity(0.8);
-  }
   .nav-link,
   .boxed-tab-title {
     @include text-theme($scheme, $font-color);
@@ -702,7 +689,6 @@
   .nav-link:hover,
   .nav-link:focus,
   .nav-item.show .nav-link {
-    @include opacity(1);
     @include text-theme($scheme, $tone);
   }
 
@@ -868,6 +854,29 @@
     color: $color;
   }
 
+}
+
+//
+// LIST GROUP
+// ======================================================
+
+@mixin list-group-theme($scheme,$color,$background, $active-state-theme-tone) {
+
+  color: $color;
+  background-color: $background;
+
+  &.list-group-item-action {
+    &:hover,
+    &:focus {
+      color: darken($color, 5%) !important;
+      background-color: darken($background, 5%) !important;
+    }
+
+    &.active {
+      @include background-text-theme($scheme, $active-state-theme-tone, $sledge-hammer:!important);
+      @include border-theme($scheme, $active-state-theme-tone, $sledge-hammer:!important);
+    }
+  }
 }
 
 //

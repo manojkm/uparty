@@ -1,0 +1,86 @@
+// ================================================================================================
+// File Name      : lists-group.scss
+// Description    : Adjustments for Bootstrap's list group.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+// Interactive list items
+//
+// Use anchor or button elements instead of `li`s or `div`s to create interactive
+// list items. Includes an extra `.active` modifier class for selected items.
+
+.list-group-item-action {
+  color: $list-group-action-color !important;
+
+  // Hover state
+  &:hover,
+  &:focus {
+    color: $list-group-action-hover-color !important;
+    background-color: $list-group-hover-bg;
+  }
+
+  &:active {
+    color: $list-group-action-active-color !important;
+    background-color: $list-group-action-active-bg;
+  }
+}
+
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.list-group-item {
+  padding: $list-group-item-padding-y $list-group-item-padding-x;
+  // Place the border on the list items and negative margin up for better styling
+  margin-bottom: -$list-group-border-width;
+  background-color: $list-group-bg;
+  @include add-border($list-group-border-width, $list-group-border-color, all);
+
+  &:first-child {
+    @include border-top-radius($list-group-border-radius);
+  }
+
+  &:last-child {
+    @include border-bottom-radius($list-group-border-radius);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $list-group-disabled-color !important;
+    background-color: $list-group-disabled-bg;
+    cursor: $cursor-not-allowed;
+    pointer-events: none;
+  }
+
+  // Include both here for `<a>`s and `<button>`s
+  &.active {
+    @include background-text-theme($list-group-active-theme-scheme, $sledge-hammer: !important);
+    @include border-theme($list-group-active-theme-scheme);
+  }
+
+}
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    $color: theme-color-level($scheme, base, $list-group-color-level);
+    $background: theme-color-level($scheme, base, $list-group-bg-level);
+    .list-group-item-#{$scheme} {
+      @include list-group-theme($scheme, $color, $background, xx-dark);
+    }
+  }
+}
+
+// Contextual variations
+@each $scheme, $value in $contextual-palette-map {
+  $color: theme-color-level($scheme, base, $list-group-color-level);
+  $background: theme-color-level($scheme, base, $list-group-bg-level);
+  .list-group-item-#{$scheme} {
+    @include list-group-theme($scheme, $color, $background, xx-dark);
+  }
+}

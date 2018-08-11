@@ -113,17 +113,18 @@
 // 8.15 BADGES
 // 8.16 ALERT
 // 8.17 PROGRESS BAR
-// 8.18 MODAL
-// 8.19 TOOLTIPS
-// 8.20 POPOVERS
-// 8.21 CAROUSEL
-// 8.22 ACCORDION / COLLAPSE
-// 8.23 ACCORDION EXTENDED
-// 8.24 NUMBER SPINNER
-// 8.25 TOGGLE SWITCH
-// 8.26 TOGGLERS
-// 8.27 SEARCH
-// 8.28 MEGA MENU
+// 8.18 LIST GROUPS
+// 8.19 MODAL
+// 8.20 TOOLTIPS
+// 8.21 POPOVERS
+// 8.22 CAROUSEL
+// 8.23 ACCORDION / COLLAPSE
+// 8.24 ACCORDION EXTENDED
+// 8.25 NUMBER SPINNER
+// 8.26 TOGGLE SWITCH
+// 8.27 TOGGLERS
+// 8.28 SEARCH
+// 8.29 MEGA MENU
 
 //
 // 9. VENDOR'S VARIABLES
@@ -1039,9 +1040,13 @@ $nav-tabs-ext-box-spacing:                      8px !default; // Spacing between
 $nav-tabs-ext-v-width:                          200px !default; // Width of the tabbed navigation on left side
 $nav-tabs-ext-v-wrap-active-border-size:        $nav-tabs-border-size !default; // Width of the border around active tabbed navigation item
 
-// Tabs Extended (ext) - Vertical Right line type
+// Tabs Extended (ext) - Vertical line type
 
-$nav-tabs-ext-v-right-line-active-border-size:  ($nav-tabs-ext-v-wrap-active-border-size + 1) !default; // Width of the right side line for active tab
+$nav-tabs-ext-v-line-active-border-size:        ($nav-tabs-ext-v-wrap-active-border-size + 1) !default; // Width of the right side line for active tab
+
+// Tabs Extended (ext) - Outline type
+
+$nav-tabs-ext-outline-active-border-size:       $border-thicker !default; // Width of the border for active tab
 
 //
 // 8.10 CARDS
@@ -1318,7 +1323,30 @@ $progress-height:                       0.5rem !default;
 $progress-height-lg:                    0.75rem !default;
 
 //
-// 8.18 MODAL
+// 8.18 LIST GROUPS
+// -----------------------------------------------------------------------------
+
+$list-group-item-padding-y:             .75rem !default;
+$list-group-item-padding-x:             1.25rem !default;
+$list-group-bg:                         $white-color !default;
+$list-group-border-color:               rgba($black-color, .125) !default;
+$list-group-border-width:               $border-thin !default;
+$list-group-border-radius:              $border-radius-xl !default;
+$list-group-active-theme-scheme:        primary !default; // Theme color scheme applied to active `.list-group-item` like border colors, font colors etc.. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$list-group-action-color:               $gray-700 !default;
+$list-group-action-hover-color:         $gray-800 !default;
+$list-group-hover-bg:                   $gray-100 !default;
+$list-group-action-active-color:        $gray-800 !default;
+$list-group-action-active-bg:           $gray-200 !default;
+
+$list-group-disabled-color:             $gray-600 !default;
+$list-group-disabled-bg:                $list-group-bg !default;
+
+$list-group-bg-level:                        -9 !default;
+$list-group-color-level:                     6 !default;
+
+//
+// 8.19 MODAL
 // -----------------------------------------------------------------------------
 
 $modal-content-bg:                      $white-color !default; // Background color of modal content area
@@ -1338,7 +1366,7 @@ $modal-footer-border-color:             $gray-400; // Modal footer border top co
 $modal-footer-padding:                  15px 25px !default; // Modal footer vertical and horizontal padding.
 
 //
-// 8.19 POPOVERS
+// 8.20 POPOVERS
 // -----------------------------------------------------------------------------
 
 $popover-bg:                            $white-color !default; // Popover body background color
@@ -1349,7 +1377,7 @@ $popover-max-width:                     276px; // Popover maximum width
 $popover-border-radius:                 $border-radius-md; // Popover border radius to add rounded corners
 
 //
-// 8.20 TOOLTIPS
+// 8.21 TOOLTIPS
 // -----------------------------------------------------------------------------
 
 $tooltip-bg:                            $gray-900 !default; // Tooltip background color
@@ -1360,7 +1388,7 @@ $tooltip-font-size:                     $font-size-sm; // Tooltip font size.
 $tooltip-line-height:                   $lh-sm !default;
 
 //
-// 8.21 CAROUSEL
+// 8.22 CAROUSEL
 // -----------------------------------------------------------------------------
 
 $carousel-control-icon-size:                    40px !default; // Left/right controls size
@@ -1376,7 +1404,7 @@ $carousel-control-border-color:                 transparent !default; // Left/ri
 $carousel-indicator-light-active-bg:            $black-color !default; // Carousel indicator background color for lighter theme
 
 //
-// 8.22 ACCORDION / COLLAPSE
+// 8.23 ACCORDION / COLLAPSE
 // -----------------------------------------------------------------------------
 
 // Default accordion
@@ -1398,7 +1426,7 @@ $accordion-icon-collapsed:                      "\e604" !default; // Collapsed a
 $accordion-icon-active:                         "\e607" !default; // Active accordion icon (Simple Line Icons) unicode
 
 //
-// 8.23 ACCORDION EXTENDED
+// 8.24 ACCORDION EXTENDED
 // -----------------------------------------------------------------------------
 
 $accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
@@ -1407,14 +1435,14 @@ $accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone 
 $accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
 
 //
-// 8.24 NUMBER SPINNER
+// 8.25 NUMBER SPINNER
 // -----------------------------------------------------------------------------
 
 $spinner-icon-width:                    20px;
 $spinner-icon-font-size:                $font-size-xs;
 
 //
-// 8.25 TOGGLE SWITCH
+// 8.26 TOGGLE SWITCH
 // -----------------------------------------------------------------------------
 
 $custom-toggle-width:                   50px;
@@ -1444,7 +1472,7 @@ $custom-toggle-flip-off-state-color:    $gray-800 !default; // Text color for sw
 $custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
 
 //
-// 8.26 TOGGLERS
+// 8.27 TOGGLERS
 // -----------------------------------------------------------------------------
 
 // Header nav toggle button - visible on mobile devices only
@@ -1471,11 +1499,11 @@ $aside-toggler-bg-theme-scheme:                 header !default; // Background c
 $aside-toggler-icon-bar-active-theme-scheme:    primary !default; // Color scheme for Hamburger icon bar on active. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
 
 //
-// 8.27 SEARCH
+// 8.28 SEARCH
 // -----------------------------------------------------------------------------
 
 //
-// 8.28 MEGA MENU
+// 8.29 MEGA MENU
 // -----------------------------------------------------------------------------
 
 //

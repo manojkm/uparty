@@ -183,7 +183,7 @@
 // RETRIEVE MAIN COLORS VALUE FROM DEFINED 'THEMES' MAPS ($themes-map)
 // ======================================================
 
-@function theme-color($scheme, $tone) {
+@function theme-color($scheme, $tone:base) {
   @each $themeName, $value in $themes-map {
 
     @if ($themeName == $activeTheme) {
