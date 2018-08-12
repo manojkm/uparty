@@ -57,17 +57,18 @@
 // -----------------------------------------------------------------------------
 // 4.1 SELECTIONS
 // 4.2 BORDERS
-// 4.3 MARK
-// 4.4 SIZES
-// 4.5 WHITE OPACITY
-// 4.6 BLACK OPACITY
-// 4.7 OVERLAY
-// 4.8 SHADOWS
-// 4.9 EASINGS
-// 4.10 TRANSITIONS
-// 4.11 Z-INDEX LAYERS
-// 4.12 BREAKPOINTS
-// 4.13 CURSORS
+// 4.3 IMAGES
+// 4.4 MARK
+// 4.5 SIZES
+// 4.6 WHITE OPACITY
+// 4.7 BLACK OPACITY
+// 4.8 OVERLAY
+// 4.9 SHADOWS
+// 4.10 EASINGS
+// 4.11 TRANSITIONS
+// 4.12 Z-INDEX LAYERS
+// 4.13 BREAKPOINTS
+// 4.14 CURSORS
 
 //
 // 5. ELEMENTS
@@ -97,34 +98,35 @@
 // 8. COMPONENTS
 // -----------------------------------------------------------------------------
 // 8.1 BUTTONS
-// 8.2 TABLES
-// 8.3 FORMS
-// 8.4 CUSTOM FORMS
-// 8.5 DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
-// 8.6 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
-// 8.7 NAVS
-// 8.8 TABS, PILLS
-// 8.9 TABS EXTENDED
-// 8.10 CARDS
-// 8.11 BREADCRUMB
-// 8.12 BREADCRUMB EXTENDED
-// 8.13 PAGINATION
-// 8.14 PAGINATION EXTENDED
-// 8.15 BADGES
-// 8.16 ALERT
-// 8.17 PROGRESS BAR
-// 8.18 LIST GROUPS
-// 8.19 MODAL
-// 8.20 TOOLTIPS
-// 8.21 POPOVERS
-// 8.22 CAROUSEL
-// 8.23 ACCORDION / COLLAPSE
-// 8.24 ACCORDION EXTENDED
-// 8.25 NUMBER SPINNER
-// 8.26 TOGGLE SWITCH
-// 8.27 TOGGLERS
-// 8.28 SEARCH
-// 8.29 MEGA MENU
+// 8.2 IMAGES
+// 8.3 TABLES
+// 8.4 FORMS
+// 8.5 CUSTOM FORMS
+// 8.6 DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
+// 8.7 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
+// 8.8 NAVS
+// 8.9 TABS, PILLS
+// 8.10 TABS EXTENDED
+// 8.11 CARDS
+// 8.12 BREADCRUMB
+// 8.13 BREADCRUMB EXTENDED
+// 8.14 PAGINATION
+// 8.15 PAGINATION EXTENDED
+// 8.16 BADGES
+// 8.17 ALERT
+// 8.18 PROGRESS BAR
+// 8.19 LIST GROUPS
+// 8.20 MODAL
+// 8.21 TOOLTIPS
+// 8.22 POPOVERS
+// 8.23 CAROUSEL
+// 8.24 ACCORDION / COLLAPSE
+// 8.25 ACCORDION EXTENDED
+// 8.26 NUMBER SPINNER
+// 8.27 TOGGLE SWITCH
+// 8.28 TOGGLERS
+// 8.29 SEARCH
+// 8.30 MEGA MENU
 
 //
 // 9. VENDOR'S VARIABLES
@@ -364,7 +366,7 @@ $border-radius-100-px:                  100px !default;
 $border-radius-50:                      50% !default;
 $border-radius-100:                     100% !default;
 
-// Border radius map to generate utility classes (ie. .border-radius-xs, .border-radius-sm, and so on.) to add or remove an element’s borders.
+// Border radius map to generate utility classes (ie. .border-radius-xs, .border-radius-sm, and so on.) to add or remove an element’s borders radius.
 $border-radius-map: (
         0: 0,
         xs:     $border-radius-xs,
@@ -383,7 +385,7 @@ $border-radius-map: (
         100:    $border-radius-100
 ) !default;
 
-// Border size map to generate utility classes (ie. .border-0, .border-1, and so on.) to add or remove an element’s borders.
+// Border size map to generate utility classes (ie. .border-0, .border-1, and so on.) to add or remove an element’s border size.
 $border-sizes-map: (
         0: 0px,
         1: 1px,
@@ -396,9 +398,21 @@ $border-sizes-map: (
         8: 8px,
 ) !default;
 
+//
+// 4.3 IMAGES
+// -----------------------------------------------------------------------------
+// Image size map to generate utility classes (ie. .img-xs, .img-sm, and so on.) to adjust image sizes.
+$image-sizes-map: (
+        xs:     16px,
+        sm:     24px,
+        md:     32px,
+        lg:     64px,
+        xl:     128px,
+        xxl:    256px,
+) !default;
 
 //
-// 4.3 MARK
+// 4.4 MARK
 // -----------------------------------------------------------------------------
 
 $mark-underline-height-xs:              0.125rem; // 2px. Extra small (.mark-xs)
@@ -408,7 +422,7 @@ $mark-underline-height-lg:              0.75rem; // 12px. Large (.mark-lg)
 $mark-underline-height-xl:              1rem; // 16px. Extra large (.mark-xl)
 
 //
-// 4.4 SIZES
+// 4.5 SIZES
 // -----------------------------------------------------------------------------
 
 $extra-sizes: (
@@ -419,7 +433,7 @@ $extra-sizes: (
 ) !default;
 
 //
-// 4.5 WHITE OPACITY
+// 4.6 WHITE OPACITY
 // -----------------------------------------------------------------------------
 
 $opacity-white-1:                       rgba($white-color, 0.1) !default;
@@ -433,7 +447,7 @@ $opacity-white-8:                       rgba($white-color, 0.8) !default;
 $opacity-white-9:                       rgba($white-color, 0.9) !default;
 
 //
-// 4.6 BLACK OPACITY
+// 4.7 BLACK OPACITY
 // -----------------------------------------------------------------------------
 
 $opacity-black-1:                       rgba($black-color, 0.1) !default;
@@ -447,7 +461,7 @@ $opacity-black-8:                       rgba($black-color, 0.8) !default;
 $opacity-black-9:                       rgba($black-color, 0.9) !default;
 
 //
-// 4.7 OVERLAY
+// 4.8 OVERLAY
 // -----------------------------------------------------------------------------
 
 $overlay-bg:                            $opacity-black-5; // Background color for overlay.
@@ -456,7 +470,7 @@ $overlay-opacity-level:                 0.6 !default; // Used for card image ove
 
 
 //
-// 4.8 SHADOWS TODO, make the below perfect later ->  https://github.com/backstopmedia/riot-book-example/blob/843c5f79ac02727cc4b3eecc7ad043e2aa55e1db/src/assets/styles/mixins/shadow.scss
+// 4.9 SHADOWS TODO, make the below perfect later ->  https://github.com/backstopmedia/riot-book-example/blob/843c5f79ac02727cc4b3eecc7ad043e2aa55e1db/src/assets/styles/mixins/shadow.scss
 // -----------------------------------------------------------------------------
 
 $container-shadow:                              0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
@@ -475,20 +489,20 @@ $slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-8
 $toastr-box-shadow:                             0 5px 10px rgba($black-color, 0.1);
 
 //
-// 4.9 EASINGS
+// 4.10 EASINGS
 // -----------------------------------------------------------------------------
 
 $ease-in-out-circ:                      cubic-bezier(.27, .01, .38, 1.06);
 
 //
-// 4.10 TRANSITIONS
+// 4.11 TRANSITIONS
 // -----------------------------------------------------------------------------
 
 $theme-transition-duration:             1.5s; // TODO, delete this if not using.
 $general-transition-duration:           0.5s !default;
 
 //
-// 4.11 Z-INDEX LAYERS
+// 4.12 Z-INDEX LAYERS
 // -----------------------------------------------------------------------------
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
@@ -509,7 +523,7 @@ $zindex: (
 );
 
 //
-// 4.12 BREAKPOINTS
+// 4.13 BREAKPOINTS
 // -----------------------------------------------------------------------------
 
 // Extra small devices (portrait phones, 480px and up)
@@ -547,7 +561,7 @@ $screen-md-max:                         ($screen-lg-min - 1) !default; // 991px
 $screen-lg-max:                         ($screen-xl-min - 1) !default; // 1999px
 
 //
-// 4.12 BREAKPOINTS
+// 4.14 CURSORS
 // -----------------------------------------------------------------------------
 // Cursors values for enabling the option of having custom cursors
 
@@ -823,11 +837,15 @@ $btn-icon-size-xl:                      calc(#{$btn-icon-size-xl-inner} + #{$btn
 $btn-disabled-opacity:                  0.5;
 
 //
-// 8.2 TABLES
+// 8.2 IMAGES
 // -----------------------------------------------------------------------------
 
 //
-// 8.3 FORMS
+// 8.3 TABLES
+// -----------------------------------------------------------------------------
+
+//
+// 8.4 FORMS
 // -----------------------------------------------------------------------------
 
 $input-bg:                              $white-color; // <input> background color
@@ -888,7 +906,7 @@ $form-feedback-invalid-color:           contextual-color(danger); // Retrieve 'd
 $required-field-theme-scheme:           danger !default; // Contextual color scheme applied to required field asterisk (*) symbol. NOTE: Retrieved from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
 
 //
-// 8.4 CUSTOM FORMS
+// 8.5 CUSTOM FORMS
 // -----------------------------------------------------------------------------
 
 $custom-control-indicator-size:                         1rem !default;
@@ -943,7 +961,7 @@ $custom-file-button-focus-bg:                           $gray-300 !default;  // 
 $custom-file-text:                                      (en: "\e089   Browse") !default; // Custom file browser button text and icon (Simple Line Icons) unicode.
 
 //
-// 8.5 DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
+// 8.6 DROPDOWN MENU - EXTENDED (.dropdown-menu.extended)
 // -----------------------------------------------------------------------------
 
 $dropdown-width:                        auto; // Dropdown menu container width.
@@ -978,14 +996,14 @@ $dropdown-divider-border-width:         $border-thin !default; // Border width o
 $dropdown-icon-width:                   20px; // Dropdown menu item icon width for perfect alignment between icons and text.
 
 //
-// 8.6 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
+// 8.7 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
 // -----------------------------------------------------------------------------
 
 $dropdown-ext-theme-scheme:             header !default; // Theme color scheme applied to dropdown. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $dropdown-ext-item-border-theme-scheme: primary !default; // Theme color scheme applied to dropdown menu item border. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 //
-// 8.7 NAVS
+// 8.8 NAVS
 // -----------------------------------------------------------------------------
 
 $nav-font-size:                         $font-size-base !default; // Navigation font size (.nav)
@@ -995,7 +1013,7 @@ $nav-link-padding-x:                    1rem !default; // Navigation link horizo
 $nav-link-disabled-color:               $gray-400 !default; // Navigation disabled link color (.nav-link).
 
 //
-// 8.8 TABS, PILLS
+// 8.9 TABS, PILLS
 // -----------------------------------------------------------------------------
 
 // Tabs
@@ -1023,7 +1041,7 @@ $nav-pills-link-active-theme-scheme:            $nav-tabs-active-theme-scheme !d
 $nav-pills-link-hover-bg-theme-tone:            light !default; // Theme color tone applied to active pill item on hover. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 //
-// 8.9 TABS EXTENDED
+// 8.10 TABS EXTENDED
 // -----------------------------------------------------------------------------
 
 // Tabs Extended (ext) - Arrow > type
@@ -1049,7 +1067,7 @@ $nav-tabs-ext-v-line-active-border-size:        ($nav-tabs-ext-v-wrap-active-bor
 $nav-tabs-ext-outline-active-border-size:       $border-thicker !default; // Width of the border for active tab
 
 //
-// 8.10 CARDS
+// 8.11 CARDS
 // -----------------------------------------------------------------------------
 
 $card-margin-bottom:                    15px !default; // Margin for the bottom of each card so that it is separated from all other cards.
@@ -1079,7 +1097,7 @@ $card-toolbar-icon-width:               30px; // Width of the icons for each car
 $card-toolbar-icon-height:              25px; // Height of the icons for Window type actions items
 
 //
-// 8.11 BREADCRUMB
+// 8.12 BREADCRUMB
 // -----------------------------------------------------------------------------
 
 $breadcrumb-bg:                                 $white-color !default; // Breadcrumb background color.
@@ -1115,7 +1133,7 @@ $breadcrumb-size:                               calc((#{$breadcrumb-inner-size} 
 //$arrow-wizard-border-size:                    calc((#{$arrow-wizard-inner-size} + #{$btn-border-size * 2}) / 2) !default;  // Compute border size to make css triangle /\.
 
 //
-// 8.12 BREADCRUMB EXTENDED
+// 8.13 BREADCRUMB EXTENDED
 // -----------------------------------------------------------------------------
 
 // Breadcrumb extended(ext) - Arrow type
@@ -1148,7 +1166,7 @@ $breadcrumb-menu-color:                         $gray-600 !default; // Breadcrum
 $breadcrumb-menu-hover-color:                   $gray-800 !default; // Hover text color for breadcrumb item.
 
 //
-// 8.13 PAGINATION
+// 8.14 PAGINATION
 // -----------------------------------------------------------------------------
 
 $pagination-bg:                         $white-color !default; // Page link background color
@@ -1193,7 +1211,7 @@ $pagination-line-height-lg:             $btn-line-height-lg !default; // Use the
 $pagination-border-radius-lg:           $btn-border-radius-lg !default; // Use the same border radius as in 'large' size button for a consistent look
 
 //
-// 8.14 PAGINATION EXTENDED
+// 8.15 PAGINATION EXTENDED
 // -----------------------------------------------------------------------------
 
 // Pagination extended(ext) - Round type
@@ -1253,7 +1271,7 @@ $pagination-ext-size-lg:                calc(#{$pagination-ext-inner-lg} + #{$pa
 
 
 //
-// 8.15 BADGES
+// 8.16 BADGES
 // -----------------------------------------------------------------------------
 
 $badge-border-radius:                   $border-radius-sm; // Border radius to add rounded corners
@@ -1291,7 +1309,7 @@ $badge-size:                            calc(#{$badge-inner}) !default;
 $badge-disabled-opacity:                0.5; // Disabled badges opacity.
 
 //
-// 8.16 ALERT
+// 8.17 ALERT
 // -----------------------------------------------------------------------------
 
 $alert-border-radius:                   $border-radius-md; // Alert border radius to add rounded corners
@@ -1303,7 +1321,7 @@ $alert-border-level:                    -6 !default;
 $alert-color-level:                     6 !default;
 
 //
-// 8.17 PROGRESS BAR
+// 8.18 PROGRESS BAR
 // -----------------------------------------------------------------------------
 
 $progress-bg:                           $gray-200 !default; // Background color of the whole progress component
@@ -1323,7 +1341,7 @@ $progress-height:                       0.5rem !default;
 $progress-height-lg:                    0.75rem !default;
 
 //
-// 8.18 LIST GROUPS
+// 8.19 LIST GROUPS
 // -----------------------------------------------------------------------------
 
 $list-group-item-padding-y:             .75rem !default;
@@ -1342,11 +1360,11 @@ $list-group-action-active-bg:           $gray-200 !default;
 $list-group-disabled-color:             $gray-600 !default;
 $list-group-disabled-bg:                $list-group-bg !default;
 
-$list-group-bg-level:                        -9 !default;
-$list-group-color-level:                     6 !default;
+$list-group-bg-level:                   -9 !default;
+$list-group-color-level:                6 !default;
 
 //
-// 8.19 MODAL
+// 8.20 MODAL
 // -----------------------------------------------------------------------------
 
 $modal-content-bg:                      $white-color !default; // Background color of modal content area
@@ -1366,7 +1384,7 @@ $modal-footer-border-color:             $gray-400; // Modal footer border top co
 $modal-footer-padding:                  15px 25px !default; // Modal footer vertical and horizontal padding.
 
 //
-// 8.20 POPOVERS
+// 8.21 POPOVERS
 // -----------------------------------------------------------------------------
 
 $popover-bg:                            $white-color !default; // Popover body background color
@@ -1377,7 +1395,7 @@ $popover-max-width:                     276px; // Popover maximum width
 $popover-border-radius:                 $border-radius-md; // Popover border radius to add rounded corners
 
 //
-// 8.21 TOOLTIPS
+// 8.22 TOOLTIPS
 // -----------------------------------------------------------------------------
 
 $tooltip-bg:                            $gray-900 !default; // Tooltip background color
@@ -1388,7 +1406,7 @@ $tooltip-font-size:                     $font-size-sm; // Tooltip font size.
 $tooltip-line-height:                   $lh-sm !default;
 
 //
-// 8.22 CAROUSEL
+// 8.23 CAROUSEL
 // -----------------------------------------------------------------------------
 
 $carousel-control-icon-size:                    40px !default; // Left/right controls size
@@ -1404,7 +1422,7 @@ $carousel-control-border-color:                 transparent !default; // Left/ri
 $carousel-indicator-light-active-bg:            $black-color !default; // Carousel indicator background color for lighter theme
 
 //
-// 8.23 ACCORDION / COLLAPSE
+// 8.24 ACCORDION / COLLAPSE
 // -----------------------------------------------------------------------------
 
 // Default accordion
@@ -1426,7 +1444,7 @@ $accordion-icon-collapsed:                      "\e604" !default; // Collapsed a
 $accordion-icon-active:                         "\e607" !default; // Active accordion icon (Simple Line Icons) unicode
 
 //
-// 8.24 ACCORDION EXTENDED
+// 8.25 ACCORDION EXTENDED
 // -----------------------------------------------------------------------------
 
 $accordion-ext-theme-scheme:                    primary !default; // Theme color scheme applied to 'Extended' accordion. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
@@ -1435,14 +1453,14 @@ $accordion-ext-active-theme-tone:               $accordion-ext-hover-theme-tone 
 $accordion-ext-border-size:                     $border-thick; // Border width for both 'Underline' and 'Leftline' accordion type
 
 //
-// 8.25 NUMBER SPINNER
+// 8.26 NUMBER SPINNER
 // -----------------------------------------------------------------------------
 
 $spinner-icon-width:                    20px;
 $spinner-icon-font-size:                $font-size-xs;
 
 //
-// 8.26 TOGGLE SWITCH
+// 8.27 TOGGLE SWITCH
 // -----------------------------------------------------------------------------
 
 $custom-toggle-width:                   50px;
@@ -1472,7 +1490,7 @@ $custom-toggle-flip-off-state-color:    $gray-800 !default; // Text color for sw
 $custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
 
 //
-// 8.27 TOGGLERS
+// 8.28 TOGGLERS
 // -----------------------------------------------------------------------------
 
 // Header nav toggle button - visible on mobile devices only
@@ -1499,11 +1517,11 @@ $aside-toggler-bg-theme-scheme:                 header !default; // Background c
 $aside-toggler-icon-bar-active-theme-scheme:    primary !default; // Color scheme for Hamburger icon bar on active. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
 
 //
-// 8.28 SEARCH
+// 8.29 SEARCH
 // -----------------------------------------------------------------------------
 
 //
-// 8.29 MEGA MENU
+// 8.30 MEGA MENU
 // -----------------------------------------------------------------------------
 
 //

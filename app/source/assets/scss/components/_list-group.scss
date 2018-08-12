@@ -8,6 +8,12 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+// Base class
+
+.list-group.horizontal {
+  flex-direction: row;
+}
+
 // Interactive list items
 //
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
@@ -34,11 +40,19 @@
 // Use on `li`s or `div`s within the `.list-group` parent.
 
 .list-group-item {
+
   padding: $list-group-item-padding-y $list-group-item-padding-x;
   // Place the border on the list items and negative margin up for better styling
   margin-bottom: -$list-group-border-width;
   background-color: $list-group-bg;
   @include add-border($list-group-border-width, $list-group-border-color, all);
+
+  .animated > & {
+    transition: padding-left .3s ease !important;
+  }
+  .animated > &:hover {
+    padding-left: $list-group-item-padding-x+.75;
+  }
 
   &:first-child {
     @include border-top-radius($list-group-border-radius);
@@ -46,6 +60,21 @@
 
   &:last-child {
     @include border-bottom-radius($list-group-border-radius);
+  }
+
+  .horizontal > & {
+    margin-bottom: 0;
+    margin-left: -$list-group-border-width;
+    &:first-child {
+      @include border-left-radius($list-group-border-radius);
+      border-top-right-radius:0;
+    }
+
+    &:last-child {
+      @include border-right-radius($list-group-border-radius);
+      border-bottom-left-radius:0;
+    }
+
   }
 
   &.disabled,

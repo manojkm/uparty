@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : images.scss
-// Description    : Images adjustments.
+// Description    : Helper classes for adjusting image sizes
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -8,10 +8,16 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-
-
 //
-// AVATAR
+// IMAGE SIZES
 // ======================================================
+// Generate image sizes based on `$image-sizes-map` map
 
-// TODO https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/components.css
+@each $prefix in (img) {
+    @each $size, $value in $image-sizes-map {
+        .#{$prefix}-#{$size} {
+            width : $value !important;
+            height : $value !important;
+        }
+    }
+}

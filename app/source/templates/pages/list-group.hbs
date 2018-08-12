@@ -22,12 +22,26 @@ OR you can type out the HTML if you prefer--}}
                         <li class="list-group-item">Cras justo odio</li>
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
                     <!-- /Basic list groups -->
                 {{/card_body}}
             {{/card}}
+
+            {{#card}}
+                {{{card_header 'Horizontal variation'}}}
+                {{#card_body}}
+                    <p>A list group can be formatted to have items appear horizontally.
+                        Just add <code>.horizontal</code> to <code>.list-group</code> </p>
+                    <!-- Horizontal variation -->
+                    <ul class="list-group horizontal">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                    </ul>
+                    <!-- /Horizontal variation -->
+                {{/card_body}}
+            {{/card}}
+
         </div>
 
         <div class="col-md-6 pl-md-2">
@@ -41,9 +55,22 @@ OR you can type out the HTML if you prefer--}}
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Morbi leo risus</li>
                         <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
                     <!-- /Active state -->
+                {{/card_body}}
+            {{/card}}
+
+            {{#card}}
+                {{{card_header 'Active state in horizontal variation'}}}
+                {{#card_body}}
+                    <!-- Active state horizontal variation -->
+                    <ul class="list-group horizontal">
+                        <li class="list-group-item active">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+
+                    </ul>
+                    <!-- /Active state horizontal variation -->
                 {{/card_body}}
             {{/card}}
         </div>
@@ -115,7 +142,7 @@ OR you can type out the HTML if you prefer--}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-lg-4 col-md-6 pr-lg-2">
+        <div class="col-lg-4 col-md-6 px-lg-2">
             {{#card}}
                 {{{card_header 'Link items with contextual classes'}}}
                 {{#card_body}}
@@ -213,8 +240,8 @@ OR you can type out the HTML if you prefer--}}
                     <!-- Left icons -->
                     <ul class="list-group">
                         <li class="list-group-item d-flex align-items-center active"><i class="icon-like mr-2"></i> Cras justo odio</li>
-                        <li class="list-group-item d-flex align-items-center"><i class="icon-like mr-2"></i>Dapibus ac facilisis in</li>
-                        <li class="list-group-item d-flex align-items-center"><i class="icon-like mr-2"></i>Morbi leo risus</li>
+                        <li class="list-group-item d-flex align-items-center"><i class="icon-heart mr-2"></i>Dapibus ac facilisis in</li>
+                        <li class="list-group-item d-flex align-items-center"><i class="icon-bubbles mr-2"></i>Morbi leo risus</li>
                     </ul>
                     <!-- /Left icons -->
                 {{/card_body}}
@@ -227,8 +254,8 @@ OR you can type out the HTML if you prefer--}}
                     <!-- Right icons -->
                     <ul class="list-group">
                         <li class="list-group-item d-flex align-items-center active">Cras justo odio<i class="icon-like ml-auto"></i></li>
-                        <li class="list-group-item d-flex align-items-center">Dapibus ac facilisis in<i class="icon-like ml-auto"></i></li>
-                        <li class="list-group-item d-flex align-items-center">Morbi leo risus<i class="icon-like ml-auto"></i></li>
+                        <li class="list-group-item d-flex align-items-center">Dapibus ac facilisis in<i class="icon-heart ml-auto"></i></li>
+                        <li class="list-group-item d-flex align-items-center">Morbi leo risus<i class="icon-bubbles ml-auto"></i></li>
                     </ul>
                     <!-- /Right icons -->
                 {{/card_body}}
@@ -270,7 +297,7 @@ OR you can type out the HTML if you prefer--}}
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Cras justo odio
-                            <span class="badge badge-primary badge-round">14</span>
+                            <span class="badge badge-success pointed arrow-left">NEW</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center active">
                             Dapibus ac facilisis in
@@ -326,4 +353,212 @@ OR you can type out the HTML if you prefer--}}
             {{/card}}
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'HTML content with images'}}}
+                {{#card_body}}
+                    <!-- HTML content with images -->
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex">
+                            <img class="rounded-circle align-self-center img-lg" src="https://source.unsplash.com/vTL_qy03D1I/100x100" alt="Card image">
+                            <div class="content px-3 align-self-center">
+                                <a href="#" class="h5">María Victoria</a><br>
+                                <small class="text-muted">Last seen watching <a href="#">Arrested Development</a> just now.</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex">
+                            <img class="rounded-circle align-self-center img-lg" src="https://source.unsplash.com/tNCH0sKSZbA/100x100" alt="Card image">
+                            <div class="content px-3 align-self-center">
+                                <a href="#" class="h5">Kristy</a><br>
+                                <small class="text-muted">Last seen watching <a href="#">Bob's Burgers</a> 10 hours ago.</small>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item d-flex">
+                            <img class="rounded-circle align-self-center img-lg" src="https://source.unsplash.com/Y_2vh9QyY-g/100x100" alt="Card image">
+                            <div class="content px-3 align-self-center">
+                                <a href="#" class="h5">Matthew Hamilton</a><br>
+                                <small class="text-muted">Last seen watching <a href="#">The Godfather Part 2</a> yesterday.</small>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item d-flex">
+                            <img class="rounded-circle align-self-center img-lg" src="https://source.unsplash.com/EdA845C1yXc/100x100" alt="Card image">
+                            <div class="content px-3 align-self-center">
+                                <a href="#" class="h5">Christopher Campbell</a><br>
+                                <small class="text-muted">Last seen watching <a href="#">Twin Peaks</a> 3 days ago.</small>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <!-- /HTML content with images -->
+
+                    <hr>
+                    {{{card_title 'Horizontal variation'}}}
+                    <!-- HTML content with images - horizontal variation -->
+                    <ul class="list-group horizontal">
+                        <li class="list-group-item d-flex">
+                            <img class="rounded-circle align-self-center img-lg" src="https://source.unsplash.com/vTL_qy03D1I/100x100" alt="Card image">
+                            <div class="content px-3 align-self-center">
+                                <a href="#" class="h5">María Victoria</a><br>
+                                <small class="text-muted">Last seen watching <a href="#">Arrested Development</a> just now.</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex">
+                            <img class="rounded-circle align-self-center img-lg" src="https://source.unsplash.com/tNCH0sKSZbA/100x100" alt="Card image">
+                            <div class="content px-3 align-self-center">
+                                <a href="#" class="h5">Kristy</a><br>
+                                <small class="text-muted">Last seen watching <a href="#">Bob's Burgers</a> 10 hours ago.</small>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item d-flex">
+                            <img class="rounded-circle align-self-center img-lg" src="https://source.unsplash.com/Y_2vh9QyY-g/100x100" alt="Card image">
+                            <div class="content px-3 align-self-center">
+                                <a href="#" class="h5">Matthew Hamilton</a><br>
+                                <small class="text-muted">Last seen watching <a href="#">The Godfather Part 2</a> yesterday.</small>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item d-flex">
+                            <img class="rounded-circle align-self-center img-lg" src="https://source.unsplash.com/EdA845C1yXc/100x100" alt="Card image">
+                            <div class="content px-3 align-self-center">
+                                <a href="#" class="h5">Christopher Campbell</a><br>
+                                <small class="text-muted">Last seen watching <a href="#">Twin Peaks</a> 3 days ago.</small>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <!-- /HTML content with images - horizontal variation -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'HTML content with images'}}}
+                {{#card_body}}
+                    <!-- HTML content with images -->
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/vTL_qy03D1I/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">María Victoria</p>
+                            </div>
+                            <span class="badge badge-info ml-auto align-self-center">3 days ago</span>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/tNCH0sKSZbA/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">Kristy</p>
+                            </div>
+                            <span class="badge badge-info ml-auto align-self-center">14h</span>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/Y_2vh9QyY-g/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">Matthew Hamilton</p>
+                            </div>
+                            <span class="badge badge-info ml-auto align-self-center">2 days ago</span>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/EdA845C1yXc/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">Christopher Campbell</p>
+                            </div>
+                            <span class="badge badge-info ml-auto align-self-center">10h</span>
+                        </a>
+
+                    </div>
+                    <!-- /HTML content with images -->
+                    <hr>
+                    <!-- HTML content with images - horizontal variation -->
+                    <div class="list-group horizontal">
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/vTL_qy03D1I/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">María Victoria</p>
+                            </div>
+                            <span class="badge badge-info ml-auto align-self-center">3 days ago</span>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/tNCH0sKSZbA/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">Kristy</p>
+                            </div>
+                            <span class="badge badge-info ml-auto align-self-center">14h</span>
+                        </a>
+
+                    </div>
+                    <!-- /HTML content with images - horizontal variation -->
+
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Animated'}}}
+                {{#card_body}}
+                    <p>Add <code>.animated</code> to <code>.list-group</code> to make items animated on hover.</p>
+                    <!-- HTML content with images -->
+                    <div class="list-group animated">
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/vTL_qy03D1I/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">María Victoria</p>
+                            </div>
+                            <span class="badge badge-success ml-auto align-self-center">3 days ago</span>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/tNCH0sKSZbA/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">Kristy</p>
+                            </div>
+                            <span class="badge badge-danger ml-auto align-self-center">14h</span>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/Y_2vh9QyY-g/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">Matthew Hamilton</p>
+                            </div>
+                            <span class="badge badge-success ml-auto align-self-center">2 days ago</span>
+                        </a>
+                    </div>
+                    <!-- /HTML content with images -->
+                    <hr>
+                    <!-- HTML content with images - horizontal variation -->
+                    <div class="list-group horizontal animated">
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/vTL_qy03D1I/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">María Victoria</p>
+                            </div>
+                            <span class="badge badge-success ml-auto align-self-center">3 days ago</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex">
+                            <img class="rounded-circle align-self-center img-md" src="https://source.unsplash.com/tNCH0sKSZbA/50x50" alt="Card image">
+                            <div class="content px-2 align-self-center">
+                                <p class="h6 m-0 font-weight-bold">Kristy</p>
+                            </div>
+                            <span class="badge badge-danger ml-auto align-self-center">14h</span>
+                        </a>
+                    </div>
+                    <!-- /HTML content with images - horizontal variation -->
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
 </div>
