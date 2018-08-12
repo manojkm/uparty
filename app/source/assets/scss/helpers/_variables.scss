@@ -601,8 +601,10 @@ $body-line-height:                      $lh-base;  // Specifies the default line
 // -----------------------------------------------------------------------------
 // Settings for the anchor elements.
 
-$link-color:                            $font-color-default !default; // Global textual link color.
-$link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
+//$link-color:                            $font-color-default !default; // Global textual link color.
+//$link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
+$link-color:                            $boston-blue !default; // Global textual link color.
+$link-hover-color:                      darken($link-color, 15%) !default; // Global textual link hover color
 $link-hover-decoration:                 none; // Global textual link hover decoration.
 
 //

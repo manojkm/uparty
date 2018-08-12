@@ -105,10 +105,10 @@
   flex-direction: row;
   justify-content: flex-end;
 
-  &-item {
+  a.card__actions-item {
     @include transition;
-    @include opacity(0.7);
-    color: inherit;
+    @include opacity(0.8);
+    color: $card-tools-color;
     width: $card-toolbar-icon-width;
     font-size: $card-tools-font-size;
     text-decoration: none;
@@ -118,7 +118,7 @@
 
     //#{$a-tags},
     #{$hover-focus-tags} {
-      color: inherit;
+      color: $card-tools-color;
       @include opacity(1);
     }
   }

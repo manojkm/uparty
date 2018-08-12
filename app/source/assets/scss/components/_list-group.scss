@@ -8,12 +8,6 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// Base class
-
-.list-group.horizontal {
-  flex-direction: row;
-}
-
 // Interactive list items
 //
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
@@ -62,21 +56,6 @@
     @include border-bottom-radius($list-group-border-radius);
   }
 
-  .horizontal > & {
-    margin-bottom: 0;
-    margin-left: -$list-group-border-width;
-    &:first-child {
-      @include border-left-radius($list-group-border-radius);
-      border-top-right-radius:0;
-    }
-
-    &:last-child {
-      @include border-right-radius($list-group-border-radius);
-      border-bottom-left-radius:0;
-    }
-
-  }
-
   &.disabled,
   &:disabled {
     color: $list-group-disabled-color !important;
@@ -91,6 +70,28 @@
     @include border-theme($list-group-active-theme-scheme);
   }
 
+}
+
+// Horizontal variation
+
+.list-group.horizontal {
+
+  @include min-screen($screen-md-min) {
+    .list-group-item {
+      flex: 1 100%;
+      margin-bottom: 0;
+      margin-left: -$list-group-border-width;
+      &:first-child {
+        @include border-left-radius($list-group-border-radius);
+        border-top-right-radius: 0;
+      }
+
+      &:last-child {
+        @include border-right-radius($list-group-border-radius);
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
 }
 
 // Theme variations
