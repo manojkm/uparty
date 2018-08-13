@@ -2,20 +2,10 @@
 title: List group
 lead: List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
 components: true
-
-js_vendors:
-- html5sortable/dist/html5sortable
-
-css_vendors_extended:
-- html5sortable
-
-js_vendors_extended:
-- html5sortable
 ---
 
 
 http://farhadi.ir/projects/html5sortable
-
 
 
 <div class="container-fluid">
@@ -32,6 +22,8 @@ http://farhadi.ir/projects/html5sortable
                         <li class="list-group-item">Cras justo odio</li>
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
                     <!-- /Basic list groups -->
                 {{/card_body}}
@@ -66,6 +58,23 @@ http://farhadi.ir/projects/html5sortable
                     <!-- /Flush / Remove Borders -->
                 {{/card_body}}
             {{/card}}
+
+            {{#card}}
+                {{{card_header 'Animated'}}}
+                {{#card_body}}
+                    <p>Add <code>.animated</code> to <code>.list-group</code> to make items animated on hover.</p>
+                    <!-- Animated -->
+                    <ul class="list-group animated">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                    </ul>
+                    <!-- /Animated -->
+                {{/card_body}}
+            {{/card}}
+
+
         </div>
 
         <div class="col-md-6 pl-md-2">
@@ -79,6 +88,7 @@ http://farhadi.ir/projects/html5sortable
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Morbi leo risus</li>
                         <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
                     <!-- /Active state -->
                 {{/card_body}}
@@ -94,6 +104,21 @@ http://farhadi.ir/projects/html5sortable
                         <li class="list-group-item d-flex align-items-center">Morbi leo risus</li>
                     </ul>
                     <!-- /Active state horizontal variation -->
+                {{/card_body}}
+            {{/card}}
+
+            {{#card}}
+                {{{card_header 'Separated'}}}
+                {{#card_body}}
+                    <p>Add <code>.separated</code> to the <code>.list-group</code> to make list items appear separatedd.</p>
+                    <!-- Active state -->
+                    <ul class="list-group separated">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                    </ul>
+                    <!-- /Active state -->
                 {{/card_body}}
             {{/card}}
 
@@ -115,20 +140,6 @@ http://farhadi.ir/projects/html5sortable
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            {{#card}}
-                {{{card_header 'Sortable list group'}}}
-                {{#card_body}}
-                    <ul class="list-group sortable">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                    </ul>
-                {{/card_body}}
-            {{/card}}
-        </div>
-    </div>
 
     <h4 class="mt-4">List group themes</h4>
     <h6 class="mb-3">Use contextual classes to style list items with a stateful background and color.
@@ -136,8 +147,6 @@ http://farhadi.ir/projects/html5sortable
         <code>list-group-item-info</code>, <code>
             list-group-item-warning</code>, <code>.list-group-item-danger</code>, <code>list-group-item-dark</code> and <code>list-group-item-light</code>.
     </h6>
-
-
     <div class="row">
         <div class="col-lg-4 col-md-12 pr-lg-2">
             {{#card}}
@@ -238,8 +247,6 @@ http://farhadi.ir/projects/html5sortable
             {{/card}}
         </div>
     </div>
-
-
     <h4 class="mt-4">List group with linked items using anchors and buttons</h4>
     <h6 class="mb-3">To create a list group with linked items, use <code>&lt;div&gt;</code> instead of <code>&lt;ul&gt;</code>
         and <code>&lt;a&gt;</code> instead of <code>&lt;li&gt;</code>.
@@ -408,7 +415,7 @@ http://farhadi.ir/projects/html5sortable
     <div class="row">
         <div class="col-md-12">
             {{#card}}
-                {{{card_header 'HTML content with images'}}}
+                {{{card_header 'HTML content with images example'}}}
                 {{#card_body}}
                     <!-- HTML content with images -->
                     <ul class="list-group">
@@ -519,7 +526,7 @@ http://farhadi.ir/projects/html5sortable
     <div class="row">
         <div class="col-md-6 pr-md-2">
             {{#card}}
-                {{{card_header 'HTML content with images'}}}
+                {{{card_header 'HTML content with images example'}}}
                 {{#card_body}}
                     <!-- HTML content with images -->
                     <div class="list-group">
