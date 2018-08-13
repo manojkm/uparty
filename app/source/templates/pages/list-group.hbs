@@ -2,10 +2,21 @@
 title: List group
 lead: List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
 components: true
+
+js_vendors:
+- html5sortable/dist/html5sortable
+
+css_vendors_extended:
+- html5sortable
+
+js_vendors_extended:
+- html5sortable
 ---
 
 
 http://farhadi.ir/projects/html5sortable
+
+
 
 <div class="container-fluid">
     <div class="row">
@@ -13,7 +24,8 @@ http://farhadi.ir/projects/html5sortable
             {{#card}}
                 {{{card_header 'Basic list groups'}}}
                 {{#card_body}}
-                    <p>The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that follow, or with your own CSS as needed.
+                    <p>The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that follow, or with your own
+                        CSS as needed.
                     </p>
                     <!-- Basic list groups -->
                     <ul class="list-group">
@@ -29,7 +41,7 @@ http://farhadi.ir/projects/html5sortable
                 {{{card_header 'Horizontal variation'}}}
                 {{#card_body}}
                     <p>A list group can be formatted to have items appear horizontally.
-                        Just add <code>.horizontal</code> and flex-direction class <code>.flex-md-row</code> to <code>.list-group</code> </p>
+                        Just add <code>.horizontal</code> and flex-direction class <code>.flex-md-row</code> to <code>.list-group</code></p>
                     <!-- Horizontal variation -->
                     <ul class="list-group horizontal flex-md-row">
                         <li class="list-group-item d-flex align-items-center">Cras justo odio</li>
@@ -103,9 +115,25 @@ http://farhadi.ir/projects/html5sortable
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Sortable list group'}}}
+                {{#card_body}}
+                    <ul class="list-group sortable">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                    </ul>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
     <h4 class="mt-4">List group themes</h4>
     <h6 class="mb-3">Use contextual classes to style list items with a stateful background and color.
-       The classes for coloring list-items are: <code>list-group-item-primary</code>, <code>list-group-item-secondary</code>, <code>.list-group-item-success</code>, <code>list-group-item-info</code>, <code>
+        The classes for coloring list-items are: <code>list-group-item-primary</code>, <code>list-group-item-secondary</code>, <code>.list-group-item-success</code>,
+        <code>list-group-item-info</code>, <code>
             list-group-item-warning</code>, <code>.list-group-item-danger</code>, <code>list-group-item-dark</code> and <code>list-group-item-light</code>.
     </h6>
 
@@ -196,7 +224,8 @@ http://farhadi.ir/projects/html5sortable
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
                         <a href="#" class="list-group-item list-group-item-action list-group-item-primary">This is a primary list group item</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary active">This is a secondary list group item with active state</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary active">This is a secondary list group item with active
+                            state</a>
                         <a href="#" class="list-group-item list-group-item-action list-group-item-success">This is a success list group item</a>
                         <a href="#" class="list-group-item list-group-item-action list-group-item-danger active">This is a danger list group item with active state</a>
                         <a href="#" class="list-group-item list-group-item-action list-group-item-warning">This is a warning list group item</a>
@@ -398,6 +427,11 @@ http://farhadi.ir/projects/html5sortable
                             <div class="content px-3">
                                 <a href="#" class="h5">María Victoria</a><br>
                                 <small class="text-muted">Last seen watching <a href="#">Arrested Development</a> just now.</small>
+                                <p class="m-0 small text-muted">Area of expertise:
+                                    <span class="badge badge-light">Love</span>
+                                    <span class="badge badge-light">Magic</span>
+                                    <span class="badge badge-light">Alchemy</span>
+                                </p>
                             </div>
                             <span class="badge badge-success badge-round empty ml-auto"></span>
                         </li>
@@ -406,6 +440,12 @@ http://farhadi.ir/projects/html5sortable
                             <div class="content px-3">
                                 <a href="#" class="h5">Kristy</a><br>
                                 <small class="text-muted">Last seen watching <a href="#">Bob's Burgers</a> 10 hours ago.</small>
+                                <p class="m-0 small text-muted">Area of expertise:
+                                    <span class="badge badge-light">Beads</span>
+                                    <span class="badge badge-light">Buddha</span>
+                                    <span class="badge badge-light">Reiki</span>
+                                    <span class="badge badge-light">Crystals</span>
+                                </p>
                             </div>
                             <span class="badge badge-danger badge-round empty ml-auto"></span>
                         </li>
@@ -415,6 +455,11 @@ http://farhadi.ir/projects/html5sortable
                             <div class="content px-3">
                                 <a href="#" class="h5">Matthew Hamilton</a><br>
                                 <small class="text-muted">Last seen watching <a href="#">The Godfather Part 2</a> yesterday.</small>
+                                <p class="m-0 small text-muted">Area of expertise:
+                                    <span class="badge badge-light">Photography</span>
+                                    <span class="badge badge-light">Cameras</span>
+                                    <span class="badge badge-light">Netflix</span>
+                                </p>
                             </div>
                             <span class="badge badge-warning badge-round empty ml-auto"></span>
                         </li>
@@ -424,6 +469,11 @@ http://farhadi.ir/projects/html5sortable
                             <div class="content px-3">
                                 <a href="#" class="h5">Christopher Campbell</a><br>
                                 <small class="text-muted">Last seen watching <a href="#">Twin Peaks</a> 3 days ago.</small>
+                                <p class="m-0 small text-muted">Area of expertise:
+                                    <span class="badge badge-light">Beatles Songs</span>
+                                    <span class="badge badge-light">Baseball</span>
+                                    <span class="badge badge-light">Dancing to "Happy"</span>
+                                </p>
                             </div>
                             <span class="badge badge-danger badge-round empty ml-auto"></span>
                         </li>

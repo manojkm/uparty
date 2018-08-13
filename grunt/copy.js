@@ -27,6 +27,7 @@ module.exports = function (grunt) {
                 {expand: true, cwd: grunt.getPath('node') + 'jquery-validation', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery-validation'},
                 {expand: true, cwd: grunt.getPath('node') + 'jquery-steps', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery-steps'},
                 {expand: true, cwd: grunt.getPath('node') + 'jquery.repeater', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery.repeater'},
+                {expand: true, cwd: grunt.getPath('node') + 'html5sortable', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'html5sortable'},
                 {expand: true, cwd: grunt.getPath('node') + 'bootstrap-maxlength', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'bootstrap-maxlength'}
                 // TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
             ]

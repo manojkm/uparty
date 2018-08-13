@@ -1,0 +1,29 @@
+// ================================================================================================
+// File Name      : html5sortable.scss
+// Description    : Custom styles for html5sortable Plugin
+//                  (https://github.com/lukasoppermann/html5sortable)
+//                  These styles are required for html5sortable to function.
+//                  You probably don't need to change these rules.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+//
+// VENDORS DEPENDENCIES IMPORT
+// ======================================================
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
+@import 'dependencies';
+
+//
+// html5sortable
+// ======================================================
+.ph-class {
+  border: $list-group-border-color dashed ($list-group-border-width+1) !important;
+}
+
+.sort-hover {
+  cursor: $cursor-move;
+}
+
