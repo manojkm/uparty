@@ -1319,9 +1319,9 @@ $alert-border-radius:                   $border-radius-md; // Alert border radiu
 $alert-border-size:                     $border-thin; // Alert border width
 $alert-font-size:                       $font-size-base; // Alert font size.
 
-$alert-bg-level:                        -9 !default;
-$alert-border-level:                    -6 !default;
-$alert-color-level:                     6 !default;
+$alert-bg-level:                        -9 !default; // Used to generate stateful background color for contextual and theme variations
+$alert-border-level:                    -6 !default; // Used to generate stateful border color for contextual and theme variations
+$alert-color-level:                     6 !default; // Used to generate stateful text color for contextual and theme variations
 
 //
 // 8.18 PROGRESS BAR
@@ -1347,27 +1347,32 @@ $progress-height-lg:                    0.75rem !default;
 // 8.19 LIST GROUPS
 // -----------------------------------------------------------------------------
 
-$list-group-item-padding-y:             .75rem !default;
-$list-group-item-padding-x:             1.25rem !default;
-$list-group-bg:                         $white-color !default;
-$list-group-border-color:               rgba($black-color, .125) !default;
-$list-group-border-width:               $border-thin !default;
-$list-group-border-radius:              $border-radius-xl !default;
-$list-group-active-theme-scheme:        primary !default; // Theme color scheme applied to active `.list-group-item` like border colors, font colors etc.. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
-$list-group-action-color:               $gray-700 !default;
-$list-group-action-hover-color:         $gray-800 !default;
-$list-group-hover-bg:                   $gray-100 !default;
-$list-group-action-active-color:        $gray-800 !default;
-$list-group-action-active-bg:           $gray-200 !default;
+$list-group-active-theme-scheme:        primary !default; // Theme color scheme applied to active list item`.list-group-item` like border colors, font colors etc.. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$list-group-item-padding-y:             .75rem !default; // Vertical padding for individual list items
+$list-group-item-padding-x:             1.25rem !default; // Horizontal padding for individual list items
+$list-group-bg:                         $white-color !default; // Background color for individual list items
+$list-group-hover-bg:                   $gray-100 !default; // Individual list item background color on hover
+$list-group-border-width:               $border-thin !default; // Border width for individual list items
+$list-group-border-color:               rgba($black-color, .125) !default; // Border color for individual list items
+$list-group-border-radius:              $border-radius-xl !default; // Border radius to add rounded corners for first and last list item.
+$list-group-action-color:               $gray-700 !default; // Text color for linked items using anchors and buttons
+$list-group-action-hover-color:         $gray-800 !default; // Hover color for linked items
+$list-group-action-active-color:        $gray-800 !default; // Text color for linked items active (:active) state
+$list-group-action-active-bg:           $gray-200 !default; // Background color for linked items active (:active) state
 
-$list-group-disabled-color:             $gray-600 !default;
-$list-group-disabled-bg:                $list-group-bg !default;
+$list-group-disabled-color:             $gray-600 !default; // Text color for disabled list items
+$list-group-disabled-opacity:           0.6 !default; // Opacity for disabled list items
+$list-group-disabled-bg:                $list-group-bg !default; // Background color for disabled list items
 
-$list-group-separated-margin-y:         5px !default;
-$list-group-separated-margin-x:         0 !default;
+// Contextual and theme variations
 
-$list-group-bg-level:                   -9 !default;
-$list-group-color-level:                6 !default;
+$list-group-bg-level:                   -9 !default; // Used to generate stateful background color for contextual and theme variations
+$list-group-color-level:                6 !default; // Used to generate stateful text color for contextual and theme variations
+
+// Separated variation
+
+$list-group-separated-margin-y:         5px !default; // Vertical margin, so that there is space between list items for 'Separated' variant list group
+$list-group-separated-margin-x:         0 !default; // Horizontal margin between list items for 'Separated' variant list group
 
 //
 // 8.20 MODAL

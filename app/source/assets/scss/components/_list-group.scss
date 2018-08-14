@@ -8,12 +8,6 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-.list-group.seperated {
-  .list-group-item {
-
-  }
-}
-
 // Interactive list items
 //
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
@@ -70,6 +64,7 @@
     color: $list-group-disabled-color !important;
     background-color: $list-group-disabled-bg;
     cursor: $cursor-not-allowed;
+    opacity: $list-group-disabled-opacity;
     pointer-events: none;
   }
 

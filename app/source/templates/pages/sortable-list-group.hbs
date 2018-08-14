@@ -1,6 +1,6 @@
 ---
 title: Sortable list group
-lead: VanillaJS sortable lists and grids using native HTML5 drag and drop API.
+lead: VanillaJS sortable lists and grids using native HTML5 drag and drop API (drag to sort).
 components: true
 
 js_vendors:
@@ -18,36 +18,132 @@ js_vendors_extended:
     <div class="row">
         <div class="col-md-12">
             {{#card}}
-                {{{card_header 'Sortable list group (drag to sort)'}}}
+                {{{card_header 'Basic (drag to sort)'}}}
                 {{#card_body}}
-                    {{{card_title 'Basic'}}}
+                    <!-- Basic -->
                     <p>Use class <code>.sortable</code> to <code>.list-group</code> for sortable list group.</p>
                     <ul class="list-group sortable">
-                        <li class="list-group-item d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio</li>
-                        <li class="list-group-item d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.2</span> Dapibus ac facilisis in</li>
-                        <li class="list-group-item d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus</li>
+                        <li class="list-group-item d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio
+                        </li>
+                        <li class="list-group-item d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.2</span> Dapibus ac
+                            facilisis in
+                        </li>
+                        <li class="list-group-item d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus
+                        </li>
                     </ul>
-                    <hr>
-                    {{{card_title 'Themed'}}}
-                    <p>Use contextual classes <code>.list-group-item-*</code> to style list items with a stateful background and color.</p>
-                    <ul class="list-group sortable">
-                        <li class="list-group-item list-group-item-primary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio</li>
-                        <li class="list-group-item list-group-item-secondary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.2</span> Dapibus ac facilisis in</li>
-                        <li class="list-group-item list-group-item-success d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus</li>
-                    </ul>
-                    <hr>
-                    {{{card_title 'Separated with animation'}}}
-                    <p>Add <code>.separated.animated</code> to the <code>.list-group</code> to make list items appear separated as well as animated.</p>
-                    <ul class="list-group separated sortable animated">
-                        <li class="list-group-item list-group-item-primary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio</li>
-                        <li class="list-group-item list-group-item-secondary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.2</span> Dapibus ac facilisis in</li>
-                        <li class="list-group-item list-group-item-success d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus</li>
-                    </ul>
-
+                    <!-- /Basic -->
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
 
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Themed'}}}
+                {{#card_body}}
+                    <!-- Themed -->
+                    <p>Use contextual classes <code>.list-group-item-*</code> to style list items with a stateful background and color.</p>
+                    <ul class="list-group sortable">
+                        <li class="list-group-item list-group-item-primary d-flex align-items-center"><span class="mr-2"><i
+                                class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio
+                        </li>
+                        <li class="list-group-item list-group-item-secondary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.2</span>
+                            Dapibus ac facilisis in
+                        </li>
+                        <li class="list-group-item list-group-item-success d-flex align-items-center"><span class="mr-2"><i
+                                class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus
+                        </li>
+                    </ul>
+                    <!-- /Themed -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Separated with animation'}}}
+                {{#card_body}}
+                    <!-- Separated with animation -->
+                    <p>Add <code>.separated.animated</code> to the <code>.list-group</code> to make list items appear separated as well as animated.</p>
+                    <ul class="list-group separated sortable animated">
+                        <li class="list-group-item list-group-item-primary d-flex align-items-center"><span class="mr-2"><i
+                                class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio
+                        </li>
+                        <li class="list-group-item list-group-item-secondary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.2</span>
+                            Dapibus ac facilisis in
+                        </li>
+                        <li class="list-group-item list-group-item-success d-flex align-items-center"><span class="mr-2"><i
+                                class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus
+                        </li>
+                    </ul>
+                    <!-- Separated with animation -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Sortable list with handles'}}}
+                {{#card_body}}
+                    <!-- Sortable list with handles -->
+                    <p>To restrict drag start to the specified element, add class <code>.sortable-handle</code> to <code>.list-group</code> and wrap handle icon with
+                        <code>.handle-drag</code></p>
+                    <ul class="list-group sortable-handle">
+                        <li class="list-group-item d-flex align-items-center"><span class="mr-2 text-muted handle-drag">::</span>Cras justo odio</li>
+                        <li class="list-group-item d-flex align-items-center"><span class="mr-2 text-muted handle-drag">::</span>Dapibus ac facilisis in</li>
+                        <li class="list-group-item d-flex align-items-center"><span class="mr-2 text-muted handle-drag">::</span>Morbi leo risus</li>
+                    </ul>
+                    <!-- Sortable list with handles -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Connected Sortable Lists'}}}
+                {{#card_body}}
+                    <p>Connected: This means an item can be dragged into another (connected) list. Be sure to add <code>.connected</code> to <code>.list-group</code> </p>
+                <div class="row">
+                    <div class="col-md-6 pr-md-2">
+                        <!-- Connected Sortable Lists 1 -->
+                        <ul class="list-group connected" id="sortable-c1">
+                            <li class="list-group-item d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio
+                            </li>
+                            <li class="list-group-item d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.2</span> Dapibus ac
+                                facilisis in
+                            </li>
+                            <li class="list-group-item d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus
+                            </li>
+                        </ul>
+                        <!-- Connected Sortable Lists 1 -->
+                    </div>
+                    <div class="col-md-6 pl-md-2">
+                        <!-- Connected Sortable Lists 2 -->
+                        <ul class="list-group connected" id="sortable-c2">
+                            <li class="list-group-item list-group-item-primary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio
+                            </li>
+                            <li class="list-group-item list-group-item-primary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.2</span> Dapibus ac
+                                facilisis in
+                            </li>
+                            <li class="list-group-item list-group-item-primary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus
+                            </li>
+                        </ul>
+                        <!-- Connected Sortable Lists 2 -->
+                    </div>
+                </div>
+
+            {{/card_body}}
+        {{/card}}
+        </div>
+    </div>
 
 </div>

@@ -862,7 +862,7 @@
 
 @mixin list-group-theme($scheme,$color,$background, $active-state-theme-tone) {
 
-  color: $color;
+  color: $color!important;
   background-color: $background;
 
   &.list-group-item-action {
@@ -877,6 +877,7 @@
       @include border-theme($scheme, $active-state-theme-tone, $sledge-hammer:!important);
     }
   }
+
 }
 
 //

@@ -15,7 +15,33 @@ $(document).ready(function () {
         sortable('.sortable', {
             forcePlaceholderSize: true,
             placeholderClass: 'list-group-item list-group-item-light ph-class',
-            hoverClass: 'sort-hover',
+            hoverClass: 'sort-hover-move',
+            //handle: '.handle',
+            //cursor: 'move',
+            //opacity: 0.4,
+        });
+
+        sortable('.sortable-handle', {
+            forcePlaceholderSize: true,
+            placeholderClass: 'list-group-item list-group-item-light ph-class',
+            //hoverClass: 'sort-hover-move',
+            handle: '.handle-drag',
+            //cursor: 'move',
+            //opacity: 0.4,
+        });
+
+        sortable('#sortable-c1', {
+            forcePlaceholderSize: true,
+            acceptFrom: '#sortable-c2,#sortable-c1',
+            placeholderClass: 'list-group-item list-group-item-light ph-class',
+            hoverClass: 'sort-hover-move',
+        });
+
+        sortable('#sortable-c2', {
+            forcePlaceholderSize: true,
+            acceptFrom: '#sortable-c1,#sortable-c2',
+            placeholderClass: 'list-group-item list-group-item-light ph-class',
+            hoverClass: 'sort-hover-move',
         });
 
     } else {
