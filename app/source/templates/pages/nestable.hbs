@@ -1,0 +1,127 @@
+---
+title: Nestable
+lead: Drag & drop hierarchical list with mouse and touch compatibility
+components: true
+
+css_vendors:
+- nestable2/jquery.nestable
+
+js_vendors:
+- nestable2/jquery.nestable
+
+css_vendors_extended:
+- jquery.nestable
+
+js_vendors_extended:
+- jquery.nestable
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Basic list groups'}}}
+                {{#card_body}}
+
+                    <div class="dd">
+                        <ol class="dd-list">
+                            <li class="dd-item" data-id="1">
+                                <div class="dd-handle">Item 1</div>
+                            </li>
+                            <li class="dd-item" data-id="2">
+                                <div class="dd-handle">Item 2</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="3">
+                                        <div class="dd-handle">Item 3</div>
+                                    </li>
+                                    <li class="dd-item" data-id="4">
+                                        <div class="dd-handle">Item 4</div>
+                                    </li>
+                                    <li class="dd-item" data-id="5">
+                                        <div class="dd-handle">Item 5</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="6">
+                                                <div class="dd-handle">Item 6</div>
+                                            </li>
+                                            <li class="dd-item" data-id="7">
+                                                <div class="dd-handle">Item 7</div>
+                                            </li>
+                                            <li class="dd-item" data-id="8">
+                                                <div class="dd-handle">Item 8</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="9">
+                                        <div class="dd-handle">Item 9</div>
+                                    </li>
+                                    <li class="dd-item" data-id="10">
+                                        <div class="dd-handle">Item 10</div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="dd-item" data-id="11">
+                                <div class="dd-handle">Item 11</div>
+                            </li>
+                            <li class="dd-item" data-id="12">
+                                <div class="dd-handle">Item 12</div>
+                            </li>
+                        </ol>
+                    </div>
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'DRAGGABLE HANDLES'}}}
+                {{#card_body}}
+                    <div class="dd nestable-primary">
+                        <ol class="dd-list">
+                            <li class="dd-item" data-id="1">
+                                <div class="dd-handle">Item 1</div>
+                            </li>
+                            <li class="dd-item" data-id="2">
+                                <div class="dd-handle">Item 2</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="3">
+                                        <div class="dd-handle">Item 3</div>
+                                    </li>
+                                    <li class="dd-item" data-id="4">
+                                        <div class="dd-handle">Item 4</div>
+                                    </li>
+                                    <li class="dd-item" data-id="5">
+                                        <div class="dd-handle">Item 5</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="6">
+                                                <div class="dd-handle">Item 6</div>
+                                            </li>
+                                            <li class="dd-item" data-id="7">
+                                                <div class="dd-handle">Item 7</div>
+                                            </li>
+                                            <li class="dd-item" data-id="8">
+                                                <div class="dd-handle">Item 8</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="9">
+                                        <div class="dd-handle">Item 9</div>
+                                    </li>
+                                    <li class="dd-item" data-id="10">
+                                        <div class="dd-handle">Item 10</div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="dd-item" data-id="11">
+                                <div class="dd-handle">Item 11</div>
+                            </li>
+                            <li class="dd-item" data-id="12">
+                                <div class="dd-handle">Item 12</div>
+                            </li>
+                        </ol>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+</div>

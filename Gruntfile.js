@@ -100,7 +100,8 @@ module.exports = function (grunt) {
                 cwd: getPath('assets', false, true) + theme + '/',
                 src: ['**/*.css', '!**/*.min.css'],
                 dest: getPath('assets', false, true) + theme + '/',
-                ext: '.min.css'
+                ext: '.min.css',
+                extDot: 'last'
             }];
 
             importPaths.push(getPath('assets', false, true) + theme + '/');

@@ -8,41 +8,27 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// Interactive list items
-//
-// Use anchor or button elements instead of `li`s or `div`s to create interactive
-// list items. Includes an extra `.active` modifier class for selected items.
-
-.list-group-item-action {
-  color: $list-group-action-color !important;
-
-  // Hover state
-  &:hover,
-  &:focus {
-    color: $list-group-action-hover-color !important;
-    background-color: $list-group-hover-bg;
-  }
-
-  &:active {
-    color: $list-group-action-active-color !important;
-    background-color: $list-group-action-active-bg;
-  }
-}
-
 // Individual list items
 //
 // Use on `li`s or `div`s within the `.list-group` parent.
 
 .list-group-item {
 
-  padding: $list-group-item-padding-y $list-group-item-padding-x;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  padding: $btn-padding-y $btn-padding-x;
+  line-height: $btn-line-height;
+  // padding: $list-group-item-padding-y $list-group-item-padding-x;
+  //line-height: $list-group-line-height;
+
   // Place the border on the list items and negative margin up for better styling
   margin-bottom: -$list-group-border-width;
   background-color: $list-group-bg;
+  color: $list-group-item-color;
   @include add-border($list-group-border-width, $list-group-border-color, all);
 
   .separated > & {
-    margin: $list-group-separated-margin-y $list-group-separated-margin-x;
+    margin: 0 0 $list-group-separated-margin-bottom 0;
   }
   .animated > & {
     transition: padding-left .3s ease !important;
@@ -74,6 +60,27 @@
     @include border-theme($list-group-active-theme-scheme);
   }
 
+}
+
+// Interactive list items
+//
+// Use anchor or button elements instead of `li`s or `div`s to create interactive
+// list items. Includes an extra `.active` modifier class for selected items.
+
+.list-group-item-action {
+  color: $list-group-action-color !important;
+
+  // Hover state
+  &:hover,
+  &:focus {
+    color: $list-group-action-hover-color !important;
+    background-color: $list-group-hover-bg;
+  }
+
+  &:active {
+    color: $list-group-action-active-color !important;
+    background-color: $list-group-action-active-bg;
+  }
 }
 
 // Horizontal variation

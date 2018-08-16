@@ -148,7 +148,7 @@ http://farhadi.ir/projects/html5sortable
             list-group-item-warning</code>, <code>.list-group-item-danger</code>, <code>list-group-item-dark</code> and <code>list-group-item-light</code>.
     </h6>
     <div class="row">
-        <div class="col-lg-4 col-md-12 pr-lg-2">
+        <div class="col-lg-6 col-md-12 pr-lg-2">
             {{#card}}
                 {{{card_header 'Contextual classes'}}}
                 {{#card_body}}
@@ -168,7 +168,30 @@ http://farhadi.ir/projects/html5sortable
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-lg-4 col-md-12 px-lg-2">
+        <div class="col-lg-6 col-md-12 pl-lg-2">
+            {{#card}}
+                {{{card_header 'Contextual classes with solid background'}}}
+                {{#card_body}}
+                    <p>To use solid background, add background utility classes such as <code>.bg-*</code> to the <code>.list-group-item</code>.</p>
+                    <!-- Contextual classes -->
+                    <ul class="list-group">
+                        <li class="list-group-item bg-primary">This is a primary list group item</li>
+                        <li class="list-group-item bg-secondary">This is a secondary list group item</li>
+                        <li class="list-group-item bg-success">This is a success list group item</li>
+                        <li class="list-group-item bg-danger">This is a danger list group item</li>
+                        <li class="list-group-item bg-warning">This is a warning list group item</li>
+                        <li class="list-group-item bg-info">This is a info list group item</li>
+                        <li class="list-group-item bg-light">This is a light list group item</li>
+                        <li class="list-group-item bg-dark">This is a dark list group item</li>
+                    </ul>
+                    <!-- /Contextual classes -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-12 pr-lg-2">
             {{#card}}
                 {{{card_header 'Link items with contextual classes'}}}
                 {{#card_body}}
@@ -225,7 +248,7 @@ http://farhadi.ir/projects/html5sortable
 
 
         </div>
-        <div class="col-lg-4 col-md-12 pl-lg-2">
+        <div class="col-lg-6 col-md-12 pl-lg-2">
             {{#card}}
                 {{{card_header 'Link items with active state'}}}
                 {{#card_body}}
@@ -247,6 +270,8 @@ http://farhadi.ir/projects/html5sortable
             {{/card}}
         </div>
     </div>
+
+
     <h4 class="mt-4">List group with linked items using anchors and buttons</h4>
     <h6 class="mb-3">To create a list group with linked items, use <code>&lt;div&gt;</code> instead of <code>&lt;ul&gt;</code>
         and <code>&lt;a&gt;</code> instead of <code>&lt;li&gt;</code>.

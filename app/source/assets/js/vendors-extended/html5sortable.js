@@ -14,7 +14,7 @@ $(document).ready(function () {
 
         sortable('.sortable', {
             forcePlaceholderSize: true,
-            placeholderClass: 'list-group-item list-group-item-light ph-class',
+            placeholderClass: 'list-group-item ph-class',
             hoverClass: 'sort-hover-move',
             //handle: '.handle',
             //cursor: 'move',
@@ -23,7 +23,7 @@ $(document).ready(function () {
 
         sortable('.sortable-handle', {
             forcePlaceholderSize: true,
-            placeholderClass: 'list-group-item list-group-item-light ph-class',
+            placeholderClass: 'list-group-item ph-class',
             //hoverClass: 'sort-hover-move',
             handle: '.handle-drag',
             //cursor: 'move',
@@ -33,14 +33,14 @@ $(document).ready(function () {
         sortable('#sortable-c1', {
             forcePlaceholderSize: true,
             acceptFrom: '#sortable-c2,#sortable-c1',
-            placeholderClass: 'list-group-item list-group-item-light ph-class',
+            placeholderClass: 'list-group-item ph-class',
             hoverClass: 'sort-hover-move',
         });
 
         sortable('#sortable-c2', {
             forcePlaceholderSize: true,
             acceptFrom: '#sortable-c1,#sortable-c2',
-            placeholderClass: 'list-group-item list-group-item-light ph-class',
+            placeholderClass: 'list-group-item ph-class',
             hoverClass: 'sort-hover-move',
         });
 

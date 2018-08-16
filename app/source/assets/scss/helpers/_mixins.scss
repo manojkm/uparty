@@ -171,7 +171,7 @@
 // CONTEXTUAL & THEME BACKGROUND VARIANTS
 // ======================================================
 
-@mixin background-theme($scheme, $tone:base, $font-color:font-color, $sledge-hammer:null) {
+@mixin background-theme($scheme, $tone:base, $sledge-hammer:null) {
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
     background-color: contextual-color($scheme, $tone) $sledge-hammer;
@@ -570,7 +570,7 @@
   @include border-theme($scheme, $tone);
   // Filled badge
   @if $bg == fill {
-    @include background-theme($scheme, $tone, '', $sledge-hammer);
+    @include background-theme($scheme, $tone, $sledge-hammer);
     @include text-theme($scheme, $font-color, $sledge-hammer);
     * {
       @include text-theme($scheme, $font-color, $sledge-hammer);
@@ -589,14 +589,14 @@
   @at-root a#{&} {
     #{$hover-tags} {
       @include border-theme($scheme, $tone-hover);
-      @include background-theme($scheme, $tone-hover, '', $sledge-hammer);
+      @include background-theme($scheme, $tone-hover, $sledge-hammer);
       @include text-theme($scheme, $font-color, $sledge-hammer);
     }
 
     #{$active-tags},
     #{$focus-tags} {
       @include border-theme($scheme, $tone-active);
-      @include background-theme($scheme, $tone-active, '', $sledge-hammer);
+      @include background-theme($scheme, $tone-active, $sledge-hammer);
       @include text-theme($scheme, $font-color, $sledge-hammer);
     }
   }
@@ -862,7 +862,7 @@
 
 @mixin list-group-theme($scheme,$color,$background, $active-state-theme-tone) {
 
-  color: $color!important;
+  color: $color !important;
   background-color: $background;
 
   &.list-group-item-action {
@@ -873,11 +873,30 @@
     }
 
     &.active {
-      @include background-text-theme($scheme, $active-state-theme-tone, $sledge-hammer:!important);
-      @include border-theme($scheme, $active-state-theme-tone, $sledge-hammer:!important);
+      @include background-text-theme($scheme, $active-state-theme-tone, $sledge-hammer: !important);
+      @include border-theme($scheme, $active-state-theme-tone, $sledge-hammer: !important);
     }
   }
 
+}
+
+//
+// NESTABLE GROUP
+// ======================================================
+
+@mixin nestable-theme($scheme, $color, $background) {
+  .dd-handle {
+    color: $color;
+    background-color: $background;
+    &:hover {
+      color: darken($color, 5%);
+      background-color: darken($background, 5%);
+    }
+  }
+
+  .dd-item > button {
+    color: $color;
+  }
 }
 
 //

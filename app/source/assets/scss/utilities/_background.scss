@@ -19,6 +19,13 @@
     .bg-#{$scheme} {
       @include background-text-theme($scheme, $sledge-hammer: !important);
     }
+
+    a.bg-#{$scheme} {
+      &:hover,
+      &:focus {
+        @include background-text-theme($scheme, dark, $sledge-hammer: !important);
+      }
+    }
   }
 }
 
@@ -26,5 +33,12 @@
 @each $scheme, $value in $contextual-palette-map {
   .bg-#{$scheme} {
     @include background-text-theme($scheme, $sledge-hammer: !important);
+  }
+
+  a.bg-#{$scheme} {
+    &:hover,
+    &:focus {
+      @include background-text-theme($scheme, dark, $sledge-hammer: !important);
+    }
   }
 }

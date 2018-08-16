@@ -49,7 +49,7 @@
 <!-- BEGIN PAGE LEVEL VENDORS EXTENDED :CSS -->
 {{#if css_vendors_extended}}
     {{#each css_vendors_extended}}
-        <link rel="stylesheet" href="{{../assets}}{{../activeTheme}}/vendors-extended/{{ this }}.css">
+        <link rel="stylesheet" href="{{../assets}}{{../activeTheme}}/vendors-extended/{{ this }}{{#if ../production}}.min{{/if}}.css">
     {{/each}}
 {{/if}}
 <!-- /END PAGE LEVEL VENDORS EXTENDED :CSS -->

@@ -20,7 +20,9 @@
 // html5sortable
 // ======================================================
 .ph-class {
-  border: $list-group-border-color dashed ($list-group-border-width+1) !important;
+  border: $ph-border-color $ph-border-style $ph-border-width !important;
+  background-color: $ph-background-color !important;
+  margin: $ph-margin-y 0!important;
 }
 
 .handle-drag,

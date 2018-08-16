@@ -1353,8 +1353,10 @@ $list-group-item-padding-x:             1.25rem !default; // Horizontal padding 
 $list-group-bg:                         $white-color !default; // Background color for individual list items
 $list-group-hover-bg:                   $gray-100 !default; // Individual list item background color on hover
 $list-group-border-width:               $border-thin !default; // Border width for individual list items
-$list-group-border-color:               rgba($black-color, .125) !default; // Border color for individual list items
-$list-group-border-radius:              $border-radius-xl !default; // Border radius to add rounded corners for first and last list item.
+$list-group-border-color:               rgba($black-color, 0.160) !default; // Border color for individual list items
+$list-group-border-radius:              $btn-border-radius !default; // Border radius to add rounded corners for first and last list item.
+$list-group-line-height:                $btn-line-height;
+$list-group-item-color:                 $gray-700 !default; // Text color for non-linked items using anchors and buttons
 $list-group-action-color:               $gray-700 !default; // Text color for linked items using anchors and buttons
 $list-group-action-hover-color:         $gray-800 !default; // Hover color for linked items
 $list-group-action-active-color:        $gray-800 !default; // Text color for linked items active (:active) state
@@ -1371,8 +1373,7 @@ $list-group-color-level:                6 !default; // Used to generate stateful
 
 // Separated variation
 
-$list-group-separated-margin-y:         5px !default; // Vertical margin, so that there is space between list items for 'Separated' variant list group
-$list-group-separated-margin-x:         0 !default; // Horizontal margin between list items for 'Separated' variant list group
+$list-group-separated-margin-bottom:    5px !default; // Bottom margin, so that there is space between list items for 'Separated' variant list group
 
 //
 // 8.20 MODAL
@@ -1672,6 +1673,18 @@ $slider-tooltip-border-color:           $gray-400 !default; // Slider tooltip bo
 $slider-tooltip-border-radius:          $border-radius-md !default; // Slider tooltip border radius
 $slider-tooltip-color:                  $gray-700 !default; // Slider tooltip text color
 $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3px rgba($gray-400, 0.2); // Slider tooltip box shadow
+
+//
+// 9.7 HTML5 SORTABLE
+// -----------------------------------------------------------------------------
+
+// Placeholder
+$ph-border-color:                        #b6bcbf !default; // Placeholder border color
+$ph-border-style:                        dashed !default; // Placeholder border style
+$ph-border-width:                        1px !default; // Placeholder border size
+$ph-background-color:                    #f2fbff !default; // Placeholder background color
+$ph-margin-y:                            5px !default; // Placeholder vertical margin, so that there is space between list item while dragging
+
 
 //
 // 10. SELECTORS LIST

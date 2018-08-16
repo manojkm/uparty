@@ -1,0 +1,89 @@
+// ================================================================================================
+// File Name      : jquery.nestable.scss
+// Description    : Custom overrides of Jquery Nestable plugin
+//                  (https://github.com/RamonSmit/Nestable2/blob/master/jquery.nestable.scss)
+//                  These styles are required for Nestable to function.
+//                  You probably don't need to change these rules.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+//
+// VENDORS DEPENDENCIES IMPORT
+// ======================================================
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
+@import 'dependencies';
+
+//
+// JQUERY NESTABLE
+// ======================================================
+
+$nestable-root-class: dd;
+$nestable-list-class: dd-list;
+$nestable-item-class: dd-item;
+$nestable-drag-class: dd-dragel;
+$nestable-handle-class: dd-handle;
+$nestable-collapsed-class: dd-collapsed;
+$nestable-placeholder-class: dd-placeholder;
+$nestable-no-children-class: dd-nochildren;
+$nestable-empty-class: dd-empty;
+
+.#{$nestable-handle-class} {
+  @include set-border-radius($list-group-border-radius);
+  @include add-border($list-group-border-width, $list-group-border-color, all);
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  padding: $btn-padding-y $btn-padding-x;
+  line-height: $btn-line-height;
+  margin: 0 0 $list-group-separated-margin-bottom 0;
+  height: auto;
+  cursor: $cursor-default;
+  background-color: $list-group-bg;
+  color: $list-group-item-color;
+  &:hover {
+    color: $list-group-action-hover-color;
+    background-color: $list-group-hover-bg;
+  }
+}
+
+.#{$nestable-item-class} > button {
+  color: $list-group-item-color;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  padding: $btn-padding-y 0;
+  line-height: $btn-line-height;
+  width: 35px;
+  height: auto;
+  margin: 0;
+  &:before {
+  }
+}
+
+.#{$nestable-empty-class},
+.#{$nestable-placeholder-class} {
+  border: $ph-border-color $ph-border-style $ph-border-width;
+  background-color: $ph-background-color;
+}
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $value in $colors {
+    $color: theme-color-level($scheme, base, $list-group-color-level);
+    $background: theme-color-level($scheme, base, $list-group-bg-level);
+    .nestable-#{$scheme} {
+      @include nestable-theme($scheme, $color, $background);
+    }
+  }
+}
+
+// Contextual variations
+@each $scheme, $value in $contextual-palette-map {
+  $color: theme-color-level($scheme, base, $list-group-color-level);
+  $background: theme-color-level($scheme, base, $list-group-bg-level);
+  .nestable-#{$scheme} {
+    @include nestable-theme($scheme, $color, $background);
+  }
+}
