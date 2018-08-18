@@ -29,19 +29,15 @@ $nestable-collapsed-class: dd-collapsed;
 $nestable-placeholder-class: dd-placeholder;
 $nestable-no-children-class: dd-nochildren;
 $nestable-empty-class: dd-empty;
+$nestable-content-class: drag-content;
 
-.#{$nestable-handle-class} {
+.#{$nestable-handle-class},
+.#{$nestable-content-class} {
+  @extend %list-group-item;
   @include set-border-radius($list-group-border-radius);
-  @include add-border($list-group-border-width, $list-group-border-color, all);
-  font-size: $btn-font-size;
-  font-weight: $btn-font-weight;
-  padding: $btn-padding-y $btn-padding-x;
-  line-height: $btn-line-height;
-  margin: 0 0 $list-group-separated-margin-bottom 0;
   height: auto;
-  cursor: $cursor-default;
-  background-color: $list-group-bg;
-  color: $list-group-item-color;
+  margin-top: 0;
+  margin-bottom: $list-group-separated-margin-bottom;
   &:hover {
     color: $list-group-action-hover-color;
     background-color: $list-group-hover-bg;
@@ -50,21 +46,52 @@ $nestable-empty-class: dd-empty;
 
 .#{$nestable-item-class} > button {
   color: $list-group-item-color;
-  font-size: $btn-font-size;
-  font-weight: $btn-font-weight;
-  padding: $btn-padding-y 0;
-  line-height: $btn-line-height;
-  width: 35px;
+  font-size: $list-group-font-size;
+  font-weight: $list-group-font-weight;
+  padding: $list-group-item-padding-y 0;
+  line-height: $list-group-line-height;
+  width: $nestable-drag-handle-width;
   height: auto;
   margin: 0;
-  &:before {
-  }
 }
 
 .#{$nestable-empty-class},
 .#{$nestable-placeholder-class} {
-  border: $ph-border-color $ph-border-style $ph-border-width;
-  background-color: $ph-background-color;
+  border: $html-sortable-ph-border-color $html-sortable-ph-border-style $html-sortable-ph-border-width;
+  background-color: $html-sortable-ph-background-color;
+}
+
+// Extra large size
+.#{$nestable-root-class}-xl {
+  .#{$nestable-handle-class},
+  .#{$nestable-content-class} {
+    @include nestable-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-font-size-xl, $btn-border-radius-xl, $btn-line-height-xl);
+  }
+  .#{$nestable-item-class} > button {
+    @include nestable-size($btn-padding-y-xl, 0, $btn-font-size-xl, 0, $btn-line-height-xl);
+  }
+}
+
+// Large size
+.#{$nestable-root-class}-lg {
+  .#{$nestable-handle-class},
+  .#{$nestable-content-class} {
+    @include nestable-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg, $btn-line-height-lg);
+  }
+  .#{$nestable-item-class} > button {
+    @include nestable-size($btn-padding-y-lg, 0, $btn-font-size-lg, 0, $btn-line-height-lg);
+  }
+}
+
+// Small size
+.#{$nestable-root-class}-sm {
+  .#{$nestable-handle-class},
+  .#{$nestable-content-class} {
+    @include nestable-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
+  }
+  .#{$nestable-item-class} > button {
+    @include nestable-size($btn-padding-y-sm, 0, $btn-font-size-sm, 0, $btn-line-height-sm);
+  }
 }
 
 // Theme variations
@@ -86,4 +113,27 @@ $nestable-empty-class: dd-empty;
   .nestable-#{$scheme} {
     @include nestable-theme($scheme, $color, $background);
   }
+}
+
+// Nestable with handle
+.drag-handle {
+  position: absolute;
+  cursor: $cursor-move;
+  width: $nestable-drag-handle-width;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.#{$nestable-content-class} {
+  padding-left: ($nestable-drag-handle-width + 10) !important;
+}
+
+.drag-item > button {
+  margin-left: $nestable-drag-handle-width;
 }

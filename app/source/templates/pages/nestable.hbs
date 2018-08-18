@@ -23,7 +23,6 @@ js_vendors_extended:
             {{#card}}
                 {{{card_header 'Basic list groups'}}}
                 {{#card_body}}
-
                     <div class="dd">
                         <ol class="dd-list">
                             <li class="dd-item" data-id="1">
@@ -68,15 +67,356 @@ js_vendors_extended:
                             </li>
                         </ol>
                     </div>
-
                 {{/card_body}}
             {{/card}}
         </div>
         <div class="col-md-6 pl-md-2">
             {{#card}}
-                {{{card_header 'DRAGGABLE HANDLES'}}}
+                {{{card_header 'Draggable handles'}}}
                 {{#card_body}}
-                    <div class="dd nestable-primary">
+                    <div class="dd">
+                        <ol class="dd-list">
+                            <li class="dd-item drag-item" data-id="1">
+                                <div class="dd-handle drag-handle">::</div>
+                                <div class="drag-content">Item 1</div>
+                            </li>
+                            <li class="dd-item drag-item" data-id="2">
+                                <div class="dd-handle drag-handle">::</div>
+                                <div class="drag-content">Item 2</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item drag-item" data-id="3">
+                                        <div class="dd-handle drag-handle">::</div>
+                                        <div class="drag-content">Item 3</div>
+                                    </li>
+                                    <li class="dd-item drag-item" data-id="4">
+                                        <div class="dd-handle drag-handle">::</div>
+                                        <div class="drag-content">Item 4</div>
+                                    </li>
+                                    <li class="dd-item drag-item" data-id="5">
+                                        <div class="dd-handle drag-handle">::</div>
+                                        <div class="drag-content">Item 5</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item drag-item" data-id="6">
+                                                <div class="dd-handle drag-handle">::</div>
+                                                <div class="drag-content">Item 6</div>
+                                            </li>
+                                            <li class="dd-item drag-item" data-id="7">
+                                                <div class="dd-handle drag-handle">::</div>
+                                                <div class="drag-content">Item 7</div>
+                                            </li>
+                                            <li class="dd-item drag-item" data-id="8">
+                                                <div class="dd-handle drag-handle">::</div>
+                                                <div class="drag-content">Item 8</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item drag-item" data-id="9">
+                                        <div class="dd-handle drag-handle">::</div>
+                                        <div class="drag-content">Item 9</div>
+                                    </li>
+                                    <li class="dd-item drag-item" data-id="10">
+                                        <div class="dd-handle drag-handle">::</div>
+                                        <div class="drag-content">Item 10</div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="dd-item drag-item" data-id="11">
+                                <div class="dd-handle drag-handle">::</div>
+                                <div class="drag-content">Item 11</div>
+                            </li>
+                            <li class="dd-item drag-item" data-id="12">
+                                <div class="dd-handle drag-handle">::</div>
+                                <div class="drag-content">Item 12</div>
+                            </li>
+                        </ol>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'Nestable themes'}}}
+                {{#card_body}}
+                    <div class="row mb-4">
+                        <div class="col-lg-3 col-md-6 col-12">
+                            {{{card_title 'Primary nestable'}}}
+                            <p>To use primary nestable theme, add <code>.nestable-primary</code> class to the <code>.dd</code></p>
+                            <!-- Primary nestable -->
+                            <div class="dd nestable-primary">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">Item 1</div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">Item 2</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="3">
+                                                <div class="dd-handle">Item 3</div>
+                                                <ol class="dd-list">
+                                                    <li class="dd-item" data-id="4">
+                                                        <div class="dd-handle">Item 4</div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="dd-item" data-id="5">
+                                                <div class="dd-handle">Item 5</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="6">
+                                        <div class="dd-handle">Item 6</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <!-- /Primary nestable -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            {{{card_title 'Secondary nestable'}}}
+                            <p>To use secondary nestable theme, add <code>.nestable-Secondary</code> class to the <code>.dd</code></p>
+                            <!-- Secondary nestable -->
+                            <div class="dd nestable-secondary">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">Item 1</div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">Item 2</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="3">
+                                                <div class="dd-handle">Item 3</div>
+                                                <ol class="dd-list">
+                                                    <li class="dd-item" data-id="4">
+                                                        <div class="dd-handle">Item 4</div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="dd-item" data-id="5">
+                                                <div class="dd-handle">Item 5</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="6">
+                                        <div class="dd-handle">Item 6</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <!-- /Secondary nestable -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            {{{card_title 'Success nestable'}}}
+                            <p>To use success nestable theme, add <code>.nestable-success</code> class to the <code>.dd</code></p>
+                            <!-- Success nestable -->
+                            <div class="dd nestable-success">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">Item 1</div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">Item 2</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="3">
+                                                <div class="dd-handle">Item 3</div>
+                                                <ol class="dd-list">
+                                                    <li class="dd-item" data-id="4">
+                                                        <div class="dd-handle">Item 4</div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="dd-item" data-id="5">
+                                                <div class="dd-handle">Item 5</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="6">
+                                        <div class="dd-handle">Item 6</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <!-- /Success nestable -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            {{{card_title 'Danger nestable'}}}
+                            <p>To use danger nestable theme, add <code>.nestable-danger</code> class to the <code>.dd</code></p>
+                            <!-- Danger nestable -->
+                            <div class="dd nestable-danger">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">Item 1</div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">Item 2</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="3">
+                                                <div class="dd-handle">Item 3</div>
+                                                <ol class="dd-list">
+                                                    <li class="dd-item" data-id="4">
+                                                        <div class="dd-handle">Item 4</div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="dd-item" data-id="5">
+                                                <div class="dd-handle">Item 5</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="6">
+                                        <div class="dd-handle">Item 6</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <!-- /Danger nestable -->
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-lg-3 col-md-6 col-12">
+                            {{{card_title 'Warning nestable'}}}
+                            <p>To use warning nestable theme, add <code>.nestable-warning</code> class to the <code>.dd</code></p>
+                            <!-- Warning nestable -->
+                            <div class="dd nestable-warning">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">Item 1</div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">Item 2</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="3">
+                                                <div class="dd-handle">Item 3</div>
+                                                <ol class="dd-list">
+                                                    <li class="dd-item" data-id="4">
+                                                        <div class="dd-handle">Item 4</div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="dd-item" data-id="5">
+                                                <div class="dd-handle">Item 5</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="6">
+                                        <div class="dd-handle">Item 6</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <!-- /Warning nestable -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            {{{card_title 'Info nestable'}}}
+                            <p>To use info nestable theme, add <code>.nestable-info</code> class to the <code>.dd</code></p>
+                            <!-- Info nestable -->
+                            <div class="dd nestable-info">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">Item 1</div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">Item 2</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="3">
+                                                <div class="dd-handle">Item 3</div>
+                                                <ol class="dd-list">
+                                                    <li class="dd-item" data-id="4">
+                                                        <div class="dd-handle">Item 4</div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="dd-item" data-id="5">
+                                                <div class="dd-handle">Item 5</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="6">
+                                        <div class="dd-handle">Item 6</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <!-- /Info nestable -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            {{{card_title 'Light nestable'}}}
+                            <p>To use light nestable theme, add <code>.nestable-light</code> class to the <code>.dd</code></p>
+                            <!-- Light nestable -->
+                            <div class="dd nestable-light">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">Item 1</div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">Item 2</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="3">
+                                                <div class="dd-handle">Item 3</div>
+                                                <ol class="dd-list">
+                                                    <li class="dd-item" data-id="4">
+                                                        <div class="dd-handle">Item 4</div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="dd-item" data-id="5">
+                                                <div class="dd-handle">Item 5</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="6">
+                                        <div class="dd-handle">Item 6</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <!-- /Light nestable -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            {{{card_title 'Dark nestable'}}}
+                            <p>To use dark nestable theme, add <code>.nestable-dark</code> class to the <code>.dd</code></p>
+                            <!-- Dark nestable -->
+                            <div class="dd nestable-danger">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">Item 1</div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">Item 2</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="3">
+                                                <div class="dd-handle">Item 3</div>
+                                                <ol class="dd-list">
+                                                    <li class="dd-item" data-id="4">
+                                                        <div class="dd-handle">Item 4</div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="dd-item" data-id="5">
+                                                <div class="dd-handle">Item 5</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="6">
+                                        <div class="dd-handle">Item 6</div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <!-- /Dark nestable -->
+                        </div>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <h4 class="mt-4">Nestable sizing</h4>
+    <h6 class="mb-3">
+        Nestable can have different sizes. Add <code>.dd-xl</code> , <code>.dd-lg</code> or <code>.dd-sm</code> to <code>.dd</code> class for additional sizes.
+        For default size, nestable markup doesn't require any additional sizing class.
+    </h6>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3 pr-md-2 pr-lg-2">
+            {{#card}}
+                {{{card_header 'Small size'}}}
+                {{#card_body}}
+                    <!-- Small size nestable -->
+                    <div class="dd dd-sm">
                         <ol class="dd-list">
                             <li class="dd-item" data-id="1">
                                 <div class="dd-handle">Item 1</div>
@@ -86,42 +426,132 @@ js_vendors_extended:
                                 <ol class="dd-list">
                                     <li class="dd-item" data-id="3">
                                         <div class="dd-handle">Item 3</div>
-                                    </li>
-                                    <li class="dd-item" data-id="4">
-                                        <div class="dd-handle">Item 4</div>
-                                    </li>
-                                    <li class="dd-item" data-id="5">
-                                        <div class="dd-handle">Item 5</div>
                                         <ol class="dd-list">
-                                            <li class="dd-item" data-id="6">
-                                                <div class="dd-handle">Item 6</div>
-                                            </li>
-                                            <li class="dd-item" data-id="7">
-                                                <div class="dd-handle">Item 7</div>
-                                            </li>
-                                            <li class="dd-item" data-id="8">
-                                                <div class="dd-handle">Item 8</div>
+                                            <li class="dd-item" data-id="4">
+                                                <div class="dd-handle">Item 4</div>
                                             </li>
                                         </ol>
                                     </li>
-                                    <li class="dd-item" data-id="9">
-                                        <div class="dd-handle">Item 9</div>
-                                    </li>
-                                    <li class="dd-item" data-id="10">
-                                        <div class="dd-handle">Item 10</div>
+                                    <li class="dd-item" data-id="5">
+                                        <div class="dd-handle">Item 5</div>
                                     </li>
                                 </ol>
                             </li>
-                            <li class="dd-item" data-id="11">
-                                <div class="dd-handle">Item 11</div>
-                            </li>
-                            <li class="dd-item" data-id="12">
-                                <div class="dd-handle">Item 12</div>
+                            <li class="dd-item" data-id="6">
+                                <div class="dd-handle">Item 6</div>
                             </li>
                         </ol>
                     </div>
+                    <!-- /Small size nestable -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 pl-md-2 px-lg-2">
+            {{#card}}
+                {{{card_header 'Default size'}}}
+                {{#card_body}}
+                    <!-- Default size nestable -->
+                    <div class="dd">
+                        <ol class="dd-list">
+                            <li class="dd-item" data-id="1">
+                                <div class="dd-handle">Item 1</div>
+                            </li>
+                            <li class="dd-item" data-id="2">
+                                <div class="dd-handle">Item 2</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="3">
+                                        <div class="dd-handle">Item 3</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="4">
+                                                <div class="dd-handle">Item 4</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="5">
+                                        <div class="dd-handle">Item 5</div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="dd-item" data-id="6">
+                                <div class="dd-handle">Item 6</div>
+                            </li>
+                        </ol>
+                    </div>
+                    <!-- /Default size nestable -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 pr-md-2 px-lg-2">
+            {{#card}}
+                {{{card_header 'Large size'}}}
+                {{#card_body}}
+                    <!-- Large size nestable -->
+                    <div class="dd dd-lg">
+                        <ol class="dd-list">
+                            <li class="dd-item" data-id="1">
+                                <div class="dd-handle">Item 1</div>
+                            </li>
+                            <li class="dd-item" data-id="2">
+                                <div class="dd-handle">Item 2</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="3">
+                                        <div class="dd-handle">Item 3</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="4">
+                                                <div class="dd-handle">Item 4</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="5">
+                                        <div class="dd-handle">Item 5</div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="dd-item" data-id="6">
+                                <div class="dd-handle">Item 6</div>
+                            </li>
+                        </ol>
+                    </div>
+                    <!-- /Large size nestable -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 pl-md-2 pl-lg-2">
+            {{#card}}
+                {{{card_header 'Extra large size'}}}
+                {{#card_body}}
+                    <!-- Extra large size list group -->
+                    <div class="dd dd-xl">
+                        <ol class="dd-list">
+                            <li class="dd-item" data-id="1">
+                                <div class="dd-handle">Item 1</div>
+                            </li>
+                            <li class="dd-item" data-id="2">
+                                <div class="dd-handle">Item 2</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="3">
+                                        <div class="dd-handle">Item 3</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="4">
+                                                <div class="dd-handle">Item 4</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="5">
+                                        <div class="dd-handle">Item 5</div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="dd-item" data-id="6">
+                                <div class="dd-handle">Item 6</div>
+                            </li>
+                        </ol>
+                    </div>
+                    <!-- /Extra large size list group -->
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
+
+
 </div>

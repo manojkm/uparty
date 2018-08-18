@@ -860,7 +860,7 @@
 // LIST GROUP
 // ======================================================
 
-@mixin list-group-theme($scheme,$color,$background, $active-state-theme-tone) {
+@mixin list-group-theme($scheme, $color, $background, $active-state-theme-tone) {
 
   color: $color !important;
   background-color: $background;
@@ -880,12 +880,28 @@
 
 }
 
+// List group sizing
+@mixin list-group-size($padding-y, $padding-x, $font-size, $border-radius, $line-height) {
+  font-size: $font-size;
+  padding: $padding-y $padding-x;
+  line-height: $line-height;
+
+  &:first-child {
+    @include border-top-radius($border-radius);
+  }
+
+  &:last-child {
+    @include border-bottom-radius($border-radius);
+  }
+}
+
 //
 // NESTABLE GROUP
 // ======================================================
 
 @mixin nestable-theme($scheme, $color, $background) {
-  .dd-handle {
+  .dd-handle,
+  .drag-content {
     color: $color;
     background-color: $background;
     &:hover {
@@ -898,6 +914,15 @@
     color: $color;
   }
 }
+
+// Nestable group sizing
+@mixin nestable-size($padding-y, $padding-x, $font-size, $border-radius, $line-height) {
+  @include set-border-radius($border-radius);
+  font-size: $font-size;
+  padding: $padding-y $padding-x;
+  line-height: $line-height;
+}
+
 
 //
 // PROGRESS BARS

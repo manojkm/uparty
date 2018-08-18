@@ -140,6 +140,69 @@ http://farhadi.ir/projects/html5sortable
         </div>
     </div>
 
+    <h4 class="mt-4">List group sizing</h4>
+    <h6 class="mb-3">
+        List group can have different sizes. Add <code>.list-group-xl</code> , <code>.list-group-lg</code> or <code>.list-group-sm</code> to <code>.list-group</code> class for additional sizes.
+        For default size, list group markup doesn't require any additional sizing class.
+    </h6>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3 pr-md-2 pr-lg-2">
+            {{#card}}
+            {{{card_header 'Small size'}}}
+            {{#card_body}}
+                <!-- Small size list group -->
+                <ul class="list-group list-group-sm">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                </ul>
+                <!-- /Small size list group -->
+            {{/card_body}}
+        {{/card}}
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 pl-md-2 px-lg-2">
+            {{#card}}
+                {{{card_header 'Default size'}}}
+                {{#card_body}}
+                    <!-- Default size list group -->
+                    <ul class="list-group">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                    </ul>
+                    <!-- /Default size list group -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 pr-md-2 px-lg-2">
+            {{#card}}
+                {{{card_header 'Large size'}}}
+                {{#card_body}}
+                    <!-- Large size list group -->
+                    <ul class="list-group list-group-lg">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                    </ul>
+                    <!-- /Large size list group -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 pl-md-2 pl-lg-2">
+            {{#card}}
+                {{{card_header 'Extra large size'}}}
+                {{#card_body}}
+                    <!-- Extra large size list group -->
+                    <ul class="list-group list-group-xl">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                    </ul>
+                    <!-- /Extra large size list group -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
 
     <h4 class="mt-4">List group themes</h4>
     <h6 class="mb-3">Use contextual classes to style list items with a stateful background and color.

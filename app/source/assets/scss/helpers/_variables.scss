@@ -137,6 +137,7 @@
 // 9.4 BOOTSTRAP DATEPICKER PLUGIN
 // 9.5 JQUERY STEPS PLUGIN
 // 9.6 NOUISLIDER PLUGIN
+// 9.7 HTML5 SORTABLE
 
 //
 // 10. SELECTORS LIST
@@ -1348,8 +1349,10 @@ $progress-height-lg:                    0.75rem !default;
 // -----------------------------------------------------------------------------
 
 $list-group-active-theme-scheme:        primary !default; // Theme color scheme applied to active list item`.list-group-item` like border colors, font colors etc.. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
-$list-group-item-padding-y:             .75rem !default; // Vertical padding for individual list items
-$list-group-item-padding-x:             1.25rem !default; // Horizontal padding for individual list items
+$list-group-font-weight:                $btn-font-weight !default;
+$list-group-font-size:                  $btn-font-size !default;
+$list-group-item-padding-y:             $btn-padding-y !default; // Vertical padding for individual list items
+$list-group-item-padding-x:             $btn-padding-x !default; // Horizontal padding for individual list items
 $list-group-bg:                         $white-color !default; // Background color for individual list items
 $list-group-hover-bg:                   $gray-100 !default; // Individual list item background color on hover
 $list-group-border-width:               $border-thin !default; // Border width for individual list items
@@ -1679,12 +1682,17 @@ $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3
 // -----------------------------------------------------------------------------
 
 // Placeholder
-$ph-border-color:                        #b6bcbf !default; // Placeholder border color
-$ph-border-style:                        dashed !default; // Placeholder border style
-$ph-border-width:                        1px !default; // Placeholder border size
-$ph-background-color:                    #f2fbff !default; // Placeholder background color
-$ph-margin-y:                            5px !default; // Placeholder vertical margin, so that there is space between list item while dragging
+$html-sortable-ph-border-color:                        #b6bcbf !default; // Placeholder border color
+$html-sortable-ph-border-style:                        dashed !default; // Placeholder border style
+$html-sortable-ph-border-width:                        $border-thin !default; // Placeholder border size
+$html-sortable-ph-background-color:                    #f2fbff !default; // Placeholder background color
+$html-sortable-ph-margin-y:                            5px !default; // Placeholder vertical margin, so that there is space between list item while dragging
 
+//
+// 9.8 JQUERY NESTABLE
+// -----------------------------------------------------------------------------
+
+$nestable-drag-handle-width:            35px;
 
 //
 // 10. SELECTORS LIST
