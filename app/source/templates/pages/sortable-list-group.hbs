@@ -37,7 +37,6 @@ js_vendors_extended:
         </div>
     </div>
 
-
     <div class="row">
         <div class="col-md-12">
             {{#card}}
@@ -66,22 +65,26 @@ js_vendors_extended:
     <div class="row">
         <div class="col-md-12">
             {{#card}}
-                {{{card_header 'Separated with animation'}}}
+                {{{card_header 'Separated with animation and icons on right side'}}}
                 {{#card_body}}
-                    <!-- Separated with animation -->
+                    <!-- Separated with animation and icons on right side -->
                     <p>Add <code>.separated.animated</code> to the <code>.list-group</code> to make list items appear separated as well as animated.</p>
                     <ul class="list-group separated sortable animated">
-                        <li class="list-group-item list-group-item-primary d-flex align-items-center"><span class="mr-2"><i
-                                class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio
+                        <li class="list-group-item list-group-item-primary d-flex align-items-center"><span class="mr-2">
+                            <i class="fas fa-sort text-muted mr-2"></i>0.1</span> Cras justo odio
+                            <a href="#" class="ml-auto mr-3"><i class="icon-pencil"></i></a><a href="#"><i class="icon-close"></i></a>
                         </li>
-                        <li class="list-group-item list-group-item-secondary d-flex align-items-center"><span class="mr-2"><i class="fas fa-sort text-muted mr-2"></i>0.2</span>
+                        <li class="list-group-item list-group-item-secondary d-flex align-items-center"><span class="mr-2">
+                            <i class="fas fa-sort text-muted mr-2"></i>0.2</span>
                             Dapibus ac facilisis in
+                            <a href="#" class="ml-auto mr-3"><i class="icon-pencil"></i></a><a href="#"><i class="icon-close"></i></a>
                         </li>
-                        <li class="list-group-item list-group-item-success d-flex align-items-center"><span class="mr-2"><i
-                                class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus
+                        <li class="list-group-item list-group-item-success d-flex align-items-center"><span class="mr-2">
+                            <i class="fas fa-sort text-muted mr-2"></i>0.3</span> Morbi leo risus
+                            <a href="#" class="ml-auto mr-3"><i class="icon-pencil"></i></a><a href="#"><i class="icon-close"></i></a>
                         </li>
                     </ul>
-                    <!-- Separated with animation -->
+                    <!-- Separated with animation and icons on right side -->
                 {{/card_body}}
             {{/card}}
         </div>
@@ -96,9 +99,9 @@ js_vendors_extended:
                     <p>To restrict drag start to the specified element, add class <code>.sortable-handle</code> to <code>.list-group</code> and wrap handle icon with
                         <code>.handle-drag</code></p>
                     <ul class="list-group sortable-handle">
-                        <li class="list-group-item d-flex align-items-center"><span class="mr-2 text-muted handle-drag">::</span>Cras justo odio</li>
-                        <li class="list-group-item d-flex align-items-center"><span class="mr-2 text-muted handle-drag">::</span>Dapibus ac facilisis in</li>
-                        <li class="list-group-item d-flex align-items-center"><span class="mr-2 text-muted handle-drag">::</span>Morbi leo risus</li>
+                        <li class="list-group-item d-flex align-items-center"><span class="text-muted handle-drag">::</span>Cras justo odio <a href="#" class="ml-auto"><i class="fa fa-pencil"></i></a></li>
+                        <li class="list-group-item d-flex align-items-center"><span class="text-muted handle-drag">::</span>Dapibus ac facilisis in</li>
+                        <li class="list-group-item d-flex align-items-center"><span class="text-muted handle-drag">::</span>Morbi leo risus</li>
                     </ul>
                     <!-- Sortable list with handles -->
                 {{/card_body}}
@@ -145,5 +148,4 @@ js_vendors_extended:
         {{/card}}
         </div>
     </div>
-
 </div>

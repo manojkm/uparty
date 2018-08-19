@@ -19,15 +19,34 @@
 //
 // html5sortable
 // ======================================================
-.ph-class {
+.list-placeholder {
   border: $html-sortable-ph-border-color $html-sortable-ph-border-style $html-sortable-ph-border-width !important;
   background-color: $html-sortable-ph-background-color !important;
-  margin: $html-sortable-ph-margin-y 0!important;
+  margin: $html-sortable-ph-margin-y 0 !important;
 }
 
-.handle-drag,
+.card-placeholder {
+  @extend .list-placeholder;
+  margin: $html-sortable-card-ph-margin-y 0 !important;
+}
+
+.card-sort .card-header,
 .sort-hover-move {
   cursor: $cursor-move;
+}
+
+.sortable-handle {
+  .list-group-item {
+    padding-left: 0 !important;
+  }
+}
+
+.handle-drag {
+  cursor: $cursor-move;
+  width: $nestable-drag-handle-width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .connected {

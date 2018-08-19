@@ -878,6 +878,14 @@
     }
   }
 
+  a {
+    color: $color !important;
+    &:hover,
+    &:focus {
+      color: darken($color, 5%) !important;
+    }
+  }
+
 }
 
 // List group sizing
@@ -908,6 +916,15 @@
       color: darken($color, 5%);
       background-color: darken($background, 5%);
     }
+
+    a {
+      color: $color !important;
+      &:hover,
+      &:focus {
+        color: darken($color, 5%) !important;
+      }
+    }
+
   }
 
   .dd-item > button {
@@ -922,7 +939,6 @@
   padding: $padding-y $padding-x;
   line-height: $line-height;
 }
-
 
 //
 // PROGRESS BARS

@@ -212,9 +212,16 @@ OR you can type out the HTML if you prefer--}}
                     <!-- Toggle states -->
                     {{{card_title 'Toggle states'}}}
                     <p>Add <code>data-toggle="button"</code> to toggle a button’s <code>active</code> state. If you’re pre-toggling a button, you must manually add the <code>.active</code> class <strong>and</strong> <code>aria-pressed="true"</code> to the <code>&lt;button&gt;</code>.</p>
-                    <button type="button" class="btn btn-primary mb-2" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="icon-check icon-toggle mr-2"></i>Single toggle 1</button>
+                    <button type="button" class="btn btn-primary mb-2" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <i class="icon-check icon-toggle mr-2"></i>Single toggle 1
+                    </button>
                     <button type="button" class="btn btn-secondary mb-2" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="icon-check icon-toggle mr-2"></i>Single toggle 2</button>
                     <button type="button" class="btn btn-success mb-2" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="icon-check icon-toggle mr-2"></i>Single toggle 3</button>
+
+                    <button type="button" class="btn btn-primary text-toggle mb-2" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <span class="text-collapsed"><i class="fa fa-minus mr-2"></i>Collpase All</span>
+                        <span class="text-expanded"><i class="fa fa-plus mr-2"></i> Expand All</span>
+                    </button>
                     <!-- /Toggle states -->
                     <hr>
                     <!-- Radio toggles -->

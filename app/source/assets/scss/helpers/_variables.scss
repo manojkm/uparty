@@ -138,6 +138,7 @@
 // 9.5 JQUERY STEPS PLUGIN
 // 9.6 NOUISLIDER PLUGIN
 // 9.7 HTML5 SORTABLE
+// 9.8 JQUERY NESTABLE
 
 //
 // 10. SELECTORS LIST
@@ -801,7 +802,7 @@ $btn-border-radius-xl:                  $border-radius-xl; // Border radius to a
 
 $btn-icon-padding-left:                 5px !default; // Left padding for icon with buttons on right
 $btn-icon-padding-right:                5px !default; // Right padding for icon with buttons on left
-$btn-icon-lh:                           $btn-line-height !default; // // Line height for icon to align vertically with the button.
+$btn-icon-lh:                           $btn-line-height !default; // Line height for icon to align vertically with the button.
 
 // Rounded button type (.btn-round)
 
@@ -1349,8 +1350,8 @@ $progress-height-lg:                    0.75rem !default;
 // -----------------------------------------------------------------------------
 
 $list-group-active-theme-scheme:        primary !default; // Theme color scheme applied to active list item`.list-group-item` like border colors, font colors etc.. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
-$list-group-font-weight:                $btn-font-weight !default;
-$list-group-font-size:                  $btn-font-size !default;
+$list-group-font-weight:                $btn-font-weight !default; // Font weight applied for individual list items
+$list-group-font-size:                  $btn-font-size !default; // Font size applied for individual list items
 $list-group-item-padding-y:             $btn-padding-y !default; // Vertical padding for individual list items
 $list-group-item-padding-x:             $btn-padding-x !default; // Horizontal padding for individual list items
 $list-group-bg:                         $white-color !default; // Background color for individual list items
@@ -1358,7 +1359,7 @@ $list-group-hover-bg:                   $gray-100 !default; // Individual list i
 $list-group-border-width:               $border-thin !default; // Border width for individual list items
 $list-group-border-color:               rgba($black-color, 0.160) !default; // Border color for individual list items
 $list-group-border-radius:              $btn-border-radius !default; // Border radius to add rounded corners for first and last list item.
-$list-group-line-height:                $btn-line-height;
+$list-group-line-height:                $btn-line-height; // Line height applied for individual list items
 $list-group-item-color:                 $gray-700 !default; // Text color for non-linked items using anchors and buttons
 $list-group-action-color:               $gray-700 !default; // Text color for linked items using anchors and buttons
 $list-group-action-hover-color:         $gray-800 !default; // Hover color for linked items
@@ -1681,18 +1682,25 @@ $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3
 // 9.7 HTML5 SORTABLE
 // -----------------------------------------------------------------------------
 
-// Placeholder
-$html-sortable-ph-border-color:                        #b6bcbf !default; // Placeholder border color
-$html-sortable-ph-border-style:                        dashed !default; // Placeholder border style
-$html-sortable-ph-border-width:                        $border-thin !default; // Placeholder border size
-$html-sortable-ph-background-color:                    #f2fbff !default; // Placeholder background color
-$html-sortable-ph-margin-y:                            5px !default; // Placeholder vertical margin, so that there is space between list item while dragging
+// Placeholder(ph)
+$html-sortable-ph-border-color:                         #b6bcbf !default; // Placeholder border color
+$html-sortable-ph-border-style:                         dashed !default; // Placeholder border style
+$html-sortable-ph-border-width:                         $border-thin !default; // Placeholder border size
+$html-sortable-ph-background-color:                     #f2fbff !default; // Placeholder background color
+$html-sortable-ph-margin-y:                             5px !default; // Placeholder vertical margin, so that there is space between list item while dragging
+
+// Drag handle
+$html-sortable-drag-handle-width:                       35px; // Drag handle Size
+
+// Sortable cards
+
+$html-sortable-card-ph-margin-y:                        30px !default; // Placeholder vertical margin, so that there is space between cards while dragging
 
 //
 // 9.8 JQUERY NESTABLE
 // -----------------------------------------------------------------------------
 
-$nestable-drag-handle-width:            35px;
+$nestable-drag-handle-width:            $html-sortable-drag-handle-width; // Drag handle Size
 
 //
 // 10. SELECTORS LIST

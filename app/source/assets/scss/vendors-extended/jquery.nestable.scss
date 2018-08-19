@@ -117,21 +117,20 @@ $nestable-content-class: drag-content;
 
 // Nestable with handle
 .drag-handle {
+  @include border-right-radius(0);
   position: absolute;
   cursor: $cursor-move;
   width: $nestable-drag-handle-width;
-  padding-right: 0 !important;
-  padding-left: 0 !important;
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 !important;
-  border-bottom-right-radius: 0 !important;
-  border-top-right-radius: 0 !important;
 }
 
 .#{$nestable-content-class} {
-  padding-left: ($nestable-drag-handle-width + 10) !important;
+  padding-left: ($nestable-drag-handle-width + 10);
 }
 
 .drag-item > button {

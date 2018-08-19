@@ -1,6 +1,6 @@
 ---
-title: Nestable
-lead: Drag & drop hierarchical list with mouse and touch compatibility
+title: Nestable list
+lead: Drag & drop hierarchical list with mouse and touch compatibility (drag to sort).
 components: true
 
 css_vendors:
@@ -19,11 +19,17 @@ js_vendors_extended:
 
 <div class="container-fluid">
     <div class="row">
+
         <div class="col-md-6 pr-md-2">
             {{#card}}
-                {{{card_header 'Basic list groups'}}}
+                {{{card_header 'Basic list groups (drag to sort)'}}}
                 {{#card_body}}
-                    <div class="dd">
+                    <button type="button" id="nestable-menu" class="btn btn-primary btn-sm mb-3 text-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <span class="text-collapsed">- Collpase All</span>
+                        <span class="text-expanded">+ Expand All</span>
+                    </button>
+
+                    <div class="dd dd-has-toggle">
                         <ol class="dd-list">
                             <li class="dd-item" data-id="1">
                                 <div class="dd-handle">Item 1</div>
@@ -552,6 +558,4 @@ js_vendors_extended:
             {{/card}}
         </div>
     </div>
-
-
 </div>

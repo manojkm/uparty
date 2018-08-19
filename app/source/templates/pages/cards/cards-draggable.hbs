@@ -1,0 +1,71 @@
+---
+title: Draggable cards
+lead: Draggable/sortable cards using native HTML5 drag and drop API (drag to sort).
+components: true
+categories: Cards
+
+js_vendors:
+- html5sortable/dist/html5sortable
+
+css_vendors_extended:
+- html5sortable
+
+js_vendors_extended:
+- html5sortable
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            If you want to be able to move card between columns, use <code>.card-sort</code> to the parent <code>.col-*</code>. Please note: the <code>.card-sort</code> class must be present on both columns.
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-md-2 card-sort">
+            {{#card}}
+                <div class="card-header flex-column flex-sm-row align-items-start">
+                    {{{card_title 'Drag & Drop'}}}
+                    <div class="heading-elements ml-sm-auto mt-2 mt-sm-0">
+                        <span class="badge badge-primary mr-1">You can drag and drop me to other box</span>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                <h5 class="card-header bg-danger text-white">Drag & Drop</h5>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                <h5 class="card-header bg-warning text-white">Drag & Drop</h5>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-md-2 card-sort">
+            {{#card}}
+                <h5 class="card-header bg-secondary text-white">Drag & Drop</h5>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                <h5 class="card-header bg-info text-white">Drag & Drop</h5>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                <h5 class="card-header bg-dark text-white">Drag & Drop</h5>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+</div>

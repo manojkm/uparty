@@ -21,6 +21,8 @@
     }
 
     a.bg-#{$scheme} {
+      $color: theme-color($scheme, font-color);
+      color: rgba($color, 0.8) !important;
       &:hover,
       &:focus {
         @include background-text-theme($scheme, dark, $sledge-hammer: !important);
@@ -36,6 +38,8 @@
   }
 
   a.bg-#{$scheme} {
+    $color: contextual-color($scheme, font-color);
+    color: rgba($color, 0.8) !important;
     &:hover,
     &:focus {
       @include background-text-theme($scheme, dark, $sledge-hammer: !important);
