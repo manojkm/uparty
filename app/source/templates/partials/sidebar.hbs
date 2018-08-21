@@ -39,7 +39,8 @@
         <!--UI Elements-->
         <li class="sidebar__item-header">UI Elements</li>
 
-        {{> nav-components }}
+        {{> nav nav-name="Components" nav-icon="icon-puzzle" nav-active=page.components json-file=navigation.components }}
+
 
         <li class="sidebar__item has-child{{#if page.icons}} active{{/if}}">
             <a href="#" class="has-arrow" aria-expanded="{{#if page.icons}}true{{else}}false{{/if}}">

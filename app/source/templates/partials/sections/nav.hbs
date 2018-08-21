@@ -1,10 +1,10 @@
-<li class="sidebar__item has-child{{#if page.components}} active{{/if}}">
-    <a href="#" class="has-arrow" aria-expanded="{{#if page.components}}true{{else}}false{{/if}}">
-        <span class="sidebar__item-icon"><i class="icon-puzzle"></i></span>
-        <span class="sidebar__item-title">Components</span>
+<li class="sidebar__item has-child{{#if nav-active}} active{{/if}}">
+    <a href="#" class="has-arrow" aria-expanded="{{#if nav-active}}true{{else}}false{{/if}}">
+        <span class="sidebar__item-icon"><i class="{{nav-icon}}"></i></span>
+        <span class="sidebar__item-title">{{nav-name}}</span>
     </a>
     <ul class="sidebar__child" aria-expanded="false">
-        {{#each navigation.components}}
+        {{#each json-file}}
             <li class="sidebar__item {{#is ../title this.name }}active{{/is}}{{#is this.subnav ../page.categories }}{{#if this.subnav}}active{{/if}}{{/is}}{{#is
                     this.subnav ../page.top_categories}}{{#if
                     this.subnav }} active{{/if}}{{/is}}{{#if this.subnav }} has-child{{/if}}">
