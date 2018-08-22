@@ -646,7 +646,6 @@ js_vendors:
 
     <div class="row">
         <div class="col-xl-8 offset-xl-2">
-
             {{#card}}
                 {{{card_header 'Checkbox'}}}
                 {{#card_body}}
@@ -682,7 +681,6 @@ js_vendors:
                                     </label>
                                 </div>
                                 <!-- /Default checkbox -->
-
                             </div>
                             <div class="form-group col-lg-3 col-md-4">
                                 <!-- Custom checkbox -->
@@ -765,9 +763,10 @@ js_vendors:
                             </div>
                         </div>
                         <hr>
+
                         <div class="form-row">
                             <div class="form-group col-md-6">
-
+                                <!-- Default Inline -->
                                 <label class="col-form-label">Default Inline</label> <br>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="">
@@ -788,37 +787,34 @@ js_vendors:
                                            disabled checked>
                                     <label class="form-check-label" for="inlineCheckbox4">Tacos</label>
                                 </div>
-
+                                <!-- /Default Inline -->
                             </div>
                             <div class="form-group col-md-6">
-
+                                <!-- Custom Inline -->
                                 <label class="col-form-label">Custom Inline</label><br>
                                 <div class="custom-control custom-checkbox custom-control-inline">
                                     <input type="checkbox" class="custom-control-input" id="customCheckboxInline1">
                                     <label class="custom-control-label" for="customCheckboxInline1">Pizza</label>
                                 </div>
                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline2"
-                                           checked>
+                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline2" checked>
                                     <label class="custom-control-label" for="customCheckboxInline2">Pasta</label>
                                 </div>
                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline3"
-                                           disabled>
+                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline3" disabled>
                                     <label class="custom-control-label" for="customCheckboxInline3">Burgers</label>
                                 </div>
                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline4"
-                                           disabled checked>
+                                    <input type="checkbox" class="custom-control-input" id="customCheckboxInline4" disabled checked>
                                     <label class="custom-control-label" for="customCheckboxInline4">Tacos</label>
                                 </div>
-
+                                <!-- /Custom Inline -->
                             </div>
                         </div>
-
-
                         <hr>
-                        {{{card_title 'Checkbox themes'}}}
+                        <!-- Custom checkbox themes -->
+                        {{{card_title 'Custom checkbox themes'}}}
+                        <p>To use solid background checkbox, add contextual classes such as <code>.checkbox-*</code> to <code>.custom-control</code></p>
                         <div class="row">
                             <div class="col-md-6">
 
@@ -857,45 +853,79 @@ js_vendors:
                                     <input type="checkbox" class="custom-control-input" id="customDarkCheckbox" checked>
                                     <label class="custom-control-label" for="customDarkCheckbox">Dark checkbox</label>
                                 </div>
-
                             </div>
                         </div>
+                        <!-- /Custom checkbox themes -->
+                        <hr>
+                        <!-- Custom circled checkbox themes -->
+                        {{{card_title 'Custom circled checkbox themes'}}}
+                        <p>To use solid background circled checkbox, add contextual classes such as <code>.rounded.checkbox-*</code> to <code>.custom-control</code></p>
+                        <div class="row">
 
+                            <div class="col-md-6">
+                                <div class="custom-control custom-checkbox checkbox-primary rounded">
+                                    <input type="checkbox" class="custom-control-input" id="customPrimaryRoundedCheckbox" checked>
+                                    <label class="custom-control-label" for="customPrimaryRoundedCheckbox">Primary rounded checkbox</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-secondary rounded">
+                                    <input type="checkbox" class="custom-control-input" id="customSecondaryRoundedCheckbox" checked>
+                                    <label class="custom-control-label" for="customSecondaryRoundedCheckbox">Secondary rounded checkbox</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-info rounded">
+                                    <input type="checkbox" class="custom-control-input" id="customInfoRoundedCheckbox" checked>
+                                    <label class="custom-control-label" for="customInfoRoundedCheckbox">Info rounded checkbox</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-success rounded">
+                                    <input type="checkbox" class="custom-control-input" id="customSuccessRoundedCheckbox" checked>
+                                    <label class="custom-control-label" for="customSuccessRoundedCheckbox">Success rounded checkbox</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="custom-control custom-checkbox checkbox-danger rounded">
+                                    <input type="checkbox" class="custom-control-input" id="customDangerRoundedCheckbox" checked>
+                                    <label class="custom-control-label" for="customDangerRoundedCheckbox">Danger rounded checkbox</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-warning rounded">
+                                    <input type="checkbox" class="custom-control-input" id="customWarningRoundedCheckbox" checked>
+                                    <label class="custom-control-label" for="customWarningRoundedCheckbox">Warning rounded checkbox</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-light rounded">
+                                    <input type="checkbox" class="custom-control-input" id="customLightRoundedCheckbox" checked>
+                                    <label class="custom-control-label" for="customLightRoundedCheckbox">Light rounded checkbox</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-dark rounded">
+                                    <input type="checkbox" class="custom-control-input" id="customDarkRoundedCheckbox" checked>
+                                    <label class="custom-control-label" for="customDarkRoundedCheckbox">Dark rounded checkbox</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Custom circled checkbox themes -->
                     </form>
                 {{/card_body}}
             {{/card}}
-
         </div>
     </div>
 
     <div class="row">
         <div class="col-xl-8 offset-xl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Radio</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
+            {{#card}}
+                {{{card_header 'Radio'}}}
+                {{#card_body}}
                     <form>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-lg-3 col-md-4">
+                                <!-- Default radio -->
                                 <label class="col-form-label col-form-label-lg">Default</label>
-
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                    <input class="form-check-input" type="radio" name="exampleRadios1"
                                            id="exampleRadios1" value="">
                                     <label class="form-check-label" for="exampleRadios1">
                                         Pizza
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                    <input class="form-check-input" type="radio" name="exampleRadios1"
                                            id="exampleRadios2" value="" checked>
                                     <label class="form-check-label" for="exampleRadios2">
                                         Pasta
@@ -916,10 +946,11 @@ js_vendors:
                                         Checked + disabled
                                     </label>
                                 </div>
+                                <!-- /Default radio -->
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-lg-3 col-md-4">
+                                <!-- Custom radio -->
                                 <label class="col-form-label col-form-label-lg">Custom</label>
-
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio1" name="customRadio"
                                            class="custom-control-input">
@@ -940,11 +971,36 @@ js_vendors:
                                            class="custom-control-input" disabled checked>
                                     <label class="custom-control-label" for="customRadio4">Checked + disabled</label>
                                 </div>
-
+                                <!-- /Custom radio -->
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-lg-3 col-md-4">
+                                <!-- Custom filled -->
+                                <label class="col-form-label col-form-label-lg">Custom filled</label>
+                                <div class="custom-control custom-radio filled">
+                                    <input type="radio" id="customRadioFilled1" name="customRadioFilled"
+                                           class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadioFilled1">Pizza</label>
+                                </div>
+                                <div class="custom-control custom-radio filled">
+                                    <input type="radio" id="customRadioFilled2" name="customRadioFilled"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customRadioFilled2">Pasta</label>
+                                </div>
+                                <div class="custom-control custom-radio filled">
+                                    <input type="radio" id="customRadioFilled3" name="customRadioFilled3"
+                                           class="custom-control-input" disabled>
+                                    <label class="custom-control-label" for="customRadioFilled3">Burgers</label>
+                                </div>
+                                <div class="custom-control custom-radio filled">
+                                    <input type="radio" id="customRadioFilled4" name="customRadioFilled4"
+                                           class="custom-control-input" disabled checked>
+                                    <label class="custom-control-label" for="customRadioFilled4">Checked + disabled</label>
+                                </div>
+                                <!-- /Custom filled -->
+                            </div>
+                            <div class="form-group col-lg-3 col-md-4">
+                                <!-- Custom right radio -->
                                 <label class="col-form-label col-form-label-lg">Custom right radio</label>
-
                                 <div class="custom-control custom-radio right-aligned">
                                     <input type="radio" id="customRadioRight1" name="customRadioRight"
                                            class="custom-control-input">
@@ -965,13 +1021,13 @@ js_vendors:
                                            class="custom-control-input" disabled checked>
                                     <label class="custom-control-label" for="customRadioRight4">Checked + disabled</label>
                                 </div>
-
+                                <!-- /Custom right radio -->
                             </div>
                         </div>
-
+                        <hr>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-
+                                <!-- Default Inline -->
                                 <label class="col-form-label">Default Inline</label> <br>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadio"
@@ -991,12 +1047,13 @@ js_vendors:
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadio4"
                                            id="inlineRadio4" value="option4" disabled checked>
-                                    <label class="form-check-label" for="inlineRadio4"> Checked + disabled</label>
+                                    <label class="form-check-label" for="inlineRadio4">Checked + disabled</label>
                                 </div>
-
+                                <!-- /Default Inline -->
 
                             </div>
                             <div class="form-group col-md-6">
+                                <!-- Custom Inline -->
                                 <label class="col-form-label">Custom Inline</label><br>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="customRadioInline1" name="customRadioInline"
@@ -1019,16 +1076,117 @@ js_vendors:
                                     <label class="custom-control-label" for="customRadioInline4">Checked and
                                         disabled</label>
                                 </div>
-
+                                <!-- /Custom Inline -->
                             </div>
                         </div>
+                        <hr>
+                        <!-- Custom radio themes -->
+                        {{{card_title 'Custom radio themes'}}}
+                        <p>To use solid background radio on checked state, add contextual classes such as <code>.radio-*</code> to <code>.custom-control</code></p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="custom-control custom-radio radio-primary">
+                                    <input type="radio" id="customPrimaryRadio" name="customPrimaryRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customPrimaryRadio">Primary radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-secondary">
+                                    <input type="radio" id="customSecondaryRadio" name="customSecondaryRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customSecondaryRadio">Secondary radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-info">
+                                    <input type="radio" id="customInfoRadio" name="customInfoRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customInfoRadio">Info radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-success">
+                                    <input type="radio" id="customSuccessRadio" name="customSuccessRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customSuccessRadio">Success radio</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-control custom-radio radio-danger">
+                                    <input type="radio" id="customDangerRadio" name="customDangerRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customDangerRadio">Danger radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-warning">
+                                    <input type="radio" id="customWarningRadio" name="customWarningRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customWarningRadio">Warning radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-light">
+                                    <input type="radio" id="customLightRadio" name="customLightRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customLightRadio">Light radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-dark">
+                                    <input type="radio" id="customDarkRadio" name="customDarkRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customDarkRadio">Dark radio</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Custom radio themes -->
+                        <hr>
+                        <!-- Custom filled radio themes -->
+                        {{{card_title 'Custom filled radio themes'}}}
+                        <p>To use solid background radio on checked state, add contextual classes such as <code>.filled.radio-*</code> to <code>.custom-control</code></p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="custom-control custom-radio radio-primary filled">
+                                    <input type="radio" id="customPrimaryFilledRadio" name="customPrimaryFilledRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customPrimaryRadio">Primary filled radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-secondary filled">
+                                    <input type="radio" id="customSecondaryFilledRadio" name="customSecondaryFilledRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customSecondaryRadio">Secondary filled radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-info filled">
+                                    <input type="radio" id="customInfoFilledRadio" name="customInfoFilledRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customInfoRadio">Info filled radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-success filled">
+                                    <input type="radio" id="customSuccessFilledRadio" name="customSuccessFilledRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customSuccessRadio">Success filled radio</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-control custom-radio radio-danger filled">
+                                    <input type="radio" id="customDangerFilledRadio" name="customDangerFilledRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customDangerRadio">Danger filled radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-warning filled">
+                                    <input type="radio" id="customWarningFilledRadio" name="customWarningFilledRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customWarningRadio">Warning filled radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-light filled">
+                                    <input type="radio" id="customLightFilledRadio" name="customLightFilledRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customLightRadio">Light filled radio</label>
+                                </div>
+                                <div class="custom-control custom-radio radio-dark filled">
+                                    <input type="radio" id="customDarkFilledRadio" name="customDarkFilledRadio"
+                                           class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customDarkRadio">Dark filled radio</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Custom filled radio themes -->
                     </form>
-
-
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
+
     <div class="row">
         <div class="col-xl-8 offset-xl-2">
             <div class="card">

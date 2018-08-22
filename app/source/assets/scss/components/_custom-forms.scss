@@ -183,6 +183,17 @@
     }
   }
 
+  // Filled variant
+  &.filled {
+    .#{$cc}-label::after {
+      display: none;
+    }
+    .#{$cc}-input:disabled:checked ~ .#{$cc}-label::before {
+      @include background-theme($custom-control-indicator-checked-bg, light, $sledge-hammer:!important);
+      opacity: 0.5;
+    }
+  }
+
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
@@ -191,6 +202,15 @@
         .#{$cc}-input:checked ~ .#{$cc}-label::before {
           @include background-theme($scheme);
         }
+
+        // Tweak just a few things for filled variant.
+        &.filled {
+          .#{$cc}-input:disabled:checked ~ .#{$cc}-label::before {
+            @include background-theme($scheme, light, $sledge-hammer:!important);
+            opacity: 0.5;
+          }
+        }
+
       }
     }
   }
@@ -201,6 +221,15 @@
       .#{$cc}-input:checked ~ .#{$cc}-label::before {
         @include background-theme($scheme, $sledge-hammer: !important);
       }
+
+      // Tweak just a few things for filled variant.
+      &.filled {
+        .#{$cc}-input:disabled:checked ~ .#{$cc}-label::before {
+          @include background-theme($scheme, light, $sledge-hammer:!important);
+          opacity: 0.5;
+        }
+      }
+
     }
   }
 
@@ -208,9 +237,8 @@
     &::after {
       background-image: $custom-radio-indicator-disabled-icon-checked;
     }
+
   }
-
-
 
 }
 
