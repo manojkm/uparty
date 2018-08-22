@@ -920,9 +920,9 @@ $custom-control-indicator-bg-size:                      50% 50% !default;
 $custom-control-indicator-border-size:                  $border-thin;
 $custom-control-indicator-border-color:                 $input-border-color; // Border color for checkboxes and radios
 $custom-control-indicator-checked-color:                $white-color;
-$custom-control-indicator-checked-bg:                   success !default; // Contextual color scheme applied to checked/selected checkboxes and radios. NOTE: Retrieved from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
+$custom-control-indicator-checked-bg:                   dark !default; // Contextual color scheme applied to checked/selected checkboxes and radios. NOTE: Retrieved from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
 $custom-control-indicator-active-color:                 $white-color;
-$custom-control-indicator-active-bg:                    lighten(contextual-color(success), 25%) !default; // Contextual color scheme applied to active state checkboxes and radios. NOTE: Retrieved from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
+$custom-control-indicator-active-bg:                    lighten(contextual-color(dark), 50%) !default; // Contextual color scheme applied to active state checkboxes and radios. NOTE: Retrieved from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
 
 // Disabled state
 

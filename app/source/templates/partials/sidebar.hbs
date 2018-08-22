@@ -1,4 +1,4 @@
-<!--Sidebar brand logo-->
+<!-- Sidebar brand logo -->
 <div class="sidebar__brand">
     <a href="" data-toggle="tooltip" title="Return Home" data-placement="right">
         <img alt="branding logo" src="http://findicons.com/files/icons/1785/social_and_web_icons_v2/46/google.png"
@@ -7,14 +7,14 @@
              class="sidebar__brand__logo">
     </a>
 </div>
-<!--/Sidebar brand logo-->
+<!-- /Sidebar brand logo -->
 
-<!--Sidebar navigation-->
+<!-- Sidebar navigation -->
 <nav class="sidebar__nav">
 
     <ul class="sidebar__list metismenu list-unstyled" data-plugin="metismenu">
 
-        <!--Main-->
+        <!-- Main -->
         <li class="sidebar__item-header">OVERVIEW</li>
         <li class="sidebar__item has-child{{#if page.dashboard}} active{{/if}}">
             <a href="#" class="has-arrow" aria-expanded="{{#if page.dashboard}}true{{else}}false{{/if}}">
@@ -34,29 +34,18 @@
         </li>
 
         <li class="sidebar__divider"></li>
-        <!--/Main-->
+        <!-- /Main -->
 
         <!--UI Elements-->
         <li class="sidebar__item-header">UI Elements</li>
 
         {{> nav nav-name="Components" nav-icon="icon-puzzle" nav-active=page.components json-file=navigation.components }}
 
+        {{> nav nav-name="Icon pack" nav-icon="icon-vector" nav-active=page.icon-pack json-file=navigation.icon-pack }}
 
-        <li class="sidebar__item has-child{{#if page.icons}} active{{/if}}">
-            <a href="#" class="has-arrow" aria-expanded="{{#if page.icons}}true{{else}}false{{/if}}">
-                <span class="sidebar__item-icon"><i class="icon-vector"></i></span>
-                <span class="sidebar__item-title">Icon Pack</span>
-            </a>
-            <ul class="sidebar__child" aria-expanded="{{#if page.icons}}true{{else}}false{{/if}}">
-                {{#withSort icons 'data.posted'}}
-                    {{#each pages }}
-                        <li class="sidebar__item{{#is ../../page.dest this.dest}} active{{/is}}">
-                            <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}</a>
-                        </li>
-                    {{/each}}
-                {{/withSort}}
-            </ul>
-        </li>
+        {{> nav nav-name="Forms UI" nav-icon="icon-vector" nav-active=page.forms-ui json-file=navigation.forms-ui }}
+
+
         <li class="sidebar__item has-child{{#if page.forms}} active{{/if}}">
             <a href="#" class="has-arrow" aria-expanded="{{#if page.forms}}true{{else}}false{{/if}}">
                 <span class="sidebar__item-icon"><i class="icon-vector"></i></span>

@@ -21,18 +21,22 @@
     line-height: $lh-base;
   }
 
-  &.right-aligned{
+  &.right-aligned {
     padding-left: 0;
   }
 }
 
 .custom-control-input {
   $cc: custom-control;
-  &:checked ~ .#{$cc}-label::before {
-    @include background-theme($custom-control-indicator-checked-bg);
-    color: $custom-control-indicator-checked-color;
-    box-shadow: none;
-    border-color: transparent;
+
+  &:checked ~ .#{$cc}-label {
+    &::before {
+      color: $custom-control-indicator-checked-color;
+      box-shadow: none;
+      border-color: transparent;
+    }
+    &::after {
+    }
   }
 
   &:focus ~ .#{$cc}-label::before {
@@ -40,7 +44,6 @@
   }
 
   &:active ~ .#{$cc}-label::before {
-    //@include background-color('primary', 'light');
     color: $custom-control-indicator-active-color;
     background-color: $custom-control-indicator-active-bg;
     box-shadow: none;
@@ -58,6 +61,7 @@
       }
     }
   }
+
 }
 
 // Custom Label
@@ -79,9 +83,9 @@
     background-size: $custom-control-indicator-bg-size;
   }
 
-  .right-aligned &{
+  .right-aligned & {
     &::before,
-    &::after{
+    &::after {
       right: 0;
       left: auto;
     }
@@ -91,6 +95,7 @@
 //
 // CHECKBOXES
 // ======================================================
+// Tweak just a few things for checkboxes.
 
 .custom-checkbox {
   $cc: custom-control;
@@ -112,11 +117,32 @@
 
   .#{$cc}-input:checked ~ .#{$cc}-label {
     &::before {
-      @include background-theme($custom-control-indicator-checked-bg);
+      @include background-theme($custom-control-indicator-checked-bg, xx-light);
     }
     &::after {
       //transform: scale(1.5,1.5);
       background-size: 65% 65%;
+    }
+  }
+
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $value in $colors {
+      &.checkbox-#{$scheme} {
+        .#{$cc}-input:checked ~ .#{$cc}-label::before {
+          @include background-theme($scheme);
+        }
+      }
+    }
+  }
+
+  // Contextual variations
+  @each $scheme, $value in $contextual-palette-map {
+    &.checkbox-#{$scheme} {
+      .#{$cc}-input:checked ~ .#{$cc}-label::before {
+        @include background-theme($scheme, $sledge-hammer: !important);
+      }
     }
   }
 
@@ -148,12 +174,6 @@
     transition: background-size 0.3s ease-in;
   }
 
-  .#{$cc}-input:disabled ~ .#{$cc}-label {
-    &::after {
-      background-image: $custom-radio-indicator-disabled-icon-checked;
-    }
-  }
-
   .#{$cc}-input:checked ~ .#{$cc}-label {
     &::before {
       @include background-theme($custom-control-indicator-checked-bg);
@@ -162,6 +182,35 @@
       background-size: 50% 50%;
     }
   }
+
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $value in $colors {
+      &.radio-#{$scheme} {
+        .#{$cc}-input:checked ~ .#{$cc}-label::before {
+          @include background-theme($scheme);
+        }
+      }
+    }
+  }
+
+  // Contextual variations
+  @each $scheme, $value in $contextual-palette-map {
+    &.radio-#{$scheme} {
+      .#{$cc}-input:checked ~ .#{$cc}-label::before {
+        @include background-theme($scheme, $sledge-hammer: !important);
+      }
+    }
+  }
+
+  .#{$cc}-input:disabled ~ .#{$cc}-label {
+    &::after {
+      background-image: $custom-radio-indicator-disabled-icon-checked;
+    }
+  }
+
+
 
 }
 
@@ -524,7 +573,6 @@
     }
   }
 
-
   // Disabled state
   .#{$cci}:disabled + .#{$ccind} {
     background-color: $custom-control-indicator-disabled-bg;
@@ -537,8 +585,7 @@
     @include opacity(0.5);
   }
 
-
-  // YES/NO fliping toggle switch
+  // YES/NO flipping toggle switch
   &.yes-no .#{$ccind} {
     &:before {
       background-color: contextual-color(danger, base);
