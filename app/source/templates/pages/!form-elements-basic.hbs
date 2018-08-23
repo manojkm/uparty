@@ -16,206 +16,240 @@ js_vendors:
                 {{#card_body}}
                     <form>
                         <!-- Basic input -->
-                        <div class="form-group">
-                            <label for="inputNormal" class="col-form-label col-form-label-lg">Basic input</label>
-                            <input type="text" class="form-control" id="inputNormal" placeholder="Normal">
+                        <div class="form-group row">
+                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right">Basic input</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputNormal" placeholder="Normal">
+                            </div>
                         </div>
                         <!-- /Basic input -->
-
                         <!-- Iconic -->
-                        <div class="form-group">
-                            <label for="inputIconic" class="col-form-label col-form-label-lg">Iconic</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="icon-user"></i></div>
+                        <div class="form-group row">
+                            <label for="inputIconic" class="col-lg-2 col-form-label text-lg-right">Iconic</label>
+                            <div class="col-lg-10">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="icon-user"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="inputIconic" placeholder="Username">
                                 </div>
-                                <input type="text" class="form-control" id="inputIconic" placeholder="Username">
-                            </div>
-                            <div class="input-group">
-                                <input type="email" class="form-control" id="inputIconic2" placeholder="Email">
-                                <div class="input-group-append">
-                                    <div class="input-group-text"><i class="icon-envelope"></i></div>
+
+                                <div class="input-group">
+                                    <input type="email" class="form-control" id="inputIconic2" placeholder="Email">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="icon-envelope"></i></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- /Iconic -->
 
                         <!-- Seamless iconic -->
-                        <div class="form-group">
-                            <label for="inputNormal" class="col-form-label col-form-label-lg">Seamless iconic</label>
-                            <div class="input-group with-addon-icon-left mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="icon-user"></i></div>
+                        <div class="form-group row">
+                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right">Seamless iconic</label>
+                            <div class="col-lg-10">
+                                <div class="input-group with-addon-icon-left mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="icon-user"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="inputIconic4" placeholder="Username">
                                 </div>
-                                <input type="text" class="form-control" id="inputIconic4" placeholder="Username">
-                            </div>
-                            <div class="input-group with-addon-icon-right">
-                                <input type="email" class="form-control" id="inputIconic3" placeholder="Email">
-                                <div class="input-group-append">
-                                    <div class="input-group-text"><i class="icon-envelope"></i></div>
+                                <div class="input-group with-addon-icon-right">
+                                    <input type="email" class="form-control" id="inputIconic3" placeholder="Email">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><i class="icon-envelope"></i></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- /Seamless iconic -->
 
                         <!-- Input text with help text -->
-                        <div class="form-group">
-                            <label for="inputPassword5" class="col-form-label col-form-label-lg">With help text</label>
-
-                            <input type="password" class="form-control" id="inputPassword5" placeholder="Password">
-                            <small id="passwordHelpBlock" class="form-text text-muted  mb-2">
-                                Your password must be 8-20 characters long, contain letters and numbers, and must
-                                not contain spaces, special characters, or emoji.
-                            </small>
-                            <div class="form-row align-items-center">
-                                <div class="col-7">
-                                    <input type="password" id="inputPassword6" class="form-control" placeholder="Password" aria-describedby="passwordHelpInline">
-                                </div>
-                                <div class="col">
-                                    <small id="passwordHelpInline" class="text-muted">Must be 8-20 characters long.</small>
+                        <div class="form-group row">
+                            <label for="inputPassword5" class="col-lg-2 col-form-label text-lg-right">Help text</label>
+                            <div class="col-lg-10">
+                                <input type="password" class="form-control" id="inputPassword5" placeholder="Password">
+                                <small id="passwordHelpBlock" class="form-text text-muted  mb-2">
+                                    Your password must be 8-20 characters long, contain letters and numbers, and must
+                                    not contain spaces, special characters, or emoji.
+                                </small>
+                                <div class="form-row align-items-center">
+                                    <div class="col-7">
+                                        <input type="password" id="inputPassword6" class="form-control" placeholder="Password" aria-describedby="passwordHelpInline">
+                                    </div>
+                                    <div class="col">
+                                        <small id="passwordHelpInline" class="text-muted">Must be 8-20 characters long.</small>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                         <!-- /Input text with help text -->
 
                         <!-- Required input -->
-                        <div class="form-group">
-                            <label for="inputRequired" class="col-form-label col-form-label-lg required-field">Required</label>
-                            <input type="text" class="form-control" id="inputRequired" placeholder="Required" required>
+                        <div class="form-group row">
+                            <label for="inputRequired" class="col-lg-2 col-form-label text-lg-right required-field">Required</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputRequired" placeholder="Required" required>
+                            </div>
                         </div>
                         <!-- /Required input -->
 
                         <!-- Rounded input -->
-                        <div class="form-group">
-                            <label for="inputRound" class="col-form-label col-form-label-lg">Rounded</label>
-                            <input type="text" class="form-control input-round" id="inputRound" placeholder="Rounded input">
+                        <div class="form-group row">
+                            <label for="inputRound" class="col-lg-2 col-form-label text-lg-right">Rounded</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control input-round" id="inputRound" placeholder="Rounded input">
+                            </div>
                         </div>
                         <!-- /Rounded input -->
 
                         <!-- Popover input -->
-                        <div class="form-group">
-                            <label for="inputPopover" class="col-form-label col-form-label-lg">Popover input</label>
-                            <input type="text" id="inputPopover" class="form-control"
-                                   placeholder="Input focus trigger popover" data-html="true" data-container="body"
-                                   data-toggle="popover" data-trigger="focus" data-placement="right"
-                                   data-content="And here's some amazing content. <b>It's very engaging</b>. Right?"
-                                   data-original-title="Popover">
+                        <div class="form-group row">
+                            <label for="inputPopover" class="col-lg-2 col-form-label text-lg-right">Popover input</label>
+                            <div class="col-lg-10">
+                                <input type="text" id="inputPopover" class="form-control"
+                                       placeholder="Input focus trigger popover" data-html="true" data-container="body"
+                                       data-toggle="popover" data-trigger="focus" data-placement="right"
+                                       data-content="And here's some amazing content. <b>It's very engaging</b>. Right?"
+                                       data-original-title="Popover">
+                            </div>
                         </div>
                         <!-- /Popover input -->
 
                         <!-- Disabled input -->
-                        <div class="form-group">
-                            <label for="disabledTextInput" class="col-form-label col-form-label-lg">Disabled</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input" disabled>
+                        <div class="form-group row">
+                            <label for="disabledTextInput" class="col-lg-2 col-form-label text-lg-right">Disabled</label>
+                            <div class="col-lg-10">
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input" disabled>
+                            </div>
                         </div>
                         <!-- /Disabled input -->
 
                         <!-- Disabled iconic input -->
-                        <div class="form-group">
-                            <label for="inputDisabledIconic" class="col-form-label col-form-label-lg">Disabled Iconic</label>
-                            <div class="input-group with-addon-icon-right">
-                                <input type="text" class="form-control" id="inputDisabledIconic"
-                                       placeholder="Disabled input" disabled>
-                                <div class="input-group-append">
-                                    <div class="input-group-text disabled"><i class="icon-envelope"></i></div>
+                        <div class="form-group row">
+                            <label for="inputDisabledIconic" class="col-lg-2 col-form-label text-lg-right">Disabled
+                                Iconic</label>
+                            <div class="col-lg-10">
+                                <div class="input-group with-addon-icon-right">
+                                    <input type="text" class="form-control" id="inputDisabledIconic"
+                                           placeholder="Disabled input" disabled>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text disabled"><i class="icon-envelope"></i></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- /Disabled iconic input -->
 
                         <!-- Readonly input -->
-                        <div class="form-group">
-                            <label for="inputReadonly" class="col-form-label col-form-label-lg">Readonly</label>
-                            <input class="form-control" type="text" id="inputReadonly" placeholder="You can't update me :P" readonly>
+                        <div class="form-group row">
+                            <label for="inputReadonly" class="col-lg-2 col-form-label text-lg-right">Readonly</label>
+                            <div class="col-lg-10">
+                                <input class="form-control" type="text" id="inputReadonly" placeholder="You can't update me :P" readonly>
+                            </div>
                         </div>
                         <!-- /Readonly input -->
 
                         <!-- Readonly iconic input -->
-                        <div class="form-group">
-                            <label for="inputReadonlyIconic" class="col-form-label col-form-label-lg">Readonly Iconic</label>
+                        <div class="form-group row">
+                            <label for="inputReadonlyIconic" class="col-lg-2 col-form-label text-lg-right">Readonly Iconic</label>
+                            <div class="col-lg-10">
                                 <div class="input-group with-addon-icon-right">
                                     <input type="text" class="form-control" id="inputReadonlyIconic" placeholder="You can't update me :P" readonly>
                                     <div class="input-group-append">
                                         <div class="input-group-text readonly"><i class="icon-book-open"></i></div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                         <!-- /Readonly iconic input -->
 
                         <!-- Readonly plain text -->
-                        <div class="form-group">
-                            <label for="inputReadonlyPlain-Text" class="col-form-label col-form-label-lg">Readonly plain text</label>
-                             <input type="text" readonly class="form-control-plaintext" id="inputReadonlyPlain-Text" value="email@example.com">
+                        <div class="form-group row">
+                            <label for="inputReadonlyPlain-Text" class="col-lg-2 col-form-label text-lg-right">Readonly plain text</label>
+                            <div class="col-lg-10">
+                                <input type="text" readonly class="form-control-plaintext" id="inputReadonlyPlain-Text" value="email@example.com">
+                            </div>
                         </div>
                         <!-- /Readonly plain text -->
 
-                        <!-- Sizing - large -->
-                        <div class="form-group">
-                            <label for="InputSizing" class="col-form-label col-form-label-lg">Sizing - large</label>
-                            <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg">
-                        </div>
-                        <!-- /Sizing - large -->
-
-                        <!-- Sizing - default -->
-                        <div class="form-group">
-                            <label for="InputSizing" class="col-form-label col-form-label-lg">Sizing - default</label>
-                            <input class="form-control" type="text" placeholder="Default input">
-                        </div>
-                        <!-- /Sizing - default -->
-
                         <!-- Sizing - small -->
-                        <div class="form-group">
-                            <label for="InputSizing" class="col-form-label col-form-label-sm">Sizing - small</label>
-                            <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm">
+                        <div class="form-group row">
+                            <label for="InputSizing" class="col-lg-2 col-form-label col-form-label-sm text-lg-right">Sizing - small</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm">
+                            </div>
                         </div>
                         <!-- /Sizing - small -->
 
-                        <!-- Column sizing -->
-                        <div class="form-group">
-                            <label for="InputSizing" class="col-form-label col-form-label-lg">Column sizing</label>
-                            <div class="form-row mb-2">
-                                <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="6 Wide">
-                                </div>
-                                <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="6 Wide">
-                                </div>
+                        <!-- Sizing - default -->
+                        <div class="form-group row">
+                            <label for="InputSizing" class="col-lg-2 col-form-label text-lg-right">Sizing - default</label>
+                            <div class="col-lg-10">
+                                <input class="form-control" type="text" placeholder="Default input">
                             </div>
-                            <div class="form-row mb-2">
-                                <div class="col-4">
-                                    <input type="text" class="form-control" placeholder="4 Wide">
-                                </div>
-                                <div class="col-4">
-                                    <input type="text" class="form-control" placeholder="4 Wide">
-                                </div>
-                                <div class="col-4">
-                                    <input type="text" class="form-control" placeholder="4 Wide">
-                                </div>
-                            </div>
-                            <div class="form-row mb-2">
-                                <div class="col-2">
-                                    <input type="text" class="form-control" placeholder="2 Wide">
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-control" placeholder="8 Wide">
-                                </div>
-                                <div class="col-2">
-                                    <input type="text" class="form-control" placeholder="2 Wide">
-                                </div>
-                            </div>
-                            <div class="form-row mb-2">
-                                <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="6 Wide">
-                                </div>
-                                <div class="col-3">
-                                    <input type="text" class="form-control" placeholder="3 Wide">
-                                </div>
-                                <div class="col-3">
-                                    <input type="text" class="form-control" placeholder="3 Wide">
-                                </div>
-                            </div>
+                        </div>
+                        <!-- /Sizing - default -->
 
+                        <!-- Sizing - large -->
+                        <div class="form-group row">
+                            <label for="InputSizing" class="col-lg-2 col-form-label col-form-label-lg text-lg-right">Sizing - large</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg">
+                            </div>
+                        </div>
+                        <!-- /Sizing - large -->
+
+                        <!-- Column sizing -->
+                        <div class="form-group row">
+                            <label for="InputSizing" class="col-lg-2 col-form-label text-lg-right">Column sizing</label>
+                            <div class="col-lg-10">
+
+                                <div class="form-row mb-2">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="6 Wide">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="6 Wide">
+                                    </div>
+                                </div>
+
+                                <div class="form-row mb-2">
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="4 Wide">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="4 Wide">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="4 Wide">
+                                    </div>
+                                </div>
+
+                                <div class="form-row mb-2">
+                                    <div class="col-2">
+                                        <input type="text" class="form-control" placeholder="2 Wide">
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" placeholder="8 Wide">
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="text" class="form-control" placeholder="2 Wide">
+                                    </div>
+                                </div>
+
+                                <div class="form-row mb-2">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="6 Wide">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" class="form-control" placeholder="3 Wide">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" class="form-control" placeholder="3 Wide">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /Column sizing -->
                     </form>
@@ -1263,7 +1297,7 @@ js_vendors:
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="input-group ">
-                                            <input type="text" class="input-sm form-control" name="start" placeholder="Start Date">
+                                            <input type="text" class="input-sm form-control" name="start"  placeholder="Start Date">
                                             <div class="input-group-prepend input-group-append">
                                                 <div class="input-group-text">to</div>
                                             </div>
@@ -1550,7 +1584,7 @@ js_vendors:
                                                 </select>
                                             </div>
 
-                                            <input class="form-control" placeholder="Amount" aria-label="Amount" type="text">
+                                            <input class="form-control" placeholder="Amount" aria-label="Amount"  type="text">
                                         </div>
                                     </div>
                                 </div>

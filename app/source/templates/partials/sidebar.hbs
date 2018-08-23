@@ -45,23 +45,6 @@
 
         {{> nav nav-name="Forms UI" nav-icon="icon-vector" nav-active=page.forms-ui json-file=navigation.forms-ui }}
 
-
-        <li class="sidebar__item has-child{{#if page.forms}} active{{/if}}">
-            <a href="#" class="has-arrow" aria-expanded="{{#if page.forms}}true{{else}}false{{/if}}">
-                <span class="sidebar__item-icon"><i class="icon-vector"></i></span>
-                <span class="sidebar__item-title">Forms UI</span>
-            </a>
-            <ul class="sidebar__child" aria-expanded="{{#if page.forms}}true{{else}}false{{/if}}">
-                {{#withSort forms 'data.posted'}}
-                    {{#each pages }}
-                        <li class="sidebar__item{{#is ../../page.dest this.dest}} active{{/is}}">
-                            <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}</a>
-                        </li>
-                    {{/each}}
-                {{/withSort}}
-
-            </ul>
-        </li>
         <li class="sidebar__divider"></li>
         <!--/UI Elements-->
 

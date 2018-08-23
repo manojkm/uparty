@@ -186,7 +186,7 @@
   // Filled variant
   &.filled {
     .#{$cc}-label::after {
-      display: none;
+      background-image: none !important;
     }
     .#{$cc}-input:disabled:checked ~ .#{$cc}-label::before {
       @include background-theme($custom-control-indicator-checked-bg, light, $sledge-hammer:!important);
@@ -207,7 +207,6 @@
         &.filled {
           .#{$cc}-input:disabled:checked ~ .#{$cc}-label::before {
             @include background-theme($scheme, light, $sledge-hammer:!important);
-            opacity: 0.5;
           }
         }
 
@@ -226,7 +225,6 @@
       &.filled {
         .#{$cc}-input:disabled:checked ~ .#{$cc}-label::before {
           @include background-theme($scheme, light, $sledge-hammer:!important);
-          opacity: 0.5;
         }
       }
 
