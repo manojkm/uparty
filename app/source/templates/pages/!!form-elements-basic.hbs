@@ -13,247 +13,201 @@ js_vendors:
         <div class="col-xl-8 offset-xl-2">
             {{#card}}
                 {{{card_header 'Input Text'}}}
-                {{#card_body}}
+                {{#card_body_has 'example'''}}
                     <form>
                         <!-- Basic input -->
-                        <div class="form-group row">
-                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right">Basic input</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="inputNormal" placeholder="Normal">
-                            </div>
+                        <div class="form-group">
+                            <label for="inputNormal" class="col-form-label col-form-label-lg">Basic input</label>
+                            <input type="text" class="form-control" id="inputNormal" placeholder="Normal">
                         </div>
                         <!-- /Basic input -->
-                        <!-- Iconic -->
-                        <div class="form-group row">
-                            <label for="inputIconic" class="col-lg-2 col-form-label text-lg-right">Iconic</label>
-                            <div class="col-lg-10">
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="icon-user"></i></div>
-                                    </div>
-                                    <input type="text" class="form-control" id="inputIconic" placeholder="Username">
-                                </div>
 
-                                <div class="input-group">
-                                    <input type="email" class="form-control" id="inputIconic2" placeholder="Email">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text"><i class="icon-envelope"></i></div>
-                                    </div>
+                        <!-- Iconic -->
+                        <div class="form-group">
+                            <label for="inputIconic" class="col-form-label col-form-label-lg">Iconic</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="icon-user"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="inputIconic" placeholder="Username">
+                            </div>
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="inputIconic2" placeholder="Email">
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="icon-envelope"></i></div>
                                 </div>
                             </div>
                         </div>
                         <!-- /Iconic -->
 
                         <!-- Seamless iconic -->
-                        <div class="form-group row">
-                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right">Seamless iconic</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="icon-user"></i></div>
-                                    </div>
-                                    <input type="text" class="form-control" id="inputIconic4" placeholder="Username">
+                        <div class="form-group">
+                            <label for="inputNormal" class="col-form-label col-form-label-lg">Seamless iconic</label>
+                            <div class="input-group with-addon-icon-left mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="icon-user"></i></div>
                                 </div>
-                                <div class="input-group with-addon-icon-right">
-                                    <input type="email" class="form-control" id="inputIconic3" placeholder="Email">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text"><i class="icon-envelope"></i></div>
-                                    </div>
+                                <input type="text" class="form-control" id="inputIconic4" placeholder="Username">
+                            </div>
+                            <div class="input-group with-addon-icon-right">
+                                <input type="email" class="form-control" id="inputIconic3" placeholder="Email">
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="icon-envelope"></i></div>
                                 </div>
                             </div>
                         </div>
                         <!-- /Seamless iconic -->
 
                         <!-- Input text with help text -->
-                        <div class="form-group row">
-                            <label for="inputPassword5" class="col-lg-2 col-form-label text-lg-right">Help text</label>
-                            <div class="col-lg-10">
-                                <input type="password" class="form-control" id="inputPassword5" placeholder="Password">
-                                <small id="passwordHelpBlock" class="form-text text-muted  mb-2">
-                                    Your password must be 8-20 characters long, contain letters and numbers, and must
-                                    not contain spaces, special characters, or emoji.
-                                </small>
-                                <div class="form-row align-items-center">
-                                    <div class="col-7">
-                                        <input type="password" id="inputPassword6" class="form-control" placeholder="Password" aria-describedby="passwordHelpInline">
-                                    </div>
-                                    <div class="col">
-                                        <small id="passwordHelpInline" class="text-muted">Must be 8-20 characters long.</small>
-                                    </div>
+                        <div class="form-group">
+                            <label for="inputPassword5" class="col-form-label col-form-label-lg">With help text</label>
+
+                            <input type="password" class="form-control" id="inputPassword5" placeholder="Password">
+                            <small id="passwordHelpBlock" class="form-text text-muted  mb-2">
+                                Your password must be 8-20 characters long, contain letters and numbers, and must
+                                not contain spaces, special characters, or emoji.
+                            </small>
+                            <div class="form-row align-items-center">
+                                <div class="col-7">
+                                    <input type="password" id="inputPassword6" class="form-control" placeholder="Password" aria-describedby="passwordHelpInline">
+                                </div>
+                                <div class="col">
+                                    <small id="passwordHelpInline" class="text-muted">Must be 8-20 characters long.</small>
                                 </div>
                             </div>
+
                         </div>
                         <!-- /Input text with help text -->
 
                         <!-- Required input -->
-                        <div class="form-group row">
-                            <label for="inputRequired" class="col-lg-2 col-form-label text-lg-right required-field">Required</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="inputRequired" placeholder="Required" required>
-                            </div>
+                        <div class="form-group">
+                            <label for="inputRequired" class="col-form-label col-form-label-lg required-field">Required</label>
+                            <input type="text" class="form-control" id="inputRequired" placeholder="Required" required>
                         </div>
                         <!-- /Required input -->
 
                         <!-- Rounded input -->
-                        <div class="form-group row">
-                            <label for="inputRound" class="col-lg-2 col-form-label text-lg-right">Rounded</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control input-round" id="inputRound" placeholder="Rounded input">
-                            </div>
+                        <div class="form-group">
+                            <label for="inputRound" class="col-form-label col-form-label-lg">Rounded</label>
+                            <input type="text" class="form-control input-round" id="inputRound" placeholder="Rounded input">
                         </div>
                         <!-- /Rounded input -->
 
                         <!-- Popover input -->
-                        <div class="form-group row">
-                            <label for="inputPopover" class="col-lg-2 col-form-label text-lg-right">Popover input</label>
-                            <div class="col-lg-10">
-                                <input type="text" id="inputPopover" class="form-control"
-                                       placeholder="Input focus trigger popover" data-html="true" data-container="body"
-                                       data-toggle="popover" data-trigger="focus" data-placement="right"
-                                       data-content="And here's some amazing content. <b>It's very engaging</b>. Right?"
-                                       data-original-title="Popover">
-                            </div>
+                        <div class="form-group">
+                            <label for="inputPopover" class="col-form-label col-form-label-lg">Popover input</label>
+                            <input type="text" id="inputPopover" class="form-control"
+                                   placeholder="Input focus trigger popover" data-html="true" data-container="body"
+                                   data-toggle="popover" data-trigger="focus" data-placement="right"
+                                   data-content="And here's some amazing content. <b>It's very engaging</b>. Right?"
+                                   data-original-title="Popover">
                         </div>
                         <!-- /Popover input -->
 
                         <!-- Disabled input -->
-                        <div class="form-group row">
-                            <label for="disabledTextInput" class="col-lg-2 col-form-label text-lg-right">Disabled</label>
-                            <div class="col-lg-10">
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input" disabled>
-                            </div>
+                        <div class="form-group">
+                            <label for="disabledTextInput" class="col-form-label col-form-label-lg">Disabled</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input" disabled>
                         </div>
                         <!-- /Disabled input -->
 
                         <!-- Disabled iconic input -->
-                        <div class="form-group row">
-                            <label for="inputDisabledIconic" class="col-lg-2 col-form-label text-lg-right">Disabled
-                                Iconic</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-right">
-                                    <input type="text" class="form-control" id="inputDisabledIconic"
-                                           placeholder="Disabled input" disabled>
-                                    <div class="input-group-append">
-                                        <div class="input-group-text disabled"><i class="icon-envelope"></i></div>
-                                    </div>
+                        <div class="form-group">
+                            <label for="inputDisabledIconic" class="col-form-label col-form-label-lg">Disabled Iconic</label>
+                            <div class="input-group with-addon-icon-right">
+                                <input type="text" class="form-control" id="inputDisabledIconic"
+                                       placeholder="Disabled input" disabled>
+                                <div class="input-group-append">
+                                    <div class="input-group-text disabled"><i class="icon-envelope"></i></div>
                                 </div>
                             </div>
                         </div>
                         <!-- /Disabled iconic input -->
 
                         <!-- Readonly input -->
-                        <div class="form-group row">
-                            <label for="inputReadonly" class="col-lg-2 col-form-label text-lg-right">Readonly</label>
-                            <div class="col-lg-10">
-                                <input class="form-control" type="text" id="inputReadonly" placeholder="You can't update me :P" readonly>
-                            </div>
+                        <div class="form-group">
+                            <label for="inputReadonly" class="col-form-label col-form-label-lg">Readonly</label>
+                            <input class="form-control" type="text" id="inputReadonly" placeholder="You can't update me :P" readonly>
                         </div>
                         <!-- /Readonly input -->
 
                         <!-- Readonly iconic input -->
-                        <div class="form-group row">
-                            <label for="inputReadonlyIconic" class="col-lg-2 col-form-label text-lg-right">Readonly Iconic</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-right">
-                                    <input type="text" class="form-control" id="inputReadonlyIconic" placeholder="You can't update me :P" readonly>
-                                    <div class="input-group-append">
-                                        <div class="input-group-text readonly"><i class="icon-book-open"></i></div>
-                                    </div>
+                        <div class="form-group">
+                            <label for="inputReadonlyIconic" class="col-form-label col-form-label-lg">Readonly Iconic</label>
+                            <div class="input-group with-addon-icon-right">
+                                <input type="text" class="form-control" id="inputReadonlyIconic" placeholder="You can't update me :P" readonly>
+                                <div class="input-group-append">
+                                    <div class="input-group-text readonly"><i class="icon-book-open"></i></div>
                                 </div>
                             </div>
                         </div>
                         <!-- /Readonly iconic input -->
 
                         <!-- Readonly plain text -->
-                        <div class="form-group row">
-                            <label for="inputReadonlyPlain-Text" class="col-lg-2 col-form-label text-lg-right">Readonly plain text</label>
-                            <div class="col-lg-10">
-                                <input type="text" readonly class="form-control-plaintext" id="inputReadonlyPlain-Text" value="email@example.com">
-                            </div>
+                        <div class="form-group">
+                            <label for="inputReadonlyPlain-Text" class="col-form-label col-form-label-lg">Readonly plain text</label>
+                            <input type="text" readonly class="form-control-plaintext" id="inputReadonlyPlain-Text" value="email@example.com">
                         </div>
                         <!-- /Readonly plain text -->
 
-                        <!-- Sizing - small -->
-                        <div class="form-group row">
-                            <label for="InputSizing" class="col-lg-2 col-form-label col-form-label-sm text-lg-right">Sizing - small</label>
-                            <div class="col-lg-10">
-                                <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm">
-                            </div>
+                        <!-- Sizing -->
+                        <div class="form-group">
+                            <label for="InputSizing" class="col-form-label col-form-label-lg">Sizing</label>
+                            <input class="form-control form-control-lg mb-2" type="text" placeholder=".form-control-lg">
+                            <input class="form-control mb-2" type="text" placeholder="Default input">
+                            <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm">
                         </div>
-                        <!-- /Sizing - small -->
-
-                        <!-- Sizing - default -->
-                        <div class="form-group row">
-                            <label for="InputSizing" class="col-lg-2 col-form-label text-lg-right">Sizing - default</label>
-                            <div class="col-lg-10">
-                                <input class="form-control" type="text" placeholder="Default input">
-                            </div>
-                        </div>
-                        <!-- /Sizing - default -->
-
-                        <!-- Sizing - large -->
-                        <div class="form-group row">
-                            <label for="InputSizing" class="col-lg-2 col-form-label col-form-label-lg text-lg-right">Sizing - large</label>
-                            <div class="col-lg-10">
-                                <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg">
-                            </div>
-                        </div>
-                        <!-- /Sizing - large -->
+                        <!-- /Sizing -->
 
                         <!-- Column sizing -->
-                        <div class="form-group row">
-                            <label for="InputSizing" class="col-lg-2 col-form-label text-lg-right">Column sizing</label>
-                            <div class="col-lg-10">
-
-                                <div class="form-row mb-2">
-                                    <div class="col-6">
-                                        <input type="text" class="form-control" placeholder="6 Wide">
-                                    </div>
-                                    <div class="col-6">
-                                        <input type="text" class="form-control" placeholder="6 Wide">
-                                    </div>
+                        <div class="form-group">
+                            <label for="InputSizing" class="col-form-label col-form-label-lg">Column sizing</label>
+                            <div class="form-row mb-2">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="6 Wide">
                                 </div>
-
-                                <div class="form-row mb-2">
-                                    <div class="col-4">
-                                        <input type="text" class="form-control" placeholder="4 Wide">
-                                    </div>
-                                    <div class="col-4">
-                                        <input type="text" class="form-control" placeholder="4 Wide">
-                                    </div>
-                                    <div class="col-4">
-                                        <input type="text" class="form-control" placeholder="4 Wide">
-                                    </div>
-                                </div>
-
-                                <div class="form-row mb-2">
-                                    <div class="col-2">
-                                        <input type="text" class="form-control" placeholder="2 Wide">
-                                    </div>
-                                    <div class="col-8">
-                                        <input type="text" class="form-control" placeholder="8 Wide">
-                                    </div>
-                                    <div class="col-2">
-                                        <input type="text" class="form-control" placeholder="2 Wide">
-                                    </div>
-                                </div>
-
-                                <div class="form-row mb-2">
-                                    <div class="col-6">
-                                        <input type="text" class="form-control" placeholder="6 Wide">
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="text" class="form-control" placeholder="3 Wide">
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="text" class="form-control" placeholder="3 Wide">
-                                    </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="6 Wide">
                                 </div>
                             </div>
+                            <div class="form-row mb-2">
+                                <div class="col-4">
+                                    <input type="text" class="form-control" placeholder="4 Wide">
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" placeholder="4 Wide">
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" placeholder="4 Wide">
+                                </div>
+                            </div>
+                            <div class="form-row mb-2">
+                                <div class="col-2">
+                                    <input type="text" class="form-control" placeholder="2 Wide">
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" placeholder="8 Wide">
+                                </div>
+                                <div class="col-2">
+                                    <input type="text" class="form-control" placeholder="2 Wide">
+                                </div>
+                            </div>
+                            <div class="form-row mb-2">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="6 Wide">
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" class="form-control" placeholder="3 Wide">
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" class="form-control" placeholder="3 Wide">
+                                </div>
+                            </div>
+
                         </div>
                         <!-- /Column sizing -->
                     </form>
-                {{/card_body}}
+                {{/card_body_has}}
             {{/card}}
         </div>
     </div>
@@ -265,167 +219,143 @@ js_vendors:
                 {{#card_body}}
                     <form>
                         <!-- Email type -->
-                        <div class="form-group row">
-                            <label for="inputEmail" class="col-lg-2 col-form-label text-lg-right">Email</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="icon-envelope"></i></div>
-                                    </div>
-                                    <input class="form-control" type="email" value="bootstrap@example.com" placeholder="Email" id="inputEmail">
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-form-label col-form-label-lg">Email</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="icon-envelope"></i></div>
                                 </div>
+                                <input class="form-control" type="email" value="bootstrap@example.com" placeholder="Email" id="inputEmail">
                             </div>
                         </div>
                         <!-- /Email type -->
 
                         <!-- URL type -->
-                        <div class="form-group row">
-                            <label for="inputURL" class="col-lg-2 col-form-label text-lg-right">URL</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="icon-link"></i></div>
-                                    </div>
-                                    <input class="form-control" type="url" value="https://getbootstrap.com" placeholder="URL" id="inputURL">
+                        <div class="form-group">
+                            <label for="inputURL" class="col-form-label col-form-label-lg">URL</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="icon-link"></i></div>
                                 </div>
+                                <input class="form-control" type="url" value="https://getbootstrap.com" placeholder="URL" id="inputURL">
                             </div>
                         </div>
                         <!-- /URL type -->
 
                         <!-- Password type -->
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-lg-2 col-form-label text-lg-right">Password</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="icon-lock"></i></div>
-                                    </div>
-                                    <input class="form-control" type="password" value="password" id="inputPassword">
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-form-label col-form-label-lg">Password</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="icon-lock"></i></div>
                                 </div>
+                                <input class="form-control" type="password" value="password" id="inputPassword">
                             </div>
                         </div>
                         <!-- /Password type -->
 
                         <!-- Number type -->
-                        <div class="form-group row">
-                            <label for="inputNumber" class="col-lg-2 col-form-label text-lg-right">Number</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="number" value="34" id="inputNumber">
-                            </div>
+                        <div class="form-group">
+                            <label for="inputNumber" class="col-form-label col-form-label-lg">Number</label>
+                            <input class="form-control" type="number" value="34" id="inputNumber">
                         </div>
                         <!-- /Number type -->
 
                         <!-- Telephone type -->
-                        <div class="form-group row">
-                            <label for="inputTelephone" class="col-lg-2 col-form-label text-lg-right">Telephone</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <i class="icon-phone"></i>
-                                        </div>
+                        <div class="form-group">
+                            <label for="inputTelephone" class="col-form-label col-form-label-lg">Telephone</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="icon-phone"></i>
                                     </div>
-                                    <input class="form-control" type="tel" value="1-(555)-555-5555" id="inputTelephone">
                                 </div>
+                                <input class="form-control" type="tel" value="1-(555)-555-5555" id="inputTelephone">
                             </div>
                         </div>
                         <!-- /Telephone type -->
 
                         <!-- Date and time type -->
-                        <div class="form-group row">
-                            <label for="inputDateTime" class="col-lg-2 col-form-label text-lg-right">Date and time</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <i class="icon-calendar"></i>
-                                        </div>
+                        <div class="form-group">
+                            <label for="inputDateTime" class="col-form-label col-form-label-lg">Date and time</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="icon-calendar"></i>
                                     </div>
-                                    <input class="form-control" type="datetime-local" id="inputDateTime">
                                 </div>
+                                <input class="form-control" type="datetime-local" id="inputDateTime">
                             </div>
                         </div>
                         <!-- /Date and time type -->
 
                         <!-- Date type -->
-                        <div class="form-group row">
-                            <label for="inputDate" class="col-lg-2 col-form-label text-lg-right">Date</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <i class="icon-calendar"></i>
-                                        </div>
+                        <div class="form-group">
+                            <label for="inputDate" class="col-form-label col-form-label-lg">Date</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="icon-calendar"></i>
                                     </div>
-                                    <input class="form-control" type="date" id="inputDate">
                                 </div>
+                                <input class="form-control" type="date" id="inputDate">
                             </div>
                         </div>
                         <!-- /Date type -->
 
                         <!-- Month type -->
-                        <div class="form-group row">
-                            <label for="inputMonth" class="col-lg-2 col-form-label text-lg-right">Month</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <i class="icon-calendar"></i>
-                                        </div>
+                        <div class="form-group">
+                            <label for="inputMonth" class="col-form-label col-form-label-lg">Month</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="icon-calendar"></i>
                                     </div>
-                                    <input class="form-control" type="month" id="inputMonth">
                                 </div>
+                                <input class="form-control" type="month" id="inputMonth">
                             </div>
                         </div>
                         <!-- /Month type -->
 
                         <!-- Week type -->
-                        <div class="form-group row">
-                            <label for="inputWeek" class="col-lg-2 col-form-label text-lg-right">Week</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <i class="icon-calendar"></i>
-                                        </div>
+                        <div class="form-group">
+                            <label for="inputWeek" class="col-form-label col-form-label-lg">Week</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="icon-calendar"></i>
                                     </div>
-                                    <input class="form-control" type="week" id="inputWeek">
                                 </div>
+                                <input class="form-control" type="week" id="inputWeek">
                             </div>
                         </div>
                         <!-- /Week type -->
 
                         <!-- Time type -->
-                        <div class="form-group row">
-                            <label for="inputTime" class="col-lg-2 col-form-label text-lg-right">Time</label>
-                            <div class="col-lg-10">
-                                <div class="input-group with-addon-icon-left">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <i class="icon-clock"></i>
-                                        </div>
+                        <div class="form-group">
+                            <label for="inputTime" class="col-form-label col-form-label-lg">Time</label>
+                            <div class="input-group with-addon-icon-left">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="icon-clock"></i>
                                     </div>
-                                    <input class="form-control" type="time" id="inputTime">
                                 </div>
+                                <input class="form-control" type="time" id="inputTime">
                             </div>
                         </div>
                         <!-- /Time type -->
 
                         <!-- Color type -->
-                        <div class="form-group row">
-                            <label for="inputColor" class="col-lg-2 col-form-label text-lg-right">Color</label>
-                            <div class="col-lg-10">
-                                <input class="form-control" type="color" value="#555555" id="inputColor" style="min-height: 40px;">
-                            </div>
+                        <div class="form-group">
+                            <label for="inputColor" class="col-form-label col-form-label-lg">Color</label>
+                            <input class="form-control" type="color" value="#555555" id="inputColor" style="min-height: 40px;">
                         </div>
                         <!-- Color type -->
 
                         <!-- Range type -->
-                        <div class="form-group row">
-                            <label for="inputRange" class="col-lg-2 col-form-label text-lg-right">Range</label>
-                            <div class="col-lg-10">
-                                <input type="range" class="form-control" id="inputRange" value="50">
-                            </div>
+                        <div class="form-group">
+                            <label for="inputRange" class="col-form-label col-form-label-lg">Range</label>
+                            <input type="range" class="form-control" id="inputRange" value="50">
                         </div>
                         <!-- /Range type -->
                     </form>
@@ -1297,7 +1227,7 @@ js_vendors:
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="input-group ">
-                                            <input type="text" class="input-sm form-control" name="start"  placeholder="Start Date">
+                                            <input type="text" class="input-sm form-control" name="start" placeholder="Start Date">
                                             <div class="input-group-prepend input-group-append">
                                                 <div class="input-group-text">to</div>
                                             </div>
@@ -1584,7 +1514,7 @@ js_vendors:
                                                 </select>
                                             </div>
 
-                                            <input class="form-control" placeholder="Amount" aria-label="Amount"  type="text">
+                                            <input class="form-control" placeholder="Amount" aria-label="Amount" type="text">
                                         </div>
                                     </div>
                                 </div>

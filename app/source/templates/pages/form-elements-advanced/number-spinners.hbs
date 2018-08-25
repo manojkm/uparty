@@ -1,0 +1,357 @@
+---
+title: "Number spinners"
+lead: A mobile and touch friendly input spinner
+forms-ui: true
+categories: Advanced Form Elements
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Vertical spinner'}}}
+                {{#card_body_has 'example'''}}
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Right side spinner</label>
+                            <div class="col-lg-10">
+                                <div class="form-row">
+                                    <div class="col-md-3 mb-2">
+                                        <!-- Right side spinner (Min 0 - Max 50) -->
+                                        <div class="input-group number-spinner has-spinner-right">
+                                            <input type="text" class="form-control" value="1" min="0" max="50">
+                                            <div class="btn-group-vertical">
+                                                <button class="btn btn-icon btn-outline-primary" data-action="increment" type="button"><i class="fas fa-caret-up"></i></button>
+                                                <button class="btn btn-icon btn-outline-primary" data-action="decrement" type="button"><i class="fas fa-caret-down"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">Min 0 - Max 50</small>
+                                        <!-- /Right side spinner (Min 0 - Max 50) -->
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <!-- Right side spinner (Min 0 - Max 100) -->
+                                        <div class="input-group number-spinner has-spinner-right">
+                                            <input type="text" class="form-control" value="10" min="0" max="100">
+                                            <div class="btn-group-vertical">
+                                                <button class="btn btn-icon btn-outline-primary" data-action="increment" type="button"><i class="fas fa-caret-up"></i></button>
+                                                <button class="btn btn-icon btn-outline-primary" data-action="decrement" type="button"><i class="fas fa-caret-down"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">Min 0 - Max 100</small>
+                                        <!-- /Right side spinner (Min 0 - Max 100) -->
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <!-- Right side spinner (Min -20 - Max 20) -->
+                                        <div class="input-group number-spinner has-spinner-right">
+                                            <input type="text" class="form-control" value="15" min="-20" max="20">
+                                            <div class="btn-group-vertical">
+                                                <button class="btn btn-icon btn-primary" data-action="increment" type="button"><i class="fas fa-caret-up"></i></button>
+                                                <button class="btn btn-icon btn-primary" data-action="decrement" type="button"><i class="fas fa-caret-down"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">Min -20 - Max 20</small>
+                                        <!-- /Right side spinner (Min -20 - Max 20) -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Left side spinner</label>
+                            <div class="col-lg-10">
+                                <div class="form-row">
+                                    <div class="col-md-3 mb-2">
+                                        <!-- Left side spinner (Min 0 - Max 50) -->
+                                        <div class="input-group number-spinner has-spinner-left">
+                                            <div class="btn-group-vertical">
+                                                <button class="btn btn-icon btn-outline-primary" data-action="increment" type="button"><i class="fas fa-caret-up"></i></button>
+                                                <button class="btn btn-icon btn-outline-primary" data-action="decrement" type="button"><i class="fas fa-caret-down"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control" value="1" min="0" max="50">
+                                        </div>
+                                        <small class="form-text text-muted">Min 0 - Max 50</small>
+                                        <!-- /Left side spinner (Min 0 - Max 50) -->
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <!-- Left side spinner (Min 0 - Max 100) -->
+                                        <div class="input-group number-spinner has-spinner-left">
+                                            <div class="btn-group-vertical">
+                                                <button class="btn btn-icon btn-outline-primary" data-action="increment" type="button"><i class="fas fa-caret-up"></i></button>
+                                                <button class="btn btn-icon btn-outline-primary" data-action="decrement" type="button"><i class="fas fa-caret-down"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control" value="10" min="0" max="100">
+                                        </div>
+                                        <small class="form-text text-muted">Min 0 - Max 100</small>
+                                        <!-- /Left side spinner (Min 0 - Max 100) -->
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <!-- Left side spinner (Min -20 - Max 20) -->
+                                        <div class="input-group number-spinner has-spinner-left">
+                                            <div class="btn-group-vertical">
+                                                <button class="btn btn-icon btn-primary" data-action="increment" type="button"><i class="fas fa-caret-up"></i></button>
+                                                <button class="btn btn-icon btn-primary" data-action="decrement" type="button"><i class="fas fa-caret-down"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control" value="15" min="-20" max="20">
+                                        </div>
+                                        <small class="form-text text-muted">Min -20 - Max 20</small>
+                                        <!-- /Left side spinner (Min -20 - Max 20) -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label col-form-label-sm text-lg-right">Sizing - small</label>
+                            <div class="col-lg-10">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <!-- Sizing - small -->
+                                        <div class="input-group input-group-sm number-spinner has-spinner-right">
+                                            <input type="text" class="form-control" value="1" min="0" max="50">
+                                            <div class="btn-group-vertical">
+                                                <button class="btn btn-icon btn-outline-primary" data-action="increment" type="button"><i class="fas fa-caret-up"></i></button>
+                                                <button class="btn btn-icon btn-outline-primary" data-action="decrement" type="button"><i class="fas fa-caret-down"></i></button>
+                                            </div>
+                                        </div>
+                                        <!-- /Sizing - small -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Sizing - default</label>
+                            <div class="col-lg-10">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <!-- Sizing - default -->
+                                        <div class="input-group number-spinner has-spinner-right">
+                                            <input type="text" class="form-control" value="10" min="0" max="100">
+                                            <div class="btn-group-vertical">
+                                                <button class="btn btn-icon btn-outline-primary" data-action="increment" type="button"><i class="fas fa-caret-up"></i></button>
+                                                <button class="btn btn-icon btn-outline-primary" data-action="decrement" type="button"><i class="fas fa-caret-down"></i></button>
+                                            </div>
+                                        </div>
+                                        <!-- /Sizing - default -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label col-form-label-lg text-lg-right">Sizing - large</label>
+                            <div class="col-lg-10">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <!-- Sizing - large -->
+                                        <div class="input-group input-group-lg number-spinner has-spinner-right">
+                                            <input type="text" class="form-control" value="15" min="-20" max="20">
+                                            <div class="btn-group-vertical">
+                                                <button class="btn btn-icon btn-primary" data-action="increment" type="button"><i class="fas fa-caret-up"></i></button>
+                                                <button class="btn btn-icon btn-primary" data-action="decrement" type="button"><i class="fas fa-caret-down"></i></button>
+                                            </div>
+                                        </div>
+                                        <!-- /Sizing - large -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Horizontal spinner'}}}
+                {{#card_body_has 'example'''}}
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Horizontal spinner</label>
+                            <div class="col-lg-10">
+                                <div class="form-row mb-4">
+                                    <div class="col-md-3">
+                                        <!-- Horizontal spinner (Min 0 - Max 50) -->
+                                        <div class="input-group number-spinner">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="decrement" type="button"><i class="fas fa-minus"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control border-primary" value="1" min="0" max="50">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="increment" type="button"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">Min 0 - Max 50</small>
+                                        <!-- /Horizontal spinner (Min 0 - Max 50) -->
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- Horizontal spinner (Min 0 - Max 100) -->
+                                        <div class="input-group number-spinner">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-icon btn-primary btn-sm" data-action="decrement" type="button"><i class="fas fa-minus"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control border-primary" value="1" min="0" max="100">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-icon btn-primary btn-sm" data-action="increment" type="button"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">Min 0 - Max 100</small>
+                                        <!-- /Horizontal spinner (Min 0 - Max 100) -->
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <!-- Horizontal spinner with postfix -->
+                                        <div class="input-group number-spinner">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="decrement" type="button"><i class="fas fa-minus"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control" value="0" min="0" max="500">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="increment" type="button"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">With postfix</small>
+                                        <!-- /Horizontal spinner with postfix -->
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- Horizontal spinner with prefix and postfix -->
+                                        <div class="input-group number-spinner">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-icon btn-primary btn-sm" data-action="decrement" type="button"><i class="fas fa-minus"></i></button>
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="0" min="0" max="500">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                                <button class="btn btn-icon btn-primary btn-sm" data-action="increment" type="button"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">With prefix and postfix</small>
+                                        <!-- /Horizontal spinner with prefix and postfix -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="numberSpinner1" class="col-lg-2 col-form-label text-lg-right">Horizontal group spinner</label>
+                            <div class="col-lg-10">
+                                <div class="form-row mb-4">
+                                    <div class="col-md-3">
+                                        <!-- Horizontal group spinner (Min 0 - Max 50) -->
+                                        <div class="input-group number-spinner">
+                                            <input type="text" class="form-control border-primary" value="1" min="0" max="50">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="decrement" type="button"><i class="icon-arrow-down"></i></button>
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="increment" type="button"><i class="icon-arrow-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">Min 0 - Max 50</small>
+                                        <!-- /Horizontal group spinner (Min 0 - Max 50) -->
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- Horizontal group spinner (Min 0 - Max 100) -->
+                                        <div class="input-group number-spinner">
+                                            <input type="text" class="form-control border-primary" value="1" min="0" max="100">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-icon btn-primary btn-sm" data-action="decrement" type="button"><i class="icon-arrow-down"></i></button>
+                                                <button class="btn btn-icon btn-primary btn-sm" data-action="increment" type="button"><i class="icon-arrow-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">Min 0 - Max 100</small>
+                                        <!-- /Horizontal group spinner (Min 0 - Max 50) -->
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <!-- Horizontal group spinner with prefix -->
+                                        <div class="input-group number-spinner">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">USD</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="0" min="0" max="500">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="decrement" type="button"><i class="icon-arrow-down"></i></button>
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="increment" type="button"><i class="icon-arrow-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">With prefix</small>
+                                        <!-- /Horizontal group spinner with prefix -->
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- Horizontal group spinner with prefix and postfix -->
+                                        <div class="input-group number-spinner">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">USD</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="0" min="0" max="500">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                                <button class="btn btn-icon btn-primary btn-sm" data-action="decrement" type="button"><i class="icon-arrow-down"></i></button>
+                                                <button class="btn btn-icon btn-primary btn-sm" data-action="increment" type="button"><i class="icon-arrow-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">With prefix and postfix</small>
+                                        <!-- /Horizontal group spinner with prefix and postfix -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="numberSpinner1" class="col-lg-2 col-form-label col-form-label-sm text-lg-right">Sizing - small</label>
+                            <div class="col-lg-10">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="input-group input-group-sm number-spinner">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="decrement" type="button"><i class="fas fa-minus"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control border-primary" value="1" min="0" max="50">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="increment" type="button"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="numberSpinner1" class="col-lg-2 col-form-label text-lg-right">Sizing - default</label>
+                            <div class="col-lg-10">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="input-group number-spinner">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="decrement" type="button"><i class="fas fa-minus"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control border-primary" value="1" min="0" max="50">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="increment" type="button"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="numberSpinner1" class="col-lg-2 col-form-label col-form-label-lg text-lg-right">Sizing - large</label>
+                            <div class="col-lg-10">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="input-group input-group-lg number-spinner">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="decrement" type="button"><i class="fas fa-minus"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control border-primary" value="1" min="0" max="50">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-icon btn-outline-primary btn-sm" data-action="increment" type="button"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>

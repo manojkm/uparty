@@ -1,0 +1,130 @@
+---
+title: "Toastr"
+lead: Simple javascript toast notifications
+forms-ui: true
+categories: Advanced Form Elements
+
+css_vendors:
+- toastr/build/toastr.min
+
+js_vendors:
+- toastr/build/toastr.min
+
+css_vendors_extended:
+- toastr
+
+js_vendors_extended:
+- toastr
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Toastr'}}}
+                {{#card_body_has 'example'''}}
+
+                    {{{card_title 'Types'}}}
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <!-- Success type -->
+                            <button type="button" class="btn btn-success btn-block" id="type-success">Success</button>
+                            <!-- /Success type -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Info type -->
+                            <button type="button" class="btn btn-info btn-block" id="type-info">Info</button>
+                            <!-- /Info type -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Warning type -->
+                            <button type="button" class="btn btn-warning btn-block" id="type-warning">Warning</button>
+                            <!-- /Warning type -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Error type -->
+                            <button type="button" class="btn btn-danger btn-block" id="type-error">Error</button>
+                            <!-- /Error type -->
+                        </div>
+                    </div>
+
+                    <hr>
+                    {{{card_title 'Position'}}}
+                    <p>Please wait to disappear all the previous toastr before changing the position</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <!-- Position - Top left -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="position-top-left">Top left</button>
+                            <!-- /Position - Top left -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Position - Top center -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="position-top-center">Top center</button>
+                            <!-- Position - Top center -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Position - Top right -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="position-top-right">Top right</button>
+                            <!-- /Position - Top right -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Position - Top full width -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="position-top-full">Top full width</button>
+                            <!-- /Position - Top full width -->
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-3">
+                            <!-- Position - Bottom left -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="position-bottom-left">Bottom left</button>
+                            <!-- /Position - Bottom left -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Position - Bottom center -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="position-bottom-center">Bottom center</button>
+                            <!-- /Position - Bottom center -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Position - Bottom right -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="position-bottom-right">Bottom right</button>
+                            <!-- /Position - Bottom right -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Position - Bottom full width -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="position-bottom-full">Bottom full width</button>
+                            <!-- /Position - Bottom full width -->
+                        </div>
+                    </div>
+
+                    <hr>
+                    {{{card_title 'Options'}}}
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <!-- Text notification -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="text-notification">Text notifications</button>
+                            <!-- Text notification -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Close button -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="close-button">Close button</button>
+                            <!-- Close button -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Progress bar -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="progress-bar">Progress bar</button>
+                            <!-- Progress bar -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Clear toast -->
+                            <button type="button" class="btn btn-outline-primary btn-block" id="clear-toast-btn">Clear toast</button>
+                            <!-- Clear toast -->
+                        </div>
+                    </div>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>

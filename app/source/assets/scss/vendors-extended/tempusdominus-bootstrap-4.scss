@@ -1,8 +1,8 @@
 // ================================================================================================
-// File Name      : bootstrap-datepicker.standalone.scss
-// Description    : Custom overrides of Bootstrap-datepicker Plugin.
-//                  (https://github.com/uxsolutions/bootstrap-datepicker/blob/master/less/datepicker.less)
-//                  These styles are required for Bootstrap-datepicker to function.
+// File Name      : tempusdominus-bootstrap-4.scss
+// Description    : Custom styles for Tempus Dominus Bootstrap 4 Datetime Picker plugin
+//                  (https://github.com/tempusdominus/bootstrap-4)
+//                  These styles are required for Tempus Dominus to function.
 //                  You probably don't need to change these rules.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
@@ -17,24 +17,45 @@
 @import 'dependencies';
 
 //
-// DATEPICKER
+// TEMPUS DOMINUS BOOTSTRAP 4 DATETIME PICKER
 // ======================================================
 
-.datepicker {
+.bootstrap-datetimepicker-widget {
 
   &.dropdown-menu {
     border-radius: $datepicker-border-radius;
     padding: $datepicker-dropdown-padding;
   }
 
-  table {
-    margin: 0;
-    -webkit-touch-callout: none;
-    user-select: none;
+  a[data-action],
+  button[data-action] {
+    min-width: initial;
+  }
 
+  a[data-action] {
+    padding: 0;
+    color: $datepicker-color;
+  }
+
+  .timepicker-hour, .timepicker-minute, .timepicker-second {
+    width: 34px;
+    font-weight: normal;
+  }
+
+  table {
     tr {
       td {
         border-radius: $datepicker-cell-border-radius;
+        height: 34px;
+        line-height: 34px;
+        width: 34px;
+
+        span {
+          width: 34px;
+          height: 34px;
+          line-height: 34px;
+          font-size: $datepicker-font-size;
+        }
       }
 
       th {
@@ -45,28 +66,12 @@
       td,
       th {
         @include transition;
-        //width: $datepicker-cell-width;
-        //height: $datepicker-cell-height;
         border: none;
         text-align: center;
         font-size: $datepicker-font-size;
+        color: $datepicker-color;
       }
     }
-  }
 
-  table tr td {
-    &.day.range-start {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &.day.range-end {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-
-    &.day.range-start.range-end {
-      border-radius: $datepicker-cell-border-radius;
-    }
   }
 }

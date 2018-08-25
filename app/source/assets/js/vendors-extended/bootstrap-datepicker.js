@@ -45,11 +45,16 @@ $(document).ready(function () {
             todayHighlight: true
         });
 
+        $('.date-picker_5').datepicker({
+            format: 'mm-dd-yyyy'
+        });
+
         $('.date-range-picker').datepicker({
             keyboardNavigation: false,
             forceParse: false,
             autoclose: true
         });
+
     }
     else {
         throw new Error('Please install bootstrap-datepicker plugin! https://github.com/uxsolutions/bootstrap-datepicker');

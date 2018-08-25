@@ -29,7 +29,9 @@ module.exports = function (grunt) {
                 {expand: true, cwd: grunt.getPath('node') + 'jquery.repeater', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery.repeater'},
                 {expand: true, cwd: grunt.getPath('node') + 'html5sortable', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'html5sortable'},
                 {expand: true, cwd: grunt.getPath('node') + 'bootstrap-maxlength', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'bootstrap-maxlength'},
-                {expand: true, cwd: grunt.getPath('node') + 'nestable2', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'nestable2'}
+                {expand: true, cwd: grunt.getPath('node') + 'nestable2', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'nestable2'},
+                {expand: true, cwd: grunt.getPath('node') + 'tempusdominus-bootstrap-4', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'tempusdominus-bootstrap-4'},
+                {expand: true, cwd: grunt.getPath('node') + 'moment', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'moment'}
                 // TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
             ]
         },

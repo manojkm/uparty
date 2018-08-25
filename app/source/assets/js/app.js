@@ -411,9 +411,10 @@ var appMaster = {
     },
 
     number_spinner: function () {
-
+        // Adapted from https://bootsnipp.com/snippets/featured/bootstrap-number-spinner-on-click-hold
         var action;
-        $(".number-spinner button").mousedown(function () {
+        $(".number-spinner button").on('touchstart mousedown', function(e) {
+            e.preventDefault();
             var btn = $(this);
             var input = btn.closest('.number-spinner').find('input');
             btn.closest('.number-spinner').find('button').prop("disabled", false);
@@ -437,7 +438,12 @@ var appMaster = {
                     }
                 }, 50);
             }
-        }).mouseup(function () {
+        }).on('touchend mouseup', function(e) {
+            e.preventDefault(); // TODO not sure if this needed here..
+            clearInterval(action);
+        }).on('touchcancel mouseout', function(e) {
+            e.preventDefault(); // TODO not sure if this needed here..
+            // Added to stop spinning when mouse leaves the button
             clearInterval(action);
         });
 

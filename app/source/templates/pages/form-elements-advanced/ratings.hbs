@@ -1,0 +1,102 @@
+---
+title: "Ratings"
+lead: Turns any DIV elements into a fully configurable star rating component.
+forms-ui: true
+categories: Advanced Form Elements
+
+css_vendors:
+- raty-js/lib/jquery.raty
+
+js_vendors:
+- raty-js/lib/jquery.raty
+
+js_vendors_extended:
+- jquery.raty
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Ratings'}}}
+                {{#card_body}}
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            {{{card_title 'Default ratings'}}}
+                            <!-- Default ratings -->
+                            <div id="default-star-rating"></div>
+                            <!-- /Default ratings -->
+                        </div>
+                        <div class="col-md-4">
+                            {{{card_title 'Saved ratings'}}}
+                            <!-- Saved ratings -->
+                            <div id="saved-rating"></div>
+                            <!-- /Saved ratings -->
+                        </div>
+                        <div class="col-md-4">
+                            {{{card_title 'Number of stars'}}}
+                            <!-- Number of stars -->
+                            <div id="no-of-stars"></div>
+                            <!-- /Number of stars -->
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            {{{card_title 'Read only rating'}}}
+                            <!-- Read only rating -->
+                            <div id="read-only-stars"></div>
+                            <!-- /Read only rating -->
+                        </div>
+                        <div class="col-md-4">
+                            {{{card_title 'No space'}}}
+                            <!-- No space -->
+                            <div id="space-star"></div>
+                            <!-- /No space -->
+                        </div>
+                        <div class="col-md-4">
+                            {{{card_title 'Single rating'}}}
+                            <!-- Single rating -->
+                            <div id="single-star"></div>
+                            <!-- /Single rating -->
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            {{{card_title 'Half'}}}
+                            <!-- Half stars -->
+                            <div id="half-star"></div>
+                            <!-- /Half stars -->
+                        </div>
+                        <div class="col-md-4">
+                            {{{card_title 'Custom Icon'}}}
+                            <!-- Custom Icon -->
+                            <div id="custom-icon-heart"></div>
+                            <!-- /Custom Icon -->
+                        </div>
+                        <div class="col-md-4">
+                            {{{card_title 'Icon Range'}}}
+                            <!-- Icon Range -->
+                            <div id="icon-range"></div>
+                            <!-- /Icon Range -->
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            {{{card_title 'Clear rating'}}}
+                            <!-- Clear rating -->
+                            <div id="cancel-star"></div>
+                            <!-- /Clear rating -->
+                        </div>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+</div>

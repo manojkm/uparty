@@ -37,20 +37,22 @@
 }
 
 .input-group {
-  .form-control,
-  .custom-select,
-  .custom-file {
-    + .form-control {
+  > .form-control,
+  > .custom-select,
+  > .custom-file {
+    + .form-control,
+    + .custom-select,
+    + .custom-file {
       margin-left: -$input-border-size;
     }
   }
 
   .custom-file {
-    &:not(:last-child) .custom-file-label,
+    //&:not(:last-child) .custom-file-label,
     &:not(:last-child) .custom-file-label::after {
       @include border-right-radius(0);
     }
-    &:not(:first-child) .custom-file-label,
+    //&:not(:first-child) .custom-file-label,
     &:not(:first-child) .custom-file-label::after {
       @include border-left-radius(0);
     }
@@ -100,10 +102,15 @@
   #{$icon-tags} {
     @include transition;
   }
-
+  &.input-round {
+    @include border-radius($input-round-radius);
+  }
 }
 
-// Sizing options
+//
+// INPUT GROUP SIZING
+// ======================================================
+
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
@@ -120,27 +127,31 @@
   @extend .form-control-sm;
 }
 
- // Reset rounded corners
+//
+// RESET ROUND CORNERS
+// ======================================================
+// Following classes are necessary due to overwriting default bootstrap css
+
 .input-group > .input-group-prepend > .btn,
-.input-group > .input-group-prepend > .custom-select,
 .input-group > .input-group-prepend > .input-group-text,
 .input-group > .input-group-append:not(:last-child) > .btn,
 .input-group > .input-group-append:not(:last-child) > .input-group-text,
-.input-group > .input-group-append:not(:last-child) > .custom-select,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .input-group-text:not(:last-child),
+.input-group > .input-group-prepend > .custom-select,
+.input-group > .input-group-append:not(:last-child) > .custom-select,
 .input-group > .input-group-append:last-child > .custom-select:not(:last-child) {
   @include border-right-radius(0);
 }
 
 .input-group > .input-group-append > .btn,
-.input-group > .input-group-append > .custom-select,
 .input-group > .input-group-append > .input-group-text,
 .input-group > .input-group-prepend:not(:first-child) > .btn,
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
-.input-group > .input-group-prepend:not(:first-child) > .custom-select,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child),
+.input-group > .input-group-append > .custom-select,
+.input-group > .input-group-prepend:not(:first-child) > .custom-select,
 .input-group > .input-group-prepend:first-child > .custom-select:not(:first-child) {
   @include border-left-radius(0);
 }

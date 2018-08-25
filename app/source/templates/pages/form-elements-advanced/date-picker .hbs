@@ -1,0 +1,149 @@
+---
+title: "Date Picker"
+lead: Simple and easy datepicker widget for a text input
+forms-ui: true
+categories: Advanced Form Elements
+
+css_vendors:
+- bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone
+- tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min
+
+js_vendors:
+- bootstrap-datepicker/dist/js/bootstrap-datepicker
+- moment/min/moment.min
+- tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min
+
+css_vendors_extended:
+- bootstrap-datepicker.standalone
+- tempusdominus-bootstrap-4
+
+js_vendors_extended:
+- bootstrap-datepicker
+- tempusdominus-bootstrap-4
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Date Picker'}}}
+                {{#card_body_has 'example'''}}
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right ">Default datepicker</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control date-picker" placeholder="Select date">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right ">One year view</label>
+                            <div class="col-lg-10">
+                                <div class="input-group with-addon-icon-left">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="icon-calendar"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control date-picker_2" placeholder="Select date">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right">Decade view</label>
+                            <div class="col-lg-10">
+                                <div class="input-group with-addon-icon-left">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="icon-calendar"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control date-picker_3" placeholder="Select date">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right">Month select</label>
+                            <div class="col-lg-10">
+                                <div class="input-group with-addon-icon-left">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="icon-calendar"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control date-picker_4" placeholder="Select date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right">Format: 'mm-dd-yyyy'</label>
+                            <div class="col-lg-10">
+                                <div class="input-group with-addon-icon-left">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="icon-calendar"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control date-picker_5" placeholder="Select date">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="inputNormal" class="col-lg-2 col-form-label text-lg-right">Range select</label>
+                            <div class="col-lg-10 ">
+                                <div class="input-daterange input-group date-range-picker">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="icon-calendar"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="input-sm form-control" name="start" placeholder="Start Date">
+                                    <div class="input-group-prepend input-group-append">
+                                        <div class="input-group-text">to</div>
+                                    </div>
+                                    <input type="text" class="input-sm form-control" name="end" placeholder="End Date">
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="overflow:hidden;">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div id="datetimepicker13"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>

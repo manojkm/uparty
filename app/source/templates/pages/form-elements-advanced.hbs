@@ -43,22 +43,12 @@ js_vendors_extended:
 - jquery.multi-select
 ---
 
-
 <div class="container-fluid">
-
     <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Max length</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Max length'}}}
+                {{#card_body_has 'example'''}}
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -122,8 +112,8 @@ js_vendors_extended:
                         </div>
 
                     </form>
-                </div>
-            </div>
+                {{/card_body_has}}
+            {{/card}}
         </div>
     </div>
     <div class="row">

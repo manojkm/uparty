@@ -18,11 +18,14 @@ $(document).ready(function () {
     var sliderMultipleHandles = document.getElementById('sliderMultipleHandles');
     var sliderMultipleHandlesValueElement = document.getElementById('sliderMultipleHandlesValueElement');
 
-    var sliderColorVerticalOne = document.getElementById('sliderColorVerticalOne');
-    var sliderColorVerticalTwo = document.getElementById('sliderColorVerticalTwo');
-    var sliderColorVerticalThree = document.getElementById('sliderColorVerticalThree');
-    var sliderColorVerticalFour = document.getElementById('sliderColorVerticalFour');
-    var sliderColorVerticalFive = document.getElementById('sliderColorVerticalFive');
+    var sliderColorVertical1 = document.getElementById('sliderColorVertical1');
+    var sliderColorVertical2 = document.getElementById('sliderColorVertical2');
+    var sliderColorVertical3 = document.getElementById('sliderColorVertical3');
+    var sliderColorVertical4 = document.getElementById('sliderColorVertical4');
+    var sliderColorVertical5 = document.getElementById('sliderColorVertical5');
+    var sliderColorVertical6 = document.getElementById('sliderColorVertical6');
+    var sliderColorVertical7 = document.getElementById('sliderColorVertical7');
+    var sliderColorVertical8 = document.getElementById('sliderColorVertical8');
 
     var sliderTooltips = document.getElementById('sliderTooltips');
     var sliderPips = document.getElementById('sliderPips');
@@ -109,7 +112,17 @@ $(document).ready(function () {
         });
     });
 
-    noUiSlider.create(sliderColorVerticalOne, {
+    noUiSlider.create(sliderColorVertical1, {
+        start: 80,
+        orientation: 'vertical',
+        direction: 'rtl',
+        connect: [true, false],
+        range: {
+            min: 0,
+            max: 100
+        }
+    });
+    noUiSlider.create(sliderColorVertical2, {
         start: 70,
         orientation: 'vertical',
         direction: 'rtl',
@@ -119,7 +132,17 @@ $(document).ready(function () {
             max: 100
         }
     });
-    noUiSlider.create(sliderColorVerticalTwo, {
+    noUiSlider.create(sliderColorVertical3, {
+        start: 60,
+        orientation: 'vertical',
+        direction: 'rtl',
+        connect: [true, false],
+        range: {
+            min: 0,
+            max: 100
+        }
+    });
+    noUiSlider.create(sliderColorVertical4, {
         start: 50,
         orientation: 'vertical',
         direction: 'rtl',
@@ -129,8 +152,8 @@ $(document).ready(function () {
             max: 100
         }
     });
-    noUiSlider.create(sliderColorVerticalThree, {
-        start: 70,
+    noUiSlider.create(sliderColorVertical5, {
+        start: 40,
         orientation: 'vertical',
         direction: 'rtl',
         connect: [true, false],
@@ -139,7 +162,7 @@ $(document).ready(function () {
             max: 100
         }
     });
-    noUiSlider.create(sliderColorVerticalFour, {
+    noUiSlider.create(sliderColorVertical6, {
         start: 30,
         orientation: 'vertical',
         direction: 'rtl',
@@ -149,8 +172,18 @@ $(document).ready(function () {
             max: 100
         }
     });
-    noUiSlider.create(sliderColorVerticalFive, {
+    noUiSlider.create(sliderColorVertical7, {
         start: 20,
+        orientation: 'vertical',
+        direction: 'rtl',
+        connect: [true, false],
+        range: {
+            min: 0,
+            max: 100
+        }
+    });
+    noUiSlider.create(sliderColorVertical8, {
+        start: 10,
         orientation: 'vertical',
         direction: 'rtl',
         connect: [true, false],

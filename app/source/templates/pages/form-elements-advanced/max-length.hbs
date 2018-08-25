@@ -1,0 +1,111 @@
+---
+title: "Max Length"
+lead: A visual feedback indicator for the maxlength attribute.
+forms-ui: true
+categories: Advanced Form Elements
+
+js_vendors:
+- bootstrap-maxlength/bootstrap-maxlength
+
+js_vendors_extended:
+- bootstrap-maxlength
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Max length'}}}
+                {{#card_body_has 'example'''}}
+                    <form>
+                        <div class="form-row">
+
+                            <!-- Basic usage -->
+                            <div class="form-group col-md-6">
+                                <label for="maxlength-basic" class="col-form-label">Basic usage</label>
+                                <input type="text" class="form-control basic-maxlength" id="maxlength-basic" placeholder="Type 10 Claracters.." maxlength="20"/>
+                            </div>
+                            <!-- /Basic usage -->
+
+                            <!-- Show indicator after 10 chars -->
+                            <div class="form-group col-md-6">
+                                <label for="threshold-maxlength" class="col-form-label">Show indicator after 10 chars</label>
+                                <input type="text" class="form-control threshold-maxlength" id="threshold-maxlength" placeholder="Type 10 Claracters.." maxlength="20"/>
+                            </div>
+                            <!-- /Show indicator after 10 chars -->
+
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Always show indicator -->
+                            <div class="form-group col-md-6">
+                                <label for="maxlength-always-show" class="col-form-label">Always show indicator</label>
+                                <input type="text" class="form-control always-show-maxlength" id="maxlength-always-show" placeholder="Type 10 Claracters.." maxlength="20"/>
+                            </div>
+                            <!-- Always show indicator -->
+
+                            <!-- Change indicator color -->
+                            <div class="form-group col-md-6">
+                                <label for="maxlength-badge" class="col-form-label">Change indicator color</label>
+                                <input type="text" class="form-control badge-maxlength" id="maxlength-badge" placeholder="Type 10 Claracters.." maxlength="20"/>
+                            </div>
+                            <!-- /Change indicator color -->
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Indicator on the corners -->
+                            <div class="form-group col-md-6">
+                                <label for="mmaxlength-position-corner" class="col-form-label">Indicator on the corners</label>
+                                <input type="text" class="form-control position-corner-maxlength" id="maxlength-position-corner" placeholder="Type 10 Claracters.." maxlength="20"/>
+                            </div>
+                            <!-- /Indicator on the corners -->
+
+                            <!-- Indicator inside -->
+                            <div class="form-group col-md-6">
+                                <label for="maxlength-position-inside" class="col-form-label">Indicator inside</label>
+                                <input type="text" class="form-control position-inside-maxlength" id="maxlength-position-inside" placeholder="Type 10 Claracters.." maxlength="20"/>
+                            </div>
+                            <!-- /Indicator inside -->
+                        </div>
+
+
+                        <div class="form-row">
+                            <!-- Change indicator format -->
+                            <div class="form-group col-md-6">
+                                <label for="maxlength-badge-text" class="col-form-label">Change indicator format</label>
+                                <input type="text" class="form-control badge-text-maxlength" id="maxlength-badge-text" placeholder="Type 10 Claracters.." maxlength="20"/>
+                            </div>
+                            <!-- /Change indicator format -->
+
+                            <!-- Indicator position -->
+                            <div class="form-group col-md-6">
+                                <label for="maxlength-position" class="col-form-label">Indicator position</label>
+                                <input type="text" class="form-control position-maxlength" id="maxlength-position" placeholder="Type 10 Claracters.." maxlength="20"/>
+                            </div>
+                            <!-- /Indicator position -->
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Fully featured -->
+                            <div class="form-group col-md-12">
+                                <label for="maxlength-featured" class="col-form-label">Fully featured</label>
+                                <input type="text" class="form-control featured-maxlength" id="maxlength-featured" placeholder="Type 10 Claracters.." maxlength="20"/>
+                            </div>
+                            <!-- /Fully featured -->
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Support textarea -->
+                            <div class="form-group col-md-12">
+                                <label for="maxlength-featured" class="col-form-label">Support textarea</label>
+                                <textarea name="maxlength-textarea" class="form-control textarea-maxlength" id="maxlength-textarea" placeholder="Enter upto 250 characters.." maxlength="250" rows="5"></textarea>
+                            </div>
+                            <!-- Support textarea -->
+                        </div>
+
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>

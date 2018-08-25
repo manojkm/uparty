@@ -11,7 +11,7 @@
 $(document).ready(function () {
     'use strict';
 
-// Success Type
+    // Success Type
     $('#type-success').on('click', function () {
         toastr.success('Have fun storming the castle!', 'Miracle Max Says');
     });

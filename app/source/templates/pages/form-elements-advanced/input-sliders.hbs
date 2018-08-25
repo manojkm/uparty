@@ -1,0 +1,177 @@
+---
+title: "Input sliders"
+lead: Turns any DIV elements into a fully configurable star rating component.
+forms-ui: true
+categories: Advanced Form Elements
+
+css_vendors:
+- nouislider/distribute/nouislider
+
+js_vendors:
+- nouislider/distribute/nouislider
+
+css_vendors_extended:
+- nouislider
+
+js_vendors_extended:
+- nouislider
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Vertical sliders'}}}
+                {{#card_body_has 'example'''}}
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label class="col-form-label col-form-label-lg d-block text-center">Vertical slider</label>
+                                <!-- Vertical slider -->
+                                <div id="sliderVertical" class="slider-danger mx-auto" style="height:250px"></div>
+                                <!-- /Vertical slider -->
+                            </div>
+                            <div class="col-lg-8">
+                                <label class="col-form-label col-form-label-lg d-block text-center">Vertical slider themes</label>
+                                <div class="d-flex justify-content-around">
+
+                                    <!-- Vertical slider themes -->
+                                    <!-- Primary slider -->
+                                    <div id="sliderColorVertical1" class="slider-primary ml-4" style="height:250px"></div>
+                                    <!-- /Primary slider -->
+
+                                    <!-- Secondary slider -->
+                                    <div id="sliderColorVertical2" class="slider-secondary ml-4" style="height:250px"></div>
+                                    <!-- /Secondary slider -->
+
+                                    <!-- Warning slider -->
+                                    <div id="sliderColorVertical3" class="slider-warning ml-4" style="height:250px"></div>
+                                    <!-- /Warning slider -->
+
+                                    <!-- Info slider -->
+                                    <div id="sliderColorVertical4" class="slider-info ml-4" style="height:250px"></div>
+                                    <!-- /Info slider -->
+
+                                    <!-- Success slider -->
+                                    <div id="sliderColorVertical5" class="slider-success ml-4" style="height:250px"></div>
+                                    <!-- /Success slider -->
+
+                                    <!-- Danger slider -->
+                                    <div id="sliderColorVertical6" class="slider-danger ml-4" style="height:250px"></div>
+                                    <!-- /Danger slider -->
+
+                                    <!-- Light slider -->
+                                    <div id="sliderColorVertical7" class="slider-light ml-4" style="height:250px"></div>
+                                    <!-- /Light slider -->
+
+                                    <!-- Dark slider -->
+                                    <div id="sliderColorVertical8" class="slider-dark ml-4" style="height:250px"></div>
+                                    <!-- /Dark slider -->
+                                    <!-- /Vertical slider themes -->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+            {{#card}}
+                {{{card_header 'Horizontal sliders'}}}
+                {{#card_body_has 'example'''}}
+                    <form>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        {{{card_title 'Icon Range'}}}
+                                        <!-- Regular -->
+                                        <div id="sliderRegular" class="slider-primary mb-2"></div>
+                                        <div id="sliderRegularValue" class="text-muted small"></div>
+                                        <!-- /Regular -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{{card_title 'Multiple handles '}}}
+                                        <!-- Multiple handles -->
+                                        <div id="sliderMultipleHandles" class="slider-primary mb-2"></div>
+                                        <div id="sliderMultipleHandlesValueElement" class="text-muted small"></div>
+                                        <!-- /Multiple handles -->
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    {{{card_title 'Tooltips'}}}
+                                    <!-- Tooltips -->
+                                    <div id="sliderTooltips" class="slider-primary"></div>
+                                    <!-- /Tooltips -->
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    {{{card_title 'Pips'}}}
+                                    <!-- Pips -->
+                                    <div id="sliderPips" class="slider-primary"></div>
+                                    <!-- /Pips -->
+                                </div>
+                                <br>
+                                <hr>
+                                {{{card_title 'Horizontal slider themes'}}}
+
+                                <!-- Horizontal slider themes -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <!-- Secondary theme -->
+                                        <div id="" class="slider-primary sliderColor"></div>
+                                        <!-- /Secondary theme -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <!-- Secondary theme -->
+                                        <div id="" class="slider-secondary sliderColor"></div>
+                                        <!-- /Secondary theme -->
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <!-- Warning theme -->
+                                        <div id="" class="slider-warning sliderColor"></div>
+                                        <!-- /Warning theme -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <!-- Danger theme -->
+                                        <div id="" class="slider-danger sliderColor"></div>
+                                        <!-- /Danger theme -->
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <!-- Success theme -->
+                                        <div id="" class="slider-success sliderColor"></div>
+                                        <!-- /Success theme -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <!-- Info theme -->
+                                        <div id="" class="slider-info sliderColor"></div>
+                                        <!-- /Info theme -->
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <!-- Light theme -->
+                                        <div id="" class="slider-light sliderColor"></div>
+                                        <!-- /Light theme -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <!-- Dark theme -->
+                                        <div id="" class="slider-dark sliderColor"></div>
+                                        <!-- /Dark theme -->
+                                    </div>
+                                </div>
+
+                                <!-- /Horizontal slider themes -->
+                            </div>
+                        </div>
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>

@@ -985,7 +985,7 @@
     border-color: $input-disabled-border-color;
     background-color: $input-disabled-bg;
     color: $input-disabled-color;
-    &:hover {
+    &:hover:not([readonly]) {
       cursor: $cursor-not-allowed;
     }
     &::placeholder {
