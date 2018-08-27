@@ -1597,7 +1597,8 @@ $dropzone-message-icon-font-size:       2rem !default; // Drag’n’drop icon f
 
 $datepicker-border-radius:              $card-border-radius; // Datepicker border radius should be same as Bootstrap's card radius for consistency.
 $datepicker-dropdown-padding:           10px 10px !default; // Datepicker vertical and horizontal padding.
-
+$datepicker-active-theme-scheme:        info !default; // Theme color scheme applied to the active date of calender. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$datepicker-today-bg:                   #ffc966; // Background color of Today's Date
 $datepicker-header-cell-border-radius:  $border-radius-md !default; // Border radius for th elements
 $datepicker-cell-border-radius:         $border-radius-md !default; // Border radius for td elements
 $datepicker-cell-width:                 36px !default; // Width for table cells (td & th)

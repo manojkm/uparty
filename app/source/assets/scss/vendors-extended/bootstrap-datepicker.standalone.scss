@@ -35,6 +35,36 @@
     tr {
       td {
         border-radius: $datepicker-cell-border-radius;
+
+        &.today,
+        &.today:hover,
+        &.today.disabled,
+        &.today.disabled:hover {
+          background-color: $datepicker-today-bg;
+        }
+
+        &.range.today,
+        &.range.today:hover,
+        &.range.today.disabled,
+        &.range.today.disabled:hover {
+          background-color: $datepicker-today-bg;
+        }
+
+        &.active,
+        &.active:hover,
+        &.active.disabled,
+        &.active.disabled:hover {
+          @include background-text-theme($datepicker-active-theme-scheme, $sledge-hammer:!important);
+        }
+
+        span{
+          &.active,
+          &.active:hover,
+          &.active.disabled,
+          &.active.disabled:hover {
+            @include background-text-theme($datepicker-active-theme-scheme, $sledge-hammer:!important);
+          }
+        }
       }
 
       th {

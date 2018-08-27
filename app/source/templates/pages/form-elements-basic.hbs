@@ -1233,7 +1233,7 @@ js_vendors:
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">@</span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="text" class="form-control" id="inputGroupPrepended" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -1250,7 +1250,7 @@ js_vendors:
                             <label for="inputGroupAppended" class="col-lg-2 col-form-label text-lg-right">Appended text</label>
                             <div class="col-lg-10">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Recipient's username"
+                                    <input type="text" class="form-control" id="inputGroupAppended" placeholder="Recipient's username"
                                            aria-label="Recipient's username" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
                                         <span class="input-group-text" id="basic-addon2">@example.com</span>
@@ -1293,8 +1293,7 @@ js_vendors:
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="Minumum"
-                                                   aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" class="form-control" id="inputGroupAppendedAndPrepended" placeholder="Minumum" aria-label="Amount (to the nearest dollar)">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">.00</span>
                                             </div>
@@ -1322,12 +1321,12 @@ js_vendors:
 
                         <!-- Appended + Prepended middle -->
                         <div class="form-group row">
-                            <label for="inputGroupAppendedAndPrepended" class="col-lg-2 col-form-label text-lg-right">Appended + Prepended middle</label>
+                            <label for="inputGroupAppendedAndPrependedMiddle" class="col-lg-2 col-form-label text-lg-right">Appended + Prepended middle</label>
                             <div class="col-lg-10">
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="input-group ">
-                                            <input type="text" class="input-sm form-control" name="start"  placeholder="Start Date">
+                                            <input type="text" class="input-sm form-control" id="inputGroupAppendedAndPrependedMiddle" name="start"  placeholder="Start Date">
                                             <div class="input-group-prepend input-group-append">
                                                 <div class="input-group-text">to</div>
                                             </div>
@@ -1341,14 +1340,13 @@ js_vendors:
 
                         <!-- With textarea -->
                         <div class="form-group row">
-                            <label for="inputGroupTextarea"
-                                   class="col-lg-2 col-form-label text-lg-right">With textarea </label>
+                            <label for="inputGroupTextarea" class="col-lg-2 col-form-label text-lg-right">With textarea </label>
                             <div class="col-lg-10">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Textarea</span>
                                     </div>
-                                    <textarea class="form-control" rows="3" aria-label="With textarea"></textarea>
+                                    <textarea class="form-control" rows="3" id="inputGroupTextarea" aria-label="With textarea"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -1365,7 +1363,7 @@ js_vendors:
                                             <input type="checkbox" aria-label="Checkbox for following text input">
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                                    <input type="text" class="form-control" id="inputGroupCheckboxes" aria-label="Text input with checkbox">
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -1385,7 +1383,7 @@ js_vendors:
 
                         <!-- With Radios -->
                         <div class="form-group row">
-                            <label for="inputGroupRadios" class="col-lg-2 col-form-label text-lg-right">With radios</label>
+                            <label for="inputGroupRadio" class="col-lg-2 col-form-label text-lg-right">With radios</label>
                             <div class="col-lg-10">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -1393,7 +1391,7 @@ js_vendors:
                                             <input type="radio" aria-label="Radio button for following text input">
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Text input with radio button">
+                                    <input type="text" class="form-control" id="inputGroupRadio" aria-label="Text input with radio button">
                                 </div>
 
                                 <div class="input-group">
@@ -1411,18 +1409,15 @@ js_vendors:
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Name"
-                                           aria-label="Text input with radio button">
+                                    <input type="text" class="form-control" placeholder="Name" aria-label="Text input with radio button">
                                 </div>
-
-
                             </div>
                         </div>
                         <!-- /With Radios -->
 
                         <!-- Multiple inputs -->
                         <div class="form-group row">
-                            <label for="inputGroupMultipleInputs" class="col-lg-2 col-form-label text-lg-right">Multiple inputs</label>
+                            <label class="col-lg-2 col-form-label text-lg-right">Multiple inputs</label>
                             <div class="col-lg-10">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -1437,7 +1432,7 @@ js_vendors:
 
                         <!-- Multiple addons -->
                         <div class="form-group row">
-                            <label for="inputGroupMultipleAddons" class="col-lg-2 col-form-label text-lg-right">Multiple addons</label>
+                            <label class="col-lg-2 col-form-label text-lg-right">Multiple addons</label>
                             <div class="col-lg-10">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -1459,7 +1454,7 @@ js_vendors:
 
                         <!-- Button addons -->
                         <div class="form-group row">
-                            <label for="inputGroupButtonAddons" class="col-lg-2 col-form-label text-lg-right">Button addons</label>
+                            <label class="col-lg-2 col-form-label text-lg-right">Button addons</label>
                             <div class="col-lg-10">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -1491,7 +1486,7 @@ js_vendors:
 
                         <!-- Multiple button -->
                         <div class="form-group row">
-                            <label for="inputGroupButtonAddons" class="col-lg-2 col-form-label text-lg-right">Multiple button</label>
+                            <label class="col-lg-2 col-form-label text-lg-right">Multiple button</label>
                             <div class="col-lg-10">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -1514,7 +1509,7 @@ js_vendors:
 
                         <!-- Buttons with dropdowns -->
                         <div class="form-group row">
-                            <label for="inputGroupButtonAddons" class="col-lg-2 col-form-label text-lg-right">Buttons with dropdowns</label>
+                            <label class="col-lg-2 col-form-label text-lg-right">Buttons with dropdowns</label>
                             <div class="col-lg-10">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -1531,8 +1526,7 @@ js_vendors:
                                 </div>
 
                                 <div class="input-group">
-                                    <input type="text" class="form-control"
-                                           aria-label="Text input with dropdown button">
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1550,7 +1544,7 @@ js_vendors:
 
                         <!-- Segmented buttons -->
                         <div class="form-group row">
-                            <label for="inputGroupButtonAddons" class="col-lg-2 col-form-label text-lg-right">Segmented buttons</label>
+                            <label class="col-lg-2 col-form-label text-lg-right">Segmented buttons</label>
                             <div class="col-lg-10">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -1590,7 +1584,7 @@ js_vendors:
 
                         <!-- Custom select -->
                         <div class="form-group row">
-                            <label for="inputGroupButtonAddons" class="col-lg-2 col-form-label text-lg-right">Custom select</label>
+                            <label class="col-lg-2 col-form-label text-lg-right">Custom select</label>
                             <div class="col-lg-10">
                                 <div class="form-row mb-3">
                                     <div class="col-6">
@@ -1677,7 +1671,7 @@ js_vendors:
 
                         <!-- Input group small size -->
                         <div class="form-group row">
-                            <label for="inputGroupSizingSmall" class="col-lg-2 col-form-label col-form-label-sm text-lg-right">Sizing - small</label>
+                            <label class="col-lg-2 col-form-label col-form-label-sm text-lg-right">Sizing - small</label>
                             <div class="col-lg-10">
                                 <div class="input-group input-group-sm">
                                     <div class="input-group-prepend">
@@ -1691,7 +1685,7 @@ js_vendors:
 
                         <!-- Input group default size -->
                         <div class="form-group row">
-                            <label for="inputGroupSizingDefault" class="col-lg-2 col-form-label text-lg-right">Sizing - default</label>
+                            <label class="col-lg-2 col-form-label text-lg-right">Sizing - default</label>
                             <div class="col-lg-10">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -1705,7 +1699,7 @@ js_vendors:
 
                         <!-- Input group large size -->
                         <div class="form-group row">
-                            <label for="inputGroupSizingLarge" class="col-lg-2 col-form-label col-form-label-lg text-lg-right">Sizing - large</label>
+                            <label class="col-lg-2 col-form-label col-form-label-lg text-lg-right">Sizing - large</label>
                             <div class="col-lg-10">
                                 <div class="input-group input-group-lg">
                                     <div class="input-group-prepend">
@@ -1744,7 +1738,7 @@ js_vendors:
                             <div class="col-lg-10">
                                 <div class="custom-file mb-3">
                                     <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                    <label class="custom-file-label" id="inputGroupFileCustom" for="customFile">Choose file</label>
                                 </div>
 
                                 <div class="input-group mb-3">
@@ -1789,7 +1783,7 @@ js_vendors:
                                    class="col-lg-2 col-form-label col-form-label-sm text-lg-right">Sizing - small</label>
                             <div class="col-lg-10">
                                 <div class="custom-file custom-file-sm">
-                                    <input type="file" class="custom-file-input" id="customFile1">
+                                    <input type="file" class="custom-file-input" id="inputGroupFileSizingSmall">
                                     <label class="custom-file-label" for="customFile1">Choose file</label>
                                 </div>
                             </div>
@@ -1798,11 +1792,10 @@ js_vendors:
 
                         <!-- File upload sizing - default -->
                         <div class="form-group row">
-                            <label for="inputGroupFileSizingDefault"
-                                   class="col-sm-2 col-form-label text-lg-right">Sizing - default</label>
+                            <label for="inputGroupFileSizingDefault" class="col-sm-2 col-form-label text-lg-right">Sizing - default</label>
                             <div class="col-sm-10">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile2">
+                                    <input type="file" class="custom-file-input" id="inputGroupFileSizingDefault">
                                     <label class="custom-file-label" for="customFile2">Choose file</label>
                                 </div>
                             </div>
@@ -1811,11 +1804,10 @@ js_vendors:
 
                         <!-- File upload sizing - large -->
                         <div class="form-group row">
-                            <label for="inputGroupFileSizingLarge"
-                                   class="col-sm-2 col-form-label col-form-label-lg text-lg-right">Sizing - large</label>
+                            <label for="inputGroupFileSizingLarge" class="col-sm-2 col-form-label col-form-label-lg text-lg-right">Sizing - large</label>
                             <div class="col-sm-10">
                                 <div class="custom-file custom-file-lg">
-                                    <input type="file" class="custom-file-input" id="customFile3">
+                                    <input type="file" class="custom-file-input" id="inputGroupFileSizingLarge">
                                     <label class="custom-file-label" for="customFile3">Choose file</label>
                                 </div>
                             </div>

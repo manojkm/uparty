@@ -1,0 +1,177 @@
+---
+title: "Datetime Picker"
+lead: Robust date and time picker designed to integrate into your Bootstrap project.
+forms-ui: true
+categories: Advanced Form Elements
+
+css_vendors:
+- tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min
+
+js_vendors:
+- moment/min/moment.min
+- tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min
+
+css_vendors_extended:
+- tempusdominus-bootstrap-4
+
+js_vendors_extended:
+- tempusdominus-bootstrap-4
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Datetime picker'}}}
+                {{#card_body_has 'example'''}}
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Datetime picker</label>
+                            <div class="col-lg-10">
+                                <!-- Datetime picker -->
+                                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" placeholder="Select date and time"/>
+                                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <!-- /Datetime picker -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Time only</label>
+                            <div class="col-lg-10">
+                                <!-- Time only -->
+                                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" placeholder="Select time"/>
+                                    <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                    </div>
+                                </div>
+                                <!-- /Time only -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Date only</label>
+                            <div class="col-lg-10">
+                                <!-- Date only -->
+                                <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" placeholder="Select date"/>
+                                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <!-- /Date only -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">No icon (input field only)</label>
+                            <div class="col-lg-10">
+                                <!-- No icon (input field only) -->
+                                <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5" placeholder="Select date"/>
+                                <!-- /No icon (input field only) -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Enabled/Disabled dates</label>
+                            <div class="col-lg-10">
+                                <!-- Enabled/Disabled dates -->
+                                <div class="input-group date" id="datetimepicker6" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker6" placeholder="Select date"/>
+                                    <div class="input-group-append" data-target="#datetimepicker6" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <small id="" class="form-text text-muted">Check the disabled dates from 08/10/2018 to 08/15/2018. Default date is set to 08/22/2018 for demo</small>
+                                <!-- /Enabled/Disabled dates -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Linked pickers</label>
+                            <div class="col-lg-10">
+                                <!-- Linked pickers -->
+                                <div class="form-row mb-3">
+                                    <div class="col-6">
+                                        <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7" placeholder="Select date"/>
+                                            <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8" placeholder="Select date"/>
+                                            <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Linked pickers -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">View mode</label>
+                            <div class="col-lg-10">
+                                <!-- View mode -->
+                                <div class="input-group date" id="datetimepicker10" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker10" placeholder="Select date"/>
+                                    <div class="input-group-append" data-target="#datetimepicker10" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <!-- /View mode -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Mini view mode</label>
+                            <div class="col-lg-10">
+                                <!-- Mini view mode -->
+                                <div class="input-group date" id="datetimepicker11" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker11" placeholder="Select date"/>
+                                    <div class="input-group-append" data-target="#datetimepicker11" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <!-- /Mini view mode -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Disabled days of the week</label>
+                            <div class="col-lg-10">
+                                <!-- Disabled days of the week -->
+                                <div class="input-group date" id="datetimepicker12" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker12" placeholder="Select date"/>
+                                    <div class="input-group-append" data-target="#datetimepicker12" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <!-- /Disabled days of the week -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Inline</label>
+                            <div class="col-lg-6">
+                                <!-- Inline -->
+                                <div id="datetimepicker13"></div>
+                                <!-- /Inline -->
+                            </div>
+                        </div>
+
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>
