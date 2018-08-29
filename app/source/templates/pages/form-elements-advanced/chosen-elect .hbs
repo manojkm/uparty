@@ -1,0 +1,177 @@
+---
+title: "Chosen Select"
+lead: Chosen is a jQuery plugin that makes long, unwieldy select boxes much more user-friendly.
+forms-ui: true
+categories: Advanced Form Elements
+
+css_vendors:
+- chosen-js/chosen
+
+js_vendors:
+- chosen-js/chosen.jquery
+
+css_vendors_extended:
+- chosen
+
+js_vendors_extended:
+- chosen.jquery
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Chosen Select'}}}
+                {{#card_body_has 'example'''}}
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Standard</label>
+                                <!-- Standard -->
+                                <select data-placeholder="Your Favorite Type of Bear" class="chosen-select">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option selected>Sloth Bear</option>
+                                    <option disabled>Sun Bear</option>
+                                    <option>Polar Bear</option>
+                                    <option disabled>Spectacled Bear</option>
+                                </select>
+                                <!-- /Standard -->
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Multiple</label>
+                                <!-- Multiple -->
+                                <select name="" multiple data-placeholder="Click to see available options..." class="form-control chosen-select">
+                                    <optgroup label="Option group 1">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                    </optgroup>
+                                    <optgroup label="Option group 2">
+                                        <option>Option 5</option>
+                                        <option>Option 6</option>
+                                        <option>Option 7</option>
+                                        <option>Option 8</option>
+                                    </optgroup>
+                                    <optgroup label="Option group 3">
+                                        <option>Option 9</option>
+                                        <option>Option 10</option>
+                                        <option>Option 11</option>
+                                        <option>Option 12</option>
+                                    </optgroup>
+                                </select>
+                                <!-- /Multiple -->
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Hide Search on Single Select</label>
+                                <!-- Hide Search on Single Select -->
+                                <select data-placeholder="Your Favorite Type of Bear" class="chosen-select-no-single">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option>Sun Bear</option>
+                                    <option>Polar Bear</option>
+                                    <option>Spectacled Bear</option>
+                                </select>
+                                <!-- /Hide Search on Single Select -->
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Deselect on Single Selects</label>
+                                <!-- Deselect on Single Selects -->
+                                <select data-placeholder="Your Favorite Type of Bear" class="chosen-select-deselect">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option selected>Sloth Bear</option>
+                                    <option>Sun Bear</option>
+                                    <option>Polar Bear</option>
+                                    <option>Spectacled Bear</option>
+                                </select>
+                                <!-- /Deselect on Single Selects -->
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">No Results Text Support on Single</label>
+                                <!-- No Results Text Support on Single -->
+                                <select data-placeholder="Type &apos;C&apos; to view" class="chosen-select-no-results">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option>Sloth Bear</option>
+                                    <option>Sun Bear</option>
+                                    <option>Polar Bear</option>
+                                    <option>Spectacled Bear</option>
+                                </select>
+                                <!-- /No Results Text Support on Single -->
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">No Results Text on Multiple</label>
+                                <!-- No Results Text Support on Multiple -->
+                                <select data-placeholder="Type &apos;C&apos; to view" multiple class="chosen-select-no-results">
+                                    <option value=""></option>
+                                    <option disabled>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option>Sloth Bear</option>
+                                    <option>Sun Bear</option>
+                                    <option>Polar Bear</option>
+                                    <option>Spectacled Bear</option>
+                                </select>
+                                <!-- /No Results Text Support on Multiple -->
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Right-to-Left Support on Single</label>
+                                <!-- Right-to-Left Support on Single -->
+                                <select data-placeholder="Your Favorite Type of Bear" class="chosen-select-rtl">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option selected>Sloth Bear</option>
+                                    <option>Polar Bear</option>
+                                </select>
+                                <!-- /Right-to-Left Support on Single -->
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Right-to-Left Support on Multiple</label>
+                                <!-- Right-to-Left Support on Multiple -->
+                                <select data-placeholder="Your Favorite Types of Bear" multiple class="chosen-select-rtl">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option selected>Sloth Bear</option>
+                                    <option selected>Polar Bear</option>
+                                </select>
+                                <!-- /Right-to-Left Support on Multiple -->
+                            </div>
+                        </div>
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>

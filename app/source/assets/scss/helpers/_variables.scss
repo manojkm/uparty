@@ -1729,7 +1729,9 @@ $active-tags:                           '&:active, &.active, &:active:focus, &.a
 //
 // 10.2 DISABLED SELECTORS
 // -----------------------------------------------------------------------------
-$disabled-tags:                         '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
+//$disabled-tags:                         '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
+$disabled-tags:                         '&.disabled, &:disabled';
+//TODO, make sure the above disabled tag change doesn't affect an components.
 
 //
 // 10.3 ICON SELECTORS

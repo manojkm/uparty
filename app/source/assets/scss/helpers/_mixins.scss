@@ -433,17 +433,28 @@
 
   @if $bg == fill {
     @include background-text-theme($scheme, $tone, $font-color);
+    #{$disabled-tags}{
+      @include background-text-theme($scheme, light, $font-color);
+      @include border-theme($scheme, light);
+    }
   }
 
   @if $bg == outline {
     background-color: transparent;
     @include text-theme($scheme, $tone);
+
+    #{$disabled-tags}{
+      @include text-theme($scheme, light);
+    }
   }
 
   #{$hover-tags} {
     @include border-theme($scheme, $tone-hover);
     @include background-text-theme($scheme, $tone-hover, $font-color);
   }
+
+
+
 
   #{$active-tags},
   #{$focus-tags},
