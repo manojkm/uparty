@@ -1,0 +1,31 @@
+---
+title: "Multi select"
+lead: A user-friendlier drop-in replacement for the standard <select> with multiple attribute activated.
+forms-ui: true
+categories: Advanced Form Elements
+
+css_vendors:
+- multiselect/css/multi-select
+
+js_vendors:
+- multiselect/js/jquery.multi-select
+- jquery.quicksearch/dist/jquery.quicksearch.min
+
+css_vendors_extended:
+- multi-select
+
+js_vendors_extended:
+- jquery.multi-select
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Multi select'}}}
+                {{#card_body_has 'example'''}}
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>
