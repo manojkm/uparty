@@ -1,0 +1,153 @@
+---
+title: "Input Text Masking"
+lead: Make masks on form fields and HTML elements.
+forms-ui: true
+categories: Advanced Form Elements
+
+js_vendors:
+- jquery-mask-plugin/dist/jquery.mask
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Input Mask'}}}
+                {{#card_body_has 'example'''}}
+
+                    <form action="">
+                        <div class="form-group row">
+                            <label for="mask-date" class="col-lg-3 col-form-label text-lg-right">Date</label>
+                            <div class="col-lg-6">
+                                <!-- Date -->
+                                <input class="form-control" data-mask="00/00/0000" placeholder="eg: 23/01/2018"
+                                       autocomplete="off" maxlength="10" type="text" id="mask-date">
+                                <!-- /Date -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="mask-time" class="col-lg-3 col-form-label text-lg-right">Time</label>
+                            <div class="col-lg-6">
+                                <!-- Time -->
+                                <input class="form-control" data-mask="00:00:00" placeholder="eg: 23:06:55"
+                                       autocomplete="off" maxlength="8" type="text" id="mask-time">
+                                <!-- /Time -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="mask-date-time" class="col-lg-3 col-form-label text-lg-right">Date and time</label>
+                            <div class="col-lg-6">
+                                <!-- Date and time -->
+                                <input class="form-control" data-mask="00/00/0000 00:00:00"
+                                       placeholder="eg: 00/00/0000 00:00:00" autocomplete="off" maxlength="19"
+                                       type="text" id="mask-date-time">
+                                <!-- /Date and time -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cep" class="col-lg-3 col-form-label text-lg-right">CEP</label>
+                            <div class="col-lg-6">
+                                <!-- CEP -->
+                                <input class="form-control" data-mask="00000-000" placeholder="eg: 00000-000"
+                                       autocomplete="off" maxlength="9" type="text" id="cep">
+                                <!-- /CEP -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone-number" class="col-lg-3 col-form-label text-lg-right">Phone number</label>
+                            <div class="col-lg-6">
+                                <!-- Phone number -->
+                                <input class="form-control" data-mask="000-00-0000000" placeholder="eg: 000-00-0000000"
+                                       autocomplete="off" maxlength="14" type="text" id="phone-number">
+                                <!-- /Phone number -->
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="phone-with-odd" class="col-lg-3 col-form-label text-lg-right">Phone with odd</label>
+                            <div class="col-lg-6">
+                                <!-- Phone with odd -->
+                                <input class="form-control" data-mask="(00) 0000-0000" placeholder="eg: (00) 0000-0000"
+                                       autocomplete="off" maxlength="14" type="text" id="phone-with-odd">
+                                <!-- /Phone with odd -->
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="us-phone-number" class="col-lg-3 col-form-label text-lg-right">US phone number</label>
+                            <div class="col-lg-6">
+                                <!-- US phone number -->
+                                <input class="form-control" data-mask="(000) 000-0000" placeholder="eg: (000) 000-0000"
+                                       autocomplete="off" maxlength="14" type="text" id="us-phone-number">
+                                <!-- /US phone number -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cpf" class="col-lg-3 col-form-label text-lg-right">CPF</label>
+                            <div class="col-lg-6">
+                                <!-- CPF -->
+                                <input class="form-control" data-mask="000.000.000-00" placeholder="eg: 000.000.000-00"
+                                       autocomplete="off" maxlength="14" type="text" id="cpf">
+                                <!-- /CPF -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="money" class="col-lg-3 col-form-label text-lg-right">Money</label>
+                            <div class="col-lg-6">
+                                <!-- Money -->
+                                <input class="form-control" data-mask="000.000.000.000.000,00"
+                                       placeholder="eg: 000.000.000.000.000,00" autocomplete="off" maxlength="22"
+                                       type="text" id="money">
+                                <!-- /Money -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="ip-address" class="col-lg-3 col-form-label text-lg-right">IP address</label>
+                            <div class="col-lg-6">
+                                <!-- IP address -->
+                                <input class="form-control" data-mask="000.000.000.000.000,00"
+                                       placeholder="eg: 000.000.000.000.000,00" autocomplete="off" maxlength="22"
+                                       type="text" id="ip-address">
+                                <!-- /IP address -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="percentage" class="col-lg-3 col-form-label text-lg-right">Percentage</label>
+                            <div class="col-lg-6">
+                                <!-- Percentage -->
+                                <input class="form-control" data-mask="00000,00%" placeholder="eg: 00000,00%"
+                                       autocomplete="off" maxlength="9" type="text" id="percentage">
+                                <!-- /Percentage -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="credit-card" class="col-lg-3 col-form-label text-lg-right">Credit card</label>
+                            <div class="col-lg-6">
+                                <!-- Credit card -->
+                                <input class="form-control" data-mask="0000 0000 0000 0000"
+                                       placeholder="eg: 0000 0000 0000 0000" autocomplete="off" maxlength="19" type="text" id="credit-card">
+                                <!-- /Credit card -->
+                            </div>
+                        </div>
+
+
+
+
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>

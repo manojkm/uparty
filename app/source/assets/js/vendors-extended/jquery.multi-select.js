@@ -13,6 +13,14 @@ $(document).ready(function () {
     if ($.fn.multiSelect) {
         $(".multi-select, #public-methods").multiSelect();
 
+
+        $('#custom-headers').multiSelect({
+            selectableHeader: "<div class='py-2 text-center'><h5>Selectable items header</h5></div>",
+            selectionHeader: "<div class='py-2 text-center'><h5>Selection items header</h5></div>",
+            selectableFooter: "<div class='py-2 text-center'><h6>Selectable footer</h6></div>",
+            selectionFooter: "<div class='py-2 text-center'><h6>Selection footer</h6></div>"
+        });
+
         $('.ms-searchable').multiSelect({
             selectableHeader: "<input type='text' class='form-control search-input mb-1' autocomplete='off' placeholder='search...'>",
             selectionHeader: "<input type='text' class='form-control search-input mb-1' autocomplete='off' placeholder='search...'>",
