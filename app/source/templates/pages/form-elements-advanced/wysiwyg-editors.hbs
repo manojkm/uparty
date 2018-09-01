@@ -1,8 +1,12 @@
 ---
 title: "Wysiwyg editors"
-lead: Turns any DIV elements into a fully configurable star rating component.
+lead: Simple, beautiful wysiwyg editor.
 forms-ui: true
 categories: Advanced Form Elements
+
+js_vendors:
+- bootstrap-wysiwyg/js/bootstrap-wysiwyg.min
+
 ---
 
 <div class="container-fluid">
@@ -11,7 +15,15 @@ categories: Advanced Form Elements
             {{#card}}
                 {{{card_header 'Wysiwyg editors'}}}
                 {{#card_body_has 'example'''}}
-                 coming soon..
+                    <div class="form-group row">
+                        <label for="credit-card" class="col-lg-3 col-form-label text-lg-right">Credit card</label>
+                        <div class="col-lg-6">
+                            <!-- Credit card -->
+
+                            <!-- /Credit card -->
+                        </div>
+                    </div>
+
                 {{/card_body_has}}
             {{/card}}
         </div>
