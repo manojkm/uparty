@@ -39,6 +39,10 @@
 <!-- /END GLOBAL VENDORS :CSS -->
 
 <!-- BEGIN PAGE LEVEL VENDORS :CSS -->
+{{#if css_cdn_vendors}}
+    {{helper-cdn css_cdn_vendors}}
+{{/if}}
+
 {{#if css_vendors}}
     {{#each css_vendors}}
         <link rel="stylesheet" href="{{../assets}}{{../vendors}}{{ this }}.css">

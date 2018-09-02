@@ -10,10 +10,23 @@
 
 $(document).ready(function () {
     'use strict';
-    if ($.fn.wysiwyg) {
+    if (window.Quill){
+
+        var editor = new Quill('#quill-editor', {
+            modules: {
+                toolbar: '#quill-toolbar'
+            },
+            placeholder: 'Type something',
+            theme: 'snow'
+        });
+
+        var bubbleEditor = new Quill('#quill-bubble-editor', {
+            placeholder: 'Compose an epic...',
+            theme: 'bubble'
+        });
 
     }
     else {
-        throw new Error('Please install bootstrap-wysiwyg plugin! https://github.com/steveathon/bootstrap-wysiwyg');
+        throw new Error('Please install quilljs plugin from CDN! https://quilljs.com/docs/download/');
     }
 });

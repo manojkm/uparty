@@ -7,6 +7,10 @@
 <!-- /END GLOBAL VENDORS :JS -->
 
 <!-- BEGIN PAGE LEVEL VENDORS :JS -->
+{{#if js_cdn_vendors}}
+    {{helper-cdn js_cdn_vendors}}
+{{/if}}
+
 {{#if js_vendors}}
     {{#each js_vendors}}
         <script src="{{../assets}}{{../vendors}}{{ this }}.js"></script>
