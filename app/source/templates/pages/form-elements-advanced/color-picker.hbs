@@ -1,0 +1,130 @@
+---
+title: "Color Picker"
+lead: Simple and easy datepicker widget for a text input
+forms-ui: true
+categories: Advanced Form Elements
+
+css_vendors:
+- "@claviska/jquery-minicolors/jquery.minicolors"
+
+js_vendors:
+- "@claviska/jquery-minicolors/jquery.minicolors.min"
+
+js_vendors_extended:
+- jquery.minicolors
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Minicolors'}}}
+                {{#card_body_has 'example'''}}
+                    <form action="">
+
+                        {{{card_title 'Control types'}}}
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right ">Hue (default)</label>
+                            <div class="col-lg-10">
+                                <!-- Hue (default) -->
+                                <input type="text" id="minicolors-hue" class="form-control" value="#ff6161">
+                                <!-- /Hue (default) -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right ">Brightness</label>
+                            <div class="col-lg-10">
+                                <!-- Brightness -->
+                                <input type="text" id="minicolors-brightness" class="form-control" value="#00ffff">
+                                <!-- /Brightness -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right ">Saturation</label>
+                            <div class="col-lg-10">
+                                <!-- Saturation -->
+                                <input type="text" id="minicolors-saturation" class="form-control" value="#0088cc">
+                                <!-- /Saturation -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right ">Wheel</label>
+                            <div class="col-lg-10">
+                                <!-- Wheel -->
+                                <input type="text" id="minicolors-wheel" class="form-control" value="#ff99ee">
+                                <!-- /Wheel -->
+                            </div>
+                        </div>
+
+                    </form>
+                {{/card_body_has}}
+
+                <hr>
+                {{#card_body_has 'example'''}}
+                    <form action="">
+                        {{{card_title 'RGB(A)'}}}
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right ">RGB</label>
+                            <div class="col-lg-10">
+                                <!-- RGB -->
+                                <input type="text" id="minicolors-rgb" class="form-control" value="rgb(33, 147, 58)">
+                                <!-- /RGB -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right ">RGBA</label>
+                            <div class="col-lg-10">
+                                <!-- RGBA -->
+                                <input type="text" id="minicolors-rgba" class="form-control" value="rgba(52, 64, 158, 0.5)">
+                                <!-- /RGBA -->
+                            </div>
+                        </div>
+                    </form>
+                {{/card_body_has}}
+
+                <hr>
+                {{#card_body_has 'example'''}}
+                    <form action="">
+
+                        {{{card_title 'Input modes'}}}
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right ">Text field</label>
+                            <div class="col-lg-10">
+                                <!-- Text field -->
+                                <input type="text" id="text-field" class="form-control" value="#70c24a">
+                                <!-- /Text field -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right ">Hidden input</label>
+                            <div class="col-lg-10">
+                                <!-- Hidden input -->
+                                <input type="hidden" id="minicolors-hidden" class="form-control" value="#db913d">
+                                <!-- /Hidden input -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right ">Inline</label>
+                            <div class="col-lg-10">
+                                <!-- Inline -->
+                                <input type="text" id="minicolors-inline" class="form-control" value="#4fc8db">
+                                <!-- /Inline -->
+                            </div>
+                        </div>
+
+                    </form>
+                {{/card_body_has}}
+
+            {{/card}}
+        </div>
+    </div>
+</div>

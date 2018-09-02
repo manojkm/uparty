@@ -1,6 +1,6 @@
 // ================================================================================================
-// File Name: jquery.multi-select.js
-// Description: Initialize jquery multi select plugin
+// File Name: quill.js
+// Description: Initialize Quill plugin
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
