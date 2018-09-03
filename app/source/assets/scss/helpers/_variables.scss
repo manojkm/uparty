@@ -1484,10 +1484,10 @@ $custom-toggle-width:                   50px;
 $custom-toggle-height:                  28px;
 $custom-toggle-border:                  $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
 $custom-toggle-bg:                      $white-color;
-$custom-toggle-border-radius:           100px;
+$custom-toggle-border-radius:           $border-radius-100-px;
 
 $custom-toggle-knob-bg:                 $white-color; // Knob background color
-$custom-toggle-knob-border-radius:      100px; // To add rounded corners to the Knob
+$custom-toggle-knob-border-radius:      $border-radius-100-px; // To add rounded corners to the Knob
 $custom-toggle-knob-width:              20px; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
 $custom-toggle-knob-height:             20px; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
 $custom-toggle-knob-checked-bg:         $white-color;
@@ -1496,7 +1496,7 @@ $custom-toggle-knob-active-width:       26px; // Pressing and holding the knob l
 // Mini type
 
 $custom-toggle-mini-height:             10px !default;
-$custom-toggle-mini-bg:                 $gray-200 !default;
+$custom-toggle-mini-bg:                 $gray-100 !default;
 
 // Flip type
 

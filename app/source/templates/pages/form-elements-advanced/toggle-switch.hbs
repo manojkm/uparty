@@ -1,0 +1,209 @@
+---
+title: "Toggle switch"
+lead: Lightweight, beautiful drag’n’drop file uploader.
+forms-ui: true
+categories: Advanced Form Elements
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Toggle switch'}}}
+                {{#card_body}}
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            {{{card_title 'All states'}}}
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
+                                    <input class="custom-control-input" required="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Pizza <span class="small text-muted">(Normal state)</span></span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Pasta  <span class="small text-muted">(Checked state)</span></span>
+                                </label>
+                            </fieldset>
+                            <fieldset disabled="disabled">
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
+                                    <input class="custom-control-input" required="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Burgers <span class="small text-muted">(Disabled state)</span></span>
+                                </label>
+                            </fieldset>
+                            <fieldset disabled="disabled">
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Tacos<span class="small text-muted">(Checked + Disabled state)</span></span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-group col-md-8">
+                            {{{card_title 'Color variations'}}}
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Primary</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-secondary">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Secondary</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-success">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Success</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-danger">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Danger</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-warning">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Warning</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-info">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Info</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-light">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Light</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-dark">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Dark</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+
+            {{#card}}
+                {{{card_header 'Mini toggle switch'}}}
+                {{#card_body}}
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            {{{card_title 'All states'}}}
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
+                                    <input class="custom-control-input" required="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Cookies <span class="small text-muted">(Normal state)</span></span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Pancakes  <span class="small text-muted">(Checked state)</span></span>
+                                </label>
+                            </fieldset>
+                            <fieldset disabled="disabled">
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
+                                    <input class="custom-control-input" required="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Chocolate <span class="small text-muted">(Disabled state)</span></span>
+                                </label>
+                            </fieldset>
+                            <fieldset disabled="disabled">
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Milkshake<span class="small text-muted">(Checked + Disabled state)</span></span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-group col-md-8">
+                            {{{card_title 'Color variations'}}}
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Primary</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-secondary mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Secondary</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-success mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Success</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-danger mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Danger</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-warning mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Warning</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-info mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Info</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-light mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Light</span>
+                                </label>
+                            </fieldset>
+                            <fieldset>
+                                <label class="custom-control custom-toggle-switch custom-toggle-switch-dark mini">
+                                    <input class="custom-control-input" required="" checked="" type="checkbox">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Dark</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+
+        </div>
+    </div>
+</div>

@@ -19,19 +19,21 @@ $(document).ready(function () {
         });
 
         $('#minicolors-hue, #text-field').minicolors({
-            control:  'hue'
+            control: 'hue'
         });
 
         $('#minicolors-brightness').minicolors({
-            control:  'brightness'
+            control: 'brightness',
+            position: 'top right'
         });
 
         $('#minicolors-saturation').minicolors({
-            control:  'saturation'
+            control: 'saturation',
+            position: 'top right'
         });
 
         $('#minicolors-wheel').minicolors({
-            control:  'wheel',
+            control: 'wheel',
             opacity: true
         });
 
@@ -49,7 +51,6 @@ $(document).ready(function () {
             format: 'rgb',
             opacity: true
         });
-
 
     }
     else {

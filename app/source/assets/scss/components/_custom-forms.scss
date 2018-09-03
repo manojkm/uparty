@@ -438,8 +438,8 @@
 // TOGGLE SWITCH
 // ======================================================
 
-.custom-toggle {
-  $ct: custom-toggle;
+.custom-toggle-switch {
+  $cts: custom-toggle-switch;
   $cci: custom-control-input;
   $ccind: custom-control-indicator;
 
@@ -524,7 +524,7 @@
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
-      &.#{$ct}-#{$scheme} {
+      &.#{$cts}-#{$scheme} {
         @include custom-toggle($scheme);
       }
     }
@@ -532,7 +532,7 @@
 
   // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
-    &.#{$ct}-#{$scheme} {
+    &.#{$cts}-#{$scheme} {
       @include custom-toggle($scheme);
     }
   }
