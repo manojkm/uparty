@@ -189,7 +189,7 @@
       background-image: none !important;
     }
     .#{$cc}-input:disabled:checked ~ .#{$cc}-label::before {
-      @include background-theme($custom-control-indicator-checked-bg, light, $sledge-hammer:!important);
+      @include background-theme($custom-control-indicator-checked-bg, light, $sledge-hammer: !important);
       opacity: 0.5;
     }
   }
@@ -206,7 +206,7 @@
         // Tweak just a few things for filled variant.
         &.filled {
           .#{$cc}-input:disabled:checked ~ .#{$cc}-label::before {
-            @include background-theme($scheme, light, $sledge-hammer:!important);
+            @include background-theme($scheme, light, $sledge-hammer: !important);
           }
         }
 
@@ -224,7 +224,7 @@
       // Tweak just a few things for filled variant.
       &.filled {
         .#{$cc}-input:disabled:checked ~ .#{$cc}-label::before {
-          @include background-theme($scheme, light, $sledge-hammer:!important);
+          @include background-theme($scheme, light, $sledge-hammer: !important);
         }
       }
 
@@ -460,7 +460,7 @@
     display: block;
     border-radius: $custom-toggle-border-radius;
     border: $custom-toggle-border;
-    margin-right: 10px;
+    margin-right: 8px;
 
     &:hover {
       cursor: $cursor-pointer;
@@ -486,6 +486,14 @@
         top: -6px;
       }
     }
+
+    @at-root .square#{&} {
+      border-radius: $custom-toggle-square-border-radius;
+      &:after {
+        border-radius: $custom-toggle-square-knob-border-radius;
+      }
+    }
+
   }
 
   // Checked state
@@ -539,7 +547,7 @@
 }
 
 //
-// TOGGLE FLIP SWITCH
+// FLIPPED TOGGLE SWITCH
 // ======================================================
 
 .custom-toggle-flip {
@@ -559,17 +567,24 @@
     cursor: $cursor-pointer;
     user-select: none;
     perspective: $custom-toggle-flip-width + $custom-toggle-flip-height;
-    margin-right: 10px;
+    margin-right: 8px;
     color: $custom-toggle-flip-off-state-color;
+    border-radius: $custom-toggle-flip-border-radius;
+    border:  $input-border-size solid transparent;
+    box-sizing: border-box;
 
     &:before, &:after {
       @include transition;
       position: absolute;
       top: 0;
       left: 0;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       width: 100%;
-      line-height: $custom-toggle-flip-height;
+      height: 100%;
+      //line-height: ($custom-toggle-flip-height);
       backface-visibility: hidden;
       text-align: center;
       border-radius: $custom-toggle-flip-border-radius;
@@ -611,7 +626,7 @@
     @include opacity(0.5);
   }
 
-  // YES/NO flipping toggle switch
+  // YES/NO flipped toggle switch
   &.yes-no .#{$ccind} {
     &:before {
       background-color: contextual-color(danger, base);
@@ -622,7 +637,7 @@
     }
   }
 
-  // YES/NO Checked state
+  // YES/NO flipped toggle switch checked state
   &.yes-no .#{$cci}:checked + .#{$ccind},
   &.yes-no .#{$cci}:checked:active + .#{$ccind} {
     &:before {
@@ -633,7 +648,7 @@
     }
   }
 
-  // YES/NO Disabled state
+  // YES/NO flipped toggle switch disabled state
   &.yes-no .#{$cci}:disabled + .#{$ccind} {
     @include opacity(0.5);
   }

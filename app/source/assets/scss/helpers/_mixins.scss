@@ -810,8 +810,13 @@
   &.mini .#{$cci}:checked + .#{$ccind},
   &.mini .#{$cci}:checked:active + .#{$ccind} {
     &:after {
-      @include background-theme($scheme, $tone);
+      @if ($scheme == 'light') { // Fix knob color on light switch
+        @include background-theme($scheme, $font-color);
+      } @else {
+        @include background-theme($scheme, $tone);
+      }
     }
+
   }
 
 }
@@ -1099,31 +1104,30 @@
     }
   }
 
-  // Custom toggles
-  .custom-toggle .custom-control-input {
-
-    &:checked {
+  // Toggle switch
+  //.custom-toggle-switch .custom-control-input {
+  [class*="custom-toggle-"] .custom-control-input {
+     &:checked {
       .was-validated &:#{$state},
       &.is-#{$state} {
         ~ .custom-control-indicator {
-          border-color: transparent;
-
-          &:after {
-            background: $custom-toggle-knob-bg;
-          }
+          //border-color: transparent;
+          border-color:lighten($color, 10%)!important;
+          //&:after {
+          //  background: $custom-toggle-knob-bg;
+          //}
         }
       }
     }
 
     .was-validated &:#{$state},
     &.is-#{$state} {
-
       ~ .custom-control-indicator {
-        background: $white-color;
-
-        &:after {
-          background-color: lighten($color, 10%);
-        }
+        //background: $white-color;
+        border-color:lighten($color, 10%)!important;
+        //&:after {
+        //  background-color: lighten($color, 10%);
+        //}
       }
     }
   }
