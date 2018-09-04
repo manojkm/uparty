@@ -75,7 +75,7 @@
     top: 0;
     right: 30px;
     height: 100%;
-    background: none;
+    background: none !important;
 
     &::after {
       @include transition;
@@ -97,8 +97,8 @@
   .chosen-single div {
     width: 30px;
     b {
-      background: $input-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
-      background-size: $custom-select-bg-size;
+      background: $input-bg $custom-select-indicator no-repeat right $custom-select-padding-x center !important;
+      background-size: $custom-select-bg-size !important;
     }
   }
   .chosen-search {
@@ -116,8 +116,8 @@
       line-height: $btn-line-height;
       background-color: $input-bg;
       color: $input-color;
-      background: $input-bg $chosen-search-bg no-repeat right $custom-select-padding-x center;
-      background-size: $chosen-search-bg-size;
+      background: $input-bg $chosen-search-bg no-repeat right $custom-select-padding-x center !important;
+      background-size: $chosen-search-bg-size !important;
     }
   }
   .chosen-drop {
