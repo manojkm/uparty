@@ -21,7 +21,6 @@ $(document).ready(function () {
         }
     );
 
-
     $('#bs-multiselect-4').multiselect({
         enableClickableOptGroups: true,
         enableFiltering: true,

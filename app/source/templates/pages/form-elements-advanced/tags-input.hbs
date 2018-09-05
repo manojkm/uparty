@@ -1,0 +1,163 @@
+---
+title: "Tags Input"
+lead: jQuery plugin providing a Twitter Bootstrap user interface for managing tags.
+forms-ui: true
+categories: Advanced Form Elements
+
+css_cdn_vendors:
+- https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css
+
+js_cdn_vendors:
+- https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js
+
+css_vendors_extended:
+- bootstrap-tagsinput
+
+js_vendors_extended:
+- bootstrap-tagsinput
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Bootstrap Tagsinput'}}}
+                {{#card_body}}
+                    <form action="">
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Default</label>
+                            <div class="col-lg-10">
+                                <!-- Default -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control col-sm-12">
+                                <!-- /Default -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">True multi value</label>
+                            <div class="col-lg-10">
+                                <!-- True multi value -->
+                                <select multiple data-role="tagsinput" class="form-control">
+                                    <option value="Amsterdam">Amsterdam</option>
+                                    <option value="Washington">Washington</option>
+                                    <option value="Sydney">Sydney</option>
+                                    <option value="Beijing">Beijing</option>
+                                    <option value="Cairo">Cairo</option>
+                                </select>
+                                <!-- /True multi value -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Categorizing tags</label>
+                            <div class="col-lg-10">
+                                <!-- Categorizing tags -->
+                                <input type="text" class="form-control" id="bs-tagsinput-1">
+                                <!-- /Categorizing tags -->
+                            </div>
+                        </div>
+
+
+                {{/card_body}}
+
+                <hr>
+                {{#card_body}}
+
+                <form>
+                    {{{card_title 'Colored tags'}}}
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label text-lg-right">Primary tags</label>
+                        <div class="col-lg-10">
+                            <!-- Primary tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-2">
+                            <!-- /Primary tags -->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label text-lg-right">Secondary tags</label>
+                        <div class="col-lg-10">
+                            <!-- Secondary tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-3">
+                            <!-- /Secondary tags -->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label text-lg-right">Success tags</label>
+                        <div class="col-lg-10">
+                            <!-- Success tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-4">
+                            <!-- /Success tags -->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label text-lg-right">Info tags</label>
+                        <div class="col-lg-10">
+                            <!-- Info tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-5">
+                            <!-- /Info tags -->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label text-lg-right">Warning tags</label>
+                        <div class="col-lg-10">
+                            <!-- Warning tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-6">
+                            <!-- /Warning tags -->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label text-lg-right">Danger tags</label>
+                        <div class="col-lg-10">
+                            <!-- Danger tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-7">
+                            <!-- /Danger tags -->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label text-lg-right">Light tags</label>
+                        <div class="col-lg-10">
+                            <!-- Light tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-8">
+                            <!-- /Light tags -->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label text-lg-right">Dark tags</label>
+                        <div class="col-lg-10">
+                            <!-- Dark tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-9">
+                            <!-- /Dark tags -->
+                        </div>
+                    </div>
+                </form>
+                {{/card_body}}
+
+                <hr>
+                {{#card_body}}
+                    {{{card_title 'States'}}}
+
+                    <div class="form-group row is-valid">
+                        <label class="col-lg-2 col-form-label text-lg-right">Valid</label>
+                        <div class="col-lg-10">
+                            <!-- Primary tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control">
+                            <!-- /Primary tags -->
+                        </div>
+                    </div>
+
+                    <div class="form-group row is-invalid">
+                        <label class="col-lg-2 col-form-label text-lg-right">In valid</label>
+                        <div class="col-lg-10">
+                            <!-- Primary tags -->
+                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control">
+                            <!-- /Primary tags -->
+                        </div>
+                    </div>
+                
+                {{/card_body}}
+
+            {{/card}}
+        </div>
+    </div>
+</div>

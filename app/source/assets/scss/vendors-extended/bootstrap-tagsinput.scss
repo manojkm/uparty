@@ -1,0 +1,84 @@
+// ================================================================================================
+// File Name      : bootstrap-tagsinput.scss
+// Description    : Custom overrides of Bootstrap Tags Input plugin
+//                  (https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css)
+//                  These styles are required for Bootstrap Tags Input to function.
+//                  You probably don't need to change these rules.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+//
+// VENDORS DEPENDENCIES IMPORT
+// ======================================================
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
+@import 'dependencies';
+
+//
+// BOOTSTRAP TAGS INPUT
+// ======================================================
+
+.bootstrap-tagsinput {
+  @include transition;
+  @include set-border-radius($input-border-radius);
+  font-size: $input-font-size;
+  border: $input-border-size solid $input-border-color;
+  font-weight: $btn-font-weight;
+  padding: $btn-padding-y $btn-padding-x;
+  line-height: $btn-line-height;
+  background-color: $input-bg;
+  color: $input-color;
+
+  @include form-control-hover();
+  @include form-control-focus();
+
+  &::placeholder {
+    color: $input-placeholder-color;
+  }
+
+  &.input-round {
+    @include border-radius($input-round-radius);
+  }
+
+  .is-valid & {
+    border-color: rgba($form-feedback-valid-color, .6);
+    background-color: rgba($form-feedback-valid-color, .1);
+    box-shadow: none;
+
+    &:focus {
+      border-color: $form-feedback-valid-color;
+      box-shadow: none;
+      &:hover {
+        border-color: $form-feedback-valid-color;
+      }
+    }
+  }
+
+  .is-invalid & {
+    border-color: rgba($form-feedback-invalid-color, .6);
+    background-color: rgba($form-feedback-invalid-color, .1);
+    box-shadow: none;
+
+    &:focus {
+      border-color: $form-feedback-invalid-color;
+      box-shadow: none;
+      &:hover {
+        border-color: $form-feedback-invalid-color;
+      }
+    }
+  }
+
+}
+
+.bootstrap-tagsinput .tag:not(.badge) {
+  @include set-border-radius($badge-border-radius);
+  padding: $badge-padding-y $badge-padding-x;
+  @include background-text-theme(light);
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
