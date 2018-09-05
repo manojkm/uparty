@@ -6,15 +6,19 @@ categories: Advanced Form Elements
 
 css_cdn_vendors:
 - https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css
+- https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.default.css
 
 js_cdn_vendors:
 - https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js
+- https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js
 
 css_vendors_extended:
 - bootstrap-tagsinput
+- selectize
 
 js_vendors_extended:
 - bootstrap-tagsinput
+- selectize
 
 ---
 
@@ -33,7 +37,6 @@ js_vendors_extended:
                                 <!-- /Default -->
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label class="col-lg-2 col-form-label text-lg-right">True multi value</label>
                             <div class="col-lg-10">
@@ -48,7 +51,6 @@ js_vendors_extended:
                                 <!-- /True multi value -->
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label class="col-lg-2 col-form-label text-lg-right">Categorizing tags</label>
                             <div class="col-lg-10">
@@ -57,107 +59,195 @@ js_vendors_extended:
                                 <!-- /Categorizing tags -->
                             </div>
                         </div>
-
-
+                    </form>
                 {{/card_body}}
 
                 <hr>
                 {{#card_body}}
-
-                <form>
-                    {{{card_title 'Colored tags'}}}
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-lg-right">Primary tags</label>
-                        <div class="col-lg-10">
-                            <!-- Primary tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-2">
-                            <!-- /Primary tags -->
+                    <form>
+                        {{{card_title 'Colored tags'}}}
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Primary tags</label>
+                            <div class="col-lg-10">
+                                <!-- Primary tags -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-2">
+                                <!-- /Primary tags -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-lg-right">Secondary tags</label>
-                        <div class="col-lg-10">
-                            <!-- Secondary tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-3">
-                            <!-- /Secondary tags -->
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Secondary tags</label>
+                            <div class="col-lg-10">
+                                <!-- Secondary tags -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-3">
+                                <!-- /Secondary tags -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-lg-right">Success tags</label>
-                        <div class="col-lg-10">
-                            <!-- Success tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-4">
-                            <!-- /Success tags -->
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Success tags</label>
+                            <div class="col-lg-10">
+                                <!-- Success tags -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-4">
+                                <!-- /Success tags -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-lg-right">Info tags</label>
-                        <div class="col-lg-10">
-                            <!-- Info tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-5">
-                            <!-- /Info tags -->
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Info tags</label>
+                            <div class="col-lg-10">
+                                <!-- Info tags -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-5">
+                                <!-- /Info tags -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-lg-right">Warning tags</label>
-                        <div class="col-lg-10">
-                            <!-- Warning tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-6">
-                            <!-- /Warning tags -->
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Warning tags</label>
+                            <div class="col-lg-10">
+                                <!-- Warning tags -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-6">
+                                <!-- /Warning tags -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-lg-right">Danger tags</label>
-                        <div class="col-lg-10">
-                            <!-- Danger tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-7">
-                            <!-- /Danger tags -->
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Danger tags</label>
+                            <div class="col-lg-10">
+                                <!-- Danger tags -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-7">
+                                <!-- /Danger tags -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-lg-right">Light tags</label>
-                        <div class="col-lg-10">
-                            <!-- Light tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-8">
-                            <!-- /Light tags -->
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Light tags</label>
+                            <div class="col-lg-10">
+                                <!-- Light tags -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-8">
+                                <!-- /Light tags -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-lg-right">Dark tags</label>
-                        <div class="col-lg-10">
-                            <!-- Dark tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-9">
-                            <!-- /Dark tags -->
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label text-lg-right">Dark tags</label>
+                            <div class="col-lg-10">
+                                <!-- Dark tags -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" class="form-control" id="bs-tagsinput-9">
+                                <!-- /Dark tags -->
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
                 {{/card_body}}
 
                 <hr>
                 {{#card_body}}
                     {{{card_title 'States'}}}
-
-                    <div class="form-group row is-valid">
-                        <label class="col-lg-2 col-form-label text-lg-right">Valid</label>
-                        <div class="col-lg-10">
-                            <!-- Primary tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control">
-                            <!-- /Primary tags -->
+                    <form action="">
+                        <div class="form-group row is-valid">
+                            <label class="col-lg-2 col-form-label text-lg-right">Valid</label>
+                            <div class="col-lg-10">
+                                <!-- Valid state -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control">
+                                <!-- /Valid state -->
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-group row is-invalid">
-                        <label class="col-lg-2 col-form-label text-lg-right">In valid</label>
-                        <div class="col-lg-10">
-                            <!-- Primary tags -->
-                            <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control">
-                            <!-- /Primary tags -->
+                        <div class="form-group row is-invalid">
+                            <label class="col-lg-2 col-form-label text-lg-right">Invalid</label>
+                            <div class="col-lg-10">
+                                <!-- Invalid state -->
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control">
+                                <!-- /Invalid state -->
+                            </div>
                         </div>
-                    </div>
-                
+                    </form>
                 {{/card_body}}
-
             {{/card}}
+
+            {{#card}}
+                {{{card_header 'Selectize'}}}
+                {{#card_body}}
+                    <form action="">
+                        <div class="form-group row is-valid">
+                            <label class="col-lg-2 col-form-label text-lg-right">Tagging</label>
+                            <div class="col-lg-10">
+                                <!-- Tagging -->
+                                <input type="text" id="input-tags" class="" value="awesome,neat">
+                                <!-- /Tagging -->
+                            </div>
+                        </div>
+                        <div class="form-group row is-valid">
+                            <label class="col-lg-2 col-form-label text-lg-right">Email Contacts</label>
+                            <div class="col-lg-10">
+                                <!-- Email Contacts -->
+                                <select id="select-to" class="contacts" placeholder="Pick some people..."></select>
+                                <!-- /Email Contacts -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row is-valid">
+                            <label class="col-lg-2 col-form-label text-lg-right">State / City Selection</label>
+                            <div class="col-lg-10">
+                                <!-- Email Contacts -->
+                                <select id="select-state" placeholder="Pick a state...">
+                                    <option value="">Select a state...</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                                <label for="select-beast" class="col-form-label  col-form-label-sm">City:</label>
+                                <select id="select-city" placeholder="Pick a city..."></select>
+                                <small class="form-text text-muted">A demonstration showing how to use the API to cascade controls for a classic state / city selector. Note: The API for fetching cities is a little spotty, so if it fails to list cities, that's what's going on (try another state). </small>
+                                <!-- /Email Contacts -->
+                            </div>
+                        </div>
+
+
+                    </form>
+                {{/card_body}}
+            {{/card}}
+
         </div>
     </div>
 </div>
