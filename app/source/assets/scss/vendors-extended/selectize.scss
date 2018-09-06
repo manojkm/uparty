@@ -20,57 +20,32 @@
 // SELECTIZE
 // ======================================================
 
-
-/*
-
-.selectize-input {
-  border: 0 !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-}
-
-.selectize-dropdown, .selectize-input, .selectize-input input {
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-}
-
-.selectize-dropdown.form-control {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  transition: none !important;
-  margin-left: -$btn-padding-x;
-
-}
-
-.selectize-control .selectize-dropdown.form-control {
-  width: 100% !important;
-}
-
-// Tags
-.selectize-control .selectize-input > div {
+// Badge
+.selectize-control.multi .selectize-input [data-value] {
   @include set-border-radius($badge-border-radius);
-  @include background-text-theme(primary);
-  padding: $badge-padding-y $badge-padding-x !important;
+  @include background-text-theme($selectize-badge-default-theme-scheme);
+  padding: $badge-padding-y $badge-padding-x;
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;
-  white-space: nowrap;
   text-align: center;
+  white-space: nowrap;
   vertical-align: baseline;
-  margin: 2px !important;
 
   &.active {
-    @include background-text-theme(primary, x-dark);
+    @include background-text-theme($selectize-badge-default-theme-scheme, x-dark);
   }
 }
 
-.selectize-dropdown [data-selectable] {
-  padding: 10px;
+
+// Validation
+.selectize-input {
+  @include form-validation-state-vendor("valid", $form-feedback-valid-color);
+  @include form-validation-state-vendor("invalid", $form-feedback-invalid-color);
 }
 
-.selectize-dropdown, .selectize-input input {
-  color: $input-color;
+// Email Contacts
+.selectize-control.multi .selectize-input.form-control-sm.has-items {
+  padding-top: 3px;
 }
 
 .selectize-control.contacts .selectize-input > div .email {
@@ -95,105 +70,12 @@
   display: block;
 }
 
-// Showing spinner
-//.selectize-control::before {
-//  -moz-transition: opacity 0.2s;
-//  -webkit-transition: opacity 0.2s;
-//  transition: opacity 0.2s;
-//  content: ' ';
-//  z-index: 2;
-//  position: absolute;
-//  display: block;
-//  top: 12px;
-//  right: 34px;
-//  width: 16px;
-//  height: 16px;
-//  //background: url(images/spinner.gif);
-//  background: url('#{$image-path}/spinner.gif');
-//  background-size: 16px 16px;
-//  opacity: 0;
-//}
-//
-//.selectize-control.loading::before {
-//  opacity: 0.4;
-//}
+// Dropdown
+.selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header {
+  padding: 5px 8px;
+}
 
-// Optgroup
 .selectize-dropdown .optgroup-header {
-  font-weight: $font-wh-bold;
+  font-weight: bold;
+  padding-top: 10px;
 }
-
-//.selectize-input {
-//  @include transition;
-//  @include set-border-radius($input-border-radius);
-//  font-size: $input-font-size;
-//  border: $input-border-size solid $input-border-color;
-//  font-weight: $btn-font-weight;
-//  padding: $btn-padding-y $btn-padding-x;
-//  line-height: $btn-line-height;
-//  background-color: $input-bg;
-//  color: $input-color;
-//  box-shadow: none;
-//
-//  @include form-control-hover();
-//  @include form-control-focus();
-//
-//  &::placeholder {
-//    color: $input-placeholder-color;
-//  }
-//
-//  // Validation
-//  .is-valid & {
-//    border-color: rgba($form-feedback-valid-color, .6);
-//    background-color: rgba($form-feedback-valid-color, .1);
-//    box-shadow: none;
-//
-//    &:focus {
-//      border-color: $form-feedback-valid-color;
-//      box-shadow: none;
-//      &:hover {
-//        border-color: $form-feedback-valid-color;
-//      }
-//    }
-//  }
-//  .is-invalid & {
-//    border-color: rgba($form-feedback-invalid-color, .6);
-//    background-color: rgba($form-feedback-invalid-color, .1);
-//    box-shadow: none;
-//
-//    &:focus {
-//      border-color: $form-feedback-invalid-color;
-//      box-shadow: none;
-//      &:hover {
-//        border-color: $form-feedback-invalid-color;
-//      }
-//    }
-//  }
-//}
-
-// Caret
-.selectize-control.single .selectize-input:after {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  display: block;
-  width: 0;
-  height: 0;
-  margin-top: -3px;
-  border-color: $gray-700 transparent transparent transparent;
-  border-style: solid;
-  border-width: 5px 5px 0 5px;
-  content: ' ';
-}
-
-.selectize-control.single .selectize-input.dropdown-active:after {
-  margin-top: -4px;
-  border-color: transparent transparent $gray-700 transparent;
-  border-width: 0 5px 5px 5px;
-}
-
-.selectize-control.rtl.single .selectize-input:after {
-  right: auto;
-  left: 0;
-}
-*/

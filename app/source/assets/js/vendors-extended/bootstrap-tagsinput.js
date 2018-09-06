@@ -11,8 +11,16 @@
 $(document).ready(function () {
     'use strict';
 
-    var $el = $('#bs-tagsinput-1');
+    setTimeout(function () {
+        $('.bootstrap-tagsinput').each(function (i, e) {
+            // i is a counter of the loop element
+            $(e).addClass('form-control');
+        });
+    }, 250);
 
+
+    // Categorizing tags
+    var $el = $('#bs-tagsinput-1');
     $el.tagsinput({
         tagClass: function(item) {
             switch (item.continent) {
@@ -34,6 +42,7 @@ $(document).ready(function () {
     $el.tagsinput('add', { value: 10, text: 'Beijing',    continent: 'Asia' });
     $el.tagsinput('add', { value: 13, text: 'Cairo',      continent: 'Africa' });
 
+    // Colored tags
     $('#bs-tagsinput-2').tagsinput({ tagClass: 'badge badge-primary' });
     $('#bs-tagsinput-3').tagsinput({ tagClass: 'badge badge-secondary' });
     $('#bs-tagsinput-4').tagsinput({ tagClass: 'badge badge-success' });

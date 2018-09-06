@@ -1010,6 +1010,25 @@
   }
 }
 
+@mixin form-validation-state-vendor($state, $color) {
+  .was-validated &:#{$state},
+  .is-#{$state} &,
+  &.is-#{$state} {
+    border-color: rgba($color, .6);
+    background-color: rgba($color, .1);
+    box-shadow: none;
+
+    &:focus {
+      border-color: $color;
+      box-shadow: none;
+      &:hover {
+        border-color: $color;
+      }
+    }
+  }
+}
+
+
 // Form validation mixin for dynamic states.
 @mixin form-validation-state($state, $color) {
   .#{$state}-feedback {

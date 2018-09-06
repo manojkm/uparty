@@ -1,6 +1,6 @@
 ---
 title: "Tags Input"
-lead: jQuery plugin providing a Twitter Bootstrap user interface for managing tags.
+lead: User interface for managing tags.
 forms-ui: true
 categories: Advanced Form Elements
 
@@ -11,6 +11,7 @@ css_cdn_vendors:
 js_cdn_vendors:
 - https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js
 - https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.js
+- https://code.jquery.com/ui/1.12.1/jquery-ui.js
 
 css_vendors_extended:
 - bootstrap-tagsinput
@@ -33,7 +34,7 @@ js_vendors_extended:
                             <label class="col-lg-2 col-form-label text-lg-right">Default</label>
                             <div class="col-lg-10">
                                 <!-- Default -->
-                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control col-sm-12">
+                                <input type="text" required value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control">
                                 <!-- /Default -->
                             </div>
                         </div>
@@ -135,7 +136,7 @@ js_vendors_extended:
 
                 <hr>
                 {{#card_body}}
-                    {{{card_title 'States'}}}
+                    {{{card_title 'Validation states'}}}
                     <form action="">
                         <div class="form-group row is-valid">
                             <label class="col-lg-2 col-form-label text-lg-right">Valid</label>
@@ -159,7 +160,7 @@ js_vendors_extended:
 
             {{#card}}
                 {{{card_header 'Selectize'}}}
-                {{#card_body}}
+                {{#card_body_has 'example'''}}
                     <form action="">
 
                         {{{card_title 'Input type "text"'}}}
@@ -171,8 +172,27 @@ js_vendors_extended:
                             <!-- /Tagging -->
                         </div>
 
+                        {{{card_title 'Remove button'}}}
+                        <div class="form-group">
+                            <label for="input-tags-remove">Tagging:</label>
+                            <!-- Remove button -->
+                            <input type="text" id="input-tags-remove" class="bs-selectize" value="awesome,neat">
+                            <!-- /Remove button -->
+                        </div>
+
+                        {{{card_title 'Drag-and-Drop'}}}
+                        <div class="form-group">
+                            <label for="input-draggable">Tags:</label>
+                            <!-- Drag-and-Drop -->
+                            <input type="text" id="input-draggable" class="bs-selectize" value="drag,these,items,mouse,around,with,your">
+                            <small class="form-text text-muted">Adds drag-and-drop support for easily rearranging selected items. Requires jQuery UI (sortable).
+                            </small>
+                            <!-- /Drag-and-Drop -->
+                        </div>
+
+
                         <hr>
-                        {{{card_title 'Select'}}}
+                        {{{card_title 'Select single'}}}
                         <div class="form-group">
                             <label for="select-beast">Beast:</label>
                             <!-- Select -->
@@ -186,8 +206,7 @@ js_vendors_extended:
                             <!-- /Select -->
                         </div>
 
-                        <hr>
-                        {{{card_title 'Select (allow empty)'}}}
+                        {{{card_title 'Select single (allow empty)'}}}
                         <div class="form-group">
                             <label for="select-beast-empty">Beast:</label>
                             <!-- Select (allow empty) -->
@@ -201,8 +220,7 @@ js_vendors_extended:
                             <!-- /Select (allow empty) -->
                         </div>
 
-                        <hr>
-                        {{{card_title 'Select (disabled)'}}}
+                        {{{card_title 'Select single (disabled)'}}}
                         <div class="form-group">
                             <label for="select-beast-disabled">Beast:</label>
                             <!-- Select (disabled) -->
@@ -215,8 +233,7 @@ js_vendors_extended:
                             <!-- /Select (disabled) -->
                         </div>
 
-                        <hr>
-                        {{{card_title 'Select (option disabled)'}}}
+                        {{{card_title 'Select single (option disabled)'}}}
                         <div class="form-group">
                             <label for="select-beast-single-disabled">Beast:</label>
                             <!-- Select (option disabled) -->
@@ -229,8 +246,6 @@ js_vendors_extended:
                             <!-- /Select (option disabled) -->
                         </div>
 
-
-                        <hr>
                         {{{card_title 'Select multiple'}}}
                         <div class="form-group">
                             <label for="select-state-multiple">States:</label>
@@ -252,7 +267,6 @@ js_vendors_extended:
                             <!-- /Select multiple -->
                         </div>
 
-                        <hr>
                         {{{card_title 'Select multiple (Max Items)'}}}
                         <div class="form-group">
                             <label for="select-state-multiple-max">Select 3 States:</label>
@@ -274,7 +288,6 @@ js_vendors_extended:
                             <!-- /Select multiple (Max Items) -->
                         </div>
 
-                        <hr>
                         {{{card_title 'Select multiple (disabled)'}}}
                         <div class="form-group">
                             <label for="select-state-disabled">States:</label>
@@ -364,46 +377,6 @@ js_vendors_extended:
                         </div>
 
                         <hr>
-                        {{{card_title 'Select sizing'}}}
-                        <div class="form-group">
-                            <label for="select-size-lg">Large</label>
-                            <!-- Large -->
-                            <select id="select-size-lg" class="bs-selectize-lg" multiple placeholder="Select a person...">
-                                <option value="">Select a person...</option>
-                                <option value="4">Thomas Edison</option>
-                                <option value="1">Nikola</option>
-                                <option value="3">Nikola Tesla</option>
-                                <option value="5">Arnold Schwarzenegger</option>
-                            </select>
-                            <!-- /Large -->
-                        </div>
-                        <div class="form-group">
-                            <label for="select-size-sm">Default</label>
-                            <!-- SDefault -->
-                            <select id="select-size-sm" class="bs-selectize" multiple placeholder="Select a person...">
-                                <option value="">Select a person...</option>
-                                <option value="4">Thomas Edison</option>
-                                <option value="1">Nikola</option>
-                                <option value="3">Nikola Tesla</option>
-                                <option value="5">Arnold Schwarzenegger</option>
-                            </select>
-                            <!-- /SDefault -->
-                        </div>
-                        <div class="form-group">
-                            <label for="select-size-default">Small</label>
-                            <!-- Small -->
-                            <select id="select-size-default" class="bs-selectize-sm" multiple placeholder="Select a person...">
-                                <option value="">Select a person...</option>
-                                <option value="4">Thomas Edison</option>
-                                <option value="1">Nikola</option>
-                                <option value="3">Nikola Tesla</option>
-                                <option value="5">Arnold Schwarzenegger</option>
-                            </select>
-                            <!-- /Small -->
-                        </div>
-
-
-                        <hr>
                         {{{card_title 'Confirm Delete'}}}
                         <div class="form-group">
                             <label for="input-tags-delete">Tags:</label>
@@ -447,16 +420,65 @@ js_vendors_extended:
                             <!-- /Optgroups -->
                         </div>
 
-                    </form>
+                        <hr>
+                        {{{card_title 'Optgroup columns'}}}
+                        <div class="form-group">
+                            <label for="select-car">Car:</label>
+                            <!-- Optgroup columns -->
+                            <select id="select-car" class="bs-selectize" placeholder="Select a car..."></select>
+                            <!-- /Optgroup columns -->
+                        </div>
 
-                    {{{card_title 'States'}}}
-                    <form action="">
+
+                        <hr>
+                        {{{card_title 'Large size'}}}
+                        <div class="form-group">
+                            <p>Add <code>.bs-selectize-lg</code> class to the <code>.bs-selectize</code></p>
+                            <!-- Large -->
+                            <select id="select-size-lg" class="bs-selectize bs-selectize-lg" multiple placeholder="Select a person...">
+                                <option value="">Select a person...</option>
+                                <option value="4" selected>Thomas Edison</option>
+                                <option value="1">Nikola</option>
+                                <option value="3">Nikola Tesla</option>
+                                <option value="5">Arnold Schwarzenegger</option>
+                            </select>
+                            <!-- /Large -->
+                        </div>
+                        {{{card_title 'Default size'}}}
+                        <div class="form-group">
+                            <p>For default size, selectize markup doesn't require any additional sizing class.</p>
+                            <!-- SDefault -->
+                            <select id="select-size-sm" class="bs-selectize" multiple placeholder="Select a person...">
+                                <option value="">Select a person...</option>
+                                <option value="4" selected>Thomas Edison</option>
+                                <option value="1">Nikola</option>
+                                <option value="3">Nikola Tesla</option>
+                                <option value="5">Arnold Schwarzenegger</option>
+                            </select>
+                            <!-- /SDefault -->
+                        </div>
+                        {{{card_title 'Small size'}}}
+                        <div class="form-group">
+                            <p>Add <code>.bs-selectize-sm</code> class to the <code>.bs-selectize</code></p>
+                            <!-- Small -->
+                            <select id="select-size-default" class="bs-selectize bs-selectize-sm" multiple placeholder="Select a person...">
+                                <option value="">Select a person...</option>
+                                <option value="4" selected>Thomas Edison</option>
+                                <option value="1">Nikola</option>
+                                <option value="3">Nikola Tesla</option>
+                                <option value="5">Arnold Schwarzenegger</option>
+                            </select>
+                            <!-- /Small -->
+                        </div>
+
+                        <hr>
+                        {{{card_title 'Validation states'}}}
                         <div class="form-group is-valid">
                             <label for="select-valid">Valid</label>
                             <!-- Valid -->
-                            <select id="select-valid" class="bs-selectize" placeholder="Select a person..." name="beast">
+                            <select id="select-valid" class="bs-selectize" multiple placeholder="Select a person..." name="beast">
                                 <option value="">Select a person...</option>
-                                <option value="4">Thomas Edison</option>
+                                <option value="4" selected>Thomas Edison</option>
                                 <option value="1">Nikola</option>
                                 <option value="3">Nikola Tesla</option>
                                 <option value="5">Arnold Schwarzenegger</option>
@@ -466,18 +488,18 @@ js_vendors_extended:
                         <div class="form-group is-invalid">
                             <label for="select-invalid">Invalid</label>
                             <!-- Invalid -->
-                            <select id="select-invalid" class="bs-selectize" placeholder="Select a person..." name="beast">
+                            <select id="select-invalid" class="bs-selectize" multiple placeholder="Select a person..." name="beast">
                                 <option value="">Select a person...</option>
-                                <option value="4">Thomas Edison</option>
+                                <option value="4" selected>Thomas Edison</option>
                                 <option value="1">Nikola</option>
                                 <option value="3">Nikola Tesla</option>
                                 <option value="5">Arnold Schwarzenegger</option>
                             </select>
                             <!-- /Invalid -->
                         </div>
-                    </form>
 
-                {{/card_body}}
+                    </form>
+                {{/card_body_has}}
             {{/card}}
 
         </div>

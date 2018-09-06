@@ -43,6 +43,26 @@ $(document).ready(function () {
         create: true
     });
 
+    // Input type "text" with remove button
+    $('#input-tags-remove').selectize({
+        plugins: ['remove_button'],
+        persist: false,
+        createOnBlur: true,
+        create: true
+    });
+
+    $('#input-draggable').selectize({
+        plugins: ['drag_drop'],
+        delimiter: ',',
+        persist: false,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
+
     // Select
     $('#select-beast').selectize({
         create: true,
@@ -142,6 +162,44 @@ $(document).ready(function () {
         onDelete: function (values) {
             return confirm(values.length > 1 ? 'Are you sure you want to remove these ' + values.length + ' items?' : 'Are you sure you want to remove "' + values[0] + '"?');
         }
+    });
+
+    $('#select-car').selectize({
+        options: [
+            {id: 'avenger', make: 'dodge', model: 'Avenger'},
+            {id: 'caliber', make: 'dodge', model: 'Caliber'},
+            {id: 'caravan-grand-passenger', make: 'dodge', model: 'Caravan Grand Passenger'},
+            {id: 'challenger', make: 'dodge', model: 'Challenger'},
+            {id: 'ram-1500', make: 'dodge', model: 'Ram 1500'},
+            {id: 'viper', make: 'dodge', model: 'Viper'},
+            {id: 'a3', make: 'audi', model: 'A3'},
+            {id: 'a6', make: 'audi', model: 'A6'},
+            {id: 'r8', make: 'audi', model: 'R8'},
+            {id: 'rs-4', make: 'audi', model: 'RS 4'},
+            {id: 's4', make: 'audi', model: 'S4'},
+            {id: 's8', make: 'audi', model: 'S8'},
+            {id: 'tt', make: 'audi', model: 'TT'},
+            {id: 'avalanche', make: 'chevrolet', model: 'Avalanche'},
+            {id: 'aveo', make: 'chevrolet', model: 'Aveo'},
+            {id: 'cobalt', make: 'chevrolet', model: 'Cobalt'},
+            {id: 'silverado', make: 'chevrolet', model: 'Silverado'},
+            {id: 'suburban', make: 'chevrolet', model: 'Suburban'},
+            {id: 'tahoe', make: 'chevrolet', model: 'Tahoe'},
+            {id: 'trail-blazer', make: 'chevrolet', model: 'TrailBlazer'},
+        ],
+        optgroups: [
+            {id: 'dodge', name: 'Dodge'},
+            {id: 'audi', name: 'Audi'},
+            {id: 'chevrolet', name: 'Chevrolet'}
+        ],
+        labelField: 'model',
+        valueField: 'id',
+        optgroupField: 'make',
+        optgroupLabelField: 'name',
+        optgroupValueField: 'id',
+        optgroupOrder: ['chevrolet', 'dodge', 'audi'],
+        searchField: ['model'],
+        plugins: ['optgroup_columns']
     });
 
     // Email Contacts

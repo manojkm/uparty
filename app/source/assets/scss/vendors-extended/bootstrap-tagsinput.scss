@@ -20,58 +20,16 @@
 // BOOTSTRAP TAGS INPUT
 // ======================================================
 
+// Validation
 .bootstrap-tagsinput {
-  @include transition;
-  @include set-border-radius($input-border-radius);
-  font-size: $input-font-size;
-  border: $input-border-size solid $input-border-color;
-  font-weight: $btn-font-weight;
-  padding: $btn-padding-y $btn-padding-x;
-  line-height: $btn-line-height;
-  background-color: $input-bg;
-  color: $input-color;
-
-  @include form-control-hover();
-  @include form-control-focus();
-
-  &::placeholder {
-    color: $input-placeholder-color;
-  }
-
-
-  // Validation
-  .is-valid & {
-    border-color: rgba($form-feedback-valid-color, .6);
-    background-color: rgba($form-feedback-valid-color, .1);
-    box-shadow: none;
-
-    &:focus {
-      border-color: $form-feedback-valid-color;
-      box-shadow: none;
-      &:hover {
-        border-color: $form-feedback-valid-color;
-      }
-    }
-  }
-  .is-invalid & {
-    border-color: rgba($form-feedback-invalid-color, .6);
-    background-color: rgba($form-feedback-invalid-color, .1);
-    box-shadow: none;
-
-    &:focus {
-      border-color: $form-feedback-invalid-color;
-      box-shadow: none;
-      &:hover {
-        border-color: $form-feedback-invalid-color;
-      }
-    }
-  }
-
+  @include form-validation-state-vendor("valid", $form-feedback-valid-color);
+  @include form-validation-state-vendor("invalid", $form-feedback-invalid-color);
 }
 
+// Badge
 .bootstrap-tagsinput .tag:not(.badge) {
   @include set-border-radius($badge-border-radius);
-  @include background-text-theme(light);
+  @include background-text-theme($bs-tags-badge-default-theme-scheme);
   padding: $badge-padding-y $badge-padding-x;
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;

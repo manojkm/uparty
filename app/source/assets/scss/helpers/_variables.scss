@@ -1716,6 +1716,21 @@ $html-sortable-card-ph-margin-y:                        30px !default; // Placeh
 $nestable-drag-handle-width:            $html-sortable-drag-handle-width; // Drag handle Size
 
 //
+// 9.9 BOOTSTRAP TAGS INPUT
+// -----------------------------------------------------------------------------
+
+$bs-tags-badge-default-theme-scheme:    light !default; // Background color scheme for highlighting the default badge. NOTE: Retrieved from contextual palette map ($contextual-palette-map), see section '1.2 CONTEXTUAL PALETTE MAP' above.
+
+//
+// 9.10 SELECTIZE
+// -----------------------------------------------------------------------------
+
+$selectize-badge-default-theme-scheme:  primary !default; // Background color scheme for highlighting the default badge. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
+
+
+
+
+//
 // 10. SELECTORS LIST
 // =============================================================================
 //
@@ -1737,6 +1752,7 @@ $active-tags:                           '&:active, &.active, &:active:focus, &.a
 //
 // 10.2 DISABLED SELECTORS
 // -----------------------------------------------------------------------------
+
 //$disabled-tags:                         '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
 $disabled-tags:                         '&.disabled, &:disabled';
 //TODO, make sure the above disabled tag change doesn't affect an components.
@@ -1744,4 +1760,5 @@ $disabled-tags:                         '&.disabled, &:disabled';
 //
 // 10.3 ICON SELECTORS
 // -----------------------------------------------------------------------------
+
 $icon-tags:                             'i[class*="fa-"], i[class*="icon-"]';
