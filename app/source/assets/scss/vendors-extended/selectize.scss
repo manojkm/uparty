@@ -1,8 +1,8 @@
 // ================================================================================================
 // File Name      : selectize.scss
-// Description    : Custom overrides of Bootstrap Tags Input plugin
-//                  (https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css)
-//                  These styles are required for Bootstrap Tags Input to function.
+// Description    : Custom overrides of Selectize plugin
+//                  (https://selectize.github.io/selectize.js/)
+//                  These styles are required for Selectize to function.
 //                  You probably don't need to change these rules.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
@@ -20,41 +20,57 @@
 // SELECTIZE
 // ======================================================
 
-// Email Contacts
-.selectize-control.contacts .selectize-input > div {
-  padding: 1px 10px;
-  font-size: 13px;
-  font-weight: normal;
-  -webkit-font-smoothing: auto;
-  color: #f7fbff;
-  text-shadow: 0 1px 0 rgba(8, 32, 65, 0.2);
-  background: #2183f5;
-  background: -moz-linear-gradient(top, #2183f5 0%, #1d77f3 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2183f5), color-stop(100%, #1d77f3));
-  background: -webkit-linear-gradient(top, #2183f5 0%, #1d77f3 100%);
-  background: -o-linear-gradient(top, #2183f5 0%, #1d77f3 100%);
-  background: -ms-linear-gradient(top, #2183f5 0%, #1d77f3 100%);
-  background: linear-gradient(to bottom, #2183f5 0%, #1d77f3 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2183f5', endColorstr='#1d77f3', GradientType=0);
-  border: 1px solid #0f65d2;
-  -webkit-border-radius: 999px;
-  -moz-border-radius: 999px;
-  border-radius: 999px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+
+/*
+
+.selectize-input {
+  border: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
-.selectize-control.contacts .selectize-input > div.active {
-  background: #0059c7;
-  background: -moz-linear-gradient(top, #0059c7 0%, #0051c1 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0059c7), color-stop(100%, #0051c1));
-  background: -webkit-linear-gradient(top, #0059c7 0%, #0051c1 100%);
-  background: -o-linear-gradient(top, #0059c7 0%, #0051c1 100%);
-  background: -ms-linear-gradient(top, #0059c7 0%, #0051c1 100%);
-  background: linear-gradient(to bottom, #0059c7 0%, #0051c1 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0059c7', endColorstr='#0051c1', GradientType=0);
-  border-color: #0051c1;
+.selectize-dropdown, .selectize-input, .selectize-input input {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.selectize-dropdown.form-control {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  transition: none !important;
+  margin-left: -$btn-padding-x;
+
+}
+
+.selectize-control .selectize-dropdown.form-control {
+  width: 100% !important;
+}
+
+// Tags
+.selectize-control .selectize-input > div {
+  @include set-border-radius($badge-border-radius);
+  @include background-text-theme(primary);
+  padding: $badge-padding-y $badge-padding-x !important;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: baseline;
+  margin: 2px !important;
+
+  &.active {
+    @include background-text-theme(primary, x-dark);
+  }
+}
+
+.selectize-dropdown [data-selectable] {
+  padding: 10px;
+}
+
+.selectize-dropdown, .selectize-input input {
+  color: $input-color;
 }
 
 .selectize-control.contacts .selectize-input > div .email {
@@ -74,30 +90,110 @@
 }
 
 .selectize-control.contacts .selectize-dropdown .caption {
+  @include text-theme(light, x-light);
   font-size: 12px;
   display: block;
-  color: #a0a0a0;
 }
-
 
 // Showing spinner
-.selectize-control::before {
-  -moz-transition: opacity 0.2s;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-  content: ' ';
-  z-index: 2;
+//.selectize-control::before {
+//  -moz-transition: opacity 0.2s;
+//  -webkit-transition: opacity 0.2s;
+//  transition: opacity 0.2s;
+//  content: ' ';
+//  z-index: 2;
+//  position: absolute;
+//  display: block;
+//  top: 12px;
+//  right: 34px;
+//  width: 16px;
+//  height: 16px;
+//  //background: url(images/spinner.gif);
+//  background: url('#{$image-path}/spinner.gif');
+//  background-size: 16px 16px;
+//  opacity: 0;
+//}
+//
+//.selectize-control.loading::before {
+//  opacity: 0.4;
+//}
+
+// Optgroup
+.selectize-dropdown .optgroup-header {
+  font-weight: $font-wh-bold;
+}
+
+//.selectize-input {
+//  @include transition;
+//  @include set-border-radius($input-border-radius);
+//  font-size: $input-font-size;
+//  border: $input-border-size solid $input-border-color;
+//  font-weight: $btn-font-weight;
+//  padding: $btn-padding-y $btn-padding-x;
+//  line-height: $btn-line-height;
+//  background-color: $input-bg;
+//  color: $input-color;
+//  box-shadow: none;
+//
+//  @include form-control-hover();
+//  @include form-control-focus();
+//
+//  &::placeholder {
+//    color: $input-placeholder-color;
+//  }
+//
+//  // Validation
+//  .is-valid & {
+//    border-color: rgba($form-feedback-valid-color, .6);
+//    background-color: rgba($form-feedback-valid-color, .1);
+//    box-shadow: none;
+//
+//    &:focus {
+//      border-color: $form-feedback-valid-color;
+//      box-shadow: none;
+//      &:hover {
+//        border-color: $form-feedback-valid-color;
+//      }
+//    }
+//  }
+//  .is-invalid & {
+//    border-color: rgba($form-feedback-invalid-color, .6);
+//    background-color: rgba($form-feedback-invalid-color, .1);
+//    box-shadow: none;
+//
+//    &:focus {
+//      border-color: $form-feedback-invalid-color;
+//      box-shadow: none;
+//      &:hover {
+//        border-color: $form-feedback-invalid-color;
+//      }
+//    }
+//  }
+//}
+
+// Caret
+.selectize-control.single .selectize-input:after {
   position: absolute;
+  top: 50%;
+  right: 0;
   display: block;
-  top: 12px;
-  right: 34px;
-  width: 16px;
-  height: 16px;
-  //background: url(images/spinner.gif);
-  background: url('#{$image-path}/spinner.gif');
-  background-size: 16px 16px;
-  opacity: 0;
+  width: 0;
+  height: 0;
+  margin-top: -3px;
+  border-color: $gray-700 transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  content: ' ';
 }
-.selectize-control.loading::before {
-  opacity: 0.4;
+
+.selectize-control.single .selectize-input.dropdown-active:after {
+  margin-top: -4px;
+  border-color: transparent transparent $gray-700 transparent;
+  border-width: 0 5px 5px 5px;
 }
+
+.selectize-control.rtl.single .selectize-input:after {
+  right: auto;
+  left: 0;
+}
+*/

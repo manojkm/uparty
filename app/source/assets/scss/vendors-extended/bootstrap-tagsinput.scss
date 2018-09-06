@@ -38,10 +38,8 @@
     color: $input-placeholder-color;
   }
 
-  &.input-round {
-    @include border-radius($input-round-radius);
-  }
 
+  // Validation
   .is-valid & {
     border-color: rgba($form-feedback-valid-color, .6);
     background-color: rgba($form-feedback-valid-color, .1);
@@ -55,7 +53,6 @@
       }
     }
   }
-
   .is-invalid & {
     border-color: rgba($form-feedback-invalid-color, .6);
     background-color: rgba($form-feedback-invalid-color, .1);
@@ -74,8 +71,8 @@
 
 .bootstrap-tagsinput .tag:not(.badge) {
   @include set-border-radius($badge-border-radius);
-  padding: $badge-padding-y $badge-padding-x;
   @include background-text-theme(light);
+  padding: $badge-padding-y $badge-padding-x;
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;
   text-align: center;
