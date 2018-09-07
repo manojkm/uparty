@@ -1,0 +1,37 @@
+// ================================================================================================
+// File Name      : jquery.minicolors.scss
+// Description    : Custom overrides of jQuery MiniColors plugin
+//                  (https://labs.abeautifulsite.net/jquery-minicolors/)
+//                  These styles are required for jQuery MiniColors to function.
+//                  You probably don't need to change these rules.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+//
+// VENDORS DEPENDENCIES IMPORT
+// ======================================================
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
+@import 'dependencies';
+
+//
+// JQUERY MINICOLORS
+// ======================================================
+
+.minicolors-theme-bootstrap .minicolors-swatch {
+  border-radius: $border-radius-30-px;
+  width: 18px !important;
+  height: 18px;
+  left: 10px;
+  @include center(y);
+}
+
+.minicolors-theme-bootstrap .minicolors-input {
+  padding-left: 35px;
+}
+
+.minicolors input[type=hidden] + .minicolors-swatch {
+  transform: none;
+}

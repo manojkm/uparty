@@ -1,0 +1,39 @@
+---
+title: "Typeahead"
+lead: Powerful, elegant, animated, and fully customizable jQuery based color picker.
+forms-ui: true
+categories: Advanced Form Elements
+
+js_cdn_vendors:
+- http://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js
+
+css_vendors_extended:
+- typeahead-js
+
+js_vendors_extended:
+- typeahead-js
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Typeahead'}}}
+                {{#card_body_has 'example'''}}
+                    <form action="">
+                        {{!--{{{card_title 'Control types'}}}--}}
+                        <div class="form-group row">
+                            <label for="minicolors-hue" class="col-lg-2 col-form-label text-lg-right">Hue (default)</label>
+                            <div class="col-lg-10">
+                                <!-- Hue (default) -->
+                                <input type="text" class="form-control typeahead"  placeholder="States of USA">
+                                <!-- /Hue (default) -->
+                            </div>
+                        </div>
+                    </form>
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+    </div>
+</div>

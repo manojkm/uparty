@@ -24,12 +24,12 @@ $(document).ready(function () {
 
         $('#minicolors-brightness').minicolors({
             control: 'brightness',
-            position: 'top right'
+            position: 'top bottom'
         });
 
         $('#minicolors-saturation').minicolors({
             control: 'saturation',
-            position: 'top right'
+            position: 'top bottom'
         });
 
         $('#minicolors-wheel').minicolors({

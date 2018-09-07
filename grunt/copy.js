@@ -33,7 +33,8 @@ module.exports = function (grunt) {
                 {expand: true, cwd: grunt.getPath('node') + 'tempusdominus-bootstrap-4', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'tempusdominus-bootstrap-4'},
                 {expand: true, cwd: grunt.getPath('node') + 'moment', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'moment'},
                 {expand: true, cwd: grunt.getPath('node') + 'bootstrap-wysiwyg', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'bootstrap-wysiwyg'},
-                {expand: true, cwd: grunt.getPath('node') + '@claviska/jquery-minicolors', src: ['**'], dest: grunt.getPath('vendors', false, true) + '@claviska/jquery-minicolors'}
+                {expand: true, cwd: grunt.getPath('node') + '@claviska/jquery-minicolors', src: ['**'], dest: grunt.getPath('vendors', false, true) + '@claviska/jquery-minicolors'},
+                {expand: true, cwd: grunt.getPath('node') + 'typeahead.js', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'typeahead.js'}
                 // TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
             ]
         },
