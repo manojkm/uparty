@@ -51,7 +51,42 @@ $(document).ready(function () {
         $('.typeahead').typeahead({
             hint: true,
             highlight: true,
-            minLength: 1
+            minLength: 1,
+            classNames: {
+                menu: 'dropdown-menu',
+                suggestion: 'dropdown-item',
+                open: 'show'
+            }
+        }, {
+            name: 'states',
+            displayKey: 'value',
+            source: substringMatcher(states)
+        });
+
+        $('.typeahead-extended').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1,
+            classNames: {
+                menu: 'dropdown-menu extended',
+                suggestion: 'dropdown-item',
+                open: 'show'
+            }
+        }, {
+            name: 'states',
+            displayKey: 'value',
+            source: substringMatcher(states)
+        });
+
+        $('.typeahead-extended-themed').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1,
+            classNames: {
+                menu: 'dropdown-menu extended themed',
+                suggestion: 'dropdown-item',
+                open: 'show'
+            }
         }, {
             name: 'states',
             displayKey: 'value',
