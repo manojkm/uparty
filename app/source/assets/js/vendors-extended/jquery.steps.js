@@ -8,8 +8,9 @@
 // Author URL: http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-$(document).ready(function(){
+$(document).ready(function () {
     'use strict';
+
     //update progress
     function updateProgress(elem, index) {
         var $total = $(elem).find('.steps ul li').length;

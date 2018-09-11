@@ -1,18 +1,21 @@
 ---
 title: "Wysiwyg editors"
-lead: Simple, beautiful wysiwyg editor.
+lead: Simple, beautiful wysiwyg editors.
 forms-ui: true
 categories: Advanced Form Elements
 
 css_cdn_vendors:
 - //cdn.quilljs.com/1.3.6/quill.snow.css
 - //cdn.quilljs.com/1.3.6/quill.bubble.css
+- //cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css
 
 js_cdn_vendors:
 - //cdn.quilljs.com/1.3.6/quill.min.js
+- //cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js
 
 js_vendors_extended:
 - quill
+- summernote
 
 ---
 
@@ -31,42 +34,42 @@ js_vendors_extended:
                         <select class="ql-font"></select>
                         <select class="ql-size"></select>
                         </span>
-                        <span class="ql-formats">
+                            <span class="ql-formats">
                         <button class="ql-bold"></button>
                         <button class="ql-italic"></button>
                         <button class="ql-underline"></button>
                         <button class="ql-strike"></button>
                         </span>
-                        <span class="ql-formats">
+                            <span class="ql-formats">
                         <select class="ql-color"></select>
                         <select class="ql-background"></select>
                         </span>
-                        <span class="ql-formats">
+                            <span class="ql-formats">
                         <button class="ql-script" value="sub"></button>
                         <button class="ql-script" value="super"></button>
                         </span>
-                        <span class="ql-formats">
+                            <span class="ql-formats">
                         <button class="ql-header" value="1"></button>
                         <button class="ql-header" value="2"></button>
                         <button class="ql-blockquote"></button>
                         <button class="ql-code-block"></button>
                         </span>
-                        <span class="ql-formats">
+                            <span class="ql-formats">
                         <button class="ql-list" value="ordered"></button>
                         <button class="ql-list" value="bullet"></button>
                         <button class="ql-indent" value="-1"></button>
                         <button class="ql-indent" value="+1"></button>
                         </span>
-                        <span class="ql-formats">
+                            <span class="ql-formats">
                         <button class="ql-direction" value="rtl"></button>
                         <select class="ql-align"></select>
                         </span>
-                        <span class="ql-formats">
+                            <span class="ql-formats">
                         <button class="ql-link"></button>
                         <button class="ql-image"></button>
                         <button class="ql-video"></button>
                         </span>
-                        <span class="ql-formats">
+                            <span class="ql-formats">
                         <button class="ql-clean"></button>
                         </span>
                         </div>
@@ -81,8 +84,43 @@ js_vendors_extended:
                     {{{card_title 'Bubble theme'}}}
                     <p>Bubble is a simple tooltip based theme.</p>
                     <!-- Bubble theme -->
-                    <div id="quill-bubble-editor" style="min-height: 350px"></div>
-                    <!-- Bubble theme -->
+                    <form action="">
+                        <div id="quill-bubble-editor" style="min-height: 350px"></div>
+                    </form>
+                    <!-- /Bubble theme -->
+                {{/card_body}}
+
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+            {{#card}}
+                {{{card_header 'Summernote'}}}
+                {{#card_body}}
+                    {{{card_title 'Default editor'}}}
+                    <!-- Summernote default editor -->
+                        <div id="summernote">
+                            <h5>Hello Summernote</h5>
+                        </div>
+                    <!-- /Summernote default editor -->
+                {{/card_body}}
+
+                <hr>
+
+                {{#card_body}}
+                    {{{card_title 'Inline editor'}}}
+                    <!-- Summernote inline editor -->
+                    <div class="inline-editor">
+                        <h3>This is an Air-mode editable area.</h3>
+                        <ul>
+                            <li>Select a text to reveal the toolbar. </li>
+                            <li>Edit rich document on-the-fly, so elastic!</li>
+                        </ul>
+                        <p>End of air-mode area</p>
+                    </div>
+                    <!-- /Summernote inline editor -->
                 {{/card_body}}
 
             {{/card}}
