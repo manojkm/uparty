@@ -1635,11 +1635,12 @@ $steps-margin-right:                    15px; // Right margin for horizontal ste
 $steps-margin-bottom:                   15px; // Bottom margin for vertical steps item, so that there is space between each item.
 
 $steps-action-margin-top:               15px; // Right margin for the action container
-$steps-action-button-margin-left:       15px; // Left margin for the action buttons, so that there is space between buttons.
+$steps-action-button-margin-left:       5px; // Left margin for the action buttons, so that there is space between buttons.
 
 // Circle wizard type
 
 $steps-circle-border-size:              5px !default; // Steps item border width
+$steps-circle-line-top-space:           26px !default;// Positioning connecting lines between steps item
 $steps-circle-line-size:                3px !default; // Height of connecting lines between steps item
 $steps-circle-size:                     $btn-icon-size-lg !default; // Steps item size should be same as large buttons for consistency
 $steps-circle-line-height:              $btn-line-height-lg !default; // Steps item line height should be same as large buttons for consistency

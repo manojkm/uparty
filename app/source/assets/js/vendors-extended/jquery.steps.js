@@ -23,7 +23,11 @@ $(document).ready(function () {
 
     function addBootstrap(elem, index) {
         var $this = $(elem);
-        $this.children('.actions').find('a').addClass('btn btn-primary');
+        $this.children('.actions ul li:not(:last)').find('a').addClass('btn btn-primary');
+
+       // $('#articles li:not(:last)').addClass('myclass')
+
+
     }
 
     // Arrow form wizard
@@ -39,9 +43,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "SUBMIT <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK",
+            finish: "SUBMIT",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -76,9 +80,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "SUBMIT <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK",
+            finish: "SUBMIT",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -112,9 +116,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "SUBMIT <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK",
+            finish: "SUBMIT",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -149,9 +153,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "SUBMIT <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK",
+            finish: "SUBMIT",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -177,17 +181,17 @@ $(document).ready(function () {
         /* Appearance */
         headerTag: "h3",
         bodyTag: "section",
-        transitionEffect: "fade",
-        transitionEffectSpeed: 500,
+        //transitionEffect: "fade",
+        //transitionEffectSpeed: 500,
         autoFocus: true,
         titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
         cssClass: "wizard circle-wizard",
 
         /* Labels */
         labels: {
-            finish: "SUBMIT <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK"
+            finish: "SUBMIT",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -200,8 +204,8 @@ $(document).ready(function () {
         },
         onStepChanged: function (event, currentIndex, priorIndex) {
             updateProgress(this, currentIndex);
-            $(this).find(".steps ul li a:eq(" + currentIndex + ") .number").addClass("animated bounceIn");
-            $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated").removeClass("animated bounceIn");
+            $(this).find(".steps ul li a:eq(" + currentIndex + ") .step").addClass("animated bounceIn");
+            $(this).find(".steps ul li a:eq(" + priorIndex + ") .step").removeClass("animated bounceIn");
         },
 
         onFinished: function (event, currentIndex) {
@@ -216,17 +220,17 @@ $(document).ready(function () {
         /* Appearance */
         headerTag: "h3",
         bodyTag: "section",
-        transitionEffect: "fade",
-        transitionEffectSpeed: 500,
+        //transitionEffect: "fade",
+        //transitionEffectSpeed: 500,
         autoFocus: true,
         titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
         cssClass: "wizard circle-wizard",
 
         /* Labels */
         labels: {
-            finish: "SUBMIT <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK"
+            finish: "SUBMIT",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -257,8 +261,8 @@ $(document).ready(function () {
         },
         onStepChanged: function (event, currentIndex, priorIndex) {
             updateProgress(this, currentIndex);
-            $(this).find(".steps ul li a:eq(" + currentIndex + ") .number").addClass("animated bounceIn");
-            $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated").removeClass("animated bounceIn");
+            $(this).find(".steps ul li a:eq(" + currentIndex + ") .step").addClass("animated bounceIn");
+            $(this).find(".steps ul li a:eq(" + priorIndex + ") .step").removeClass("animated bounceIn");
         },
 
         onFinishing: function (event, currentIndex) {
@@ -315,8 +319,8 @@ $(document).ready(function () {
         /* Appearance */
         headerTag: "h3",
         bodyTag: "section",
-        transitionEffect: "fade",
-        transitionEffectSpeed: 500,
+        //transitionEffect: "fade",
+        //transitionEffectSpeed: 500,
         autoFocus: true,
         titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
         cssClass: "wizard circle-wizard",
@@ -324,9 +328,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "SUBMIT <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK"
+            finish: "SUBMIT",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -339,8 +343,8 @@ $(document).ready(function () {
         },
         onStepChanged: function (event, currentIndex, priorIndex) {
             updateProgress(this, currentIndex);
-            $(this).find(".steps ul li a:eq(" + currentIndex + ") .number").addClass("animated bounceIn");
-            $(this).find(".steps ul li a:eq(" + priorIndex + ") .animated").removeClass("animated bounceIn");
+            $(this).find(".steps ul li a:eq(" + currentIndex + ") .step").addClass("animated bounceIn");
+            $(this).find(".steps ul li a:eq(" + priorIndex + ") .step").removeClass("animated bounceIn");
         },
 
         onFinished: function (event, currentIndex) {
@@ -361,9 +365,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "FINISH <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK"
+            finish: "FINISH",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -385,9 +389,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "FINISH <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK"
+            finish: "SUBMIT",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -410,9 +414,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "FINISH <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK"
+            finish: "FINISH",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -434,9 +438,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "FINISH <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK",
+            finish: "FINISH",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -459,9 +463,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "FINISH <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK",
+            finish: "FINISH",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -475,17 +479,15 @@ $(document).ready(function () {
         /* Appearance */
         headerTag: "h3",
         bodyTag: "section",
-        transitionEffect: "fade",
-        transitionEffectSpeed: 500,
         autoFocus: true,
         titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
         cssClass: "wizard circle-wizard",
 
         /* Labels */
         labels: {
-            finish: "FINISH <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK"
+            finish: "FINISH",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -498,6 +500,10 @@ $(document).ready(function () {
                     $this.children('.step-icon').appendTo($this.siblings('span.step'));
                 }
             });
+        },
+        onStepChanged: function (event, currentIndex, priorIndex) {
+            $(this).find(".steps ul li a:eq(" + currentIndex + ") .step").addClass("animated bounceIn");
+            $(this).find(".steps ul li a:eq(" + priorIndex + ") .step").removeClass("animated bounceIn");
         }
 
     });
@@ -507,8 +513,6 @@ $(document).ready(function () {
         /* Appearance */
         headerTag: "h3",
         bodyTag: "section",
-        transitionEffect: "fade",
-        transitionEffectSpeed: 500,
         autoFocus: true,
         titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
         cssClass: "wizard circle-wizard",
@@ -516,9 +520,9 @@ $(document).ready(function () {
 
         /* Labels */
         labels: {
-            finish: "FINISH <i class='icon-check'></i>",
-            next: "NEXT  <i class='icon-arrow-right'></i>",
-            previous: "<i class='icon-arrow-left'></i>BACK"
+            finish: "FINISH",
+            next: "NEXT",
+            previous: "BACK"
         },
 
         onInit: function (event, currentIndex) {
@@ -530,6 +534,20 @@ $(document).ready(function () {
                     $this.children('.step-icon').appendTo($this.siblings('span.step'));
                 }
             });
+        },
+
+        onStepChanging: function (event, currentIndex, newIndex)
+        {
+            //change color of the Finish button
+            $(this).find(".actions > ul > li:last-child a").removeClass("btn-primary").addClass("btn-success");
+
+            //ALLOW NEXT STEP
+            return true;
+        },
+
+        onStepChanged: function (event, currentIndex, priorIndex) {
+            $(this).find(".steps ul li a:eq(" + currentIndex + ") .step").addClass("animated bounceIn");
+            $(this).find(".steps ul li a:eq(" + priorIndex + ") .step").removeClass("animated bounceIn");
         }
 
     });

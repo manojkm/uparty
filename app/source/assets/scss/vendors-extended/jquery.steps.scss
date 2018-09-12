@@ -105,13 +105,17 @@
       padding: 1.25rem;
 
       input.error {
-        background: rgb(251, 227, 228);
-        border: 1px solid #fbc2c4;
-        color: #8a1f11;
+        //border-color: rgba(218, 68, 83, 0.6);
+        //background-color: rgba(218, 68, 83, 0.1);
+        //color: #8a1f11;
+
+        background-color: rgba($form-feedback-invalid-color, .1);
+        border-color: rgba($form-feedback-invalid-color, .6);
+        color: $form-feedback-invalid-color;
       }
 
       label.error {
-        color: #8a1f11;
+        color: $form-feedback-invalid-color;
       }
 
     }
@@ -121,26 +125,24 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
+
     ul {
-      margin: 0;
-      padding: 0;
-      list-style: none !important;
-      display: flex;
-      flex-direction: row;
-      li {
-        margin: 0 0 0 $steps-action-button-margin-left;
-      }
-    }
-    .disabled a,
-    .disabled a:hover,
-    .disabled a:active {
-      @include opacity($steps-disabled-opacity);
-      cursor: $cursor-default;
-      pointer-events: none;
-    }
-    a i {
-      font-size: 80%;
-    }
+       margin: 0;
+       padding: 0;
+       list-style: none !important;
+       display: flex;
+       flex-direction: row;
+       li {
+         margin: 0 0 0 $steps-action-button-margin-left;
+         &.disabled a,
+         &.disabled a:hover,
+         &.disabled a:active {
+           opacity: $steps-disabled-opacity;
+           cursor: $cursor-default;
+           pointer-events: none;
+         }
+       }
+     }
   }
 
   .step-indicator {
@@ -155,14 +157,14 @@
 // ======================================================
 
 .wizard.vertical {
-  @include max-screen($screen-xs-max) {
+  @include max-screen($screen-sm-max) {
     flex-direction: column;
   }
   flex-direction: row;
   flex-flow: wrap;
 
   > .steps {
-    @include max-screen($screen-xs-max) {
+    @include max-screen($screen-sm-max) {
       width: 100%;
     }
     width: 20%;
@@ -179,7 +181,7 @@
   > .content {
     flex: auto;
     margin-left: 20px;
-    @include max-screen($screen-xs-max) {
+    @include max-screen($screen-sm-max) {
       margin-left: 0;
     }
   }
@@ -246,7 +248,7 @@
         &:before,
         &:after {
           @include transition;
-          top: 26px;
+          top: $steps-circle-line-top-space;
           width: 50%;
           height: $steps-circle-line-size
         }
@@ -502,7 +504,7 @@
 .wizard.arrow-wizard.vertical {
   > .steps {
     ul li {
-      margin-right: 25px;
+      margin-right: 25px!important;
     }
 
     ul li:first-child {

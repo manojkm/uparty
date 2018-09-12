@@ -20,19 +20,11 @@ js_vendors_extended:
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Circle wizard</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <form action="#" id="circle-form-wizard">
 
+            {{#card}}
+                {{{card_header 'Circle tab wizard'}}}
+                {{#card_body}}
+                    <form action="#" id="circle-form-wizard">
                         <!-- Account -->
                         <h3>Account
                             <small class="text-muted">Enter your basic information</small>
@@ -76,7 +68,6 @@ js_vendors_extended:
                                 </div>
                             </div>
                         </section>
-
                         <!-- Shipping -->
                         <h3>Shipping
                             <small class="text-muted">Enter your delivery details</small>
@@ -131,7 +122,6 @@ js_vendors_extended:
                                 </div>
                             </div>
                         </section>
-
                         <!-- Payment -->
                         <h3>Payment
                             <small class="text-muted">Enter your credit card details</small>
@@ -198,7 +188,6 @@ js_vendors_extended:
                                 </div>
                             </div>
                         </section>
-
                         <!-- Receipt -->
                         <h3>Receipt
                             <small class="text-muted">Receive your receipt</small>
@@ -221,11 +210,10 @@ js_vendors_extended:
                                 </div>
                             </div>
                         </section>
-
-
                     </form>
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
+
         </div>
     </div>
     <div class="row">
