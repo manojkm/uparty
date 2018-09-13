@@ -21,7 +21,7 @@ $(document).ready(function () {
         });
 
         var bubbleEditor = new Quill('#quill-bubble-editor', {
-            placeholder: 'Compose an epic...',
+            placeholder: 'Compose an epic and then select a text to reveal the toolbar...',
             theme: 'bubble'
         });
 

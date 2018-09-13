@@ -28,6 +28,7 @@
   flex-direction: column;
   width: 100%;
   overflow: hidden;
+  padding: $steps-wizard-padding-y 0;
 
   // Accessibility
   > .steps .current-info {
@@ -552,7 +553,6 @@
       line-height: $btn-line-height-lg;
       color: $nav-tabs-link-color;
       width: 100%;
-      /* Flexbox */
       display: inline-flex;
       align-items: center;
       justify-content: center;

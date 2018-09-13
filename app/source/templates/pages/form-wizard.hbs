@@ -18,12 +18,13 @@ js_vendors_extended:
 {{!--https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/documentation/documentation-form-wizard.html--}}
 
 <div class="container-fluid">
+    <h3 class="mb-4">Jquery Steps</h3>
     <div class="row">
         <div class="col-md-12">
-
             {{#card}}
                 {{{card_header 'Circle tab wizard'}}}
                 {{#card_body}}
+                    <!-- Circle tab wizard -->
                     <form action="#" id="circle-form-wizard">
                         <!-- Account -->
                         <h3>Account
@@ -211,231 +212,19 @@ js_vendors_extended:
                             </div>
                         </section>
                     </form>
+                    <!-- /Circle tab wizard -->
                 {{/card_body}}
             {{/card}}
-
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Circle Wizard with validation example</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <form action="#" id="circle-form-wizard-validation">
-                        <!-- Account -->
-                        <h3>Account
-                            <small class="text-muted">Enter your basic information</small>
-                        </h3>
-                        <div class="progress progress-lg mx-3 mt-3">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                 aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <section>
-                            <h3 class="d-flex mb-3">Account Information<span class="ml-auto step-indicator animated fadeInDown"></span></h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="username-eg3" class="required-field">Username</label>
-                                        <input type="text" class="form-control required" id="username-eg3" placeholder="Username" name="username">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="emailAddress-eg3" class="required-field">Email Address</label>
-                                        <input type="email" class="form-control required" id="emailAddress-eg3" name="email" placeholder="Email Address">
-                                        <small id="emailHelp-eg3" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="password-eg3" class="required-field">Password</label>
-                                        <input type="password" class="form-control required" name="password" id="password-eg3" placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="confirmPassword-eg3" class="required-field">Confirm Password</label>
-                                        <input type="password" class="form-control required" name="confirm" id="confirmPassword-eg3" placeholder="Password">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input required" id="agree-eg3" name="agree">
-                                        <label class="custom-control-label" for="agree-eg3">I agree to the Terms and Conditions<span
-                                                class="required-field"></span></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Shipping -->
-                        <h3>Shipping
-                            <small class="text-muted">Enter your delivery details</small>
-                        </h3>
-                        <section>
-                            <h3 class="d-flex mb-3">Shipping Information<span class="ml-auto step-indicator animated fadeInDown"></span></h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="firstName-eg3" class="required-field">First Name</label>
-                                        <input type="text" class="form-control required" id="firstName-eg3" name="firstname" placeholder="First Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastName-eg3">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName-eg3" name="lastname" placeholder="Last Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phoneNumber-eg3">Phone Number</label>
-                                        <input type="tel" class="form-control" id="phoneNumber-eg3" name="phonenumber" placeholder="Phone Number">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-9">
-                                            <label for="billingAddress-eg3">Billing Address</label>
-                                            <input type="text" class="form-control" id="billingAddress-eg3" placeholder="Billing Address">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="zipCode-eg3">Zip Code</label>
-                                            <input type="text" class="form-control" id="zipCode-eg3" placeholder="Zip Code">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="state-eg3" class="required-field">State</label>
-                                        <select class="form-control required" id="state-eg3" name="state">
-                                            <option value="" disabled="" selected="">Select</option>
-                                            <option value="1">California</option>
-                                            <option value="2">Virginia</option>
-                                            <option value="3">Texas</option>
-                                            <option value="4">Florida</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="country-eg3" class="required-field">Country</label>
-                                        <select class="form-control required" id="country-eg3" name="country">
-                                            <option value="" disabled="" selected="">Select</option>
-                                            <option value="1">USA</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Payment -->
-                        <h3>Payment
-                            <small class="text-muted">Enter your credit card details</small>
-                        </h3>
-                        <section>
-                            <h3 class="d-flex mb-3">Payment Information<span class="ml-auto step-indicator animated fadeInDown"></span></h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="cardType-eg3" class="required-field">Card Type</label>
-                                        <select class="form-control required" id="cardType-eg3" name="cardtype">
-                                            <option value="" disabled="" selected="">Select credit card type</option>
-                                            <option value="1">Visa</option>
-                                            <option value="2">American Express</option>
-                                            <option value="3">Discover</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="cardHolderName-eg3" class="required-field">Card Holder Name</label>
-                                        <input type="text" class="form-control required" id="cardHolderName-eg3" placeholder="Card Holder Name" name="card-holder-name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="cardNumber-eg3" class="required-field">Card Number</label>
-                                        <input type="text" class="form-control required" id="cardNumber-eg3" placeholder="Card #" name="card-number">
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="cardCVC-eg3" class="required-field">CVC</label>
-                                            <input type="text" class="form-control required" id="cardCVC-eg3" placeholder="CVC" name="cvc">
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="expiryMonth-eg3" class="required-field">Expiry Month</label>
-                                            <select id="expiryMonth-eg3" class="form-control required" name="exp-month">
-                                                <option value="" disabled="" selected=""> Month</option>
-                                                <option value="01">01</option>
-                                                <option value="02">02</option>
-                                                <option value="03">03</option>
-                                                <option value="04">04</option>
-                                                <option value="05">05</option>
-                                                <option value="06">06</option>
-                                                <option value="07">07</option>
-                                                <option value="08">08</option>
-                                                <option value="09">09</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-md-4">
-                                            <label for="expiryYear-eg3" class="required-field">Expiry Year</label>
-                                            <select id="expiryYear-eg3" class="form-control required" name="exp-year">
-                                                <option value="" disabled="" selected="">Year</option>
-                                                <option value="2018">2018</option>
-                                                <option value="2019">2019</option>
-                                                <option value="2020">2020</option>
-                                                <option value="2021">2021</option>
-                                                <option value="2022">2022</option>
-                                                <option value="2023">2023</option>
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Receipt -->
-                        <h3>Receipt
-                            <small class="text-muted">Receive your receipt</small>
-                        </h3>
-                        <section>
-                            <h3 class="d-flex mb-3">Receipt Information<span class="ml-auto step-indicator animated fadeInDown"></span></h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="sendReceiptHelpBlock-eg3">Send Receipt To:</label>
-                                        <small id="sendReceiptHelpBlock-eg3" class="form-text text-muted mb-1">
-                                            Enter email address separated by commas.
-                                        </small>
-                                        <input type="text" class="form-control" id="sendReceipt-eg3" placeholder="">
-                                    </div>
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck-eg3">
-                                        <label class="custom-control-label" for="customCheck-eg3">Do not include a receipt in the package</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Circle vertical wizard</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Circle tab wizard with vertical navigation'}}}
+                {{#card_body}}
+                    <p>Switch to vertical navigation if you need.</p>
+                    <!-- With vertical navigation -->
                     <form action="#" id="circle-form-wizard-vertical">
                         <!-- Account -->
                         <h3>Account
@@ -626,23 +415,221 @@ js_vendors_extended:
                         </section>
 
                     </form>
-                </div>
-            </div>
+                    <!-- /With vertical navigation -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Arrow Wizard</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Circle tab wizard with validation'}}}
+                {{#card_body}}
+                    <p>Embed a validation plugin of your choice and customize it like you want - it is just that simple.</p>
+                    <!-- With validation -->
+                    <form action="#" id="circle-form-wizard-validation">
+                        <!-- Account -->
+                        <h3>Account
+                            <small class="text-muted">Enter your basic information</small>
+                        </h3>
+                        <div class="progress progress-lg mx-3 mt-3">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <section>
+                            <h3 class="d-flex mb-3">Account Information<span class="ml-auto step-indicator animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="username-eg3" class="required-field">Username</label>
+                                        <input type="text" class="form-control required" id="username-eg3" placeholder="Username" name="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="emailAddress-eg3" class="required-field">Email Address</label>
+                                        <input type="email" class="form-control required" id="emailAddress-eg3" name="email" placeholder="Email Address">
+                                        <small id="emailHelp-eg3" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password-eg3" class="required-field">Password</label>
+                                        <input type="password" class="form-control required" name="password" id="password-eg3" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword-eg3" class="required-field">Confirm Password</label>
+                                        <input type="password" class="form-control required" name="confirm" id="confirmPassword-eg3" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input required" id="agree-eg3" name="agree">
+                                        <label class="custom-control-label" for="agree-eg3">I agree to the Terms and Conditions<span
+                                                class="required-field"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Shipping -->
+                        <h3>Shipping
+                            <small class="text-muted">Enter your delivery details</small>
+                        </h3>
+                        <section>
+                            <h3 class="d-flex mb-3">Shipping Information<span class="ml-auto step-indicator animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName-eg3" class="required-field">First Name</label>
+                                        <input type="text" class="form-control required" id="firstName-eg3" name="firstname" placeholder="First Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName-eg3">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName-eg3" name="lastname" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNumber-eg3">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phoneNumber-eg3" name="phonenumber" placeholder="Phone Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-9">
+                                            <label for="billingAddress-eg3">Billing Address</label>
+                                            <input type="text" class="form-control" id="billingAddress-eg3" placeholder="Billing Address">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="zipCode-eg3">Zip Code</label>
+                                            <input type="text" class="form-control" id="zipCode-eg3" placeholder="Zip Code">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="state-eg3" class="required-field">State</label>
+                                        <select class="form-control required" id="state-eg3" name="state">
+                                            <option value="" disabled="" selected="">Select</option>
+                                            <option value="1">California</option>
+                                            <option value="2">Virginia</option>
+                                            <option value="3">Texas</option>
+                                            <option value="4">Florida</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country-eg3" class="required-field">Country</label>
+                                        <select class="form-control required" id="country-eg3" name="country">
+                                            <option value="" disabled="" selected="">Select</option>
+                                            <option value="1">USA</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Payment -->
+                        <h3>Payment
+                            <small class="text-muted">Enter your credit card details</small>
+                        </h3>
+                        <section>
+                            <h3 class="d-flex mb-3">Payment Information<span class="ml-auto step-indicator animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardType-eg3" class="required-field">Card Type</label>
+                                        <select class="form-control required" id="cardType-eg3" name="cardtype">
+                                            <option value="" disabled="" selected="">Select credit card type</option>
+                                            <option value="1">Visa</option>
+                                            <option value="2">American Express</option>
+                                            <option value="3">Discover</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardHolderName-eg3" class="required-field">Card Holder Name</label>
+                                        <input type="text" class="form-control required" id="cardHolderName-eg3" placeholder="Card Holder Name" name="card-holder-name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardNumber-eg3" class="required-field">Card Number</label>
+                                        <input type="text" class="form-control required" id="cardNumber-eg3" placeholder="Card #" name="card-number">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="cardCVC-eg3" class="required-field">CVC</label>
+                                            <input type="text" class="form-control required" id="cardCVC-eg3" placeholder="CVC" name="cvc">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="expiryMonth-eg3" class="required-field">Expiry Month</label>
+                                            <select id="expiryMonth-eg3" class="form-control required" name="exp-month">
+                                                <option value="" disabled="" selected=""> Month</option>
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="expiryYear-eg3" class="required-field">Expiry Year</label>
+                                            <select id="expiryYear-eg3" class="form-control required" name="exp-year">
+                                                <option value="" disabled="" selected="">Year</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Receipt -->
+                        <h3>Receipt
+                            <small class="text-muted">Receive your receipt</small>
+                        </h3>
+                        <section>
+                            <h3 class="d-flex mb-3">Receipt Information<span class="ml-auto step-indicator animated fadeInDown"></span></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="sendReceiptHelpBlock-eg3">Send Receipt To:</label>
+                                        <small id="sendReceiptHelpBlock-eg3" class="form-text text-muted mb-1">
+                                            Enter email address separated by commas.
+                                        </small>
+                                        <input type="text" class="form-control" id="sendReceipt-eg3" placeholder="">
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck-eg3">
+                                        <label class="custom-control-label" for="customCheck-eg3">Do not include a receipt in the package</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </form>
+                    <!-- /With validation -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Arrow tab wizard'}}}
+                {{#card_body}}
+                    <!-- Arrow tab wizard -->
                     <form action="#" id="arrow-form-wizard">
                         <!-- Account -->
                         <h3>Account</h3>
@@ -826,24 +813,18 @@ js_vendors_extended:
                         </section>
 
                     </form>
-
-                </div>
-            </div>
+                    <!-- /Arrow tab wizard -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Arrow vertical wizard</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Arrow tab wizard with vertical navigation'}}}
+                {{#card_body}}
+                    <!-- Arrow tab wizard with vertical navigation -->
                     <form action="#" id="arrow-form-wizard-vertical">
                         <!-- Account -->
                         <h3>Account</h3>
@@ -1027,25 +1008,18 @@ js_vendors_extended:
                         </section>
 
                     </form>
-
-                </div>
-            </div>
+                    <!-- /Arrow tab wizard with vertical navigation -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Pills Wizard</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-
+            {{#card}}
+                {{{card_header 'Pills wizard'}}}
+                {{#card_body}}
+                    <!-- Pills wizard -->
                     <form action="#" id="pills-form-wizard">
                         <!-- Account -->
                         <h3>Account</h3>
@@ -1230,24 +1204,18 @@ js_vendors_extended:
                         </section>
 
                     </form>
-
-                </div>
-            </div>
+                    <!-- /Pills wizard -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Pills vertical wizard</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+            {{#card}}
+                {{{card_header 'Pills vertical wizard'}}}
+                {{#card_body}}
+                    <!-- Pills vertical wizard -->
                     <form action="#" id="pills-form-wizard-vertical">
                         <!-- Account -->
                         <h3>Account</h3>
@@ -1431,8 +1399,10 @@ js_vendors_extended:
 
 
                     </form>
-                </div>
-            </div>
+                    <!-- /Pills vertical wizard -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
+
 </div>

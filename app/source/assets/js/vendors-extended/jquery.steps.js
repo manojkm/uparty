@@ -11,7 +11,7 @@
 $(document).ready(function () {
     'use strict';
 
-    //update progress
+    // Update progress
     function updateProgress(elem, index) {
         var $total = $(elem).find('.steps ul li').length;
         var $current = index + 1;
@@ -23,16 +23,18 @@ $(document).ready(function () {
 
     function addBootstrap(elem, index) {
         var $this = $(elem);
-        $this.children('.actions ul li:not(:last)').find('a').addClass('btn btn-primary');
 
-       // $('#articles li:not(:last)').addClass('myclass')
+        // Add bootstrap class action buttons
+        $this.find('.actions ul li:not(:last) a').addClass('btn btn-primary');
 
+        // Change color of the Finish button
+        $this.find('.actions ul li:last-child a').addClass('btn btn-success');
 
     }
 
     // Arrow form wizard
     $("#arrow-form-wizard").steps({
-        /* Appearance */
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "fade",
@@ -41,7 +43,7 @@ $(document).ready(function () {
         titleTemplate: '<span class="step">#index#.&nbsp;</span>&nbsp;#title#',
         cssClass: "wizard arrow-wizard",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "SUBMIT",
             next: "NEXT",
@@ -68,7 +70,7 @@ $(document).ready(function () {
 
     // Arrow form vertical wizard
     $("#arrow-form-wizard-vertical").steps({
-        /* Appearance */
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "fade",
@@ -78,7 +80,7 @@ $(document).ready(function () {
         cssClass: "wizard arrow-wizard",
         stepsOrientation: "vertical",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "SUBMIT",
             next: "NEXT",
@@ -105,7 +107,7 @@ $(document).ready(function () {
 
     // Pills form wizard
     $("#pills-form-wizard").steps({
-        /* Appearance */
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "fade",
@@ -114,7 +116,7 @@ $(document).ready(function () {
         titleTemplate: '<span class="step">#index#.&nbsp;</span>&nbsp;#title#',
         cssClass: "wizard pills-wizard",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "SUBMIT",
             next: "NEXT",
@@ -141,7 +143,8 @@ $(document).ready(function () {
 
     // Pills form vertical wizard
     $("#pills-form-wizard-vertical").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "fade",
@@ -151,7 +154,7 @@ $(document).ready(function () {
         cssClass: "wizard pills-wizard",
         stepsOrientation: "vertical",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "SUBMIT",
             next: "NEXT",
@@ -178,16 +181,15 @@ $(document).ready(function () {
 
     // Circle form wizard
     $("#circle-form-wizard").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
-        //transitionEffect: "fade",
-        //transitionEffectSpeed: 500,
         autoFocus: true,
         titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
         cssClass: "wizard circle-wizard",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "SUBMIT",
             next: "NEXT",
@@ -217,16 +219,15 @@ $(document).ready(function () {
     var form = $("#circle-form-wizard-validation").show();
 
     $("#circle-form-wizard-validation").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
-        //transitionEffect: "fade",
-        //transitionEffectSpeed: 500,
         autoFocus: true,
         titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
         cssClass: "wizard circle-wizard",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "SUBMIT",
             next: "NEXT",
@@ -316,17 +317,16 @@ $(document).ready(function () {
 
     // Circle form vertical wizard
     $("#circle-form-wizard-vertical").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
-        //transitionEffect: "fade",
-        //transitionEffectSpeed: 500,
         autoFocus: true,
         titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
         cssClass: "wizard circle-wizard",
         stepsOrientation: "vertical",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "SUBMIT",
             next: "NEXT",
@@ -363,7 +363,7 @@ $(document).ready(function () {
         titleTemplate: "#title#",
         cssClass: "wizard tab-wizard",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "FINISH",
             next: "NEXT",
@@ -378,7 +378,8 @@ $(document).ready(function () {
 
     // Arrow wizard
     $("#arrow-wizard").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "fade",
@@ -387,7 +388,7 @@ $(document).ready(function () {
         titleTemplate: '#title#',
         cssClass: "wizard arrow-wizard",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "SUBMIT",
             next: "NEXT",
@@ -402,7 +403,8 @@ $(document).ready(function () {
 
     // Arrow vertical wizard
     $("#arrow-wizard-vertical").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "fade",
@@ -412,7 +414,7 @@ $(document).ready(function () {
         cssClass: "wizard arrow-wizard",
         stepsOrientation: "vertical",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "FINISH",
             next: "NEXT",
@@ -427,7 +429,8 @@ $(document).ready(function () {
 
     // Pills wizard
     $("#pills-wizard").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "fade",
@@ -436,7 +439,7 @@ $(document).ready(function () {
         titleTemplate: '#title#',
         cssClass: "wizard pills-wizard",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "FINISH",
             next: "NEXT",
@@ -451,7 +454,8 @@ $(document).ready(function () {
 
     // Pills vertical wizard
     $("#pills-wizard-vertical").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "fade",
@@ -461,7 +465,7 @@ $(document).ready(function () {
         cssClass: "wizard pills-wizard",
         stepsOrientation: "vertical",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "FINISH",
             next: "NEXT",
@@ -476,14 +480,15 @@ $(document).ready(function () {
 
     // Circle wizard
     $("#circle-wizard").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         autoFocus: true,
         titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
         cssClass: "wizard circle-wizard",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "FINISH",
             next: "NEXT",
@@ -510,7 +515,8 @@ $(document).ready(function () {
 
     // Circle vertical wizard
     $("#circle-wizard-vertical").steps({
-        /* Appearance */
+
+        // Appearance
         headerTag: "h3",
         bodyTag: "section",
         autoFocus: true,
@@ -518,7 +524,7 @@ $(document).ready(function () {
         cssClass: "wizard circle-wizard",
         stepsOrientation: "vertical",
 
-        /* Labels */
+        // Labels
         labels: {
             finish: "FINISH",
             next: "NEXT",
@@ -536,12 +542,8 @@ $(document).ready(function () {
             });
         },
 
-        onStepChanging: function (event, currentIndex, newIndex)
-        {
-            //change color of the Finish button
-            $(this).find(".actions > ul > li:last-child a").removeClass("btn-primary").addClass("btn-success");
-
-            //ALLOW NEXT STEP
+        onStepChanging: function (event, currentIndex, newIndex) {
+            // ALLOW NEXT STEP
             return true;
         },
 
