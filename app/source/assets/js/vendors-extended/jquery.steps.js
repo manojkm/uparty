@@ -180,7 +180,7 @@ $(document).ready(function () {
     });
 
     // Circle form wizard
-    $("#circle-form-wizard").steps({
+    $("#circle-form-wizard, #circle-form-wizard-2").steps({
 
         // Appearance
         headerTag: "h3",
@@ -214,6 +214,43 @@ $(document).ready(function () {
             alert("Submitted!");
         }
     });
+
+    // Circle form outline wizard
+    $("#circle-form-outline-wizard").steps({
+
+        // Appearance
+        headerTag: "h3",
+        bodyTag: "section",
+        autoFocus: true,
+        titleTemplate: '<span class="step">#index#</span><span class="step-title">#title#</span>',
+        cssClass: "wizard circle-wizard outline",
+
+        // Labels
+        labels: {
+            finish: "SUBMIT",
+            next: "NEXT",
+            previous: "BACK"
+        },
+
+        onInit: function (event, currentIndex) {
+            updateProgress(this, currentIndex);
+            addBootstrap(this, currentIndex);
+        },
+
+        onStepChanging: function (event, currentIndex, newIndex) {
+            return true;
+        },
+        onStepChanged: function (event, currentIndex, priorIndex) {
+            updateProgress(this, currentIndex);
+            $(this).find(".steps ul li a:eq(" + currentIndex + ") .step").addClass("animated bounceIn");
+            $(this).find(".steps ul li a:eq(" + priorIndex + ") .step").removeClass("animated bounceIn");
+        },
+
+        onFinished: function (event, currentIndex) {
+            alert("Submitted!");
+        }
+    });
+
 
     // Circle form wizard with validation
     var form = $("#circle-form-wizard-validation").show();
@@ -390,7 +427,7 @@ $(document).ready(function () {
 
         // Labels
         labels: {
-            finish: "SUBMIT",
+            finish: "FINISH",
             next: "NEXT",
             previous: "BACK"
         },

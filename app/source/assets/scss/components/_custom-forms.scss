@@ -443,23 +443,24 @@
   $cci: custom-control-input;
   $ccind: custom-control-indicator;
 
-  height: $custom-toggle-height;
+  height: $custom-toggle-switch-height;
   display: flex !important;
   align-items: center;
   padding-left: 0;
-  //padding-left: ($custom-toggle-width + 10px);
+  //padding-left: ($custom-toggle-switch-width + 10px);
 
   .#{$ccind} {
     @include transition;
     position: relative;
     top: 0;
     left: 0;
-    width: $custom-toggle-width;
-    height: $custom-toggle-height;
-    background-color: $custom-toggle-bg;
-    display: block;
-    border-radius: $custom-toggle-border-radius;
-    border: $custom-toggle-border;
+    width: $custom-toggle-switch-width;
+    height: $custom-toggle-switch-height;
+    background-color: $custom-toggle-switch-bg;
+    display: flex;
+    align-items: center;
+    border-radius: $custom-toggle-switch-border-radius;
+    border: $custom-toggle-switch-border;
     margin-right: 8px;
 
     &:hover {
@@ -470,27 +471,27 @@
       @include transition;
       content: '';
       position: absolute;
-      top: 3px;
-      left: 3px;
-      width: $custom-toggle-knob-width;
-      height: $custom-toggle-knob-height;
+     // top: 3px;
+      left:$custom-toggle-switch-knob-spacing-x;
+      width: $custom-toggle-switch-knob-width;
+      height: $custom-toggle-switch-knob-height;
       background-color: $input-border-color;
-      border-radius: $custom-toggle-knob-border-radius;
+      border-radius: $custom-toggle-switch-knob-border-radius;
     }
 
     @at-root .mini#{&} {
-      height: $custom-toggle-mini-height;
-      background-color: $custom-toggle-mini-bg !important;
-      border: $custom-toggle-border !important;
-      &:after {
-        top: -6px;
-      }
+      height: $custom-toggle-switch-mini-height;
+      background-color: $custom-toggle-switch-mini-bg !important;
+      border: $custom-toggle-switch-border !important;
+      //&:after {
+      //  top: -6px;
+      //}
     }
 
     @at-root .square#{&} {
-      border-radius: $custom-toggle-square-border-radius;
+      border-radius: $custom-toggle-switch-square-border-radius;
       &:after {
-        border-radius: $custom-toggle-square-knob-border-radius;
+        border-radius: $custom-toggle-switch-square-knob-border-radius;
       }
     }
 
@@ -501,16 +502,16 @@
   .#{$cci}:checked:active + .#{$ccind} {
     @include transition;
     &:after {
-      left: calc(100% - 3px);
+      left: calc(100% - #{$custom-toggle-switch-knob-spacing-x});
       transform: translateX(-100%);
     }
   }
 
   // Active state
   .#{$cci}:active + .#{$ccind} {
-    background-color: $custom-toggle-bg;
+    background-color: $custom-toggle-switch-bg;
     &:after {
-      width: $custom-toggle-knob-active-width;
+      width: $custom-toggle-switch-knob-active-width;
     }
   }
 
@@ -520,7 +521,7 @@
     cursor: $cursor-not-allowed;
   }
   .#{$cci}:disabled:active + .#{$ccind}:after {
-    width: $custom-toggle-knob-width;
+    width: $custom-toggle-switch-knob-width;
   }
 
   // Checked + Disabled state
@@ -561,15 +562,15 @@
 
   .#{$ccind} {
     position: relative;
-    width: $custom-toggle-flip-width;
-    height: $custom-toggle-flip-height;
+    width: $custom-toggle-switch-flip-width;
+    height: $custom-toggle-switch-flip-height;
     display: block;
     cursor: $cursor-pointer;
     user-select: none;
-    perspective: $custom-toggle-flip-width + $custom-toggle-flip-height;
+    perspective: $custom-toggle-switch-flip-width + $custom-toggle-switch-flip-height;
     margin-right: 8px;
-    color: $custom-toggle-flip-off-state-color;
-    border-radius: $custom-toggle-flip-border-radius;
+    color: $custom-toggle-switch-flip-off-state-color;
+    border-radius: $custom-toggle-switch-flip-border-radius;
     border:  $input-border-size solid transparent;
     box-sizing: border-box;
 
@@ -584,15 +585,15 @@
 
       width: 100%;
       height: 100%;
-      //line-height: ($custom-toggle-flip-height);
+      //line-height: ($custom-toggle-switch-flip-height);
       backface-visibility: hidden;
       text-align: center;
-      border-radius: $custom-toggle-flip-border-radius;
+      border-radius: $custom-toggle-switch-flip-border-radius;
     }
 
     &:before {
       content: attr(data-toggle-off);
-      background-color: $custom-toggle-flip-off-state-bg;
+      background-color: $custom-toggle-switch-flip-off-state-bg;
     }
 
     &:after {

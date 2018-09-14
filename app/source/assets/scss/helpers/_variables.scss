@@ -1482,36 +1482,35 @@ $spinner-icon-font-size:                $font-size-xs;
 // 8.27 TOGGLE SWITCH
 // -----------------------------------------------------------------------------
 
-$custom-toggle-width:                   50px;
-$custom-toggle-height:                  28px;
-$custom-toggle-border:                  $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
-$custom-toggle-bg:                      $white-color;
-$custom-toggle-border-radius:           $border-radius-100-px; // To add rounded corners to the Switch
+$custom-toggle-switch-width:                    60px;
+$custom-toggle-switch-height:                   38px;
+$custom-toggle-switch-border:                   $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
+$custom-toggle-switch-bg:                       $white-color;
+$custom-toggle-switch-border-radius:            $border-radius-100-px; // To add rounded corners to the Switch
 
-$custom-toggle-knob-bg:                 $white-color; // Knob background color
-$custom-toggle-knob-border-radius:      $border-radius-100-px; // To add rounded corners to the Knob
-$custom-toggle-knob-width:              20px; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
-$custom-toggle-knob-height:             20px; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
-//$custom-toggle-knob-checked-bg:         $white-color;
-$custom-toggle-knob-active-width:       26px; // Pressing and holding the knob looks little expanded
+$custom-toggle-switch-knob-border-radius:       $border-radius-100-px; // To add rounded corners to the Knob
+$custom-toggle-switch-knob-width:               $custom-toggle-switch-height - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
+$custom-toggle-switch-knob-height:              $custom-toggle-switch-knob-width; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
+$custom-toggle-switch-knob-spacing-x:           ($custom-toggle-switch-height - $custom-toggle-switch-knob-height) / 2; // Spacing required between knob and switch holder.
+$custom-toggle-switch-knob-active-width:        $custom-toggle-switch-knob-width + 8; // Pressing and holding the knob looks little expanded
 
 // Mini type
 
-$custom-toggle-mini-height:             10px !default;
-$custom-toggle-mini-bg:                 $gray-100 !default;
+$custom-toggle-switch-mini-height:             10px !default;
+$custom-toggle-switch-mini-bg:                 $gray-100 !default;
 
 // Square type
 
-$custom-toggle-square-border-radius:            $border-radius-md; // To add rounded corners to the Switch
-$custom-toggle-square-knob-border-radius:       $border-radius-md; // To add rounded corners to the Knob
+$custom-toggle-switch-square-border-radius:            $border-radius-md; // To add rounded corners to the Switch
+$custom-toggle-switch-square-knob-border-radius:       $border-radius-md; // To add rounded corners to the Knob
 
 // Flip type
 
-$custom-toggle-flip-width:              60px;
-$custom-toggle-flip-height:             30px;
-$custom-toggle-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
-$custom-toggle-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
-$custom-toggle-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
+$custom-toggle-switch-flip-width:              60px;
+$custom-toggle-switch-flip-height:             30px;
+$custom-toggle-switch-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
+$custom-toggle-switch-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
+$custom-toggle-switch-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
 
 //
 // 8.28 TOGGLERS
@@ -1649,6 +1648,11 @@ $steps-circle-line-height:              $btn-line-height-lg !default; // Steps i
 $steps-circle-font-size:                $btn-font-size-lg !default;  // Step item icon font size
 $steps-circle-title-font-size:          $font-size-base !default; // Step item title font size
 $steps-circle-title-color:              $gray-800 !default; // Step item title text color
+
+// Circle wizard outline type
+$steps-circle-outline-active-bg:        $white-color; // Background color applied to the tab of current step.
+$steps-circle-outline-error-bg:         $white-color; // Background color applied to the tab if current step have any validation errors.
+
 
 // Arrow wizard type
 

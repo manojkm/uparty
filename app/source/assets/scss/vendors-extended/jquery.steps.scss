@@ -10,14 +10,11 @@
 // Author         : MANOJ
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
-
 //
 // VENDORS DEPENDENCIES IMPORT
 // ======================================================
 // Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
-
-@import
-    'dependencies';
+@import 'dependencies';
 
 //
 // JQUERY STEPS
@@ -86,7 +83,7 @@
           content: none;
         }
         &:last-child {
-          margin: 0!important;
+          margin: 0 !important;
         }
 
       }
@@ -128,22 +125,22 @@
     justify-content: flex-end;
 
     ul {
-       margin: 0;
-       padding: 0;
-       list-style: none !important;
-       display: flex;
-       flex-direction: row;
-       li {
-         margin: 0 0 0 $steps-action-button-margin-left;
-         &.disabled a,
-         &.disabled a:hover,
-         &.disabled a:active {
-           opacity: $steps-disabled-opacity;
-           cursor: $cursor-default;
-           pointer-events: none;
-         }
-       }
-     }
+      margin: 0;
+      padding: 0;
+      list-style: none !important;
+      display: flex;
+      flex-direction: row;
+      li {
+        margin: 0 0 0 $steps-action-button-margin-left;
+        &.disabled a,
+        &.disabled a:hover,
+        &.disabled a:active {
+          opacity: $steps-disabled-opacity;
+          cursor: $cursor-default;
+          pointer-events: none;
+        }
+      }
+    }
   }
 
   .step-indicator {
@@ -286,24 +283,6 @@
       justify-content: center;
 
     }
-    .done {
-      @include opacity($steps-disabled-opacity);
-      .step {
-        @include transition;
-        @include background-text-theme($steps-done-theme-scheme);
-        @include border-theme($steps-done-theme-scheme);
-      }
-      &:before,
-      &:after {
-        @include transition;
-        @include background-theme($steps-done-theme-scheme);
-      }
-      a,
-      a:hover,
-      a:active {
-        color: $steps-circle-title-color;
-      }
-    }
 
     .current {
       .step {
@@ -315,6 +294,26 @@
       &:after {
         @include transition;
         @include background-theme($steps-active-theme-scheme);
+      }
+      a,
+      a:hover,
+      a:active {
+        color: $steps-circle-title-color;
+      }
+    }
+
+    .current.done,
+    .done {
+      @include opacity($steps-disabled-opacity);
+      .step {
+        @include transition;
+        @include background-text-theme($steps-done-theme-scheme);
+        @include border-theme($steps-done-theme-scheme);
+      }
+      &:before,
+      &:after {
+        @include transition;
+        @include background-theme($steps-done-theme-scheme);
       }
       a,
       a:hover,
@@ -360,6 +359,31 @@
     .current {
       a {
         cursor: $cursor-default;
+      }
+    }
+
+  }
+
+}
+
+//
+// CIRCLE WIZARD OUTLINE TYPE
+// ======================================================
+
+.wizard.circle-wizard.outline {
+
+  > .steps {
+
+    .current:not(.done) {
+      .step {
+        background-color: $steps-circle-outline-active-bg;
+        @include text-theme($steps-active-theme-scheme);
+      }
+    }
+    .error {
+      .step {
+        background-color: $steps-circle-outline-error-bg !important;
+        @include text-theme($steps-error-theme-scheme, $sledge-hammer: !important);
       }
     }
 
@@ -463,6 +487,7 @@
       }
     }
 
+    .current.done a,
     .done a {
       @include background-text-theme($steps-done-theme-scheme);
       &:after {
@@ -471,10 +496,10 @@
     }
 
     .current a {
-      @include background-text-theme($steps-active-theme-scheme, dark);
+      @include background-text-theme($steps-active-theme-scheme, x-dark);
       cursor: $cursor-default;
       &:after {
-        @include border-theme($steps-active-theme-scheme, dark, $position: left);
+        @include border-theme($steps-active-theme-scheme, x-dark, $position: left);
       }
     }
 
@@ -505,7 +530,7 @@
 .wizard.arrow-wizard.vertical {
   > .steps {
     ul li {
-      margin-right: 25px!important;
+      margin-right: 25px !important;
     }
 
     ul li:first-child {
@@ -585,5 +610,8 @@
 // MISC
 // ======================================================
 
-.wizard > .loading {}
-.wizard > .loading .spinner {}
+.wizard > .loading {
+}
+
+.wizard > .loading .spinner {
+}
