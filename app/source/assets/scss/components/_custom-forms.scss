@@ -471,23 +471,22 @@
       @include transition;
       content: '';
       position: absolute;
-     // top: 3px;
-      left:$custom-toggle-switch-knob-spacing-x;
+      // top: 3px;
+      left: $custom-toggle-switch-knob-spacing-x;
       width: $custom-toggle-switch-knob-width;
       height: $custom-toggle-switch-knob-height;
-      background-color: $input-border-color;
+      background-color: $custom-toggle-switch-knob-bg;
       border-radius: $custom-toggle-switch-knob-border-radius;
     }
 
+    // Mini type
     @at-root .mini#{&} {
       height: $custom-toggle-switch-mini-height;
       background-color: $custom-toggle-switch-mini-bg !important;
       border: $custom-toggle-switch-border !important;
-      //&:after {
-      //  top: -6px;
-      //}
     }
 
+    // Square type
     @at-root .square#{&} {
       border-radius: $custom-toggle-switch-square-border-radius;
       &:after {
@@ -504,6 +503,32 @@
     &:after {
       left: calc(100% - #{$custom-toggle-switch-knob-spacing-x});
       transform: translateX(-100%);
+    }
+  }
+
+  // With label type
+  &.has-label {
+    .#{$ccind} {
+      width: $custom-toggle-switch-label-width;
+      height: $custom-toggle-switch-label-height;
+      &:before {
+        @include transition;
+        content: attr(data-toggle-off);
+        position: absolute;
+        right: $custom-toggle-switch-label-spacing-x;
+        color: $input-color;
+        white-space: nowrap;
+      }
+    }
+
+    .#{$cci}:checked + .#{$ccind},
+    .#{$cci}:checked:active + .#{$ccind} {
+      &:before {
+        @include transition;
+        content: attr(data-toggle-on);
+        right: calc(100% - #{$custom-toggle-switch-label-spacing-x});
+        transform: translateX(100%);
+      }
     }
   }
 
@@ -534,7 +559,7 @@
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
       &.#{$cts}-#{$scheme} {
-        @include custom-toggle($scheme);
+        @include custom-toggle-switch($scheme);
       }
     }
   }
@@ -542,7 +567,7 @@
   // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
     &.#{$cts}-#{$scheme} {
-      @include custom-toggle($scheme);
+      @include custom-toggle-switch($scheme);
     }
   }
 }
@@ -571,7 +596,7 @@
     margin-right: 8px;
     color: $custom-toggle-switch-flip-off-state-color;
     border-radius: $custom-toggle-switch-flip-border-radius;
-    border:  $input-border-size solid transparent;
+    border: $input-border-size solid transparent;
     box-sizing: border-box;
 
     &:before, &:after {
@@ -579,16 +604,15 @@
       position: absolute;
       top: 0;
       left: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
       width: 100%;
       height: 100%;
       //line-height: ($custom-toggle-switch-flip-height);
       backface-visibility: hidden;
       text-align: center;
       border-radius: $custom-toggle-switch-flip-border-radius;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     &:before {
@@ -659,7 +683,7 @@
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
       &.#{$ctf}-#{$scheme} {
-        @include custom-toggle-flip($scheme);
+        @include custom-toggle-switch-flip($scheme);
       }
     }
   }
@@ -667,7 +691,7 @@
   // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
     &.#{$ctf}-#{$scheme} {
-      @include custom-toggle-flip($scheme);
+      @include custom-toggle-switch-flip($scheme);
     }
   }
 
