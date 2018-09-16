@@ -1127,7 +1127,8 @@
 
   // Toggle switch
   //.custom-toggle-switch .custom-control-input {
-  [class*="custom-toggle-"] .custom-control-input {
+  //[class*="custom-toggle-"] .custom-control-input {
+  .switch .custom-control-input {
      &:checked {
       .was-validated &:#{$state},
       &.is-#{$state} {
