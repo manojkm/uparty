@@ -26,6 +26,10 @@
   }
 }
 
+.custom-control-inline {
+  display: inline-flex !important;
+}
+
 .custom-control-input {
   $cc: custom-control;
 
@@ -438,33 +442,43 @@
 // TOGGLE SWITCH
 // ======================================================
 
-.custom-toggle-switch {
-  $cts: custom-toggle-switch;
+.switch {
+  $s: switch;
   $cci: custom-control-input;
   $ccind: custom-control-indicator;
+  $ccd: custom-control-description;
 
-  height: $custom-toggle-switch-height;
-  display: flex !important;
+  //height: $switch-height;
+  display: flex;
   align-items: center;
   padding-left: 0;
-  //padding-left: ($custom-toggle-switch-width + 10px);
+
+  .#{$ccd} {
+    font-size: $switch-font-size;
+  }
 
   .#{$ccind} {
     @include transition;
     position: relative;
     top: 0;
     left: 0;
-    width: $custom-toggle-switch-width;
-    height: $custom-toggle-switch-height;
-    background-color: $custom-toggle-switch-bg;
+    width: $switch-width;
+    height: $switch-height;
+    font-size: $switch-pseudo-font-size;
+    background-color: $switch-bg;
     display: flex;
     align-items: center;
-    border-radius: $custom-toggle-switch-border-radius;
-    border: $custom-toggle-switch-border;
-    margin-right: 8px;
+    border-radius: $switch-border-radius;
+    border: $switch-border;
+    margin-right: 5px;
 
     &:hover {
       cursor: $cursor-pointer;
+    }
+
+    &:after,
+    &:before {
+      font-size: inherit;
     }
 
     &:after {
@@ -472,26 +486,11 @@
       content: '';
       position: absolute;
       // top: 3px;
-      left: $custom-toggle-switch-knob-spacing-x;
-      width: $custom-toggle-switch-knob-width;
-      height: $custom-toggle-switch-knob-height;
-      background-color: $custom-toggle-switch-knob-bg;
-      border-radius: $custom-toggle-switch-knob-border-radius;
-    }
-
-    // Mini type
-    @at-root .mini#{&} {
-      height: $custom-toggle-switch-mini-height;
-      background-color: $custom-toggle-switch-mini-bg !important;
-      border: $custom-toggle-switch-border !important;
-    }
-
-    // Square type
-    @at-root .square#{&} {
-      border-radius: $custom-toggle-switch-square-border-radius;
-      &:after {
-        border-radius: $custom-toggle-switch-square-knob-border-radius;
-      }
+      left: $switch-knob-spacing-x;
+      width: $switch-knob-width;
+      height: $switch-knob-height;
+      background-color: $switch-knob-bg;
+      border-radius: $switch-knob-border-radius;
     }
 
   }
@@ -501,21 +500,125 @@
   .#{$cci}:checked:active + .#{$ccind} {
     @include transition;
     &:after {
-      left: calc(100% - #{$custom-toggle-switch-knob-spacing-x});
+      left: calc(100% - #{$switch-knob-spacing-x});
       transform: translateX(-100%);
+    }
+  }
+
+  // Active state
+  .#{$cci}:active + .#{$ccind} {
+    background-color: $switch-bg;
+    &:after {
+      width: $switch-knob-active-width;
+    }
+  }
+
+  // Disabled state
+  .#{$cci}:disabled + .#{$ccind} {
+    background-color: $custom-control-indicator-disabled-bg;
+    cursor: $cursor-not-allowed;
+  }
+
+  //.#{$cci}:disabled:active + .#{$ccind}:after {
+  //  width: $switch-knob-width;
+  //}
+
+  // Checked + Disabled state
+  .#{$cci}:disabled:checked + .#{$ccind} {
+    @include opacity(0.5);
+  }
+
+  // Small size
+  &-sm {
+    .#{$ccind} {
+      width: $switch-width-sm;
+      height: $switch-height-sm;
+      font-size: $switch-pseudo-font-size-sm;
+      &:after {
+        left: $switch-knob-spacing-x-sm;
+        width: $switch-knob-width-sm;
+        height: $switch-knob-height-sm;
+      }
+    }
+    .#{$ccd} {
+      font-size: $switch-font-size-sm;
+    }
+    // Checked state
+    .#{$cci}:checked + .#{$ccind},
+    .#{$cci}:checked:active + .#{$ccind} {
+      &:after {
+        left: calc(100% - #{$switch-knob-spacing-x-sm});
+      }
+    }
+
+    .#{$cci}:active + .#{$ccind} {
+      &:after {
+        width: $switch-knob-active-width-sm;
+      }
+    }
+
+  }
+
+  // Large size
+  &-lg {
+    .#{$ccind} {
+      width: $switch-width-lg;
+      height: $switch-height-lg;
+      font-size: $switch-pseudo-font-size-lg;
+      &:after {
+        left: $switch-knob-spacing-x-lg;
+        width: $switch-knob-width-lg;
+        height: $switch-knob-height-lg;
+      }
+    }
+    .#{$ccd} {
+      font-size: $switch-font-size-lg;
+    }
+    // Checked state
+    .#{$cci}:checked + .#{$ccind},
+    .#{$cci}:checked:active + .#{$ccind} {
+      &:after {
+        left: calc(100% - #{$switch-knob-spacing-x-lg});
+      }
+    }
+
+    .#{$cci}:active + .#{$ccind} {
+      &:after {
+        width: $switch-knob-active-width-lg;
+      }
+    }
+
+  }
+
+  // Mini type
+  &.mini {
+    .#{$ccind} {
+      height: $switch-mini-height;
+      background-color: $switch-mini-bg !important;
+      border: $switch-border !important;
+    }
+  }
+
+  // Square type
+  &.square {
+    .#{$ccind} {
+      border-radius: $switch-square-border-radius;
+      &:after {
+        border-radius: $switch-square-knob-border-radius;
+      }
     }
   }
 
   // With label type
   &.has-label {
     .#{$ccind} {
-      width: $custom-toggle-switch-label-width;
-      height: $custom-toggle-switch-label-height;
+      width: $switch-label-width;
+      height: $switch-label-height;
       &:before {
         @include transition;
         content: attr(data-toggle-off);
         position: absolute;
-        right: $custom-toggle-switch-label-spacing-x;
+        right: $switch-label-spacing-x;
         color: $input-color;
         white-space: nowrap;
       }
@@ -526,48 +629,26 @@
       &:before {
         @include transition;
         content: attr(data-toggle-on);
-        right: calc(100% - #{$custom-toggle-switch-label-spacing-x});
+        right: calc(100% - #{$switch-label-spacing-x});
         transform: translateX(100%);
       }
     }
-  }
-
-  // Active state
-  .#{$cci}:active + .#{$ccind} {
-    background-color: $custom-toggle-switch-bg;
-    &:after {
-      width: $custom-toggle-switch-knob-active-width;
-    }
-  }
-
-  // Disabled state
-  .#{$cci}:disabled + .#{$ccind} {
-    background-color: $custom-control-indicator-disabled-bg;
-    cursor: $cursor-not-allowed;
-  }
-  .#{$cci}:disabled:active + .#{$ccind}:after {
-    width: $custom-toggle-switch-knob-width;
-  }
-
-  // Checked + Disabled state
-  .#{$cci}:disabled:checked + .#{$ccind} {
-    @include opacity(0.5);
   }
 
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
-      &.#{$cts}-#{$scheme} {
-        @include custom-toggle-switch($scheme);
+      &.#{$s}-#{$scheme} {
+        @include switch($scheme);
       }
     }
   }
 
   // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
-    &.#{$cts}-#{$scheme} {
-      @include custom-toggle-switch($scheme);
+    &.#{$s}-#{$scheme} {
+      @include switch($scheme);
     }
   }
 }
@@ -576,26 +657,27 @@
 // FLIPPED TOGGLE SWITCH
 // ======================================================
 
-.custom-toggle-flip {
-  $ctf: custom-toggle-flip;
+.switch-flip {
+  $sf: switch-flip;
   $cci: custom-control-input;
   $ccind: custom-control-indicator;
 
-  display: flex !important;
+  display: flex;
   align-items: center;
   padding-left: 0;
 
   .#{$ccind} {
     position: relative;
-    width: $custom-toggle-switch-flip-width;
-    height: $custom-toggle-switch-flip-height;
+    width: $switch-flip-width;
+    height: $switch-flip-height;
+    font-size: $switch-pseudo-font-size;
     display: block;
     cursor: $cursor-pointer;
     user-select: none;
-    perspective: $custom-toggle-switch-flip-width + $custom-toggle-switch-flip-height;
-    margin-right: 8px;
-    color: $custom-toggle-switch-flip-off-state-color;
-    border-radius: $custom-toggle-switch-flip-border-radius;
+    perspective: $switch-flip-width + $switch-flip-height;
+    margin-right: 5px;
+    color: $switch-flip-off-state-color;
+    border-radius: $switch-flip-border-radius;
     border: $input-border-size solid transparent;
     box-sizing: border-box;
 
@@ -606,10 +688,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      //line-height: ($custom-toggle-switch-flip-height);
+      font-size: inherit;
+      //line-height: ($switch-flip-height);
       backface-visibility: hidden;
       text-align: center;
-      border-radius: $custom-toggle-switch-flip-border-radius;
+      border-radius: $switch-flip-border-radius;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -617,7 +700,7 @@
 
     &:before {
       content: attr(data-toggle-off);
-      background-color: $custom-toggle-switch-flip-off-state-bg;
+      background-color: $switch-flip-off-state-bg;
     }
 
     &:after {
@@ -682,16 +765,16 @@
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $value in $colors {
-      &.#{$ctf}-#{$scheme} {
-        @include custom-toggle-switch-flip($scheme);
+      &.#{$sf}-#{$scheme} {
+        @include switch-flip($scheme);
       }
     }
   }
 
   // Contextual variations
   @each $scheme, $value in $contextual-palette-map {
-    &.#{$ctf}-#{$scheme} {
-      @include custom-toggle-switch-flip($scheme);
+    &.#{$sf}-#{$scheme} {
+      @include switch-flip($scheme);
     }
   }
 

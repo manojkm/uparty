@@ -11,278 +11,271 @@ categories: Advanced Form Elements
             {{#card}}
                 {{{card_header 'Toggle switch'}}}
                 {{#card_body}}
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            {{{card_title 'All states'}}}
-                            <!-- Toggle switch states -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Pizza <span class="small text-muted">(Normal state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Pasta  <span class="small text-muted">(Checked state)</span></span>
-                                </label>
-                            </fieldset>
+                    <p>Each switch is wrapped in a <code>&lt;label&gt;</code> for three reasons:</p>
+                    <ul>
+                        <li>It provides a larger hit areas for checking the control.</li>
+                        <li>It provides a helpful and semantic wrapper to help us replace the default <code>&lt;input&gt;</code>s.</li>
+                        <li>It triggers the state of the <code>&lt;input&gt;</code> automatically, meaning no JavaScript is required.</li>
+                    </ul>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Themes'}}}
 
-                            <form class="was-validated">
-                                <fieldset>
-                                    <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
-                                        <input class="custom-control-input" required type="checkbox">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Pasta  <span class="small text-muted">(Invalid state)</span></span>
-                                    </label>
-                                </fieldset>
-                            </form>
+                        <p>Use the <code>.switch</code> class together with a contextual class <code>switch-*</code> to change the color of a switch.</p>
 
+                        <!-- Toggle switch themes -->
+                        <label class="custom-control switch switch-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Primary</span>
+                        </label>
 
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Burgers <span class="small text-muted">(Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Tacos <span class="small text-muted">(Checked + Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <!-- /Toggle switch states -->
-                        </div>
-                        <div class="form-group col-md-4">
-                            {{{card_title 'Color variations'}}}
-                            <!-- Toggle switch color variations -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Primary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-secondary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Secondary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-success">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Success</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-danger">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Danger</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-warning">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Warning</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-info">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Info</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-light">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Light</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-dark">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Dark</span>
-                                </label>
-                            </fieldset>
-                            <!-- /Toggle switch color variations -->
-                        </div>
+                        <label class="custom-control switch switch-secondary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Secondary</span>
+                        </label>
 
-                        <div class="form-group col-md-4">
-                            {{{card_title 'Radio'}}}
-                            <!-- Toggle switch - Radio -->
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
-                                <input class="custom-control-input" checked="" type="radio" name="toggle-switch-radio">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Option 1</span>
-                            </label>
+                        <label class="custom-control switch switch-success custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Success</span>
+                        </label>
 
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
-                                <input class="custom-control-input" type="radio" name="toggle-switch-radio">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Option 2</span>
-                            </label>
+                        <label class="custom-control switch switch-danger custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Danger</span>
+                        </label>
 
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary">
-                                <input class="custom-control-input" type="radio" name="toggle-switch-radio">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Option 3</span>
-                            </label>
-                            <!-- /Toggle switch - Radio -->
-                        </div>
+                        <label class="custom-control switch switch-warning custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Warning</span>
+                        </label>
 
+                        <label class="custom-control switch switch-info custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Info</span>
+                        </label>
 
+                        <label class="custom-control switch switch-light custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Light</span>
+                        </label>
+
+                        <label class="custom-control switch switch-dark custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Dark</span>
+                        </label>
+                        <!-- /Toggle switch themes -->
                     </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'All states'}}}
+                        <!-- Toggle switch states -->
+                        <label class="custom-control switch switch-primary custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Normal state</span>
+                        </label>
+
+                        <label class="custom-control switch switch-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Checked state</span>
+                        </label>
+
+                        <form class="was-validated custom-control-inline">
+                            <label class="custom-control switch switch-primary">
+                                <input class="custom-control-input" required type="checkbox">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Invalid state</span>
+                            </label>
+                        </form>
+
+                        <label class="custom-control switch switch-primary custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox" disabled>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Disabled state</span>
+                        </label>
+
+                        <label class="custom-control switch switch-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox" disabled>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Checked + Disabled state</span>
+                        </label>
+
+                        <!-- /Toggle switch states -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Radios'}}}
+                        <!-- Toggle switch - Radios -->
+                        <label class="custom-control switch switch-primary custom-control-inline">
+                            <input class="custom-control-input" checked="" type="radio" name="toggle-switch-radio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Option 1</span>
+                        </label>
+
+                        <label class="custom-control switch switch-primary custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-switch-radio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Option 2</span>
+                        </label>
+
+                        <label class="custom-control switch switch-primary custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-switch-radio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Option 3</span>
+                        </label>
+                        <!-- /Toggle switch - Radios -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Sizing'}}}
+                        <p>Toggle switch can have different sizes. Add <code>.switch-sm</code> or <code>.switch-lg</code> to  <code>.switch</code> class for additional sizes. For default size, toggle switch markup doesn't require any additional sizing class.
+                        </p>
+
+                        <!-- Toggle switch - Small size -->
+                        <label class="custom-control switch switch-sm switch-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Small size</span>
+                        </label>
+                        <!-- /Toggle switch - Small size -->
+
+                        <!-- Toggle switch - Default size -->
+                        <label class="custom-control switch switch-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Default size</span>
+                        </label>
+                        <!-- /Toggle switch - Default size -->
+
+                        <!-- Toggle switch - Large size -->
+                        <label class="custom-control switch switch-lg switch-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Large size</span>
+                        </label>
+                        <!-- /Toggle switch - Large size -->
+                    </div>
+
                 {{/card_body}}
             {{/card}}
 
             {{#card}}
                 {{{card_header 'Toggle switch with label'}}}
                 {{#card_body}}
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            {{{card_title 'All states'}}}
-                            <!-- Toggle switch states -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary has-label">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Pizza <span class="small text-muted">(Normal state)</span></span>
-                                </label>
-                            </fieldset>
+                    <div class="form-group">
+                        <p>Add <code>.has-label</code> to <code>.switch</code> and toggle the text via multiple data attributes by adding (<code>data-toggle-on="Live mode" data-toggle-off="Test mode"</code>)
+                            to <code>custom-control-indicator</code>.</p>
+                        {{{card_title 'Themes'}}}
+                        <!-- Toggle switch themes -->
+                        <label class="custom-control switch switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Primary</span>
+                        </label>
 
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Pasta  <span class="small text-muted">(Checked state)</span></span>
-                                </label>
-                            </fieldset>
+                        <label class="custom-control switch switch-secondary custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Secondary</span>
+                        </label>
+                        <label class="custom-control switch switch-success custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Success</span>
+                        </label>
+                        <label class="custom-control switch switch-danger custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Danger</span>
+                        </label>
+                        <label class="custom-control switch switch-warning custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Warning</span>
+                        </label>
+                        <label class="custom-control switch switch-info custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Info</span>
+                        </label>
+                        <label class="custom-control switch switch-light custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Light</span>
+                        </label>
+                        <label class="custom-control switch switch-dark custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Dark</span>
+                        </label>
+                        <!-- /Toggle switch themes -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'All states'}}}
+                        <!-- Toggle switch states -->
+                        <label class="custom-control switch switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" required="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description"><span class="small text-muted">(Normal state)</span></span>
+                        </label>
+                        <label class="custom-control switch switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description"><span class="small text-muted">(Checked state)</span></span>
+                        </label>
 
-                            <form class="was-validated">
-                                <fieldset>
-                                    <label class="custom-control custom-toggle-switch custom-toggle-switch-primary has-label">
-                                        <input class="custom-control-input" required type="checkbox">
-                                        <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                        <span class="custom-control-description">Pasta  <span class="small text-muted">(Invalid state)</span></span>
-                                    </label>
-                                </fieldset>
-                            </form>
-
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary has-label">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Burgers <span class="small text-muted">(Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Tacos <span class="small text-muted">(Checked + Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <!-- /Toggle switch states -->
-                        </div>
-                        <div class="form-group col-md-4">
-                            {{{card_title 'Color variations'}}}
-                            <!-- Toggle switch color variations -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Primary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-secondary has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Secondary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-success has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Success</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-danger has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Danger</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-warning has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Warning</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-info has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Info</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-light has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Light</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-dark has-label">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                    <span class="custom-control-description">Dark</span>
-                                </label>
-                            </fieldset>
-                            <!-- /Toggle switch color variations -->
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            {{{card_title 'Radio'}}}
-                            <!-- Toggle switch - Radio -->
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary has-label">
-                                <input class="custom-control-input" checked="" type="radio" name="toggle-switch-radio">
+                        <form class="was-validated  custom-control-inline">
+                            <label class="custom-control switch switch-primary has-label">
+                                <input class="custom-control-input" required type="checkbox">
                                 <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                <span class="custom-control-description">Option 1</span>
+                                <span class="custom-control-description"><span class="small text-muted">(Invalid state)</span></span>
                             </label>
+                        </form>
 
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary has-label">
-                                <input class="custom-control-input" type="radio" name="toggle-switch-radio">
-                                <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                <span class="custom-control-description">Option 2</span>
-                            </label>
+                        <label class="custom-control switch switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" required="" type="checkbox" disabled>
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description"><span class="small text-muted">(Disabled state)</span></span>
+                        </label>
+                        <label class="custom-control switch switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox" disabled>
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description"><span class="small text-muted">(Checked + Disabled state)</span></span>
+                        </label>
+                        <!-- /Toggle switch states -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Radios'}}}
+                        <!-- Toggle switch - Radios -->
+                        <label class="custom-control switch switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" checked="" type="radio" name="toggle-switch-label-radio">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Option 1</span>
+                        </label>
 
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary has-label">
-                                <input class="custom-control-input" type="radio" name="toggle-switch-radio">
-                                <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
-                                <span class="custom-control-description">Option 3</span>
-                            </label>
-                            <!-- /Toggle switch - Radio -->
-                        </div>
+                        <label class="custom-control switch switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" type="radio" name="toggle-switch-label-radio">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Option 2</span>
+                        </label>
 
-
+                        <label class="custom-control switch switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" type="radio" name="toggle-switch-label-radio">
+                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Option 3</span>
+                        </label>
+                        <!-- /Toggle switch - Radios -->
                     </div>
                 {{/card_body}}
             {{/card}}
@@ -290,135 +283,134 @@ categories: Advanced Form Elements
             {{#card}}
                 {{{card_header 'Mini toggle switch'}}}
                 {{#card_body}}
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            {{{card_title 'All states'}}}
-                            <!-- Mini toggle switch states -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Cookies <span class="small text-muted">(Normal state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Pancakes  <span class="small text-muted">(Checked state)</span></span>
-                                </label>
-                            </fieldset>
+                    <p>Add <code>.mini</code> class along with <code>.switch</code> class for Mini toggle switch.</p>
+                    <div class="form-group">
+                        {{{card_title 'Themes'}}}
+                        <!-- Mini toggle switch themes -->
+                        <label class="custom-control switch switch-primary mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Primary</span>
+                        </label>
+                        <label class="custom-control switch switch-secondary mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Secondary</span>
+                        </label>
+                        <label class="custom-control switch switch-success mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Success</span>
+                        </label>
+                        <label class="custom-control switch switch-danger mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Danger</span>
+                        </label>
+                        <label class="custom-control switch switch-warning mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Warning</span>
+                        </label>
+                        <label class="custom-control switch switch-info mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Info</span>
+                        </label>
+                        <label class="custom-control switch switch-light mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Light</span>
+                        </label>
+                        <label class="custom-control switch switch-dark mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Dark</span>
+                        </label>
+                        <!-- /Mini toggle switch themes -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'All states'}}}
+                        <!-- Mini toggle switch states -->
+                        <label class="custom-control switch switch-primary mini custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Normal state</span>
+                        </label>
+                        <label class="custom-control switch switch-primary mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Checked state</span>
+                        </label>
 
-                            <form class="was-validated">
-                                <fieldset>
-                                    <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
-                                        <input class="custom-control-input" required="" type="checkbox">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Pancakes  <span class="small text-muted">(Invalid state)</span></span>
-                                    </label>
-                                </fieldset>
-                            </form>
-
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Chocolate <span class="small text-muted">(Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Milkshake <span class="small text-muted">(Checked + Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <!-- /Mini toggle switch states -->
-                        </div>
-                        <div class="form-group col-md-4">
-                            {{{card_title 'Color variations'}}}
-                            <!-- Mini toggle switch color variations -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Primary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-secondary mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Secondary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-success mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Success</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-danger mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Danger</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-warning mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Warning</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-info mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Info</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-light mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Light</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-dark mini">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Dark</span>
-                                </label>
-                            </fieldset>
-                            <!-- /Mini toggle switch color variations -->
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <!-- Mini toggle switch - Radio -->
-                            {{{card_title 'Radio'}}}
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
-                                <input class="custom-control-input" checked type="radio" name="toggle-switch-mini-radio">
+                        <form class="was-validated custom-control-inline">
+                            <label class="custom-control switch switch-primary mini">
+                                <input class="custom-control-input" required="" type="checkbox">
                                 <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Option 1</span>
+                                <span class="custom-control-description">Invalid state</span>
                             </label>
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
-                                <input class="custom-control-input" type="radio" name="toggle-switch-mini-radio">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Option 2</span>
-                            </label>
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary mini">
-                                <input class="custom-control-input" type="radio" name="toggle-switch-mini-radio">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Option 3</span>
-                            </label>
-                            <!-- /Mini toggle switch - Radio -->
-                        </div>
+                        </form>
+                        <label class="custom-control switch switch-primary mini custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox" disabled>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Disabled state</span>
+                        </label>
+                        <label class="custom-control switch switch-primary mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox" disabled>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Checked + Disabled state</span>
+                        </label>
+                        <!-- /Mini toggle switch states -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <!-- Mini toggle switch - Radios -->
+                        {{{card_title 'Radios'}}}
+                        <label class="custom-control switch switch-primary mini custom-control-inline">
+                            <input class="custom-control-input" checked type="radio" name="toggle-switch-mini-radio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Option 1</span>
+                        </label>
+                        <label class="custom-control switch switch-primary mini custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-switch-mini-radio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Option 2</span>
+                        </label>
+                        <label class="custom-control switch switch-primary mini custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-switch-mini-radio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Option 3</span>
+                        </label>
+                        <!-- /Mini toggle switch - Radios -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Sizing'}}}
 
+                        <!-- Mini toggle switch - Small size -->
+                        <label class="custom-control switch switch-primary switch-sm mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Small size</span>
+                        </label>
+                        <!-- /Mini toggle switch - Small size -->
 
+                        <!-- Mini toggle switch - Default size -->
+                        <label class="custom-control switch switch-primary mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Default size</span>
+                        </label>
+                        <!-- /Mini toggle switch - Default size -->
+
+                        <!-- Mini toggle switch - Large size -->
+                        <label class="custom-control switch switch-primary switch-lg mini custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Large size</span>
+                        </label>
+                        <!-- /Mini toggle switch - Large size -->
                     </div>
                 {{/card_body}}
             {{/card}}
@@ -426,132 +418,134 @@ categories: Advanced Form Elements
             {{#card}}
                 {{{card_header 'Square toggle switch'}}}
                 {{#card_body}}
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            {{{card_title 'All states'}}}
-                            <!-- Square toggle switch states -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary square">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Cookies <span class="small text-muted">(Normal state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Pancakes  <span class="small text-muted">(Checked state)</span></span>
-                                </label>
-                            </fieldset>
+                    <p>Add <code>.square</code> class along with <code>.switch</code> class for Square toggle switch.</p>
+                    <div class="form-group">
+                        {{{card_title 'Themes'}}}
+                        <!-- Square toggle switch themes -->
+                        <label class="custom-control switch switch-primary square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Primary</span>
+                        </label>
+                        <label class="custom-control switch switch-secondary square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Secondary</span>
+                        </label>
+                        <label class="custom-control switch switch-success square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Success</span>
+                        </label>
+                        <label class="custom-control switch switch-danger square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Danger</span>
+                        </label>
+                        <label class="custom-control switch switch-warning square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Warning</span>
+                        </label>
+                        <label class="custom-control switch switch-info square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Info</span>
+                        </label>
+                        <label class="custom-control switch switch-light square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Light</span>
+                        </label>
+                        <label class="custom-control switch switch-dark square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Dark</span>
+                        </label>
+                        <!-- /Square toggle switch themes -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'All states'}}}
+                        <!-- Square toggle switch states -->
+                        <label class="custom-control switch switch-primary square custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Normal state</span>
+                        </label>
+                        <label class="custom-control switch switch-primary square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Checked state</span>
+                        </label>
 
-                            <form class="was-validated">
-                                <fieldset>
-                                    <label class="custom-control custom-toggle-switch custom-toggle-switch-primary square">
-                                        <input class="custom-control-input" required="" type="checkbox">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Pancakes  <span class="small text-muted">(Invalid state)</span></span>
-                                    </label>
-                                </fieldset>
-                            </form>
+                        <form class="was-validated custom-control-inline">
+                            <label class="custom-control switch switch-primary square">
+                                <input class="custom-control-input" required="" type="checkbox">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Invalid state</span>
+                            </label>
+                        </form>
+                        <label class="custom-control switch switch-primary square custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox" disabled>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Disabled state</span>
+                        </label>
+                        <label class="custom-control switch switch-primary square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox" disabled>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Checked + Disabled state</span>
+                        </label>
+                        <!-- /Square toggle switch states -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Radios'}}}
+                        <!-- Square toggle switch - Radios -->
+                        <label class="custom-control switch switch-primary square custom-control-inline">
+                            <input class="custom-control-input" checked type="radio" name="toggle-switch-square-radio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Option 1</span>
+                        </label>
+                        <label class="custom-control switch switch-primary square custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-switch-square-radio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Option 2</span>
+                        </label>
+                        <label class="custom-control switch switch-primary square custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-switch-square-radio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Option 3</span>
+                        </label>
+                        <!-- /Square toggle switch - Radios -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Sizing'}}}
 
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary square">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Chocolate <span class="small text-muted">(Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Milkshake <span class="small text-muted">(Checked + Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <!-- /Square toggle switch states -->
-                        </div>
-                        <div class="form-group col-md-4">
-                            {{{card_title 'Color variations'}}}
-                            <!-- Square toggle switch color variations -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-primary square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Primary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-secondary square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Secondary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-success square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Success</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-danger square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Danger</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-warning square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Warning</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-info square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Info</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-light square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Light</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-switch custom-toggle-switch-dark square">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Dark</span>
-                                </label>
-                            </fieldset>
-                            <!-- /Square toggle switch color variations -->
-                        </div>
-                        <div class="form-group col-md-4">
-                            {{{card_title 'Radio'}}}
-                            <!-- Square toggle switch - Radio -->
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary square">
-                                <input class="custom-control-input" checked type="radio" name="toggle-switch-square-radio">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Option 1</span>
-                            </label>
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary square">
-                                <input class="custom-control-input" type="radio" name="toggle-switch-square-radio">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Option 2</span>
-                            </label>
-                            <label class="custom-control custom-toggle-switch custom-toggle-switch-primary square">
-                                <input class="custom-control-input" type="radio" name="toggle-switch-square-radio">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Option 3</span>
-                            </label>
-                            <!-- /Square toggle switch - Radio -->
-                        </div>
+                        <!-- Square toggle switch - Small size -->
+                        <label class="custom-control switch switch-primary switch-sm square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Small size</span>
+                        </label>
+                        <!-- /Square toggle switch - Small size -->
+
+                        <!-- Square toggle switch - Default size -->
+                        <label class="custom-control switch switch-primary square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Default size</span>
+                        </label>
+                        <!-- /Square toggle switch - Default size -->
+
+                        <!-- Square toggle switch - Large size -->
+                        <label class="custom-control switch switch-primary switch-lg square custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Large size</span>
+                        </label>
+                        <!-- /Square toggle switch - Large size -->
 
                     </div>
                 {{/card_body}}
@@ -560,151 +554,131 @@ categories: Advanced Form Elements
             {{#card}}
                 {{{card_header 'Flipped toggle switch'}}}
                 {{#card_body}}
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            {{{card_title 'All states'}}}
-                            <!-- Flipped toggle switch states -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-primary">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Rockets <span
-                                            class="small text-muted text-muted">(Normal state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-primary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Lasers <span class="small text-muted">(Checked state)</span></span>
-                                </label>
-                            </fieldset>
+                    <p>Add <code>.switch-flip</code> to <code>.custom-control</code> and toggle the text via multiple data attributes by adding (<code>data-toggle-on="ON" data-toggle-off="OFF"</code>)
+                        to <code>custom-control-indicator</code>. Use contextual class <code>switch-flip-*</code> to change the color of a switch.</p>
+                    <div class="form-group">
+                        {{{card_title 'Themes'}}}
+                        <!-- Flipped toggle switch themes -->
+                        <label class="custom-control switch-flip switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Primary</span>
+                        </label>
 
-                            <form class="was-validated">
-                                <fieldset>
-                                    <label class="custom-control custom-toggle-flip custom-toggle-flip-primary">
-                                        <input class="custom-control-input" required="" type="checkbox">
-                                        <span class="custom-control-indicator" data-toggle-on="ON"
-                                              data-toggle-off="OFF"></span>
-                                        <span class="custom-control-description">Lasers <span class="small text-muted">(Invalid state)</span></span>
-                                    </label>
-                                </fieldset>
-                            </form>
+                        <label class="custom-control switch-flip switch-flip-secondary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Secondary</span>
+                        </label>
 
+                        <label class="custom-control switch-flip switch-flip-success custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Success</span>
+                        </label>
 
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-primary">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">HAL 9K <span class="small text-muted">(Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-primary ">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Ultron <span class="small text-muted">(Checked + Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <!-- /Flipped toggle switch states -->
-                        </div>
-                        <div class="form-group col-md-4">
-                            {{{card_title 'Color variations'}}}
-                            <!-- Flipped toggle switch color variations -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-primary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Primary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-secondary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Secondary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-success">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Success</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-danger">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Danger</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-warning">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Warning</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-info">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Info</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-light">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Light</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip custom-toggle-flip-dark">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="ON"
-                                          data-toggle-off="OFF"></span>
-                                    <span class="custom-control-description">Dark</span>
-                                </label>
-                            </fieldset>
-                            <!-- /Flipped toggle switch color variations -->
-                        </div>
+                        <label class="custom-control switch-flip switch-flip-danger custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Danger</span>
+                        </label>
 
-                        <div class="form-group col-md-4">
-                            {{{card_title 'Radio'}}}
-                            <!-- Flipped toggle switch - Radio -->
-                            <label class="custom-control custom-toggle-flip custom-toggle-flip-primary">
-                                <input class="custom-control-input" checked type="radio" name="toggle-flip-radio">
+                        <label class="custom-control switch-flip switch-flip-warning custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Warning</span>
+                        </label>
+
+                        <label class="custom-control switch-flip switch-flip-info custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Info</span>
+                        </label>
+
+                        <label class="custom-control switch-flip switch-flip-light custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Light</span>
+                        </label>
+
+                        <label class="custom-control switch-flip switch-flip-dark custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Dark</span>
+                        </label>
+                        <!-- /Flipped toggle switch themes -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'All states'}}}
+                        <!-- Flipped toggle switch states -->
+                        <label class="custom-control switch-flip switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Normal state</span>
+                        </label>
+                        <label class="custom-control switch-flip switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Checked state</span>
+                        </label>
+
+                        <form class="was-validated custom-control-inline">
+                            <label class="custom-control switch-flip switch-flip-primary">
+                                <input class="custom-control-input" required="" type="checkbox">
                                 <span class="custom-control-indicator" data-toggle-on="ON"
                                       data-toggle-off="OFF"></span>
-                                <span class="custom-control-description">Option 1</span>
+                                <span class="custom-control-description">Invalid state</span>
                             </label>
-                            <label class="custom-control custom-toggle-flip custom-toggle-flip-primary">
-                                <input class="custom-control-input" type="radio" name="toggle-flip-radio">
-                                <span class="custom-control-indicator" data-toggle-on="ON"
-                                      data-toggle-off="OFF"></span>
-                                <span class="custom-control-description">Option 2</span>
-                            </label>
-                            <label class="custom-control custom-toggle-flip custom-toggle-flip-primary">
-                                <input class="custom-control-input" type="radio" name="toggle-flip-radio">
-                                <span class="custom-control-indicator" data-toggle-on="ON"
-                                      data-toggle-off="OFF"></span>
-                                <span class="custom-control-description">Option 3</span>
-                            </label>
-                            <!-- Flipped toggle switch - Radio -->
-                        </div>
+                        </form>
+
+                        <label class="custom-control switch-flip switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox" disabled>
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Disabled state</span>
+                        </label>
+                        <label class="custom-control switch-flip switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox" disabled>
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Checked + Disabled state</span>
+                        </label>
+                        <!-- /Flipped toggle switch states -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Radios'}}}
+                        <!-- Flipped toggle switch - Radios -->
+                        <label class="custom-control switch-flip switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" checked type="radio" name="toggle-flip-radio">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Option 1</span>
+                        </label>
+                        <label class="custom-control switch-flip switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-flip-radio">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Option 2</span>
+                        </label>
+                        <label class="custom-control switch-flip switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-flip-radio">
+                            <span class="custom-control-indicator" data-toggle-on="ON"
+                                  data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Option 3</span>
+                        </label>
+                        <!-- Flipped toggle switch - Radios -->
                     </div>
                 {{/card_body}}
             {{/card}}
@@ -712,154 +686,125 @@ categories: Advanced Form Elements
             {{#card}}
                 {{{card_header 'Yes/No flipped toggle switch'}}}
                 {{#card_body}}
-
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            {{{card_title 'All states'}}}
-                            <!-- Yes/No flipped toggle switch states -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-success">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Rockets <span
-                                            class="small text-muted text-muted">(Normal state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-success">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Lasers <span class="small text-muted">(Checked state)</span></span>
-                                </label>
-                            </fieldset>
-
-                            <form class="was-validated">
-                                <fieldset>
-                                    <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-success">
-                                        <input class="custom-control-input" required="" type="checkbox">
-                                        <span class="custom-control-indicator" data-toggle-on="YES"
-                                              data-toggle-off="NO"></span>
-                                        <span class="custom-control-description">Lasers <span class="small text-muted">(Invalid state)</span></span>
-                                    </label>
-                                </fieldset>
-                            </form>
-
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-success">
-                                    <input class="custom-control-input" required="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">HAL 9K <span class="small text-muted">(Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <fieldset disabled="disabled">
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-success">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="ON"></span>
-                                    <span class="custom-control-description">Ultron <span class="small text-muted">(Checked + Disabled state)</span></span>
-                                </label>
-                            </fieldset>
-                            <!-- /Yes/No flipped toggle switch states -->
-                        </div>
-                        <div class="form-group col-md-3">
-                            {{{card_title 'Color variations'}}}
-                            <!-- Yes/No flipped toggle switch color variations -->
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-primary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on=" YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Primary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-secondary">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Secondary</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-success">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Success</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-danger">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Danger</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-warning">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Warning</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-info">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Info</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-light">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Light</span>
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-dark">
-                                    <input class="custom-control-input" required="" checked="" type="checkbox">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Dark</span>
-                                </label>
-                            </fieldset>
-                            <!-- /Yes/No flipped toggle switch color variations -->
-                        </div>
-                        <div class="form-group col-md-5">
-                            {{{card_title 'Inline radio'}}}
-                            <!-- Yes/No flipped toggle switch - Radio -->
-                            <div class="d-sm-flex align-items-center">
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-success mr-3">
-                                    <input class="custom-control-input" checked type="radio" name="toggle-flip-yes-no">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Option 1</span>
-                                </label>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-success mr-3">
-                                    <input class="custom-control-input" type="radio" name="toggle-flip-yes-no">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Option 2</span>
-                                </label>
-                                <label class="custom-control custom-toggle-flip yes-no custom-toggle-flip-success mr-3">
-                                    <input class="custom-control-input" type="radio" name="toggle-flip-yes-no">
-                                    <span class="custom-control-indicator" data-toggle-on="YES"
-                                          data-toggle-off="NO"></span>
-                                    <span class="custom-control-description">Option 3</span>
-                                </label>
-                            </div>
-                            <!-- Yes/No flipped toggle switch - Radio -->
-                        </div>
+                    <p>Add <code>.yes-no</code> class along with <code>.switch-flip</code> class for Yes/No flipped toggle switch.</p>
+                    <div class="form-group">
+                        {{{card_title 'Themes'}}}
+                        <!-- Yes/No flipped toggle switch themes -->
+                        <label class="custom-control switch-flip yes-no switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on=" YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Primary</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-secondary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Secondary</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-success custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Success</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-danger custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Danger</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-warning custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Warning</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-info custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Info</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-light custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Light</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-dark custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Dark</span>
+                        </label>
+                        <!-- /Yes/No flipped toggle switch themes -->
                     </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'All states'}}}
+                        <!-- Yes/No flipped toggle switch states -->
+                        <label class="custom-control switch-flip yes-no switch-flip-success custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Normal state</span>
+                        </label>
 
+                        <label class="custom-control switch-flip yes-no switch-flip-success custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Checked state</span>
+                        </label>
+
+                        <form class="was-validated custom-control-inline">
+                            <label class="custom-control switch-flip yes-no switch-flip-success">
+                                <input class="custom-control-input" required="" type="checkbox">
+                                <span class="custom-control-indicator" data-toggle-on="YES"
+                                      data-toggle-off="NO"></span>
+                                <span class="custom-control-description">Invalid state</span>
+                            </label>
+                        </form>
+
+                        <label class="custom-control switch-flip yes-no switch-flip-success custom-control-inline">
+                            <input class="custom-control-input" required="" type="checkbox" disabled>
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Disabled state</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-success custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox" disabled>
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="ON"></span>
+                            <span class="custom-control-description">Checked + Disabled state</span>
+                        </label>
+                        <!-- /Yes/No flipped toggle switch states -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Radios'}}}
+                        <!-- Yes/No flipped toggle switch - Radios -->
+                        <label class="custom-control switch-flip yes-no switch-flip-success custom-control-inline">
+                            <input class="custom-control-input" checked type="radio" name="toggle-flip-yes-no">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Option 1</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-success custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-flip-yes-no">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Option 2</span>
+                        </label>
+                        <label class="custom-control switch-flip yes-no switch-flip-success custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="toggle-flip-yes-no">
+                            <span class="custom-control-indicator" data-toggle-on="YES"
+                                  data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Option 3</span>
+                        </label>
+                        <!-- Yes/No flipped toggle switch - Radios -->
+                    </div>
                 {{/card_body}}
             {{/card}}
 

@@ -792,7 +792,7 @@
 // CUSTOM TOGGLE
 // ======================================================
 
-@mixin custom-toggle-switch($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
+@mixin switch($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
 
   $cci: custom-control-input;
   $ccind: custom-control-indicator;
@@ -829,10 +829,8 @@
 // CUSTOM TOGGLE FLIP
 // ======================================================
 
-@mixin custom-toggle-switch-flip($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
+@mixin switch-flip($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
 
-  $ctf: custom-toggle-flip;
-  $cci: custom-control-input;
   $ccind: custom-control-indicator;
 
   .#{$ccind} {

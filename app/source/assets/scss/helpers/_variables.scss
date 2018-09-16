@@ -1482,42 +1482,68 @@ $spinner-icon-font-size:                $font-size-xs;
 // 8.27 TOGGLE SWITCH
 // -----------------------------------------------------------------------------
 
-$custom-toggle-switch-width:                    50px;
-$custom-toggle-switch-height:                   28px;
-$custom-toggle-switch-border:                   $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
-$custom-toggle-switch-bg:                       $white-color;
-$custom-toggle-switch-border-radius:            $border-radius-100-px; // To add rounded corners to the Switch
+$switch-border:                   $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
+$switch-bg:                       $white-color;
+$switch-border-radius:            $border-radius-100-px; // To add rounded corners to the Switch
+$switch-knob-bg:                  $input-border-color; // Background color for the Knob
+$switch-knob-border-radius:       $border-radius-100-px; // To add rounded corners to the Knob
 
-$custom-toggle-switch-knob-bg:                  $input-border-color; // Background color for the Knob
-$custom-toggle-switch-knob-border-radius:       $border-radius-100-px; // To add rounded corners to the Knob
-$custom-toggle-switch-knob-width:               $custom-toggle-switch-height - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
-$custom-toggle-switch-knob-height:              $custom-toggle-switch-knob-width; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
-$custom-toggle-switch-knob-spacing-x:           ($custom-toggle-switch-height - $custom-toggle-switch-knob-height) / 2; // Spacing required between knob and switch holder.
-$custom-toggle-switch-knob-active-width:        $custom-toggle-switch-knob-width + 5; // Pressing and holding the knob looks little expanded
+// Small size
+
+$switch-width-sm:                 40px;
+$switch-height-sm:                18px;
+$switch-font-size-sm:             $input-font-size-sm; // Font size for the description
+$switch-pseudo-font-size-sm:      $input-font-size-sm; // Font size for pseudo-element(s)
+$switch-knob-width-sm:            $switch-height-sm - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-height-sm:           $switch-knob-width-sm; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-spacing-x-sm:        ($switch-height-sm - $switch-knob-height-sm) / 2; // Spacing required between knob and switch holder.
+$switch-knob-active-width-sm:     $switch-knob-width-sm + 5; // Pressing and holding the knob looks little expanded
+
+// Regular size
+
+$switch-width:                    50px;
+$switch-height:                   28px;
+$switch-font-size:                $input-font-size; // Font size for the description
+$switch-pseudo-font-size:         $input-font-size; // Font size for pseudo-element(s)
+$switch-knob-width:               $switch-height - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-height:              $switch-knob-width; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-spacing-x:           ($switch-height - $switch-knob-height) / 2; // Spacing required between knob and switch holder.
+$switch-knob-active-width:        $switch-knob-width + 5; // Pressing and holding the knob looks little expanded
+
+// Large size
+
+$switch-width-lg:                 65px;
+$switch-height-lg:                38px;
+$switch-font-size-lg:             $input-font-size-lg; // Font size for the description
+$switch-pseudo-font-size-lg:      $input-font-size-lg; // Font size for pseudo-element(s)
+$switch-knob-width-lg:            $switch-height-lg - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-height-lg:           $switch-knob-width-lg; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-spacing-x-lg:        ($switch-height-lg - $switch-knob-height-lg) / 2; // Spacing required between knob and switch holder.
+$switch-knob-active-width-lg:     $switch-knob-width-lg + 5; // Pressing and holding the knob looks little expanded
 
 // Mini type
 
-$custom-toggle-switch-mini-height:             10px !default;
-$custom-toggle-switch-mini-bg:                 $gray-100 !default;
+$switch-mini-height:              10px !default;
+$switch-mini-bg:                  $gray-100 !default;
 
 // Square type
 
-$custom-toggle-switch-square-border-radius:            $border-radius-md; // To add rounded corners to the Switch
-$custom-toggle-switch-square-knob-border-radius:       $border-radius-md; // To add rounded corners to the Knob
+$switch-square-border-radius:            $border-radius-md; // To add rounded corners to the Switch
+$switch-square-knob-border-radius:       $border-radius-md; // To add rounded corners to the Knob
 
 // Flip type
 
-$custom-toggle-switch-flip-width:              60px;
-$custom-toggle-switch-flip-height:             30px;
-$custom-toggle-switch-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
-$custom-toggle-switch-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
-$custom-toggle-switch-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
+$switch-flip-width:              60px;
+$switch-flip-height:             $switch-height;
+$switch-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
+$switch-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
+$switch-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
 
-// With label type
+// Label type
 
-$custom-toggle-switch-label-width:              120px;
-$custom-toggle-switch-label-height:             28px;
-$custom-toggle-switch-label-spacing-x:          10px; // Spacing required between label and switch holder.
+$switch-label-width:              120px;
+$switch-label-height:             $switch-height;
+$switch-label-spacing-x:          10px; // Spacing required between label and switch holder.
 
 //
 // 8.28 TOGGLERS

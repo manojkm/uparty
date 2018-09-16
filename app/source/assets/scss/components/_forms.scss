@@ -76,7 +76,8 @@ select.form-control {
 // Set uniform font-sizes for labels and legends.
 form {
   label,
-  .col-form-legend {
+  .col-form-legend,
+  .custom-control-description{
     color: $input-label-color;
     font-size: $input-font-size;
   }
