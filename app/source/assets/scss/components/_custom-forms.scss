@@ -492,7 +492,6 @@
       background-color: $switch-knob-bg;
       border-radius: $switch-knob-border-radius;
     }
-
   }
 
   // Checked state
@@ -526,6 +525,51 @@
   // Checked + Disabled state
   .#{$cci}:disabled:checked + .#{$ccind} {
     @include opacity(0.5);
+  }
+
+  // Mini type
+  &.mini {
+    .#{$ccind} {
+      height: $switch-mini-height;
+      background-color: $switch-mini-bg !important;
+      border: $switch-border !important;
+    }
+  }
+
+  // Square type
+  &.square {
+    .#{$ccind} {
+      border-radius: $switch-square-border-radius;
+      &:after {
+        border-radius: $switch-square-knob-border-radius;
+      }
+    }
+  }
+
+  // With label type
+  &.has-label {
+    .#{$ccind} {
+      //width: $switch-label-width;
+      //height: $switch-label-height;
+      &:before {
+        @include transition;
+        content: attr(data-toggle-off);
+        position: absolute;
+        right: $switch-label-spacing-x;
+        color: $input-color;
+        white-space: nowrap;
+      }
+    }
+
+    .#{$cci}:checked + .#{$ccind},
+    .#{$cci}:checked:active + .#{$ccind} {
+      &:before {
+        @include transition;
+        content: attr(data-toggle-on);
+        right: calc(100% - #{$switch-label-spacing-x});
+        transform: translateX(100%);
+      }
+    }
   }
 
   // Small size
@@ -590,51 +634,6 @@
 
   }
 
-  // Mini type
-  &.mini {
-    .#{$ccind} {
-      height: $switch-mini-height;
-      background-color: $switch-mini-bg !important;
-      border: $switch-border !important;
-    }
-  }
-
-  // Square type
-  &.square {
-    .#{$ccind} {
-      border-radius: $switch-square-border-radius;
-      &:after {
-        border-radius: $switch-square-knob-border-radius;
-      }
-    }
-  }
-
-  // With label type
-  &.has-label {
-    .#{$ccind} {
-      width: $switch-label-width;
-      height: $switch-label-height;
-      &:before {
-        @include transition;
-        content: attr(data-toggle-off);
-        position: absolute;
-        right: $switch-label-spacing-x;
-        color: $input-color;
-        white-space: nowrap;
-      }
-    }
-
-    .#{$cci}:checked + .#{$ccind},
-    .#{$cci}:checked:active + .#{$ccind} {
-      &:before {
-        @include transition;
-        content: attr(data-toggle-on);
-        right: calc(100% - #{$switch-label-spacing-x});
-        transform: translateX(100%);
-      }
-    }
-  }
-
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
@@ -678,6 +677,7 @@
     margin-right: 5px;
     color: $switch-flip-off-state-color;
     border-radius: $switch-flip-border-radius;
+    //border: $switch-border;
     border: $input-border-size solid transparent;
     box-sizing: border-box;
 
@@ -706,6 +706,23 @@
     &:after {
       content: attr(data-toggle-on);
       transform: rotateY(-180deg);
+    }
+  }
+  // Small size
+  &-sm {
+    .#{$ccind} {
+      width: $switch-width-sm;
+      height: $switch-height-sm;
+      font-size: $switch-pseudo-font-size-sm;
+    }
+  }
+
+  // Large size
+  &-lg {
+    .#{$ccind} {
+      width: $switch-width-lg;
+      height: $switch-height-lg;
+      font-size: $switch-pseudo-font-size-lg;
     }
   }
 

@@ -10,7 +10,7 @@ categories: Advanced Form Elements
         <div class="col-xl-10 offset-xl-1">
             {{#card}}
                 {{{card_header 'Toggle switch'}}}
-                {{#card_body}}
+                {{#card_body                                                                                                                                                                                                        }}
                     <p>Each switch is wrapped in a <code>&lt;label&gt;</code> for three reasons:</p>
                     <ul>
                         <li>It provides a larger hit areas for checking the control.</li>
@@ -137,7 +137,8 @@ categories: Advanced Form Elements
                     <hr>
                     <div class="form-group">
                         {{{card_title 'Sizing'}}}
-                        <p>Toggle switch can have different sizes. Add <code>.switch-sm</code> or <code>.switch-lg</code> to  <code>.switch</code> class for additional sizes. For default size, toggle switch markup doesn't require any additional sizing class.
+                        <p>Toggle switch can have different sizes. Add <code>.switch-sm</code> or <code>.switch-lg</code> to <code>.switch</code> class for additional sizes. For default size, toggle switch markup doesn't
+                            require any additional sizing class.
                         </p>
 
                         <!-- Toggle switch - Small size -->
@@ -175,108 +176,138 @@ categories: Advanced Form Elements
                         <p>Add <code>.has-label</code> to <code>.switch</code> and toggle the text via multiple data attributes by adding (<code>data-toggle-on="Live mode" data-toggle-off="Test mode"</code>)
                             to <code>custom-control-indicator</code>.</p>
                         {{{card_title 'Themes'}}}
-                        <!-- Toggle switch themes -->
+                        <!-- Toggle switch with label themes -->
                         <label class="custom-control switch switch-primary custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Primary</span>
                         </label>
 
                         <label class="custom-control switch switch-secondary custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Secondary</span>
                         </label>
                         <label class="custom-control switch switch-success custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Success</span>
                         </label>
                         <label class="custom-control switch switch-danger custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Danger</span>
                         </label>
                         <label class="custom-control switch switch-warning custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Warning</span>
                         </label>
                         <label class="custom-control switch switch-info custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Info</span>
                         </label>
                         <label class="custom-control switch switch-light custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Light</span>
                         </label>
                         <label class="custom-control switch switch-dark custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Dark</span>
                         </label>
-                        <!-- /Toggle switch themes -->
+                        <!-- /Toggle switch with label themes -->
                     </div>
                     <hr>
                     <div class="form-group">
                         {{{card_title 'All states'}}}
-                        <!-- Toggle switch states -->
+                        <!-- Toggle switch with label states -->
                         <label class="custom-control switch switch-primary custom-control-inline has-label">
                             <input class="custom-control-input" required="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description"><span class="small text-muted">(Normal state)</span></span>
                         </label>
                         <label class="custom-control switch switch-primary custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description"><span class="small text-muted">(Checked state)</span></span>
                         </label>
 
                         <form class="was-validated  custom-control-inline">
                             <label class="custom-control switch switch-primary has-label">
                                 <input class="custom-control-input" required type="checkbox">
-                                <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                                <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                                 <span class="custom-control-description"><span class="small text-muted">(Invalid state)</span></span>
                             </label>
                         </form>
 
                         <label class="custom-control switch switch-primary custom-control-inline has-label">
                             <input class="custom-control-input" required="" type="checkbox" disabled>
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description"><span class="small text-muted">(Disabled state)</span></span>
                         </label>
                         <label class="custom-control switch switch-primary custom-control-inline has-label">
                             <input class="custom-control-input" required="" checked="" type="checkbox" disabled>
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description"><span class="small text-muted">(Checked + Disabled state)</span></span>
                         </label>
-                        <!-- /Toggle switch states -->
+                        <!-- /Toggle switch with label states -->
                     </div>
                     <hr>
                     <div class="form-group">
                         {{{card_title 'Radios'}}}
-                        <!-- Toggle switch - Radios -->
+                        <!-- Toggle switch with label - Radios -->
                         <label class="custom-control switch switch-primary custom-control-inline has-label">
                             <input class="custom-control-input" checked="" type="radio" name="toggle-switch-label-radio">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Option 1</span>
                         </label>
 
                         <label class="custom-control switch switch-primary custom-control-inline has-label">
                             <input class="custom-control-input" type="radio" name="toggle-switch-label-radio">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Option 2</span>
                         </label>
 
                         <label class="custom-control switch switch-primary custom-control-inline has-label">
                             <input class="custom-control-input" type="radio" name="toggle-switch-label-radio">
-                            <span class="custom-control-indicator" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
                             <span class="custom-control-description">Option 3</span>
                         </label>
-                        <!-- /Toggle switch - Radios -->
+                        <!-- /Toggle switch with label - Radios -->
                     </div>
+
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'SIzing'}}}
+                        <p>Use the CSS width property to set the width of the switch</p>
+                        <!-- Toggle switch with label - Small size -->
+                        <label class="custom-control switch switch-sm switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" style="width: 100px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Small size</span>
+                        </label>
+                        <!-- /Toggle switch with label - Small size -->
+
+                        <!-- Toggle switch with label - Default size -->
+                        <label class="custom-control switch switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" style="width: 120px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Default size</span>
+                        </label>
+                        <!-- /Toggle switch with label - Default size -->
+
+                        <!-- Toggle switch with label - Large size -->
+                        <label class="custom-control switch switch-lg switch-primary custom-control-inline has-label">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" style="width: 140px" data-toggle-on="Live mode" data-toggle-off="Test mode"></span>
+                            <span class="custom-control-description">Large size</span>
+                        </label>
+                        <!-- /Toggle switch with label - Large size -->
+                    </div>
+
                 {{/card_body}}
             {{/card}}
 
@@ -680,6 +711,32 @@ categories: Advanced Form Elements
                         </label>
                         <!-- Flipped toggle switch - Radios -->
                     </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Sizing'}}}
+                        <!-- Flipped toggle switch - Small size -->
+                        <label class="custom-control switch-flip switch-flip-sm switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON" data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Small size</span>
+                        </label>
+                        <!-- Flipped toggle switch - Small size -->
+                        <!-- Flipped toggle switch - Default size -->
+                        <label class="custom-control switch-flip switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON" data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Default size</span>
+                        </label>
+                        <!-- Flipped toggle switch - Default size -->
+                        <!-- Flipped toggle switch - Large size -->
+                        <label class="custom-control switch-flip switch-flip-lg switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on="ON" data-toggle-off="OFF"></span>
+                            <span class="custom-control-description">Large size</span>
+                        </label>
+                        <!-- Flipped toggle switch - Large size -->
+                    </div>
+
                 {{/card_body}}
             {{/card}}
 
@@ -804,6 +861,31 @@ categories: Advanced Form Elements
                             <span class="custom-control-description">Option 3</span>
                         </label>
                         <!-- Yes/No flipped toggle switch - Radios -->
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{{card_title 'Sizing'}}}
+                        <!-- Yes/No flipped toggle switch - Small size -->
+                        <label class="custom-control switch-flip switch-flip-sm yes-no switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on=" YES" data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Small size</span>
+                        </label>
+                        <!-- Yes/No flipped toggle switch - Small size -->
+                        <!-- Yes/No flipped toggle switch - Default size -->
+                        <label class="custom-control switch-flip yes-no switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on=" YES" data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Default size</span>
+                        </label>
+                        <!-- Yes/No flipped toggle switch - Default size -->
+                        <!-- Yes/No flipped toggle switch - Large size -->
+                        <label class="custom-control switch-flip switch-flip-lg yes-no switch-flip-primary custom-control-inline">
+                            <input class="custom-control-input" required="" checked="" type="checkbox">
+                            <span class="custom-control-indicator" data-toggle-on=" YES" data-toggle-off="NO"></span>
+                            <span class="custom-control-description">Large size</span>
+                        </label>
+                        <!-- Yes/No flipped toggle switch - Large size -->
                     </div>
                 {{/card_body}}
             {{/card}}

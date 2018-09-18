@@ -1482,8 +1482,8 @@ $spinner-icon-font-size:                $font-size-xs;
 // 8.27 TOGGLE SWITCH
 // -----------------------------------------------------------------------------
 
-$switch-border:                   $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
 $switch-bg:                       $white-color;
+$switch-border:                   $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
 $switch-border-radius:            $border-radius-100-px; // To add rounded corners to the Switch
 $switch-knob-bg:                  $input-border-color; // Background color for the Knob
 $switch-knob-border-radius:       $border-radius-100-px; // To add rounded corners to the Knob
@@ -1533,7 +1533,7 @@ $switch-square-knob-border-radius:       $border-radius-md; // To add rounded co
 
 // Flip type
 
-$switch-flip-width:              60px;
+$switch-flip-width:              $switch-width;
 $switch-flip-height:             $switch-height;
 $switch-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
 $switch-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
@@ -1541,8 +1541,8 @@ $switch-flip-off-state-bg:       $gray-400 !default; // Background color for swi
 
 // Label type
 
-$switch-label-width:              120px;
-$switch-label-height:             $switch-height;
+//$switch-label-width:              120px;
+//$switch-label-height:             $switch-height;
 $switch-label-spacing-x:          10px; // Spacing required between label and switch holder.
 
 //
