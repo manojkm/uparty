@@ -10,7 +10,7 @@ categories: Advanced Form Elements
         <div class="col-xl-10 offset-xl-1">
             {{#card}}
                 {{{card_header 'Toggle switch'}}}
-                {{#card_body                                                                                                                                                                                                        }}
+                {{#card_body_has 'example'''}}
                     <p>Each switch is wrapped in a <code>&lt;label&gt;</code> for three reasons:</p>
                     <ul>
                         <li>It provides a larger hit areas for checking the control.</li>
@@ -166,12 +166,12 @@ categories: Advanced Form Elements
                         <!-- /Toggle switch - Large size -->
                     </div>
 
-                {{/card_body}}
+                {{/card_body_has}}
             {{/card}}
 
             {{#card}}
                 {{{card_header 'Toggle switch with label'}}}
-                {{#card_body}}
+                {{#card_body_has 'example'''}}
                     <div class="form-group">
                         <p>Add <code>.has-label</code> to <code>.switch</code> and toggle the text via multiple data attributes by adding (<code>data-toggle-on="Live mode" data-toggle-off="Test mode"</code>)
                             to <code>custom-control-indicator</code>.</p>
@@ -278,7 +278,6 @@ categories: Advanced Form Elements
                         </label>
                         <!-- /Toggle switch with label - Radios -->
                     </div>
-
                     <hr>
                     <div class="form-group">
                         {{{card_title 'SIzing'}}}
@@ -307,13 +306,12 @@ categories: Advanced Form Elements
                         </label>
                         <!-- /Toggle switch with label - Large size -->
                     </div>
-
-                {{/card_body}}
+                {{/card_body_has}}
             {{/card}}
 
             {{#card}}
                 {{{card_header 'Mini toggle switch'}}}
-                {{#card_body}}
+                {{#card_body_has 'example'''}}
                     <p>Add <code>.mini</code> class along with <code>.switch</code> class for Mini toggle switch.</p>
                     <div class="form-group">
                         {{{card_title 'Themes'}}}
@@ -443,12 +441,12 @@ categories: Advanced Form Elements
                         </label>
                         <!-- /Mini toggle switch - Large size -->
                     </div>
-                {{/card_body}}
+                {{/card_body_has}}
             {{/card}}
 
             {{#card}}
                 {{{card_header 'Square toggle switch'}}}
-                {{#card_body}}
+                {{#card_body_has 'example'''}}
                     <p>Add <code>.square</code> class along with <code>.switch</code> class for Square toggle switch.</p>
                     <div class="form-group">
                         {{{card_title 'Themes'}}}
@@ -579,12 +577,12 @@ categories: Advanced Form Elements
                         <!-- /Square toggle switch - Large size -->
 
                     </div>
-                {{/card_body}}
+                {{/card_body_has}}
             {{/card}}
 
             {{#card}}
                 {{{card_header 'Flipped toggle switch'}}}
-                {{#card_body}}
+                {{#card_body_has 'example'''}}
                     <p>Add <code>.switch-flip</code> to <code>.custom-control</code> and toggle the text via multiple data attributes by adding (<code>data-toggle-on="ON" data-toggle-off="OFF"</code>)
                         to <code>custom-control-indicator</code>. Use contextual class <code>switch-flip-*</code> to change the color of a switch.</p>
                     <div class="form-group">
@@ -736,13 +734,12 @@ categories: Advanced Form Elements
                         </label>
                         <!-- Flipped toggle switch - Large size -->
                     </div>
-
-                {{/card_body}}
+                {{/card_body_has}}
             {{/card}}
 
             {{#card}}
                 {{{card_header 'Yes/No flipped toggle switch'}}}
-                {{#card_body}}
+                {{#card_body_has 'example'''}}
                     <p>Add <code>.yes-no</code> class along with <code>.switch-flip</code> class for Yes/No flipped toggle switch.</p>
                     <div class="form-group">
                         {{{card_title 'Themes'}}}
@@ -887,7 +884,7 @@ categories: Advanced Form Elements
                         </label>
                         <!-- Yes/No flipped toggle switch - Large size -->
                     </div>
-                {{/card_body}}
+                {{/card_body_has}}
             {{/card}}
 
         </div>
