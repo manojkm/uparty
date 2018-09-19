@@ -10,16 +10,23 @@
 
 $(document).ready(function () {
     'use strict';
+
+    // Add ZIP Code validator
     jQuery.validator.addMethod("zipcodeUS", function (value, element) {
         return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$/.test(value)
     }, "The specified US ZIP Code is invalid");
 
+    // Add phone validator
+    jQuery.validator.addMethod("phone_format", function (value, element) {
+        return this.optional(element) || /^\(\d{3}\)[ ]\d{3}\-\d{4}$/.test(value);
+    }, "Invalid phone number.");
+
+    // Add checkBox validator
     jQuery.validator.addMethod('onecheck', function (value, ele) {
         return $("input:checked").length >= 1;
-    }, 'Please Select Atleast One CheckBox')
+    }, 'Please Select Atleast One CheckBox');
 
-
-    //Advanced validation
+    // Initialize advanced validation
     $("#signupForm").validate({
 
         validClass: 'is-valid',
@@ -58,6 +65,10 @@ $(document).ready(function () {
             email: {
                 email: true
             },
+            phone: {
+                required: true,
+                phone_format: true
+            },
             zip: {
                 zipcodeUS: true
             },
@@ -85,6 +96,9 @@ $(document).ready(function () {
             zip: {
                 required: "Please enter your zip code!"
             },
+            phone: {
+                required: "Please enter your phone number"
+            },
             city: "Please enter your city",
             role: "You must select at least one!",
             state: "Please select your state",
@@ -97,7 +111,7 @@ $(document).ready(function () {
         }
     });
 
-    //Advanced validation with tooltip
+    // Initialize advanced validation with tooltip
     $("#signupFormTooltip").validate({
 
         showErrors: function (errorMap, errorList) {
@@ -123,7 +137,7 @@ $(document).ready(function () {
                         placement: "top",
                         template: '<div class="tooltip tooltip-danger" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
 
-                    }); // Create a new tooltip based on the error messsage we just set in the title
+                    }); // Create a new tooltip based on the error message we just set in the title
             });
         },
 
@@ -153,6 +167,10 @@ $(document).ready(function () {
             zip: {
                 zipcodeUS: true
             },
+            phone: {
+                required: true,
+                phone_format: true
+            },
             agree: "required"
         },
         messages: {
@@ -173,6 +191,9 @@ $(document).ready(function () {
             },
             zip: {
                 required: "Please enter your zip code!"
+            },
+            phone: {
+                required: "Please enter your phone number"
             },
             city: "Please enter your city",
             state: "Please select your state",
