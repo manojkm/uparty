@@ -29,28 +29,9 @@ $(document).ready(function () {
     // Initialize advanced validation
     $("#signupForm").validate({
 
+        //TODO https://stackoverflow.com/questions/4381476/jquery-tooltip-to-display-validator-messages
         validClass: 'is-valid',
         errorClass: 'is-invalid',
-        //TODO https://stackoverflow.com/questions/4381476/jquery-tooltip-to-display-validator-messages
-        errorPlacement: function (error, element) {
-            // Add the `invalid-feedback` class to the error element
-            error.addClass("invalid-feedback");
-            if (element.attr("type") == "radio" || element.attr("type") == "checkbox") {
-                error.appendTo(element.parents().find('div:first'));
-            } else {
-                error.insertAfter(element)
-            }
-        },
-
-        highlight: function (element, errorClass, validClass) {
-            // $( element ).addClass( errorClass ).removeClass(validClass);
-            $(element).addClass(errorClass);
-        },
-        unhighlight: function (element, errorClass, validClass) {
-            // $( element ).addClass(validClass).removeClass(errorClass);
-            $(element).removeClass(errorClass);
-        },
-
         rules: {
             username: {
                 minlength: 4
@@ -66,7 +47,6 @@ $(document).ready(function () {
                 email: true
             },
             phone: {
-                required: true,
                 phone_format: true
             },
             zip: {
@@ -106,6 +86,25 @@ $(document).ready(function () {
             agree: "Please accept our policy"
         },
 
+        errorPlacement: function (error, element) {
+            // Add the `invalid-feedback` class to the error element
+            error.addClass("invalid-feedback");
+            if (element.attr("type") == "radio" || element.attr("type") == "checkbox") {
+                error.appendTo(element.parents().find('div:first'));
+            } else {
+                error.insertAfter(element)
+            }
+        },
+
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass(errorClass).removeClass(validClass);
+            $(element).addClass(errorClass);
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            // $( element ).addClass(validClass).removeClass(errorClass);
+            $(element).removeClass(errorClass);
+        },
+
         submitHandler: function (form) {
             alert("This is a valid form!");
         }
@@ -113,6 +112,56 @@ $(document).ready(function () {
 
     // Initialize advanced validation with tooltip
     $("#signupFormTooltip").validate({
+
+        rules: {
+            username: {
+                minlength: 4
+            },
+            password: {
+                minlength: 6
+            },
+            confirm_password: {
+                minlength: 6,
+                equalTo: "#password-5"
+            },
+            email: {
+                email: true
+            },
+            zip: {
+                zipcodeUS: true
+            },
+            phone: {
+                phone_format: true
+            },
+            agree: "required"
+        },
+        messages: {
+            firstname: "Please enter your firstname",
+            lastname: "Please enter your lastname",
+            username: {
+                required: "Please enter a username",
+                minlength: "Your username must consist of at least 4 characters"
+            },
+            password: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 6 characters long"
+            },
+            confirm_password: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 6 characters long",
+                equalTo: "Please enter the same password as above"
+            },
+            zip: {
+                required: "Please enter your zip code!"
+            },
+            phone: {
+                required: "Please enter your phone number"
+            },
+            city: "Please enter your city",
+            state: "Please select your state",
+            email: "Please enter a valid email address",
+            agree: "Please accept our policy"
+        },
 
         showErrors: function (errorMap, errorList) {
 
@@ -150,61 +199,70 @@ $(document).ready(function () {
             $(element).removeClass(errorClass);
         },
 
+        submitHandler: function (form) {
+            alert("This is a valid form!");
+        }
+    });
+
+    $('#icon_validate').validate({
+        validClass: 'is-valid',
+        errorClass: 'is-invalid',
+        errorElement: 'span',
+        focusInvalid: false,
+        ignore: "",
         rules: {
-            username: {
-                minlength: 4
-            },
-            password: {
-                minlength: 6
-            },
-            confirm_password: {
-                minlength: 6,
-                equalTo: "#password-5"
+            firstname: {
+                minlength: 2,
             },
             email: {
                 email: true
             },
-            zip: {
-                zipcodeUS: true
-            },
             phone: {
-                required: true,
                 phone_format: true
             },
-            agree: "required"
         },
         messages: {
             firstname: "Please enter your firstname",
-            lastname: "Please enter your lastname",
-            username: {
-                required: "Please enter a username",
-                minlength: "Your username must consist of at least 4 characters"
-            },
-            password: {
-                required: "Please provide a password",
-                minlength: "Your password must be at least 6 characters long"
-            },
-            confirm_password: {
-                required: "Please provide a password",
-                minlength: "Your password must be at least 6 characters long",
-                equalTo: "Please enter the same password as above"
-            },
-            zip: {
-                required: "Please enter your zip code!"
-            },
+            email: "Please enter a valid email address",
             phone: {
                 required: "Please enter your phone number"
             },
-            city: "Please enter your city",
-            state: "Please select your state",
-            email: "Please enter a valid email address",
-            agree: "Please accept our policy"
+        },
+
+        invalidHandler: function (event, validator) {
+            //display error alert on form submit
+        },
+
+        errorPlacement: function (error, element) { // render error placement for each input type
+        },
+
+        highlight: function (element, errorClass, validClass) { // highlight error inputs
+            $(element).addClass(errorClass);
+
+            var icon = $(element).parents('.form-group').find('i.status');
+            icon.removeClass('fa fa-check').addClass('fa fa-times');
+
+            var parent = $(element).parents('.form-group');
+            parent.removeClass('is-valid').addClass('is-invalid');
+        },
+
+        unhighlight: function (element, errorClass, validClass) {// revert the change done by highlight
+            $(element).removeClass(errorClass);
+        },
+
+        success: function (label, element) {
+            var icon = $(element).parents('.form-group').find('i.status');
+            icon.removeClass("fa fa-times").addClass('fa fa-check');
+
+            var parent = $(element).parents('.form-group');
+            parent.removeClass('is-invalid').addClass('is-valid');
         },
 
         submitHandler: function (form) {
             alert("This is a valid form!");
         }
     });
+
 
     // On clicking reset button, every error should be cleared
     $('.clearform').on('click', function () {

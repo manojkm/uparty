@@ -39,6 +39,19 @@
   }
 }
 
+.form-group {
+  .controls {
+    position: relative;
+  }
+  &.is-valid i.status,
+  &.is-invalid i.status {
+    position: absolute;
+    font-size: 14px;
+    right: 15px;
+    top: 10px;
+  }
+}
+
 //
 // TEXTAREA
 // ======================================================
@@ -77,7 +90,7 @@ select.form-control {
 form {
   label,
   .col-form-legend,
-  .custom-control-description{
+  .custom-control-description {
     color: $input-label-color;
     font-size: $input-font-size;
   }
@@ -199,6 +212,6 @@ select.form-control-lg {
   @include transparent-forms($opacity-white-2, $opacity-white-3, $opacity-white-2, $opacity-white-3, $white-color, $white-color, $opacity-white-5);
 }
 
-.has-bg-light{
+.has-bg-light {
   @include transparent-forms($opacity-black-2, $opacity-black-3, $opacity-black-2, $opacity-black-3, $opacity-white-8, $white-color, $opacity-white-4);
 }

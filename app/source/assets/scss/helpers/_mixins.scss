@@ -1033,6 +1033,13 @@
 
 // Form validation mixin for dynamic states.
 @mixin form-validation-state($state, $color) {
+
+  .form-group{ // Used for jQuery icon validation
+    &.is-#{$state} i.status {
+      color: $color;
+    }
+  }
+
   .#{$state}-feedback {
     @include transition;
     color: $color;

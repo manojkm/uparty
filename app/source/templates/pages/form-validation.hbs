@@ -214,7 +214,6 @@ js_vendors_extended:
                             </div>
                         </div>
                         <!-- /Textarea -->
-
                     </form>
                 {{/card_body_has}}
             {{/card}}
@@ -430,6 +429,7 @@ js_vendors_extended:
             {{#card}}
                 {{{card_header_has_subtitle 'Advanced validation with jQuery' 'Try to submit the form below'}}}
                 {{#card_body}}
+                    <!-- Advanced validation with jQuery -->
                     <form action="#" id="signupForm">
                         <div class="form-group row">
                             <label for="validationFirstName" class="col-lg-3 col-form-label required-field">First name</label>
@@ -545,6 +545,7 @@ js_vendors_extended:
                             </div>
                         </div>
                     </form>
+                    <!-- /Advanced validation with jQuery -->
                 {{/card_body}}
             {{/card}}
         </div>
@@ -552,6 +553,7 @@ js_vendors_extended:
             {{#card}}
                 {{{card_header_has_subtitle 'Advanced tooltip validation with jQuery' 'Try to submit the form below'}}}
                 {{#card_body}}
+                    <!-- Advanced tooltip validation with jQuery -->
                     <form action="#" id="signupFormTooltip">
                         <div class="form-group row">
                             <label for="validationFirstName-5" class="col-lg-3 col-form-label required-field">First name</label>
@@ -648,8 +650,61 @@ js_vendors_extended:
                             </div>
                         </div>
                     </form>
+                    <!-- /Advanced tooltip validation with jQuery -->
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header_has_subtitle 'Iconic validation with jQuery' 'Try to submit the form below'}}}
+                {{#card_body}}
+                    <!-- Iconic validation with jQuery -->
+                    <form action="#" id="icon_validate">
+                        <div class="form-group row">
+                            <label for="validationFirstName-6" class="col-lg-3 col-form-label required-field">First name</label>
+                            <div class="col-lg-9">
+                                <div class="controls">
+                                    <i class="status"></i>
+                                    <input type="text" class="form-control required" id="validationFirstName-6" placeholder="First name" name="firstname">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validationFirstName-7" class="col-lg-3 col-form-label required-field">Email address</label>
+                            <div class="col-lg-9">
+                                <div class="controls">
+                                    <i class="status"></i>
+                                    <input type="email" class="form-control required" id="validationFirstName-7" placeholder="Email address" name="email">
+                                    <small id="emailHelp-6" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validationPhone-7" class="col-lg-3 col-form-label required-field">Phone</label>
+                            <div class="col-lg-9">
+                                <div class="controls">
+                                    <i class="status"></i>
+                                    <input type="text" class="form-control required" id="validationPhone-7" placeholder="(999) 999-9999" name="phone">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-lg-9 offset-lg-3">
+                                <button type="submit" class="btn btn-primary btn-icon"><i class="fa fa-check"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- /Iconic validation with jQuery -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
 </div>
