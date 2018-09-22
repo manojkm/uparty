@@ -10,38 +10,116 @@ js_vendors_extended:
 - jquery.repeater
 ---
 
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 pr-2">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Create new category</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'Basic repeater'}}}
+                {{#card_body}}
+                    <!-- Basic repeater -->
+                    <form class="repeater">
+                        <!--
+                            The value given to the data-repeater-list attribute will be used as the
+                            base of rewritten name attributes.  In this example, the first
+                            data-repeater-item's name attribute would become group-a[0][text-input],
+                            and the second data-repeater-item would become group-a[1][text-input]
+                        -->
+                        <div data-repeater-list="group-a">
+                            <div data-repeater-item>
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="text-input" value="A">
+                                    <div class="input-group-append">
+                                        <button type="button" data-repeater-delete class="btn btn-primary">
+                                            <i class="icon-close"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-repeater-item>
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="text-input" value="B">
+                                    <div class="input-group-append">
+                                        <button type="button" data-repeater-delete class="btn btn-primary">
+                                            <i class="icon-close"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input data-repeater-create type="button" class="btn btn-primary" value="Add"/>
+                    </form>
+                    <!-- /Basic repeater -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'Nested repeater'}}}
+                {{#card_body}}
+                    <!-- Nested repeater -->
+                    <!-- outer repeater -->
+                    <form class="repeater-nested">
+                        <div data-repeater-list="outer-list">
+                            <div data-repeater-item class="mb-4">
+                                <div class="input-group mb-2">
+                                    <input type="text" name="text-input" class="form-control" value="A"/>
+                                    <div class="input-group-append">
+                                        <input data-repeater-delete type="button" class="btn btn-primary" value="Delete"/>
+                                    </div>
+                                </div>
+                                <!-- innner repeater -->
+                                <div class="inner-repeater">
+                                    <div data-repeater-list="inner-list">
+                                        <div data-repeater-item>
+                                            <div class="input-group mb-2">
+                                                <input type="text" name="inner-text-input" class="form-control" value="B"/>
+                                                <div class="input-group-append">
+                                                    <input data-repeater-delete type="button" class="btn btn-primary" value="Delete"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" data-repeater-create class="btn btn-outline-primary btn-block" data-toggle="tooltip" data-placement="right" data-trigger="hover" title="Add new"><i
+                                            class="fas fa-plus"></i></button>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <input data-repeater-create type="button" class="btn btn-primary" value="Add"/>
+                    </form>
+                    <!-- /Nested repeater -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+    <hr>
+    <h3 class="mt-4 mb-3">Examples</h3>
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'Create new category'}}}
+                {{#card_body}}
                     <form>
                         <div class="form-group">
-                            <label for="name-eg2">Category</label>
-                            <input type="text" class="form-control" id="name-eg2" placeholder="Name" name="name">
-                            <small id="nameHelp" class="form-text text-muted">The name is how it appears on your site.</small>
+                            <label for="category">Category</label>
+                            <input type="text" class="form-control" id="category" placeholder="Name">
+                            <small class="form-text text-muted">The name is how it appears on your site.</small>
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6  repeater-default">
-                                <label for="options-eg2">Sub category</label>
+                            <div class="form-group col-md-6 repeater-default">
+                                <label for="subCategory">Sub category</label>
                                 <div data-repeater-list="group-b">
                                     <div data-repeater-item>
                                         <div class="input-group mb-2">
-                                            <input type="text" class="form-control" name="options" placeholder="Sub category">
+                                            <input type="text" class="form-control" name="options" id="subCategory" placeholder="Sub category">
                                             <div class="input-group-append">
                                                 <button type="button" data-repeater-delete class="btn btn-primary">
-                                                    <i class="icon-trash"></i>
+                                                    <i class="icon-close"></i>
                                                 </button>
                                             </div>
                                         </div>
@@ -51,14 +129,14 @@ js_vendors_extended:
                                         class="fas fa-plus"></i></button>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="desc-eg2">Description</label>
+                                <label for="description">Description</label>
                                 <div class="input-group with-addon-icon-left">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text align-items-start">
                                             <i class="icon-note"></i>
                                         </div>
                                     </div>
-                                    <textarea class="form-control" id="desc-eg2" rows="3" placeholder="Description"></textarea>
+                                    <textarea class="form-control" id="description" rows="3" placeholder="Description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -67,42 +145,33 @@ js_vendors_extended:
                             <label for="addImg-eg2">Add Image</label>
                             <div data-repeater-list="group-a">
                                 <div data-repeater-item>
-
                                     <div class="input-group mb-2">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="cate-image" id="customFile">
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" data-repeater-delete  type="button"><i class="icon-trash"></i></button>
+                                            <button class="btn btn-primary" data-repeater-delete type="button"><i class="icon-close"></i></button>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
-                            <button type="button" data-repeater-create class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="right" data-trigger="hover" title="Upload more images"><i class="icon-plus"></i>Add more</button>
+                            <button type="button" data-repeater-create class="btn btn-success btn-sm has-icon-left" data-toggle="tooltip" data-placement="right" data-trigger="hover" title="Upload more images">
+                                <i class="icon-plus"></i>Add more
+                            </button>
                         </div>
                         <hr>
                         <button type="submit" class="btn btn-primary btn-lg">Create Category</button>
                     </form>
-
-
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
-        <div class="col-md-6 pl-2">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">User profile</h5>
-                    <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="icon-arrow-up"></i></a>
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i
-                                class="icon-size-fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="icon-close"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'User profile'}}}
+                {{#card_body}}
                     <form>
                         <div class="form-group">
                             <label for="firstName-eg1">First Name</label>
@@ -127,21 +196,20 @@ js_vendors_extended:
                                         <input type="text" class="form-control" placeholder="Enter Mobile No" name="contact">
                                         <div class="input-group-append">
                                             <button type="button" data-repeater-delete class="btn btn-danger">
-                                                <i class="icon-trash"></i>
+                                                <i class="icon-close"></i>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" data-repeater-create class="btn btn-success btn-sm"><i class="icon-plus"></i>Add new contact no</button>
+                            <button type="button" data-repeater-create class="btn btn-success btn-sm has-icon-left"><i class="icon-plus"></i>Add new contact no</button>
                         </div>
                         <hr>
                         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                     </form>
-
-
-                </div>
-            </div>
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
+
 </div>

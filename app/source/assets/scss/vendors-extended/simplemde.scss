@@ -1,0 +1,31 @@
+// ================================================================================================
+// File Name      : simplemde.scss
+// Description    : Custom overrides of SimpleMDE Plugin
+//                  (https://github.com/sparksuite/simplemde-markdown-editor)
+//                  These styles are required for SimpleMDE to function.
+//                  You probably don't need to change these rules.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+//
+// VENDORS DEPENDENCIES IMPORT
+// ======================================================
+// Please make sure to import the dependencies as they're necessary for all vendors extensions to function.
+@import 'dependencies';
+
+//
+// SimpleMDE
+// ======================================================
+
+.CodeMirror-fullscreen,
+.editor-preview-side,
+.editor-toolbar.fullscreen {
+  z-index: 999;
+}
+
+.editor-preview {
+  z-index: 998;
+}

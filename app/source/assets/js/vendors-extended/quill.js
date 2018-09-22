@@ -10,6 +10,7 @@
 
 $(document).ready(function () {
     'use strict';
+
     if (window.Quill){
 
         var editor = new Quill('#quill-editor', {

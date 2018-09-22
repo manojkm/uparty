@@ -39,18 +39,6 @@
   }
 }
 
-.form-group {
-  .controls {
-    position: relative;
-  }
-  &.is-valid i.status,
-  &.is-invalid i.status {
-    position: absolute;
-    font-size: 14px;
-    right: 15px;
-    top: 10px;
-  }
-}
 
 //
 // TEXTAREA
@@ -199,10 +187,24 @@ select.form-control-lg {
 
 // Valid
 @include form-validation-state("valid", $form-feedback-valid-color);
-//@warn '';
 
 // In valid
 @include form-validation-state("invalid", $form-feedback-invalid-color);
+
+// Used for jQuery icon validation
+.form-group {
+  .controls {
+    position: relative;
+  }
+  &.is-valid i.status,
+  &.is-invalid i.status {
+    // @include center(y);
+    position: absolute;
+    font-size: 14px;
+    right: 15px;
+    top: 10px;
+  }
+}
 
 //
 // TRANSPARENT FORM ELEMENTS
