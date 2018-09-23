@@ -210,4 +210,8 @@ module.exports.register = function (Handlebars, options) {
         return '<div class="modal-footer"><button type="button" class="btn btn-light" data-dismiss="modal">Close</button><button type="' + buttonType + '" class="btn btn-' + btnclass + '">' + text + '</button></div>';
     });
 
+    Handlebars.registerHelper('modalFooterSimple', function (type) {
+        return '<div class="modal-footer"><button type="button" class="btn btn-light" data-dismiss="modal">Close</button></div>';
+    });
+
 };

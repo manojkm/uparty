@@ -433,7 +433,7 @@
 
   @if $bg == fill {
     @include background-text-theme($scheme, $tone, $font-color);
-    #{$disabled-tags}{
+    #{$disabled-tags} {
       @include background-text-theme($scheme, light, $font-color);
       @include border-theme($scheme, light);
     }
@@ -443,7 +443,7 @@
     background-color: transparent;
     @include text-theme($scheme, $tone);
 
-    #{$disabled-tags}{
+    #{$disabled-tags} {
       @include text-theme($scheme, light);
     }
   }
@@ -452,9 +452,6 @@
     @include border-theme($scheme, $tone-hover);
     @include background-text-theme($scheme, $tone-hover, $font-color);
   }
-
-
-
 
   #{$active-tags},
   #{$focus-tags},
@@ -806,7 +803,7 @@
     &:after {
       @include background-theme($scheme, $font-color);
     }
-    &:before{
+    &:before {
       @include text-theme($scheme, $font-color);
     }
 
@@ -1030,11 +1027,10 @@
   }
 }
 
-
 // Form validation mixin for dynamic states.
 @mixin form-validation-state($state, $color) {
 
-    .#{$state}-feedback {
+  .#{$state}-feedback {
     @include transition;
     color: $color;
   }
@@ -1130,12 +1126,12 @@
   //.custom-toggle-switch .custom-control-input {
   //[class*="custom-toggle-"] .custom-control-input {
   [class*="switch-"] .custom-control-input {
-     &:checked {
+    &:checked {
       .was-validated &:#{$state},
       &.is-#{$state} {
         ~ .custom-control-indicator {
           //border-color: transparent;
-          border-color:lighten($color, 10%)!important;
+          border-color: lighten($color, 10%) !important;
           //&:after {
           //  background: $custom-toggle-knob-bg;
           //}
@@ -1147,7 +1143,7 @@
     &.is-#{$state} {
       ~ .custom-control-indicator {
         //background: $white-color;
-        border-color:lighten($color, 10%)!important;
+        border-color: lighten($color, 10%) !important;
         //&:after {
         //  background-color: lighten($color, 10%);
         //}
@@ -1156,7 +1152,7 @@
   }
 
   // Used for jQuery icon validation
-  .form-group{
+  .form-group {
     &.is-#{$state} i.status {
       color: $color;
     }
@@ -1168,7 +1164,7 @@
 // TRANSPARENT FORMS
 // ======================================================
 
-@mixin transparent-forms($background-color,$background-focus-color,$border-color,$border-focus-color,$font-color,$font-focus-color, $placeholder-disable-color) {
+@mixin transparent-forms($background-color,$background-focus-color,$border-color,$border-focus-color,$font-color,$font-focus-color, $label-color, $placeholder-disable-color) {
 
   %transparent-form-control {
     background-color: $background-color;
@@ -1202,12 +1198,36 @@
     @extend %transparent-form-control;
   }
 
-  // Select
-  select.form-control:not([multiple]) option,
-  select.form-control:not([multiple]) optgroup,
-  select.custom-select:not([multiple]) option,
-  select.custom-select:not([multiple]) optgroup {
-    color: $gray-700;
+  // Labels and legends.
+  form {
+    label,
+    .col-form-legend,
+    .custom-control-description {
+      color: $label-color;
+    }
+  }
+
+  // Readonly controls as plain text
+  .form-control-plaintext {
+    color: $label-color;
+  }
+
+  // Checkboxes and radios disabled labels
+  .form-check-input {
+    &:disabled ~ .form-check-label {
+      color: $label-color;
+      @include opacity(0.6);
+    }
+  }
+
+  // Custom checkboxes and radios disabled labels
+  .custom-control-input {
+    &:disabled {
+      ~ .custom-control-label {
+        color: $label-color;
+        @include opacity(0.6);
+      }
+    }
   }
 
   // Custom select
@@ -1222,7 +1242,7 @@
     color: $placeholder-disable-color;
     border: none;
     &::after {
-      background-color: $background-focus-color;
+      background-color: $background-color;
       color: $font-focus-color;
       border: none;
       top: 0;
@@ -1277,7 +1297,7 @@
     @extend %transparent-form-control;
   }
   .chosen-single div b {
-    background-color: transparent
+    background-color: transparent !important;
   }
   .chosen-choices {
     border: none

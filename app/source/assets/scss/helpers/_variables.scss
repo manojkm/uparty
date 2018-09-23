@@ -865,12 +865,14 @@ $input-focus-color:                     $gray-700; // Text color for inputs on f
 $input-focus-border-theme-scheme:       primary !default; // Theme color scheme applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $input-focus-border-theme-tone:         base !default; // Theme color tone applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $input-hover-border-color:              $gray-500; // Border color for inputs on hover
+$input-height-border:                   ($input-border-size * 2) !default; // Required to compute input height
 
 // Disabled state
 
 $input-disabled-color:                  $gray-600; // Text color for disabled inputs
 $input-disabled-border-color:           $gray-300; // Border color for disabled inputs
 $input-disabled-bg:                     $gray-200; // Background color for disabled inputs
+$input-label-disabled-color:            lighten($input-label-color, 25%) !default; // Text color disabled checkboxes and radios labels
 
 // Input group
 
@@ -878,8 +880,6 @@ $input-addon-color:                     $gray-700; // Color for textual input gr
 $input-addon-hover-focus-color:         $input-focus-color; // Color for textual input group’s addons on hover/focus
 $input-addon-bg:                        $gray-100; // Background color for textual input group’s addons
 $input-addon-min-width:                 40px; // Minimum width of input group’s addons
-
-$input-height-border:                   ($input-border-size * 2) !default; // Required to compute input height
 
 // Small input (.form-control-sm)
 
@@ -930,7 +930,7 @@ $custom-control-indicator-active-bg:                    lighten(contextual-color
 $custom-control-indicator-disabled-bg:                  $input-disabled-bg !default;
 $custom-control-indicator-disabled-color:               $input-disabled-color;
 $custom-control-indicator-disabled-border-color:        $input-disabled-border-color;
-$custom-control-label-disabled-color:                   lighten($input-label-color, 25%) !default;
+$custom-control-label-disabled-color:                   $input-label-disabled-color !default;
 
 // Checkbox
 

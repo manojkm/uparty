@@ -39,7 +39,6 @@
   }
 }
 
-
 //
 // TEXTAREA
 // ======================================================
@@ -72,9 +71,29 @@ select.form-control {
     color: $input-color;
     background-color: $input-bg;
   }
+
+  &:not([multiple]) option,
+  &:not([multiple]) optgroup {
+    color: $input-color;
+    background-color: $input-bg;
+  }
 }
 
+//
+// CHECKBOXES AND RADIOS
+// ======================================================
+
+.form-check-input {
+  &:disabled ~ .form-check-label {
+    color: $input-label-disabled-color;
+  }
+}
+
+//
+// LABELS
+// ======================================================
 // Set uniform font-sizes for labels and legends.
+
 form {
   label,
   .col-form-legend,
@@ -116,7 +135,6 @@ form {
 // ======================================================
 
 .required-field {
-
   &::after {
     @include text-theme($required-field-theme-scheme);
     margin: -.2em 0 0 .2em;
@@ -211,9 +229,9 @@ select.form-control-lg {
 // ======================================================
 
 .has-bg-dark {
-  @include transparent-forms($opacity-white-2, $opacity-white-3, $opacity-white-2, $opacity-white-3, $white-color, $white-color, $opacity-white-5);
+  @include transparent-forms($opacity-white-3, $opacity-white-4, $opacity-white-3, $opacity-white-4, $white-color, $white-color, $white-color, $opacity-white-5);
 }
 
 .has-bg-light {
-  @include transparent-forms($opacity-black-2, $opacity-black-3, $opacity-black-2, $opacity-black-3, $opacity-white-8, $white-color, $opacity-white-4);
+  @include transparent-forms($opacity-black-3, $opacity-black-4, $opacity-black-3, $opacity-black-4, $opacity-white-8, $white-color, $black-color, $opacity-white-5);
 }

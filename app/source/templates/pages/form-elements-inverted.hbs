@@ -1,5 +1,5 @@
 ---
-title: "Form Elements"
+title: "Inverted Form Elements"
 lead: Elements for creating great user experiences.
 forms-ui: true
 
@@ -7,13 +7,30 @@ js_vendors:
 - autosize/dist/autosize
 ---
 
-<!--TODO : XL sizing on input, select etc.. -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Input Text'}}}
-                {{#card_body_has 'example'''}}
+                {{{card_header 'Inverted'}}}
+                {{#card_body}}
+                    {{{card_title 'Changing  color schemes'}}}
+                <p>A form element on a dark or light background may have to invert its color scheme.</p>
+                    <p>Theming the form elements has never been easier thanks to the combination of theming classes and background-color
+                        utilities. Choose from <code>.has-bg-light</code> for use with light background colors, or <code>.has-bg-dark</code>
+                        for dark background colors. Then, customize with <code>.bg-*</code> utilities.</p>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <hr>
+    <h3 class="mt-4 mb-3">Examples</h3>
+
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                <h5 class="card-header bg-primary">Input Text</h5>
+                {{#card_body_has 'example has-bg-dark bg-primary'''}}
                     <form>
                         <!-- Basic input -->
                         <div class="form-group row">
@@ -69,7 +86,7 @@ js_vendors:
                             <label for="inputPassword5" class="col-lg-2 col-form-label text-lg-right">Help text</label>
                             <div class="col-lg-10">
                                 <input type="password" class="form-control" id="inputPassword5" placeholder="Password">
-                                <small id="passwordHelpBlock" class="form-text text-muted  mb-2">
+                                <small id="passwordHelpBlock" class="form-text mb-2">
                                     Your password must be 8-20 characters long, contain letters and numbers, and must
                                     not contain spaces, special characters, or emoji.
                                 </small>
@@ -78,7 +95,7 @@ js_vendors:
                                         <input type="password" id="inputPassword6" class="form-control" placeholder="Password" aria-describedby="passwordHelpInline">
                                     </div>
                                     <div class="col">
-                                        <small id="passwordHelpInline" class="text-muted">Must be 8-20 characters long.</small>
+                                        <small id="passwordHelpInline" class="">Must be 8-20 characters long.</small>
                                     </div>
                                 </div>
                             </div>
@@ -260,8 +277,8 @@ js_vendors:
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Label sizing'}}}
-                {{#card_body_has 'example'''}}
+                <h5 class="card-header bg-secondary">Label sizing</h5>
+                {{#card_body_has 'example has-bg-dark bg-secondary'''}}
                     <form>
                         <!-- Label sizing -->
                         <div class="form-group row">
@@ -292,8 +309,8 @@ js_vendors:
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Input text types'}}}
-                {{#card_body_has 'example'''}}
+                <h5 class="card-header bg-secondary">Input text types</h5>
+                {{#card_body_has 'example has-bg-dark bg-secondary'''}}
                     <form>
                         <!-- Email type -->
                         <div class="form-group row">
@@ -468,8 +485,8 @@ js_vendors:
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Textarea'}}}
-                {{#card_body_has 'example'''}}
+                <h5 class="card-header bg-info text-dark">Textarea</h5>
+                {{#card_body_has 'example has-bg-light bg-info'''}}
                     <form>
                         <!-- Basic textarea -->
                         <div class="form-group">
@@ -529,8 +546,8 @@ js_vendors:
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Select menu'}}}
-                {{#card_body_has 'example'''}}
+                <h5 class="card-header bg-warning text-dark">Select menu</h5>
+                {{#card_body_has 'example has-bg-light bg-warning'''}}
                     <form>
                         <!-- Basic select -->
                         <div class="form-group row">
@@ -678,8 +695,8 @@ js_vendors:
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Checkbox'}}}
-                {{#card_body_has 'example'''}}
+                <h5 class="card-header bg-dark">Checkbox</h5>
+                {{#card_body_has 'example has-bg-dark bg-dark'''}}
                     <form>
                         <div class="form-row">
                             <div class="form-group col-lg-3 col-md-4">
@@ -844,8 +861,8 @@ js_vendors:
                         </div>
                         <hr>
                         <!-- Custom checkbox themes -->
-                        {{{card_title 'Custom checkbox themes'}}}
-                        <p>To use solid background checkbox, add contextual classes such as <code>.checkbox-*</code> to <code>.custom-control</code></p>
+                        <h4 class="card-title text-white">Custom checkbox themes</h4>
+                        <p class="text-white">To use solid background checkbox, add contextual classes such as <code>.checkbox-*</code> to <code>.custom-control</code></p>
                         <div class="form-row">
                             <div class="form-group col-md-6">
 
@@ -889,8 +906,8 @@ js_vendors:
                         <!-- /Custom checkbox themes -->
                         <hr>
                         <!-- Custom circled checkbox themes -->
-                        {{{card_title 'Custom circled checkbox themes'}}}
-                        <p>To use solid background circled checkbox, add contextual classes such as <code>.rounded.checkbox-*</code> to <code>.custom-control</code></p>
+                        <h4 class="card-title text-white">Custom circled checkbox themes</h4>
+                        <p class="text-white">To use solid background circled checkbox, add contextual classes such as <code>.rounded.checkbox-*</code> to <code>.custom-control</code></p>
                         <div class="form-row">
 
                             <div class="form-group col-md-6">
@@ -941,8 +958,8 @@ js_vendors:
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Radio'}}}
-                {{#card_body_has 'example'''}}
+                <h5 class="card-header bg-success">Radio</h5>
+                {{#card_body_has 'example has-bg-light bg-success'''}}
                     <form>
                         <div class="form-row">
                             <div class="form-group col-lg-3 col-md-4">
@@ -1221,8 +1238,8 @@ js_vendors:
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Input group'}}}
-                {{#card_body_has 'example'''}}
+                <h5 class="card-header bg-danger">Input group</h5>
+                {{#card_body_has 'example has-bg-dark bg-danger'''}}
                     <form>
 
                         <!-- Prepended text -->
@@ -1719,8 +1736,8 @@ js_vendors:
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'File upload'}}}
-                {{#card_body_has 'example'''}}
+                <h5 class="card-header bg-dark">File upload</h5>
+                {{#card_body_has 'example has-bg-dark bg-dark'''}}
                     <form>
 
                         <!-- Basic file upload -->

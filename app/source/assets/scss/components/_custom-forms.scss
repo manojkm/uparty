@@ -96,6 +96,18 @@
   }
 }
 
+// Inline forms
+@include min-screen($screen-sm-min) {
+  .form-inline{
+    .custom-control,
+    .custom-select,
+    .form-control-plaintext {
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
+
 //
 // CHECKBOXES
 // ======================================================
@@ -276,7 +288,15 @@
   &[size]:not([size="1"]) {
     padding-right: $btn-padding-x;
   }
+
   @include form-control-disabled();
+
+  &:not([multiple]) option,
+  &:not([multiple]) optgroup {
+    color: $input-color;
+    background-color: $input-bg;
+  }
+
 }
 
 //
