@@ -76,14 +76,14 @@ var appMaster = {
             event.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
-                appMaster._body.removeClass('sidebar-mini sidebar-mini-full');
+                appMaster._body.removeClass('sidebar-mini full');
                 appMaster._sidebarMiniIsOpen = false;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
 
             }
             else {
                 $(this).addClass('collapsed');
-                appMaster._body.addClass('sidebar-mini sidebar-mini-full');
+                appMaster._body.addClass('sidebar-mini full');
                 appMaster._changeLogo();
                 appMaster._sidebarMiniIsOpen = true;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);

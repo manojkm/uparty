@@ -243,7 +243,12 @@
       .#{$s}__footer-item {
         @extend %o-v-show;
       }
+    }
+  }
 
+  &-is-open:not(.#{$s}-mini) & {
+    .#{$s}__nav > ul > .#{$s}__item {
+      width: $sidebar-width;
     }
   }
 
