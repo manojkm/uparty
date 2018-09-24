@@ -207,7 +207,7 @@
   }
 
   // Mini sidebar modifiers
-  &-is-open.sidebar-mini & {
+  &-is-open.#{$s}-mini & {
     @include transition;
     left: 0;
     margin-left: -$sidebar-mini-width;
@@ -230,7 +230,7 @@
     }
   }
 
-  &-is-open.sidebar-mini &-fixed & {
+  &-is-open.#{$s}-mini &-fixed & {
     left: $sidebar-mini-width;
   }
 
@@ -270,3 +270,5 @@
     overflow-y: auto;
   }
 }
+
+// TODO sidebar variant from https://github.com/tannguyent/autoregistry-vue-netcore-ddd/blob/master/AutoRegistryClassDDD/scss/components/_sidebar.scss

@@ -139,9 +139,7 @@ forms-ui: true
                         <button type="submit" class="btn btn-primary mb-2">Login</button>
                     </form>
                     <!-- /Inline form example 1 -->
-                {{/card_body }}
-                <hr>
-                {{#card_body}}
+
                     <!-- Inline form example 2 -->
                     <form class="form-inline">
                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Preference</label>
@@ -254,7 +252,7 @@ forms-ui: true
     <div class="row">
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Modal form'}}}
+                {{{card_header 'Modal forms'}}}
                 {{#card_body_has 'mx-auto' ''}}
 
                     <!-- Modal form -->
@@ -465,9 +463,9 @@ forms-ui: true
         </div>
         <div class="col-12">
             {{#card}}
-                {{{card_header 'Inverted form'}}}
-                {{#card_body_has 'has-bg-dark bg-dark'''}}
-                    <!-- Stacked form -->
+                <h5 class="card-header bg-dark">Inverted form</h5>
+                {{#card_body_has 'example has-bg-dark bg-dark'''}}
+                    <!-- Stacked form - Inverted -->
                     <form>
                         <div class="form-group">
                             <label for="exampleInputEmail6">Email address</label>
@@ -494,8 +492,8 @@ forms-ui: true
                         </div>
                         <button type="submit" class="btn btn-light">Submit</button>
                     </form>
-                    <!-- /Stacked form -->
-                {{/card_body_has }}
+                    <!-- /Stacked form - Inverted -->
+                {{/card_body_has}}
             {{/card}}
         </div>
     </div>

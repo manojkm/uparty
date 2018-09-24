@@ -316,9 +316,11 @@ $font-wh-bold:                          get-typography(weight-bold) !default; //
 // -----------------------------------------------------------------------------
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-rounded:                                true !default; // Handle rounded corners
-$enable-breadcrumb:                             true !default; // If set to 'false' the breadcrumb will be disabled.
-$enable-sidebar-divider-underline-type:         false !default;; // If set to 'true' the sidebar menu divider 'after-line' type will be disabled.
+$enable-rounded:                        true !default; // Handle rounded corners
+$enable-breadcrumb:                     true !default; // If set to 'false' the breadcrumb will be disabled.
+$enable-sidebar-divider-underline-type: false !default; // If set to 'true' the sidebar menu divider 'after-line' type will be disabled.
+$enable-sidebar-active-border-type:     false !default;
+
 //
 // 3.2 ASSETS PATHS VARIABLE CONFIG
 // -----------------------------------------------------------------------------
@@ -683,6 +685,8 @@ $sidebar-brand-height:                  50px; // Sidebar branding header height
 // Sidebar item heading
 
 $sidebar-item-header-font-size:         $font-size-xs; // Font size of sidebar section headers (.sidebar__item-header)
+$sidebar-item-header-font-weight:       $font-wh-regular; //Font weight of section headers (.sidebar__item-header)
+$sidebar-item-header-letter-spacing:    0.1em; // Spacing in-between letters for section headers (.sidebar__item-header)
 $sidebar-item-header-height:            30px;
 $sidebar-item-header-opacity:           0.7;
 
