@@ -18,7 +18,7 @@
   $s: sidebar;
 
   // Base styles
-  &__nav {
+  .#{$s}__nav {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@
   }
 
   // Sidebar item heading
-  &__item-header {
+  .#{$s}__item-header {
     @include transition;
     @if bool($enable-sidebar-active-border-type) == true {
       @include add-border(2px, transparent, left);
@@ -70,7 +70,7 @@
   }
 
   // Sidebar divider 'underline' type
-  &__divider {
+  .#{$s}__divider {
     @include transition;
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
@@ -82,7 +82,7 @@
   }
 
   // Sidebar menu item
-  &__item {
+  .#{$s}__item {
     @include transition;
     @if bool($enable-sidebar-active-border-type) == true {
       @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
@@ -149,15 +149,13 @@
     }
   }
 
-  &__item.has-button {
+  .#{$s}__item.has-button {
     @include transition;
     padding: $sidebar-padding-y $sidebar-padding-x;
   }
 
-  // Sub menu - First level
-  &__child {
+  .#{$s}__child {
     @include background-theme($sidebar-theme-scheme, 'dark');
-
     .#{$s}__item {
       border: 0;
       //&:before {
@@ -168,34 +166,24 @@
 
       a {
         font-size: $sidebar-submenu-item-font-size;
-        margin: 0 0 0 $sidebar-submenu-level1-item-margin-left;
         padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-caret-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
       }
 
-      &:last-of-type {
-        padding-bottom: 10px;
-      }
+      //&:last-of-type {
+      //  padding-bottom: 10px;
+      //}
+    }
+  }
+
+  @for $i from 1 through $sidebar-submenu-max-levels {
+    $selector: '';
+
+    @for $l from 1 through $i {
+      $selector: "#{$selector} .#{$s}__child";
     }
 
-    // Second level
-    .#{$s}__child {
-      .#{$s}__item {
-        &:last-of-type {
-          padding-bottom: 0;
-        }
-        a {
-          margin: 0 0 0 ($sidebar-submenu-level1-item-margin-left + $sidebar-submenu-level2-item-margin-left-extra);
-        }
-      }
-
-      // Third level
-      .#{$s}__child {
-        .#{$s}__item {
-          a {
-            margin: 0 0 0 ($sidebar-submenu-level1-item-margin-left + $sidebar-submenu-level3-item-margin-left-extra);
-          }
-        }
-      }
+    #{$selector} .#{$s}__item a {
+      margin-left: $sidebar-submenu-item-margin-left + (15px * ($i - 1));
     }
 
   }
@@ -209,12 +197,12 @@
 .sidebar-mini .sidebar {
   $s: sidebar;
 
-  // Hiding headers, dividers etc
-  &__item .badge,
-  &__item.active:before,
-  &__item.has-button,
-  &__item-header,
-  &__divider {
+  // Hiding headers, dividers etc... so the mini sidebar can reduce its UI complexity
+  .#{$s}__item .badge,
+  .#{$s}__item.active:before,
+  .#{$s}__item.has-button,
+  .#{$s}__item-header,
+  .#{$s}__divider {
     ///*    @include transition;
     //    @extend %o-v-none;
     //    min-height: 0;
@@ -224,11 +212,7 @@
     display: none;
   }
 
-  &__item-header {
-    //opacity: 0 !important;
-  }
-
-  &__nav > ul > .#{$s}__item:not(.has-button) {
+  .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
     position: static;
     display: block;
 
@@ -269,35 +253,29 @@
       box-shadow: $header-shadow;
       height: auto !important;
       display: none;
+    }
 
-      a {
-        margin: 0;
-      }
+  }
 
-      // Second level
-      .#{$s}__child {
-        a {
-          margin: 0 0 0 $sidebar-submenu-level2-item-margin-left-extra;
-        }
+  @for $i from 1 through $sidebar-submenu-max-levels {
+    $selector: '';
 
-        // Third level
-        .#{$s}__child {
-          a {
-            margin: 0 0 0 $sidebar-submenu-level3-item-margin-left-extra;
-          }
-        }
-      }
+    @for $l from 1 through $i {
+      $selector: "#{$selector} .#{$s}__child";
+    }
 
+    #{$selector} .#{$s}__item a {
+      margin-left: (15px * ($i - 1));
     }
 
   }
 
   // Show sub menu item title on hover
-  &__nav > ul > .#{$s}__item:not(.has-button) {
+  .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
     //&:hover
     &.show {
       > a {
-        transition:none;
+        transition: none;
         @if bool($enable-sidebar-active-border-type) == true {
           width: $sidebar-mini-active-menu-width - 2; // Value 2 is to adjust the width to include border of parent li
         } @else {
@@ -310,10 +288,11 @@
         }
       }
       > .#{$s}__child {
-          display: block;
+        display: block;
       }
     }
   }
+
 }
 
 //
@@ -323,7 +302,7 @@
 .sidebar-mini.full {
   $s: sidebar;
   .sidebar {
-    &__nav > ul > .#{$s}__item.has-child:not(.has-button) {
+    .#{$s}__nav > ul > .#{$s}__item.has-child:not(.has-button) {
       //&:hover
       &.show {
         > a {
