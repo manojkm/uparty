@@ -706,13 +706,11 @@ $sidebar-item-icon-margin-right:        5px; // Right margin for sidebar icon, s
 
 // Sidebar sub menu
 
-$sidebar-submenu-item-font-size:                $font-size-sm; // Sidebar sub menu item font size (.sidebar__child .sidebar__item > a).
-$sidebar-submenu-item-padding-y:                4px;
-$sidebar-submenu-item-padding-x:                $sidebar-padding-x;
-$sidebar-submenu-level1-item-margin-left:       ($sidebar-item-icon-width + $sidebar-item-icon-margin-right);
-$sidebar-submenu-level2-item-margin-left-extra: 15px;
-$sidebar-submenu-level3-item-margin-left-extra: 30px;
-
+$sidebar-submenu-max-levels:            5 !default;
+$sidebar-submenu-item-font-size:        $font-size-sm; // Sidebar sub menu item font size (.sidebar__child .sidebar__item > a).
+$sidebar-submenu-item-padding-y:        4px;
+$sidebar-submenu-item-padding-x:        $sidebar-padding-x;
+$sidebar-submenu-item-margin-left:      ($sidebar-item-icon-width + $sidebar-item-icon-margin-right);
 
 // Sidebar divider (.sidebar__divider)
 

@@ -35,7 +35,7 @@
   flex-direction: column;
 
   // Sidebar inner wrapper
-  &__inner-wrap {
+  .#{$s}__inner-wrap {
 
     @include text-theme($sidebar-theme-scheme, 'font-color');
     height: calc(100vh - #{$sidebar-footer-height});
@@ -105,30 +105,29 @@
   // Hiding sidebar if body has class (.sidebar-is-closed)
   &-is-closed {
     // TODO Adapted from https://codepen.io/tonkec/pen/gryZmg
-    .#{$s}__inner-wrap * {
+    .#{$s}__inner-wrap > * {
       @include transition;
       @extend %o-v-none;
-      transform: translateX(-100px);
+      transform: translateX(-$sidebar-width);
     }
   }
   // Showing sidebar if body has class (.sidebar-is-open)
   &-is-open {
-    .#{$s}__inner-wrap * {
+    .#{$s}__inner-wrap > * {
       @extend %o-v-show;
+      @include transition;
     }
   }
 
   // Sidebar brand logo
-  &__brand {
+  .#{$s}__brand {
     padding: $sidebar-padding-y $sidebar-padding-x;
     height: $sidebar-brand-height;
   }
 
   // Sidebar footer
   // Adapted from https://codepen.io/JonBergman/pen/pJmejw, https://codepen.io/addjones/pen/yJEPER TODO: Remove this line later
-  &__footer {
-    @include transition;
-    @extend %o-v-none;
+  .#{$s}__footer {
     @include background-theme($sidebar-footer-theme-scheme);
     @include border-theme($sidebar-footer-theme-scheme, 'dark', $position: top);
     @include add-border(1px, transparent, top);
@@ -137,6 +136,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
+    width: 0;
 
     .#{$s}__footer-list {
       padding: 0;
@@ -212,6 +212,7 @@
     left: 0;
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
+
     .#{$s}__footer {
       width: $sidebar-mini-width;
 
@@ -234,20 +235,56 @@
     left: $sidebar-mini-width;
   }
 
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// testing
+  &-is-open.#{$s}-minitest & {
+    @include transition;
+    left: 0;
+    margin-left: -$sidebar-mini-width;
+    width: $sidebar-mini-width;
+    :not(:hover){
+      .#{$s}__footer {
+        width: $sidebar-mini-width;
+
+        // Hiding Sidebar footer links
+        .#{$s}__footer-item {
+          @extend %o-v-none;
+          width: 0;
+          flex: auto;
+        }
+
+        // Keep showing sidebar mini toggle button
+        .#{$s}__footer-item.mini {
+          @extend %o-v-show;
+          width: $sidebar-mini-width;
+        }
+      }
+    }
+  }
+
+  &-is-open.#{$s}-minitest &:hover {
+    width: $sidebar-width;
+  }
+
+  &-is-open.#{$s}-minitest &-fixed & {
+    left: $sidebar-mini-width;
+  }
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// testing
+
   // Showing sidebar and its footer if body has class (.sidebar-is-open)
   &-is-open & {
     width: $sidebar-width;
     .#{$s}__footer {
       width: $sidebar-footer-width;
-      @extend %o-v-show;
       .#{$s}__footer-item {
         @extend %o-v-show;
       }
     }
   }
 
+  // Specify a width for the parent sidebar item so the menu text doesn't break upon toggling the mini sidebar
   &-is-open:not(.#{$s}-mini) & {
-    .#{$s}__nav > ul > .#{$s}__item {
+    .#{$s}__nav > ul > .#{$s}__item,
+    .#{$s}__nav > ul > .#{$s}__item-header {
       width: $sidebar-width;
     }
   }
@@ -260,12 +297,7 @@
 
   // Closed sidebar
   &-is-closed & {
-    width: 0;
-
     .#{$s}__footer {
-      @include transition;
-      @extend %o-v-none;
-      width: 0;
       overflow-x: hidden;
     }
   }
@@ -277,3 +309,4 @@
 }
 
 // TODO sidebar variant from https://github.com/tannguyent/autoregistry-vue-netcore-ddd/blob/master/AutoRegistryClassDDD/scss/components/_sidebar.scss
+
