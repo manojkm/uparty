@@ -72,7 +72,7 @@
 
   // Sidebar divider 'underline' type
   .#{$s}__divider {
-   // @include transition;
+    // @include transition;
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
 
@@ -85,7 +85,7 @@
   // Sidebar menu item
   .#{$s}__item {
 
-   // @include transition;
+    // @include transition;
     @if bool($enable-sidebar-active-border-type) == true {
       @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
     }
@@ -324,5 +324,56 @@
         }
       }
     }
+  }
+}
+
+//
+// MINITEST
+// ======================================================
+
+.sidebar-minitest .sidebar {
+  $s: sidebar;
+  :not(:hover) {
+    .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
+
+      > a {
+        padding: $sidebar-item-padding-y 0;
+
+        .#{$s}__item-icon {
+          margin: 0;
+          text-align: center;
+          @if bool($enable-sidebar-active-border-type) == true {
+            width: $sidebar-mini-width - 2;
+          } @else {
+            width: $sidebar-mini-width;
+          }
+        }
+        .#{$s}__item-title {
+          //display: none;
+        }
+      }
+      > .#{$s}__child {
+        padding-left: $sidebar-mini-width - $sidebar-item-padding-x - $sidebar-submenu-item-margin-left;
+      }
+    }
+
+    .#{$s}__nav > ul > .#{$s}__item-header {
+      position: relative;
+      margin-left: $sidebar-mini-width;
+      padding-left: 0;
+      padding-right: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: $sidebar-item-padding-y;
+        bottom: $sidebar-item-padding-y;
+        left: -1 * ($sidebar-mini-width * .75);
+        display: block;
+        width: $sidebar-mini-width / 2;
+
+      }
+    }
+
   }
 }
