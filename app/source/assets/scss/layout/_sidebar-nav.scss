@@ -75,10 +75,10 @@
     // @include transition;
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
-
+    @include add-border(1px, transparent, bottom);
+    display: flex;
     @if bool($enable-sidebar-divider-underline-type) == true {
       @include border-theme($sidebar-theme-scheme, 'xx-light', 'bottom');
-      @include add-border(1px, transparent, bottom);
     }
   }
 
@@ -111,7 +111,7 @@
       // Sidebar menu icon before item title
       .#{$s}__item-icon {
         margin-right: $sidebar-item-icon-margin-right;
-        text-align: left;
+        text-align: center;
         width: $sidebar-item-icon-width;
         display: inline-block;
 
@@ -228,7 +228,6 @@
 
       .#{$s}__item-icon {
         margin: 0;
-        text-align: center;
         @if bool($enable-sidebar-active-border-type) == true {
           width: $sidebar-mini-width - 2;
         } @else {
@@ -333,15 +332,15 @@
 
 .sidebar-minitest .sidebar {
   $s: sidebar;
-  :not(:hover) {
+  &:not(:hover) {
     .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
 
       > a {
         padding: $sidebar-item-padding-y 0;
 
         .#{$s}__item-icon {
-          margin: 0;
-          text-align: center;
+          //@include transition(width .3s linear);
+          margin-right: 0;
           @if bool($enable-sidebar-active-border-type) == true {
             width: $sidebar-mini-width - 2;
           } @else {
@@ -349,30 +348,58 @@
           }
         }
         .#{$s}__item-title {
-          //display: none;
+          padding-left: $sidebar-minitest-collapsed-item-padding-left;
         }
       }
       > .#{$s}__child {
-        padding-left: $sidebar-mini-width - $sidebar-item-padding-x - $sidebar-submenu-item-margin-left;
+        padding-left: $sidebar-mini-width - $sidebar-item-padding-x - $sidebar-submenu-item-margin-left + $sidebar-minitest-collapsed-item-padding-left;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: calc(#{$sidebar-mini-width / 2} - 1px);
+          display: block;
+          width: 0;
+          border-left: 1px solid #fff;
+        }
+
       }
     }
 
     .#{$s}__nav > ul > .#{$s}__item-header {
-      position: relative;
-      margin-left: $sidebar-mini-width;
-      padding-left: 0;
-      padding-right: 0;
+      width: $sidebar-mini-width;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      display: inline-block;
+      white-space: nowrap;
+      vertical-align: top;
+    }
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: $sidebar-item-padding-y;
-        bottom: $sidebar-item-padding-y;
-        left: -1 * ($sidebar-mini-width * .75);
-        display: block;
-        width: $sidebar-mini-width / 2;
+    /*   .#{$s}__nav > ul > .#{$s}__item-header {
+         //@include transition(padding-left .3s linear);
+         position: relative;
+         margin-left: $sidebar-mini-width;
+         padding-left: $sidebar-minitest-collapsed-item-padding-left;
+         padding-right: 0;
 
-      }
+         &::before {
+           content: "";
+           position: absolute;
+           top: $sidebar-item-padding-y;
+           bottom: $sidebar-item-padding-y;
+           left: -1 * ($sidebar-mini-width * .75);
+           display: block;
+           width: $sidebar-mini-width / 2;
+           background-color: #fff;
+         }
+       }*/
+
+    .#{$s}__nav > ul .#{$s}__divider {
+      border-bottom-color: #fff;
     }
 
   }

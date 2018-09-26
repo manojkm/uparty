@@ -285,7 +285,8 @@
   // Specify a width for the parent sidebar item so the menu text doesn't break upon toggling the mini sidebar
   &-is-open:not(.#{$s}-mini) & {
     .#{$s}__nav > ul > .#{$s}__item,
-    .#{$s}__nav > ul > .#{$s}__item-header {
+    .#{$s}__nav > ul > .#{$s}__item-header,
+    .#{$s}__nav > ul > .#{$s}__item > .#{$s}__child {
       width: $sidebar-width;
     }
   }
