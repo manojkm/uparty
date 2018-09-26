@@ -37,7 +37,8 @@
 
   // Sidebar item heading
   .#{$s}__item-header {
-    @include transition;
+
+    //@include transition;
     @if bool($enable-sidebar-active-border-type) == true {
       @include add-border(2px, transparent, left);
     }
@@ -71,7 +72,7 @@
 
   // Sidebar divider 'underline' type
   .#{$s}__divider {
-    @include transition;
+   // @include transition;
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
 
@@ -83,7 +84,8 @@
 
   // Sidebar menu item
   .#{$s}__item {
-    @include transition;
+
+   // @include transition;
     @if bool($enable-sidebar-active-border-type) == true {
       @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
     }
@@ -92,7 +94,7 @@
 
     // Sidebar menu item links
     > a {
-      @include transition;
+      //@include transition;
       @include text-theme($sidebar-theme-scheme, 'link-color');
       font-size: $sidebar-item-font-size;
       text-decoration: none;
@@ -150,7 +152,7 @@
   }
 
   .#{$s}__item.has-button {
-    @include transition;
+    //@include transition;
     padding: $sidebar-padding-y $sidebar-padding-x;
   }
 
@@ -203,12 +205,12 @@
   .#{$s}__item.has-button,
   .#{$s}__item-header,
   .#{$s}__divider {
-    ///*    @include transition;
-    //    @extend %o-v-none;
-    //    min-height: 0;
-    //    height: 0;
-    //    line-height: 0;
-    //    margin: 0;*/
+    /*    @include transition;
+        @extend %o-v-none;
+        min-height: 0;
+        height: 0;
+        line-height: 0;
+        margin: 0;*/
     display: none;
   }
 
@@ -322,6 +324,5 @@
         }
       }
     }
-
   }
 }

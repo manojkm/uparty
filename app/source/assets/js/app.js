@@ -67,7 +67,7 @@ var appMaster = {
                 $(appMaster._aside).click();
             }
             if (appMaster._sidebarMiniIsOpen) {
-                $(appMaster._side_mini).click();
+                //$(appMaster._side_mini).click();
             }
             appMaster._stopMetisMenu();
         });

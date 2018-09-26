@@ -53,6 +53,11 @@
     @include transition;
     margin-left: $sidebar-mini-width;
   }
+
+  .sidebar-is-open.sidebar-minitest & {
+    @include transition;
+    margin-left: $sidebar-mini-width;
+  }
 }
 
 //
