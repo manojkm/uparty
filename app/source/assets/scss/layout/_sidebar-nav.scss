@@ -371,6 +371,7 @@
       > .#{$s}__child {
         padding-left: $sidebar-mini-width - $sidebar-item-padding-x - $sidebar-submenu-item-margin-left + $sidebar-minitest-collapsed-item-padding-left;
         position: relative;
+        box-sizing: content-box;
 
         &::before {
           content: "";
@@ -380,10 +381,30 @@
           left: calc(#{$sidebar-mini-width / 2} - 1px);
           display: block;
           width: 0;
-          border-left: 1px solid #fff;
+          @include add-border(1px, transparent, left);
+          @include border-theme($sidebar-theme-scheme, 'xx-light', 'left');
         }
 
       }
+
+      .#{$s}__child {
+        .#{$s}__item.active{
+          &:before {
+            @include background-theme($sidebar-theme-scheme, 'xx-light');
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+            margin-top: -4px;
+            margin-left: -4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+          }
+        }
+      }
+
     }
 
     .#{$s}__nav > ul > .#{$s}__item-header {
@@ -397,10 +418,12 @@
     }
 
     .#{$s}__nav > ul .#{$s}__divider {
+      @include background-theme($sidebar-theme-scheme, 'xx-light');
       height: 1px;
-      background-color: red;
       // TODO https://stackoverflow.com/questions/46032276/sass-ampersand-and-two-parents-together-in-mixin
     }
+
+
 
   }
 }

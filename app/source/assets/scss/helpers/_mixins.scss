@@ -22,24 +22,24 @@
     $main-colors: map-get-strict($value, 'main-colors');
     $partial-colors: map-get-strict($value, 'partial-colors');
 
-    $color: null;
+    $theme-color: () !global;
 
     /// color variant is optional
     @if ($color-variant != null) {
       /// map inception
       @if map-has-key($main-colors, $key) {
-        $color: map-get-strict(map-get-strict($main-colors, $key), $color-variant);
+        $theme-color: map-get-strict(map-get-strict($main-colors, $key), $color-variant) !global;
       } @else if map-has-key($partial-colors, $key) {
-        $color: map-get-strict(map-get-strict($partial-colors, $key), $color-variant);
+        $theme-color: map-get-strict(map-get-strict($partial-colors, $key), $color-variant) !global;
       } @else {
         @warn 'Unfortunately, no value could be retrieved from "#{$key}". '
         + 'Please make sure it is defined in $#{$themeName}-palette-map.';
       }
     } @else {
       @if map-has-key($main-colors, $key) {
-        $color: map-get-strict($main-colors, $key);
+        $theme-color: map-get-strict($main-colors, $key) !global;
       } @else if map-has-key($partial-colors, $key) {
-        $color: map-get-strict($partial-colors, $key);
+        $theme-color: map-get-strict($partial-colors, $key) !global;
       } @else {
         @warn 'Unfortunately, no value could be retrieved from "#{$key}". '
         + 'Please make sure it is defined in $#{$themeName}-palette-map.';
@@ -52,14 +52,16 @@
       // &.theme-#{$themeName},
       .theme-#{$themeName} & {
         // Output the declaration
-        #{$property}: $color #{$sledge-hammer};
+        #{$property}: $theme-color #{$sledge-hammer};
+        $theme-color: null !global;
       }
     } @else if ($dynamicTheme == true) {
       // Create a selector (e.g. `.media.theme-light, .theme-light .media`)
       // &.theme-#{$themeName},
       .theme-#{$themeName} & {
         // Output the declaration
-        #{$property}: $color #{$sledge-hammer};
+        #{$property}: $theme-color #{$sledge-hammer};
+        $theme-color: null !global;
       }
     }
 
