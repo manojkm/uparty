@@ -208,7 +208,6 @@
 
   // Mini sidebar modifiers
   &-is-open.#{$s}-mini & {
-    @include transition;
     left: 0;
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
@@ -237,7 +236,6 @@
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// testing
   &-is-open.#{$s}-minitest & {
-    @include transition;
     left: 0;
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
@@ -279,15 +277,6 @@
       .#{$s}__footer-item {
         @extend %o-v-show;
       }
-    }
-  }
-
-  // Specify a width for the parent sidebar item so the menu text doesn't break upon toggling the mini sidebar
-  &-is-open:not(.#{$s}-mini) & {
-    .#{$s}__nav > ul > .#{$s}__item,
-    .#{$s}__nav > ul > .#{$s}__item-header,
-    .#{$s}__nav > ul > .#{$s}__item > .#{$s}__child {
-      width: $sidebar-width;
     }
   }
 

@@ -56,15 +56,17 @@
 
     // Sidebar divider 'after-line' type
     @if bool($enable-sidebar-divider-underline-type) == false {
-      &:after {
+      &::after {
+        content: '';
         @include border-theme($sidebar-theme-scheme, 'xx-light', 'bottom');
         @include add-border(1px, transparent, bottom);
+        @include center(y);
         position: absolute;
-        top: 50%;
         width: 100%;
-        height: 1px;
-        margin: -1px 0 0 5px;
-        content: '';
+        margin-left: 5px;
+        //top: 50%;
+        //height: 1px;
+        //margin: -1px 0 0 5px;
       }
     }
 
@@ -75,10 +77,10 @@
     // @include transition;
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
-    @include add-border(1px, transparent, bottom);
+    // @include add-border(1px, transparent, bottom);
     display: flex;
     @if bool($enable-sidebar-divider-underline-type) == true {
-      @include border-theme($sidebar-theme-scheme, 'xx-light', 'bottom');
+      @include background-theme($sidebar-theme-scheme, 'xx-light');
     }
   }
 
@@ -190,6 +192,13 @@
 
   }
 
+  // Specify a width for the parent sidebar item so the menu text doesn't break upon toggling the mini sidebar
+  .#{$s}__nav > ul > .#{$s}__item,
+  .#{$s}__nav > ul > .#{$s}__item-header,
+  .#{$s}__nav > ul > .#{$s}__item > .#{$s}__child {
+    width: $sidebar-width;
+  }
+
 }
 
 //
@@ -201,7 +210,7 @@
 
   // Hiding headers, dividers etc... so the mini sidebar can reduce its UI complexity
   .#{$s}__item .badge,
-  .#{$s}__item.active:before,
+  .#{$s}__item.active::before,
   .#{$s}__item.has-button,
   .#{$s}__item-header,
   .#{$s}__divider {
@@ -220,10 +229,10 @@
 
     > a {
       padding: $sidebar-item-padding-y 0;
-
-      &.has-arrow::after {
-        @extend %o-v-none;
-        display: none;
+      @if bool($enable-sidebar-active-border-type) == true {
+        width: $sidebar-mini-width - 2;
+      } @else {
+        width: $sidebar-mini-width;
       }
 
       .#{$s}__item-icon {
@@ -235,10 +244,15 @@
         }
       }
 
+      &.has-arrow::after {
+        @extend %o-v-none;
+        display: none;
+      }
+
       .#{$s}__item-title {
         position: fixed;
         display: none;
-        min-width: $sidebar-width;
+        width: $sidebar-width;
         left: $sidebar-mini-width;
         padding: $sidebar-item-padding-y $sidebar-item-padding-x;
         background-color: inherit;
@@ -249,11 +263,12 @@
     // Sub menu - First level
     > .#{$s}__child {
       position: absolute;
-      min-width: $sidebar-mini-submenu-width;
+      width: $sidebar-mini-submenu-width;
       left: $sidebar-mini-width;
       box-shadow: $header-shadow;
-      height: auto !important;
+      height: auto;
       display: none;
+      overflow-y: auto;
     }
 
   }
@@ -282,8 +297,8 @@
         } @else {
           width: $sidebar-mini-active-menu-width;
         }
-
         position: static;
+
         .#{$s}__item-title {
           display: block;
         }
@@ -339,7 +354,6 @@
         padding: $sidebar-item-padding-y 0;
 
         .#{$s}__item-icon {
-          //@include transition(width .3s linear);
           margin-right: 0;
           @if bool($enable-sidebar-active-border-type) == true {
             width: $sidebar-mini-width - 2;
@@ -347,10 +361,13 @@
             width: $sidebar-mini-width;
           }
         }
+
         .#{$s}__item-title {
           padding-left: $sidebar-minitest-collapsed-item-padding-left;
         }
+
       }
+
       > .#{$s}__child {
         padding-left: $sidebar-mini-width - $sidebar-item-padding-x - $sidebar-submenu-item-margin-left + $sidebar-minitest-collapsed-item-padding-left;
         position: relative;
@@ -379,27 +396,10 @@
       vertical-align: top;
     }
 
-    /*   .#{$s}__nav > ul > .#{$s}__item-header {
-         //@include transition(padding-left .3s linear);
-         position: relative;
-         margin-left: $sidebar-mini-width;
-         padding-left: $sidebar-minitest-collapsed-item-padding-left;
-         padding-right: 0;
-
-         &::before {
-           content: "";
-           position: absolute;
-           top: $sidebar-item-padding-y;
-           bottom: $sidebar-item-padding-y;
-           left: -1 * ($sidebar-mini-width * .75);
-           display: block;
-           width: $sidebar-mini-width / 2;
-           background-color: #fff;
-         }
-       }*/
-
     .#{$s}__nav > ul .#{$s}__divider {
-      border-bottom-color: #fff;
+      height: 1px;
+      background-color: red;
+      // TODO https://stackoverflow.com/questions/46032276/sass-ampersand-and-two-parents-together-in-mixin
     }
 
   }
