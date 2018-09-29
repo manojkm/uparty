@@ -13,7 +13,7 @@
 // Wraps all footer elements
 .master-footer {
   @include transition;
-  @include background-color($footer-theme-scheme, 'base');
+  @include background-theme($footer-theme-scheme);
   position: absolute;
   left: 0;
   right: 0;
@@ -25,7 +25,7 @@
   align-items: center;
   z-index: map-get($zindex, footer);
 
-  // Header inner wrapper
+  // Footer inner wrapper
   &__inner-wrap {
     @include color($footer-theme-scheme, 'font-color');
   }
@@ -43,6 +43,10 @@
   }
 
   .sidebar-is-open.sidebar-mini .footer-fixed & {
+    margin-left: $sidebar-mini-width;
+  }
+
+  .sidebar-is-open.sidebar-mini-collapsible .footer-fixed & {
     margin-left: $sidebar-mini-width;
   }
 

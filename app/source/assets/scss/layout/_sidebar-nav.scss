@@ -38,7 +38,6 @@
   // Sidebar item heading
   .#{$s}__item-header {
 
-    //@include transition;
     @if bool($enable-sidebar-active-border-type) == true {
       @include add-border(2px, transparent, left);
     }
@@ -64,9 +63,6 @@
         position: absolute;
         width: 100%;
         margin-left: 5px;
-        //top: 50%;
-        //height: 1px;
-        //margin: -1px 0 0 5px;
       }
     }
 
@@ -74,10 +70,8 @@
 
   // Sidebar divider 'underline' type
   .#{$s}__divider {
-    // @include transition;
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
-    // @include add-border(1px, transparent, bottom);
     display: flex;
     @if bool($enable-sidebar-divider-underline-type) == true {
       @include background-theme($sidebar-theme-scheme, 'xx-light');
@@ -86,8 +80,6 @@
 
   // Sidebar menu item
   .#{$s}__item {
-
-    // @include transition;
     @if bool($enable-sidebar-active-border-type) == true {
       @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
     }
@@ -154,28 +146,18 @@
   }
 
   .#{$s}__item.has-button {
-    //@include transition;
     padding: $sidebar-padding-y $sidebar-padding-x;
   }
-
   .#{$s}__child {
     @include background-theme($sidebar-theme-scheme, 'dark');
+
     .#{$s}__item {
       border: 0;
-      //&:before {
-      //  @include color('sidebar', 'light');
-      //  content:"•";
-      //  position: absolute;
-      //}
-
       a {
         font-size: $sidebar-submenu-item-font-size;
         padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-caret-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
+        position: relative;
       }
-
-      //&:last-of-type {
-      //  padding-bottom: 10px;
-      //}
     }
   }
 
@@ -187,7 +169,7 @@
     }
 
     #{$selector} .#{$s}__item a {
-      margin-left: $sidebar-submenu-item-margin-left + (15px * ($i - 1));
+      padding-left: $sidebar-submenu-item-padding-x + $sidebar-submenu-item-margin-left + (15px * ($i - 1));
     }
 
   }
@@ -197,6 +179,10 @@
   .#{$s}__nav > ul > .#{$s}__item-header,
   .#{$s}__nav > ul > .#{$s}__item > .#{$s}__child {
     width: $sidebar-width;
+  }
+
+  .#{$s}__nav > ul > .#{$s}__item > .#{$s}__child {
+    padding-bottom: 10px;
   }
 
 }
@@ -281,7 +267,8 @@
     }
 
     #{$selector} .#{$s}__item a {
-      margin-left: (15px * ($i - 1));
+      //padding-left: (15px * ($i - 1));
+      padding-left: $sidebar-submenu-item-padding-x +  (15px * ($i - 1));
     }
 
   }
@@ -342,12 +329,27 @@
 }
 
 //
-// MINITEST
+// COLLAPSIBLE SIDEBAR
 // ======================================================
 
-.sidebar-minitest .sidebar {
+.sidebar-mini-collapsible .sidebar {
   $s: sidebar;
   &:not(:hover) {
+
+    .#{$s}__nav > ul > .#{$s}__item-header {
+      width: $sidebar-mini-width;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      display: inline-block;
+      white-space: nowrap;
+      vertical-align: top;
+    }
+
+    .#{$s}__nav > ul .#{$s}__divider {
+      @include background-theme($sidebar-theme-scheme, 'xx-light');
+    }
+
     .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
 
       > a {
@@ -363,13 +365,13 @@
         }
 
         .#{$s}__item-title {
-          padding-left: $sidebar-minitest-collapsed-item-padding-left;
+          padding-left: $sidebar-submenu-item-padding-x;
         }
 
       }
 
       > .#{$s}__child {
-        padding-left: $sidebar-mini-width - $sidebar-item-padding-x - $sidebar-submenu-item-margin-left + $sidebar-minitest-collapsed-item-padding-left;
+        padding-left: $sidebar-mini-width / 2;
         position: relative;
         box-sizing: content-box;
 
@@ -384,46 +386,38 @@
           @include add-border(1px, transparent, left);
           @include border-theme($sidebar-theme-scheme, 'xx-light', 'left');
         }
-
       }
 
       .#{$s}__child {
-        .#{$s}__item.active{
-          &:before {
+        .#{$s}__item.active > a {
+          &::before {
             @include background-theme($sidebar-theme-scheme, 'xx-light');
             content: "";
             position: absolute;
-            top: 50%;
-            left: 0;
+            @include center(xy);
             display: block;
-            margin-top: -4px;
-            margin-left: -4px;
+            left: 0;
             width: 8px;
             height: 8px;
-            border-radius: 50%;
+            border-radius: $border-radius-50;
           }
         }
       }
-
     }
 
-    .#{$s}__nav > ul > .#{$s}__item-header {
-      width: $sidebar-mini-width;
-      overflow: hidden;
-      -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
-      display: inline-block;
-      white-space: nowrap;
-      vertical-align: top;
+    .#{$s}__nav > ul > .#{$s}__item.has-button {
+      a.btn {
+        //@include transition;
+        white-space: nowrap;
+        overflow: hidden;
+        text-indent: -9999px;
+        min-width: initial;
+       // width: calc(#{$sidebar-mini-width / 2} - 1px);;
+        width: calc(#{$sidebar-mini-width} - #{$sidebar-item-padding-x * 2});
+        display: inline-flex!important;
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
-
-    .#{$s}__nav > ul .#{$s}__divider {
-      @include background-theme($sidebar-theme-scheme, 'xx-light');
-      height: 1px;
-      // TODO https://stackoverflow.com/questions/46032276/sass-ampersand-and-two-parents-together-in-mixin
-    }
-
-
-
   }
 }

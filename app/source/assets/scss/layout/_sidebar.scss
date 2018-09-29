@@ -234,13 +234,14 @@
     left: $sidebar-mini-width;
   }
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// testing
-  &-is-open.#{$s}-minitest & {
+
+  // Collapsible sidebar modifiers
+  &-is-open.#{$s}-mini-collapsible & {
     left: 0;
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
 
-    :not(:hover){
+    &:not(:hover){
       .#{$s}__footer {
         width: $sidebar-mini-width;
 
@@ -260,14 +261,13 @@
     }
   }
 
-  &-is-open.#{$s}-minitest &:hover {
+  &-is-open.#{$s}-mini-collapsible &:hover {
     width: $sidebar-width;
   }
 
-  &-is-open.#{$s}-minitest &-fixed & {
+  &-is-open.#{$s}-mini-collapsible &-fixed & {
     left: $sidebar-mini-width;
   }
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// testing
 
   // Showing sidebar and its footer if body has class (.sidebar-is-open)
   &-is-open & {
