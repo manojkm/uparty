@@ -49,22 +49,6 @@
     flex: 1;
     flex-direction: column;
 
-    // Scrollbar style for webkit browsers
-    /* &::-webkit-scrollbar-track {
-       border-radius: 2px;
-     }
-
-     &::-webkit-scrollbar {
-       width: 15px;
-       @include background-theme($sidebar-theme-scheme);
-     }
-
-     &::-webkit-scrollbar-thumb {
-       border-radius: 10px;
-       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-       @include background-theme($sidebar-theme-scheme, 'light');
-     }*/
-
     &::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -125,87 +109,6 @@
     height: $sidebar-brand-height;
   }
 
-  // Sidebar footer
-  // Adapted from https://codepen.io/JonBergman/pen/pJmejw, https://codepen.io/addjones/pen/yJEPER TODO: Remove this line later
-  .#{$s}__footer {
-    @include background-theme($sidebar-footer-theme-scheme);
-    @include border-theme($sidebar-footer-theme-scheme, 'dark', $position: top);
-    @include add-border(1px, transparent, top);
-    min-height: $sidebar-footer-height;
-    box-shadow: $sidebar-footer-shadow;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 0;
-
-    .#{$s}__footer-list {
-      padding: 0;
-      margin: 1px 0 0 0;
-      display: flex;
-      flex: 1;
-    }
-    .#{$s}__footer-item {
-      @include transition;
-      @extend %o-v-none;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex: 1;
-
-      a {
-        @include transition;
-        @include text-theme($sidebar-footer-theme-scheme, 'link-color');
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex: 1;
-
-        &:active,
-        &:hover {
-          @include background-text-theme($sidebar-footer-theme-scheme, 'dark', 'hover-color');
-        }
-
-        i {
-          font-size: $sidebar-footer-icon-font-size;
-        }
-      }
-
-      &.active {
-        > a {
-          @include background-theme($sidebar-footer-theme-scheme, 'dark');
-          @include text-theme($sidebar-footer-active-theme-scheme);
-        }
-      }
-
-    }
-    .#{$s}__footer-child {
-      @include background-theme($sidebar-footer-theme-scheme, 'dark');
-      @include border-theme($sidebar-footer-active-theme-scheme, $position: top);
-      @include add-border($sidebar-footer-child-border-top-size, transparent, top);
-      width: $sidebar-footer-width;
-      bottom: $sidebar-footer-height;
-      padding: 0;
-      position: absolute;
-
-      .#{$s}__footer-item {
-        a {
-          font-size: $sidebar-footer-font-size;
-          padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-caret-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
-          align-items: flex-start;
-          justify-content: flex-start;
-        }
-        &:first-of-type {
-          padding-top: 10px;
-        }
-        &:last-of-type {
-          padding-bottom: 10px;
-        }
-      }
-    }
-  }
-
   // Mini sidebar modifiers
   &-is-open.#{$s}-mini & {
     left: 0;
@@ -233,7 +136,6 @@
   &-is-open.#{$s}-mini &-fixed & {
     left: $sidebar-mini-width;
   }
-
 
   // Collapsible sidebar modifiers
   &-is-open.#{$s}-mini-collapsible & {

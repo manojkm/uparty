@@ -14,9 +14,9 @@
 // SIDEBAR MENU
 // ======================================================
 
-.sidebar {
-  $s: sidebar;
+$s: sidebar;
 
+.sidebar {
   // Base styles
   .#{$s}__nav {
     flex: 1;
@@ -37,7 +37,6 @@
 
   // Sidebar item heading
   .#{$s}__item-header {
-
     @if bool($enable-sidebar-active-border-type) == true {
       @include add-border(2px, transparent, left);
     }
@@ -86,36 +85,35 @@
     position: relative;
     box-sizing: border-box;
 
-    // Sidebar menu item links
-    > a {
-      //@include transition;
+    // Sidebar menu link
+    > .#{$s}__link {
       @include text-theme($sidebar-theme-scheme, 'link-color');
-      font-size: $sidebar-item-font-size;
+      font-size: $sidebar-link-font-size;
       text-decoration: none;
-      padding: $sidebar-item-padding-y ($sidebar-item-padding-x + $sidebar-item-caret-margin-right) $sidebar-item-padding-y $sidebar-item-padding-x;
-      line-height: $sidebar-item-line-height;
+      padding: $sidebar-link-padding-y ($sidebar-link-padding-x + $sidebar-link-caret-margin-right) $sidebar-link-padding-y $sidebar-link-padding-x;
+      line-height: $sidebar-link-line-height;
       display: flex;
       align-items: center;
       flex-direction: row;
 
       &.has-arrow::after {
-        right: $sidebar-item-caret-margin-right;
+        right: $sidebar-link-caret-margin-right;
       }
 
-      // Sidebar menu icon before item title
-      .#{$s}__item-icon {
-        margin-right: $sidebar-item-icon-margin-right;
+      // Sidebar menu link icon
+      .#{$s}__link-icon {
+        margin-right: $sidebar-link-icon-margin-right;
         text-align: center;
-        width: $sidebar-item-icon-width;
+        width: $sidebar-link-icon-width;
         display: inline-block;
 
         > i {
-          font-size: $sidebar-item-icon-font-size;
+          font-size: $sidebar-link-icon-font-size;
         }
       }
 
-      // Sidebar menu item title
-      .#{$s}__item-title {
+      // Sidebar menu link title
+      .#{$s}__link-title {
         display: inline-block;
         flex: 1;
       }
@@ -128,7 +126,7 @@
       @if bool($enable-sidebar-active-border-type) == true {
         @include border-theme($sidebar-active-border-theme-scheme, $position: left); // Make borders visible
       }
-      > a {
+      > .#{$s}__link {
         @include background-text-theme($sidebar-theme-scheme, 'dark', 'hover-color');
       }
     }
@@ -138,26 +136,44 @@
       @if bool($enable-sidebar-active-border-type) == true {
         @include border-theme($sidebar-active-border-theme-scheme, $position: left); // Make borders visible
       }
-      > a {
+      > .#{$s}__link {
         @include background-text-theme($sidebar-theme-scheme, 'dark', 'active-color');
       }
 
     }
   }
 
+  // Sidebar menu with button
   .#{$s}__item.has-button {
     padding: $sidebar-padding-y $sidebar-padding-x;
   }
+
+  // Sidebar child menu
   .#{$s}__child {
     @include background-theme($sidebar-theme-scheme, 'dark');
-
     .#{$s}__item {
       border: 0;
-      a {
-        font-size: $sidebar-submenu-item-font-size;
-        padding: $sidebar-submenu-item-padding-y ($sidebar-submenu-item-padding-x + $sidebar-item-caret-margin-right) $sidebar-submenu-item-padding-y $sidebar-submenu-item-padding-x;
+      .#{$s}__link {
+        font-size: $sidebar-submenu-link-font-size;
+        padding: $sidebar-submenu-link-padding-y ($sidebar-submenu-link-padding-x + $sidebar-link-caret-margin-right) $sidebar-submenu-link-padding-y $sidebar-submenu-link-padding-x;
         position: relative;
       }
+
+      // Change the hover, focus, active state links for better highlighting
+      &:hover,
+      &.show {
+        > .#{$s}__link:not(.has-arrow) {
+          @include background-text-theme($sidebar-theme-scheme, 'x-dark', 'hover-color');
+        }
+      }
+
+      // Current item
+      &.active {
+        > .#{$s}__link:not(.has-arrow) {
+          @include background-text-theme($sidebar-theme-scheme, 'xx-dark', 'active-color');
+        }
+      }
+
     }
   }
 
@@ -168,8 +184,8 @@
       $selector: "#{$selector} .#{$s}__child";
     }
 
-    #{$selector} .#{$s}__item a {
-      padding-left: $sidebar-submenu-item-padding-x + $sidebar-submenu-item-margin-left + (15px * ($i - 1));
+    #{$selector} .#{$s}__item .#{$s}__link {
+      padding-left: $sidebar-submenu-link-padding-x + $sidebar-submenu-link-margin-left + (15px * ($i - 1));
     }
 
   }
@@ -181,8 +197,10 @@
     width: $sidebar-width;
   }
 
-  .#{$s}__nav > ul > .#{$s}__item > .#{$s}__child {
-    padding-bottom: 10px;
+  .#{$s}__nav > ul > .#{$s}__item > .#{$s}__child > .#{$s}__item {
+    &:last-of-type {
+      padding-bottom: 10px;
+    }
   }
 
 }
@@ -192,7 +210,6 @@
 // ======================================================
 
 .sidebar-mini .sidebar {
-  $s: sidebar;
 
   // Hiding headers, dividers etc... so the mini sidebar can reduce its UI complexity
   .#{$s}__item .badge,
@@ -213,15 +230,15 @@
     position: static;
     display: block;
 
-    > a {
-      padding: $sidebar-item-padding-y 0;
+    > .#{$s}__link {
+      padding: $sidebar-link-padding-y 0;
       @if bool($enable-sidebar-active-border-type) == true {
         width: $sidebar-mini-width - 2;
       } @else {
         width: $sidebar-mini-width;
       }
 
-      .#{$s}__item-icon {
+      .#{$s}__link-icon {
         margin: 0;
         @if bool($enable-sidebar-active-border-type) == true {
           width: $sidebar-mini-width - 2;
@@ -235,12 +252,12 @@
         display: none;
       }
 
-      .#{$s}__item-title {
+      .#{$s}__link-title {
         position: fixed;
         display: none;
         width: $sidebar-width;
         left: $sidebar-mini-width;
-        padding: $sidebar-item-padding-y $sidebar-item-padding-x;
+        padding: $sidebar-link-padding-y $sidebar-link-padding-x;
         background-color: inherit;
       }
 
@@ -268,7 +285,7 @@
 
     #{$selector} .#{$s}__item a {
       //padding-left: (15px * ($i - 1));
-      padding-left: $sidebar-submenu-item-padding-x +  (15px * ($i - 1));
+      padding-left: $sidebar-submenu-link-padding-x +  (15px * ($i - 1));
     }
 
   }
@@ -277,7 +294,7 @@
   .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
     //&:hover
     &.show {
-      > a {
+      > .#{$s}__link {
         transition: none;
         @if bool($enable-sidebar-active-border-type) == true {
           width: $sidebar-mini-active-menu-width - 2; // Value 2 is to adjust the width to include border of parent li
@@ -286,7 +303,7 @@
         }
         position: static;
 
-        .#{$s}__item-title {
+        .#{$s}__link-title {
           display: block;
         }
       }
@@ -303,16 +320,15 @@
 // ======================================================
 
 .sidebar-mini.full {
-  $s: sidebar;
   .sidebar {
     .#{$s}__nav > ul > .#{$s}__item.has-child:not(.has-button) {
       //&:hover
       &.show {
-        > a {
-          .#{$s}__item-title {
+        > .#{$s}__link {
+          .#{$s}__link-title {
             top: $header-height;
             height: $sidebar-mini-full-item-height;
-            padding: 0 $sidebar-item-padding-x;
+            padding: 0 $sidebar-link-padding-x;
             display: flex;
             align-items: center;
           }
@@ -333,7 +349,6 @@
 // ======================================================
 
 .sidebar-mini-collapsible .sidebar {
-  $s: sidebar;
   &:not(:hover) {
 
     .#{$s}__nav > ul > .#{$s}__item-header {
@@ -352,10 +367,12 @@
 
     .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
 
-      > a {
-        padding: $sidebar-item-padding-y 0;
+      > .#{$s}__link {
+        @include transition(padding .3s ease);
+        padding: $sidebar-link-padding-y 0;
 
-        .#{$s}__item-icon {
+        .#{$s}__link-icon {
+          @include transition(width .3s ease);
           margin-right: 0;
           @if bool($enable-sidebar-active-border-type) == true {
             width: $sidebar-mini-width - 2;
@@ -364,18 +381,21 @@
           }
         }
 
-        .#{$s}__item-title {
-          padding-left: $sidebar-submenu-item-padding-x;
+        .#{$s}__link-title {
+          padding-left: $sidebar-submenu-link-padding-x;
         }
 
       }
 
       > .#{$s}__child {
+        @include transition(padding .3s ease);
         padding-left: $sidebar-mini-width / 2;
         position: relative;
         box-sizing: content-box;
 
         &::before {
+          @include add-border(1px, transparent, left);
+          @include border-theme($sidebar-theme-scheme, 'xx-light', 'left');
           content: "";
           position: absolute;
           top: 0;
@@ -383,41 +403,134 @@
           left: calc(#{$sidebar-mini-width / 2} - 1px);
           display: block;
           width: 0;
-          @include add-border(1px, transparent, left);
-          @include border-theme($sidebar-theme-scheme, 'xx-light', 'left');
+          z-index: 50;
         }
       }
 
       .#{$s}__child {
-        .#{$s}__item.active > a {
+        .#{$s}__item.active > .#{$s}__link {
+          background: none !important;
           &::before {
             @include background-theme($sidebar-theme-scheme, 'xx-light');
+            @include center(xy);
             content: "";
             position: absolute;
-            @include center(xy);
             display: block;
             left: 0;
             width: 8px;
             height: 8px;
             border-radius: $border-radius-50;
+            z-index: 55;
           }
         }
       }
     }
 
     .#{$s}__nav > ul > .#{$s}__item.has-button {
-      a.btn {
-        //@include transition;
+      & .btn {
+        @include transition(width .3s ease);
         white-space: nowrap;
         overflow: hidden;
         text-indent: -9999px;
         min-width: initial;
-       // width: calc(#{$sidebar-mini-width / 2} - 1px);;
-        width: calc(#{$sidebar-mini-width} - #{$sidebar-item-padding-x * 2});
-        display: inline-flex!important;
+        //font-size: 0;
+        width: calc(#{$sidebar-mini-width} - #{$sidebar-link-padding-x * 2});
+        display: inline-flex !important;
         padding-left: 0;
         padding-right: 0;
+
+        > i {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
+//
+// SIDEBAR FOOTER
+// ======================================================
+// Adapted from https://codepen.io/JonBergman/pen/pJmejw, https://codepen.io/addjones/pen/yJEPER TODO: Remove this line later
+
+.sidebar {
+  .#{$s}__footer {
+    @include background-theme($sidebar-footer-theme-scheme);
+    @include border-theme($sidebar-footer-theme-scheme, 'dark', $position: top);
+    @include add-border(1px, transparent, top);
+    min-height: $sidebar-footer-height;
+    box-shadow: $sidebar-footer-shadow;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 0;
+
+    .#{$s}__footer-list {
+      padding: 0;
+      margin: 1px 0 0 0;
+      display: flex;
+      flex: 1;
+    }
+    .#{$s}__footer-item {
+      @include transition;
+      @extend %o-v-none;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+
+      .#{$s}__footer-link {
+        @include transition;
+        @include text-theme($sidebar-footer-theme-scheme, 'link-color');
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+
+        &:active,
+        &:hover {
+          @include background-text-theme($sidebar-footer-theme-scheme, 'dark', 'hover-color');
+        }
+
+        i {
+          font-size: $sidebar-footer-icon-font-size;
+        }
+      }
+
+      &.active {
+        > .#{$s}__footer-link {
+          @include background-theme($sidebar-footer-theme-scheme, 'dark');
+          @include text-theme($sidebar-footer-active-theme-scheme);
+        }
+      }
+
+    }
+    .#{$s}__footer-child {
+      @include background-theme($sidebar-footer-theme-scheme, 'dark');
+      @include border-theme($sidebar-footer-active-theme-scheme, $position: top);
+      @include add-border($sidebar-footer-child-border-top-size, transparent, top);
+      width: $sidebar-footer-width;
+      bottom: $sidebar-footer-height;
+      padding: 0;
+      position: absolute;
+
+      .#{$s}__footer-item {
+        .#{$s}__footer-link {
+          font-size: $sidebar-footer-font-size;
+          padding: $sidebar-submenu-link-padding-y ($sidebar-submenu-link-padding-x + $sidebar-link-caret-margin-right) $sidebar-submenu-link-padding-y $sidebar-submenu-link-padding-x;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+        &:first-of-type {
+          padding-top: 10px;
+        }
+        &:last-of-type {
+          padding-bottom: 10px;
+        }
       }
     }
   }
 }
+

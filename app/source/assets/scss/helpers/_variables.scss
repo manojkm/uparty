@@ -674,7 +674,8 @@ $navbar-item-mobile-bottom-border:      true;
 
 $sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. NOTE: Retrieved from active theme palette map from `themes/theme-*`
 $sidebar-active-border-theme-scheme:    primary !default; // Theme color scheme applied to active sidebar menu item. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
-$sidebar-width:                         200px; // Sidebar Size
+
+$sidebar-width:                         240px; // Sidebar Size
 $sidebar-padding-y:                     0px; // Sidebar vertical padding.
 $sidebar-padding-x:                     10px; // Sidebar horizontal padding
 
@@ -690,27 +691,27 @@ $sidebar-item-header-letter-spacing:    0.1em; // Spacing in-between letters for
 $sidebar-item-header-height:            30px;
 $sidebar-item-header-opacity:           0.7;
 
-// Sidebar item
+// Sidebar link
 
-$sidebar-item-font-size:                $font-size-base; // Sidebar menu item title font size (.sidebar__item > a).
-$sidebar-item-line-height:              $lh-base;
-$sidebar-item-padding-y:                8px;
-$sidebar-item-padding-x:                $sidebar-padding-x;
-$sidebar-item-caret-margin-right:       10px; // Right margin for sidebar menu item caret, so that there is space between sidebar and caret.
+$sidebar-link-font-size:                $font-size-base; // Sidebar menu link title font size (.sidebar__item > .sidebar__link).
+$sidebar-link-line-height:              $lh-base;
+$sidebar-link-padding-y:                8px;
+$sidebar-link-padding-x:                $sidebar-padding-x;
+$sidebar-link-caret-margin-right:       10px; // Right margin for sidebar menu link caret, so that there is space between link and caret.
 
-// Sidebar item icon
+// Sidebar link icon
 
-$sidebar-item-icon-width:               20px; // Width of sidebar menu icon
-$sidebar-item-icon-font-size:           $sidebar-item-font-size; // Sidebar menu item icon font size (.sidebar__item-icon > i).
-$sidebar-item-icon-margin-right:        5px; // Right margin for sidebar icon, so that there is space between title and icon.
+$sidebar-link-icon-width:               20px; // Width of sidebar link icon
+$sidebar-link-icon-font-size:           $sidebar-link-font-size; // Sidebar menu link icon font size (.sidebar__link-icon > i).
+$sidebar-link-icon-margin-right:        5px; // Right margin for sidebar menu link icon, so that there is space between title and icon.
 
 // Sidebar sub menu
 
 $sidebar-submenu-max-levels:            5 !default;
-$sidebar-submenu-item-font-size:        $font-size-sm; // Sidebar sub menu item font size (.sidebar__child .sidebar__item > a).
-$sidebar-submenu-item-padding-y:        4px;
-$sidebar-submenu-item-padding-x:        $sidebar-padding-x;
-$sidebar-submenu-item-margin-left:      ($sidebar-item-icon-width + $sidebar-item-icon-margin-right);
+$sidebar-submenu-link-font-size:        $font-size-sm; // Sidebar sub menu link font size (.sidebar__child .sidebar__item > .sidebar__link).
+$sidebar-submenu-link-padding-y:        8px;
+$sidebar-submenu-link-padding-x:        $sidebar-padding-x;
+$sidebar-submenu-link-margin-left:      ($sidebar-link-icon-width + $sidebar-link-icon-margin-right);
 
 // Sidebar divider (.sidebar__divider)
 
@@ -725,7 +726,7 @@ $sidebar-footer-active-theme-scheme:    primary !default; // Theme color scheme 
 $sidebar-footer-width:                  $sidebar-width; // So that sidebar footer takes the same width of the sidebar.
 $sidebar-footer-height:                 40px; // Height of sidebar footer
 $sidebar-footer-child-border-top-size:  $border-thin; // Width of the top 'border'for submenu.
-$sidebar-footer-font-size:              $sidebar-submenu-item-font-size; // Submenu item font size (.sidebar__footer-child .sidebar__footer-item > a).
+$sidebar-footer-font-size:              $sidebar-submenu-link-font-size; // Submenu item font size (.sidebar__footer-child .sidebar__footer-item > a).
 $sidebar-footer-icon-font-size:         15px;
 
 // Mini sidebar adjustments

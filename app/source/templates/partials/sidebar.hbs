@@ -17,16 +17,16 @@
         <!-- Main -->
         <li class="sidebar__item-header">OVERVIEW</li>
         <li class="sidebar__item has-child{{#if page.dashboard}} active{{/if}}">
-            <a href="#" class="has-arrow" aria-expanded="{{#if page.dashboard}}true{{else}}false{{/if}}">
-                <span class="sidebar__item-icon"><i class="icon-speedometer"></i></span>
-                <span class="sidebar__item-title">Dashboard</span>
+            <a href="#" class="sidebar__link has-arrow" aria-expanded="{{#if page.dashboard}}true{{else}}false{{/if}}">
+                <span class="sidebar__link-icon"><i class="icon-speedometer"></i></span>
+                <span class="sidebar__link-title">Dashboard</span>
                 <span class="ml-auto mr-3 badge badge-info">42</span>
             </a>
             <ul class="sidebar__child" aria-expanded="{{#if page.dashboard}}true{{else}}false{{/if}}">
                 {{#withSort dashboard 'data.posted'}}
                     {{#each pages }}
                         <li class="sidebar__item{{#is ../../page.dest this.dest}} active{{/is}}">
-                            <a href="{{ replaceStr dest 'app/build/' '' }}">{{ data.title }}</a>
+                            <a href="{{ replaceStr dest 'app/build/' '' }}" class="sidebar__link">{{ data.title }}</a>
                         </li>
                     {{/each}}
                 {{/withSort}}
@@ -51,25 +51,25 @@
         <!--Navigation-->
         <li class="sidebar__item-header">Navigation</li>
         <li class="sidebar__item has-child">
-            <a href="#" class="has-arrow" aria-expanded="false">
-                <span class="sidebar__item-icon"><i class="icon-folder"></i></span>
-                <span class="sidebar__item-title">Menu Levels</span>
+            <a href="#" class="sidebar__link has-arrow" aria-expanded="false">
+                <span class="sidebar__link-icon"><i class="icon-folder"></i></span>
+                <span class="sidebar__link-title">Menu Levels</span>
             </a>
             <ul class="sidebar__child" aria-expanded="false">
-                <li class="sidebar__item"><a href="#">Level 1.1</a></li>
-                <li class="sidebar__item has-child"><a href="#" class="has-arrow" aria-expanded="false">Level 1.2</a>
+                <li class="sidebar__item"><a href="#" class="sidebar__link">Level 1.1</a></li>
+                <li class="sidebar__item has-child"><a href="#" class="sidebar__link has-arrow" aria-expanded="false">Level 1.2</a>
                     <ul class="sidebar__child" aria-expanded="false">
-                        <li class="sidebar__item"><a href="#">Level 2.1</a></li>
-                        <li class="sidebar__item has-child"><a href="#" class="has-arrow" aria-expanded="false">Level 2.2</a>
+                        <li class="sidebar__item"><a href="#" class="sidebar__link">Level 2.1</a></li>
+                        <li class="sidebar__item has-child"><a href="#" class="sidebar__link has-arrow" aria-expanded="false">Level 2.2</a>
                             <ul class="sidebar__child" aria-expanded="false">
-                                <li class="sidebar__item"><a href="#">Level 3.1</a></li>
-                                <li class="sidebar__item"><a href="#">Level 3.2</a></li>
+                                <li class="sidebar__item"><a href="#" class="sidebar__link">Level 3.1</a></li>
+                                <li class="sidebar__item"><a href="#" class="sidebar__link">Level 3.2</a></li>
                             </ul>
                         </li>
-                        <li class="sidebar__item"><a href="#">Level 2.3</a></li>
+                        <li class="sidebar__item"><a href="#" class="sidebar__link">Level 2.3</a></li>
                     </ul>
                 </li>
-                <li class="sidebar__item"><a href="#">Level 1.3</a></li>
+                <li class="sidebar__item"><a href="#" class="sidebar__link">Level 1.3</a></li>
             </ul>
         </li>
 
@@ -79,9 +79,9 @@
         <!--Extras-->
         <li class="sidebar__item-header">Extras</li>
         <li class="sidebar__item">
-            <a href="#">
-                <span class="sidebar__item-icon"><i class="icon-list"></i></span>
-                <span class="sidebar__item-title">Menu 1</span>
+            <a href="#" class="sidebar__link">
+                <span class="sidebar__link-icon"><i class="icon-list"></i></span>
+                <span class="sidebar__link-title">Menu 1</span>
             </a>
         </li>
         <li class="sidebar__divider"></li>
@@ -100,9 +100,9 @@
     <ul class="sidebar__list metismenu list-unstyled mt-auto" data-plugin="metismenu">
         <li class="sidebar__item-header">Downloads</li>
         <li class="sidebar__item">
-            <a href="#">
-                <span class="sidebar__item-icon"><i class="fa fa-camera-retro"></i></span>
-                <span class="sidebar__item-title">Menu 1</span>
+            <a href="#" class="sidebar__link">
+                <span class="sidebar__link-icon"><i class="fa fa-camera-retro"></i></span>
+                <span class="sidebar__link-title">Menu 1</span>
             </a>
         </li>
     </ul>
@@ -128,20 +128,20 @@
             </li>
             <li class="sidebar__footer-item has-child">
                 <ul class="sidebar__footer-child collapse" aria-expanded="false">
-                    <li class="sidebar__footer-item"><a href="#">Level One</a></li>
-                    <li class="sidebar__footer-item"><a href="#">Level One</a></li>
-                    <li class="sidebar__footer-item"><a href="#">Level One</a></li>
-                    <li class="sidebar__footer-item"><a href="#">Level One</a></li>
+                    <li class="sidebar__footer-item"><a href="#" class="sidebar__footer-link">Level One</a></li>
+                    <li class="sidebar__footer-item"><a href="#" class="sidebar__footer-link">Level One</a></li>
+                    <li class="sidebar__footer-item"><a href="#" class="sidebar__footer-link">Level One</a></li>
+                    <li class="sidebar__footer-item"><a href="#" class="sidebar__footer-link">Level One</a></li>
                 </ul>
 
                 <!-- TODO Tooltip styling https://codepen.io/andreivictor/pen/MpNQNL -->
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Settings" data-trigger="hover"
+                <a href="#" class="sidebar__footer-link" data-toggle="tooltip" data-placement="top" title="Settings" data-trigger="hover"
                    data-animate="animated fadeIn"
                    aria-expanded="false"><i class="fa fa-trash"></i></a>
             </li>
 
             <li class="sidebar__footer-item">
-                <a href="#"><i class="fa fa-ellipsis-h"></i></a>
+                <a href="#" class="sidebar__footer-link"><i class="fa fa-ellipsis-h"></i></a>
             </li>
         </ul>
     </nav>
