@@ -18,7 +18,8 @@ var appMaster = {
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
 
-    _sidebar_nav: $('.sidebar__nav, .sidebar__footer-nav'),
+    _sidebar_nav: $('.sidebar nav.sidebar__nav'),
+    _sidebar_footer_nav: $('.sidebar .sidebar-footer nav.sidebar-footer__nav'),
     _sidebar_item: $('.sidebar__list > .sidebar__item'),
 
     _side_mini: $("[data-side='mini']"),
@@ -69,7 +70,7 @@ var appMaster = {
             if (appMaster._sidebarMiniIsOpen) {
                 //$(appMaster._side_mini).click();
             }
-            appMaster._stopMetisMenu();
+            appMaster._stopMetisMenu([appMaster._sidebar_nav, appMaster._sidebar_footer_nav]);
         });
 
         $(appMaster._side_mini).on('click', function (event) {
@@ -86,6 +87,7 @@ var appMaster = {
                 appMaster._body.addClass('sidebar-mini-collapsible');
                 appMaster._changeLogo();
                 appMaster._sidebarMiniIsOpen = true;
+                appMaster._stopMetisMenu(appMaster._sidebar_footer_nav);
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
             }
 
@@ -273,10 +275,10 @@ var appMaster = {
 
     },
 
-    _stopMetisMenu: function () {
-        $(appMaster._sidebar_nav).find('li').removeClass('active');
-        $(appMaster._sidebar_nav).find('a').attr('aria-expanded', false);
-        $(appMaster._sidebar_nav).find('ul.collapse').removeClass('in').attr('aria-expanded', false);
+    _stopMetisMenu: function (hide_element) {
+        $(hide_element).each(function() {$(this).find('li').removeClass('active')});
+        $(hide_element).each(function() {$(this).find('a').attr('aria-expanded', false)});
+        $(hide_element).each(function() {$(this).find('ul.collapse').removeClass('in').attr('aria-expanded', false)});
     },
 
     _changeLogo: function () {

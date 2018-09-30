@@ -673,9 +673,9 @@ $navbar-item-mobile-bottom-border:      true;
 // -----------------------------------------------------------------------------
 
 $sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. NOTE: Retrieved from active theme palette map from `themes/theme-*`
-$sidebar-active-border-theme-scheme:    primary !default; // Theme color scheme applied to active sidebar menu item. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
+//$sidebar-active-border-theme-scheme:    primary !default; // Theme color scheme applied to active sidebar menu item. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
 
-$sidebar-width:                         240px; // Sidebar Size
+$sidebar-width:                         225px; // Sidebar Size
 $sidebar-padding-y:                     0px; // Sidebar vertical padding.
 $sidebar-padding-x:                     10px; // Sidebar horizontal padding
 
@@ -709,7 +709,7 @@ $sidebar-link-icon-margin-right:        5px; // Right margin for sidebar menu li
 
 $sidebar-submenu-max-levels:            5 !default;
 $sidebar-submenu-link-font-size:        $font-size-sm; // Sidebar sub menu link font size (.sidebar__child .sidebar__item > .sidebar__link).
-$sidebar-submenu-link-padding-y:        8px;
+$sidebar-submenu-link-padding-y:        6px;
 $sidebar-submenu-link-padding-x:        $sidebar-padding-x;
 $sidebar-submenu-link-margin-left:      ($sidebar-link-icon-width + $sidebar-link-icon-margin-right);
 
@@ -721,12 +721,12 @@ $sidebar-divider-margin-x:              0px;
 
 // Sidebar footer
 
-$sidebar-footer-theme-scheme:           $sidebar-theme-scheme !default; // So that sidebar footer takes the same theme scheme of the sidebar.
+//$sidebar-footer-theme-scheme:           $sidebar-theme-scheme !default; // So that sidebar footer takes the same theme scheme of the sidebar.
 $sidebar-footer-active-theme-scheme:    primary !default; // Theme color scheme applied to active item. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $sidebar-footer-width:                  $sidebar-width; // So that sidebar footer takes the same width of the sidebar.
 $sidebar-footer-height:                 40px; // Height of sidebar footer
 $sidebar-footer-child-border-top-size:  $border-thin; // Width of the top 'border'for submenu.
-$sidebar-footer-font-size:              $sidebar-submenu-link-font-size; // Submenu item font size (.sidebar__footer-child .sidebar__footer-item > a).
+$sidebar-footer-font-size:              $sidebar-submenu-link-font-size; // Submenu item font size (.sidebar-footer__child .sidebar-footer__item > a).
 $sidebar-footer-icon-font-size:         15px;
 
 // Mini sidebar adjustments

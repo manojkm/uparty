@@ -972,6 +972,172 @@
 }
 
 //
+// SIDEBAR
+// ======================================================
+
+@mixin sidebar-theme($scheme, $font-color, $link-color, $hover-color, $active-color) {
+
+  $s: sidebar;
+
+  @include background-theme($scheme);
+
+  .#{$s}__inner-wrap {
+    @include text-theme($scheme, $font-color);
+  }
+
+  .#{$s}__item-header {
+    @include text-theme($scheme, $font-color);
+    &::after {
+      @include background-theme($scheme, 'xx-light');
+    }
+  }
+
+  .#{$s}__divider {
+    @if bool($enable-sidebar-divider-underline-type)==true {
+      @include background-theme($scheme, 'xx-light');
+    }
+  }
+
+  .#{$s}__item {
+    > .#{$s}__link {
+      @include text-theme($scheme, $link-color);
+    }
+
+    // Change the hover, focus, active state links for better highlighting
+    &:hover,
+    &.show {
+      @if bool($enable-sidebar-active-border-type)==true {
+        @include border-theme($scheme, $active-color, $position: left); // Make borders visible
+      }
+      > .#{$s}__link {
+        @include background-text-theme($scheme, 'dark', $hover-color);
+      }
+    }
+
+    // Current item
+    &.active {
+      @if bool($enable-sidebar-active-border-type)==true {
+        @include border-theme($scheme, $active-color, $position: left); // Make borders visible
+      }
+      > .#{$s}__link {
+        @include background-text-theme($scheme, 'dark', $active-color);
+      }
+    }
+  }
+
+  .#{$s}__child {
+    @include background-theme($scheme, 'dark');
+
+    .#{$s}__item {
+      // Change the hover, focus, active state links for better highlighting
+      &:hover,
+      &.show {
+        > .#{$s}__link:not(.has-arrow) {
+          @include background-theme($scheme, 'x-dark');
+        }
+      }
+
+      // Current item
+      &.active {
+        > .#{$s}__link:not(.has-arrow) {
+          @include background-theme($scheme, 'xx-dark');
+        }
+      }
+    }
+  }
+
+  .#{$s}-footer {
+    @include background-theme($scheme);
+    @include border-theme($scheme, 'dark', $position: top);
+
+    .#{$s}-footer__item {
+
+      > .#{$s}-footer__link {
+        @include text-theme($scheme, $link-color);
+      }
+
+      &:hover {
+        > .#{$s}-footer__link {
+          @include background-text-theme($scheme, 'dark', $hover-color);
+        }
+      }
+
+      &.active {
+        > .#{$s}-footer__link {
+          @include background-text-theme($scheme, 'dark', $active-color);
+        }
+      }
+    }
+
+    .#{$s}-footer__child {
+      .#{$s}-footer__item {
+        &:hover {
+          > .#{$s}-footer__link:not(.has-arrow) {
+            @include background-theme($scheme, 'x-dark');
+          }
+        }
+
+        &.active {
+          > .#{$s}-footer__link:not(.has-arrow) {
+            @include background-theme($scheme, 'xx-dark');
+          }
+        }
+      }
+    }
+
+    .#{$s}-footer__nav > ul > .#{$s}-footer__item > .#{$s}-footer__child {
+      @include background-theme($scheme, 'dark');
+      @include border-theme($scheme, $active-color, $position: top);
+    }
+
+    // Sidebar mini toggle button
+    .#{$s}__footer--toggler {
+
+      .icon-bar {
+        @include background-theme($scheme, $link-color);
+      }
+
+      &.collapsed,
+      &:hover {
+        @include background-theme($scheme, 'dark');
+        .icon-bar {
+          @include background-theme($scheme, $active-color);
+        }
+      }
+
+    }
+  }
+
+  // Collapsible sidebar
+  .#{$s}-mini-collapsible &  {
+
+    &:not(:hover) {
+      .#{$s}__nav > ul .#{$s}__divider {
+        @include background-theme($scheme, 'xx-light');
+      }
+
+      .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
+        > .#{$s}__child {
+          &::before {
+            @include border-theme($scheme, 'xx-light', 'left');
+          }
+        }
+
+        .#{$s}__child {
+          .#{$s}__item.active > .#{$s}__link {
+            &::before {
+              @include background-theme($scheme, 'xx-light');
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+//
 // FORMS
 // ======================================================
 

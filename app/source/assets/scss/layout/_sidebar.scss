@@ -36,8 +36,6 @@
 
   // Sidebar inner wrapper
   .#{$s}__inner-wrap {
-
-    @include text-theme($sidebar-theme-scheme, 'font-color');
     height: calc(100vh - #{$sidebar-footer-height});
     bottom: $sidebar-footer-height;
     width: 100%;
@@ -115,18 +113,18 @@
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
 
-    .#{$s}__footer {
+    .#{$s}-footer {
       width: $sidebar-mini-width;
 
       // Hiding Sidebar footer links
-      .#{$s}__footer-item {
+      .#{$s}-footer__nav > ul > .#{$s}-footer__item {
         @extend %o-v-none;
         width: 0;
         flex: auto;
       }
 
       // Keep showing sidebar mini toggle button
-      .#{$s}__footer-item.mini {
+      .#{$s}-footer__nav > ul > .#{$s}-footer__item.mini {
         @extend %o-v-show;
         width: $sidebar-mini-width;
       }
@@ -143,21 +141,25 @@
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
 
-    &:not(:hover){
-      .#{$s}__footer {
+    &:not(:hover) {
+      .#{$s}-footer {
         width: $sidebar-mini-width;
 
         // Hiding Sidebar footer links
-        .#{$s}__footer-item {
+        .#{$s}-footer__nav > ul > .#{$s}-footer__item {
           @extend %o-v-none;
           width: 0;
           flex: auto;
         }
 
         // Keep showing sidebar mini toggle button
-        .#{$s}__footer-item.mini {
+        .#{$s}-footer__nav > ul > .#{$s}-footer__item.mini {
           @extend %o-v-show;
           width: $sidebar-mini-width;
+        }
+
+        .#{$s}-footer__child {
+          display: none;
         }
       }
     }
@@ -174,9 +176,9 @@
   // Showing sidebar and its footer if body has class (.sidebar-is-open)
   &-is-open & {
     width: $sidebar-width;
-    .#{$s}__footer {
+    .#{$s}-footer {
       width: $sidebar-footer-width;
-      .#{$s}__footer-item {
+      .#{$s}-footer__nav > ul > .#{$s}-footer__item {
         @extend %o-v-show;
       }
     }
@@ -190,7 +192,7 @@
 
   // Closed sidebar
   &-is-closed & {
-    .#{$s}__footer {
+    .#{$s}-footer {
       overflow-x: hidden;
     }
   }

@@ -16,7 +16,7 @@
 
 $s: sidebar;
 
-.sidebar {
+.#{$s} {
   // Base styles
   .#{$s}__nav {
     flex: 1;
@@ -40,7 +40,6 @@ $s: sidebar;
     @if bool($enable-sidebar-active-border-type) == true {
       @include add-border(2px, transparent, left);
     }
-    @include text-theme($sidebar-theme-scheme, 'font-color');
     padding: $sidebar-padding-y $sidebar-padding-x;
     font-size: $sidebar-item-header-font-size;
     font-weight: $sidebar-item-header-font-weight;
@@ -56,12 +55,11 @@ $s: sidebar;
     @if bool($enable-sidebar-divider-underline-type) == false {
       &::after {
         content: '';
-        @include border-theme($sidebar-theme-scheme, 'xx-light', 'bottom');
-        @include add-border(1px, transparent, bottom);
-        @include center(y);
+        height: $sidebar-divider-height;
         position: absolute;
         width: 100%;
         margin-left: 5px;
+        @include center(y);
       }
     }
 
@@ -72,9 +70,6 @@ $s: sidebar;
     height: $sidebar-divider-height;
     margin: $sidebar-divider-margin-y $sidebar-divider-margin-x;
     display: flex;
-    @if bool($enable-sidebar-divider-underline-type) == true {
-      @include background-theme($sidebar-theme-scheme, 'xx-light');
-    }
   }
 
   // Sidebar menu item
@@ -87,7 +82,6 @@ $s: sidebar;
 
     // Sidebar menu link
     > .#{$s}__link {
-      @include text-theme($sidebar-theme-scheme, 'link-color');
       font-size: $sidebar-link-font-size;
       text-decoration: none;
       padding: $sidebar-link-padding-y ($sidebar-link-padding-x + $sidebar-link-caret-margin-right) $sidebar-link-padding-y $sidebar-link-padding-x;
@@ -119,28 +113,6 @@ $s: sidebar;
       }
 
     }
-
-    // Change the hover, focus, active state links for better highlighting
-    &:hover,
-    &.show {
-      @if bool($enable-sidebar-active-border-type) == true {
-        @include border-theme($sidebar-active-border-theme-scheme, $position: left); // Make borders visible
-      }
-      > .#{$s}__link {
-        @include background-text-theme($sidebar-theme-scheme, 'dark', 'hover-color');
-      }
-    }
-
-    // Current item
-    &.active {
-      @if bool($enable-sidebar-active-border-type) == true {
-        @include border-theme($sidebar-active-border-theme-scheme, $position: left); // Make borders visible
-      }
-      > .#{$s}__link {
-        @include background-text-theme($sidebar-theme-scheme, 'dark', 'active-color');
-      }
-
-    }
   }
 
   // Sidebar menu with button
@@ -150,7 +122,6 @@ $s: sidebar;
 
   // Sidebar child menu
   .#{$s}__child {
-    @include background-theme($sidebar-theme-scheme, 'dark');
     .#{$s}__item {
       border: 0;
       .#{$s}__link {
@@ -158,22 +129,6 @@ $s: sidebar;
         padding: $sidebar-submenu-link-padding-y ($sidebar-submenu-link-padding-x + $sidebar-link-caret-margin-right) $sidebar-submenu-link-padding-y $sidebar-submenu-link-padding-x;
         position: relative;
       }
-
-      // Change the hover, focus, active state links for better highlighting
-      &:hover,
-      &.show {
-        > .#{$s}__link:not(.has-arrow) {
-          @include background-text-theme($sidebar-theme-scheme, 'x-dark', 'hover-color');
-        }
-      }
-
-      // Current item
-      &.active {
-        > .#{$s}__link:not(.has-arrow) {
-          @include background-text-theme($sidebar-theme-scheme, 'xx-dark', 'active-color');
-        }
-      }
-
     }
   }
 
@@ -209,7 +164,7 @@ $s: sidebar;
 // MINI SIDEBAR MENU & MODIFIERS
 // ======================================================
 
-.sidebar-mini .sidebar {
+.#{$s}-mini .#{$s} {
 
   // Hiding headers, dividers etc... so the mini sidebar can reduce its UI complexity
   .#{$s}__item .badge,
@@ -284,7 +239,6 @@ $s: sidebar;
     }
 
     #{$selector} .#{$s}__item a {
-      //padding-left: (15px * ($i - 1));
       padding-left: $sidebar-submenu-link-padding-x +  (15px * ($i - 1));
     }
 
@@ -319,7 +273,7 @@ $s: sidebar;
 // MINI SIDEBAR FULL HEIGHT TYPE
 // ======================================================
 
-.sidebar-mini.full {
+.#{$s}-mini.full {
   .sidebar {
     .#{$s}__nav > ul > .#{$s}__item.has-child:not(.has-button) {
       //&:hover
@@ -348,7 +302,7 @@ $s: sidebar;
 // COLLAPSIBLE SIDEBAR
 // ======================================================
 
-.sidebar-mini-collapsible .sidebar {
+.#{$s}-mini-collapsible .#{$s} {
   &:not(:hover) {
 
     .#{$s}__nav > ul > .#{$s}__item-header {
@@ -359,10 +313,6 @@ $s: sidebar;
       display: inline-block;
       white-space: nowrap;
       vertical-align: top;
-    }
-
-    .#{$s}__nav > ul .#{$s}__divider {
-      @include background-theme($sidebar-theme-scheme, 'xx-light');
     }
 
     .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
@@ -395,7 +345,6 @@ $s: sidebar;
 
         &::before {
           @include add-border(1px, transparent, left);
-          @include border-theme($sidebar-theme-scheme, 'xx-light', 'left');
           content: "";
           position: absolute;
           top: 0;
@@ -410,8 +359,8 @@ $s: sidebar;
       .#{$s}__child {
         .#{$s}__item.active > .#{$s}__link {
           background: none !important;
+
           &::before {
-            @include background-theme($sidebar-theme-scheme, 'xx-light');
             @include center(xy);
             content: "";
             position: absolute;
@@ -453,10 +402,8 @@ $s: sidebar;
 // ======================================================
 // Adapted from https://codepen.io/JonBergman/pen/pJmejw, https://codepen.io/addjones/pen/yJEPER TODO: Remove this line later
 
-.sidebar {
-  .#{$s}__footer {
-    @include background-theme($sidebar-footer-theme-scheme);
-    @include border-theme($sidebar-footer-theme-scheme, 'dark', $position: top);
+.#{$s} {
+  .#{$s}-footer {
     @include add-border(1px, transparent, top);
     min-height: $sidebar-footer-height;
     box-shadow: $sidebar-footer-shadow;
@@ -465,13 +412,14 @@ $s: sidebar;
     left: 0;
     width: 0;
 
-    .#{$s}__footer-list {
+    .#{$s}-footer__list {
       padding: 0;
       margin: 1px 0 0 0;
       display: flex;
       flex: 1;
     }
-    .#{$s}__footer-item {
+
+    .#{$s}-footer__nav > ul > .#{$s}-footer__item {
       @include transition;
       @extend %o-v-none;
       position: relative;
@@ -480,57 +428,89 @@ $s: sidebar;
       justify-content: center;
       flex: 1;
 
-      .#{$s}__footer-link {
+      > .#{$s}-footer__link {
         @include transition;
-        @include text-theme($sidebar-footer-theme-scheme, 'link-color');
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex: 1;
 
-        &:active,
-        &:hover {
-          @include background-text-theme($sidebar-footer-theme-scheme, 'dark', 'hover-color');
-        }
-
         i {
           font-size: $sidebar-footer-icon-font-size;
         }
       }
 
-      &.active {
-        > .#{$s}__footer-link {
-          @include background-theme($sidebar-footer-theme-scheme, 'dark');
-          @include text-theme($sidebar-footer-active-theme-scheme);
+    }
+
+    .#{$s}-footer__child {
+      outline: 0;
+      padding: 0;
+      margin: 0;
+      .#{$s}-footer__item {
+        .#{$s}-footer__link {
+          font-size: $sidebar-footer-font-size;
+          text-decoration: none;
+          padding: $sidebar-submenu-link-padding-y ($sidebar-submenu-link-padding-x + $sidebar-link-caret-margin-right) $sidebar-submenu-link-padding-y $sidebar-submenu-link-padding-x;
+          line-height: $sidebar-link-line-height;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          list-style: none;
+
+          &.has-arrow::after {
+            right: $sidebar-link-caret-margin-right;
+          }
         }
+      }
+    }
+
+    @for $i from 1 through $sidebar-submenu-max-levels {
+      $selector: '';
+
+      @for $l from 1 through $i {
+        $selector: "#{$selector} .#{$s}-footer__child";
+      }
+
+      #{$selector} .#{$s}-footer__item .#{$s}-footer__link {
+        padding-left: $sidebar-submenu-link-padding-x + (15px * ($i - 1));
       }
 
     }
-    .#{$s}__footer-child {
-      @include background-theme($sidebar-footer-theme-scheme, 'dark');
-      @include border-theme($sidebar-footer-active-theme-scheme, $position: top);
+
+    .#{$s}-footer__nav > ul > .#{$s}-footer__item > .#{$s}-footer__child {
       @include add-border($sidebar-footer-child-border-top-size, transparent, top);
       width: $sidebar-footer-width;
       bottom: $sidebar-footer-height;
-      padding: 0;
       position: absolute;
+    }
 
-      .#{$s}__footer-item {
-        .#{$s}__footer-link {
-          font-size: $sidebar-footer-font-size;
-          padding: $sidebar-submenu-link-padding-y ($sidebar-submenu-link-padding-x + $sidebar-link-caret-margin-right) $sidebar-submenu-link-padding-y $sidebar-submenu-link-padding-x;
-          align-items: flex-start;
-          justify-content: flex-start;
-        }
-        &:first-of-type {
-          padding-top: 10px;
-        }
-        &:last-of-type {
-          padding-bottom: 10px;
-        }
+    .#{$s}-footer__nav > ul > .#{$s}-footer__item > .#{$s}-footer__child > .#{$s}-footer__item {
+      &:first-of-type {
+        padding-top: 10px;
+      }
+      &:last-of-type {
+        padding-bottom: 10px;
       }
     }
+
+    // Sidebar mini toggle button
+    .#{$s}__footer--toggler {
+      background: transparent;
+      position: relative;
+      border: 0;
+      cursor: $cursor-pointer;
+      height: $sidebar-footer-height;
+      flex: 1;
+    }
+
   }
 }
 
+//
+// SIDEBAR THEMES
+// ======================================================
+
+.#{$s}.#{$s}-theme {
+  @include sidebar-theme($sidebar-theme-scheme, 'font-color', 'link-color', 'hover-color', 'active-color');
+}

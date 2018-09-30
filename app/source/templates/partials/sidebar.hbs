@@ -111,14 +111,13 @@
 <!--/Sidebar navigation-->
 
 <!--Sidebar footer-->
-<footer class="sidebar__footer">
-    <nav class="sidebar__footer-nav">
-        <ul class="sidebar__footer-list metismenu list-unstyled" data-plugin="metismenu">
-            <li class="sidebar__footer-item mini">
+<footer class="sidebar-footer">
+    <nav class="sidebar-footer__nav">
+        <ul class="sidebar-footer__list metismenu list-unstyled" data-plugin="metismenu">
+            <li class="sidebar-footer__item mini">
                 <!-- Sidebar mini toggle button -->
-                <button class="sidebar__footer--toggler" data-toggle="tooltip" data-placement="top" title="Collapse"
-                        data-animate="animated fadeIn" data-trigger="hover"
-                        type="button" data-side="mini">
+                <button class="sidebar__footer--toggler" data-toggle="tooltip" data-placement="right" title="Collapse"
+                        data-animate="animated fadeIn" data-trigger="hover" type="button" data-side="mini">
                     <!-- To display the "hamburger icon" -->
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -126,22 +125,26 @@
                     <!-- /To display the "hamburger icon" -->
                 </button>
             </li>
-            <li class="sidebar__footer-item has-child">
-                <ul class="sidebar__footer-child collapse" aria-expanded="false">
-                    <li class="sidebar__footer-item"><a href="#" class="sidebar__footer-link">Level One</a></li>
-                    <li class="sidebar__footer-item"><a href="#" class="sidebar__footer-link">Level One</a></li>
-                    <li class="sidebar__footer-item"><a href="#" class="sidebar__footer-link">Level One</a></li>
-                    <li class="sidebar__footer-item"><a href="#" class="sidebar__footer-link">Level One</a></li>
+            <li class="sidebar-footer__item has-child">
+                <ul class="sidebar-footer__child" aria-expanded="false">
+                    <li class="sidebar-footer__item"><a href="#" class="sidebar-footer__link">Level One</a></li>
+                    <li class="sidebar-footer__item has-child">
+                        <a href="#" class="sidebar-footer__link has-arrow" aria-expanded="false">Level One</a>
+                        <ul class="sidebar-footer__child" aria-expanded="false">
+                            <li class="sidebar-footer__item"><a href="#" class="sidebar-footer__link">ssdf</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-footer__item"><a href="#" class="sidebar-footer__link">Level One</a></li>
+                    <li class="sidebar-footer__item"><a href="#" class="sidebar-footer__link">Level One</a></li>
                 </ul>
 
                 <!-- TODO Tooltip styling https://codepen.io/andreivictor/pen/MpNQNL -->
-                <a href="#" class="sidebar__footer-link" data-toggle="tooltip" data-placement="top" title="Settings" data-trigger="hover"
-                   data-animate="animated fadeIn"
-                   aria-expanded="false"><i class="fa fa-trash"></i></a>
+                <a href="#" class="sidebar-footer__link" data-toggle="tooltip" data-placement="right" title="Settings" data-trigger="hover"
+                   data-animate="animated fadeIn" aria-expanded="false"><i class="fa fa-trash"></i></a>
             </li>
 
-            <li class="sidebar__footer-item">
-                <a href="#" class="sidebar__footer-link"><i class="fa fa-ellipsis-h"></i></a>
+            <li class="sidebar-footer__item">
+                <a href="#" class="sidebar-footer__link"><i class="fa fa-ellipsis-h"></i></a>
             </li>
         </ul>
     </nav>

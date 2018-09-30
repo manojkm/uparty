@@ -87,35 +87,6 @@
   }
 }
 
-// Sidebar mini toggle button
-.sidebar__footer--toggler {
-  //@include background-color('sidebar', 'base');
-  background: transparent;
-  position: relative;
-  border: 0;
-  cursor: $cursor-pointer;
-  height: $sidebar-footer-height;
-  flex: 1;
-
-  // Hamburger icon
-  & .icon-bar {
-    @include background-theme($sidebar-footer-theme-scheme, 'link-color');
-  }
-
-  &:hover {
-    @include background-theme($sidebar-footer-theme-scheme, 'dark');
-    .icon-bar {
-      @include background-theme($sidebar-footer-active-theme-scheme);
-    }
-  }
-
-  &.collapsed {
-    @include background-theme($sidebar-footer-theme-scheme, 'dark');
-    .icon-bar {
-      @include background-theme($sidebar-footer-active-theme-scheme);
-    }
-  }
-}
 
 // Adapted from https://codepen.io/jorenerene/pen/vxKbJb?editors=1100
 
