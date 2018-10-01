@@ -97,21 +97,21 @@ $nestable-content-class: drag-content;
 // Theme variations
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
-  @each $scheme, $value in $colors {
-    $color: theme-color-level($scheme, base, $list-group-color-level);
-    $background: theme-color-level($scheme, base, $list-group-bg-level);
+  @each $scheme, $tone in $colors {
+    $font-color: theme-color-level($scheme, base, $list-group-color-level);
+    $tone: theme-color-level($scheme, base, $list-group-bg-level);
     .nestable-#{$scheme} {
-      @include nestable-theme($scheme, $color, $background);
+      @include nestable-theme($tone, $font-color, 5%);
     }
   }
 }
 
 // Contextual variations
-@each $scheme, $value in $contextual-palette-map {
-  $color: theme-color-level($scheme, base, $list-group-color-level);
-  $background: theme-color-level($scheme, base, $list-group-bg-level);
+@each $scheme, $tone in $contextual-palette-map {
+  $font-color: theme-color-level($scheme, base, $list-group-color-level);
+  $tone: theme-color-level($scheme, base, $list-group-bg-level);
   .nestable-#{$scheme} {
-    @include nestable-theme($scheme, $color, $background);
+    @include nestable-theme($tone, $font-color, 5%);
   }
 }
 

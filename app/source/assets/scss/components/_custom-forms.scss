@@ -144,7 +144,7 @@
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
-    @each $scheme, $value in $colors {
+    @each $scheme, $tone in $colors {
       &.checkbox-#{$scheme} {
         .#{$cc}-input:checked ~ .#{$cc}-label::before {
           @include background-theme($scheme);
@@ -154,7 +154,7 @@
   }
 
   // Contextual variations
-  @each $scheme, $value in $contextual-palette-map {
+  @each $scheme, $tone in $contextual-palette-map {
     &.checkbox-#{$scheme} {
       .#{$cc}-input:checked ~ .#{$cc}-label::before {
         @include background-theme($scheme, $sledge-hammer: !important);
@@ -213,7 +213,7 @@
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
-    @each $scheme, $value in $colors {
+    @each $scheme, $tone in $colors {
       &.radio-#{$scheme} {
         .#{$cc}-input:checked ~ .#{$cc}-label::before {
           @include background-theme($scheme);
@@ -231,7 +231,7 @@
   }
 
   // Contextual variations
-  @each $scheme, $value in $contextual-palette-map {
+  @each $scheme, $tone in $contextual-palette-map {
     &.radio-#{$scheme} {
       .#{$cc}-input:checked ~ .#{$cc}-label::before {
         @include background-theme($scheme, $sledge-hammer: !important);
@@ -657,17 +657,17 @@
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
-    @each $scheme, $value in $colors {
+    @each $scheme, $tone in $colors {
       &.#{$s}-#{$scheme} {
-        @include switch($scheme);
+        @include switch-theme($scheme);
       }
     }
   }
 
   // Contextual variations
-  @each $scheme, $value in $contextual-palette-map {
+  @each $scheme, $tone in $contextual-palette-map {
     &.#{$s}-#{$scheme} {
-      @include switch($scheme);
+      @include switch-theme($scheme);
     }
   }
 }
@@ -801,17 +801,17 @@
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
-    @each $scheme, $value in $colors {
+    @each $scheme, $tone in $colors {
       &.#{$sf}-#{$scheme} {
-        @include switch-flip($scheme);
+        @include switch-flip-theme($scheme);
       }
     }
   }
 
   // Contextual variations
-  @each $scheme, $value in $contextual-palette-map {
+  @each $scheme, $tone in $contextual-palette-map {
     &.#{$sf}-#{$scheme} {
-      @include switch-flip($scheme);
+      @include switch-flip-theme($scheme);
     }
   }
 

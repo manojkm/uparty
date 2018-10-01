@@ -172,62 +172,62 @@
 $contextual-palette-map: (
         'success': (
                 'base': $grass,
-                'light': lighten($grass, $color-shade-amount), // Light form of base value
-                'x-light': lighten($grass, ($color-shade-amount * 2)), // Lighter form of base value
-                'xx-light': lighten($grass, ($color-shade-amount  * 3)), // Lightest form of base value
-                'dark':darken($grass, $color-shade-amount), // Dark form of base value
-                'x-dark':darken($grass, ($color-shade-amount * 2)), // Darker form of base value
-                'xx-dark':darken($grass, ($color-shade-amount * 3)), // Darkest form of base value
+                'light': lighten($grass, $color-shade-interval), // Light form of base value
+                'x-light': lighten($grass, ($color-shade-interval * 2)), // Lighter form of base value
+                'xx-light': lighten($grass, ($color-shade-interval  * 3)), // Lightest form of base value
+                'dark':darken($grass, $color-shade-interval), // Dark form of base value
+                'x-dark':darken($grass, ($color-shade-interval * 2)), // Darker form of base value
+                'xx-dark':darken($grass, ($color-shade-interval * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
         'danger': (
                 'base': $grapefruit,
-                'light': lighten($grapefruit, $color-shade-amount), // Light form of base value
-                'x-light': lighten($grapefruit, ($color-shade-amount * 2)), // Lighter form of base value
-                'xx-light': lighten($grapefruit, ($color-shade-amount  * 3)), // Lightest form of base value
-                'dark':darken($grapefruit, $color-shade-amount), // Dark form of base value
-                'x-dark':darken($grapefruit, ($color-shade-amount * 2)), // Darker form of base value
-                'xx-dark':darken($grapefruit, ($color-shade-amount * 3)), // Darkest form of base value
+                'light': lighten($grapefruit, $color-shade-interval), // Light form of base value
+                'x-light': lighten($grapefruit, ($color-shade-interval * 2)), // Lighter form of base value
+                'xx-light': lighten($grapefruit, ($color-shade-interval  * 3)), // Lightest form of base value
+                'dark':darken($grapefruit, $color-shade-interval), // Dark form of base value
+                'x-dark':darken($grapefruit, ($color-shade-interval * 2)), // Darker form of base value
+                'xx-dark':darken($grapefruit, ($color-shade-interval * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
         'warning': (
                 'base': $sunflower,
-                'light': lighten($sunflower, $color-shade-amount), // Light form of base value
-                'x-light': lighten($sunflower, ($color-shade-amount * 2)), // Lighter form of base value
-                'xx-light': lighten($sunflower, ($color-shade-amount  * 3)), // Lightest form of base value
-                'dark':darken($sunflower, $color-shade-amount), // Dark form of base value
-                'x-dark':darken($sunflower, ($color-shade-amount * 2)), // Darker form of base value
-                'xx-dark':darken($sunflower, ($color-shade-amount * 3)), // Darkest form of base value
+                'light': lighten($sunflower, $color-shade-interval), // Light form of base value
+                'x-light': lighten($sunflower, ($color-shade-interval * 2)), // Lighter form of base value
+                'xx-light': lighten($sunflower, ($color-shade-interval  * 3)), // Lightest form of base value
+                'dark':darken($sunflower, $color-shade-interval), // Dark form of base value
+                'x-dark':darken($sunflower, ($color-shade-interval * 2)), // Darker form of base value
+                'xx-dark':darken($sunflower, ($color-shade-interval * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
         'info': (
                 'base': $aqua,
-                'light': lighten($aqua, $color-shade-amount), // Light form of base value
-                'x-light': lighten($aqua, ($color-shade-amount * 2)), // Lighter form of base value
-                'xx-light': lighten($aqua, ($color-shade-amount  * 3)), // Lightest form of base value
-                'dark':darken($aqua, $color-shade-amount), // Dark form of base value
-                'x-dark':darken($aqua, ($color-shade-amount * 2)), // Darker form of base value
-                'xx-dark':darken($aqua, ($color-shade-amount * 3)), // Darkest form of base value
+                'light': lighten($aqua, $color-shade-interval), // Light form of base value
+                'x-light': lighten($aqua, ($color-shade-interval * 2)), // Lighter form of base value
+                'xx-light': lighten($aqua, ($color-shade-interval  * 3)), // Lightest form of base value
+                'dark':darken($aqua, $color-shade-interval), // Dark form of base value
+                'x-dark':darken($aqua, ($color-shade-interval * 2)), // Darker form of base value
+                'xx-dark':darken($aqua, ($color-shade-interval * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
         'light': (
                 'base': $light,
-                'light': lighten($light, $color-shade-amount), // Light form of base value
-                'x-light': lighten($light, ($color-shade-amount * 2)), // Lighter form of base value
-                'xx-light': lighten($light, ($color-shade-amount  * 3)), // Lightest form of base value
-                'dark':darken($light, $color-shade-amount), // Dark form of base value
-                'x-dark':darken($light, ($color-shade-amount * 2)), // Darker form of base value
-                'xx-dark':darken($light, ($color-shade-amount * 3)), // Darkest form of base value
+                'light': lighten($light, $color-shade-interval), // Light form of base value
+                'x-light': lighten($light, ($color-shade-interval * 2)), // Lighter form of base value
+                'xx-light': lighten($light, ($color-shade-interval  * 3)), // Lightest form of base value
+                'dark':darken($light, $color-shade-interval), // Dark form of base value
+                'x-dark':darken($light, ($color-shade-interval * 2)), // Darker form of base value
+                'xx-dark':darken($light, ($color-shade-interval * 3)), // Darkest form of base value
                 'font-color': #666,
         ),
         'dark': (
                 'base': $dark,
-                'light': lighten($dark, $color-shade-amount), // Light form of base value
-                'x-light': lighten($dark, ($color-shade-amount * 2)), // Lighter form of base value
-                'xx-light': lighten($dark, ($color-shade-amount  * 3)), // Lightest form of base value
-                'dark':darken($dark, $color-shade-amount), // Dark form of base value
-                'x-dark':darken($dark, ($color-shade-amount * 2)), // Darker form of base value
-                'xx-dark':darken($dark, ($color-shade-amount * 3)), // Darkest form of base value
+                'light': lighten($dark, $color-shade-interval), // Light form of base value
+                'x-light': lighten($dark, ($color-shade-interval * 2)), // Lighter form of base value
+                'xx-light': lighten($dark, ($color-shade-interval  * 3)), // Lightest form of base value
+                'dark':darken($dark, $color-shade-interval), // Dark form of base value
+                'x-dark':darken($dark, ($color-shade-interval * 2)), // Darker form of base value
+                'xx-dark':darken($dark, ($color-shade-interval * 3)), // Darkest form of base value
                 'font-color': #fff,
         ),
 );

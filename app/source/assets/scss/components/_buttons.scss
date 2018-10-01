@@ -119,7 +119,7 @@ button, .button {
 // Theme variations
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
-  @each $scheme, $value in $colors {
+  @each $scheme, $tone in $colors {
     .btn-#{$scheme} {
       @include btn-theme($scheme);
     }
@@ -130,7 +130,7 @@ button, .button {
 }
 
 // Contextual variations
-@each $scheme, $value in $contextual-palette-map {
+@each $scheme, $tone in $contextual-palette-map {
   .btn-#{$scheme} {
     @include btn-theme($scheme);
   }

@@ -56,14 +56,14 @@
     &.show > .nav-link,
     &.active > .nav-link {
       @include background-color($header-theme-scheme, 'light');
-      @include color($header-theme-scheme, 'active-color');
+      @include color($header-theme-scheme, 'font-active-color');
     }
   }
 
   // Navbar menu links
   .nav-link {
     @include transition;
-    @include color($header-theme-scheme, 'link-color');
+    @include color($header-theme-scheme, 'font-link-color');
     font-size: $navbar-font-size;
     font-weight: $navbar-font-weight;
     position: relative;
@@ -88,14 +88,14 @@
     // Change the hover, focus, active state links for better highlighting
 
     #{$hover-tags} {
-      @include color($header-theme-scheme, 'hover-color');
+      @include color($header-theme-scheme, 'font-hover-color');
       @include background-color($header-theme-scheme, 'light');
     }
 
     #{$focus-tags},
     #{$active-tags} {
       @include background-color($header-theme-scheme, 'light');
-      @include color($header-theme-scheme, 'active-color');
+      @include color($header-theme-scheme, 'font-active-color');
     }
 
     // Navbar menu notification badge

@@ -74,11 +74,11 @@
 
   &.collapsed {
     .icon-bar {
-      @include background-theme($aside-toggler-bg-theme-scheme, 'link-color');
+      @include background-theme($aside-toggler-bg-theme-scheme, 'font-link-color');
     }
     &:hover {
       .icon-bar {
-        @include background-theme($aside-toggler-bg-theme-scheme, 'hover-color');
+        @include background-theme($aside-toggler-bg-theme-scheme, 'font-hover-color');
         + .icon-bar {
           margin-top: 6px;
         }

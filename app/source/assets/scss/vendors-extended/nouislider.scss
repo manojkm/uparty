@@ -111,7 +111,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
-  @each $scheme, $value in $colors {
+  @each $scheme, $tone in $colors {
     .slider-#{$scheme} {
       .noUi-connect {@include background-theme($scheme); }
       .noUi-handle {@include border-theme($scheme);}
@@ -121,7 +121,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 // Contextual variations
 
-@each $scheme, $value in $contextual-palette-map {
+@each $scheme, $tone in $contextual-palette-map {
   .slider-#{$scheme} {
     .noUi-connect { @include background-theme($scheme);}
     .noUi-handle {@include border-theme($scheme);}

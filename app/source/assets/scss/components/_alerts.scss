@@ -20,17 +20,23 @@
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
-    @each $scheme, $value in $colors {
+    @each $scheme, $tone in $colors {
+      $tone-bg: theme-color-level($scheme, base, $alert-bg-level);
+      $tone-border: theme-color-level($scheme, base, $alert-border-level);
+      $font-color: theme-color-level($scheme, base, $alert-color-level);
       &.#{$a}-#{$scheme} {
-        @include alert-theme(theme-color-level($scheme, base, $alert-bg-level), theme-color-level($scheme, base, $alert-border-level), theme-color-level($scheme, base, $alert-color-level));
+        @include alert-theme($tone-bg, $tone-border, $font-color);
       }
     }
   }
 
   // Contextual variations
-  @each $scheme, $value in $contextual-palette-map {
+  @each $scheme, $tone in $contextual-palette-map {
+    $tone-bg: theme-color-level($scheme, base, $alert-bg-level);
+    $tone-border: theme-color-level($scheme, base, $alert-border-level);
+    $font-color: theme-color-level($scheme, base, $alert-color-level);
     &.#{$a}-#{$scheme} {
-      @include alert-theme(theme-color-level($scheme, base, $alert-bg-level), theme-color-level($scheme, base, $alert-border-level), theme-color-level($scheme, base, $alert-color-level));
+      @include alert-theme($tone-bg, $tone-border, $font-color);
     }
   }
 

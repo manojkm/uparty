@@ -180,16 +180,30 @@
 }
 
 //
-// RETRIEVE MAIN COLORS VALUE FROM DEFINED 'THEMES' MAPS ($themes-map)
+// RETRIEVE COLORS VALUE FROM DEFINED 'THEMES' MAPS ($themes-map)
 // ======================================================
 
-@function theme-color($scheme, $tone:base) {
+// Retrieve main colors
+@function theme-main-color($scheme, $tone:base) {
   @each $themeName, $value in $themes-map {
-
     @if ($themeName == $activeTheme) {
-      $colors: map-get-strict($value, 'main-colors');
-      @if type-of(map-get-strict(map-get-strict($colors, $scheme), $tone)) == color {
-        @return map-get-strict(map-get-strict($colors, $scheme), $tone);
+      $color: map-get-strict($value, 'main-colors');
+      @if type-of(map-get-strict(map-get-strict($color, $scheme), $tone)) == color {
+        @return map-get-strict(map-get-strict($color, $scheme), $tone);
+      } @else {
+        @warn "Make sure you pass a valid color for '#{$tone}' in Theme Sass maps";
+      }
+    }
+  }
+}
+
+// Retrieve partial colors
+@function theme-partial-color($scheme, $tone:base) {
+  @each $themeName, $value in $themes-map {
+    @if ($themeName == $activeTheme) {
+      $color: map-get-strict($value, 'partial-colors');
+      @if type-of(map-get-strict(map-get-strict($color, $scheme), $tone)) == color {
+        @return map-get-strict(map-get-strict($color, $scheme), $tone);
       } @else {
         @warn "Make sure you pass a valid color for '#{$tone}' in Theme Sass maps";
       }
@@ -233,7 +247,7 @@
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
     $color: contextual-color($scheme, $tone);
   } @else { // Theme variations
-    $color: theme-color($scheme, $tone);
+    $color: theme-main-color($scheme, $tone);
   }
 
   $color-base: if($level > 0, #000, #fff);

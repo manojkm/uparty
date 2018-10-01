@@ -260,20 +260,20 @@
 
     &,
     i {
-      @include text-theme($dropdown-ext-theme-scheme, 'link-color');
+      @include text-theme($dropdown-ext-theme-scheme, 'font-link-color');
     }
 
     // Change the hover, focus, active state links for better highlighting
     &:hover,
     &:focus {
-      @include background-text-theme($dropdown-ext-theme-scheme, 'light', 'hover-color');
+      @include background-text-theme($dropdown-ext-theme-scheme, 'light', 'font-hover-color');
     }
 
     &.active,
     &.active:focus,
     &.active:hover,
     &:active {
-      @include background-text-theme($dropdown-ext-theme-scheme, 'light', 'active-color');
+      @include background-text-theme($dropdown-ext-theme-scheme, 'light', 'font-active-color');
     }
 
     &.disabled,

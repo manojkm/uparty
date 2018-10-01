@@ -135,147 +135,40 @@
 //
 // COLOR CONTRAST
 // ======================================================
-// Used to fix colors on light outlined buttons, tabs etc..
+// Used to fix text colors on light outlined buttons, tabs etc..
+
 @mixin text-theme-color-yiq($scheme, $font-color:base, $sledge-hammer:null) {
 
-  $r: red(contextual-color($scheme, $font-color));
-  $g: green(contextual-color($scheme, $font-color));
-  $b: blue(contextual-color($scheme, $font-color));
-
-  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
-
-  @if ($yiq >= 150) {
-    color: darken(contextual-color($scheme, $font-color), 50) $sledge-hammer;
-  } @else {
-    color: contextual-color($scheme, $font-color) $sledge-hammer;
-  }
-
-}
-
-//
-// CONTEXTUAL & THEME TEXT VARIANTS
-// ======================================================
-
-@mixin text-theme($scheme, $font-color:base, $sledge-hammer:null) {
-
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-    @if ($scheme == 'light') { // Fix colors on light outlined buttons, tabs etc..
-      @include text-theme-color-yiq($scheme, $font-color, $sledge-hammer);
+
+    $r: red(contextual-color($scheme, $font-color));
+    $g: green(contextual-color($scheme, $font-color));
+    $b: blue(contextual-color($scheme, $font-color));
+
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    @if ($yiq >=150) {
+      color: darken(contextual-color($scheme, $font-color), 50) $sledge-hammer;
     } @else {
       color: contextual-color($scheme, $font-color) $sledge-hammer;
     }
-  } @else { // Theme variations
-    @include color($scheme, $font-color, $sledge-hammer);
-  }
-
-}
-
-//
-// CONTEXTUAL & THEME BACKGROUND VARIANTS
-// ======================================================
-
-@mixin background-theme($scheme, $tone:base, $sledge-hammer:null) {
-
-  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-    background-color: contextual-color($scheme, $tone) $sledge-hammer;
-  } @else { // Theme variations
-    @include background-color($scheme, $tone, $sledge-hammer);
-  }
-}
-
-//
-// CONTEXTUAL & THEME BACKGROUND VARIANTS WITH TEXT COLOR
-// ======================================================
-
-@mixin background-text-theme($scheme, $tone:base, $font-color:font-color, $sledge-hammer:null) {
-
-  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-    background-color: contextual-color($scheme, $tone) $sledge-hammer;
-    @include text-theme($scheme, $font-color, $sledge-hammer);
-  } @else { // Theme variations
-    @include background-color($scheme, $tone, $sledge-hammer);
-    @include text-theme($scheme, $font-color, $sledge-hammer);
-  }
-}
-
-//
-// CONTEXTUAL & THEME BORDER VARIANTS
-// ======================================================
-
-@mixin border-theme($scheme, $tone:base, $position:all, $sledge-hammer:null) {
-
-  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-
-    @if $position == 'all' {
-      border-color: contextual-color($scheme, $tone) $sledge-hammer;
-    } @else if $position == 'top' {
-      border-top-color: contextual-color($scheme, $tone) $sledge-hammer;
-    } @else if $position == 'bottom' {
-      border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
-    } @else if $position == 'right' {
-      border-right-color: contextual-color($scheme, $tone) $sledge-hammer;
-    } @else if $position == 'left' {
-      border-left-color: contextual-color($scheme, $tone) $sledge-hammer;
-    } @else if $position == 'top-bottom' {
-      border-top-color: contextual-color($scheme, $tone) $sledge-hammer;
-      border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
-    } @else if $position == 'right-left' {
-      border-left-color: contextual-color($scheme, $tone) $sledge-hammer;
-      border-right-color: contextual-color($scheme, $tone) $sledge-hammer;
-    } @else if $position == 'left-bottom' {
-      border-left-color: contextual-color($scheme, $tone) $sledge-hammer;
-      border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
-    }
 
   } @else { // Theme variations
 
-    @if $position == 'all' {
-      @include border-color($scheme, $tone, $sledge-hammer);
-    } @else if $position == 'top' {
-      @include border-top-color($scheme, $tone, $sledge-hammer);
-    } @else if $position == 'bottom' {
-      @include border-bottom-color($scheme, $tone, $sledge-hammer);
-    } @else if $position == 'right' {
-      @include border-right-color($scheme, $tone, $sledge-hammer);
-    } @else if $position == 'left' {
-      @include border-left-color($scheme, $tone, $sledge-hammer);
-    } @else if $position == 'top-bottom' {
-      @include border-top-color($scheme, $tone, $sledge-hammer);
-      @include border-bottom-color($scheme, $tone, $sledge-hammer);
-    } @else if $position == 'right-left' {
-      @include border-left-color($scheme, $tone, $sledge-hammer);
-      @include border-right-color($scheme, $tone, $sledge-hammer);
-    } @else if $position == 'left-bottom' {
-      @include border-left-color($scheme, $tone, $sledge-hammer);
-      @include border-bottom-color($scheme, $tone, $sledge-hammer);
+    $r: red(theme-main-color($scheme, $font-color));
+    $g: green(theme-main-color($scheme, $font-color));
+    $b: blue(theme-main-color($scheme, $font-color));
+
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    @if ($yiq >=150) {
+      color: darken(theme-main-color($scheme, $font-color), 50) $sledge-hammer;
+    } @else {
+      color: theme-main-color($scheme, $font-color) $sledge-hammer;
     }
 
   }
-}
 
-//
-// CONTEXTUAL & THEME TEXT LINK VARIANTS
-// ======================================================
-
-@mixin text-link-theme($scheme, $font-color:base, $hover-color:dark, $tone-active:x-dark, $sledge-hammer:null) {
-  @at-root a#{&} {
-    #{$hover-tags} {
-      @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-        @include text-theme($scheme, $hover-color, $sledge-hammer);
-      } @else { // Theme variations
-        @include text-theme($scheme, $hover-color, $sledge-hammer);
-      }
-    }
-
-    #{$active-tags},
-    #{$focus-tags} {
-      @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-        @include text-theme($scheme, $tone-active, $sledge-hammer);
-      } @else { // Theme variations
-        @include text-theme($scheme, $tone-active, $sledge-hammer);
-      }
-    }
-  }
 }
 
 //
@@ -425,16 +318,142 @@
 }
 
 //
-// BUTTONS
+// CONTEXTUAL & THEME TEXT VARIANTS
+// ======================================================
+
+@mixin text-theme($scheme, $font-color:base, $sledge-hammer:null) {
+
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
+    @if ($scheme == 'light') { // Fix colors on light outlined buttons, tabs etc..
+      @include text-theme-color-yiq($scheme, $font-color, $sledge-hammer);
+    } @else {
+      color: contextual-color($scheme, $font-color) $sledge-hammer;
+    }
+  } @else { // Theme variations
+    @include color($scheme, $font-color, $sledge-hammer);
+  }
+
+}
+
+//
+// CONTEXTUAL & THEME BACKGROUND VARIANTS
+// ======================================================
+
+@mixin background-theme($scheme, $tone:base, $sledge-hammer:null) {
+
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
+    background-color: contextual-color($scheme, $tone) $sledge-hammer;
+  } @else { // Theme variations
+    @include background-color($scheme, $tone, $sledge-hammer);
+  }
+}
+
+//
+// CONTEXTUAL & THEME BACKGROUND WITH TEXT VARIANTS
+// ======================================================
+
+@mixin background-text-theme($scheme, $tone:base, $font-color:font-color, $sledge-hammer:null) {
+
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
+    background-color: contextual-color($scheme, $tone) $sledge-hammer;
+    @include text-theme($scheme, $font-color, $sledge-hammer);
+  } @else { // Theme variations
+    @include background-color($scheme, $tone, $sledge-hammer);
+    @include text-theme($scheme, $font-color, $sledge-hammer);
+  }
+}
+
+//
+// CONTEXTUAL & THEME BORDER VARIANTS
+// ======================================================
+
+@mixin border-theme($scheme, $tone:base, $position:all, $sledge-hammer:null) {
+
+  @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
+
+    @if $position == 'all' {
+      border-color: contextual-color($scheme, $tone) $sledge-hammer;
+    } @else if $position == 'top' {
+      border-top-color: contextual-color($scheme, $tone) $sledge-hammer;
+    } @else if $position == 'bottom' {
+      border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
+    } @else if $position == 'right' {
+      border-right-color: contextual-color($scheme, $tone) $sledge-hammer;
+    } @else if $position == 'left' {
+      border-left-color: contextual-color($scheme, $tone) $sledge-hammer;
+    } @else if $position == 'top-bottom' {
+      border-top-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
+    } @else if $position == 'right-left' {
+      border-left-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-right-color: contextual-color($scheme, $tone) $sledge-hammer;
+    } @else if $position == 'left-bottom' {
+      border-left-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
+    }
+
+  } @else { // Theme variations
+
+    @if $position == 'all' {
+      @include border-color($scheme, $tone, $sledge-hammer);
+    } @else if $position == 'top' {
+      @include border-top-color($scheme, $tone, $sledge-hammer);
+    } @else if $position == 'bottom' {
+      @include border-bottom-color($scheme, $tone, $sledge-hammer);
+    } @else if $position == 'right' {
+      @include border-right-color($scheme, $tone, $sledge-hammer);
+    } @else if $position == 'left' {
+      @include border-left-color($scheme, $tone, $sledge-hammer);
+    } @else if $position == 'top-bottom' {
+      @include border-top-color($scheme, $tone, $sledge-hammer);
+      @include border-bottom-color($scheme, $tone, $sledge-hammer);
+    } @else if $position == 'right-left' {
+      @include border-left-color($scheme, $tone, $sledge-hammer);
+      @include border-right-color($scheme, $tone, $sledge-hammer);
+    } @else if $position == 'left-bottom' {
+      @include border-left-color($scheme, $tone, $sledge-hammer);
+      @include border-bottom-color($scheme, $tone, $sledge-hammer);
+    }
+
+  }
+}
+
+//
+// CONTEXTUAL & THEME TEXT WITH LINK VARIANTS
+// ======================================================
+
+@mixin text-link-theme($scheme, $font-hover-color:dark, $font-active-color:x-dark, $sledge-hammer:null) {
+  @at-root a#{&} {
+    #{$hover-tags} {
+      @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
+        @include text-theme($scheme, $font-hover-color, $sledge-hammer);
+      } @else { // Theme variations
+        @include text-theme($scheme, $font-hover-color, $sledge-hammer);
+      }
+    }
+
+    #{$active-tags},
+    #{$focus-tags} {
+      @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
+        @include text-theme($scheme, $font-active-color, $sledge-hammer);
+      } @else { // Theme variations
+        @include text-theme($scheme, $font-active-color, $sledge-hammer);
+      }
+    }
+  }
+}
+
+//
+// BUTTONS THEME
 // ======================================================
 
 // TODO: http://demos.creative-tim.com/now-ui-kit/documentation/tutorial-components.html?ref=nuk-free-doc#buttons-row
 
-@mixin btn-theme($scheme, $bg:fill, $tone:base, $tone-hover:dark, $tone-active:x-dark, $font-color:font-color) {
+@mixin btn-theme($scheme, $bg-type:fill, $tone:base, $tone-hover:dark, $tone-active:x-dark, $font-color:font-color) {
 
   @include border-theme($scheme, $tone);
 
-  @if $bg == fill {
+  @if $bg-type == fill {
     @include background-text-theme($scheme, $tone, $font-color);
     #{$disabled-tags} {
       @include background-text-theme($scheme, light, $font-color);
@@ -442,7 +461,7 @@
     }
   }
 
-  @if $bg == outline {
+  @if $bg-type == outline {
     background-color: transparent;
     @include text-theme($scheme, $tone);
 
@@ -485,7 +504,7 @@
     @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
       box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 contextual-color($scheme, $tone-hover);
     } @else { // Theme variations
-      $box-shadow-color: theme-color($scheme, $tone-hover);
+      $box-shadow-color: theme-main-color($scheme, $tone-hover);
       box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 $box-shadow-color;
     }
 
@@ -503,7 +522,7 @@
       @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
         box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 contextual-color($scheme, $tone-hover);
       } @else { // Theme variations
-        $box-shadow-color: theme-color($scheme, $tone-hover);
+        $box-shadow-color: theme-main-color($scheme, $tone-hover);
         box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 $box-shadow-color;
       }
     }
@@ -512,19 +531,20 @@
 }
 
 //
-// SOCIAL BUTTONS
+// SOCIAL BUTTONS THEME
 // ======================================================
 
-@mixin btn-social-theme($tone:base, $tone-hover:dark, $tone-active:x-dark, $font-color:font-color, $bg:fill) {
+@mixin btn-social-theme($tone:base, $tone-hover:dark, $tone-active:x-dark, $font-color:font-color, $bg-type:fill) {
 
   border-color: $tone;
+
   // Filled button
-  @if $bg == fill {
+  @if $bg-type == fill {
     background-color: $tone;
     color: $font-color;
   }
   // Outline button
-  @if $bg == outline {
+  @if $bg-type == outline {
     background-color: transparent;
     color: $tone
   }
@@ -573,42 +593,41 @@
 }
 
 //
-// BADGES
+// BADGES THEME
 // ======================================================
 
-@mixin badges-theme($scheme, $bg:fill, $tone:base, $tone-hover:dark, $tone-active:x-dark,  $font-color:font-color, $sledge-hammer:null) {
+@mixin badges-theme($scheme, $bg-type:fill, $tone:base, $tone-hover:dark, $tone-active:x-dark,  $font-color:font-color, $sledge-hammer:null) {
 
   @include border-theme($scheme, $tone);
   // Filled badge
-  @if $bg == fill {
-    @include background-theme($scheme, $tone, $sledge-hammer);
-    @include text-theme($scheme, $font-color, $sledge-hammer);
+  @if $bg-type == fill {
+    @include background-text-theme($scheme, $tone, $font-color, $sledge-hammer);
     * {
       @include text-theme($scheme, $font-color, $sledge-hammer);
     }
   }
   // Outline badge
-  @if $bg == outline {
+  @if $bg-type == outline {
     background-color: transparent;
-    @include text-theme($scheme, $tone, $sledge-hammer);
-    * {
+
+    &,
+    & * {
       @include text-theme($scheme, $tone, $sledge-hammer);
     }
+
   }
 
   // Link Badges
   @at-root a#{&} {
     #{$hover-tags} {
       @include border-theme($scheme, $tone-hover);
-      @include background-theme($scheme, $tone-hover, $sledge-hammer);
-      @include text-theme($scheme, $font-color, $sledge-hammer);
+      @include background-text-theme($scheme, $tone-hover, $font-color, $sledge-hammer);
     }
 
     #{$active-tags},
     #{$focus-tags} {
       @include border-theme($scheme, $tone-active);
-      @include background-theme($scheme, $tone-active, $sledge-hammer);
-      @include text-theme($scheme, $font-color, $sledge-hammer);
+      @include background-text-theme($scheme, $tone-active, $font-color, $sledge-hammer);
     }
   }
 
@@ -618,43 +637,33 @@
 // BREADCRUMB EXTENDED - WIZARD
 // ======================================================
 
-@mixin breadcrumb-wizard-status($scheme, $tone:base, $tone-hover:dark, $tone-border:x-dark, $font-color:font-color) {
+@mixin breadcrumb-wizard-status($scheme, $tone:base, $tone-before:x-dark, $font-color:font-color) {
 
-  @include background-theme($scheme, $tone);
-
-  & a {
-    @include text-theme($scheme, $font-color);
-  }
-
+  &,
   &:hover {
     @include background-theme($scheme, $tone);
+    &::after {
+      @include border-theme($scheme, $tone, $position: left);
+    }
+
+    &::before {
+      @include border-theme($scheme, $tone-before, $position: left);
+    }
   }
 
-  &:after {
-    @include border-theme($scheme, $tone, $position: left);
-  }
-
-  &:hover:after {
-    @include border-theme($scheme, $tone, $position: left);
-  }
-
-  &:before {
-    @include border-theme($scheme, $tone-border, $position: left);
-  }
-
-  &:hover:before {
-    @include border-theme($scheme, $tone-border, $position: left);
+  a {
+    @include text-theme($scheme, $font-color);
   }
 
 }
 
 //
-// POPOVERS
+// POPOVER THEME
 // ======================================================
 
-@mixin popover-theme($scheme, $tone:base, $header-tone:dark, $border-tone:dark, $font-color:font-color) {
+@mixin popover-theme($scheme, $tone:base, $tone-header:dark, $tone-border:dark, $font-color:font-color) {
 
-  @include border-theme($scheme, $border-tone);
+  @include border-theme($scheme, $tone-border);
   @include background-theme($scheme, $tone);
 
   .popover-body {
@@ -678,8 +687,8 @@
   }
 
   .popover-header {
-    @include border-theme($scheme, $header-tone);
-    @include background-text-theme($scheme, $header-tone, $font-color);
+    @include border-theme($scheme, $tone-header);
+    @include background-text-theme($scheme, $tone-header, $font-color);
   }
 }
 
@@ -706,7 +715,7 @@
 }
 
 //
-// TOOLTIP
+// TOOLTIP THEME
 // ======================================================
 
 @mixin tooltip-theme($scheme, $tone:base, $font-color:font-color) {
@@ -768,13 +777,13 @@
 }
 
 //
-// MODEL
+// MODAL THEME
 // ======================================================
 
-@mixin modal-theme($scheme, $tone:base, $border-tone:dark, $font-color:font-color) {
+@mixin modal-theme($scheme, $tone:base, $tone-border:dark, $font-color:font-color) {
 
   .modal-header {
-    @include border-theme($scheme, $border-tone);
+    @include border-theme($scheme, $tone-border);
     @include background-text-theme($scheme, $tone, $font-color);
   }
 
@@ -789,10 +798,10 @@
 }
 
 //
-// CUSTOM TOGGLE
+// TOGGLE SWITCH THEME
 // ======================================================
 
-@mixin switch($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
+@mixin switch-theme($scheme, $tone-bg:base, $tone-border:base, $font-color:font-color) {
 
   $cci: custom-control-input;
   $ccind: custom-control-indicator;
@@ -801,7 +810,7 @@
   .#{$cci}:checked:active + .#{$ccind} {
 
     @include border-theme($scheme, $tone-border);
-    @include background-theme($scheme, $tone);
+    @include background-theme($scheme, $tone-bg);
 
     &:after {
       @include background-theme($scheme, $font-color);
@@ -817,7 +826,7 @@
       @if ($scheme == 'light') { // Fix knob color on light switch
         @include background-theme($scheme, $font-color);
       } @else {
-        @include background-theme($scheme, $tone);
+        @include background-theme($scheme, $tone-bg);
       }
     }
 
@@ -826,10 +835,10 @@
 }
 
 //
-// CUSTOM TOGGLE FLIP
+// FLIPPED TOGGLE SWITCH THEME
 // ======================================================
 
-@mixin switch-flip($scheme, $tone:base, $tone-border:base, $font-color:font-color) {
+@mixin switch-flip-theme($scheme, $tone:base, $font-color:font-color) {
 
   $ccind: custom-control-indicator;
 
@@ -842,34 +851,34 @@
 }
 
 //
-// ALERT
+// ALERT THEME
 // ======================================================
 
-@mixin alert-theme($background, $border, $color) {
+@mixin alert-theme($tone-bg, $tone-border, $font-color) {
 
-  color: $color;
-  border-color: $border;
-  background-color: $background;
+  color: $font-color;
+  border-color: $tone-border;
+  background-color: $tone-bg;
 
   hr {
-    border-top-color: darken($border, 5%);
+    border-top-color: darken($tone-border, 5%);
   }
 
   // Close button
   @at-root &.alert-dismissible > .close {
-    color: $color;
+    color: $font-color;
   }
 
   // Link color
   & .alert-link {
     &,
     #{$hover-focus-tags} {
-      color: darken($color, 10%);
+      color: darken($font-color, 10%);
     }
   }
 
   p {
-    color: $color;
+    color: $font-color;
   }
 
 }
@@ -878,29 +887,30 @@
 // LIST GROUP
 // ======================================================
 
-@mixin list-group-theme($scheme, $color, $background, $active-state-theme-tone) {
+// List group theme
+@mixin list-group-theme($scheme, $tone, $tone-active, $font-color, $color-shade-amount) {
 
-  color: $color !important;
-  background-color: $background;
+  color: $font-color !important;
+  background-color: $tone;
 
   &.list-group-item-action {
     &:hover,
     &:focus {
-      color: darken($color, 5%) !important;
-      background-color: darken($background, 5%) !important;
+      color: darken($font-color, $color-shade-amount) !important;
+      background-color: darken($tone, $color-shade-amount) !important;
     }
 
     &.active {
-      @include background-text-theme($scheme, $active-state-theme-tone, $sledge-hammer: !important);
-      @include border-theme($scheme, $active-state-theme-tone, $sledge-hammer: !important);
+      @include background-text-theme($scheme, $tone-active, $sledge-hammer: !important);
+      @include border-theme($scheme, $tone-active, $sledge-hammer: !important);
     }
   }
 
   a {
-    color: $color !important;
+    color: $font-color !important;
     &:hover,
     &:focus {
-      color: darken($color, 5%) !important;
+      color: darken($font-color, $color-shade-amount) !important;
     }
   }
 
@@ -925,28 +935,29 @@
 // NESTABLE GROUP
 // ======================================================
 
-@mixin nestable-theme($scheme, $color, $background) {
+// Nestable group theme
+@mixin nestable-theme($tone, $font-color, $color-shade-amount) {
   .dd-handle,
   .drag-content {
-    color: $color;
-    background-color: $background;
+    color: $font-color;
+    background-color: $tone;
     &:hover {
-      color: darken($color, 5%);
-      background-color: darken($background, 5%);
+      color: darken($font-color, $color-shade-amount);
+      background-color: darken($tone, $color-shade-amount);
     }
 
     a {
-      color: $color !important;
+      color: $font-color !important;
       &:hover,
       &:focus {
-        color: darken($color, 5%) !important;
+        color: darken($font-color, $color-shade-amount) !important;
       }
     }
 
   }
 
   .dd-item > button {
-    color: $color;
+    color: $font-color;
   }
 }
 
@@ -959,7 +970,7 @@
 }
 
 //
-// PROGRESS BARS
+// PROGRESS BARS  THEME
 // ======================================================
 
 @mixin progress-bar-theme($scheme, $tone:base, $font-color:font-color) {
@@ -972,10 +983,10 @@
 }
 
 //
-// SIDEBAR
+// SIDEBAR THEME
 // ======================================================
 
-@mixin sidebar-theme($scheme, $font-color, $link-color, $hover-color, $active-color) {
+@mixin sidebar-theme($scheme, $font-color, $font-link-color, $font-hover-color, $font-active-color) {
 
   $s: sidebar;
 
@@ -1000,27 +1011,27 @@
 
   .#{$s}__item {
     > .#{$s}__link {
-      @include text-theme($scheme, $link-color);
+      @include text-theme($scheme, $font-link-color);
     }
 
     // Change the hover, focus, active state links for better highlighting
     &:hover,
     &.show {
       @if bool($enable-sidebar-active-border-type)==true {
-        @include border-theme($scheme, $active-color, $position: left); // Make borders visible
+        @include border-theme($scheme, $font-active-color, $position: left); // Make borders visible
       }
       > .#{$s}__link {
-        @include background-text-theme($scheme, 'dark', $hover-color);
+        @include background-text-theme($scheme, 'dark', $font-hover-color);
       }
     }
 
     // Current item
     &.active {
       @if bool($enable-sidebar-active-border-type)==true {
-        @include border-theme($scheme, $active-color, $position: left); // Make borders visible
+        @include border-theme($scheme, $font-active-color, $position: left); // Make borders visible
       }
       > .#{$s}__link {
-        @include background-text-theme($scheme, 'dark', $active-color);
+        @include background-text-theme($scheme, 'dark', $font-active-color);
       }
     }
   }
@@ -1053,18 +1064,18 @@
     .#{$s}-footer__item {
 
       > .#{$s}-footer__link {
-        @include text-theme($scheme, $link-color);
+        @include text-theme($scheme, $font-link-color);
       }
 
       &:hover {
         > .#{$s}-footer__link {
-          @include background-text-theme($scheme, 'dark', $hover-color);
+          @include background-text-theme($scheme, 'dark', $font-hover-color);
         }
       }
 
       &.active {
         > .#{$s}-footer__link {
-          @include background-text-theme($scheme, 'dark', $active-color);
+          @include background-text-theme($scheme, 'dark', $font-active-color);
         }
       }
     }
@@ -1087,21 +1098,21 @@
 
     .#{$s}-footer__nav > ul > .#{$s}-footer__item > .#{$s}-footer__child {
       @include background-theme($scheme, 'dark');
-      @include border-theme($scheme, $active-color, $position: top);
+      @include border-theme($scheme, $font-active-color, $position: top);
     }
 
     // Sidebar mini toggle button
     .#{$s}__footer--toggler {
 
       .icon-bar {
-        @include background-theme($scheme, $link-color);
+        @include background-theme($scheme, $font-link-color);
       }
 
       &.collapsed,
       &:hover {
         @include background-theme($scheme, 'dark');
         .icon-bar {
-          @include background-theme($scheme, $active-color);
+          @include background-theme($scheme, $font-active-color);
         }
       }
 
@@ -1109,7 +1120,173 @@
   }
 
   // Collapsible sidebar
-  .#{$s}-mini-collapsible &  {
+  .#{$s}-mini-collapsible & {
+
+    &:not(:hover) {
+      .#{$s}__nav > ul .#{$s}__divider {
+        @include background-theme($scheme, 'xx-light');
+      }
+
+      .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
+        > .#{$s}__child {
+          &::before {
+            @include border-theme($scheme, 'xx-light', 'left');
+          }
+        }
+
+        .#{$s}__child {
+          .#{$s}__item.active > .#{$s}__link {
+            &::before {
+              @include background-theme($scheme, 'xx-light');
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+@mixin sidebar-theme-test($scheme, $font-color, $font-link-color, $font-hover-color, $font-active-color) {
+
+  $s: sidebar;
+
+  @include background-theme($scheme);
+
+  .#{$s}__inner-wrap {
+    color: $font-color;
+  }
+
+  .#{$s}__item-header {
+    color: $font-color;
+    &::after {
+      @include background-theme($scheme, 'xx-light');
+    }
+  }
+
+  .#{$s}__divider {
+    @if bool($enable-sidebar-divider-underline-type)==true {
+      @include background-theme($scheme, 'xx-light');
+    }
+  }
+
+  .#{$s}__item {
+    > .#{$s}__link {
+      color: $font-link-color;
+    }
+
+    // Change the hover, focus, active state links for better highlighting
+    &:hover,
+    &.show {
+      @if bool($enable-sidebar-active-border-type)==true {
+        border-left-color: $font-active-color;
+      }
+      > .#{$s}__link {
+        @include background-theme($scheme, 'dark');
+        color: $font-hover-color;
+      }
+    }
+
+    // Current item
+    &.active {
+      @if bool($enable-sidebar-active-border-type)==true {
+        border-left-color: $font-active-color;
+      }
+      > .#{$s}__link {
+        @include background-theme($scheme, 'dark');
+        color: $font-active-color;
+      }
+    }
+  }
+
+  .#{$s}__child {
+    @include background-theme($scheme, 'dark');
+
+    .#{$s}__item {
+      // Change the hover, focus, active state links for better highlighting
+      &:hover,
+      &.show {
+        > .#{$s}__link:not(.has-arrow) {
+          @include background-theme($scheme, 'x-dark');
+        }
+      }
+
+      // Current item
+      &.active {
+        > .#{$s}__link:not(.has-arrow) {
+          @include background-theme($scheme, 'xx-dark');
+        }
+      }
+    }
+  }
+
+  .#{$s}-footer {
+    @include background-theme($scheme);
+    @include border-theme($scheme, 'dark', $position: top);
+
+    .#{$s}-footer__item {
+
+      > .#{$s}-footer__link {
+        color: $font-link-color;
+      }
+
+      &:hover {
+        > .#{$s}-footer__link {
+          @include background-theme($scheme, 'dark');
+          color: $font-hover-color;
+        }
+      }
+
+      &.active {
+        > .#{$s}-footer__link {
+          @include background-theme($scheme, 'dark');
+          color: $font-active-color;
+        }
+      }
+    }
+
+    .#{$s}-footer__child {
+      .#{$s}-footer__item {
+        &:hover {
+          > .#{$s}-footer__link:not(.has-arrow) {
+            @include background-theme($scheme, 'x-dark');
+          }
+        }
+
+        &.active {
+          > .#{$s}-footer__link:not(.has-arrow) {
+            @include background-theme($scheme, 'xx-dark');
+          }
+        }
+      }
+    }
+
+    .#{$s}-footer__nav > ul > .#{$s}-footer__item > .#{$s}-footer__child {
+      @include background-theme($scheme, 'dark');
+      border-top-color: $font-active-color;
+    }
+
+    // Sidebar mini toggle button
+    .#{$s}__footer--toggler {
+
+      .icon-bar {
+        background-color: $font-link-color;
+      }
+
+      &.collapsed,
+      &:hover {
+        @include background-theme($scheme, 'dark');
+        .icon-bar {
+          background-color: $font-active-color;
+        }
+      }
+
+    }
+  }
+
+  // Collapsible sidebar
+  .#{$s}-mini-collapsible & {
 
     &:not(:hover) {
       .#{$s}__nav > ul .#{$s}__divider {

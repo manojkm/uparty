@@ -12,19 +12,19 @@
 
   // Footer menu links
   .nav-link {
-    @include color($footer-theme-scheme, 'link-color');
+    @include color($footer-theme-scheme, 'font-link-color');
     @include transition;
     font-size:$footer-font-size;
     font-weight: $footer-font-weight;
 
     // Change the hover, focus, active state links for better highlighting
     #{$hover-tags} {
-      @include color($footer-theme-scheme, 'hover-color');
+      @include color($footer-theme-scheme, 'font-hover-color');
     }
 
     #{$focus-tags},
     #{$active-tags} {
-      @include color($footer-theme-scheme, 'active-color');
+      @include color($footer-theme-scheme, 'font-active-color');
     }
     &.disabled {
       @include opacity(0.3);

@@ -511,6 +511,16 @@ $s: sidebar;
 // SIDEBAR THEMES
 // ======================================================
 
-.#{$s}.#{$s}-theme {
-  @include sidebar-theme($sidebar-theme-scheme, 'font-color', 'link-color', 'hover-color', 'active-color');
+//.#{$s}.#{$s}-themed {
+//  @include sidebar-theme($sidebar-theme-scheme, 'font-color', 'font-link-color', 'font-hover-color', 'font-active-color');
+//}
+
+.#{$s}.#{$s}-themed-test {
+
+  $font-color: theme-partial-color($sidebar-theme-scheme, font-color);
+  $font-link-color: theme-partial-color($sidebar-theme-scheme, font-link-color);
+  $font-hover-color: theme-partial-color($sidebar-theme-scheme, font-hover-color);
+  $font-active-color: theme-partial-color($sidebar-theme-scheme, font-active-color);
+
+  @include sidebar-theme-test($sidebar-theme-scheme, $font-color, $font-link-color, $font-hover-color, $font-active-color);
 }

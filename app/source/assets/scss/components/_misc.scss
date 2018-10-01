@@ -22,7 +22,7 @@ hr {
 // Theme variations
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
-  @each $scheme, $value in $colors {
+  @each $scheme, $tone in $colors {
     hr.#{$scheme}-line {
       @include border-theme($scheme, 'xx-light', $position: top);
     }
@@ -30,7 +30,7 @@ hr {
 }
 
 // Contextual variations
-@each $scheme, $value in $contextual-palette-map {
+@each $scheme, $tone in $contextual-palette-map {
   hr.#{$scheme}-line {
     @include border-theme($scheme, 'xx-light', $position: top);
   }

@@ -142,7 +142,7 @@
   // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
-    @each $scheme, $value in $colors {
+    @each $scheme, $tone in $colors {
       &.#{$scheme}-box {
         @include tab-extended-boxed-theme($scheme);
       }
@@ -150,7 +150,7 @@
   }
 
   // Contextual variations
-  @each $scheme, $value in $contextual-palette-map {
+  @each $scheme, $tone in $contextual-palette-map {
     &.#{$scheme}-box {
       @include tab-extended-boxed-theme($scheme);
     }
@@ -369,7 +369,7 @@
       .nav-item.show .nav-link {
         border-color: $nav-tabs-border-color;
         border-right-color: $nav-tabs-link-active-bg;
-        @include add-border($nav-tabs-ext-outline-active-border-size, theme-color($nav-tabs-active-theme-scheme), left);
+        @include add-border($nav-tabs-ext-outline-active-border-size, theme-main-color($nav-tabs-active-theme-scheme), left);
       }
     }
 
@@ -378,7 +378,7 @@
       .nav-item.show .nav-link {
         border-color: $nav-tabs-border-color;
         border-left-color: $nav-tabs-link-active-bg;
-        @include add-border($nav-tabs-ext-outline-active-border-size, theme-color($nav-tabs-active-theme-scheme), right);
+        @include add-border($nav-tabs-ext-outline-active-border-size, theme-main-color($nav-tabs-active-theme-scheme), right);
       }
     }
   }

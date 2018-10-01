@@ -45,7 +45,7 @@
     }
 
     &:focus {
-      @include text-theme('header', 'link-color');
+      @include text-theme('header', 'font-link-color');
       @include opacity(1);
       width: 200px;
       padding: 0 10px;
@@ -62,7 +62,7 @@
     }
 
     + span {
-      @include border-theme('header', 'link-color', $position: all);
+      @include border-theme('header', 'font-link-color', $position: all);
       border: 2px solid;
       border-radius: 25px;
       z-index: -1;
@@ -74,7 +74,7 @@
       /* right: 0;*/
 
       &::before {
-        @include background-theme('header', 'link-color');
+        @include background-theme('header','font-link-color');
         transition: all .25s ease-in .5s;
         transform-origin: left top;
         content: '';
