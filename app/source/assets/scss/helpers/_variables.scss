@@ -729,7 +729,7 @@ $sidebar-footer-child-border-top-size:  $border-thin; // Width of the top 'borde
 $sidebar-footer-font-size:              $sidebar-submenu-link-font-size; // Submenu item font size (.sidebar-footer__child .sidebar-footer__item > a).
 $sidebar-footer-icon-font-size:         15px;
 
-// Mini sidebar adjustments
+// Mini sidebar type adjustments
 
 $sidebar-mini-width:                    50px;
 $sidebar-mini-submenu-width:            $sidebar-width; // So that submenu takes the same width of the sidebar.
@@ -738,6 +738,10 @@ $sidebar-mini-active-menu-width:        ($sidebar-width + $sidebar-mini-width);
 // Mini sidebar 'full' type adjustments
 
 $sidebar-mini-full-item-height:         40px;
+
+// Sidebar type with border on active item
+
+$sidebar-active-border-type-size:       2px;
 
 //
 // 6.5 GLOBAL ASIDE - 2nd SIDEBAR

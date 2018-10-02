@@ -38,7 +38,7 @@ $s: sidebar;
   // Sidebar item heading
   .#{$s}__item-header {
     @if bool($enable-sidebar-active-border-type) == true {
-      @include add-border(2px, transparent, left);
+      @include add-border($sidebar-active-border-type-size, transparent, left);
     }
     padding: $sidebar-padding-y $sidebar-padding-x;
     font-size: $sidebar-item-header-font-size;
@@ -75,13 +75,15 @@ $s: sidebar;
   // Sidebar menu item
   .#{$s}__item {
     @if bool($enable-sidebar-active-border-type) == true {
-      @include add-border(2px, transparent, left); // Set border to invisible, so we don't see a 2px border
+      @include transition(border .3s ease);
+      @include add-border($sidebar-active-border-type-size, transparent, left); // Set border to invisible, so we don't see a 2px border
     }
     position: relative;
     box-sizing: border-box;
 
     // Sidebar menu link
     > .#{$s}__link {
+      @include transition(background-color .3s ease);
       font-size: $sidebar-link-font-size;
       text-decoration: none;
       padding: $sidebar-link-padding-y ($sidebar-link-padding-x + $sidebar-link-caret-margin-right) $sidebar-link-padding-y $sidebar-link-padding-x;
@@ -185,10 +187,17 @@ $s: sidebar;
     position: static;
     display: block;
 
+    @if bool($enable-sidebar-active-border-type) == true {
+      width: $sidebar-mini-width - $sidebar-active-border-type-size;
+    } @else {
+      width: $sidebar-mini-width;
+    }
+
+
     > .#{$s}__link {
       padding: $sidebar-link-padding-y 0;
       @if bool($enable-sidebar-active-border-type) == true {
-        width: $sidebar-mini-width - 2;
+        width: $sidebar-mini-width - $sidebar-active-border-type-size;
       } @else {
         width: $sidebar-mini-width;
       }
@@ -196,7 +205,7 @@ $s: sidebar;
       .#{$s}__link-icon {
         margin: 0;
         @if bool($enable-sidebar-active-border-type) == true {
-          width: $sidebar-mini-width - 2;
+          width: $sidebar-mini-width - $sidebar-active-border-type-size;
         } @else {
           width: $sidebar-mini-width;
         }
@@ -227,6 +236,42 @@ $s: sidebar;
       height: auto;
       display: none;
       overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        color: #9c9c9c;
+      }
+      &::-webkit-scrollbar-button {
+        width: 0px;
+        height: 0px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #657692;
+        border: 0px none #ffffff;
+        border-radius: 50px;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: #657692;
+      }
+      &::-webkit-scrollbar-thumb:active {
+        background: #657692;
+      }
+      &::-webkit-scrollbar-track {
+        background: #0c1119;
+        border: 0px none #ffffff;
+        border-radius: 71px;
+      }
+      &::-webkit-scrollbar-track:hover {
+        background: #0c1119;
+      }
+      &::-webkit-scrollbar-track:active {
+        background: #0c1119;
+      }
+      &::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+
     }
 
   }
@@ -246,12 +291,18 @@ $s: sidebar;
 
   // Show sub menu item title on hover
   .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
+    @if bool($enable-sidebar-active-border-type) == true {
+      width: $sidebar-mini-active-menu-width - $sidebar-active-border-type-size; // Adjust the width to include border of parent li
+    } @else {
+      width: $sidebar-mini-active-menu-width;
+    }
+
     //&:hover
     &.show {
       > .#{$s}__link {
         transition: none;
         @if bool($enable-sidebar-active-border-type) == true {
-          width: $sidebar-mini-active-menu-width - 2; // Value 2 is to adjust the width to include border of parent li
+          width: $sidebar-mini-active-menu-width - $sidebar-active-border-type-size; // Adjust the width to include border of parent li
         } @else {
           width: $sidebar-mini-active-menu-width;
         }
@@ -325,7 +376,7 @@ $s: sidebar;
           @include transition(width .3s ease);
           margin-right: 0;
           @if bool($enable-sidebar-active-border-type) == true {
-            width: $sidebar-mini-width - 2;
+            width: $sidebar-mini-width - $sidebar-active-border-type-size;
           } @else {
             width: $sidebar-mini-width;
           }

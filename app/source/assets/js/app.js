@@ -77,14 +77,14 @@ var appMaster = {
             event.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
-                appMaster._body.removeClass('sidebar-mini-collapsible');
+                appMaster._body.removeClass('sidebar-mini');
                 appMaster._sidebarMiniIsOpen = false;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
 
             }
             else {
                 $(this).addClass('collapsed');
-                appMaster._body.addClass('sidebar-mini-collapsible');
+                appMaster._body.addClass('sidebar-mini');
                 appMaster._changeLogo();
                 appMaster._sidebarMiniIsOpen = true;
                 appMaster._stopMetisMenu(appMaster._sidebar_footer_nav);
@@ -124,7 +124,30 @@ var appMaster = {
             });
         }
 
+        function update() {
+                // Scroll to currently active menu on page load if data-scroll-to-active is true
+                if($('.sidebar__nav').data('scroll-to-active') === true){
+                    var position;
+                    var topbar = $(".sidebar__brand").height();
+                    if( $(".sidebar__nav").find('li.active').parents('li').length > 0 ){
+                        position = $(".sidebar__nav").find('li.active').parents('li').last().position();
+                    }
+                    else{
+                        position = $(".sidebar__nav").find('li.active').position();
+                    }
+
+                    var height = position.top - topbar;
+
+                    setTimeout(function(){
+                         //$('.sidebar__nav').scrollTop(position.top);
+                        $('.sidebar__nav').stop().animate({scrollTop:height}, 300);
+                        $('.sidebar__nav').data('scroll-to-active', 'false');
+                    },300);
+                }
+        }
+
         set_sidebar_mini_hover();
+        update();
 
     },
     aside: function () {

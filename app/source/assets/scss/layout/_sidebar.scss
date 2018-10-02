@@ -40,12 +40,16 @@
     bottom: $sidebar-footer-height;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
     position: static;
     top: 0;
     display: flex;
     flex: 1;
     flex-direction: column;
+  }
+
+  .#{$s}__nav {
+    overflow-x: hidden;
+    overflow-y: auto;
 
     &::-webkit-scrollbar {
       width: 6px;
@@ -81,7 +85,6 @@
     &::-webkit-scrollbar-corner {
       background: transparent;
     }
-
   }
 
   // Hiding sidebar if body has class (.sidebar-is-closed)

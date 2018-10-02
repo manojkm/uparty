@@ -180,10 +180,10 @@
 }
 
 //
-// RETRIEVE COLORS VALUE FROM DEFINED 'THEMES' MAPS ($themes-map)
+// RETRIEVE COLOR VALUE FROM DEFINED 'THEMES' MAP ($themes-map)
 // ======================================================
 
-// Retrieve main colors
+// Retrieve main color
 @function theme-main-color($scheme, $tone:base) {
   @each $themeName, $value in $themes-map {
     @if ($themeName == $activeTheme) {
@@ -197,7 +197,7 @@
   }
 }
 
-// Retrieve partial colors
+// Retrieve partial color
 @function theme-partial-color($scheme, $tone:base) {
   @each $themeName, $value in $themes-map {
     @if ($themeName == $activeTheme) {
