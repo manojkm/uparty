@@ -48,43 +48,9 @@
   }
 
   .#{$s}__nav {
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: auto;
+    position: relative;
 
-    &::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-      color: #9c9c9c;
-    }
-    &::-webkit-scrollbar-button {
-      width: 0px;
-      height: 0px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: #657692;
-      border: 0px none #ffffff;
-      border-radius: 50px;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-      background: #657692;
-    }
-    &::-webkit-scrollbar-thumb:active {
-      background: #657692;
-    }
-    &::-webkit-scrollbar-track {
-      background: #0c1119;
-      border: 0px none #ffffff;
-      border-radius: 71px;
-    }
-    &::-webkit-scrollbar-track:hover {
-      background: #0c1119;
-    }
-    &::-webkit-scrollbar-track:active {
-      background: #0c1119;
-    }
-    &::-webkit-scrollbar-corner {
-      background: transparent;
-    }
   }
 
   // Hiding sidebar if body has class (.sidebar-is-closed)

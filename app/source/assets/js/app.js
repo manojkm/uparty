@@ -42,10 +42,57 @@ var appMaster = {
     _card_fullscreen: $("[data-card='fullscreen']"),
 
 
+    manualScroller: {
+
+        obj: null,
+
+        init: function() {
+            this.obj = new PerfectScrollbar('.sidebar__nav', {
+                suppressScrollX: true,
+                wheelSpeed: 2,
+                wheelPropagation: true,
+                minScrollbarLength: 20
+            });
+
+            this.obj.update();
+        },
+
+        update: function() {
+            // Scroll to currently active menu on page load if data-scroll-to-active is true
+            if ($('.sidebar__nav').data('scroll-to-active') === true) {
+                var position;
+                var topbar = $(".sidebar__brand").height();
+                if ($(".sidebar__nav").find('li.active').parents('li').length > 0) {
+                    position = $(".sidebar__nav").find('li.active').parents('li').last().position();
+                }
+                else {
+                    position = $(".sidebar__nav").find('li.active').position();
+                }
+
+                // var height = position.top - topbar;
+
+                setTimeout(function () {
+                    //$('.sidebar__nav').scrollTop(position.top);
+                    $('.sidebar__nav').stop().animate({scrollTop: position.top}, 300);
+                    $('.sidebar__nav').data('scroll-to-active', 'false');
+                }, 300);
+            }
+            this.obj.update();
+        },
+
+
+    },
+
+    update: function (){
+        this.manualScroller.update();
+    },
+
+
     responsive: function () {
 
         function set_sidebar() {
             $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed sidebar-mobile');
+            appMaster.manualScroller.init()
         }
 
         set_sidebar();
@@ -55,6 +102,9 @@ var appMaster = {
         });
 
     },
+
+
+
 
     sidebar: function () {
 
@@ -124,30 +174,14 @@ var appMaster = {
             });
         }
 
-        function update() {
-                // Scroll to currently active menu on page load if data-scroll-to-active is true
-                if($('.sidebar__nav').data('scroll-to-active') === true){
-                    var position;
-                    var topbar = $(".sidebar__brand").height();
-                    if( $(".sidebar__nav").find('li.active').parents('li').length > 0 ){
-                        position = $(".sidebar__nav").find('li.active').parents('li').last().position();
-                    }
-                    else{
-                        position = $(".sidebar__nav").find('li.active').position();
-                    }
-
-                    var height = position.top - topbar;
-
-                    setTimeout(function(){
-                         //$('.sidebar__nav').scrollTop(position.top);
-                        $('.sidebar__nav').stop().animate({scrollTop:height}, 300);
-                        $('.sidebar__nav').data('scroll-to-active', 'false');
-                    },300);
-                }
-        }
-
         set_sidebar_mini_hover();
-        update();
+
+
+        $('.sidebar nav.sidebar__nav .sidebar__item.has-child a').on('click', function () {
+            // alert("I am an alert box!");
+            appMaster.manualScroller.update()
+        });
+
 
     },
     aside: function () {
@@ -299,9 +333,15 @@ var appMaster = {
     },
 
     _stopMetisMenu: function (hide_element) {
-        $(hide_element).each(function() {$(this).find('li').removeClass('active')});
-        $(hide_element).each(function() {$(this).find('a').attr('aria-expanded', false)});
-        $(hide_element).each(function() {$(this).find('ul.collapse').removeClass('in').attr('aria-expanded', false)});
+        $(hide_element).each(function () {
+            $(this).find('li').removeClass('active')
+        });
+        $(hide_element).each(function () {
+            $(this).find('a').attr('aria-expanded', false)
+        });
+        $(hide_element).each(function () {
+            $(this).find('ul.collapse').removeClass('in').attr('aria-expanded', false)
+        });
     },
 
     _changeLogo: function () {
@@ -438,7 +478,7 @@ var appMaster = {
     number_spinner: function () {
         // Adapted from https://bootsnipp.com/snippets/featured/bootstrap-number-spinner-on-click-hold
         var action;
-        $(".number-spinner button").on('touchstart mousedown', function(e) {
+        $(".number-spinner button").on('touchstart mousedown', function (e) {
             e.preventDefault();
             var btn = $(this);
             var input = btn.closest('.number-spinner').find('input');
@@ -463,10 +503,10 @@ var appMaster = {
                     }
                 }, 50);
             }
-        }).on('touchend mouseup', function(e) {
+        }).on('touchend mouseup', function (e) {
             e.preventDefault(); // TODO not sure if this needed here..
             clearInterval(action);
-        }).on('touchcancel mouseout', function(e) {
+        }).on('touchcancel mouseout', function (e) {
             e.preventDefault(); // TODO not sure if this needed here..
             // Added to stop spinning when mouse leaves the button
             clearInterval(action);
@@ -550,6 +590,7 @@ $(document).on("app.plugin", function () {
 $(document).ready(function () {
     appMaster.responsive();
     appMaster.sidebar();
+    appMaster.update();
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
