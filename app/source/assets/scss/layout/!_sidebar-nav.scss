@@ -168,23 +168,77 @@ $s: sidebar;
 
 .#{$s}-mini .#{$s} {
 
-  .#{$s}__nav > ul {
-
-    > .#{$s}__item .badge,
-    > .#{$s}__item.has-button,
-    > .#{$s}__item-header,
-    > .#{$s}__divider,
-    > .#{$s}__item > .#{$s}__link .#{$s}__link-title,
-    > .#{$s}__item > .#{$s}__link.has-arrow::after,
-    > .#{$s}__item > .#{$s}__child
-    {
-      display: none;
-    }
-
+  // Hiding headers, dividers etc... so the mini sidebar can reduce its UI complexity
+  .#{$s}__item .badge,
+  .#{$s}__item.active::before,
+  .#{$s}__item.has-button,
+  .#{$s}__item-header,
+  .#{$s}__divider {
+    /*    @include transition;
+        @extend %o-v-none;
+        min-height: 0;
+        height: 0;
+        line-height: 0;
+        margin: 0;*/
+    display: none;
   }
 
-  .#{$s}__nav .menu-popout{
-    //display: block;
+  .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
+    position: static;
+    display: block;
+
+    @if bool($enable-sidebar-active-border-type) == true {
+      width: $sidebar-mini-width - $sidebar-active-border-type-size;
+    } @else {
+      width: $sidebar-mini-width;
+    }
+
+
+    > .#{$s}__link {
+      padding: $sidebar-link-padding-y 0;
+      @if bool($enable-sidebar-active-border-type) == true {
+        width: $sidebar-mini-width - $sidebar-active-border-type-size;
+      } @else {
+        width: $sidebar-mini-width;
+      }
+
+      .#{$s}__link-icon {
+        margin: 0;
+        @if bool($enable-sidebar-active-border-type) == true {
+          width: $sidebar-mini-width - $sidebar-active-border-type-size;
+        } @else {
+          width: $sidebar-mini-width;
+        }
+      }
+
+      &.has-arrow::after {
+        @extend %o-v-none;
+        display: none;
+      }
+
+      .#{$s}__link-title {
+        position: fixed;
+        display: none;
+        width: $sidebar-width;
+        left: $sidebar-mini-width;
+        padding: $sidebar-link-padding-y $sidebar-link-padding-x;
+        background-color: inherit;
+      }
+
+    }
+
+    // Sub menu - First level
+    > .#{$s}__child {
+      position: absolute;
+      width: $sidebar-mini-submenu-width;
+      left: $sidebar-mini-width;
+      box-shadow: $header-shadow;
+      height: auto;
+      display: none;
+      overflow-y: auto;
+
+    }
+
   }
 
   @for $i from 1 through $sidebar-submenu-max-levels {
@@ -198,6 +252,35 @@ $s: sidebar;
       padding-left: $sidebar-submenu-link-padding-x +  (15px * ($i - 1));
     }
 
+  }
+
+  // Show sub menu item title on hover
+  .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
+    @if bool($enable-sidebar-active-border-type) == true {
+      width: $sidebar-mini-active-menu-width - $sidebar-active-border-type-size; // Adjust the width to include border of parent li
+    } @else {
+      width: $sidebar-mini-active-menu-width;
+    }
+
+    //&:hover
+    &.show {
+      > .#{$s}__link {
+        transition: none;
+        @if bool($enable-sidebar-active-border-type) == true {
+          width: $sidebar-mini-active-menu-width - $sidebar-active-border-type-size; // Adjust the width to include border of parent li
+        } @else {
+          width: $sidebar-mini-active-menu-width;
+        }
+        position: static;
+
+        .#{$s}__link-title {
+          display: block;
+        }
+      }
+      > .#{$s}__child {
+        display: block;
+      }
+    }
   }
 
 }

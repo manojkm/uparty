@@ -104,21 +104,20 @@ var appMaster = {
 
     ffffffff: function () {
         var menuObj = this;
+
         $('.sidebar__list').on('mouseenter', 'li', function() {
             //alert("I am an alert box!");
             var $this = $(this);
 
-
             if( appMaster._body.hasClass('sidebar-mini')){
 
-                $('.sidebar__nav').children('span.sidebar__link-title').remove();
-                $('.sidebar__nav').children('a.menu-title').remove();
-                $('.sidebar__nav').children('ul.sidebar__child').remove();
+                $('#menu-popout-clone').children('li.sidebar__item').remove();
+                $('#menu-popout-clone').children('a.menu-title').remove();
+                $('#menu-popout-clone').children('ul.menu-popout').remove();
 
                 // Title
-                var menuTitle = $this.find('span.sidebar__link-title').clone(),
-                    tempTitle,
-                    tempLink;
+                var menuTitle = $this.clone(), tempTitle, tempLink;
+                // var menuTitle = $this.find('span.sidebar__link-title').clone(), tempTitle, tempLink;
 
                 if(!$this.hasClass('has-child') ){
                     tempTitle = $this.find('span.sidebar__link-title').text();
@@ -140,12 +139,16 @@ var appMaster = {
                 else{
                     fromTop = $this.position().top;
                 }
-                if(appMaster._body.data('menu') !== 'vertical-compact-menu'){
-                    menuTitle.appendTo('.sidebar__nav').css({
+
+                $('#menu-popout-clone').css({ position:'fixed', top: fromTop}).append(menuTitle);
+
+
+                //if(appMaster._body.data('menu') !== 'vertical-compact-menu'){
+                   /* menuTitle.appendTo('.sidebar__nav').css({
                         position:'fixed',
                         top : fromTop,
-                    });
-                }
+                    });*/
+                //}
 
                 // Content
                 if($this.hasClass('has-child') && $this.hasClass('sidebar__item')) {
@@ -154,19 +157,26 @@ var appMaster = {
                 }
 
             }
+
             $this.addClass('hover');
 
         }).on('mouseleave', 'li', function() {
            $(this).removeClass('hover');
-        })
+        });
 
-        $('.sidebar__list').on('mouseleave', function(){
+        $('.sidebar__nav').on('mouseleave', function(){
             if( appMaster._body.hasClass('sidebar-mini') ){
-                $('.sidebar__nav').children('span.sidebar__link-title').remove();
-                $('.sidebar__nav').children('a.menu-title').remove();
-                $('.sidebar__nav').children('ul.sidebar__child').remove();
+                $('#menu-popout-clone').children('li.sidebar__item').remove();
+                $('#menu-popout-clone').children('a.menu-title').remove();
+                $('#menu-popout-clone').children('ul.menu-popout').remove();
             }
         });
+
+        // If list item has sub menu items then prevent redirection.
+        $('.sidebar__list .sidebar__item.has-child > a').on('click',function(e){
+            e.preventDefault();
+        });
+
     },
 
 
@@ -193,16 +203,19 @@ var appMaster = {
 
         topPos = menutop + $menuItem.height() + borderWidth;
 
-        ul.addClass('menu-popout').appendTo('.sidebar__nav').css({
+        ul.removeAttr('class aria-expanded').attr({ 'data-plugin': "metismenu"}).addClass('sidebar__list metismenu list-unstyled menu-popout').appendTo('.sidebar__nav').css({
             'top' : topPos,
             'position' : 'fixed',
-            'max-height': popOutMenuHeight,
+            'max-height': popOutMenuHeight
         });
+
+        // for bug jQuery('.sidebar__list li:nth-child(3)').trigger('mouseenter')
 
         // $('.main-menu-content > ul.menu-content').perfectScrollbar({
         //     theme:scroll_theme,
         // });
     },
+
 
     sidebar: function () {
 
@@ -639,6 +652,7 @@ var appMaster = {
         });
     },
 
+
 };
 
 var Pluggin = {
@@ -689,7 +703,7 @@ $(document).ready(function () {
     appMaster.responsive();
     appMaster.sidebar();
     // appMaster.update();
-   appMaster.ffffffff();
+    appMaster.ffffffff();
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();

@@ -672,9 +672,8 @@
                     $('.main-menu-content').children('ul.menu-content').remove();
 
                     // Title
-                    var menuTitle = $this.find('span.menu-title').clone(),
-                        tempTitle,
-                        tempLink;
+                    var menuTitle = $this.find('span.menu-title').clone(), tempTitle, tempLink;
+
                     if(!$this.hasClass('has-sub') ){
                         tempTitle = $this.find('span.menu-title').text();
                         tempLink = $this.children('a').attr('href');
