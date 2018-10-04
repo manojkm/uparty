@@ -3,10 +3,10 @@
  Description: Menu navigation, custom scrollbar, hover scroll bar, multilevel menu
  initialization and manipulations
  ----------------------------------------------------------------------------------------
- Item Name: Stack - Responsive Admin Theme
- Version: 3.0
- Author: Pixinvent
- Author URL: hhttp://www.themeforest.net/user/pixinvent
+ Item Name: Robust - Responsive Admin Theme
+ Version: 1.2
+ Author: GeeksLabs
+ Author URL: http://www.themeforest.net/user/geekslabs
  ==========================================================================================*/
 (function(window, document, $) {
     'use strict';
@@ -50,13 +50,10 @@
                         }
                         setTimeout(function(){
                             // $.app.menu.container.scrollTop(position.top);
-                            if(position !== undefined){
-                                $.app.menu.container.stop().animate({scrollTop:position.top}, 300);
-                            }
+                            $.app.menu.container.stop().animate({scrollTop:position.top}, 300);
                             $('.main-menu').data('scroll-to-active', 'false');
                         },300);
                     }
-
                     $(".main-menu-content").perfectScrollbar('update');
                 }
             },
@@ -72,40 +69,20 @@
             },
 
             updateHeight: function(){
-                if( ($body.data('menu') == 'vertical-menu' || $body.data('menu') == 'vertical-menu-modern' || $body.data('menu') == 'vertical-overlay-menu' ) && $('.main-menu').hasClass('menu-fixed')){
+                if( ($body.data('menu') == 'vertical-menu' || $body.data('menu') == 'vertical-overlay-menu' ) && $('.main-menu').hasClass('menu-fixed')){
                     $('.main-menu-content').css('height', $(window).height() - $('.header-navbar').height() - $('.main-menu-header').outerHeight() - $('.main-menu-footer').outerHeight() );
                     this.update();
                 }
             }
         },
 
-        init: function(compactMenu) {
+        init: function() {
             if($('.main-menu-content').length > 0){
                 this.container = $('.main-menu-content');
 
                 var menuObj = this;
-                var defMenu = '';
 
-                if(compactMenu === true){
-                    defMenu = 'collapsed';
-                }
-
-                if($body.data('menu') == 'vertical-menu-modern') {
-                    var menuToggle = '';
-
-                    if (typeof(Storage) !== "undefined") {
-                        menuToggle = localStorage.getItem("menuLocked");
-                    }
-                    if(menuToggle === "false"){
-                        this.change('collapsed');
-                    }
-                    else{
-                        this.change();
-                    }
-                }
-                else{
-                    this.change(defMenu);
-                }
+                this.change();
             }
             else{
                 // For 1 column layout menu won't be initialized so initiate drill down for mega menu
@@ -114,10 +91,6 @@
                 // ------------------------------
                 this.drillDownMenu();
             }
-
-            /*if(defMenu === 'collapsed'){
-             this.collapse();
-             }*/
         },
 
         drillDownMenu: function(screenSize){
@@ -138,7 +111,7 @@
             }
         },
 
-        change: function(defMenu) {
+        change: function() {
             var currentBreakpoint = Unison.fetch.now(); // Current Breakpoint
 
             this.reset();
@@ -149,19 +122,22 @@
                 switch (currentBreakpoint.name) {
                     case 'xl':
                     case 'lg':
-                        if(menuType === 'vertical-overlay-menu'){
+                        if(menuType === 'vertical-overlay-menu11'){
                             this.hide();
                         }
+                        else if(menuType === 'vertical-compact-menu'){
+                            this.open();
+                        }
                         else{
-                            if(defMenu === 'collapsed')
-                                this.collapse(defMenu);
-                            else
-                                this.expand();
+                            this.expand();
                         }
                         break;
                     case 'md':
-                        if(menuType === 'vertical-overlay-menu'){
+                        if(menuType === 'vertical-overlay-menu' || menuType === 'vertical-mmenu'){
                             this.hide();
+                        }
+                        else if(menuType === 'vertical-compact-menu'){
+                            this.open();
                         }
                         else{
                             this.collapse();
@@ -177,18 +153,12 @@
             }
 
             // On the small and extra small screen make them overlay menu
-            if(menuType === 'vertical-menu'  || menuType === 'vertical-menu-modern'){
+            if(menuType === 'vertical-menu' || menuType === 'vertical-compact-menu' || menuType === 'vertical-content-menu'){
                 this.toOverlayMenu(currentBreakpoint.name);
             }
 
-            if($body.is('.horizontal-layout') && !$body.hasClass('.horizontal-menu-demo')){
-                this.changeMenu(currentBreakpoint.name);
-
-                $('.menu-toggle').removeClass('is-active');
-            }
-
             // Initialize drill down menu for vertical layouts, for horizontal layouts drilldown menu is intitialized in changemenu function
-            if(menuType != 'horizontal-menu'){
+            if(menuType != 'horizontal-menu' && menuType != 'horizontal-top-icon-menu'){
                 // Drill down menu
                 // ------------------------------
                 this.drillDownMenu(currentBreakpoint.name);
@@ -198,17 +168,17 @@
             // ---------------------------------------------------------------
             if(currentBreakpoint.name == 'xl'){
                 $('body[data-open="hover"] .dropdown').on('mouseenter', function(){
-                    if (!($(this).hasClass('show'))) {
-                        $(this).addClass('show');
+                    if (!($(this).hasClass('open'))) {
+                        $(this).addClass('open');
                     }else{
-                        $(this).removeClass('show');
+                        $(this).removeClass('open');
                     }
                 }).on('mouseleave', function(event){
-                    $(this).removeClass('show');
+                    $(this).removeClass('open');
                 });
 
                 $('body[data-open="hover"] .dropdown a').on('click', function(e){
-                    if(menuType == 'horizontal-menu'){
+                    if(menuType == 'horizontal-menu' || menuType == 'horizontal-top-icon-menu'){
                         var $this = $(this);
                         if($this.hasClass('dropdown-toggle')){
                             return false;
@@ -235,97 +205,20 @@
                     event.preventDefault();
                 }
                 event.stopPropagation();
-                $(this).parent().siblings().removeClass('show');
-                $(this).parent().toggleClass('show');
+                $(this).parent().siblings().removeClass('open');
+                $(this).parent().toggleClass('open');
             });
-
-            // Horizontal Fixed Nav Sticky hight issue on small screens
-            if(menuType == 'horizontal-menu'){
-                if(currentBreakpoint.name == 'sm' || currentBreakpoint.name == 'xs'){
-                    if($(".menu-fixed").length){
-                        $(".menu-fixed").unstick();
-                    }
-                }
-                else{
-                    if($(".navbar-fixed").length){
-                        $(".navbar-fixed").sticky();
-                    }
-                }
-            }
-
-            /********************************************
-             *             Searchable Menu               *
-             ********************************************/
-
-            function searchMenu(list) {
-
-                var input = $(".menu-search");
-                $(input)
-                    .change( function () {
-                        var filter = $(this).val();
-                        if(filter) {
-                            // Hide Main Navigation Headers
-                            $('.navigation-header').hide();
-                            // this finds all links in a list that contain the input,
-                            // and hide the ones not containing the input while showing the ones that do
-                            $(list).find("li a:not(:Contains(" + filter + "))").hide().parent().hide();
-                            // $(list).find("li a:Contains(" + filter + ")").show().parents('li').show().addClass('open').closest('li').children('a').show();
-                            var searchFilter = $(list).find("li a:Contains(" + filter + ")");
-                            if( searchFilter.parent().hasClass('has-sub') ){
-                                searchFilter.show()
-                                    .parents('li').show()
-                                    .addClass('open')
-                                    .closest('li')
-                                    .children('a').show()
-                                    .children('li').show();
-
-                                // searchFilter.parents('li').find('li').show().children('a').show();
-                                if(searchFilter.siblings('ul').length > 0){
-                                    searchFilter.siblings('ul').children('li').show().children('a').show();
-                                }
-
-                            }
-                            else{
-                                searchFilter.show().parents('li').show().addClass('open').closest('li').children('a').show();
-                            }
-                        } else {
-                            // return to default
-                            $('.navigation-header').show();
-                            $(list).find("li a").show().parent().show().removeClass('open');
-                        }
-                        $.app.menu.manualScroller.update();
-                        return false;
-                    })
-                    .keyup( function () {
-                        // fire the above change event after every letter
-                        $(this).change();
-                    });
-            }
-
-            if(menuType === 'vertical-menu' || menuType === 'vertical-overlay-menu'){
-                // custom css expression for a case-insensitive contains()
-                jQuery.expr[':'].Contains = function(a,i,m){
-                    return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
-                };
-
-                searchMenu($("#main-menu-navigation"));
-            }
         },
 
-        /*changeLogo: function(menuType){
-         var logo = $('.brand-logo');
-         var logoText = $('.brand-text');
-         if(menuType == 'expand'){
-         // logo.attr('src',logo.data('expand'));
-         logoText.delay(100).fadeIn(200);
-         // logoText.addClass('d-inline-block').removeClass('d-none');
-         }
-         else{
-         // logo.attr('src',logo.data('collapse'));
-         logoText.fadeOut(100);
-         // logoText.addClass('d-none').removeClass('d-inline-block');
-         }
-         },*/
+        changeLogo: function(menuType){
+            var logo = $('.brand-logo');
+            if(menuType == 'expand'){
+                logo.attr('src',logo.data('expand'));
+            }
+            else{
+                logo.attr('src',logo.data('collapse'));
+            }
+        },
 
         transit: function(callback1, callback2) {
             var menuObj = this;
@@ -338,7 +231,7 @@
                     $('.menu-toggle').addClass('is-active');
 
                     // Show menu header search when menu is normally visible
-                    if( $body.data('menu') === 'vertical-menu'){
+                    if( $body.data('menu') === 'vertical-menu' || $body.data('menu') === 'vertical-content-menu'){
                         if($('.main-menu-header')){
                             $('.main-menu-header').show();
                         }
@@ -348,7 +241,7 @@
                     $('.menu-toggle').removeClass('is-active');
 
                     // Hide menu header search when only menu icons are visible
-                    if( $body.data('menu') === 'vertical-menu'){
+                    if( $body.data('menu') === 'vertical-menu' || $body.data('menu') === 'vertical-content-menu'){
                         if($('.main-menu-header')){
                             $('.main-menu-header').hide();
                         }
@@ -365,12 +258,15 @@
         },
 
         open: function() {
+            if($body.is('.vertical-mmenu')){
+                this.mMenu.enable();
+            }
             this.transit(function() {
                 $body.removeClass('menu-hide menu-collapsed').addClass('menu-open');
                 this.hidden = false;
                 this.expanded = true;
             }, function() {
-                if(!$('.main-menu').hasClass('menu-native-scroll') && $('.main-menu').hasClass('menu-fixed') ){
+                if(!$('.main-menu').hasClass('menu-native-scroll') && !$body.is('.vertical-mmenu') && $('.main-menu').hasClass('menu-fixed') ){
                     this.manualScroller.enable();
                     $('.main-menu-content').css('height', $(window).height() - $('.header-navbar').height() - $('.main-menu-header').outerHeight() - $('.main-menu-footer').outerHeight() );
                     // this.manualScroller.update();
@@ -379,13 +275,16 @@
         },
 
         hide: function() {
+            if($body.is('.vertical-mmenu')){
+                this.mMenu.disable();
+            }
 
             this.transit(function() {
                 $body.removeClass('menu-open menu-expanded').addClass('menu-hide');
                 this.hidden = true;
                 this.expanded = false;
             }, function() {
-                if(!$('.main-menu').hasClass('menu-native-scroll') && $('.main-menu').hasClass('menu-fixed')){
+                if(!$('.main-menu').hasClass('menu-native-scroll') && !$body.is('.vertical-mmenu') && $('.main-menu').hasClass('menu-fixed')){
                     this.manualScroller.enable();
                 }
             });
@@ -393,18 +292,9 @@
 
         expand: function() {
             if (this.expanded === false) {
-                if( $body.data('menu') == 'vertical-menu-modern' ){
-                    $('.modern-nav-toggle').find('.toggle-icon')
-                        .removeClass('ft-toggle-left').addClass('ft-toggle-right');
-
-                    // Code for localStorage
-                    if (typeof(Storage) !== "undefined") {
-                        localStorage.setItem("menuLocked", "true");
-                    }
+                if( $body.data('menu') == 'vertical-menu'){
+                    this.changeLogo('expand');
                 }
-                /*if( $body.data('menu') == 'vertical-menu' || $body.data('menu') == 'vertical-menu-modern'){
-                 this.changeLogo('expand');
-                 }*/
                 this.transit(function() {
                     $body.removeClass('menu-collapsed').addClass('menu-expanded');
                     this.collapsed = false;
@@ -412,7 +302,10 @@
 
                 }, function() {
 
-                    if( ($('.main-menu').hasClass('menu-native-scroll') || $body.data('menu') == 'horizontal-menu')){
+                    if($body.is('.vertical-mmenu')){
+                        this.mMenu.enable();
+                    }
+                    else if( ($('.main-menu').hasClass('menu-native-scroll') || $body.data('menu') == 'vertical-mmenu' || $body.data('menu') == 'horizontal-menu' || $body.data('menu') == 'horizontal-top-icon-menu' )){
                         this.manualScroller.disable();
                     }
                     else{
@@ -420,7 +313,7 @@
                             this.manualScroller.enable();
                     }
 
-                    if( ($body.data('menu') == 'vertical-menu' || $body.data('menu') == 'vertical-menu-modern') && $('.main-menu').hasClass('menu-fixed')){
+                    if( $body.data('menu') == 'vertical-menu' && $('.main-menu').hasClass('menu-fixed')){
                         $('.main-menu-content').css('height', $(window).height() - $('.header-navbar').height() - $('.main-menu-header').outerHeight() - $('.main-menu-footer').outerHeight() );
                         // this.manualScroller.update();
                     }
@@ -429,20 +322,11 @@
             }
         },
 
-        collapse: function(defMenu) {
+        collapse: function() {
             if (this.collapsed === false) {
-                if( $body.data('menu') == 'vertical-menu-modern' ){
-                    $('.modern-nav-toggle').find('.toggle-icon')
-                        .removeClass('ft-toggle-right').addClass('ft-toggle-left');
-
-                    // Code for localStorage
-                    if (typeof(Storage) !== "undefined") {
-                        localStorage.setItem("menuLocked", "false");
-                    }
+                if( ($body.data('menu') == 'vertical-menu' ) ){
+                    this.changeLogo('collapse');
                 }
-                /*if( ($body.data('menu') == 'vertical-menu' ) || ($body.data('menu') == 'vertical-menu-modern' ) ){
-                 this.changeLogo('collapse');
-                 }*/
                 this.transit(function() {
                     $body.removeClass('menu-expanded').addClass('menu-collapsed');
                     this.collapsed = true;
@@ -450,30 +334,18 @@
 
                 }, function() {
 
-                    if( ($body.data('menu') == 'horizontal-menu') &&  $body.hasClass('vertical-overlay-menu')){
+                    if($body.data('menu') == 'vertical-content-menu'){
+                        this.manualScroller.disable();
+                    }
+
+                    if( ($body.data('menu') == 'horizontal-menu' || $body.data('menu') == 'horizontal-top-icon-menu') &&  $body.hasClass('vertical-overlay-menu')){
                         if($('.main-menu').hasClass('menu-fixed'))
                             this.manualScroller.enable();
                     }
-                    if( ($body.data('menu') == 'vertical-menu' || $body.data('menu') == 'vertical-menu-modern') && $('.main-menu').hasClass('menu-fixed') ){
+                    if( $body.data('menu') == 'vertical-menu' && $('.main-menu').hasClass('menu-fixed') ){
                         $('.main-menu-content').css('height', $(window).height() - $('.header-navbar').height());
                         // this.manualScroller.update();
                     }
-                    if( $body.data('menu') == 'vertical-menu-modern'){
-                        if($('.main-menu').hasClass('menu-fixed'))
-                            this.manualScroller.enable();
-                    }
-                    /*if( $body.data('menu') == 'vertical-menu-modern' && defMenu === 'collapsed' ){
-                     var $listItem = $('.main-menu li.open'),
-                     $subList = $listItem.children('ul');
-                     $listItem.addClass('menu-collapsed-open');
-
-                     $subList.show().slideUp(200, function() {
-                     $(this).css('display', '');
-                     });
-
-                     $listItem.removeClass('open');
-                     // $.app.menu.changeLogo();
-                     }*/
                 });
             }
         },
@@ -484,104 +356,20 @@
                 if($body.hasClass(menu)){
                     $body.removeClass(menu).addClass('vertical-overlay-menu');
                 }
+                if(menu == 'vertical-content-menu'){
+                    $('.main-menu').addClass('menu-fixed');
+                }
             }
             else{
                 if($body.hasClass('vertical-overlay-menu')){
                     $body.removeClass('vertical-overlay-menu').addClass(menu);
                 }
+                if(menu == 'vertical-content-menu'){
+                    $('.main-menu').removeClass('menu-fixed');
+                }
             }
         },
 
-        changeMenu: function(screen){
-            // Replace menu html
-            $('div[data-menu="menu-wrapper"]').html('');
-            $('div[data-menu="menu-wrapper"]').html(menuWrapper_el);
-
-            var menuWrapper    = $('div[data-menu="menu-wrapper"]'),
-                menuContainer      = $('div[data-menu="menu-container"]'),
-                menuNavigation     = $('ul[data-menu="menu-navigation"]'),
-                megaMenu           = $('li[data-menu="megamenu"]'),
-                megaMenuCol        = $('li[data-mega-col]'),
-                dropdownMenu       = $('li[data-menu="dropdown"]'),
-                dropdownSubMenu    = $('li[data-menu="dropdown-submenu"]');
-
-            if(screen == 'sm' || screen == 'xs'){
-
-                // Change body classes
-                $body.removeClass($body.data('menu')).addClass('vertical-layout vertical-overlay-menu fixed-navbar');
-
-                // Add navbar-fix-top class on small screens
-                $('nav.header-navbar').addClass('fixed-top');
-
-                // Change menu wrapper, menu container, menu navigation classes
-                menuWrapper.removeClass().addClass('main-menu menu-light menu-fixed menu-shadow');
-                // menuContainer.removeClass().addClass('main-menu-content');
-                menuNavigation.removeClass().addClass('navigation navigation-main');
-
-                // If Mega Menu
-                megaMenu.removeClass('dropdown mega-dropdown').addClass('has-sub');
-                megaMenu.children('ul').removeClass();
-                megaMenuCol.each(function(index, el) {
-
-                    // Remove drilldown-menu and menu list
-                    var megaMenuSub = $(el).find('.mega-menu-sub');
-                    megaMenuSub.find('li').has('ul').addClass('has-sub');
-
-                    // if mega menu title is given, remove title and make it list item with mega menu title's text
-                    var first_child = $(el).children().first(),
-                        first_child_text = '';
-
-                    if( first_child.is('h6') ){
-                        first_child_text = first_child.html();
-                        first_child.remove();
-                        $(el).prepend('<a href="#">'+first_child_text+'</a>').addClass('has-sub mega-menu-title');
-                    }
-                });
-                megaMenu.find('a').removeClass('dropdown-toggle');
-                megaMenu.find('a').removeClass('dropdown-item');
-
-                // If Dropdown Menu
-                dropdownMenu.removeClass('dropdown').addClass('has-sub');
-                dropdownMenu.find('a').removeClass('dropdown-toggle nav-link');
-                dropdownMenu.children('ul').find('a').removeClass('dropdown-item');
-                dropdownMenu.find('ul').removeClass('dropdown-menu');
-                dropdownSubMenu.removeClass().addClass('has-sub');
-
-                $.app.nav.init();
-
-                // Dropdown submenu on small screen on click
-                // --------------------------------------------------
-                $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    $(this).parent().siblings().removeClass('open');
-                    $(this).parent().toggleClass('open');
-                });
-            }
-            else{
-                // Change body classes
-                $body.removeClass('vertical-layout vertical-overlay-menu fixed-navbar').addClass($body.data('menu'));
-
-                // Remove navbar-fix-top class on large screens
-                $('nav.header-navbar').removeClass('fixed-top');
-
-                // Change menu wrapper, menu container, menu navigation classes
-                menuWrapper.removeClass().addClass(menuWrapperClasses);
-
-                // Intitialize drill down menu for horizontal layouts
-                // --------------------------------------------------
-                this.drillDownMenu(screen);
-
-                $('a.dropdown-item.nav-has-children').on('click',function(){
-                    event.preventDefault();
-                    event.stopPropagation();
-                });
-                $('a.dropdown-item.nav-has-parent').on('click',function(){
-                    event.preventDefault();
-                    event.stopPropagation();
-                });
-            }
-        },
 
         toggle: function() {
             var currentBreakpoint = Unison.fetch.now(); // Current Breakpoint
@@ -595,7 +383,7 @@
                 case 'lg':
                 case 'md':
                     if(expanded === true){
-                        if(menu == 'vertical-overlay-menu'){
+                        if(menu == 'vertical-compact-menu' || menu == 'vertical-mmenu' || menu == 'vertical-overlay-menu'){
                             this.hide();
                         }
                         else{
@@ -603,7 +391,7 @@
                         }
                     }
                     else{
-                        if(menu == 'vertical-overlay-menu'){
+                        if(menu == 'vertical-compact-menu' || menu == 'vertical-mmenu' || menu == 'vertical-overlay-menu'){
                             this.open();
                         }
                         else{
@@ -657,7 +445,9 @@
             this.initialized = true; // Set to true when initialized
             $.extend(this.config, config);
 
-            this.bind_events();
+            if(!$body.is('.vertical-mmenu')){
+                this.bind_events();
+            }
         },
 
         bind_events: function() {
@@ -665,15 +455,16 @@
 
             $('.navigation-main').on('mouseenter.app.menu', 'li', function() {
                 var $this = $(this);
-                $('.hover', '.navigation-main').removeClass('hover');
-                if( $body.hasClass('menu-collapsed') && $body.data('menu') != 'vertical-menu-modern'){
+                //$('.hover', '.navigation-main').removeClass('hover');
+                if( $body.hasClass('menu-collapsed') || ($body.data('menu') == 'vertical-compact-menu' && !$body.hasClass('vertical-overlay-menu')) ){
                     $('.main-menu-content').children('span.menu-title').remove();
                     $('.main-menu-content').children('a.menu-title').remove();
                     $('.main-menu-content').children('ul.menu-content').remove();
 
                     // Title
-                    var menuTitle = $this.find('span.menu-title').clone(), tempTitle, tempLink;
-
+                    var menuTitle = $this.find('span.menu-title').clone(),
+                        tempTitle,
+                        tempLink;
                     if(!$this.hasClass('has-sub') ){
                         tempTitle = $this.find('span.menu-title').text();
                         tempLink = $this.children('a').attr('href');
@@ -747,7 +538,7 @@
                     e.preventDefault();
                 }
                 else{
-                    if( $body.hasClass('menu-collapsed') && $body.data('menu') != 'vertical-menu-modern'){
+                    if( $body.hasClass('menu-collapsed') || ($body.data('menu') == 'vertical-compact-menu' && $listItem.is('.has-sub') && !$body.hasClass('vertical-overlay-menu')) ){
                         e.preventDefault();
                     }
                     else{
@@ -769,56 +560,13 @@
                 e.stopPropagation();
             });
 
-
-            $('.navbar-header, .main-menu').on('mouseenter',modernMenuExpand).on('mouseleave',modernMenuCollapse);
-
-            function modernMenuExpand(){
-                if( $body.data('menu') == 'vertical-menu-modern'){
-                    $('.main-menu, .navbar-header').addClass('expanded');
-                    if($body.hasClass('menu-collapsed')){
-                        var $listItem = $('.main-menu li.menu-collapsed-open'),
-                            $subList = $listItem.children('ul');
-
-                        $subList.hide().slideDown(200, function() {
-                            $(this).css('display', '');
-                        });
-
-                        $listItem.addClass('open').removeClass('menu-collapsed-open');
-                        // $.app.menu.changeLogo('expand');
-                    }
-                }
-            }
-
-            function modernMenuCollapse(){
-                if($body.hasClass('menu-collapsed') && $body.data('menu') == 'vertical-menu-modern'){
-                    setTimeout(function(){
-                        if($('.main-menu:hover').length === 0 && $('.navbar-header:hover').length === 0){
-
-                            $('.main-menu, .navbar-header').removeClass('expanded');
-                            if($body.hasClass('menu-collapsed')){
-                                var $listItem = $('.main-menu li.open'),
-                                    $subList = $listItem.children('ul');
-                                $listItem.addClass('menu-collapsed-open');
-
-                                $subList.show().slideUp(200, function() {
-                                    $(this).css('display', '');
-                                });
-
-                                $listItem.removeClass('open');
-                                // $.app.menu.changeLogo();
-                            }
-                        }
-                    },1);
-                }
-            }
-
             $('.main-menu-content').on('mouseleave', function(){
-                if( $body.hasClass('menu-collapsed') ){
+                if( $body.hasClass('menu-collapsed') || $body.data('menu') == 'vertical-compact-menu' ){
                     $('.main-menu-content').children('span.menu-title').remove();
                     $('.main-menu-content').children('a.menu-title').remove();
                     $('.main-menu-content').children('ul.menu-content').remove();
                 }
-                $('.hover', '.navigation-main').removeClass('hover');
+                $('.hover').removeClass('hover');
             });
 
             // If list item has sub menu items then prevent redirection.
@@ -888,17 +636,35 @@
             popOutMenuHeight = winHeight - menutop - $menuItem.height() - 30;
             scroll_theme     = ($('.main-menu').hasClass('menu-dark')) ? 'light' : 'dark';
 
-            topPos = menutop + $menuItem.height() + borderWidth;
+            if($body.data('menu') === 'vertical-compact-menu'){
+                topPos = menutop + borderWidth;
+                popOutMenuHeight = winHeight - menutop - 30;
+            }
+            else if($body.data('menu') === 'vertical-content-menu'){
+                topPos = menutop + $menuItem.height() + borderWidth;
+                popOutMenuHeight = winHeight - $('.content-header').height() -$menuItem.height() - menutop - 60;
+            }
+            else{
+                topPos = menutop + $menuItem.height() + borderWidth;
+            }
 
-            ul.addClass('menu-popout').appendTo('.main-menu-content').css({
-                'top' : topPos,
-                'position' : 'fixed',
-                'max-height': popOutMenuHeight,
-            });
+            if($body.data('menu') == 'vertical-content-menu'){
+                ul.addClass('menu-popout').appendTo('.main-menu-content').css({
+                    'top' : topPos,
+                    'position' : 'fixed',
+                });
+            }
+            else{
+                ul.addClass('menu-popout').appendTo('.main-menu-content').css({
+                    'top' : topPos,
+                    'position' : 'fixed',
+                    'max-height': popOutMenuHeight,
+                });
 
-            $('.main-menu-content > ul.menu-content').perfectScrollbar({
-                theme:scroll_theme,
-            });
+                $('.main-menu-content > ul.menu-content').perfectScrollbar({
+                    theme:scroll_theme,
+                });
+            }
         },
 
         collapse: function($listItem, callback) {

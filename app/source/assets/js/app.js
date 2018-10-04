@@ -105,19 +105,27 @@ var appMaster = {
     ffffffff: function () {
         var menuObj = this;
 
-        $('.sidebar__list').on('mouseenter', 'li', function() {
+
+        $('body').on('DOMNodeInserted', '#menu-popout-clone', function () {
+            $(this).metisMenu();
+            // https://stackoverflow.com/questions/29972399/initialising-select2-created-dynamically
+        });
+
+        $('.navigation-main').on('mouseenter', 'li', function() {
             //alert("I am an alert box!");
             var $this = $(this);
 
+            $('.hover', '.navigation-main').removeClass('hover');
+
             if( appMaster._body.hasClass('sidebar-mini')){
 
-                $('#menu-popout-clone').children('li.sidebar__item').remove();
-                $('#menu-popout-clone').children('a.menu-title').remove();
-                $('#menu-popout-clone').children('ul.menu-popout').remove();
+                $('.sidebar__nav').children('span.sidebar__link-title').remove();
+                $('.sidebar__nav').children('a.menu-title').remove();
+                $('.sidebar__nav').children('ul.menu-popout').remove();
 
                 // Title
                 var menuTitle = $this.clone(), tempTitle, tempLink;
-                // var menuTitle = $this.find('span.sidebar__link-title').clone(), tempTitle, tempLink;
+                //var menuTitle = $this.find('span.sidebar__link-title').clone(), tempTitle, tempLink;
 
                 if(!$this.hasClass('has-child') ){
                     tempTitle = $this.find('span.sidebar__link-title').text();
@@ -161,14 +169,15 @@ var appMaster = {
             $this.addClass('hover');
 
         }).on('mouseleave', 'li', function() {
-           $(this).removeClass('hover');
+           //$(this).removeClass('hover');
         });
 
         $('.sidebar__nav').on('mouseleave', function(){
             if( appMaster._body.hasClass('sidebar-mini') ){
-                $('#menu-popout-clone').children('li.sidebar__item').remove();
-                $('#menu-popout-clone').children('a.menu-title').remove();
-                $('#menu-popout-clone').children('ul.menu-popout').remove();
+                $('.sidebar__nav').children('span.sidebar__link-title').remove();
+                $('.sidebar__nav').children('a.menu-title').remove();
+                $('.sidebar__nav').children('ul.menu-popout').remove();
+                $('.hover', '.navigation-main').removeClass('hover');
             }
         });
 
@@ -203,11 +212,15 @@ var appMaster = {
 
         topPos = menutop + $menuItem.height() + borderWidth;
 
-        ul.removeAttr('class aria-expanded').attr({ 'data-plugin': "metismenu"}).addClass('sidebar__list metismenu list-unstyled menu-popout').appendTo('.sidebar__nav').css({
+        //ul.removeAttr('class aria-expanded').attr({ 'data-plugin': "metismenu"}).addClass('sidebar__list metismenu list-unstyled menu-popout').appendTo('.sidebar__nav').css({
+        ul.addClass('menu-popout').appendTo('.sidebar__nav').css({
             'top' : topPos,
             'position' : 'fixed',
             'max-height': popOutMenuHeight
         });
+
+        //$('#menu-popout-clone').css({ 'position':'fixed', 'top': topPos, 'max-height': popOutMenuHeight}).append(ul);
+
 
         // for bug jQuery('.sidebar__list li:nth-child(3)').trigger('mouseenter')
 
@@ -652,6 +665,21 @@ var appMaster = {
         });
     },
 
+    metismenu: function () {
+        if ($.fn.metisMenu) {
+            $('.metistest').metisMenu(
+                {
+                    parentTrigger: '.has-child' // bootstrap 4
+
+                }
+            );
+
+        } else {
+            throw new Error('Please install metisMenu plugin! https://github.com/onokumus/metisMenu');
+        }
+    },
+
+
 
 };
 
@@ -704,6 +732,7 @@ $(document).ready(function () {
     appMaster.sidebar();
     // appMaster.update();
     appMaster.ffffffff();
+    appMaster.metismenu();
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
