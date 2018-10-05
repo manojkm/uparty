@@ -46,7 +46,7 @@ var appMaster = {
 
         obj: null,
 
-        init: function () {
+        init: function() {
             this.obj = new PerfectScrollbar('.sidebar__nav', {
                 suppressScrollX: true,
                 wheelSpeed: 2,
@@ -57,7 +57,7 @@ var appMaster = {
             this.obj.update();
         },
 
-        update: function () {
+        update: function() {
             // Scroll to currently active menu on page load if data-scroll-to-active is true
             if ($('.sidebar__nav').data('scroll-to-active') === true) {
                 var position;
@@ -83,7 +83,7 @@ var appMaster = {
 
     },
 
-    update: function () {
+    update: function (){
         this.manualScroller.update();
     },
 
@@ -101,6 +101,134 @@ var appMaster = {
         });
 
     },
+
+    ffffffff: function () {
+        var menuObj = this;
+
+
+        $('body').on('DOMNodeInserted', '#menu-popout-clone', function () {
+            $(this).metisMenu();
+            // https://stackoverflow.com/questions/29972399/initialising-select2-created-dynamically
+        });
+
+        $('.navigation-main').on('mouseenter', 'li', function() {
+            //alert("I am an alert box!");
+            var $this = $(this);
+
+            $('.hover', '.navigation-main').removeClass('hover');
+
+            if( appMaster._body.hasClass('sidebar-mini')){
+
+                $('.sidebar__nav').children('span.sidebar__link-title').remove();
+                $('.sidebar__nav').children('a.menu-title').remove();
+                $('.sidebar__nav').children('ul.menu-popout').remove();
+
+                // Title
+                var menuTitle = $this.clone(), tempTitle, tempLink;
+                //var menuTitle = $this.find('span.sidebar__link-title').clone(), tempTitle, tempLink;
+
+                if(!$this.hasClass('has-child') ){
+                    tempTitle = $this.find('span.sidebar__link-title').text();
+                    tempLink = $this.children('a').attr('href');
+                    if(tempTitle !== ''){
+                        menuTitle = $("<a>");
+                        menuTitle.attr("href", tempLink);
+                        menuTitle.attr("title", tempTitle);
+                        menuTitle.text(tempTitle);
+                        menuTitle.addClass("menu-title");
+                    }
+                }
+
+                var fromTop;
+
+                if($this.css( "border-top" )){
+                    fromTop = $this.position().top + parseInt($this.css( "border-top" ), 10);
+                }
+                else{
+                    fromTop = $this.position().top;
+                }
+
+                $('#menu-popout-clone').css({ position:'fixed', top: fromTop}).append(menuTitle);
+
+
+                //if(appMaster._body.data('menu') !== 'vertical-compact-menu'){
+                   /* menuTitle.appendTo('.sidebar__nav').css({
+                        position:'fixed',
+                        top : fromTop,
+                    });*/
+                //}
+
+                // Content
+                if($this.hasClass('has-child') && $this.hasClass('sidebar__item')) {
+                    var menuContent = $this.children('ul:first');
+                    menuObj.adjustSubmenu($this);
+                }
+
+            }
+
+            $this.addClass('hover');
+
+        }).on('mouseleave', 'li', function() {
+           //$(this).removeClass('hover');
+        });
+
+        $('.sidebar__nav').on('mouseleave', function(){
+            if( appMaster._body.hasClass('sidebar-mini') ){
+                $('.sidebar__nav').children('span.sidebar__link-title').remove();
+                $('.sidebar__nav').children('a.menu-title').remove();
+                $('.sidebar__nav').children('ul.menu-popout').remove();
+                $('.hover', '.navigation-main').removeClass('hover');
+            }
+        });
+
+        // If list item has sub menu items then prevent redirection.
+        $('.sidebar__list .sidebar__item.has-child > a').on('click',function(e){
+            e.preventDefault();
+        });
+
+    },
+
+
+    adjustSubmenu: function ( $menuItem ) {
+        //alert("I am an alert box!");
+
+        var menuHeaderHeight, menutop, topPos, winHeight,
+            bottomOffset, subMenuHeight, popOutMenuHeight, borderWidth, scroll_theme,
+            $submenu = $menuItem.children('ul:first'),
+            ul = $submenu.clone(true);
+
+        menuHeaderHeight = $('.sidebar__brand').height();
+        menutop          = $menuItem.position().top;
+        winHeight        = $(window).height() - $('.master-header').height();
+        borderWidth      = 0;
+        subMenuHeight    = $submenu.height();
+
+        if(parseInt($menuItem.css( "border-top" ),10) > 0){
+            borderWidth = parseInt($menuItem.css( "border-top" ),10);
+        }
+
+        popOutMenuHeight = winHeight - menutop - $menuItem.height() - 30;
+        // scroll_theme     = ($('.main-menu').hasClass('menu-dark')) ? 'light' : 'dark';
+
+        topPos = menutop + $menuItem.height() + borderWidth;
+
+        //ul.removeAttr('class aria-expanded').attr({ 'data-plugin': "metismenu"}).addClass('sidebar__list metismenu list-unstyled menu-popout').appendTo('.sidebar__nav').css({
+        ul.addClass('menu-popout').appendTo('.sidebar__nav').css({
+            'top' : topPos,
+            'position' : 'fixed',
+            'max-height': popOutMenuHeight
+        });
+
+        //$('#menu-popout-clone').css({ 'position':'fixed', 'top': topPos, 'max-height': popOutMenuHeight}).append(ul);
+
+
+        // for bug jQuery('.sidebar__list > li:nth-child(3)').trigger('mouseenter')
+
+        // $('.main-menu-content > ul.menu-content').perfectScrollbar({
+        //     theme:scroll_theme,
+        // });
+    },
+
 
     sidebar: function () {
 
@@ -178,83 +306,6 @@ var appMaster = {
         //     appMaster.manualScroller.update()
         // });
 
-
-    },
-    sidebar_navigation: function () {
-        var menuObj = this;
-
-
-        /* $('body').on('DOMNodeInserted', '#menu-popout-clone', function () {
-         $(this).metisMenu();
-         // https://stackoverflow.com/questions/29972399/initialising-select2-created-dynamically
-         });*/
-
-
-        // Function to initialize metisMenu
-        function initializeMetisMenu(selectElementObj) {
-            selectElementObj.metisMenu();
-        }
-
-        $('.navigation-main').on('mouseenter', 'li', function () {
-            //alert("I am an alert box!");
-            var $this = $(this);
-
-            $('.hover', '.navigation-main').removeClass('hover');
-
-            if (appMaster._body.hasClass('sidebar-mini')) {
-
-                $('.sidebar__nav').children('ul.blocky').remove();
-
-                var menuTitle = $this.clone();
-
-                var fromTop;
-                if ($this.css("border-top")) {
-                    fromTop = $this.position().top + parseInt($this.css("border-top"), 10);
-                }
-                else {
-                    fromTop = $this.position().top;
-                }
-
-                var winHeight;
-                var menutop;
-                var popOutMenuHeight = '';
-
-                if ($this.hasClass('has-child') && $this.hasClass('sidebar__item')) {
-                    menutop = fromTop;
-                    winHeight = $(window).height() - $('.master-header').height();
-                    popOutMenuHeight = winHeight - menutop + $this.height() - 15;
-                }
-
-                var iUl = document.createElement('ul');
-                iUl.id = 'blocky';
-                iUl.className = 'metismenu blocky';
-                $('.sidebar__nav').append(iUl);
-
-                var b = document.getElementById('blocky');
-
-                $(b).css({'position': 'fixed', 'top': fromTop, 'max-height': popOutMenuHeight}).append(menuTitle);
-                $(b).metisMenu();
-            }
-
-            $this.addClass('hover');
-
-        }).on('mouseleave', 'li', function () {
-            //$(this).removeClass('hover');
-        });
-
-        $('.sidebar__nav').on('mouseleave', function () {
-            if (appMaster._body.hasClass('sidebar-mini')) {
-                $('.sidebar__nav').children('ul.blocky').remove();
-                $('.hover', '.navigation-main').removeClass('hover');
-            }
-        });
-
-        // If list item has sub menu items then prevent redirection.
-        $('.sidebar__list .sidebar__item.has-child > a').on('click', function (e) {
-            e.preventDefault();
-        });
-
-        //for debug jQuery('.sidebar__list > li:nth-child(3)').trigger('mouseenter')
 
     },
     aside: function () {
@@ -629,6 +680,7 @@ var appMaster = {
     },
 
 
+
 };
 
 var Pluggin = {
@@ -679,7 +731,7 @@ $(document).ready(function () {
     appMaster.responsive();
     appMaster.sidebar();
     // appMaster.update();
-    appMaster.sidebar_navigation();
+    appMaster.ffffffff();
     appMaster.metismenu();
     appMaster.overlay();
     appMaster.dropdown();
