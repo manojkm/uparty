@@ -17,82 +17,32 @@ var appMaster = {
 
     _body: $('body'),
     _logo: $('.sidebar__brand__logo'),
-
-    _sidebar_nav: $('.sidebar nav.sidebar__nav'),
-    _sidebar_footer_nav: $('.sidebar .sidebar-footer nav.sidebar-footer__nav'),
-    _sidebar_item: $('.sidebar__list > .sidebar__item'),
-
-    _side_mini: $("[data-side='mini']"),
+    _header: $('.master-header'),
+    _sidebar: $('.sidebar'),
+    _sidebarNav: $('.sidebar nav.sidebar__nav'),
+    _sidebarList: $('.sidebar .sidebar__list'),
+    _sidebarFooterNav: $('.sidebar .sidebar-footer nav.sidebar-footer__nav'),
+    _sidebarItem: $('.sidebar__list > .sidebar__item'),
+    _sideMini: $("[data-side='mini']"),
     _sidebarMiniIsOpen: false,
-
-    _side_hide: $("[data-side='hide']"),
-
+    _sideHide: $("[data-side='hide']"),
     _aside: $("[data-aside='show']"),
     _asideIsOpen: false,
-
     _overlay: $('.overlay'),
     _overlayIsOpen: false,
-
     _tooltip: $("[data-toggle='tooltip']"),
     _popover: $("[data-toggle='popover']"),
-    _textarea_counter: $("[data-toggle='counter']"),
-    _formctrl: $('.form-control'),
-    _card_close: $("[data-card='close']"),
-    _card_collapse: $("[data-card='collapse']"),
-    _card_fullscreen: $("[data-card='fullscreen']"),
-
-
-    manualScroller: {
-
-        obj: null,
-
-        init: function () {
-            this.obj = new PerfectScrollbar('.sidebar__nav', {
-                suppressScrollX: true,
-                wheelSpeed: 2,
-                wheelPropagation: true,
-                minScrollbarLength: 20
-            });
-
-            this.obj.update();
-        },
-
-        update: function () {
-            // Scroll to currently active menu on page load if data-scroll-to-active is true
-            if ($('.sidebar__nav').data('scroll-to-active') === true) {
-                var position;
-                var topbar = $(".sidebar__brand").height();
-                if ($(".sidebar__nav").find('li.active').parents('li').length > 0) {
-                    position = $(".sidebar__nav").find('li.active').parents('li').last().position();
-                }
-                else {
-                    position = $(".sidebar__nav").find('li.active').position();
-                }
-
-                // var height = position.top - topbar;
-
-                setTimeout(function () {
-                    //$('.sidebar__nav').scrollTop(position.top);
-                    $('.sidebar__nav').stop().animate({scrollTop: position.top}, 300);
-                    $('.sidebar__nav').data('scroll-to-active', 'false');
-                }, 300);
-            }
-            this.obj.update();
-        },
-
-
-    },
-
-    update: function () {
-        this.manualScroller.update();
-    },
+    _textareaCounter: $("[data-toggle='counter']"),
+    _formCtrl: $('.form-control'),
+    _cardClose: $("[data-card='close']"),
+    _cardCollapse: $("[data-card='collapse']"),
+    _cardFullscreen: $("[data-card='fullscreen']"),
 
 
     responsive: function () {
 
         function set_sidebar() {
             $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed sidebar-mobile');
-            // appMaster.manualScroller.init()
         }
 
         set_sidebar();
@@ -104,7 +54,7 @@ var appMaster = {
 
     sidebar: function () {
 
-        $(appMaster._side_hide).on('click', function (event) {
+        $(appMaster._sideHide).on('click', function (event) {
             event.preventDefault();
             $(this).toggleClass('collapsed');
             // appMaster._body.removeClass('sidebar-mini aside-is-open').toggleClass('sidebar-is-open sidebar-is-closed');
@@ -114,12 +64,12 @@ var appMaster = {
                 $(appMaster._aside).click();
             }
             if (appMaster._sidebarMiniIsOpen) {
-                //$(appMaster._side_mini).click();
+                //$(appMaster._sideMini).click();
             }
-            appMaster._stopMetisMenu([appMaster._sidebar_nav, appMaster._sidebar_footer_nav]);
+            appMaster._stopMetisMenu([appMaster._sidebarNav, appMaster._sidebarFooterNav]);
         });
 
-        $(appMaster._side_mini).on('click', function (event) {
+        $(appMaster._sideMini).on('click', function (event) {
             event.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
@@ -133,7 +83,7 @@ var appMaster = {
                 appMaster._body.addClass('sidebar-mini');
                 appMaster._changeLogo();
                 appMaster._sidebarMiniIsOpen = true;
-                appMaster._stopMetisMenu(appMaster._sidebar_footer_nav);
+                appMaster._stopMetisMenu(appMaster._sidebarFooterNav);
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
             }
 
@@ -141,12 +91,12 @@ var appMaster = {
 
         function set_sidebar_mini_hover() {
             var removeShow = null;
-            $(appMaster._sidebar_item).hover(function () {
-                //Adapted from https://codepen.io/vivianong/pen/DzimH
+            $(appMaster._sidebarItem).hover(function () {
+                // Adapted from https://codepen.io/vivianong/pen/DzimH
                 if (appMaster._sidebarMiniIsOpen) {
                     var $t;
                     $t = $(this);
-                    appMaster._sidebar_item.removeClass('show');
+                    appMaster._sidebarItem.removeClass('show');
                     $t.addClass('show');
                     if (!appMaster._overlayIsOpen) {
                         appMaster._toggleOverlay();
@@ -170,92 +120,93 @@ var appMaster = {
             });
         }
 
-        set_sidebar_mini_hover();
-
-        //
-        // $('.sidebar nav.sidebar__nav .sidebar__item.has-child a').on('click', function () {
-        //     // alert("I am an alert box!");
-        //     appMaster.manualScroller.update()
-        // });
-
+        // set_sidebar_mini_hover();
 
     },
-    sidebar_navigation: function () {
-        var menuObj = this;
 
+    sidebar_mini_navigation: function () {
 
         /* $('body').on('DOMNodeInserted', '#menu-popout-clone', function () {
          $(this).metisMenu();
          // https://stackoverflow.com/questions/29972399/initialising-select2-created-dynamically
          });*/
 
+        $('.navigation-main').on('mouseenter', 'li.sidebar__item', function () {
 
-        // Function to initialize metisMenu
-        function initializeMetisMenu(selectElementObj) {
-            selectElementObj.metisMenu();
-        }
-
-        $('.navigation-main').on('mouseenter', 'li', function () {
-            //alert("I am an alert box!");
-            var $this = $(this);
-
-            $('.hover', '.navigation-main').removeClass('hover');
+            var $listItem = $(this);
 
             if (appMaster._body.hasClass('sidebar-mini')) {
 
-                $('.sidebar__nav').children('ul.blocky').remove();
+                // Stop metisMenu opening the menu for that particular list
+                $(this).children('a').attr("aria-disabled", "true");
 
-                var menuTitle = $this.clone();
+                // Reset
+                $('.show', '.navigation-main').removeClass('show');
+                $(appMaster._sidebarNav).children('ul#menu-popout').remove();
 
+                // Clone and adjustments
+                var listTemplate = $listItem.clone();
+                $('> a.sidebar__link > span.sidebar__link-icon', listTemplate).remove();
+                $('> a.sidebar__link', listTemplate).removeAttr("aria-disabled");
+
+                if ($listItem.hasClass('has-child')) {
+                    $('> a.sidebar__link', listTemplate).attr('aria-expanded', 'true');
+                    $('> ul.sidebar__child', listTemplate).removeAttr("style");
+                    $(listTemplate).addClass("active"); // Required by metisMenu for parent li element to open by default
+                }
+
+                // Position
                 var fromTop;
-                if ($this.css("border-top")) {
-                    fromTop = $this.position().top + parseInt($this.css("border-top"), 10);
+                if ($listItem.css("border-top")) {
+                    fromTop = $listItem.position().top + parseInt($listItem.css("border-top"), 10);
                 }
                 else {
-                    fromTop = $this.position().top;
+                    fromTop = $listItem.position().top;
                 }
 
                 var winHeight;
-                var menutop;
+                var menuTop;
                 var popOutMenuHeight = '';
 
-                if ($this.hasClass('has-child') && $this.hasClass('sidebar__item')) {
-                    menutop = fromTop;
-                    winHeight = $(window).height() - $('.master-header').height();
-                    popOutMenuHeight = winHeight - menutop + $this.height() - 15;
+                if ($listItem.hasClass('has-child') && $listItem.hasClass('sidebar__item')) {
+                    menuTop = fromTop;
+                    winHeight = $(window).height() - $(appMaster._header).height();
+                    popOutMenuHeight = winHeight - menuTop + $listItem.height() - 15;
                 }
 
                 var iUl = document.createElement('ul');
-                iUl.id = 'blocky';
-                iUl.className = 'metismenu blocky';
-                $('.sidebar__nav').append(iUl);
+                iUl.id = 'menu-popout';
+                iUl.className = 'sidebar__list sidebar__list-popout metismenu';
+                $(appMaster._sidebarNav).append(iUl);
 
-                var b = document.getElementById('blocky');
+                var popout = document.getElementById('menu-popout');
 
-                $(b).css({'position': 'fixed', 'top': fromTop, 'max-height': popOutMenuHeight}).append(menuTitle);
-                $(b).metisMenu();
+                $(popout).css({'position': 'fixed', 'top': fromTop, 'max-height': popOutMenuHeight}).append(listTemplate);
+
+                // Initialize metisMenu
+                $(popout).metisMenu({
+                    parentTrigger: '.has-child'
+                });
+
+                $listItem.addClass('show');
             }
 
-            $this.addClass('hover');
-
-        }).on('mouseleave', 'li', function () {
-            //$(this).removeClass('hover');
-        });
-
-        $('.sidebar__nav').on('mouseleave', function () {
+        }).on('mouseleave', 'li.sidebar__item', function () {
+            var $listItem = $(this);
             if (appMaster._body.hasClass('sidebar-mini')) {
-                $('.sidebar__nav').children('ul.blocky').remove();
-                $('.hover', '.navigation-main').removeClass('hover');
+                $listItem.children('a').removeAttr("aria-disabled");
+            }
+        }).on('click', 'li.sidebar__item', function (e) {
+        });
+
+        $(appMaster._sidebarNav).on('mouseleave', function () {
+            if (appMaster._body.hasClass('sidebar-mini')) {
+                $(appMaster._sidebarNav).children('ul#menu-popout').remove();
+                $('.show', '.navigation-main').removeClass('show');
             }
         });
 
-        // If list item has sub menu items then prevent redirection.
-        $('.sidebar__list .sidebar__item.has-child > a').on('click', function (e) {
-            e.preventDefault();
-        });
-
-        //for debug jQuery('.sidebar__list > li:nth-child(3)').trigger('mouseenter')
-
+        // TODO, remove later.. for debug jQuery('.sidebar__list > li:nth-child(10)').trigger('mouseenter')
     },
     aside: function () {
         var sidebarMiniIsOpenedByAside = false;
@@ -268,7 +219,7 @@ var appMaster = {
                 appMaster._toggleOverlay();
 
                 if (sidebarMiniIsOpenedByAside) {
-                    $(appMaster._side_mini).click();
+                    $(appMaster._sideMini).click();
                     sidebarMiniIsOpenedByAside = false;
                     console.log("Sidebar mini by aside is", sidebarMiniIsOpenedByAside);
                 }
@@ -280,7 +231,7 @@ var appMaster = {
                 $(this).removeClass('collapsed');
                 appMaster._body.addClass('aside-is-open');
                 if (!appMaster._sidebarMiniIsOpen) {
-                    $(appMaster._side_mini).click();
+                    $(appMaster._sideMini).click();
                     sidebarMiniIsOpenedByAside = true;
                     console.log("Sidebar mini by aside is", sidebarMiniIsOpenedByAside);
                 }
@@ -293,7 +244,7 @@ var appMaster = {
     },
 
     card: function () {
-        $(appMaster._card_close).on('click', function (event) {
+        $(appMaster._cardClose).on('click', function (event) {
             event.preventDefault();
             // $(this).closest(".card").hide("slow");
             // $(this).closest(".card").fadeOut();
@@ -317,7 +268,7 @@ var appMaster = {
 
         });
 
-        $(appMaster._card_collapse).on('click', function (event) {
+        $(appMaster._cardCollapse).on('click', function (event) {
             event.preventDefault();
 
             var $this = $(this);
@@ -332,7 +283,7 @@ var appMaster = {
             }
         });
 
-        $(appMaster._card_fullscreen).on('click', function (event) {
+        $(appMaster._cardFullscreen).on('click', function (event) {
             event.preventDefault();
             var $this = $(this);
 
@@ -377,7 +328,7 @@ var appMaster = {
             }
 
             if (appMaster._sidebarMiniIsOpen) {
-                appMaster._sidebar_item.removeClass('show');
+                appMaster._sidebarItem.removeClass('show');
             }
             appMaster._toggleOverlay();
         });
@@ -524,7 +475,7 @@ var appMaster = {
     },
 
     textarea_counter: function () {
-        $(appMaster._textarea_counter).keyup(function () {
+        $(appMaster._textareaCounter).keyup(function () {
             var a = 125,
                 b = $(this).val().length;
             if (b >= a) $(".character-remaining").text(" You have reached the limit");
@@ -537,7 +488,7 @@ var appMaster = {
 
     input_group_focus: function () {
 
-        $(appMaster._formctrl).on('mouseover', function () {
+        $(appMaster._formCtrl).on('mouseover', function () {
             $(this).parent('.input-group').addClass("input-group-hover");
         }).on('mouseout', function () {
             $(this).parent(".input-group").removeClass("input-group-hover");
@@ -679,7 +630,7 @@ $(document).ready(function () {
     appMaster.responsive();
     appMaster.sidebar();
     // appMaster.update();
-    appMaster.sidebar_navigation();
+    appMaster.sidebar_mini_navigation();
     appMaster.metismenu();
     appMaster.overlay();
     appMaster.dropdown();

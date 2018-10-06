@@ -16,24 +16,7 @@
 
 $s: sidebar;
 
-.#{$s} {
-  // Base styles
-  .#{$s}__nav {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-
-    ul {
-      outline: 0;
-      padding: 0;
-      margin: 0;
-      li {
-        list-style: none;
-        text-align: left;
-      }
-    }
-
-  }
+.#{$s} .#{$s}__list {
 
   // Sidebar item heading
   .#{$s}__item-header {
@@ -148,13 +131,13 @@ $s: sidebar;
   }
 
   // Specify a width for the parent sidebar item so the menu text doesn't break upon toggling the mini sidebar
-  .#{$s}__nav > ul > .#{$s}__item,
-  .#{$s}__nav > ul > .#{$s}__item-header,
-  .#{$s}__nav > ul > .#{$s}__item > .#{$s}__child {
+  > .#{$s}__item,
+  > .#{$s}__item-header,
+  > .#{$s}__item > .#{$s}__child {
     width: $sidebar-width;
   }
 
-  .#{$s}__nav > ul > .#{$s}__item > .#{$s}__child > .#{$s}__item {
+  > .#{$s}__item > .#{$s}__child > .#{$s}__item {
     &:last-of-type {
       padding-bottom: 10px;
     }
@@ -166,162 +149,150 @@ $s: sidebar;
 // MINI SIDEBAR MENU & MODIFIERS
 // ======================================================
 
-.#{$s}-mini .#{$s} {
+.#{$s}-mini .#{$s} .#{$s}__list.navigation-main {
 
-  .#{$s}__nav > ul {
-
-    > .#{$s}__item .badge,
-    > .#{$s}__item.has-button,
-    > .#{$s}__item-header,
-    > .#{$s}__divider,
-    > .#{$s}__item > .#{$s}__link .#{$s}__link-title,
-    > .#{$s}__item > .#{$s}__link.has-arrow::after,
-    > .#{$s}__item > .#{$s}__child
-    {
-      display: none;
-    }
-
+  // Hiding headers, dividers etc... so the mini sidebar can reduce its UI complexity
+  > .#{$s}__item .badge,
+  > .#{$s}__item.has-button,
+  > .#{$s}__item-header,
+  > .#{$s}__divider,
+  > .#{$s}__item > .#{$s}__link .#{$s}__link-title,
+  > .#{$s}__item > .#{$s}__link.has-arrow::after,
+  > .#{$s}__item > .#{$s}__child {
+    display: none;
   }
 
-  @for $i from 1 through $sidebar-submenu-max-levels {
-    $selector: '';
-
-    @for $l from 1 through $i {
-      $selector: "#{$selector} .#{$s}__child";
+  .#{$s}__item:not(.has-button) {
+    @if bool($enable-sidebar-active-border-type) == true {
+      width: $sidebar-mini-width - $sidebar-active-border-type-size;
+    } @else {
+      width: $sidebar-mini-width;
     }
+    > .#{$s}__link {
+      padding: $sidebar-link-padding-y 0;
+      justify-content: center;
 
-    #{$selector} .#{$s}__item a {
-      padding-left: $sidebar-submenu-link-padding-x +  (15px * ($i - 1));
+      .#{$s}__link-icon {
+        margin: 0;
+      }
+
     }
-
   }
 
 }
+
+// Sidebar mini popout navigation
+.#{$s}-mini .#{$s} .#{$s}__list.#{$s}__list-popout {
+  left: $sidebar-mini-width;
+  box-shadow: $header-shadow;
+}
+
 
 //
 // MINI SIDEBAR FULL HEIGHT TYPE
 // ======================================================
 
-.#{$s}-mini.full {
-  .sidebar {
-    .#{$s}__nav > ul > .#{$s}__item.has-child:not(.has-button) {
-      //&:hover
-      &.show {
-        > .#{$s}__link {
-          .#{$s}__link-title {
-            top: $header-height;
-            height: $sidebar-mini-full-item-height;
-            padding: 0 $sidebar-link-padding-x;
-            display: flex;
-            align-items: center;
-          }
-        }
-        > .#{$s}__child {
-          top: $header-height + $sidebar-mini-full-item-height;
-          bottom: 0;
-          overflow-y: auto;
-          padding-bottom: $footer-min-height;
-        }
-      }
-    }
-  }
-}
 
 //
 // COLLAPSIBLE SIDEBAR
 // ======================================================
 
 .#{$s}-mini-collapsible .#{$s} {
+
   &:not(:hover) {
 
-    .#{$s}__nav > ul > .#{$s}__item-header {
-      width: $sidebar-mini-width;
-      overflow: hidden;
-      -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
-      display: inline-block;
-      white-space: nowrap;
-      vertical-align: top;
-    }
+    .#{$s}__list {
 
-    .#{$s}__nav > ul > .#{$s}__item:not(.has-button) {
+      > .#{$s}__item-header {
+        width: $sidebar-mini-width;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        display: inline-block;
+        white-space: nowrap;
+        vertical-align: top;
+      }
 
-      > .#{$s}__link {
-        @include transition(padding .3s ease);
-        padding: $sidebar-link-padding-y 0;
+      > .#{$s}__item:not(.has-button) {
 
-        .#{$s}__link-icon {
-          @include transition(width .3s ease);
-          margin-right: 0;
-          @if bool($enable-sidebar-active-border-type) == true {
-            width: $sidebar-mini-width - $sidebar-active-border-type-size;
-          } @else {
-            width: $sidebar-mini-width;
+        > .#{$s}__link {
+          @include transition(padding .3s ease);
+          padding: $sidebar-link-padding-y 0;
+
+          .#{$s}__link-icon {
+            @include transition(width .3s ease);
+            margin-right: 0;
+            @if bool($enable-sidebar-active-border-type) == true {
+              width: $sidebar-mini-width - $sidebar-active-border-type-size;
+            } @else {
+              width: $sidebar-mini-width;
+            }
           }
+
+          .#{$s}__link-title {
+            padding-left: $sidebar-submenu-link-padding-x;
+          }
+
         }
 
-        .#{$s}__link-title {
-          padding-left: $sidebar-submenu-link-padding-x;
-        }
-
-      }
-
-      > .#{$s}__child {
-        @include transition(padding .3s ease);
-        padding-left: $sidebar-mini-width / 2;
-        position: relative;
-        box-sizing: content-box;
-
-        &::before {
-          @include add-border(1px, transparent, left);
-          content: "";
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: calc(#{$sidebar-mini-width / 2} - 1px);
-          display: block;
-          width: 0;
-          z-index: 50;
-        }
-      }
-
-      .#{$s}__child {
-        .#{$s}__item.active > .#{$s}__link {
-          background: none !important;
+        > .#{$s}__child {
+          @include transition(padding .3s ease);
+          padding-left: $sidebar-mini-width / 2;
+          position: relative;
+          box-sizing: content-box;
 
           &::before {
-            @include center(xy);
+            @include add-border(1px, transparent, left);
             content: "";
             position: absolute;
+            top: 0;
+            bottom: 0;
+            left: calc(#{$sidebar-mini-width / 2} - 1px);
             display: block;
-            left: 0;
-            width: 8px;
-            height: 8px;
-            border-radius: $border-radius-50;
-            z-index: 55;
+            width: 0;
+            z-index: 50;
+          }
+        }
+
+        .#{$s}__child {
+          .#{$s}__item.active > .#{$s}__link {
+            background: none !important;
+
+            &::before {
+              @include center(xy);
+              content: "";
+              position: absolute;
+              display: block;
+              left: 0;
+              width: 8px;
+              height: 8px;
+              border-radius: $border-radius-50;
+              z-index: 55;
+            }
+          }
+        }
+      }
+
+      > .#{$s}__item.has-button {
+        & .btn {
+          @include transition(width .3s ease);
+          white-space: nowrap;
+          overflow: hidden;
+          text-indent: -9999px;
+          min-width: initial;
+          //font-size: 0;
+          width: calc(#{$sidebar-mini-width} - #{$sidebar-link-padding-x * 2});
+          display: inline-flex !important;
+          padding-left: 0;
+          padding-right: 0;
+
+          > i {
+            display: none;
           }
         }
       }
     }
 
-    .#{$s}__nav > ul > .#{$s}__item.has-button {
-      & .btn {
-        @include transition(width .3s ease);
-        white-space: nowrap;
-        overflow: hidden;
-        text-indent: -9999px;
-        min-width: initial;
-        //font-size: 0;
-        width: calc(#{$sidebar-mini-width} - #{$sidebar-link-padding-x * 2});
-        display: inline-flex !important;
-        padding-left: 0;
-        padding-right: 0;
-
-        > i {
-          display: none;
-        }
-      }
-    }
   }
 
 }
