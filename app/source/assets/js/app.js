@@ -42,12 +42,33 @@ var appMaster = {
     responsive: function () {
 
         function set_sidebar() {
-            $(window).width() < 768 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed sidebar-mobile');
+            // $(window).width() <= 767 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed sidebar-mobile');
+            if ($(window).width() <= 767) {
+                appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile');
+                if (appMaster._sidebarMiniIsOpen){
+                    $(appMaster._sideMini).click();
+                }
+            } else {
+                appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed sidebar-mobile')
+            }
+
+            if ($(window).width() >= 768 && $(window).width() <= 991) {
+                if (!appMaster._sidebarMiniIsOpen){
+                    $(appMaster._sideMini).click();
+                }
+            }
+
+            if ($(window).width() >= 992) {
+                if (appMaster._sidebarMiniIsOpen){
+                    $(appMaster._sideMini).click();
+                }
+            }
         }
 
-        set_sidebar();
-        $(window).resize(function () {
-            set_sidebar();
+       set_sidebar();
+
+       $(window).on('resize', function () {
+          set_sidebar();
         });
 
     },
@@ -70,7 +91,7 @@ var appMaster = {
         });
 
         $(appMaster._sideMini).on('click', function (event) {
-            event.preventDefault();
+              event.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
                 appMaster._body.removeClass('sidebar-mini');
@@ -126,14 +147,9 @@ var appMaster = {
 
     sidebar_mini_navigation: function () {
 
-        /* $('body').on('DOMNodeInserted', '#menu-popout-clone', function () {
-         $(this).metisMenu();
-         // https://stackoverflow.com/questions/29972399/initialising-select2-created-dynamically
-         });*/
-
         $('.navigation-main').on('mouseenter', 'li.sidebar__item', function () {
             var $listItem = $(this);
-            if (appMaster._sidebarMiniIsOpen  && appMaster._sidebar.hasClass('popout')) {
+            if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
 
                 // Stop metisMenu opening the menu for that particular list
                 $(this).children('a').attr("aria-disabled", "true");
@@ -191,23 +207,30 @@ var appMaster = {
             }
         }).on('mouseleave', 'li.sidebar__item', function () {
             var $listItem = $(this);
-            if (appMaster._sidebarMiniIsOpen  && appMaster._sidebar.hasClass('popout')) {
+            if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
                 $listItem.children('a').removeAttr("aria-disabled");
             }
-        }).on('click', 'li.sidebar__item', function (e) {});
+        }).on('click', 'li.sidebar__item', function (e) {
+        });
+
+        var removeShow = null;
+        $(appMaster._sidebarNav).on('mouseenter', function () {
+            return clearInterval(removeShow);
+        });
 
         $(appMaster._sidebarNav).on('mouseleave', function () {
-            if (appMaster._sidebarMiniIsOpen  && appMaster._sidebar.hasClass('popout')) {
-                $(appMaster._sidebarNav).children('ul#menu-popout').remove();
-                $('.show', '.navigation-main').removeClass('show');
+            if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
+                return removeShow = setTimeout((function () {
+                    $(appMaster._sidebarNav).children('ul#menu-popout').remove();
+                    $('.show', '.navigation-main').removeClass('show');
+
+                }), 1000);
             }
         });
 
-
-
-
-        // TODO, remove later.. for debug jQuery('.sidebar__list > li:nth-child(10)').trigger('mouseenter')
+        // To debug: jQuery('.sidebar__list > li:nth-child(10)').trigger('mouseenter')
     },
+
     aside: function () {
         var sidebarMiniIsOpenedByAside = false;
         appMaster._aside.on('click', function (event) {
@@ -454,7 +477,6 @@ var appMaster = {
 
     },
 
-
     popover: function () {
         //TODO close button https://jsfiddle.net/vivekkupadhyay/bdkbq5sd/10/
         $(appMaster._popover).each(function () {
@@ -627,7 +649,6 @@ $(document).on("app.plugin", function () {
 //----------------------------------*/
 
 $(document).ready(function () {
-    appMaster.responsive();
     appMaster.sidebar();
     // appMaster.update();
     appMaster.sidebar_mini_navigation();
@@ -643,6 +664,7 @@ $(document).ready(function () {
     appMaster.number_spinner();
     appMaster.set_footer_height();
     appMaster.expand_collapse();
+    appMaster.responsive();
 });
 
 

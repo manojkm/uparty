@@ -286,7 +286,7 @@ $s: sidebar;
 }
 
 //
-// MINI SIDEBAR WITH BORDER
+// MINI SIDEBAR WITH BORDER TYPE
 // ======================================================
 
 .#{$s}.bordered .#{$s}__list:not(.#{$s}__list-popout) {
@@ -423,11 +423,7 @@ $s: sidebar;
 // SIDEBAR THEMES
 // ======================================================
 
-//.#{$s}.#{$s}-themed {
-//  @include sidebar-theme($sidebar-theme-scheme, 'font-color', 'font-link-color', 'font-hover-color', 'font-active-color');
-//}
-
-.#{$s}.#{$s}-themed-test {
+.#{$s}.#{$s}-themed{
   $font-color: theme-partial-color($sidebar-theme-scheme, font-color);
   $font-link-color: theme-partial-color($sidebar-theme-scheme, font-link-color);
   $font-hover-color: theme-partial-color($sidebar-theme-scheme, font-hover-color);
