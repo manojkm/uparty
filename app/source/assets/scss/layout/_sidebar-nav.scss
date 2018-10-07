@@ -15,14 +15,14 @@
 // ======================================================
 
 $s: sidebar;
-
 .#{$s} .#{$s}__list {
+
+  & {
+    width: $sidebar-width;
+  }
 
   // Sidebar item heading
   .#{$s}__item-header {
-    @if bool($enable-sidebar-active-border-type) == true {
-      @include add-border($sidebar-active-border-type-size, transparent, left);
-    }
     padding: $sidebar-padding-y $sidebar-padding-x;
     font-size: $sidebar-item-header-font-size;
     font-weight: $sidebar-item-header-font-weight;
@@ -57,10 +57,6 @@ $s: sidebar;
 
   // Sidebar menu item
   .#{$s}__item {
-    @if bool($enable-sidebar-active-border-type) == true {
-      @include transition(border .3s ease);
-      @include add-border($sidebar-active-border-type-size, transparent, left); // Set border to invisible, so we don't see a 2px border
-    }
     position: relative;
     box-sizing: border-box;
 
@@ -107,8 +103,8 @@ $s: sidebar;
 
   // Sidebar child menu
   .#{$s}__child {
+    width: $sidebar-width; // Specify a width so the menu text doesn't break upon toggling the mini sidebar
     .#{$s}__item {
-      border: 0;
       .#{$s}__link {
         font-size: $sidebar-submenu-link-font-size;
         padding: $sidebar-submenu-link-padding-y ($sidebar-submenu-link-padding-x + $sidebar-link-caret-margin-right) $sidebar-submenu-link-padding-y $sidebar-submenu-link-padding-x;
@@ -130,13 +126,6 @@ $s: sidebar;
 
   }
 
-  // Specify a width for the parent sidebar item so the menu text doesn't break upon toggling the mini sidebar
-  > .#{$s}__item,
-  > .#{$s}__item-header,
-  > .#{$s}__item > .#{$s}__child {
-    width: $sidebar-width;
-  }
-
   > .#{$s}__item > .#{$s}__child > .#{$s}__item {
     &:last-of-type {
       padding-bottom: 10px;
@@ -146,10 +135,10 @@ $s: sidebar;
 }
 
 //
-// MINI SIDEBAR MENU & MODIFIERS
+// MINI SIDEBAR POPOUT TYPE & MODIFIERS
 // ======================================================
 
-.#{$s}-mini .#{$s} .#{$s}__list.navigation-main {
+.#{$s}-mini .#{$s}.popout .#{$s}__list.navigation-main {
 
   // Hiding headers, dividers etc... so the mini sidebar can reduce its UI complexity
   > .#{$s}__item .badge,
@@ -162,12 +151,12 @@ $s: sidebar;
     display: none;
   }
 
+  & {
+    width: $sidebar-mini-width;
+  }
+
   .#{$s}__item:not(.has-button) {
-    @if bool($enable-sidebar-active-border-type) == true {
-      width: $sidebar-mini-width - $sidebar-active-border-type-size;
-    } @else {
-      width: $sidebar-mini-width;
-    }
+
     > .#{$s}__link {
       padding: $sidebar-link-padding-y 0;
       justify-content: center;
@@ -181,26 +170,31 @@ $s: sidebar;
 
 }
 
-// Sidebar mini popout navigation
-.#{$s}-mini .#{$s} .#{$s}__list.#{$s}__list-popout {
+.#{$s}-mini .#{$s}.popout .#{$s}__list.#{$s}__list-popout {
   left: $sidebar-mini-width;
   box-shadow: $header-shadow;
+
+  @for $i from 1 through $sidebar-submenu-max-levels {
+    $selector: '';
+
+    @for $l from 1 through $i {
+      $selector: "#{$selector} .#{$s}__child";
+    }
+
+    #{$selector} .#{$s}__item a {
+      padding-left: $sidebar-submenu-link-padding-x +  (15px * ($i - 1));
+    }
+
+  }
+
 }
 
-
 //
-// MINI SIDEBAR FULL HEIGHT TYPE
+// MINI SIDEBAR COLLAPSIBLE TYPE & MODIFIERS
 // ======================================================
 
-
-//
-// COLLAPSIBLE SIDEBAR
-// ======================================================
-
-.#{$s}-mini-collapsible .#{$s} {
-
+.#{$s}-mini .#{$s}.collapsible{
   &:not(:hover) {
-
     .#{$s}__list {
 
       > .#{$s}__item-header {
@@ -222,11 +216,7 @@ $s: sidebar;
           .#{$s}__link-icon {
             @include transition(width .3s ease);
             margin-right: 0;
-            @if bool($enable-sidebar-active-border-type) == true {
-              width: $sidebar-mini-width - $sidebar-active-border-type-size;
-            } @else {
-              width: $sidebar-mini-width;
-            }
+            width: $sidebar-mini-width;
           }
 
           .#{$s}__link-title {
@@ -249,7 +239,7 @@ $s: sidebar;
             bottom: 0;
             left: calc(#{$sidebar-mini-width / 2} - 1px);
             display: block;
-            width: 0;
+            //width: 0;
             z-index: 50;
           }
         }
@@ -292,9 +282,27 @@ $s: sidebar;
         }
       }
     }
-
   }
+}
 
+//
+// MINI SIDEBAR WITH BORDER
+// ======================================================
+
+.#{$s}.bordered .#{$s}__list:not(.#{$s}__list-popout) {
+
+ > .#{$s}__item {
+    &::before {
+      @include add-border($sidebar-active-border-type-size, transparent, left);
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      z-index: 50;
+    }
+  }
 }
 
 //
@@ -305,7 +313,6 @@ $s: sidebar;
 .#{$s} {
   .#{$s}-footer {
     @include add-border(1px, transparent, top);
-    min-height: $sidebar-footer-height;
     box-shadow: $sidebar-footer-shadow;
     position: fixed;
     bottom: 0;
@@ -315,6 +322,8 @@ $s: sidebar;
     .#{$s}-footer__list {
       padding: 0;
       margin: 1px 0 0 0;
+      position: relative;
+      min-height: $sidebar-footer-height;
       display: flex;
       flex: 1;
     }
@@ -322,7 +331,7 @@ $s: sidebar;
     .#{$s}-footer__nav > ul > .#{$s}-footer__item {
       @include transition;
       @extend %o-v-none;
-      position: relative;
+      //position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -344,9 +353,9 @@ $s: sidebar;
     }
 
     .#{$s}-footer__child {
-      outline: 0;
       padding: 0;
       margin: 0;
+
       .#{$s}-footer__item {
         .#{$s}-footer__link {
           font-size: $sidebar-footer-font-size;
@@ -383,6 +392,7 @@ $s: sidebar;
       width: $sidebar-footer-width;
       bottom: $sidebar-footer-height;
       position: absolute;
+      left: 0;
     }
 
     .#{$s}-footer__nav > ul > .#{$s}-footer__item > .#{$s}-footer__child > .#{$s}-footer__item {
@@ -400,8 +410,10 @@ $s: sidebar;
       position: relative;
       border: 0;
       cursor: $cursor-pointer;
-      height: $sidebar-footer-height;
-      flex: 1;
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
     }
 
   }
@@ -416,11 +428,9 @@ $s: sidebar;
 //}
 
 .#{$s}.#{$s}-themed-test {
-
   $font-color: theme-partial-color($sidebar-theme-scheme, font-color);
   $font-link-color: theme-partial-color($sidebar-theme-scheme, font-link-color);
   $font-hover-color: theme-partial-color($sidebar-theme-scheme, font-hover-color);
   $font-active-color: theme-partial-color($sidebar-theme-scheme, font-active-color);
-
   @include sidebar-theme-test($sidebar-theme-scheme, $font-color, $font-link-color, $font-hover-color, $font-active-color);
 }

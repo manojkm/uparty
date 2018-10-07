@@ -132,10 +132,8 @@ var appMaster = {
          });*/
 
         $('.navigation-main').on('mouseenter', 'li.sidebar__item', function () {
-
             var $listItem = $(this);
-
-            if (appMaster._body.hasClass('sidebar-mini')) {
+            if (appMaster._sidebarMiniIsOpen  && appMaster._sidebar.hasClass('popout')) {
 
                 // Stop metisMenu opening the menu for that particular list
                 $(this).children('a').attr("aria-disabled", "true");
@@ -148,6 +146,7 @@ var appMaster = {
                 var listTemplate = $listItem.clone();
                 $('> a.sidebar__link > span.sidebar__link-icon', listTemplate).remove();
                 $('> a.sidebar__link', listTemplate).removeAttr("aria-disabled");
+                $(listTemplate).addClass("show");
 
                 if ($listItem.hasClass('has-child')) {
                     $('> a.sidebar__link', listTemplate).attr('aria-expanded', 'true');
@@ -190,21 +189,22 @@ var appMaster = {
 
                 $listItem.addClass('show');
             }
-
         }).on('mouseleave', 'li.sidebar__item', function () {
             var $listItem = $(this);
-            if (appMaster._body.hasClass('sidebar-mini')) {
+            if (appMaster._sidebarMiniIsOpen  && appMaster._sidebar.hasClass('popout')) {
                 $listItem.children('a').removeAttr("aria-disabled");
             }
-        }).on('click', 'li.sidebar__item', function (e) {
-        });
+        }).on('click', 'li.sidebar__item', function (e) {});
 
         $(appMaster._sidebarNav).on('mouseleave', function () {
-            if (appMaster._body.hasClass('sidebar-mini')) {
+            if (appMaster._sidebarMiniIsOpen  && appMaster._sidebar.hasClass('popout')) {
                 $(appMaster._sidebarNav).children('ul#menu-popout').remove();
                 $('.show', '.navigation-main').removeClass('show');
             }
         });
+
+
+
 
         // TODO, remove later.. for debug jQuery('.sidebar__list > li:nth-child(10)').trigger('mouseenter')
     },

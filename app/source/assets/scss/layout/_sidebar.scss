@@ -64,23 +64,6 @@
 
   }
 
-  // Hiding sidebar if body has class (.sidebar-is-closed)
-  &-is-closed {
-    // TODO Adapted from https://codepen.io/tonkec/pen/gryZmg
-    .#{$s}__inner-wrap > * {
-      @include transition;
-      @extend %o-v-none;
-      transform: translateX(-$sidebar-width);
-    }
-  }
-  // Showing sidebar if body has class (.sidebar-is-open)
-  &-is-open {
-    .#{$s}__inner-wrap > * {
-      @extend %o-v-show;
-      @include transition;
-    }
-  }
-
   // Sidebar brand logo
   .#{$s}__brand {
     padding: $sidebar-padding-y $sidebar-padding-x;
@@ -92,7 +75,17 @@
     left: 0;
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
+  }
+  &-is-open.#{$s}-mini &-fixed & {
+    left: $sidebar-mini-width;
+  }
 
+  // Collapsible and Popout sidebar modifiers
+  &-is-open.#{$s}-mini .#{$s}.collapsible:hover {
+    width:  $sidebar-width;
+  }
+  &-is-open.#{$s}-mini .#{$s}.collapsible:not(:hover),
+  &-is-open.#{$s}-mini .#{$s}.popout{
     .#{$s}-footer {
       width: $sidebar-mini-width;
 
@@ -108,55 +101,31 @@
         @extend %o-v-show;
         width: $sidebar-mini-width;
       }
-    }
-  }
-
-  &-is-open.#{$s}-mini &-fixed & {
-    left: $sidebar-mini-width;
-  }
-
-  // Collapsible sidebar modifiers
-  &-is-open.#{$s}-mini-collapsible & {
-    left: 0;
-    margin-left: -$sidebar-mini-width;
-    width: $sidebar-mini-width;
-
-    &:not(:hover) {
-      .#{$s}-footer {
-        width: $sidebar-mini-width;
-
-        // Hiding Sidebar footer links
-        .#{$s}-footer__nav > ul > .#{$s}-footer__item {
-          @extend %o-v-none;
-          width: 0;
-          flex: auto;
-        }
-
-        // Keep showing sidebar mini toggle button
-        .#{$s}-footer__nav > ul > .#{$s}-footer__item.mini {
-          @extend %o-v-show;
-          width: $sidebar-mini-width;
-        }
-
-        .#{$s}-footer__child {
-          display: none;
-        }
+      .#{$s}-footer__child {
+        display: none;
       }
     }
-
   }
 
-  &-is-open.#{$s}-mini-collapsible &:hover {
-    width: $sidebar-width;
-  }
-
-  &-is-open.#{$s}-mini-collapsible &-fixed & {
-    left: $sidebar-mini-width;
+  // Hiding sidebar if body has class (.sidebar-is-closed)
+  &-is-closed & {
+    .#{$s}__inner-wrap > * {
+      @include transition;
+      @extend %o-v-none;
+      transform: translateX(-$sidebar-width);
+    }
+    .#{$s}-footer {
+      overflow-x: hidden;
+    }
   }
 
   // Showing sidebar and its footer if body has class (.sidebar-is-open)
   &-is-open & {
     width: $sidebar-width;
+    .#{$s}__inner-wrap > * {
+      @extend %o-v-show;
+      @include transition;
+    }
     .#{$s}-footer {
       width: $sidebar-footer-width;
       .#{$s}-footer__nav > ul > .#{$s}-footer__item {
@@ -171,15 +140,8 @@
     left: $sidebar-width;
   }
 
-  // Closed sidebar
-  &-is-closed & {
-    .#{$s}-footer {
-      overflow-x: hidden;
-    }
-  }
-
   // Sidebar mobile view
-  .sidebar-mobile & {
+  &-mobile & {
     overflow-y: auto;
   }
 }
