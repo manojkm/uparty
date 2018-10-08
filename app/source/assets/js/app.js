@@ -45,7 +45,7 @@ var appMaster = {
             // $(window).width() <= 767 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed sidebar-mobile');
             if ($(window).width() <= 767) {
                 appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile');
-                if (appMaster._sidebarMiniIsOpen){
+                if (appMaster._sidebarMiniIsOpen) {
                     $(appMaster._sideMini).click();
                 }
             } else {
@@ -53,22 +53,22 @@ var appMaster = {
             }
 
             if ($(window).width() >= 768 && $(window).width() <= 991) {
-                if (!appMaster._sidebarMiniIsOpen){
+                if (!appMaster._sidebarMiniIsOpen) {
                     $(appMaster._sideMini).click();
                 }
             }
 
             if ($(window).width() >= 992) {
-                if (appMaster._sidebarMiniIsOpen){
+                if (appMaster._sidebarMiniIsOpen) {
                     $(appMaster._sideMini).click();
                 }
             }
         }
 
-       set_sidebar();
+        set_sidebar();
 
-       $(window).on('resize', function () {
-          set_sidebar();
+        $(window).on('resize', function () {
+            set_sidebar();
         });
 
     },
@@ -91,7 +91,7 @@ var appMaster = {
         });
 
         $(appMaster._sideMini).on('click', function (event) {
-              event.preventDefault();
+            event.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
                 appMaster._body.removeClass('sidebar-mini');
@@ -215,7 +215,9 @@ var appMaster = {
 
         var removeShow = null;
         $(appMaster._sidebarNav).on('mouseenter', function () {
-            return clearInterval(removeShow);
+            if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout') && appMaster._body.hasClass('sidebar-mini')) {
+                return clearInterval(removeShow);
+            }
         });
 
         $(appMaster._sidebarNav).on('mouseleave', function () {
@@ -587,21 +589,6 @@ var appMaster = {
         });
     },
 
-    metismenu: function () {
-        if ($.fn.metisMenu) {
-            $('.metistest').metisMenu(
-                {
-                    parentTrigger: '.has-child' // bootstrap 4
-
-                }
-            );
-
-        } else {
-            throw new Error('Please install metisMenu plugin! https://github.com/onokumus/metisMenu');
-        }
-    },
-
-
 };
 
 var Pluggin = {
@@ -652,7 +639,6 @@ $(document).ready(function () {
     appMaster.sidebar();
     // appMaster.update();
     appMaster.sidebar_mini_navigation();
-    appMaster.metismenu();
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
