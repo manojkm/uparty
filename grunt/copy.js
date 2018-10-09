@@ -12,7 +12,7 @@ module.exports = function (grunt) {
                 {expand: true, cwd: grunt.getPath('node') + 'bootstrap', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'bootstrap'},
                 {expand: true, cwd: grunt.getPath('node') + 'simple-line-icons', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'simple-line-icons'},
                 {expand: true, cwd: grunt.getPath('node') + 'jquery', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery'},
-                {expand: true, cwd: grunt.getPath('node') + 'nicescroll', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'nicescroll'},
+                {expand: true, cwd: grunt.getPath('node') + 'jquery.nicescroll', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery.nicescroll'},
                 {expand: true, cwd: grunt.getPath('node') + 'popper.js', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'popper.js'},
                 {expand: true, cwd: grunt.getPath('node') + 'chosen-js', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'chosen-js'},
                 {expand: true, cwd: grunt.getPath('node') + 'dropzone', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'dropzone'},
