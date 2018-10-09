@@ -476,8 +476,8 @@
                             menuTitle.addClass("menu-title");
                         }
                     }
-                    // menu_header_height = ($('.main-menu-header').length) ? $('.main-menu-header').height() : 0,
-                    // fromTop = menu_header_height + $this.position().top + parseInt($this.css( "border-top" ),10);
+                      var menu_header_height = ($('.main-menu-header').length) ? $('.main-menu-header').height() : 0,
+                     fromTop = menu_header_height + $this.position().top + parseInt($this.css( "border-top" ),10);
                     var fromTop;
                     if($this.css( "border-top" )){
                         fromTop = $this.position().top + parseInt($this.css( "border-top" ), 10);

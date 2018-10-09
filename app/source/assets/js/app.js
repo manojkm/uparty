@@ -39,55 +39,26 @@ var appMaster = {
     _cardFullscreen: $("[data-card='fullscreen']"),
 
 
-    manualScroller: {
-        obj: null,
+    skim: function () {
 
-        init: function() {
-            this.obj = $(".sidebar__nav").niceScroll(".wrap",{
-                autohidemode: 'false',     // Do not hide scrollbar when mouse out
-                railalign: 'right', // alignment of vertical rail
-                cursorborderradius: '0px', // Scroll cursor radius
-                background: '#E5E9E7',     // The scrollbar rail color
-                cursorwidth: '10px',       // Scroll cursor width
-                cursorcolor: '#999999',     // Scroll cursor color
+        $('.slim-scroll').each(function(){
+
+            var options = {
+                height: 'auto',
+                distance: '0',
+                size: '5px',
+                railOpacity: 0.3,
+                position: 'right'
+            };
+
+            var $self = $(this),  $slimResize;
+            $self.slimScroll(options);
+
+            $(window).resize(function(e) {
+                clearTimeout($slimResize);
+                $slimResize = setTimeout(function(){$self.slimScroll(options);}, 500);
             });
-
-            this.obj.getNiceScroll().resize();
-        },
-
-        update: function() {
-            if (this.obj) {
-                // Scroll to currently active menu on page load if data-scroll-to-active is true
-                if ($('.sidebar__nav').data('scroll-to-active') === true) {
-                    var position;
-                    var topbar = $(".sidebar__brand").height();
-                    if ($(".sidebar__nav").find('li.active').parents('li').length > 0) {
-                        position = $(".sidebar__nav").find('li.active').parents('li').last().position();
-                    }
-                    else {
-                        position = $(".sidebar__nav").find('li.active').position();
-                    }
-
-                   var height = position.top - topbar;
-
-                    setTimeout(function () {
-                        //$('.sidebar__nav').scrollTop(position.top);
-                        $('.sidebar__nav').stop().animate({scrollTop: height}, 300);
-                        $('.sidebar__nav').data('scroll-to-active', 'false');
-                    }, 300);
-                }
-
-                $(".sidebar__nav").getNiceScroll().resize();
-            }
-        },
-        enable: function() {
-            this.init();
-        },
-        hide: function() {
-            if (this.obj) {
-                $(".sidebar__nav").getNiceScroll().hide();
-            }
-        }
+        });
 
     },
 
@@ -115,8 +86,6 @@ var appMaster = {
                     $(appMaster._sideMini).click();
                 }
             }
-
-            appMaster.manualScroller.init()
         }
 
         set_sidebar();
@@ -128,6 +97,7 @@ var appMaster = {
     },
 
     sidebar: function () {
+
         $(appMaster._sideHide).on('click', function (event) {
             event.preventDefault();
             $(this).toggleClass('collapsed');
@@ -142,6 +112,7 @@ var appMaster = {
             }
             appMaster._stopMetisMenu([appMaster._sidebarNav, appMaster._sidebarFooterNav]);
         });
+
         $(appMaster._sideMini).on('click', function (event) {
             event.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
@@ -161,6 +132,40 @@ var appMaster = {
             }
 
         });
+
+        function set_sidebar_mini_hover() {
+            var removeShow = null;
+            $(appMaster._sidebarItem).hover(function () {
+                // Adapted from https://codepen.io/vivianong/pen/DzimH
+                if (appMaster._sidebarMiniIsOpen) {
+                    var $t;
+                    $t = $(this);
+                    appMaster._sidebarItem.removeClass('show');
+                    $t.addClass('show');
+                    if (!appMaster._overlayIsOpen) {
+                        appMaster._toggleOverlay();
+                    }
+                    return clearInterval(removeShow);
+                }
+
+            }, function () {
+                if (appMaster._sidebarMiniIsOpen) {
+                    var $t;
+                    $t = $(this);
+                    return removeShow = setTimeout((function () {
+                        $t.removeClass('show');
+                        if (appMaster._overlayIsOpen && !appMaster._asideIsOpen) {
+                            return $(appMaster._overlay).click();
+                        }
+
+                    }), 1000);
+                }
+
+            });
+        }
+
+        // set_sidebar_mini_hover();
+
     },
 
     sidebar_mini_navigation: function () {
@@ -189,12 +194,14 @@ var appMaster = {
                 }
 
                 // Position
+                var menu_header_height = ($('.sidebar__brand').length) ? $('.sidebar__brand').height() : 0 ;
+
                 var fromTop;
                 if ($listItem.css("border-top")) {
-                    fromTop = $listItem.position().top + parseInt($listItem.css("border-top"), 10);
+                    fromTop = menu_header_height + $listItem.position().top + parseInt($listItem.css("border-top"), 10);
                 }
                 else {
-                    fromTop = $listItem.position().top;
+                    fromTop = menu_header_height + $listItem.position().top;
                 }
 
                 var winHeight;
@@ -243,6 +250,7 @@ var appMaster = {
                 return removeShow = setTimeout((function () {
                     $(appMaster._sidebarNav).children('ul#menu-popout').remove();
                     $('.show', '.navigation-main').removeClass('show');
+
                 }), 1000);
             }
         });
@@ -412,10 +420,6 @@ var appMaster = {
 
     _changeLogo: function () {
         appMaster._body.hasClass("sidebar-mini") ? appMaster._logo.attr('src', appMaster._logo.data('collapse')) : appMaster._logo.attr('src', appMaster._logo.data('expand'));
-    },
-
-    update: function() {
-        this.manualScroller.update();
     },
 
     dropdown: function () {
@@ -658,9 +662,9 @@ $(document).on("app.plugin", function () {
 
 $(document).ready(function () {
     appMaster.sidebar();
+    appMaster.skim();
+    // appMaster.update();
     appMaster.sidebar_mini_navigation();
-    appMaster.responsive();
-    appMaster.update();
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
@@ -672,7 +676,7 @@ $(document).ready(function () {
     appMaster.number_spinner();
     appMaster.set_footer_height();
     appMaster.expand_collapse();
-
+    appMaster.responsive();
 });
 
 
