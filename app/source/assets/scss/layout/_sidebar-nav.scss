@@ -170,9 +170,15 @@ $s: sidebar;
 
 }
 
-.#{$s}-mini .#{$s}.popout .#{$s}__list.#{$s}__list-popout {
+.#{$s}-mini .#{$s}.popout #menu-popout-wrap{
   left: $sidebar-mini-width;
   box-shadow: $header-shadow;
+  width: $sidebar-width!important;
+}
+
+.#{$s}-mini .#{$s}.popout .#{$s}__list.#{$s}__list-popout {
+
+
 
   @for $i from 1 through $sidebar-submenu-max-levels {
     $selector: '';
@@ -193,7 +199,7 @@ $s: sidebar;
 // MINI SIDEBAR COLLAPSIBLE TYPE & MODIFIERS
 // ======================================================
 
-.#{$s}-mini .#{$s}.collapsible{
+.#{$s}-mini .#{$s}.collapsible {
   &:not(:hover) {
     .#{$s}__list {
 

@@ -104,9 +104,9 @@ var appMaster = {
 
                     setTimeout(function () {
                         //$('.sidebar__nav').scrollTop(position.top);
-                        $('.sidebar__nav').stop().animate({scrollTop: position.top}, 300);
+                        $('.sidebar__nav').stop().animate({scrollTop: position.top}, 500);
                         $('.sidebar__nav').data('scroll-to-active', 'false');
-                    }, 300);
+                    }, 500);
                 }
 
             }
@@ -236,14 +236,13 @@ var appMaster = {
             var $listItem = $(this);
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
 
-                // Stop metisMenu opening the menu for that particular list
+                // Stop metisMenu opening the menu for the particular list
                 $(this).children('a').attr("aria-disabled", "true");
 
                 // Reset
+                $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
+                $(appMaster._sidebarNav).children('#menu-popout-wrap').remove();
                 $('.show', '.navigation-main').removeClass('show');
-                $(appMaster._sidebarNav).children('ul#menu-popout').remove();
-                $("ul#menu-popout").slimScroll({destroy: true});
-
 
                 // Clone and adjustments
                 var listTemplate = $listItem.clone();
@@ -268,8 +267,9 @@ var appMaster = {
                     fromTop = sidebar_brand_height + $listItem.position().top;
                 }
 
-                var winHeight;
+                // Calculate max height
                 var menuTop;
+                var winHeight;
                 var popOutMenuHeight = '';
 
                 if ($listItem.hasClass('has-child') && $listItem.hasClass('sidebar__item')) {
@@ -278,29 +278,40 @@ var appMaster = {
                     popOutMenuHeight = winHeight - menuTop + $listItem.height() - 15;
                 }
 
+                // Create wrapper div for popout menu
+                var iDiv = document.createElement("div");
+                iDiv.id = 'menu-popout-wrap';
+                iDiv.className = '';
+                $(appMaster._sidebarNav).append(iDiv);
+
+                // Now create UL and append to the wrapper
                 var iUl = document.createElement('ul');
                 iUl.id = 'menu-popout';
                 iUl.className = 'sidebar__list sidebar__list-popout metismenu';
-                $(appMaster._sidebarNav).append(iUl);
 
-                var popout = document.getElementById('menu-popout');
+                var iWrap = document.getElementById(iDiv.id);
+                $(iWrap).css({'position': 'fixed', 'top': fromTop, 'max-height': popOutMenuHeight}).append(iUl);
 
-                $(popout).css({'position': 'fixed', 'top': fromTop, 'max-height': popOutMenuHeight}).append(listTemplate);
+                // Then append the whole list template onto the UL
+                var popOut = document.getElementById(iUl.id);
+                $(popOut).css({'max-height': popOutMenuHeight}).append(listTemplate);
 
-                // Initialize metisMenu
-                $(popout).metisMenu({
-                    parentTrigger: '.has-child'
-                });
+                if ($listItem.hasClass('has-child') && $listItem.hasClass('sidebar__item')) {
 
-                // Initialize metisMenu
-                $(popout).slimScroll({
-                    height: 'auto',
-                    distance: '0',
-                    size: '5px',
-                    railOpacity: 0.3,
-                    position: 'right'
-                });
+                    // Initialize metisMenu
+                    $(popOut).metisMenu({
+                        parentTrigger: '.has-child'
+                    });
 
+                    // Initialize slimScroll
+                    $(popOut).slimScroll({
+                        height: '',
+                        distance: '0',
+                        size: '5px',
+                        railOpacity: 0.3,
+                        position: 'right'
+                    });
+                }
 
                 $listItem.addClass('show');
             }
@@ -322,8 +333,8 @@ var appMaster = {
         $(appMaster._sidebarNav).on('mouseleave', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
                 return removeShow = setTimeout((function () {
-                    $("ul#menu-popout").slimScroll({destroy: true});
-                    $(appMaster._sidebarNav).children('ul#menu-popout').remove();
+                    $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
+                    $(appMaster._sidebarNav).children('#menu-popout-wrap').remove();
                     $('.show', '.navigation-main').removeClass('show');
                 }), 1000);
             }
