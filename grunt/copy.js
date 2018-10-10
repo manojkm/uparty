@@ -12,7 +12,6 @@ module.exports = function (grunt) {
                 {expand: true, cwd: grunt.getPath('node') + 'bootstrap', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'bootstrap'},
                 {expand: true, cwd: grunt.getPath('node') + 'simple-line-icons', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'simple-line-icons'},
                 {expand: true, cwd: grunt.getPath('node') + 'jquery', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery'},
-                {expand: true, cwd: grunt.getPath('node') + 'jquery.nicescroll', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery.nicescroll'},
                 {expand: true, cwd: grunt.getPath('node') + 'popper.js', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'popper.js'},
                 {expand: true, cwd: grunt.getPath('node') + 'chosen-js', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'chosen-js'},
                 {expand: true, cwd: grunt.getPath('node') + 'dropzone', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'dropzone'},
@@ -34,7 +33,8 @@ module.exports = function (grunt) {
                 {expand: true, cwd: grunt.getPath('node') + 'moment', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'moment'},
                 {expand: true, cwd: grunt.getPath('node') + 'bootstrap-wysiwyg', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'bootstrap-wysiwyg'},
                 {expand: true, cwd: grunt.getPath('node') + '@claviska/jquery-minicolors', src: ['**'], dest: grunt.getPath('vendors', false, true) + '@claviska/jquery-minicolors'},
-                {expand: true, cwd: grunt.getPath('node') + 'typeahead.js', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'typeahead.js'}
+                {expand: true, cwd: grunt.getPath('node') + 'typeahead.js', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'typeahead.js'},
+                {expand: true, cwd: grunt.getPath('node') + 'jquery-slimscroll', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery-slimscroll'}
                 // TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
             ]
         },

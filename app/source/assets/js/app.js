@@ -9,6 +9,7 @@
 // ================================================================================================
 
 'use strict';
+//Make sure jQuery has been loaded before app.js
 if (typeof jQuery === 'undefined') {
     throw new Error('Theme\'s JavaScript requires jQuery');
 }
@@ -39,26 +40,87 @@ var appMaster = {
     _cardFullscreen: $("[data-card='fullscreen']"),
 
 
-    skim: function () {
 
-        $('.slim-scroll').each(function(){
+    // Add slimScroll to sidebar menus
+    // This requires you to load the slimScroll plugin in every page before app.js
+    slimscroll: function () {
 
-            var options = {
-                height: 'auto',
-                distance: '0',
-                size: '5px',
-                railOpacity: 0.3,
-                position: 'right'
-            };
+        // Adapted from https://github.com/ludusrusso/pp-robot-2018/blob/master/server_ws/src/laser_bot_battle/scripts/static/js/app.js
 
-            var $self = $(this),  $slimResize;
-            $self.slimScroll(options);
+        function set_slimscroll() {
 
-            $(window).resize(function(e) {
-                clearTimeout($slimResize);
-                $slimResize = setTimeout(function(){$self.slimScroll(options);}, 500);
-            });
-        });
+            // Make sure the section.app tag has the .sidebar-fixed class
+            if (!$("section.app").hasClass("sidebar-fixed")) {
+                if (typeof $.fn.slimScroll != 'undefined') {
+                    $(".slim-scroll").slimScroll({destroy: true}).height("auto");
+                }
+                return;
+            } else if (typeof $.fn.slimScroll == 'undefined') {
+                throw new Error('Please install slimScroll plugin! https://github.com/rochal/jQuery-slimScroll');
+            }
+
+            // Enable slimScroll for fixed sidebar layout
+            if (typeof $.fn.slimScroll != 'undefined') {
+
+                // Destroy if it exists
+                $(".slim-scroll").slimScroll({destroy: true}).height("auto");
+
+                // Add slimScroll
+                var sidebar_brand_height = ($('.sidebar__brand').length) ? $('.sidebar__brand').height() : 0;
+                var sidebar_footer_height = ($('.sidebar-footer').length) ? $('.sidebar-footer').height() : 0;
+
+                var options = {
+                    // height: 'auto',
+                    // height: ($(window).height() - sidebar_brand_height - sidebar_footer_height) + "px",
+                    height: '100%',
+                    distance: '0',
+                    size: '5px',
+                    railOpacity: 0.3,
+                    position: 'right'
+                };
+
+                $('.slim-scroll').each(function(){
+                    var $self = $(this), $slimResize;
+                    $self.slimScroll(options);
+
+                    $(window).on('resize', function () {
+                        clearTimeout($slimResize);
+                        $slimResize = setTimeout(function(){$self.slimScroll(options);}, 500);
+                    });
+                });
+
+
+                // Scroll to currently active menu on page load if data-scroll-to-active is true
+                if ($('.sidebar__nav').data('scroll-to-active') === true) {
+                    var position;
+                    if ($(".sidebar__nav").find('li.active').parents('li').length > 0) {
+                        position = $(".sidebar__nav").find('li.active').parents('li').last().position();
+                    }
+                    else {
+                        position = $(".sidebar__nav").find('li.active').position();
+                    }
+
+                    // var height = position.top - sidebar_brand_height;
+
+                    setTimeout(function () {
+                        //$('.sidebar__nav').scrollTop(position.top);
+                        $('.sidebar__nav').stop().animate({scrollTop: position.top}, 300);
+                        $('.sidebar__nav').data('scroll-to-active', 'false');
+                    }, 300);
+                }
+
+            }
+        }
+
+        set_slimscroll();
+
+        // var $slimResize = null;
+        // $(window).on('resize', function () {
+        //     clearTimeout($slimResize);
+        //     $slimResize = setTimeout(function () {
+        //         set_slimscroll();
+        //     }, 500);
+        // });
 
     },
 
@@ -180,6 +242,8 @@ var appMaster = {
                 // Reset
                 $('.show', '.navigation-main').removeClass('show');
                 $(appMaster._sidebarNav).children('ul#menu-popout').remove();
+                $("ul#menu-popout").slimScroll({destroy: true});
+
 
                 // Clone and adjustments
                 var listTemplate = $listItem.clone();
@@ -194,14 +258,14 @@ var appMaster = {
                 }
 
                 // Position
-                var menu_header_height = ($('.sidebar__brand').length) ? $('.sidebar__brand').height() : 0 ;
+                var sidebar_brand_height = ($('.sidebar__brand').length) ? $('.sidebar__brand').height() : 0;
 
                 var fromTop;
                 if ($listItem.css("border-top")) {
-                    fromTop = menu_header_height + $listItem.position().top + parseInt($listItem.css("border-top"), 10);
+                    fromTop = sidebar_brand_height + $listItem.position().top + parseInt($listItem.css("border-top"), 10);
                 }
                 else {
-                    fromTop = menu_header_height + $listItem.position().top;
+                    fromTop = sidebar_brand_height + $listItem.position().top;
                 }
 
                 var winHeight;
@@ -228,6 +292,16 @@ var appMaster = {
                     parentTrigger: '.has-child'
                 });
 
+                // Initialize metisMenu
+                $(popout).slimScroll({
+                    height: 'auto',
+                    distance: '0',
+                    size: '5px',
+                    railOpacity: 0.3,
+                    position: 'right'
+                });
+
+
                 $listItem.addClass('show');
             }
         }).on('mouseleave', 'li.sidebar__item', function () {
@@ -248,9 +322,9 @@ var appMaster = {
         $(appMaster._sidebarNav).on('mouseleave', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
                 return removeShow = setTimeout((function () {
+                    $("ul#menu-popout").slimScroll({destroy: true});
                     $(appMaster._sidebarNav).children('ul#menu-popout').remove();
                     $('.show', '.navigation-main').removeClass('show');
-
                 }), 1000);
             }
         });
@@ -661,8 +735,8 @@ $(document).on("app.plugin", function () {
 //----------------------------------*/
 
 $(document).ready(function () {
+    appMaster.slimscroll();
     appMaster.sidebar();
-    appMaster.skim();
     // appMaster.update();
     appMaster.sidebar_mini_navigation();
     appMaster.overlay();

@@ -1017,7 +1017,6 @@
       &:hover,
       &.show,
       &.active {
-
         > .#{$s}__link {
           @include background-theme($scheme, 'dark');
           color: $font-hover-color;
@@ -1037,8 +1036,10 @@
       .#{$s}__item {
 
         // Change the hover, focus, active state links for better highlighting
-        &:hover,
-        &.show {
+
+        //&.show,
+        &:hover
+        {
           > .#{$s}__link:not(.has-arrow) {
             @include background-theme($scheme, 'x-dark');
           }
