@@ -44,14 +44,17 @@ var appMaster = {
 
     // Add slimScroll to sidebar menus
     // This requires you to load the slimScroll plugin in every page before app.js
-    slimscroll: function () {
+    slimScroll: function () {
 
         // Adapted from https://github.com/ludusrusso/pp-robot-2018/blob/master/server_ws/src/laser_bot_battle/scripts/static/js/app.js
 
         function set_slimscroll() {
 
             // Make sure the section.app tag has the .sidebar-fixed class
-            if (!$("section.app").hasClass("sidebar-fixed")) {
+            // if (!$("section.app").hasClass("sidebar-fixed")) {}
+
+           // Make sure there is class .sidebar-fixed
+            if(!$('.sidebar-fixed').length){
                 if (typeof $.fn.slimScroll != 'undefined') {
                     $(".slim-scroll").slimScroll({destroy: true}).height("auto");
                 }
@@ -114,6 +117,7 @@ var appMaster = {
             }
         }
 
+        // Execute on load
         set_slimscroll();
 
     },
@@ -144,6 +148,7 @@ var appMaster = {
             }
         }
 
+        // Execute on load
         set_sidebar();
 
         $(window).on('resize', function () {
@@ -176,7 +181,7 @@ var appMaster = {
                 appMaster._body.removeClass('sidebar-mini');
                 appMaster._sidebarMiniIsOpen = false;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
-
+                Cookies.set('sidebarMiniIs', appMaster._sidebarMiniIsOpen);
             }
             else {
                 $(this).addClass('collapsed');
@@ -185,6 +190,7 @@ var appMaster = {
                 appMaster._sidebarMiniIsOpen = true;
                 appMaster._stopMetisMenu(appMaster._sidebarFooterNav);
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
+                Cookies.set('sidebarMiniIs', appMaster._sidebarMiniIsOpen);
             }
 
         });
@@ -224,9 +230,10 @@ var appMaster = {
 
     },
 
-    sidebar_mini_navigation: function () {
+    sidebarMiniNavigation: function () {
 
         $('.navigation-main').on('mouseenter', 'li.sidebar__item', function () {
+
             var $listItem = $(this);
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
 
@@ -337,6 +344,33 @@ var appMaster = {
         });
 
         // To debug: jQuery('.sidebar__list > li:nth-child(10)').trigger('mouseenter')
+    },
+
+    /* Manage Cookie */
+    handleCookie: function () {
+        // Adapted from https://github.com/saleco/blg/blob/master/src/main/webapp/assets/admin/js/demo.js
+
+        if (typeof Cookies != 'undefined') {
+            // Check cookie for sidebar mini setting
+            if (Cookies.get('sidebarMiniIs') == 'true') {
+                $('body').addClass(Cookies.get('sidebarMiniIs'));
+                $(appMaster._sideMini).click();
+            }
+
+            // TODO useful later
+            // Adapted from https://github.com/nelug/ControlDePlanilla/blob/master/app/assets/js/plugins/apps.js
+            // Check the current cookie value
+            // If the cookie is empty or set to not active, then add page_sidebar_minimize
+            if ($.cookie('page_sidebar_minimize') == "undefined" || $.cookie('page_sidebar_minimize') == "not_active") {
+            }
+            // If the cookie was already set to active then remove it
+            else {}
+
+
+        } else
+        {
+            throw new Error('Please install JavaScript Cookie plugin! https://github.com/js-cookie/js-cookie');
+        }
     },
 
     aside: function () {
@@ -634,7 +668,7 @@ var appMaster = {
         });
     },
 
-    textarea_counter: function () {
+    textareaCounter: function () {
         $(appMaster._textareaCounter).keyup(function () {
             var a = 125,
                 b = $(this).val().length;
@@ -646,7 +680,7 @@ var appMaster = {
         });
     },
 
-    input_group_focus: function () {
+    inputGroupFocus: function () {
 
         $(appMaster._formCtrl).on('mouseover', function () {
             $(this).parent('.input-group').addClass("input-group-hover");
@@ -659,7 +693,7 @@ var appMaster = {
         });
     },
 
-    number_spinner: function () {
+    numberSpinner: function () {
         // Adapted from https://bootsnipp.com/snippets/featured/bootstrap-number-spinner-on-click-hold
         var action;
         $(".number-spinner button").on('touchstart mousedown', function (e) {
@@ -698,7 +732,7 @@ var appMaster = {
 
     },
 
-    set_footer_height: function () {
+    setFooterHeight: function () {
 
         function set_heights() {
             var footerHeight = $('.master-footer').height();
@@ -713,7 +747,7 @@ var appMaster = {
 
     },
 
-    expand_collapse: function () {
+    expandCollapse: function () {
         $('.expand_all').on('click', function (e) {
             e.preventDefault();
             $('#accordion-expand-collapse').find('.panel-collapse').collapse('show');
@@ -772,22 +806,23 @@ $(document).on("app.plugin", function () {
 //----------------------------------*/
 
 $(document).ready(function () {
-    appMaster.slimscroll();
+    appMaster.slimScroll();
     appMaster.sidebar();
+    appMaster.handleCookie();
     // appMaster.update();
-    appMaster.sidebar_mini_navigation();
+    appMaster.sidebarMiniNavigation();
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
     appMaster.fullscreen();
     appMaster.tooltip();
     appMaster.popover();
-    appMaster.input_group_focus();
+    appMaster.inputGroupFocus();
     appMaster.card();
-    appMaster.textarea_counter();
-    appMaster.number_spinner();
-    appMaster.set_footer_height();
-    appMaster.expand_collapse();
+    appMaster.textareaCounter();
+    appMaster.numberSpinner();
+    appMaster.setFooterHeight();
+    appMaster.expandCollapse();
     appMaster.responsive();
 });
 

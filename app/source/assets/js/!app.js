@@ -653,7 +653,7 @@ var appMaster = {
 
     },
 
-    expand_collapse: function () {
+    expandCollapse: function () {
         $('.expand_all').on('click', function (e) {
             e.preventDefault();
             $('#accordion-expand-collapse').find('.panel-collapse').collapse('show');
@@ -665,7 +665,7 @@ var appMaster = {
         });
     },
 
-    metismenu: function () {
+    metisMenu: function () {
         if ($.fn.metisMenu) {
             $('.metistest').metisMenu(
                 {
@@ -732,7 +732,7 @@ $(document).ready(function () {
     appMaster.sidebar();
     // appMaster.update();
     appMaster.ffffffff();
-    appMaster.metismenu();
+    appMaster.metisMenu();
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
@@ -743,7 +743,7 @@ $(document).ready(function () {
     appMaster.textarea_counter();
     appMaster.number_spinner();
     appMaster.set_footer_height();
-    appMaster.expand_collapse();
+    appMaster.expandCollapse();
 });
 
 
