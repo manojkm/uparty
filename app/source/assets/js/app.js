@@ -585,6 +585,36 @@ var appMaster = {
 
     },
 
+    fullscreen: function () {
+        // Todo Implement, filter this github.. found lot of templates in these folders...  https://github.com/swalt-wahyu/theme/blob/master/backend/Rock/assets/js/layout.js
+        $('.fullscreen-toggle').click(function() {
+            if (!document.fullscreenElement &&    // alternative standard method
+                !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.msRequestFullscreen) {
+                    document.documentElement.msRequestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+                $('> i', this).removeClass('icon-size-fullscreen').addClass('icon-size-actual');
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+                $('> i', this).addClass('icon-size-fullscreen').removeClass('icon-size-actual');
+            }
+        });
+    },
+
     popover: function () {
         //TODO close button https://jsfiddle.net/vivekkupadhyay/bdkbq5sd/10/
         $(appMaster._popover).each(function () {
@@ -749,6 +779,7 @@ $(document).ready(function () {
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
+    appMaster.fullscreen();
     appMaster.tooltip();
     appMaster.popover();
     appMaster.input_group_focus();
