@@ -40,6 +40,7 @@ var appMaster = {
     _cardClose: $("[data-card='close']"),
     _cardCollapse: $("[data-card='collapse']"),
     _cardFullscreen: $("[data-card='fullscreen']"),
+    _sidebarIsOpen: false,
 
 
     // Add slimScroll to sidebar menus
@@ -122,56 +123,27 @@ var appMaster = {
 
     },
 
-    responsive: function () {
-
-        function set_sidebar() {
-            // $(window).width() <= 767 ? appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile') : appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed sidebar-mobile');
-            if ($(window).width() <= 767) {
-                appMaster._body.removeClass('sidebar-mini sidebar-is-open').addClass('sidebar-is-closed sidebar-mobile');
-                if (appMaster._sidebarMiniIsOpen) {
-                    $(appMaster._sideMini).click();
-                }
-            } else {
-                appMaster._body.addClass('sidebar-is-open').removeClass('sidebar-is-closed sidebar-mobile')
-            }
-
-            if ($(window).width() >= 768 && $(window).width() <= 991) {
-                if (!appMaster._sidebarMiniIsOpen) {
-                    $(appMaster._sideMini).click();
-                }
-            }
-
-            if ($(window).width() >= 992) {
-                if (appMaster._sidebarMiniIsOpen) {
-                    // $(appMaster._sideMini).click();
-                }
-            }
-        }
-
-        // Execute on load
-        set_sidebar();
-
-        $(window).on('resize', function () {
-            set_sidebar();
-        });
-
-    },
-
     sidebar: function () {
 
-        $(appMaster._sideHide).on('click', function (event) {
-            event.preventDefault();
-            $(this).toggleClass('collapsed');
-            // appMaster._body.removeClass('sidebar-mini aside-is-open').toggleClass('sidebar-is-open sidebar-is-closed');
-            appMaster._body.toggleClass('sidebar-is-open sidebar-is-closed');
-
-            if (appMaster._asideIsOpen) {
-                $(appMaster._aside).click();
+        $(appMaster._sideHide).on('click', function () {
+            if (appMaster._sidebarIsOpen) {
+                $(this).removeClass('collapsed');
+                appMaster._body.removeClass('sidebar-is-open').addClass('sidebar-is-closed');
+                appMaster._sidebarIsOpen = false;
+                appMaster._stopMetisMenu([appMaster._sidebarNav, appMaster._sidebarFooterNav]);
+                console.log("Sidebar is", appMaster._sidebarIsOpen);
+                Cookies.set('sidebarIs', appMaster._sidebarIsOpen);
             }
-            if (appMaster._sidebarMiniIsOpen) {
-                //$(appMaster._sideMini).click();
+            else {
+                $(this).addClass('collapsed');
+                appMaster._body.removeClass('sidebar-is-closed').addClass('sidebar-is-open');
+                appMaster._sidebarIsOpen = true;
+                if (appMaster._asideIsOpen) {
+                    $(appMaster._aside).click();
+                }
+                console.log("Sidebar is", appMaster._sidebarIsOpen);
+                Cookies.set('sidebarIs', appMaster._sidebarIsOpen);
             }
-            appMaster._stopMetisMenu([appMaster._sidebarNav, appMaster._sidebarFooterNav]);
         });
 
         $(appMaster._sideMini).on('click', function (event) {
@@ -230,6 +202,51 @@ var appMaster = {
 
     },
 
+    sidebarResponsive: function () {
+
+        function set_sidebar() {
+            if ($(window).width() <= 767) {
+                appMaster._body.addClass('sidebar-mobile');
+
+                if (appMaster._sidebarIsOpen) {
+                    $(appMaster._sideHide).click();
+                }
+
+                if (appMaster._sidebarMiniIsOpen) {
+                    $(appMaster._sideMini).click();
+                }
+
+            } else {
+                appMaster._body.removeClass('sidebar-mobile');
+                if (!appMaster._sidebarIsOpen) {
+                    $(appMaster._sideHide).click();
+                }
+            }
+
+            if ($(window).width() >= 768 && $(window).width() <= 991) {
+                if (!appMaster._sidebarMiniIsOpen) {
+                    $(appMaster._sideMini).click();
+                }
+            }
+
+            if ($(window).width() >= 992) {
+                if (appMaster._sidebarMiniIsOpen) {
+                    $(appMaster._sideMini).click();
+                }
+            }
+        }
+
+        // Execute on load
+        set_sidebar();
+
+        $(window).on('resize', function () {
+            set_sidebar();
+        });
+
+    },
+
+
+
     sidebarMiniNavigation: function () {
 
         $('.navigation-main').on('mouseenter', 'li.sidebar__item', function () {
@@ -262,8 +279,10 @@ var appMaster = {
 
                 // Position
                 var fromTop;
-                if ($listItem.css("border-top")) {
-                    fromTop = sidebar_brand_height + $listItem.position().top + parseInt($listItem.css("border-top"), 10);
+
+                // Check if there is class .sidebar-fixed
+                if (!$('.sidebar-fixed').length) {
+                    fromTop = $listItem.position().top;
                 }
                 else {
                     fromTop = sidebar_brand_height + $listItem.position().top;
@@ -352,8 +371,7 @@ var appMaster = {
 
         if (typeof Cookies != 'undefined') {
             // Check cookie for sidebar mini setting
-            if (Cookies.get('sidebarMiniIs') == 'true') {
-                $('body').addClass(Cookies.get('sidebarMiniIs'));
+            if (Cookies.get('sidebarMiniIs') == 'true' && !appMaster._sidebarMiniIsOpen) {
                 $(appMaster._sideMini).click();
             }
 
@@ -361,11 +379,10 @@ var appMaster = {
             // Adapted from https://github.com/nelug/ControlDePlanilla/blob/master/app/assets/js/plugins/apps.js
             // Check the current cookie value
             // If the cookie is empty or set to not active, then add page_sidebar_minimize
-            if ($.cookie('page_sidebar_minimize') == "undefined" || $.cookie('page_sidebar_minimize') == "not_active") {
-            }
+            /*if ($.cookie('page_sidebar_minimize') == "undefined" || $.cookie('page_sidebar_minimize') == "not_active") {
+            }*/
             // If the cookie was already set to active then remove it
-            else {}
-
+            /*else {}*/
 
         } else
         {
@@ -647,6 +664,8 @@ var appMaster = {
                 $('> i', this).addClass('icon-size-fullscreen').removeClass('icon-size-actual');
             }
         });
+
+
     },
 
     popover: function () {
@@ -808,6 +827,7 @@ $(document).on("app.plugin", function () {
 $(document).ready(function () {
     appMaster.slimScroll();
     appMaster.sidebar();
+    appMaster.sidebarResponsive();
     appMaster.handleCookie();
     // appMaster.update();
     appMaster.sidebarMiniNavigation();
@@ -823,7 +843,8 @@ $(document).ready(function () {
     appMaster.numberSpinner();
     appMaster.setFooterHeight();
     appMaster.expandCollapse();
-    appMaster.responsive();
+
+
 });
 
 
