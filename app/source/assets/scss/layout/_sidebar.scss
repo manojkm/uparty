@@ -36,12 +36,12 @@
 
   // Sidebar inner wrapper
   .#{$s}__inner-wrap {
-    height: calc(100vh - #{$sidebar-footer-height});
+    //top: 0;
     //bottom: $sidebar-footer-height;
+    //position: static;
+    height: calc(100vh - #{$sidebar-footer-height});
     width: 100%;
     overflow-x: hidden;
-    position: static;
-    top: 0;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -51,7 +51,6 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-
     ul {
       outline: 0;
       padding: 0;
@@ -68,6 +67,40 @@
   .#{$s}__brand {
     padding: $sidebar-padding-y $sidebar-padding-x;
     height: $sidebar-brand-height;
+  }
+
+  // Showing sidebar and its footer if body has class (.sidebar-is-open)
+  &-is-open & {
+    width: $sidebar-width;
+    .#{$s}__inner-wrap > * {
+      @include transition;
+      @extend %o-v-show;
+    }
+    .#{$s}-footer {
+      width: $sidebar-footer-width;
+      overflow-x: hidden; // remove this after testing tomorrow
+    }
+    .#{$s}-footer__nav > ul > .#{$s}-footer__item {
+      //@extend %o-v-show;
+    }
+  }
+
+  // Hiding sidebar if body has class (.sidebar-is-closed)
+  &-is-closed & {
+    .#{$s}__inner-wrap > * {
+      @include transition;
+      @extend %o-v-none;
+      transform: translateX(-$sidebar-width);
+    }
+    .#{$s}-footer {
+      //overflow-x: hidden;
+    }
+  }
+
+  // Fixed sidebar
+  &-fixed & {
+    position: fixed;
+    left: $sidebar-width;
   }
 
   // Mini sidebar modifiers
@@ -105,39 +138,6 @@
         display: none;
       }
     }
-  }
-
-  // Hiding sidebar if body has class (.sidebar-is-closed)
-  &-is-closed & {
-    .#{$s}__inner-wrap > * {
-      @include transition;
-      @extend %o-v-none;
-      transform: translateX(-$sidebar-width);
-    }
-    .#{$s}-footer {
-      overflow-x: hidden;
-    }
-  }
-
-  // Showing sidebar and its footer if body has class (.sidebar-is-open)
-  &-is-open & {
-    width: $sidebar-width;
-    .#{$s}__inner-wrap > * {
-      @extend %o-v-show;
-      @include transition;
-    }
-    .#{$s}-footer {
-      width: $sidebar-footer-width;
-      .#{$s}-footer__nav > ul > .#{$s}-footer__item {
-        @extend %o-v-show;
-      }
-    }
-  }
-
-  // Fixed sidebar
-  &-fixed & {
-    position: fixed;
-    left: $sidebar-width;
   }
 
   // Sidebar mobile view

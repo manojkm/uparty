@@ -128,7 +128,7 @@ $s: sidebar;
 
   > .#{$s}__item > .#{$s}__child > .#{$s}__item {
     &:last-of-type {
-      padding-bottom: 10px;
+      //padding-bottom: 10px;
     }
   }
 
@@ -170,15 +170,13 @@ $s: sidebar;
 
 }
 
-.#{$s}-mini .#{$s}.popout #menu-popout-wrap{
+.#{$s}-mini .#{$s}.popout #menu-popout-wrap {
   left: $sidebar-mini-width;
   box-shadow: $header-shadow;
-  width: $sidebar-width!important;
+  width: $sidebar-width !important;
 }
 
 .#{$s}-mini .#{$s}.popout .#{$s}__list.#{$s}__list-popout {
-
-
 
   @for $i from 1 through $sidebar-submenu-max-levels {
     $selector: '';
@@ -336,7 +334,7 @@ $s: sidebar;
 
     .#{$s}-footer__nav > ul > .#{$s}-footer__item {
       @include transition;
-      @extend %o-v-none;
+      //@extend %o-v-none;
       //position: relative;
       display: flex;
       align-items: center;
