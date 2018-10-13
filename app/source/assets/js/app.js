@@ -26,10 +26,10 @@ var appMaster = {
     _sidebarFooter: $('.sidebar .sidebar-footer'),
     _sidebarFooterNav: $('.sidebar .sidebar-footer nav.sidebar-footer__nav'),
     _sidebarItem: $('.sidebar__list > .sidebar__item'),
-    _sideMini: $("[data-side='mini']"),
+    _sideMini: $("[data-toggle='sidebar-mini']"),
     _sidebarMiniIsOpen: false,
-    _sideHide: $("[data-side='hide']"),
-    _aside: $("[data-aside='show']"),
+    _sideHide: $("[data-toggle='sidebar']"),
+    _aside: $("[data-toggle='aside']"),
     _asideIsOpen: false,
     _overlay: $('.overlay'),
     _overlayIsOpen: false,
@@ -40,6 +40,7 @@ var appMaster = {
     _cardClose: $("[data-card='close']"),
     _cardCollapse: $("[data-card='collapse']"),
     _cardFullscreen: $("[data-card='fullscreen']"),
+    _wSize: $(window).width(),
     _sidebarIsOpen: false,
 
 
@@ -96,24 +97,7 @@ var appMaster = {
                     });
                 });
 
-                // Scroll to currently active menu on page load if data-scroll-to-active is true
-                if ($(appMaster._sidebarNav).data('scroll-to-active') === true) {
-                    var position;
-                    if ($(appMaster._sidebarNav).find('li.active').parents('li').length > 0) {
-                        position = $(appMaster._sidebarNav).find('li.active').parents('li').last().position();
-                    }
-                    else {
-                        position = $(appMaster._sidebarNav).find('li.active').position();
-                    }
 
-                    // var fromTop = position.top - sidebar_brand_height;
-
-                    setTimeout(function () {
-                        //$(appMaster._sidebarNav).scrollTop(position.top);
-                        $(appMaster._sidebarNav).stop().animate({scrollTop: position.top}, 500);
-                        $(appMaster._sidebarNav).data('scroll-to-active', 'false');
-                    }, 500);
-                }
 
             }
         }
@@ -167,6 +151,29 @@ var appMaster = {
 
         });
 
+        function scrollToActive() {
+            // Scroll to currently active menu on page load if data-scroll-to-active is true
+            if ($(appMaster._sidebarNav).data('scroll-to-active') === true) {
+                var position;
+                if ($(appMaster._sidebarNav).find('li.active').parents('li').length > 0) {
+                    position = $(appMaster._sidebarNav).find('li.active').parents('li').last().position();
+                }
+                else {
+                    position = $(appMaster._sidebarNav).find('li.active').position();
+                }
+
+                // var fromTop = position.top - sidebar_brand_height;
+
+                setTimeout(function () {
+                    //$(appMaster._sidebarNav).scrollTop(position.top);
+                    $(appMaster._sidebarNav).stop().animate({scrollTop: position.top}, 500);
+                    $(appMaster._sidebarNav).data('scroll-to-active', 'false');
+                }, 500);
+            }
+        }
+
+        scrollToActive();
+
         function set_sidebar_mini_hover() {
             var removeShow = null;
             $(appMaster._sidebarItem).hover(function () {
@@ -205,7 +212,9 @@ var appMaster = {
     sidebarResponsive: function () {
 
         function set_sidebar() {
-            if ($(window).width() <= 767) {
+            var vw = $(window).width(); // Viewport Width
+
+            if (vw <= 767) {
                 appMaster._body.addClass('sidebar-mobile');
 
                 if (appMaster._sidebarIsOpen) {
@@ -223,13 +232,13 @@ var appMaster = {
                 }
             }
 
-            if ($(window).width() >= 768 && $(window).width() <= 991) {
+            if (vw >= 768 && vw <= 991) {
                 if (!appMaster._sidebarMiniIsOpen) {
                     $(appMaster._sideMini).click();
                 }
             }
 
-            if ($(window).width() >= 992) {
+            if (vw >= 992) {
                 if (appMaster._sidebarMiniIsOpen) {
                     $(appMaster._sideMini).click();
                 }
@@ -244,8 +253,6 @@ var appMaster = {
         });
 
     },
-
-
 
     sidebarMiniNavigation: function () {
 
@@ -778,6 +785,28 @@ var appMaster = {
         });
     },
 
+    backToTop: function () {
+        // TODO work on this later perfectly
+        // Adapted from https://github.com/nelug/ControlDePlanilla/blob/master/app/assets/js/plugins/apps.js
+        $('#back-top').hide();
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('#back-top').addClass('d-block animated fadeInUp');
+            } else {
+                $('#back-top').removeClass('d-block animated fadeInUp');
+            }
+        });
+
+        // scroll body to 0px on click
+        $('#back-top').click(function () {
+
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    }
+
 };
 
 var Pluggin = {
@@ -843,6 +872,7 @@ $(document).ready(function () {
     appMaster.numberSpinner();
     appMaster.setFooterHeight();
     appMaster.expandCollapse();
+    appMaster.backToTop();
 
 
 });
