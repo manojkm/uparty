@@ -38,7 +38,7 @@
   .#{$s}__inner-wrap {
     //top: 0;
     //bottom: $sidebar-footer-height;
-    //position: static;
+    position: relative;
     height: calc(100vh - #{$sidebar-footer-height});
     width: 100%;
     overflow-x: hidden;
@@ -77,11 +77,12 @@
       @extend %o-v-show;
     }
     .#{$s}-footer {
+      @include transition;
       width: $sidebar-footer-width;
-      overflow-x: hidden; // remove this after testing tomorrow
+      //overflow-x: hidden; // remove this after testing tomorrow
     }
     .#{$s}-footer__nav > ul > .#{$s}-footer__item {
-      //@extend %o-v-show;
+       @extend %o-v-show;
     }
   }
 
@@ -93,7 +94,7 @@
       transform: translateX(-$sidebar-width);
     }
     .#{$s}-footer {
-      //overflow-x: hidden;
+      overflow-x: hidden;
     }
   }
 
@@ -105,10 +106,10 @@
 
   // Mini sidebar modifiers
   &-is-open.#{$s}-mini & {
-    left: 0;
     margin-left: -$sidebar-mini-width;
     width: $sidebar-mini-width;
   }
+
   &-is-open.#{$s}-mini &-fixed & {
     left: $sidebar-mini-width;
   }
@@ -121,6 +122,7 @@
   &-is-open.#{$s}-mini .#{$s}.popout{
     .#{$s}-footer {
       width: $sidebar-mini-width;
+      overflow: hidden;
 
       // Hiding Sidebar footer links
       .#{$s}-footer__nav > ul > .#{$s}-footer__item {

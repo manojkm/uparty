@@ -55,7 +55,7 @@ var appMaster = {
             // Make sure the section.app tag has the .sidebar-fixed class
             // if (!$("section.app").hasClass("sidebar-fixed")) {}
 
-           // Make sure there is class .sidebar-fixed
+           // Make sure there is class .sidebar-fixed class
             if(!$('.sidebar-fixed').length){
                 if (typeof $.fn.slimScroll != 'undefined') {
                     $(".slim-scroll").slimScroll({destroy: true}).height("auto");
@@ -71,22 +71,23 @@ var appMaster = {
                 // Destroy if it exists
                 $(".slim-scroll").slimScroll({destroy: true}).height("auto");
 
-                //var sidebar_brand_height = ($(appMaster._sidebarBrand).length) ? $(appMaster._sidebarBrand).height() : 0;
-                //var sidebar_footer_height = ($(appMaster._sidebarFooter).length) ? $(appMaster._sidebarFooter).height() : 0;
-
-                // slimScroll options
-                var options = {
-                    // height: 'auto',
-                    // height: ($(window).height() - sidebar_brand_height - sidebar_footer_height) + "px",
-                    height: '100%',
-                    distance: '0',
-                    size: '5px',
-                    railOpacity: 0.3,
-                    position: 'right'
-                };
+                 //var sidebar_brand_height = ($(appMaster._sidebarBrand).length) ? $(appMaster._sidebarBrand).height() : 0;
+                 //var sidebar_footer_height = ($(appMaster._sidebarFooter).length) ? $(appMaster._sidebarFooter).height() : 0;
 
                 // Initialize slimScroll
                 $('.slim-scroll').each(function () {
+                    // slimScroll options
+                    var options = {
+                        //height: 'auto',
+                        //height: ($(window).height() - sidebar_brand_height - sidebar_footer_height) + "px",
+                        height: '100%',
+                        distance: '0',
+                        size: '5px',
+                        railOpacity: 0.3,
+                        position: 'right',
+                        allowPageScroll: true
+                    };
+
                     var $self = $(this), $slimResize;
                     $self.slimScroll(options);
                     $(window).on('resize', function () {
@@ -96,8 +97,6 @@ var appMaster = {
                         }, 500);
                     });
                 });
-
-
 
             }
         }
@@ -292,7 +291,14 @@ var appMaster = {
 
                 // Fix the position if there is class .sidebar-fixed
                 if (!$('.sidebar-fixed').length) {
-                    fromTop = $listItem.position().top;
+
+                    // Adapted from https://stackoverflow.com/questions/12502769/how-to-get-the-div-top-position-value-while-scrolling
+                    var scrollTop = $(window).scrollTop(),
+                        divOffset = $listItem.offset().top,
+                        fromTop = (divOffset - scrollTop);
+
+
+                    //fromTop = $listItem.position().top;
                 }
                 else {
                     // Fix the position to accommodate for the height of the sidebar brand
