@@ -84,8 +84,9 @@ var appMaster = {
                         distance: '0',
                         size: '5px',
                         railOpacity: 0.3,
+                        // color: "rgba(0,0,0,0.8)",
                         position: 'right',
-                        allowPageScroll: true
+                        allowPageScroll: false
                     };
 
                     var $self = $(this), $slimResize;
@@ -107,14 +108,14 @@ var appMaster = {
     },
 
     sidebar: function () {
-
-
         // Enable sidebar toggle
-        $(appMaster._sidebarHide).on('click', function () {
+        $(appMaster._sidebarHide).on('click', function (e) {
+            e.preventDefault();
             if (appMaster._sidebarIsOpen) {
                 $(this).removeClass('collapsed');
                 appMaster._body.removeClass('sidebar-is-open').addClass('sidebar-is-closed');
                 appMaster._sidebarIsOpen = false;
+                if (!appMaster._asideIsOpen && appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
                 appMaster._stopMetisMenu([appMaster._sidebarNav, appMaster._sidebarFooterNav]);
                 console.log("Sidebar is", appMaster._sidebarIsOpen);
                 Cookies.set('sidebarIs', appMaster._sidebarIsOpen);
@@ -123,17 +124,16 @@ var appMaster = {
                 $(this).addClass('collapsed');
                 appMaster._body.removeClass('sidebar-is-closed').addClass('sidebar-is-open');
                 appMaster._sidebarIsOpen = true;
-                if (appMaster._asideIsOpen) {
-                    $(appMaster._aside).click();
-                }
+                if ($(window).width() <= 767 && !appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
+                if (appMaster._asideIsOpen) {$(appMaster._aside).click();}
                 console.log("Sidebar is", appMaster._sidebarIsOpen);
                 Cookies.set('sidebarIs', appMaster._sidebarIsOpen);
             }
         });
 
         // Enable sidebar mini toggle
-        $(appMaster._sidebarMini).on('click', function (event) {
-            event.preventDefault();
+        $(appMaster._sidebarMini).on('click', function (e) {
+            e.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
                 appMaster._body.removeClass('sidebar-mini');
@@ -249,8 +249,13 @@ var appMaster = {
             }
         }
 
-        // Execute on load and resize
-        $(window).on('load resize', set_sidebar());
+        // Execute on load
+        set_sidebar();
+
+        // Execute on resize
+        $(window).on('resize', function () {
+            set_sidebar()
+        });
 
     },
 
@@ -291,14 +296,9 @@ var appMaster = {
 
                 // Fix the position if there is class .sidebar-fixed
                 if (!$('.sidebar-fixed').length) {
-
                     // Adapted from https://stackoverflow.com/questions/12502769/how-to-get-the-div-top-position-value-while-scrolling
-                    var scrollTop = $(window).scrollTop(),
-                        divOffset = $listItem.offset().top,
-                        fromTop = (divOffset - scrollTop);
-
-
-                    //fromTop = $listItem.position().top;
+                    var scrollTop = $(window).scrollTop(), divOffset = $listItem.offset().top;
+                    fromTop = (divOffset - scrollTop);
                 }
                 else {
                     // Fix the position to accommodate for the height of the sidebar brand
@@ -316,10 +316,14 @@ var appMaster = {
                     popOutMenuHeight = winHeight - menuTop + $listItem.height() - 15;
                 }
 
+                // Get the animate class
+                var animate = $(appMaster._sidebar).data('animate');
+                var animate_selector = (appMaster._isValid(animate)) ? '' + animate : '';
+
                 // Create wrapper for popout menu
                 var iDiv = document.createElement("div");
                 iDiv.id = 'menu-popout-wrap';
-                iDiv.className = '';
+                iDiv.className = animate_selector;
                 $(appMaster._sidebarNav).append(iDiv);
 
                 // Now create UL and append to the wrapper
@@ -330,11 +334,16 @@ var appMaster = {
                 var iWrap = document.getElementById(iDiv.id);
                 $(iWrap).css({'position': 'fixed', 'top': fromTop, 'max-height': popOutMenuHeight}).append(iUl);
 
-                // Then append the whole list template onto the UL
+                // Workaround for avoiding page scroll when the slimScroll div has a content smaller than the div itself?
+                $(iWrap).on('mousewheel', function(e) {
+                    e.preventDefault();
+                });
+
+                // Append the whole list template onto the UL
                 var popOut = document.getElementById(iUl.id);
                 $(popOut).css({'max-height': popOutMenuHeight}).append(listTemplate);
 
-                // Initialize
+                // Initialize plugins
                 if ($listItem.hasClass('has-child') && $listItem.hasClass('sidebar__item')) {
 
                     // Initialize metisMenu to popout menu
@@ -348,7 +357,8 @@ var appMaster = {
                         distance: '0',
                         size: '5px',
                         railOpacity: 0.3,
-                        position: 'right'
+                        position: 'right',
+                        allowPageScroll: false
                     });
                 }
 
@@ -523,13 +533,18 @@ var appMaster = {
     overlay: function () {
         $(appMaster._overlay).click(function () {
 
+            if ($(window).width() <= 767 && appMaster._sidebarIsOpen) {
+                $(appMaster._sidebarHide).click();
+            }
+
+           /* if (appMaster._sidebarMiniIsOpen) {
+                appMaster._sidebarItem.removeClass('show');
+            }*/
+
             if (appMaster._asideIsOpen) {
                 $(appMaster._aside).click();
             }
 
-            if (appMaster._sidebarMiniIsOpen) {
-                appMaster._sidebarItem.removeClass('show');
-            }
             appMaster._toggleOverlay();
         });
     },
@@ -619,15 +634,12 @@ var appMaster = {
 
     tooltip: function () {
         $(appMaster._tooltip).each(function () {
-            function isValid(str) {
-                return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
-            }
 
             var animate = $(this).data('animate');
             var color = $(this).data('color');
 
-            var color_selector = (isValid(color)) ? ' ' + 'tooltip-' + color : '';
-            var animate_selector = (isValid(animate)) ? ' ' + animate : '';
+            var color_selector = (appMaster._isValid(color)) ? ' ' + 'tooltip-' + color : '';
+            var animate_selector = (appMaster._isValid(animate)) ? ' ' + animate : '';
 
             $(this).tooltip({
                 template: '<div class="tooltip' + color_selector + animate_selector + '" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
@@ -686,18 +698,20 @@ var appMaster = {
 
     },
 
+    _isValid: function (str) {
+        return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
+    },
+
     popover: function () {
         //TODO close button https://jsfiddle.net/vivekkupadhyay/bdkbq5sd/10/
         $(appMaster._popover).each(function () {
-            function isValid(str) {
-                return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
-            }
+
 
             var animate = $(this).data('animate');
             var color = $(this).data('color');
 
-            var color_selector = (isValid(color)) ? ' ' + 'popover-' + color : '';
-            var animate_selector = (isValid(animate)) ? ' ' + animate : '';
+            var color_selector = (appMaster._isValid(color)) ? ' ' + 'popover-' + color : '';
+            var animate_selector = (appMaster._isValid(animate)) ? ' ' + animate : '';
 
             $(this).popover({
                 template: '<div class="popover' + color_selector + animate_selector + '" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
@@ -775,8 +789,14 @@ var appMaster = {
             $('.content__inner-wrap').css('padding-bottom', footerHeight + 'px');
         }
 
-        // Execute on load and resize
-        $(window).on('load resize', set_heights());
+        // Execute on load
+          set_heights();
+
+        // Execute on resize
+        $(window).on('resize', function () {
+            set_heights()
+        });
+
     },
 
     expandCollapse: function () {
