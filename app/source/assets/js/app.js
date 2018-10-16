@@ -52,9 +52,6 @@ var appMaster = {
 
         function set_slimscroll() {
 
-            // Make sure the section.app tag has the .sidebar-fixed class
-            // if (!$("section.app").hasClass("sidebar-fixed")) {}
-
            // Make sure there is class .sidebar-fixed class
             if(!$('.sidebar-fixed').length){
                 if (typeof $.fn.slimScroll != 'undefined') {
@@ -76,6 +73,7 @@ var appMaster = {
 
                 // Initialize slimScroll
                 $('.slim-scroll').each(function () {
+
                     // slimScroll options
                     var options = {
                         //height: 'auto',
@@ -261,6 +259,15 @@ var appMaster = {
 
     sidebarMiniNavigation: function () {
 
+        // Get the animate in class
+        var animate_in = $(appMaster._sidebar).data('animate-in');
+        var animate_in_selector = (appMaster._isValid(animate_in)) ? '' + animate_in : '';
+
+        // Get the animate out class
+        var animate_out = $(appMaster._sidebar).data('animate-out');
+        var animate_out_selector = (appMaster._isValid(animate_out)) ? '' + animate_out : '';
+
+
         $('.navigation-main').on('mouseenter', 'li.sidebar__item', function () {
 
             // Get the target list item
@@ -272,7 +279,7 @@ var appMaster = {
                 $(this).children('a').attr("aria-disabled", "true");
 
                 // Reset
-                $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style"); // Destroy if slimScroll exists and remove inline style
+                //$("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style"); // Destroy if slimScroll exists and remove inline style
                 $(appMaster._sidebarNav).children('#menu-popout-wrap').remove(); // Remove wrapper for popout menu
                 $('.show', '.navigation-main').removeClass('show'); // Remove .show class from list item
 
@@ -316,14 +323,10 @@ var appMaster = {
                     popOutMenuHeight = winHeight - menuTop + $listItem.height() - 15;
                 }
 
-                // Get the animate class
-                var animate = $(appMaster._sidebar).data('animate');
-                var animate_selector = (appMaster._isValid(animate)) ? '' + animate : '';
-
                 // Create wrapper for popout menu
                 var iDiv = document.createElement("div");
                 iDiv.id = 'menu-popout-wrap';
-                iDiv.className = animate_selector;
+                iDiv.className = animate_in_selector;
                 $(appMaster._sidebarNav).append(iDiv);
 
                 // Now create UL and append to the wrapper
@@ -382,9 +385,18 @@ var appMaster = {
         $(appMaster._sidebarNav).on('mouseleave', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
                 return removePopOutMenu = setTimeout((function () {
-                    $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");  // Destroy if slimScroll exists and remove inline style
-                    $(appMaster._sidebarNav).children('#menu-popout-wrap').remove(); // Remove wrapper for popout menu
-                    $('.show', '.navigation-main').removeClass('show'); // Remove .show class from list item
+
+                    // Destroy if slimScroll exists and remove inline style
+                    $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
+
+                    // Remove wrapper for popout menu
+                    $(appMaster._sidebarNav).children('#menu-popout-wrap').removeClass(animate_in_selector).addClass(animate_out_selector).fadeToggle(500, "swing", function () {
+                        this.remove();
+                    });
+
+                    // Remove .show class from list item
+                    $('.show', '.navigation-main').removeClass('show');
+
                 }), 500);
             }
         });

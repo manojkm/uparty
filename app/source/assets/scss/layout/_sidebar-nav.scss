@@ -19,6 +19,9 @@ $s: sidebar;
 
   & {
     width: $sidebar-width;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   // Sidebar item heading
@@ -153,6 +156,7 @@ $s: sidebar;
 
   & {
     width: $sidebar-mini-width;
+    z-index: 101;
   }
 
   .#{$s}__item:not(.has-button) {
@@ -174,6 +178,7 @@ $s: sidebar;
   left: $sidebar-mini-width;
   box-shadow: $header-shadow;
   width: $sidebar-width !important;
+  z-index: 100;
 }
 
 .#{$s}-mini .#{$s}.popout .#{$s}__list.#{$s}__list-popout {

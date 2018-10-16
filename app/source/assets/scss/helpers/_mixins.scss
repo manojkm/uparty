@@ -1081,6 +1081,10 @@
     }
   }
 
+  @at-root .#{$s}-mini #{&}.popout .#{$s}__list.navigation-main {
+    @include background-theme($scheme);
+  }
+
   &.bordered .#{$s}__list:not(.#{$s}__list-popout) {
     > .#{$s}__item {
       &:hover,
