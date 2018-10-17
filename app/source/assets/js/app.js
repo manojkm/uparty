@@ -134,6 +134,7 @@ var appMaster = {
             e.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
+                appMaster.sidebarMiniNavigation().exitPopOutMenu();
                 appMaster._body.removeClass('sidebar-mini');
                 appMaster._sidebarMiniIsOpen = false;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
@@ -153,7 +154,6 @@ var appMaster = {
 
 
         // Scroll to currently active menu on page load if data-scroll-to-active is true
-
         function scrollToActive() {
             if ($(appMaster._sidebarNav).data('scroll-to-active') === true && $('.sidebar-fixed').length) {
                 var position;
@@ -257,7 +257,7 @@ var appMaster = {
 
     },
 
-    sidebarMiniNavigation: function () {
+    sidebarMiniNav: function () {
 
         // Get the animate in class
         var animate_in = $(appMaster._sidebar).data('animate-in');
@@ -375,16 +375,16 @@ var appMaster = {
         }).on('click', 'li.sidebar__item', function (e) {
         });
 
-        var removePopOutMenu = null;
+        var exitConfig = null;
         $(appMaster._sidebarNav).on('mouseenter', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
-                return clearInterval(removePopOutMenu);
+                return clearInterval(exitConfig);
             }
         });
 
-        $(appMaster._sidebarNav).on('mouseleave', function () {
+        var exitPopOutMenu = function(){
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
-                return removePopOutMenu = setTimeout((function () {
+                return exitConfig = setTimeout((function () {
 
                     // Destroy if slimScroll exists and remove inline style
                     $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
@@ -397,8 +397,12 @@ var appMaster = {
                     // Remove .show class from list item
                     $('.show', '.navigation-main').removeClass('show');
 
-                }), 500);
+                }), 1000);
             }
+        };
+
+        $(appMaster._sidebarNav).on('mouseleave', function () {
+            exitPopOutMenu();
         });
 
         // To debug: jQuery('.sidebar__list > li:nth-child(10)').trigger('mouseenter')
@@ -897,7 +901,7 @@ $(document).ready(function () {
     appMaster.sidebarResponsive();
     appMaster.handleCookie();
     // appMaster.update();
-    appMaster.sidebarMiniNavigation();
+    appMaster.sidebarMiniNav();
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
