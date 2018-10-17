@@ -42,7 +42,7 @@ var appMaster = {
     _cardFullscreen: $("[data-card='fullscreen']"),
     _wSize: $(window).width(),
     _sidebarIsOpen: false,
-    _exitPopOutMenuConfig: null,
+    _exitSidebarPopOutMenuConfig: null,
 
 
     // Add slimScroll to sidebar menus
@@ -136,6 +136,7 @@ var appMaster = {
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
                 appMaster._body.removeClass('sidebar-mini');
+                appMaster._resetSidebarPopOutMenu();
                 appMaster._sidebarMiniIsOpen = false;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
                 Cookies.set('sidebarMiniIs', appMaster._sidebarMiniIsOpen);
@@ -278,10 +279,8 @@ var appMaster = {
                 // Stop metisMenu opening the menu for the particular list
                 $(this).children('a').attr("aria-disabled", "true");
 
-                // Reset
-                //$("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style"); // Destroy if slimScroll exists and remove inline style
-                $(appMaster._sidebarNav).children('#menu-popout-wrap').remove(); // Remove wrapper for popout menu
-                $('.show', '.navigation-main').removeClass('show'); // Remove .show class from list item
+                // Reset popout menu if mouse moves between list items, otherwise it leaves the previous one.
+                appMaster._resetSidebarPopOutMenu();
 
                 // Clone and adjustments
                 var listTemplate = $listItem.clone();
@@ -375,27 +374,30 @@ var appMaster = {
         }).on('click', 'li.sidebar__item', function (e) {
         });
 
-        // var exitConfig = null;
         $(appMaster._sidebarNav).on('mouseenter', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
-                return clearInterval(appMaster._exitPopOutMenuConfig);
+                return clearInterval(appMaster._exitSidebarPopOutMenuConfig);
             }
         });
 
-
+        // Remove popout menu if mouse leaves sidebar navigation
         $(appMaster._sidebarNav).on('mouseleave', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
-                appMaster._exitPopOutMenu(animate_in_class, animate_out_class);
+                appMaster._exitSidebarPopOutMenu(animate_in_class, animate_out_class);
             }
         });
 
         // To debug: jQuery('.sidebar__list > li:nth-child(10)').trigger('mouseenter')
     },
 
+    _resetSidebarPopOutMenu: function () {
+        $(appMaster._sidebarNav).children('#menu-popout-wrap').remove(); // Remove wrapper for popout menu
+        $('.navigation-main li.sidebar__item.show').removeClass('show'); // Remove .show class from list item
+    },
 
-    _exitPopOutMenu: function ($animate_in_class, $animate_out_class) {
+    _exitSidebarPopOutMenu: function ($animate_in_class, $animate_out_class) {
 
-            return appMaster._exitPopOutMenuConfig = setTimeout((function () {
+            return appMaster._exitSidebarPopOutMenuConfig = setTimeout((function () {
 
                 // Destroy if slimScroll exists and remove inline style
                 $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
@@ -406,10 +408,9 @@ var appMaster = {
                 });
 
                 // Remove .show class from list item
-                $('.show', '.navigation-main').removeClass('show');
+                $('.navigation-main li.sidebar__item.show').removeClass('show');
 
             }), 1000);
-
     },
 
 
