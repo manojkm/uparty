@@ -42,6 +42,7 @@ var appMaster = {
     _cardFullscreen: $("[data-card='fullscreen']"),
     _wSize: $(window).width(),
     _sidebarIsOpen: false,
+    _exitPopOutMenuConfig: null,
 
 
     // Add slimScroll to sidebar menus
@@ -134,7 +135,6 @@ var appMaster = {
             e.preventDefault();
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
-                appMaster.sidebarMiniNavigation().exitPopOutMenu();
                 appMaster._body.removeClass('sidebar-mini');
                 appMaster._sidebarMiniIsOpen = false;
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
@@ -257,15 +257,15 @@ var appMaster = {
 
     },
 
-    sidebarMiniNav: function () {
+    sidebarPopOutMenu: function () {
 
         // Get the animate in class
         var animate_in = $(appMaster._sidebar).data('animate-in');
-        var animate_in_selector = (appMaster._isValid(animate_in)) ? '' + animate_in : '';
+        var animate_in_class = (appMaster._isValid(animate_in)) ? '' + animate_in : '';
 
         // Get the animate out class
         var animate_out = $(appMaster._sidebar).data('animate-out');
-        var animate_out_selector = (appMaster._isValid(animate_out)) ? '' + animate_out : '';
+        var animate_out_class = (appMaster._isValid(animate_out)) ? '' + animate_out : '';
 
 
         $('.navigation-main').on('mouseenter', 'li.sidebar__item', function () {
@@ -326,7 +326,7 @@ var appMaster = {
                 // Create wrapper for popout menu
                 var iDiv = document.createElement("div");
                 iDiv.id = 'menu-popout-wrap';
-                iDiv.className = animate_in_selector;
+                iDiv.className = animate_in_class;
                 $(appMaster._sidebarNav).append(iDiv);
 
                 // Now create UL and append to the wrapper
@@ -375,38 +375,43 @@ var appMaster = {
         }).on('click', 'li.sidebar__item', function (e) {
         });
 
-        var exitConfig = null;
+        // var exitConfig = null;
         $(appMaster._sidebarNav).on('mouseenter', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
-                return clearInterval(exitConfig);
+                return clearInterval(appMaster._exitPopOutMenuConfig);
             }
         });
 
-        var exitPopOutMenu = function(){
-            if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
-                return exitConfig = setTimeout((function () {
-
-                    // Destroy if slimScroll exists and remove inline style
-                    $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
-
-                    // Remove wrapper for popout menu
-                    $(appMaster._sidebarNav).children('#menu-popout-wrap').removeClass(animate_in_selector).addClass(animate_out_selector).fadeToggle(500, "swing", function () {
-                        this.remove();
-                    });
-
-                    // Remove .show class from list item
-                    $('.show', '.navigation-main').removeClass('show');
-
-                }), 1000);
-            }
-        };
 
         $(appMaster._sidebarNav).on('mouseleave', function () {
-            exitPopOutMenu();
+            if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
+                appMaster._exitPopOutMenu(animate_in_class, animate_out_class);
+            }
         });
 
         // To debug: jQuery('.sidebar__list > li:nth-child(10)').trigger('mouseenter')
     },
+
+
+    _exitPopOutMenu: function ($animate_in_class, $animate_out_class) {
+
+            return appMaster._exitPopOutMenuConfig = setTimeout((function () {
+
+                // Destroy if slimScroll exists and remove inline style
+                $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
+
+                // Remove wrapper for popout menu
+                $(appMaster._sidebarNav).children('#menu-popout-wrap').removeClass($animate_in_class).addClass($animate_out_class).fadeToggle(500, "swing", function () {
+                    this.remove();
+                });
+
+                // Remove .show class from list item
+                $('.show', '.navigation-main').removeClass('show');
+
+            }), 1000);
+
+    },
+
 
     /* Manage Cookie */
     handleCookie: function () {
@@ -901,7 +906,7 @@ $(document).ready(function () {
     appMaster.sidebarResponsive();
     appMaster.handleCookie();
     // appMaster.update();
-    appMaster.sidebarMiniNav();
+    appMaster.sidebarPopOutMenu();
     appMaster.overlay();
     appMaster.dropdown();
     appMaster.aside();
