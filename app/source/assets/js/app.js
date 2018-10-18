@@ -300,7 +300,7 @@ var appMaster = {
                 // Position
                 var fromTop;
 
-                // Fix the position if there is class .sidebar-fixed
+                // Fix the position if there is no class .sidebar-fixed
                 if (!$('.sidebar-fixed').length) {
                     // Adapted from https://stackoverflow.com/questions/12502769/how-to-get-the-div-top-position-value-while-scrolling
                     var scrollTop = $(window).scrollTop(), divOffset = $listItem.offset().top;
@@ -319,7 +319,7 @@ var appMaster = {
                 if ($listItem.hasClass('has-child') && $listItem.hasClass('sidebar__item')) {
                     menuTop = fromTop;
                     winHeight = $(window).height() - $(appMaster._header).height();
-                    popOutMenuHeight = winHeight - menuTop + $listItem.height() - 15;
+                    popOutMenuHeight = winHeight - menuTop + $listItem.height() - 20;
                 }
 
                 // Create wrapper for popout menu
@@ -364,6 +364,7 @@ var appMaster = {
                     });
                 }
 
+                // Set an active class on hover
                 $listItem.addClass('show');
             }
         }).on('mouseleave', 'li.sidebar__item', function () {
