@@ -513,8 +513,8 @@ $general-transition-duration:           0.5s !default;
 $zindex: (
         number-spinner:                 100,
         overlay:                        800,
-        header:                         850,
         footer:                         850,
+        header:                         860,
         aside:                          860,
         dropdown:                       1000,
         chosen-drop:                    1010,
@@ -563,6 +563,23 @@ $screen-md-max:                         ($screen-lg-min - 1) !default; // 991px
 
 // Large devices (desktops, less than 1200px)
 $screen-lg-max:                         ($screen-xl-min - 1) !default; // 1999px
+
+// Breakpoints map to define the minimum width for different screen sizes.
+$breakpoints-min-widths: (
+        xs: $screen-xs-min,
+        sm: $screen-sm-min,
+        md: $screen-md-min,
+        lg: $screen-lg-min,
+        xl: $screen-xl-min
+) !default;
+
+// Breakpoints map to define the maximum width for different screen sizes.
+$breakpoints-max-widths: (
+        xs: $screen-xs-max,
+        sm: $screen-sm-max,
+        md: $screen-md-max,
+        lg: $screen-lg-max
+) !default;
 
 //
 // 4.14 CURSORS
@@ -659,20 +676,44 @@ $page-title-padding-x:                  0; // Horizontal padding for 'page title
 //
 // 6.3 GLOBAL HEADER & NAVBAR
 // -----------------------------------------------------------------------------
-$header-theme-scheme:                   header !default; // Theme color scheme applied to header. NOTE: Retrieved from active theme palette map from `themes/theme-*`
-$header-height:                         50px !default;
-$navbar-font-size:                      $font-size-sm;
-$navbar-font-weight:                    $font-wh-regular;
-$navbar-text-font-size:                 $navbar-font-size;
-$navbar-text-font-weight:               $font-wh-regular;
-$navbar-item-mobile-bottom-border:      true;
+$header-height:                                 50px !default;
+$navbar-font-size:                              $font-size-sm;
+$navbar-font-weight:                            $font-wh-regular;
+$navbar-text-font-size:                         $navbar-font-size;
+$navbar-text-font-weight:                       $font-wh-regular;
+$navbar-nav-item-mobile-bottom-border:          true;
+$navbar-nav-item-mobile-bottom-border-size:     1px;
+
+// Navbar link with icon (.has-icon-left / .has-icon-right)
+
+$nav-link-icon-padding-right:           5px !default; // Spacing inside navbar link with icon on left
+$nav-link-icon-padding-left:            5px !default; // Spacing inside navbar link with icon on right
+
+// Navbar theme
+
+$navbar-theme-scheme:                   header !default; // Theme color scheme applied to header. NOTE: Retrieved from active theme palette map from `themes/theme-*`
+$navbar-color:                          theme-partial-color($navbar-theme-scheme, font-color);
+$navbar-link-color:                     theme-partial-color($navbar-theme-scheme, font-link-color);
+$navbar-hover-color:                    theme-partial-color($navbar-theme-scheme, font-hover-color);
+$navbar-active-color:                   theme-partial-color($navbar-theme-scheme, font-active-color);
+
+// Navbar fonts against a dark background
+
+$navbar-dark-color:                     $opacity-white-8;
+$navbar-dark-link-color:                $opacity-white-8;
+$navbar-dark-hover-color:               $white-color;
+$navbar-dark-active-color:              $white-color;
+
+// Navbar fonts against a light background
+
+$navbar-light-color:                    $opacity-black-7;
+$navbar-light-link-color:               $opacity-black-7;
+$navbar-light-hover-color:              $black-color;
+$navbar-light-active-color:             $black-color;
 
 //
 // 6.4 GLOBAL SIDEBAR
 // -----------------------------------------------------------------------------
-
-$sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. NOTE: Retrieved from active theme palette map from `themes/theme-*`
-//$sidebar-active-border-theme-scheme:    primary !default; // Theme color scheme applied to active sidebar menu item. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
 
 $sidebar-width:                         225px; // Sidebar Size
 $sidebar-padding-y:                     0px; // Sidebar vertical padding.
@@ -732,9 +773,32 @@ $sidebar-footer-icon-font-size:         15px;
 
 $sidebar-mini-width:                    50px;
 
-// Sidebar type with border on active item
+// Sidebar type with border on hover/active item
 
 $sidebar-active-border-type-size:       2px;
+$sidebar-active-border-theme-scheme:    primary !default; // Theme color scheme applied to active sidebar menu item. NOTE: Retrieved from active theme palette map from `themes/theme-*`. Possible values  are 'primary' and 'secondary'.
+
+// Sidebar theme
+
+$sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. NOTE: Retrieved from active theme palette map from `themes/theme-*`
+$sidebar-color:                         theme-partial-color($sidebar-theme-scheme, font-color);
+$sidebar-link-color:                    theme-partial-color($sidebar-theme-scheme, font-link-color);
+$sidebar-hover-color:                   theme-partial-color($sidebar-theme-scheme, font-hover-color);
+$sidebar-active-color:                  theme-partial-color($sidebar-theme-scheme, font-active-color);
+
+// Sidebar fonts against a dark background
+
+$sidebar-dark-color:                    $opacity-white-8;
+$sidebar-dark-link-color:               $opacity-white-8;
+$sidebar-dark-hover-color:              $white-color;
+$sidebar-dark-active-color:             $white-color;
+
+// Sidebar fonts against a light background
+
+$sidebar-light-color:                   $opacity-black-7;
+$sidebar-light-link-color:              $opacity-black-7;
+$sidebar-light-hover-color:             $black-color;
+$sidebar-light-active-color:            $black-color;
 
 //
 // 6.5 GLOBAL ASIDE - 2nd SIDEBAR
@@ -805,8 +869,8 @@ $btn-border-radius-xl:                  $border-radius-xl; // Border radius to a
 
 // Button with icon (.has-icon-left / .has-icon-right)
 
-$btn-icon-padding-left:                 5px !default; // Left padding for icon with buttons on right
-$btn-icon-padding-right:                5px !default; // Right padding for icon with buttons on left
+$btn-icon-padding-left:                 5px !default; // Spacing inside buttons with icon on right
+$btn-icon-padding-right:                5px !default; // Spacing inside buttons with icon on left
 $btn-icon-lh:                           $btn-line-height !default; // Line height for icon to align vertically with the button.
 
 // Rounded button type (.btn-round)
@@ -976,7 +1040,7 @@ $custom-file-text:                                      (en: "\e089   Browse") !
 
 $dropdown-width:                        auto; // Dropdown menu container width.
 $dropdown-min-width:                    12rem;
-$dropdown-max-width:                    15rem;
+//$dropdown-max-width:                    15rem;
 $dropdown-bg:                           $white-color; // Background color for the dropdown menu container.
 $dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius to add rounded corners
 
@@ -984,6 +1048,7 @@ $dropdown-font-size:                    $font-size-sm; // Dropdown menu item fon
 $dropdown-header-font-size:             $font-size-xs; // Dropdown section headers font size.
 
 $dropdown-margin-top:                   15px; // Positioning first level dropdown menu.
+$dropdown-margin-bottom:                15px; // Used for dropdowns in navbar nav (.navbar-nav) with .navbar-expand{-sm|-md|-lg|-xl} for responsive collapsing.
 $dropdown-padding-y:                    5px; // Dropdown menu container vertical padding.
 $dropdown-padding-x:                    0px; // Dropdown menu container horizontal padding.
 

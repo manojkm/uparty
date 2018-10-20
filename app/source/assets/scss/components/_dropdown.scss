@@ -21,19 +21,19 @@
     @include set-border-radius($dropdown-border-radius);
     z-index: map-get($zindex, dropdown);
     width: $dropdown-width;
-    max-width: $dropdown-max-width;
+    //max-width: $dropdown-max-width;
     min-width: $dropdown-min-width;
     padding: $dropdown-padding-y $dropdown-padding-x;
     margin-top: $dropdown-margin-top; // Positioning first level dropdown menu
     background-color: $dropdown-bg;
     box-shadow: $dropdown-shadow;
 
-    @include max-screen($screen-md-max) {
+    /*@include max-screen($screen-md-max) {
       //width: 100%;
       //max-width: 90%;
       box-shadow: none;
       margin: $dropdown-margin-top auto;
-    }
+    }*/
   }
 
   // Dropdown top arrow
@@ -237,7 +237,7 @@
   &,
   .dropdown-menu {
     @include background-theme($dropdown-ext-theme-scheme, 'base');
-    border: 0;
+    //border: 0;
   }
 
   // Dropdown top arrow colors
@@ -246,8 +246,8 @@
   }
 
   &:after {
-    @include border-theme($dropdown-ext-theme-scheme, 'dark', $position: bottom);
-    display: none;
+    //@include border-theme($dropdown-ext-theme-scheme, 'dark', $position: bottom);
+    //display: none;
   }
 
   // Dropdown section headers
@@ -293,7 +293,7 @@
 }
 
 // Remove the arrow in dropdown to replace with Icon (.no-arr)
-.dropdown-toggle.no-arr {
+.dropdown-toggle.no-arrow {
   &:after {
     //display: none;
     content: none;
@@ -344,7 +344,7 @@
   }
 }
 
-//Dropleft variation
+// Dropleft variation
 .dropleft {
   .dropdown-menu.extended {
     margin-top: 0;

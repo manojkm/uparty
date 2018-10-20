@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : header-nav.scss
-// Description    : Handles styling exclusive to the page's navbar.
+// Description    : Handles styling exclusive to the page's navigation header, the navbar.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -8,139 +8,142 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-.master-header__navbar {
-  position: relative;
-  flex-direction: row;
+$nb: navbar;
+.master-header__#{$nb} {
 
-  // Change the brand and text color
-  .navbar-brand {
-    @include color($header-theme-scheme, 'font-color');
-  }
-
-  .navbar-text {
-    @include color($header-theme-scheme, 'font-color');
-    @include opacity(0.8);
+  .#{$nb}-text {
     font-size: $navbar-text-font-size;
     font-weight: $navbar-text-font-weight;
-    display: flex;
-    align-items: center;
   }
 
-  .navbar-nav {
-    display: flex;
-    align-items: stretch;
-  }
+  .#{$nb}-nav {
 
-  .nav-item {
-    position: relative;
-    text-align: center;
-    display: flex;
-    //align-items: center;
-    flex-direction: row;
+    .nav-item {
+      font-size: $navbar-font-size;
+      font-weight: $navbar-font-weight;
+      position: relative;
 
-    @include max-screen($screen-md-max) {
-      @if bool($navbar-item-mobile-bottom-border) == true {
-        @include border-bottom-color($header-theme-scheme, 'light');
-        border-bottom: 1px solid;
-      } @else {
+      @include max-screen($screen-md-max) {
+        @if bool($navbar-nav-item-mobile-bottom-border) == true {
+          &::after {
+            content: '';
+            height: $navbar-nav-item-mobile-bottom-border-size;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            opacity: 0.2;
+          }
+        }
+      }
+
+      &:last-of-type {
         border-bottom: 0
       }
     }
 
-    &:last-of-type {
-      border-bottom: 0
-    }
+    // Navbar menu links
+    .nav-link {
+      @include transition;
+      font-size: $navbar-font-size;
+      font-weight: $navbar-font-weight;
+      min-width: 50px;
+      position: relative;
+      display: flex;
+      align-items: center;
 
-    // Change the color of open, show, active links for better highlighting
-    &.open > .nav-link,
-    &.show > .nav-link,
-    &.active > .nav-link {
-      @include background-color($header-theme-scheme, 'light');
-      @include color($header-theme-scheme, 'font-active-color');
-    }
-  }
-
-  // Navbar menu links
-  .nav-link {
-    @include transition;
-    @include color($header-theme-scheme, 'font-link-color');
-    font-size: $navbar-font-size;
-    font-weight: $navbar-font-weight;
-    position: relative;
-    background-color: transparent;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: center;
-    min-width: 50px;
-
-    @include max-screen($screen-md-max) {
-      justify-content: flex-start;
-    }
-
-    &.disabled {
-      @include opacity(0.3);
-      cursor: $cursor-not-allowed;
-      background-color: transparent;
-    }
-
-    // Change the hover, focus, active state links for better highlighting
-
-    #{$hover-tags} {
-      @include color($header-theme-scheme, 'font-hover-color');
-      @include background-color($header-theme-scheme, 'light');
-    }
-
-    #{$focus-tags},
-    #{$active-tags} {
-      @include background-color($header-theme-scheme, 'light');
-      @include color($header-theme-scheme, 'font-active-color');
-    }
-
-    // Navbar menu notification badge
-    .badge {
-      /* position: absolute;
-       right: 0.33rem;
-       margin-top: -0.33rem;*/
-      left: auto;
-      top: 0;
-      right: 0.33rem;
-      @include max-screen($screen-md-max) {
-        margin-top: 0;
-        right: 1em;
+      &.disabled {
+        @include opacity(0.3);
+        cursor: $cursor-not-allowed;
+        background-color: transparent;
       }
 
-      animation-name: scaleCount;
-      animation-iteration-count: 1;
-      animation-timing-function: all;
-      animation-duration: 1s;
-      animation-delay: 0s;
+      // Navbar menu notification badge
+      .badge {
+        /* position: absolute;
+         right: 0.33rem;
+         margin-top: -0.33rem;*/
+        left: auto;
+        top: 0;
+        right: 0.33rem;
+        @include max-screen($screen-md-max) {
+          margin-top: 0;
+          right: 1em;
+        }
 
-      @keyframes scaleCount {
-        0% {
-          transform: scale(0);
-        }
-        40% {
-          transform: scale(1);
-        }
-        60% {
-          transform: scale(.5);
-        }
-        80% {
-          transform: scale(1.25);
-        }
       }
 
+      // Helper classes to make sure the icons are perfectly aligned on either sides of text.
+      &.has-icon-left {
+        #{$icon-tags} {
+          padding: 0 $nav-link-icon-padding-right 0 0;
+        }
+      }
+      &.has-icon-right {
+        #{$icon-tags} {
+          padding: 0 0 0 $nav-link-icon-padding-left;
+        }
+      }
     }
-  }
 
-}
-
-@include max-screen($screen-md-max) {
-  .navbar-collapse {
-    //max-height: 300px;
-    //overflow-y: scroll;
   }
 }
 
+// Generate series of `.#{$nb}-expand-*` responsive classes for configuring
+// where your navbar collapses.
+
+@each $size, $length in $breakpoints-max-widths {
+  $next: breakpoint-next($size, $breakpoints-min-widths);
+  @include max-screen(#{$length}) {
+    .#{$nb}-expand-#{$next} {
+      .#{$nb}-nav .dropdown-menu {
+        margin-bottom: $dropdown-margin-bottom;
+        &:before,
+        &:after {
+          display: none;
+        }
+      }
+      .#{$nb}-collapse {
+        //max-height: 300px;
+        max-height: calc(100vh - #{$header-height});
+        overflow-y: scroll;
+      }
+    }
+  }
+}
+
+//
+// NAVBAR THEMES
+// ======================================================
+
+.master-header__#{$nb}.#{$nb}-bg-themed {
+  @include navbar-theme($navbar-theme-scheme, $navbar-color, $navbar-link-color, $navbar-hover-color, $navbar-active-color, $bg: true, $font: true);
+}
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $tone in $colors {
+    .master-header__#{$nb}.#{$nb}-bg-#{$scheme} {
+      @include navbar-theme($scheme, $bg: true, $font: false);
+    }
+  }
+}
+
+// Contextual variations
+@each $scheme, $tone in $contextual-palette-map {
+  .master-header__#{$nb}.#{$nb}-bg-#{$scheme} {
+    @include navbar-theme($scheme, $bg: true, $font: false);
+  }
+}
+
+// Styles for switching between navbars with light or dark background.
+
+// White fonts against a dark background
+.master-header__#{$nb}.#{$nb}-dark{
+  @include navbar-theme('', $navbar-dark-color, $navbar-dark-link-color, $navbar-dark-hover-color, $navbar-dark-active-color, $bg: false, $font: true);
+}
+
+// Dark fonts against a light background
+.master-header__#{$nb}.#{$nb}-light{
+  @include navbar-theme('', $navbar-light-color, $navbar-light-link-color, $navbar-light-hover-color, $navbar-light-active-color, $bg: false, $font: true);
+}

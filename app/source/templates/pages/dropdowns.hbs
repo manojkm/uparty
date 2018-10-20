@@ -214,9 +214,9 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Dropdown with text'}}}
                 {{#card_body}}
                     <!-- Dropdown with text -->
-                    <p>Place any freeform text within a dropdown menu with text and use spacing utilities.</p>
+                    <p>Place any freeform text within a dropdown menu with text and use spacing, sizing utilities.</p>
                     <div class="example">
-                        {{#ddw_menu_has 'extended themed'}}
+                        {{#ddw_menu_has 'extended themed w-75'}}
                             {{{ddw_header 'Dropdown header'}}}
                             <li><p class="px-2 py-2 mb-0 text-white">Some example text that's free-flowing within the dropdown menu.</p></li>
                             {{#ddw_items dropdowns.items}}
@@ -238,7 +238,7 @@ OR you can type out the HTML if you prefer--}}
                 {{#card_body}}
                     <!-- Dropdown with forms -->
                     <div class="example">
-                        {{#ddw_menu_has 'extended themed'}}
+                        {{#ddw_menu_has 'extended themed w-75'}}
                             <form class="px-3 py-3">
                                 <div class="form-group">
                                     <label for="exampleDropdownFormEmail1" class="text-white">Email address</label>

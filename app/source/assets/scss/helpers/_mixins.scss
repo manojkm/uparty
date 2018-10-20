@@ -986,31 +986,44 @@
 // SIDEBAR THEME
 // ======================================================
 
-@mixin sidebar-theme-test($scheme, $font-color, $font-link-color, $font-hover-color, $font-active-color) {
+@mixin sidebar-theme($scheme: null, $font-color: null, $font-link-color: null, $font-hover-color: null, $font-active-color: null, $bg: false, $font: false) {
 
   $s: sidebar;
 
-  @include background-theme($scheme);
+  @if bool($bg) == true {
+    & {
+      @include background-theme($scheme);
+    }
+  }
 
-  .#{$s}__inner-wrap {
-    color: $font-color;
+  @if bool($font) == true {
+    .#{$s}__inner-wrap {
+      color: $font-color;
+    }
   }
 
   .#{$s}__list {
-    .#{$s}__item-header {
-      color: $font-color;
-      &::after {
+
+    @if bool($font) == true {
+      .#{$s}__item-header {
+        color: $font-color;
+        &::after {
+          background-color: $font-color;
+        }
+      }
+    }
+
+    @if (bool($bg) == true and bool($enable-sidebar-divider-underline-type)==true) {
+      .#{$s}__divider {
         @include background-theme($scheme, 'xx-light');
       }
     }
-    .#{$s}__divider {
-      @if bool($enable-sidebar-divider-underline-type)==true {
-        @include background-theme($scheme, 'xx-light');
-      }
-    }
+
     .#{$s}__item {
-      > .#{$s}__link {
-        color: $font-link-color;
+      @if bool($font) == true {
+        > .#{$s}__link {
+          color: $font-link-color;
+        }
       }
 
       // Change the hover, focus, active state links for better highlighting
@@ -1018,61 +1031,70 @@
       &.show,
       &.active {
         > .#{$s}__link {
-          @include background-theme($scheme, 'dark');
-          color: $font-hover-color;
+          @if bool($font) == true {
+            color: $font-hover-color;
+          }
+          @if bool($bg) == true {
+            @include background-theme($scheme, 'dark');
+          }
         }
       }
 
-      // Current item
-      &.active {
-        > .#{$s}__link {
-          color: $font-active-color;
+      @if bool($font) == true {
+        // Current item
+        &.active {
+          > .#{$s}__link {
+            color: $font-active-color;
+          }
         }
       }
     }
-    .#{$s}__child {
-      @include background-theme($scheme, 'dark');
 
-      .#{$s}__item {
+    @if bool($bg) == true {
+      .#{$s}__child {
+        @include background-theme($scheme, 'dark');
 
-        // Change the hover, focus, active state links for better highlighting
+        .#{$s}__item {
 
-        //&.show,
-        &:hover
-        {
-          > .#{$s}__link:not(.has-arrow) {
-            @include background-theme($scheme, 'x-dark');
+          // Change the hover, focus, active state links for better highlighting
+          //&.show,
+          &:hover {
+            > .#{$s}__link:not(.has-arrow) {
+              @include background-theme($scheme, 'x-dark');
+            }
           }
-        }
 
-        // Current item
-        &.active {
-          > .#{$s}__link:not(.has-arrow) {
-            @include background-theme($scheme, 'xx-dark');
+          // Current item
+          &.active {
+            > .#{$s}__link:not(.has-arrow) {
+              @include background-theme($scheme, 'xx-dark');
+            }
           }
         }
       }
     }
   }
 
-  // Collapsible sidebar
-  @at-root .#{$s}-mini #{&}.collapsible {
-    &:not(:hover) {
-      .#{$s}__list {
-        .#{$s}__divider {
-          @include background-theme($scheme, 'xx-light');
-        }
-        > .#{$s}__item:not(.has-button) {
-          > .#{$s}__child {
-            &::before {
-              @include border-theme($scheme, 'xx-light', 'left');
-            }
+  @if bool($bg) == true {
+    // Sidebar - Collapsible
+    @at-root .#{$s}-mini #{&}.collapsible {
+      &:not(:hover) {
+        .#{$s}__list {
+          .#{$s}__divider {
+            @include background-theme($scheme, 'xx-light');
           }
-
-          .#{$s}__child {
-            .#{$s}__item.active > .#{$s}__link {
+          > .#{$s}__item:not(.has-button) {
+            > .#{$s}__child {
               &::before {
-                @include background-theme($scheme, 'xx-light');
+                @include border-theme($scheme, 'xx-light', 'left');
+              }
+            }
+
+            .#{$s}__child {
+              .#{$s}__item.active > .#{$s}__link {
+                &::before {
+                  @include background-theme($scheme, 'xx-light');
+                }
               }
             }
           }
@@ -1081,87 +1103,186 @@
     }
   }
 
-  @at-root .#{$s}-mini #{&}.popout .#{$s}__list.navigation-main {
-    @include background-theme($scheme);
-  }
-
-  &.bordered .#{$s}__list:not(.#{$s}__list-popout) {
-    > .#{$s}__item {
-      &:hover,
-      &.show,
-      &.active {
-        &::before {
-          display: block;
-          border-left-color: $font-active-color;
-        }
-      }
+  @if bool($bg) == true {
+    // Sidebar - Popout
+    @at-root .#{$s}-mini #{&}.popout .#{$s}__list.navigation-main {
+      @include background-theme($scheme);
     }
   }
 
   .#{$s}-footer {
-    @include background-theme($scheme);
-    @include border-theme($scheme, 'dark', $position: top);
+
+    @if bool($bg) == true {
+      @include background-theme($scheme);
+      @include border-theme($scheme, 'dark', $position: top);
+    }
 
     .#{$s}-footer__item {
-
-      > .#{$s}-footer__link {
-        color: $font-link-color;
+      @if bool($font) == true {
+        > .#{$s}-footer__link {
+          color: $font-link-color;
+        }
       }
 
       &:hover {
         > .#{$s}-footer__link {
-          @include background-theme($scheme, 'dark');
-          color: $font-hover-color;
+          @if bool($bg) == true {
+            @include background-theme($scheme, 'dark');
+          }
+          @if bool($font) == true {
+            color: $font-hover-color;
+          }
         }
       }
 
       &.active {
         > .#{$s}-footer__link {
-          @include background-theme($scheme, 'dark');
-          color: $font-active-color;
+          @if bool($bg) == true {
+            @include background-theme($scheme, 'dark');
+          }
+          @if bool($font) == true {
+            color: $font-active-color;
+          }
         }
       }
     }
 
-    .#{$s}-footer__child {
-      .#{$s}-footer__item {
-        &:hover {
-          > .#{$s}-footer__link:not(.has-arrow) {
-            @include background-theme($scheme, 'x-dark');
+    @if bool($bg) == true {
+      .#{$s}-footer__child {
+        .#{$s}-footer__item {
+          &:hover {
+            > .#{$s}-footer__link:not(.has-arrow) {
+              @include background-theme($scheme, 'x-dark');
+            }
           }
-        }
 
-        &.active {
-          > .#{$s}-footer__link:not(.has-arrow) {
-            @include background-theme($scheme, 'xx-dark');
+          &.active {
+            > .#{$s}-footer__link:not(.has-arrow) {
+              @include background-theme($scheme, 'xx-dark');
+            }
           }
         }
       }
     }
 
     .#{$s}-footer__nav > ul > .#{$s}-footer__item > .#{$s}-footer__child {
-      @include background-theme($scheme, 'dark');
-      border-top-color: $font-active-color;
+      @if bool($bg) == true {
+        @include background-theme($scheme, 'dark');
+      }
+      @if bool($font) == true {
+        border-top-color: $font-active-color;
+      }
     }
 
     // Sidebar mini toggle button
     .#{$s}__footer--toggler {
-
-      .icon-bar {
-        background-color: $font-link-color;
-      }
-
-      &.collapsed,
-      &:hover {
-        @include background-theme($scheme, 'dark');
+      @if bool($font) == true {
         .icon-bar {
-          background-color: $font-active-color;
+          background-color: $font-link-color;
         }
       }
+      &.collapsed,
+      &:hover {
+        @if bool($bg) == true {
+          @include background-theme($scheme, 'dark');
+        }
+        @if bool($font) == true {
+          .icon-bar {
+            background-color: $font-active-color;
+          }
+        }
+      }
+    }
 
+  }
+
+}
+
+//
+// NAVBAR THEME
+// ======================================================
+@mixin navbar-theme($scheme: null, $font-color: null, $font-link-color: null, $font-hover-color: null, $font-active-color: null, $bg: false, $font: false) {
+  $nb: navbar;
+
+  @if bool($bg) == true {
+    & {
+      @include background-theme($scheme);
     }
   }
 
+  @if bool($font) == true {
+    // Change the brand color
+    .#{$nb}-brand {
+      color: $font-link-color;
+      // Change the hover and focus state for better highlighting
+      #{$hover-focus-tags} {
+        color: $font-hover-color;
+      }
+    }
+  }
+
+  .#{$nb}-nav {
+    @if bool($bg) == true {
+      .nav-item {
+        @include max-screen($screen-md-max) {
+          @if bool($navbar-nav-item-mobile-bottom-border) == true {
+            &::after {
+              background-color: $font-color;
+            }
+          }
+        }
+      }
+    }
+
+    // Navbar menu links
+    .nav-link {
+      @if bool($font) == true {
+        color: $font-link-color;
+      }
+
+      // Change the hover, focus, active state links for better highlighting
+      #{$hover-focus-tags} {
+        @if bool($font) == true {
+          color: $font-hover-color;
+        }
+        @if bool($bg) == true {
+          @include background-theme($scheme, 'dark');
+        }
+      }
+
+      @if bool($font) == true {
+        &.disabled {
+          color: $font-link-color !important;
+        }
+      }
+    }
+
+    // Change the color of open, show, active links for better highlighting
+    .open > .nav-link,
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      @if bool($bg) == true {
+        @include background-theme($scheme, 'x-dark');
+      }
+      @if bool($font) == true {
+        color: $font-active-color;
+      }
+    }
+  }
+
+  @if bool($font) == true {
+    .#{$nb}-text {
+      color: $font-color;
+      a {
+        color: $font-link-color;
+        #{$hover-focus-tags} {
+          color: $font-hover-color;
+        }
+      }
+    }
+  }
 }
 
 //

@@ -45,10 +45,22 @@
           $value == "false" or
           $value == 'false' or
           $value == 0 {
-    @return false;
-  }
+            @return false;
+          }
   @return true;
 }
+
+//
+// GET THE NAME OF NEXT BREAKPOINT.
+// ======================================================
+// Adapted from Bootstrap
+
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+
 
 //
 // ROUNDING DECIMALS

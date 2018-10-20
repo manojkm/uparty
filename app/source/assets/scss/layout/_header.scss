@@ -14,7 +14,6 @@
 .master-header {
   @include transition;
   @include clearfix;
-  @include background-theme($header-theme-scheme);
   position: absolute;
   left: 0;
   right: 0;
@@ -27,7 +26,6 @@
 
   // Header inner wrapper
   &__inner-wrap {
-    @include color($header-theme-scheme, 'font-color');
     width: 100%;
   }
 

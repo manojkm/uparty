@@ -45,6 +45,7 @@ $s: sidebar;
         position: absolute;
         width: 100%;
         margin-left: 5px;
+        opacity: 0.5;
         @include center(y);
       }
     }
@@ -156,7 +157,7 @@ $s: sidebar;
 
   & {
     width: $sidebar-mini-width;
-    z-index: 101;
+    z-index: 101; // Require for sidebar animations like 'fadeInLeft', 'slideInLeft' etc...
   }
 
   .#{$s}__item:not(.has-button) {
@@ -178,7 +179,7 @@ $s: sidebar;
   left: $sidebar-mini-width;
   box-shadow: $header-shadow;
   width: $sidebar-width !important;
-  z-index: 100;
+  z-index: 100; // Require for sidebar animations like 'fadeInLeft', 'slideInLeft' etc...
 }
 
 .#{$s}-mini .#{$s}.popout .#{$s}__list.#{$s}__list-popout {
@@ -196,6 +197,10 @@ $s: sidebar;
 
   }
 
+}
+
+.#{$s}-mini .#{$s}.popout .#{$s}-footer{
+  z-index: 102;
 }
 
 //
@@ -311,6 +316,16 @@ $s: sidebar;
       display: none;
       z-index: 50;
     }
+
+   &:hover,
+   &.show,
+   &.active {
+     &::before {
+       display: block;
+       @include border-theme($sidebar-active-border-theme-scheme, 'base', $position: left);
+     }
+   }
+
   }
 }
 
@@ -342,13 +357,13 @@ $s: sidebar;
        @extend %o-v-none;
       //position: relative;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
       flex: 1;
 
       > .#{$s}-footer__link {
         @include transition;
-        height: 100%;
+        //height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -419,8 +434,9 @@ $s: sidebar;
       position: relative;
       border: 0;
       cursor: $cursor-pointer;
-      height: 100%;
-      width: 100%;
+      /*height: 100%;
+      width: 100%;*/
+      flex: 1;
       padding: 0;
       margin: 0;
     }
@@ -432,10 +448,35 @@ $s: sidebar;
 // SIDEBAR THEMES
 // ======================================================
 
-.#{$s}.#{$s}-themed{
-  $font-color: theme-partial-color($sidebar-theme-scheme, font-color);
-  $font-link-color: theme-partial-color($sidebar-theme-scheme, font-link-color);
-  $font-hover-color: theme-partial-color($sidebar-theme-scheme, font-hover-color);
-  $font-active-color: theme-partial-color($sidebar-theme-scheme, font-active-color);
-  @include sidebar-theme-test($sidebar-theme-scheme, $font-color, $font-link-color, $font-hover-color, $font-active-color);
+.#{$s}.#{$s}-bg-themed {
+  @include sidebar-theme($sidebar-theme-scheme, $sidebar-color, $sidebar-link-color, $sidebar-hover-color, $sidebar-active-color, $bg: true, $font: true);
+}
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $tone in $colors {
+    .#{$s}.#{$s}-bg-#{$scheme} {
+      @include sidebar-theme($scheme,$bg: true, $font: false);
+    }
+  }
+}
+
+// Contextual variations
+@each $scheme, $tone in $contextual-palette-map {
+  .#{$s}.#{$s}-bg-#{$scheme} {
+    @include sidebar-theme($scheme, $bg: true, $font: false);
+  }
+}
+
+// Styles for switching between sidebar with light or dark background.
+
+// White fonts against a dark background
+.#{$s}.#{$s}-dark{
+  @include sidebar-theme('', $sidebar-dark-color, $sidebar-dark-link-color, $sidebar-dark-hover-color, $sidebar-dark-active-color, $bg: false, $font: true);
+}
+
+// Dark fonts against a light background
+.#{$s}.#{$s}-light{
+  @include sidebar-theme('', $sidebar-light-color, $sidebar-light-link-color, $sidebar-light-hover-color, $sidebar-light-active-color, $bg: false, $font: true);
 }

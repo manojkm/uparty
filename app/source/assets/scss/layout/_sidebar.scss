@@ -22,7 +22,7 @@
 .sidebar {
   $s: sidebar;
   @include transition;
-  @include background-theme($sidebar-theme-scheme);
+  //@include background-theme($sidebar-theme-scheme);
   padding-bottom: $sidebar-footer-height;
   position: absolute;
   top: 0;
@@ -72,14 +72,14 @@
   // Showing sidebar and its footer if body has class (.sidebar-is-open)
   &-is-open & {
     width: $sidebar-width;
+
     .#{$s}__inner-wrap > * {
       @include transition;
       @extend %o-v-show;
     }
     .#{$s}-footer {
-      @include transition;
+      //@include transition;
       width: $sidebar-footer-width;
-      //overflow-x: hidden; // remove this after testing tomorrow
     }
     .#{$s}-footer__nav > ul > .#{$s}-footer__item {
        @extend %o-v-show;
@@ -125,15 +125,15 @@
       overflow: hidden;
 
       // Hiding Sidebar footer links
-      .#{$s}-footer__nav > ul > .#{$s}-footer__item {
+      .#{$s}-footer__nav > ul > .#{$s}-footer__item:not(.mini) {
         @extend %o-v-none;
         width: 0;
-        flex: auto;
+        flex: 0;
       }
 
       // Keep showing sidebar mini toggle button
       .#{$s}-footer__nav > ul > .#{$s}-footer__item.mini {
-        @extend %o-v-show;
+        //@extend %o-v-show;
         width: $sidebar-mini-width;
       }
       .#{$s}-footer__child {
