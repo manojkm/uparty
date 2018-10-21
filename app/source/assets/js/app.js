@@ -414,6 +414,9 @@ var appMaster = {
             }), 1000);
     },
 
+    navbar: function (){
+
+    },
 
     /* Manage Cookie */
     handleCookie: function () {
@@ -906,6 +909,7 @@ $(document).ready(function () {
     appMaster.slimScroll();
     appMaster.sidebar();
     appMaster.sidebarResponsive();
+    appMaster.navbar();
     appMaster.handleCookie();
     // appMaster.update();
     appMaster.sidebarPopOutMenu();

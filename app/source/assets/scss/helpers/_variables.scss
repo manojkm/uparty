@@ -676,18 +676,40 @@ $page-title-padding-x:                  0; // Horizontal padding for 'page title
 //
 // 6.3 GLOBAL HEADER & NAVBAR
 // -----------------------------------------------------------------------------
-$header-height:                                 50px !default;
-$navbar-font-size:                              $font-size-sm;
-$navbar-font-weight:                            $font-wh-regular;
-$navbar-text-font-size:                         $navbar-font-size;
-$navbar-text-font-weight:                       $font-wh-regular;
-$navbar-nav-item-mobile-bottom-border:          true;
-$navbar-nav-item-mobile-bottom-border-size:     1px;
+$header-height:                         50px !default;
+$navbar-padding-y:                      (1rem / 2) !default;
+$navbar-padding-x:                      1rem !default;
+
+// Navbar link and item (navbar-item and nav-link)
+
+$navbar-font-size:                      $font-size-sm;
+$navbar-font-weight:                    $font-wh-regular;
+$navbar-line-height:                    $lh-base;
+$navbar-link-min-width:                 50px; // Minimum width of navbar link
+$navbar-link-padding-y:                 .7rem !default;
+$navbar-link-padding-x:                 .5rem !default;
+
+$navbar-item-mobile-bottom-border:      true;
+$navbar-item-mobile-bottom-border-size: 1px;
+
+// Navbar text
+
+$navbar-text-font-size:                 $navbar-font-size;
+$navbar-text-font-weight:               $navbar-font-weight;
+$navbar-text-line-height:               $navbar-line-height;
+
+// Navbar brand
+
+$navbar-brand-font-size:                $font-size-lg !default;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+$nav-link-height:                       ($navbar-font-size * $navbar-line-height + $navbar-link-padding-y * 2) !default;
+$navbar-brand-height:                   $navbar-brand-font-size * $navbar-line-height !default;
+$navbar-brand-padding-y:                ($nav-link-height - $navbar-brand-height) / 2 !default;
 
 // Navbar link with icon (.has-icon-left / .has-icon-right)
 
-$nav-link-icon-padding-right:           5px !default; // Spacing inside navbar link with icon on left
-$nav-link-icon-padding-left:            5px !default; // Spacing inside navbar link with icon on right
+$navbar-link-icon-padding-right:        5px !default; // Spacing inside navbar link with icon on left
+$navbar-link-icon-padding-left:         5px !default; // Spacing inside navbar link with icon on right
 
 // Navbar theme
 
