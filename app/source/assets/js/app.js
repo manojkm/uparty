@@ -26,9 +26,13 @@ var appMaster = {
     _sidebarFooter: $('.sidebar .sidebar-footer'),
     _sidebarFooterNav: $('.sidebar .sidebar-footer nav.sidebar-footer__nav'),
     _sidebarItem: $('.sidebar__list > .sidebar__item'),
-    _sidebarMini: $("[data-toggle='sidebar-mini']"),
-    _sidebarMiniIsOpen: false,
     _sidebarHide: $("[data-toggle='sidebar']"),
+    _sidebarMini: $("[data-toggle='sidebar-mini']"),
+    _sidebarIsOpen: false,
+    _sidebarMiniIsOpen: false,
+    _exitSidebarPopOutMenuConfig: null,
+    _navbarToggler: $(".navbar-toggler"),
+    _navbarCollapsibleContentIs: false,
     _aside: $("[data-toggle='aside']"),
     _asideIsOpen: false,
     _overlay: $('.overlay'),
@@ -41,8 +45,7 @@ var appMaster = {
     _cardCollapse: $("[data-card='collapse']"),
     _cardFullscreen: $("[data-card='fullscreen']"),
     _wSize: $(window).width(),
-    _sidebarIsOpen: false,
-    _exitSidebarPopOutMenuConfig: null,
+
 
 
     // Add slimScroll to sidebar menus
@@ -69,8 +72,8 @@ var appMaster = {
                 // Destroy if it exists
                 $(".slim-scroll").slimScroll({destroy: true}).height("auto");
 
-                 //var sidebar_brand_height = ($(appMaster._sidebarBrand).length) ? $(appMaster._sidebarBrand).height() : 0;
-                 //var sidebar_footer_height = ($(appMaster._sidebarFooter).length) ? $(appMaster._sidebarFooter).height() : 0;
+                  var sidebar_brand_height = ($(appMaster._sidebarBrand).length) ? $(appMaster._sidebarBrand).height() : 0;
+                  var sidebar_footer_height = ($(appMaster._sidebarFooter).length) ? $(appMaster._sidebarFooter).height() : 0;
 
                 // Initialize slimScroll
                 $('.slim-scroll').each(function () {
@@ -78,7 +81,7 @@ var appMaster = {
                     // slimScroll options
                     var options = {
                         //height: 'auto',
-                        //height: ($(window).height() - sidebar_brand_height - sidebar_footer_height) + "px",
+                        // height: ($(window).height() - sidebar_brand_height - sidebar_footer_height) + "px",
                         height: '100%',
                         distance: '0',
                         size: '5px',
@@ -104,6 +107,23 @@ var appMaster = {
         // Execute on load
         set_slimscroll();
 
+    },
+
+    navbar: function (){
+        // Enable navbar toggle
+        $(appMaster._navbarToggler).on('click', function (e) {
+            e.preventDefault();
+            if (appMaster._navbarCollapsibleContentIs) {
+                appMaster._navbarCollapsibleContentIs = false;
+                console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
+                Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
+            }
+            else {
+                appMaster._navbarCollapsibleContentIs = true;
+                console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
+                Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
+            }
+        });
     },
 
     sidebar: function () {
@@ -150,9 +170,7 @@ var appMaster = {
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
                 Cookies.set('sidebarMiniIs', appMaster._sidebarMiniIsOpen);
             }
-
         });
-
 
         // Scroll to currently active menu on page load if data-scroll-to-active is true
         function scrollToActive() {
@@ -174,7 +192,6 @@ var appMaster = {
                 }, 500);
             }
         }
-
         scrollToActive();
 
         function set_sidebar_mini_hover() {
@@ -207,9 +224,7 @@ var appMaster = {
 
             });
         }
-
         // set_sidebar_mini_hover();
-
     },
 
     sidebarResponsive: function () {
@@ -267,7 +282,6 @@ var appMaster = {
         // Get the animate out class
         var animate_out = $(appMaster._sidebar).data('animate-out');
         var animate_out_class = (appMaster._isValid(animate_out)) ? '' + animate_out : '';
-
 
         $('.navigation-main').on('mouseenter', 'li.sidebar__item', function () {
 
@@ -392,6 +406,7 @@ var appMaster = {
     },
 
     _resetSidebarPopOutMenu: function () {
+        $("ul#menu-popout").slimScroll({destroy: true}); // Destroy if slimScroll exists and remove inline style
         $(appMaster._sidebarNav).children('#menu-popout-wrap').remove(); // Remove wrapper for popout menu
         $('.navigation-main li.sidebar__item.show').removeClass('show'); // Remove .show class from list item
     },
@@ -414,9 +429,6 @@ var appMaster = {
             }), 1000);
     },
 
-    navbar: function (){
-
-    },
 
     /* Manage Cookie */
     handleCookie: function () {
