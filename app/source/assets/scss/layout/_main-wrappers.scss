@@ -42,17 +42,19 @@
   flex-direction: column;
   flex-grow: 1;
 
-  .sidebar-is-open & {
-   @include transition;
+  .sidebar-is-open:not(.sidebar-mobile) & {
+   //@include transition;
     margin-left: $sidebar-width;
   }
-  .sidebar-is-open.sidebar-mobile & {
-    margin-right: -$sidebar-width;
-  }
+
   .sidebar-is-open.sidebar-mini & {
-    @include transition;
+    //@include transition;
     margin-left: $sidebar-mini-width;
   }
+
+  /*.sidebar-is-open.sidebar-mobile & {
+    margin-right: -$sidebar-width;
+  }*/
 }
 
 //

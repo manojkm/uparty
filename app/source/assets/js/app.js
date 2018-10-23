@@ -918,7 +918,7 @@ $(document).on("app.plugin", function () {
 //----------------------------------*/
 
 $(document).ready(function () {
-    appMaster.slimScroll();
+    // appMaster.slimScroll();
     appMaster.sidebar();
     appMaster.sidebarResponsive();
     appMaster.navbar();

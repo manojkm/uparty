@@ -30,16 +30,16 @@
     position: fixed;
   }
 
-  .sidebar-is-open .header-fixed & {
+  .sidebar-is-open:not(.sidebar-mobile) .header-fixed & {
     margin-left: $sidebar-width;
-  }
-
-  .sidebar-mobile.sidebar-is-open .header-fixed & {
-    margin-right: -$sidebar-width;
   }
 
   .sidebar-is-open.sidebar-mini .header-fixed & {
     margin-left: $sidebar-mini-width;
   }
 
+  /*.sidebar-mobile.sidebar-is-open .header-fixed & {
+    margin-right: -$sidebar-width;
+  }
+*/
 }

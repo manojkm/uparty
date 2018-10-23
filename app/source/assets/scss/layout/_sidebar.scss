@@ -78,16 +78,16 @@
       @extend %o-v-show;
     }
     .#{$s}-footer {
-      //@include transition;
       width: $sidebar-footer-width;
     }
     .#{$s}-footer__nav > ul > .#{$s}-footer__item {
-       @extend %o-v-show;
+      @extend %o-v-show;
     }
   }
 
   // Hiding sidebar if body has class (.sidebar-is-closed)
   &-is-closed & {
+
     .#{$s}__inner-wrap > * {
       @include transition;
       @extend %o-v-none;
@@ -104,6 +104,18 @@
     left: $sidebar-width;
   }
 
+  &-mobile:not(&-fixed) & {
+    left: $sidebar-width;
+  }
+
+  &-mobile.#{$s}-mini:not(&-fixed) & {
+    left: 0;
+  }
+
+ /* &-mobile.#{$s}-mini & {
+    left: 0
+  }*/
+
   // Mini sidebar modifiers
   &-is-open.#{$s}-mini & {
     margin-left: -$sidebar-mini-width;
@@ -116,10 +128,10 @@
 
   // Collapsible and Popout sidebar modifiers
   &-is-open.#{$s}-mini .#{$s}.collapsible:hover {
-    width:  $sidebar-width;
+    width: $sidebar-width;
   }
   &-is-open.#{$s}-mini .#{$s}.collapsible:not(:hover),
-  &-is-open.#{$s}-mini .#{$s}.popout{
+  &-is-open.#{$s}-mini .#{$s}.popout {
     .#{$s}-footer {
       width: $sidebar-mini-width;
       overflow: hidden;

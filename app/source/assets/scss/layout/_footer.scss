@@ -34,16 +34,15 @@
     position: fixed;
   }
 
-  .sidebar-is-open .footer-fixed & {
+  .sidebar-is-open:not(.sidebar-mobile) .footer-fixed & {
     margin-left: $sidebar-width;
-  }
-
-  .sidebar-mobile.sidebar-is-open .footer-fixed & {
-    margin-right: -$sidebar-width;
   }
 
   .sidebar-is-open.sidebar-mini .footer-fixed & {
     margin-left: $sidebar-mini-width;
   }
 
+  /*.sidebar-mobile.sidebar-is-open .footer-fixed & {
+    margin-right: -$sidebar-width;
+  }*/
 }
