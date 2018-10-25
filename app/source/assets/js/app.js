@@ -243,6 +243,10 @@ var appMaster = {
                     $(appMaster._sidebarMini).click();
                 }
 
+                if (appMaster._asideIsOpen) {
+                    $(appMaster._aside).click();
+                }
+
             } else {
                 appMaster._body.removeClass('sidebar-mobile');
                 if (!appMaster._sidebarIsOpen) {
@@ -463,8 +467,10 @@ var appMaster = {
             // Adapted from https://codepen.io/j_holtslander/pen/XmpMEp TODO, nice adaption, so pls learn and correct the above methods
             if (appMaster._asideIsOpen) {
                 $(this).addClass('collapsed');
-                appMaster._body.removeClass('aside-is-open');
-                appMaster._toggleOverlay();
+                appMaster._body.removeClass('aside-is-open').addClass('aside-is-closed');
+                appMaster._asideIsOpen = false;
+
+                if (appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
 
                 if (sidebarMiniIsOpenedByAside) {
                     $(appMaster._sidebarMini).click();
@@ -472,20 +478,23 @@ var appMaster = {
                     console.log("Sidebar mini by aside is", sidebarMiniIsOpenedByAside);
                 }
 
-                appMaster._asideIsOpen = false;
                 console.log("Aside is", appMaster._asideIsOpen);
+                Cookies.set('Aside', appMaster._asideIsOpen);
             }
             else {
                 $(this).removeClass('collapsed');
-                appMaster._body.addClass('aside-is-open');
+                appMaster._body.removeClass('aside-is-closed').addClass('aside-is-open');
+                appMaster._asideIsOpen = true;
+                if (!appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
+
                 if (!appMaster._sidebarMiniIsOpen) {
                     $(appMaster._sidebarMini).click();
                     sidebarMiniIsOpenedByAside = true;
                     console.log("Sidebar mini by aside is", sidebarMiniIsOpenedByAside);
                 }
-                appMaster._toggleOverlay();
-                appMaster._asideIsOpen = true;
+
                 console.log("Aside is", appMaster._asideIsOpen);
+                Cookies.set('Aside', appMaster._asideIsOpen);
             }
             // appMaster._stopMetisMenu();
         });
@@ -571,19 +580,16 @@ var appMaster = {
     overlay: function () {
         $(appMaster._overlay).click(function () {
 
+            if (appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
+
             if ($(window).width() <= 767 && appMaster._sidebarIsOpen) {
                 $(appMaster._sidebarHide).click();
             }
-
-           /* if (appMaster._sidebarMiniIsOpen) {
-                appMaster._sidebarItem.removeClass('show');
-            }*/
 
             if (appMaster._asideIsOpen) {
                 $(appMaster._aside).click();
             }
 
-            appMaster._toggleOverlay();
         });
     },
 
@@ -592,17 +598,17 @@ var appMaster = {
 
         // if opened is true, then we will want to close the overlay as it will mean its already visible.
         if (appMaster._overlayIsOpen) {
+            appMaster._overlayIsOpen = false;
             $(appMaster._overlay).fadeOut(250, function () {
                 $(this).hide();
-                appMaster._overlayIsOpen = false;
                 console.log("Overlay is", appMaster._overlayIsOpen);
             });
         }
         // if false, then we want to open the overlay.
         else {
+            appMaster._overlayIsOpen = true;
             $(appMaster._overlay).fadeIn(250, function () {
                 $(this).show();
-                appMaster._overlayIsOpen = true;
                 console.log("Overlay is", appMaster._overlayIsOpen);
             });
         }
@@ -918,7 +924,7 @@ $(document).on("app.plugin", function () {
 //----------------------------------*/
 
 $(document).ready(function () {
-    // appMaster.slimScroll();
+    appMaster.slimScroll();
     appMaster.sidebar();
     appMaster.sidebarResponsive();
     appMaster.navbar();
