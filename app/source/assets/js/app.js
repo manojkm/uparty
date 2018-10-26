@@ -88,6 +88,8 @@ var appMaster = {
                         railOpacity: 0.3,
                         // color: "rgba(0,0,0,0.8)",
                         position: 'right',
+                        touchScrollStep: 50,
+                        alwaysVisible: false,
                         allowPageScroll: false
                     };
 
@@ -378,6 +380,8 @@ var appMaster = {
                         size: '5px',
                         railOpacity: 0.3,
                         position: 'right',
+                        touchScrollStep: 50,
+                        alwaysVisible: false,
                         allowPageScroll: false
                     });
                 }

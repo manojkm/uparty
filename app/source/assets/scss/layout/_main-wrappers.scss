@@ -43,12 +43,10 @@
   flex-grow: 1;
 
   .sidebar-is-open:not(.sidebar-mobile) & {
-   //@include transition;
     margin-left: $sidebar-width;
   }
 
   .sidebar-is-open.sidebar-mini & {
-    //@include transition;
     margin-left: $sidebar-mini-width;
   }
 
