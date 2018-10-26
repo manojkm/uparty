@@ -98,23 +98,16 @@
     }
   }
 
+  // Sidebar mobile view
+  &-mobile & {
+    left: $sidebar-width;
+  }
+
   // Fixed sidebar
   &-fixed & {
     position: fixed;
     left: $sidebar-width;
   }
-
-  &-mobile:not(&-fixed) & {
-    left: $sidebar-width;
-  }
-
-  &-mobile.#{$s}-mini:not(&-fixed) & {
-    left: 0;
-  }
-
- /* &-mobile.#{$s}-mini & {
-    left: 0
-  }*/
 
   // Mini sidebar modifiers
   &-is-open.#{$s}-mini & {
@@ -125,6 +118,11 @@
   &-is-open.#{$s}-mini &-fixed & {
     left: $sidebar-mini-width;
   }
+
+  &-mobile.#{$s}-mini & {
+    left: 0;
+  }
+
 
   // Collapsible and Popout sidebar modifiers
   &-is-open.#{$s}-mini .#{$s}.collapsible:hover {
@@ -141,6 +139,12 @@
         @extend %o-v-none;
         width: 0;
         flex: 0;
+
+        > .#{$s}-footer__link {
+          i {
+           display: none;
+          }
+        }
       }
 
       // Keep showing sidebar mini toggle button
@@ -155,9 +159,9 @@
   }
 
   // Sidebar mobile view
-  &-mobile & {
+/*  &-mobile & {
     overflow-y: auto;
-  }
+  }*/
 }
 
 // TODO sidebar variant from https://github.com/tannguyent/autoregistry-vue-netcore-ddd/blob/master/AutoRegistryClassDDD/scss/components/_sidebar.scss

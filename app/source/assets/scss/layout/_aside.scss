@@ -10,24 +10,29 @@
 
 // Wraps all aside elements
 .aside {
-  @include background-color($aside-theme-scheme, 'base');
-  @include color($aside-theme-scheme, 'font-color');
   @include transition;
-  transform: translateX(115%); // Hiding aide as default
-  width: $sidebar-width;
+  @include background-color($aside-theme-scheme, 'xx-light');
+  @include color($aside-theme-scheme, 'font-color');
+  transform: translateX(250px); // Hiding aide as default
   padding-bottom: $footer-min-height;
-  position: absolute;
   top: $header-height;
+  width: $sidebar-width;
   right: 0;
   bottom: 0;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  height: 100%;
   z-index: map-get($zindex, aside);
+
+  .aside-is-open & {
+    @include transition;
+    position: absolute;
+    transform: none; // Showing aside if body has .aside-is-open class
+  }
 
   .header-fixed & {
     position: fixed;
-  }
-
-  .aside-is-open & {
-    transform: translateX(0); // Showing aside if body has .aside-is-open class
   }
 
   &__inner-wrap {
