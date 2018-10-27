@@ -27,9 +27,10 @@
   position: absolute;
   top: 0;
  //bottom: 0;
-  height: 100vh;
+  height: 100%;
   margin-left: -$sidebar-width;
   width: 0;
+  left: 0;
   z-index: map-get($zindex, sidebar);
   display: flex;
   flex-direction: column;
@@ -88,7 +89,6 @@
 
   // Hiding sidebar if body has class (.sidebar-is-closed)
   &-is-closed & {
-
     .#{$s}__inner-wrap > * {
       @include transition;
       @extend %o-v-none;
@@ -160,9 +160,9 @@
   }
 
   // Sidebar mobile view
-  &-mobile & {
+ /* &-mobile & {
     overflow-y: auto;
-  }
+  }*/
 }
 
 // TODO sidebar variant from https://github.com/tannguyent/autoregistry-vue-netcore-ddd/blob/master/AutoRegistryClassDDD/scss/components/_sidebar.scss

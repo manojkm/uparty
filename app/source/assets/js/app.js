@@ -117,15 +117,26 @@ var appMaster = {
             e.preventDefault();
             if (appMaster._navbarCollapsibleContentIs) {
                 appMaster._navbarCollapsibleContentIs = false;
+                appMaster._exitNavbarScroll();
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
             else {
                 appMaster._navbarCollapsibleContentIs = true;
+                appMaster._setNavbarScroll();
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
         });
+    },
+
+    _setNavbarScroll: function () {
+
+    },
+
+
+    _exitNavbarScroll:function () {
+
     },
 
     sidebar: function () {
