@@ -184,6 +184,10 @@ $s: sidebar;
 
 .#{$s}-mini .#{$s}.popout .#{$s}__list.#{$s}__list-popout {
 
+ /* overflow: hidden;
+  overflow-y: scroll;*/
+  overflow-x: hidden;
+
   @for $i from 1 through $sidebar-submenu-max-levels {
     $selector: '';
 
