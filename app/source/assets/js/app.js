@@ -20,6 +20,7 @@ var appMaster = {
     _logo: $('.sidebar__brand__logo'),
     _header: $('.master-header'),
     _sidebar: $('.sidebar'),
+    _sidebarFixed: $('.sidebar-fixed'),
     _sidebarBrand: $('.sidebar .sidebar__brand'),
     _sidebarNav: $('.sidebar nav.sidebar__nav'),
     _sidebarList: $('.sidebar .sidebar__list'),
@@ -32,6 +33,8 @@ var appMaster = {
     _sidebarIsOpen: false,
     _sidebarMiniIsOpen: false,
     _exitSidebarPopOutMenuConfig: null,
+    _navbarFixed: $('.header-fixed'),
+    _navbarSlimScroll: true,
     _navbarToggler: $(".navbar-toggler"),
     _navbarCollapsibleContentIs: false,
     _aside: $("[data-toggle='aside']"),
@@ -55,44 +58,46 @@ var appMaster = {
 
         // function set_slimscroll() {}
 
-            // Make sure there is fixed-element
-            if(!$(fixedElement).length){
-                if (typeof $.fn.slimScroll != 'undefined') {
-                    $(slimScrollElement).slimScroll({destroy: true}).height("auto");
-                }
-                return;
-            } else if (typeof $.fn.slimScroll == 'undefined') {
-                throw new Error('Please install slimScroll plugin! https://github.com/rochal/jQuery-slimScroll');
-            }
-
-            // Enable slimScroll for the fixed-element
+        // Make sure there is fixed-element
+        if (!$(fixedElement).length) {
             if (typeof $.fn.slimScroll != 'undefined') {
-
-                // Destroy if it exists
                 $(slimScrollElement).slimScroll({destroy: true}).height("auto");
-
-                // Initialize slimScroll
-                $(slimScrollElement).each(function () {
-
-                    var $self = $(this), $slimResize;
-
-                    $self.slimScroll(options);
-
-                    $(window).on('resize', function () {
-                        clearTimeout($slimResize);
-                        $slimResize = setTimeout(function () {$self.slimScroll(options);}, 500);
-                    });
-
-                });
-
             }
+            return;
+        } else if (typeof $.fn.slimScroll == 'undefined') {
+            throw new Error('Please install slimScroll plugin! https://github.com/rochal/jQuery-slimScroll');
+        }
+
+        // Enable slimScroll for the fixed-element
+        if (typeof $.fn.slimScroll != 'undefined') {
+
+            // Destroy if it exists
+            $(slimScrollElement).slimScroll({destroy: true}).height("auto");
+
+            // Initialize slimScroll
+            $(slimScrollElement).each(function () {
+
+                /*var $self = $(this), $slimResize;
+
+                 $self.slimScroll(options);
+
+                 $(window).on('resize', function () {
+                 clearTimeout($slimResize);
+                 $slimResize = setTimeout(function () {$self.slimScroll(options);}, 500);
+                 });*/
+
+                var $self = $(this);
+                $self.slimScroll(options);
+            });
+
+        }
 
         // Execute on load
         // set_slimscroll();
 
     },
 
-    navbar: function (){
+    navbar: function () {
         // Enable navbar toggle
         $(appMaster._navbarToggler).on('click', function (e) {
             e.preventDefault();
@@ -104,7 +109,12 @@ var appMaster = {
             }
             else {
                 appMaster._navbarCollapsibleContentIs = true;
-                appMaster._fixedNavbarScroll();
+
+                // Add slimScroll to fixed navbar layout
+                if (appMaster._navbarSlimScroll) {
+                    appMaster._fixedNavbarScroll();
+                }
+
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
@@ -113,14 +123,25 @@ var appMaster = {
 
     // Add slimScroll to fixed navbar layout
     _fixedNavbarScroll: function () {
+        var options = {
+            height: '100%',
+            distance: '0',
+            size: '5px',
+            railOpacity: 0.3,
+            position: 'right',
+            touchScrollStep: 50,
+            alwaysVisible: false,
+        };
 
+        appMaster.slimScroll($(appMaster._navbarFixed), '.navbar-collapse', options);
     },
 
-    _exitNavbarScroll:function () {
-
+    _exitNavbarScroll: function () {
+        $('.navbar-collapse').slimScroll({destroy: true}); // Destroy if slimScroll exists
     },
 
     sidebar: function () {
+
         // Enable sidebar toggle
         $(appMaster._sidebarHide).on('click', function (e) {
             e.preventDefault();
@@ -128,7 +149,9 @@ var appMaster = {
                 $(this).removeClass('collapsed');
                 appMaster._body.removeClass('sidebar-is-open').addClass('sidebar-is-closed');
                 appMaster._sidebarIsOpen = false;
-                if (!appMaster._asideIsOpen && appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
+                if (!appMaster._asideIsOpen && appMaster._overlayIsOpen) {
+                    appMaster._toggleOverlay();
+                }
                 appMaster._stopMetisMenu([appMaster._sidebarNav, appMaster._sidebarFooterNav]);
                 console.log("Sidebar is", appMaster._sidebarIsOpen);
                 Cookies.set('sidebarIs', appMaster._sidebarIsOpen);
@@ -137,8 +160,12 @@ var appMaster = {
                 $(this).addClass('collapsed');
                 appMaster._body.removeClass('sidebar-is-closed').addClass('sidebar-is-open');
                 appMaster._sidebarIsOpen = true;
-                if ($(window).width() <= 767 && !appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
-                if (appMaster._asideIsOpen) {$(appMaster._aside).click();}
+                if ($(window).width() <= 767 && !appMaster._overlayIsOpen) {
+                    appMaster._toggleOverlay();
+                }
+                if (appMaster._asideIsOpen) {
+                    $(appMaster._aside).click();
+                }
                 console.log("Sidebar is", appMaster._sidebarIsOpen);
                 Cookies.set('sidebarIs', appMaster._sidebarIsOpen);
             }
@@ -168,12 +195,16 @@ var appMaster = {
 
         // Add slimScroll to fixed sidebar layout
         if (appMaster._sidebarSlimScroll) {
-            // appMaster._fixedSidebarScroll();
+            appMaster._fixedSidebarScroll();
+
+            $(window).on('resize', function () {
+                appMaster._fixedSidebarScroll();
+            });
         }
 
         // Scroll to currently active menu on page load if data-scroll-to-active is true
         function scrollToActive() {
-            if ($(appMaster._sidebarNav).data('scroll-to-active') === true && $('.sidebar-fixed').length) {
+            if ($(appMaster._sidebarNav).data('scroll-to-active') === true && $(appMaster._sidebarFixed).length) {
                 var position;
                 if ($(appMaster._sidebarNav).find('li.active').parents('li').length > 0) {
                     position = $(appMaster._sidebarNav).find('li.active').parents('li').last().position();
@@ -191,6 +222,7 @@ var appMaster = {
                 }, 500);
             }
         }
+
         scrollToActive();
 
         function set_sidebar_mini_hover() {
@@ -223,6 +255,7 @@ var appMaster = {
 
             });
         }
+
         // set_sidebar_mini_hover();
 
     },
@@ -233,8 +266,8 @@ var appMaster = {
         var options = {
             //color: "rgba(0,0,0,0.8)",
             //height: 'auto',
+            //height: '100%',
             height: ($(window).height() - sidebar_brand_height - sidebar_footer_height) + "px",
-            // height: '100%',
             distance: '0',
             size: '5px',
             railOpacity: 0.3,
@@ -244,10 +277,10 @@ var appMaster = {
             allowPageScroll: false
         };
 
-        appMaster.slimScroll('.sidebar-fixed', $(appMaster._sidebarNav), options);
+        appMaster.slimScroll($(appMaster._sidebarFixed), $(appMaster._sidebarNav), options);
     },
 
-    _exitSidebarScroll:function () {
+    _exitSidebarScroll: function () {
     },
 
     responsive: function () {
@@ -285,7 +318,7 @@ var appMaster = {
 
             if (vw >= 992) {
                 if (appMaster._sidebarMiniIsOpen) {
-                    $(appMaster._sidebarMini).click();
+                    // $(appMaster._sidebarMini).click();
                 }
             }
         }
@@ -335,20 +368,20 @@ var appMaster = {
                     $(listTemplate).addClass("active"); // Required by metisMenu for parent li element to open by default
                 }
 
-                // Get the sidebar brand height
-                var sidebar_brand_height = ($(appMaster._sidebarBrand).length) ? $(appMaster._sidebarBrand).height() : 0;
-
                 // Position
                 var fromTop;
-
-                // Fix the position if there is no class .sidebar-fixed
-                if (!$('.sidebar-fixed').length) {
-                    // Adapted from https://stackoverflow.com/questions/12502769/how-to-get-the-div-top-position-value-while-scrolling
+                var calcFromTop = function () {
                     var scrollTop = $(window).scrollTop(), divOffset = $listItem.offset().top;
                     fromTop = (divOffset - scrollTop);
+                };
+
+                // Fix the position if there is no class .sidebar-fixed
+                if (!$(appMaster._sidebarFixed).length) {
+                    // Adapted from https://stackoverflow.com/questions/12502769/how-to-get-the-div-top-position-value-while-scrolling
+                    calcFromTop();
                 }
                 else {
-                    fromTop = $listItem.offset().top - $(window).scrollTop(); // get the offset top of the list item and position it w.r.t window
+                    fromTop = $listItem.offset().top - $(window).scrollTop(); // Get the offset top of the list item and position it w.r.t window
                     // Fix the position to accommodate for the height of the sidebar brand
                     // fromTop = sidebar_brand_height + $listItem.position().top;
                 }
@@ -358,10 +391,14 @@ var appMaster = {
                 var winHeight;
                 var popOutMenuHeight = '';
 
-                if ($listItem.hasClass('has-child') && $listItem.hasClass('sidebar__item')) {
+                var calcMaxHeight = function () {
                     menuTop = fromTop;
                     winHeight = $(window).height() - $(appMaster._header).height();
                     popOutMenuHeight = winHeight - menuTop + $listItem.height() - 20;
+                };
+
+                if ($listItem.hasClass('has-child') && $listItem.hasClass('sidebar__item')) {
+                    calcMaxHeight();
                 }
 
                 // Create wrapper for popout menu
@@ -377,11 +414,6 @@ var appMaster = {
 
                 var iWrap = document.getElementById(iDiv.id);
                 $(iWrap).css({'position': 'fixed', 'top': fromTop, 'max-height': popOutMenuHeight}).append(iUl);
-
-                // Workaround for avoiding page scroll when the slimScroll div has a content smaller than the div itself?
-               /* $(iWrap).on('mousewheel', function(e) {
-                    e.preventDefault();
-                });*/
 
                 // Append the whole list template onto the UL
                 var popOut = document.getElementById(iUl.id);
@@ -405,7 +437,7 @@ var appMaster = {
                             position: 'right',
                             touchScrollStep: 50,
                             alwaysVisible: false,
-                            allowPageScroll: false
+                            allowPageScroll: true
                         };
                         appMaster.slimScroll($(iWrap), $(popOut), options);
                     }
@@ -414,15 +446,20 @@ var appMaster = {
                 // Set an active class on hover
                 $listItem.addClass('show');
 
-                $(window).scroll(function () {
-                    if (!$('.sidebar-fixed').length) {
-                        var scrollTop = $(window).scrollTop(), divOffset = $listItem.offset().top;
-                        fromTop = (divOffset - scrollTop);
-                        $(iWrap).stop().animate({'top': fromTop}, 0);
+                // Workaround to move fixed popout menu when page scrolls and adjusting max-height when window resize.
+                $(window).on('scroll resize', function () {
+                    if ($listItem.hasClass('show')) {
+                        calcFromTop();
+                        calcMaxHeight();
+                        if (!$(appMaster._sidebarFixed).length) {
+                            $(iWrap).css({'top': fromTop});
+                        }
+                        $(iWrap).stop().animate({'max-height': popOutMenuHeight}, 0);
+                        $(popOut).stop().animate({'max-height': popOutMenuHeight}, 0);
                     }
                 });
-
             }
+
         }).on('mouseleave', 'li.sidebar__item', function () {
             var $listItem = $(this);
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
@@ -431,46 +468,46 @@ var appMaster = {
         }).on('click', 'li.sidebar__item', function (e) {
         });
 
+        // Stop the popout menu from hiding
         $(appMaster._sidebarNav).on('mouseenter', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
                 return clearInterval(appMaster._exitSidebarPopOutMenuConfig);
             }
         });
 
-        // Remove popout menu if mouse leaves sidebar navigation
+        // Exit popout menu if mouse leaves sidebar navigation
         $(appMaster._sidebarNav).on('mouseleave', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
                 appMaster._exitSidebarPopOutMenu(animate_in_class, animate_out_class);
             }
         });
 
-
-
         // To debug: jQuery('.sidebar__list > li:nth-child(10)').trigger('mouseenter')
     },
 
     _resetSidebarPopOutMenu: function () {
-        $("ul#menu-popout").slimScroll({destroy: true}); // Destroy if slimScroll exists and remove inline style
+        $("ul#menu-popout").slimScroll({destroy: true}); // Destroy if slimScroll exists
         $(appMaster._sidebarNav).children('#menu-popout-wrap').remove(); // Remove wrapper for popout menu
-        $('.navigation-main li.sidebar__item.show').removeClass('show'); // Remove .show class from list item
+        $('.navigation-main li.sidebar__item.show').removeClass('show'); // Remove class .show from list item
     },
 
     _exitSidebarPopOutMenu: function ($animate_in_class, $animate_out_class) {
 
-            return appMaster._exitSidebarPopOutMenuConfig = setTimeout((function () {
+        // Exit popout menu with certain time period
+        return appMaster._exitSidebarPopOutMenuConfig = setTimeout((function () {
 
-                // Destroy if slimScroll exists and remove inline style
-                // $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
+            // Destroy if slimScroll exists and remove inline style
+            $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
 
-                // Remove wrapper for popout menu
-                $(appMaster._sidebarNav).children('#menu-popout-wrap').removeClass($animate_in_class).addClass($animate_out_class).fadeToggle(500, "swing", function () {
-                    this.remove();
-                });
+            // Remove wrapper for popout menu
+            $(appMaster._sidebarNav).children('#menu-popout-wrap').removeClass($animate_in_class).addClass($animate_out_class).fadeToggle(500, "swing", function () {
+                this.remove();
+            });
 
-                // Remove .show class from list item
-                $('.navigation-main li.sidebar__item.show').removeClass('show');
+            // Remove class .show from list item
+            $('.navigation-main li.sidebar__item.show').removeClass('show');
 
-            }), 1000);
+        }), 1000);
     },
 
     /* Manage Cookie */
@@ -489,12 +526,11 @@ var appMaster = {
             // Check the current cookie value
             // If the cookie is empty or set to not active, then add page_sidebar_minimize
             /*if ($.cookie('page_sidebar_minimize') == "undefined" || $.cookie('page_sidebar_minimize') == "not_active") {
-            }*/
+             }*/
             // If the cookie was already set to active then remove it
             /*else {}*/
 
-        } else
-        {
+        } else {
             throw new Error('Please install JavaScript Cookie plugin! https://github.com/js-cookie/js-cookie');
         }
     },
@@ -509,7 +545,9 @@ var appMaster = {
                 appMaster._body.removeClass('aside-is-open').addClass('aside-is-closed');
                 appMaster._asideIsOpen = false;
 
-                if (appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
+                if (appMaster._overlayIsOpen) {
+                    appMaster._toggleOverlay();
+                }
 
                 if (sidebarMiniIsOpenedByAside) {
                     $(appMaster._sidebarMini).click();
@@ -524,7 +562,9 @@ var appMaster = {
                 $(this).removeClass('collapsed');
                 appMaster._body.removeClass('aside-is-closed').addClass('aside-is-open');
                 appMaster._asideIsOpen = true;
-                if (!appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
+                if (!appMaster._overlayIsOpen) {
+                    appMaster._toggleOverlay();
+                }
 
                 if (!appMaster._sidebarMiniIsOpen) {
                     $(appMaster._sidebarMini).click();
@@ -619,7 +659,9 @@ var appMaster = {
     overlay: function () {
         $(appMaster._overlay).click(function () {
 
-            if (appMaster._overlayIsOpen) {appMaster._toggleOverlay();}
+            if (appMaster._overlayIsOpen) {
+                appMaster._toggleOverlay();
+            }
 
             if ($(window).width() <= 767 && appMaster._sidebarIsOpen) {
                 $(appMaster._sidebarHide).click();
@@ -751,9 +793,9 @@ var appMaster = {
 
     fullscreen: function () {
         // Todo Implement, filter this github.. found lot of templates in these folders...  https://github.com/swalt-wahyu/theme/blob/master/backend/Rock/assets/js/layout.js
-        $('.fullscreen-toggle').click(function() {
+        $('.fullscreen-toggle').click(function () {
             if (!document.fullscreenElement &&    // alternative standard method
-                !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+                !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
                 if (document.documentElement.requestFullscreen) {
                     document.documentElement.requestFullscreen();
                 } else if (document.documentElement.msRequestFullscreen) {
@@ -873,7 +915,7 @@ var appMaster = {
         }
 
         // Execute on load
-          set_heights();
+        set_heights();
 
         // Execute on resize
         $(window).on('resize', function () {
