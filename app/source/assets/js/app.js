@@ -103,18 +103,17 @@ var appMaster = {
             e.preventDefault();
             if (appMaster._navbarCollapsibleContentIs) {
                 appMaster._navbarCollapsibleContentIs = false;
-                appMaster._exitNavbarScroll();
+                if (appMaster._navbarSlimScroll) {
+                    appMaster._exitNavbarScroll();
+                }
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
             else {
                 appMaster._navbarCollapsibleContentIs = true;
-
-                // Add slimScroll to fixed navbar layout
                 if (appMaster._navbarSlimScroll) {
                     appMaster._fixedNavbarScroll();
                 }
-
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
@@ -123,21 +122,27 @@ var appMaster = {
 
     // Add slimScroll to fixed navbar layout
     _fixedNavbarScroll: function () {
-        var options = {
-            height: '100%',
-            distance: '0',
-            size: '5px',
-            railOpacity: 0.3,
-            position: 'right',
-            touchScrollStep: 50,
-            alwaysVisible: false,
-        };
+        setTimeout((function () {
+            var options = {
+                height: '100%',
+                width: '100%',
+                distance: '0',
+                size: '5px',
+                railOpacity: 0.3,
+                position: 'right',
+                touchScrollStep: 50,
+                alwaysVisible: false,
+            };
 
-        appMaster.slimScroll($(appMaster._navbarFixed), '.navbar-collapse', options);
+            appMaster.slimScroll($(appMaster._navbarFixed), '.navbar-collapse', options);
+        }), 500);
     },
 
+    // Remove slimScroll from fixed navbar layout
     _exitNavbarScroll: function () {
-        $('.navbar-collapse').slimScroll({destroy: true}); // Destroy if slimScroll exists
+        setTimeout((function () {
+            $('.navbar-collapse').slimScroll({destroy: true});
+        }), 500); // Destroy if slimScroll exists
     },
 
     sidebar: function () {
@@ -152,7 +157,7 @@ var appMaster = {
                 if (!appMaster._asideIsOpen && appMaster._overlayIsOpen) {
                     appMaster._toggleOverlay();
                 }
-                appMaster._stopMetisMenu([appMaster._sidebarNav, appMaster._sidebarFooterNav]);
+                appMaster._stopMetisMenu([appMaster._sidebarFooterNav]);
                 console.log("Sidebar is", appMaster._sidebarIsOpen);
                 Cookies.set('sidebarIs', appMaster._sidebarIsOpen);
             }
@@ -160,7 +165,7 @@ var appMaster = {
                 $(this).addClass('collapsed');
                 appMaster._body.removeClass('sidebar-is-closed').addClass('sidebar-is-open');
                 appMaster._sidebarIsOpen = true;
-                if ($(window).width() <= 767 && !appMaster._overlayIsOpen) {
+                if ($(window).width() <= 767 && !appMaster._overlayIsOpen && !appMaster._sidebarMiniIsOpen) {
                     appMaster._toggleOverlay();
                 }
                 if (appMaster._asideIsOpen) {
@@ -179,6 +184,9 @@ var appMaster = {
                 appMaster._body.removeClass('sidebar-mini');
                 appMaster._resetSidebarPopOutMenu();
                 appMaster._sidebarMiniIsOpen = false;
+                if ($(window).width() <= 767 && appMaster._sidebarIsOpen && !appMaster._overlayIsOpen) {
+                    appMaster._toggleOverlay();
+                }
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
                 Cookies.set('sidebarMiniIs', appMaster._sidebarMiniIsOpen);
             }
@@ -187,6 +195,9 @@ var appMaster = {
                 appMaster._body.addClass('sidebar-mini');
                 appMaster._changeLogo();
                 appMaster._sidebarMiniIsOpen = true;
+                if ($(window).width() <= 767 && appMaster._overlayIsOpen) {
+                    appMaster._toggleOverlay();
+                }
                 appMaster._stopMetisMenu(appMaster._sidebarFooterNav);
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
                 Cookies.set('sidebarMiniIs', appMaster._sidebarMiniIsOpen);
@@ -437,7 +448,7 @@ var appMaster = {
                             position: 'right',
                             touchScrollStep: 50,
                             alwaysVisible: false,
-                            allowPageScroll: true
+                            allowPageScroll: false
                         };
                         appMaster.slimScroll($(iWrap), $(popOut), options);
                     }
@@ -468,10 +479,10 @@ var appMaster = {
         }).on('click', 'li.sidebar__item', function (e) {
         });
 
-        // Stop the popout menu from hiding
+        // Prevent the popout menu exit function to run
         $(appMaster._sidebarNav).on('mouseenter', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
-                return clearInterval(appMaster._exitSidebarPopOutMenuConfig);
+                return clearTimeout(appMaster._exitSidebarPopOutMenuConfig);
             }
         });
 
@@ -507,7 +518,7 @@ var appMaster = {
             // Remove class .show from list item
             $('.navigation-main li.sidebar__item.show').removeClass('show');
 
-        }), 1000);
+        }), 500);
     },
 
     /* Manage Cookie */
