@@ -182,6 +182,7 @@ var appMaster = {
             if (appMaster._sidebarMiniIsOpen) {
                 $(this).removeClass('collapsed');
                 appMaster._body.removeClass('sidebar-mini');
+                appMaster._changeLogo();
                 appMaster._resetSidebarPopOutMenu();
                 appMaster._sidebarMiniIsOpen = false;
                 if ($(window).width() <= 767 && appMaster._sidebarIsOpen && !appMaster._overlayIsOpen) {
@@ -300,7 +301,7 @@ var appMaster = {
             var vw = $(window).width(); // Viewport Width
 
             if (vw <= 767) {
-                appMaster._body.addClass('sidebar-mobile');
+                appMaster._body.addClass('sidebar-mobile sidebar-is-closed');
 
                 if (appMaster._sidebarIsOpen) {
                     $(appMaster._sidebarHide).click();

@@ -20,10 +20,19 @@ $nb: navbar;
 
   // Navbar brand
   .#{$nb}-brand {
+    @include transition;
     padding-top: $navbar-brand-padding-y;
     padding-bottom: $navbar-brand-padding-y;
-    margin-right: $navbar-padding-x;
     font-size: $navbar-brand-font-size;
+    margin-right: $navbar-padding-x;
+    width: 0;
+    @extend %o-v-none;
+
+    .sidebar-is-closed & {
+      @extend %o-v-show;
+      width: auto;
+    }
+
   }
 
   // Navbar text
@@ -108,7 +117,7 @@ $nb: navbar;
     }
   }
 
-  .slimScrollDiv{
+  .slimScrollDiv {
     /*display: flex;
     flex-basis: auto;*/
   }
@@ -134,7 +143,7 @@ $nb: navbar;
         }
 
         @if bool($navbar-item-mobile-bottom-border) == true {
-        .nav-item {
+          .nav-item {
             &::before {
               content: '';
               height: $navbar-item-mobile-bottom-border-size;
@@ -144,13 +153,10 @@ $nb: navbar;
               opacity: 0.2;
               z-index: 10;
             }
-            /* &:last-of-type {
-               &::after {
-                 display: none
-               }
-             }*/
           }
         }
+      }
+      .#{$nb}-nav{
         .dropdown-menu {
           margin-bottom: $dropdown-margin-bottom;
           &:before,
