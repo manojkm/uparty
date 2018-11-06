@@ -305,22 +305,38 @@ $s: sidebar;
 
   > .#{$s}__item {
     &::before {
-      @include add-border($sidebar-active-border-type-size, transparent, left);
       content: "";
       position: absolute;
       top: 0;
-      bottom: 0;
       left: 0;
       display: none;
       z-index: 50;
+      width: $sidebar-active-border-type-size;
+      height: 100%;
+
+   /*   .#{$s}-mini & {
+        width: 100%;
+        bottom: 0;
+        top: auto;
+        height:$sidebar-active-border-type-size;
+      }*/
+
     }
 
-    &:hover,
+    &:hover {
+      &::before {
+        display: block;
+        background-color: $sidebar-hover-border-theme-scheme;
+        //@include add-border($sidebar-active-border-type-size, $sidebar-hover-border-theme-scheme, left);
+      }
+    }
+
     &.show,
     &.active {
       &::before {
         display: block;
-        @include border-theme($sidebar-active-border-theme-scheme, 'base', $position: left);
+        background-color: $sidebar-active-border-theme-scheme;
+        //@include add-border($sidebar-active-border-type-size, $sidebar-active-border-theme-scheme, left);
       }
     }
 
