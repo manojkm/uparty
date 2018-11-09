@@ -81,19 +81,10 @@ $nb: navbar;
       }
 
       // Navbar menu notification badge
-      /*.badge {
-        !* position: absolute;
-         right: 0.33rem;
-         margin-top: -0.33rem;*!
-        left: auto;
-        top: 0;
-        right: 0.33rem;
-        @include max-screen($screen-md-max) {
-          margin-top: 0;
-          right: 1em;
-        }
-
-      }*/
+      .badge.floating {
+        top: 0.15rem;
+        margin: 0 0 0 -1rem !important;
+      }
 
       // Helper classes to make sure the icons are perfectly aligned on either sides of text.
       &.has-icon-left {

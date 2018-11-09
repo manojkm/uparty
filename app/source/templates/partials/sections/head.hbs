@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>{{title}} | {{package.title}}</title>
+<title>{{#if page.title}}{{title}} | {{/if}}{{package.title}}</title>
 <meta name="description" content="{{ package.description }}">
 <meta name="keywords" content="{{ package.keywords }}">
 <meta name="author" content="{{ package.author.name }}">

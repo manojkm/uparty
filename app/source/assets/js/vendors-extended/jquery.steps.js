@@ -533,6 +533,7 @@ $(document).ready(function () {
         },
 
         onInit: function (event, currentIndex) {
+            updateProgress(this, currentIndex);
             addBootstrap(this, currentIndex);
 
             $(this).find('.step-title').each(function () {
@@ -544,6 +545,7 @@ $(document).ready(function () {
             });
         },
         onStepChanged: function (event, currentIndex, priorIndex) {
+            updateProgress(this, currentIndex);
             $(this).find(".steps ul li a:eq(" + currentIndex + ") .step").addClass("animated bounceIn");
             $(this).find(".steps ul li a:eq(" + priorIndex + ") .step").removeClass("animated bounceIn");
         }

@@ -94,3 +94,16 @@
     left: 0;
   }
 }
+
+//
+// VERTICALLY CENTERED CAPTIONS
+// ======================================================
+
+.carousel-item.carousel-caption-centered {
+  transform-style: preserve-3d; // Prevent blurry elements when it's placed on half a pixel.
+  .carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial;
+  }
+}
