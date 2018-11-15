@@ -34,7 +34,7 @@ var appMaster = {
     _sidebarMiniIsOpen: false,
     _exitSidebarPopOutMenuConfig: null,
     _navbarFixed: $('.header-fixed'),
-    _navbarSlimScroll: true,
+    _navbarSlimScroll: false,
     _navbarToggler: $(".navbar-toggler"),
     _navbarCollapsibleContentIs: false,
     _aside: $("[data-toggle='aside']"),
@@ -114,6 +114,11 @@ var appMaster = {
                 if (appMaster._navbarSlimScroll) {
                     appMaster._fixedNavbarScroll();
                 }
+
+                setTimeout((function () {
+                    appMaster._fixNavbarMaxHeight();
+                }), 500);
+
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
@@ -131,7 +136,7 @@ var appMaster = {
                 railOpacity: 0.3,
                 position: 'right',
                 touchScrollStep: 50,
-                alwaysVisible: false,
+                alwaysVisible: false
             };
 
             appMaster.slimScroll($(appMaster._navbarFixed), '.navbar-collapse', options);
@@ -143,6 +148,22 @@ var appMaster = {
         setTimeout((function () {
             $('.navbar-collapse').slimScroll({destroy: true});
         }), 500); // Destroy if slimScroll exists
+    },
+
+    _fixNavbarMaxHeight: function () {
+        var maxHeight = $('.navbar-collapse').eq(0).css('max-height');
+        maxHeight = maxHeight.split('px')[0];//remove px
+
+        var currHeight = $('.navbar-collapse')[0].scrollHeight;
+
+        // alert(currHeight);
+
+        if (currHeight >= maxHeight) {
+            $('.navbar-collapse').css('overflow-y', 'auto');
+        } else {
+            $('.navbar-collapse').css('overflow', '');
+        }
+
     },
 
     sidebar: function () {
@@ -737,6 +758,19 @@ var appMaster = {
          $(this).toggleClass('open');
          }
          );*/
+
+        $('.navbar-nav .dropdown').on('show.bs.dropdown', function (e) {
+            setTimeout((function () {
+                appMaster._fixNavbarMaxHeight();
+            }), 500);
+        });
+
+        $('.navbar-nav .dropdown').on('hide.bs.dropdown', function (e) {
+            setTimeout((function () {
+                appMaster._fixNavbarMaxHeight();
+            }), 500);
+        });
+
 
         // On click Adapted from https://codepen.io/adammacias/pen/dozPVQ
         $('.dropdown').on('show.bs.dropdown', function (e) {

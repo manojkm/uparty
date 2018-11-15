@@ -171,9 +171,11 @@ $nb: navbar;
         }
       }
 
-      @at-root .header-fixed #{&} .#{$nb}-collapse.show {
+      //@at-root .header-fixed #{&} .#{$nb}-collapse.show {
+      @at-root .header-fixed #{&} .#{$nb}-collapse {
         max-height: calc(100vh - #{$header-height});
-        overflow-x: hidden;
+        //overflow-x: hidden;
+        //overflow-y: auto;
       }
     }
   }
