@@ -192,7 +192,7 @@ var appMaster = {
                 if (appMaster._asideIsOpen) {
                     $(appMaster._aside).click();
                 }
-                console.log("Sidebar is", appMaster._sidebarIsOpen);
+                console.log('Sidebar is', appMaster._sidebarIsOpen);
                 Cookies.set('sidebarIs', appMaster._sidebarIsOpen);
             }
         });
