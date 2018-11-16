@@ -36,6 +36,7 @@ var appMaster = {
     _navbarFixed: $('.header-fixed'),
     _navbarSlimScroll: false,
     _navbarToggler: $(".navbar-toggler"),
+    _navbarCollapse: $('.navbar-collapse'),
     _navbarCollapsibleContentIs: false,
     _aside: $("[data-toggle='aside']"),
     _asideIsOpen: false,
@@ -103,22 +104,12 @@ var appMaster = {
             e.preventDefault();
             if (appMaster._navbarCollapsibleContentIs) {
                 appMaster._navbarCollapsibleContentIs = false;
-                if (appMaster._navbarSlimScroll) {
-                    appMaster._exitNavbarScroll();
-                }
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
             else {
                 appMaster._navbarCollapsibleContentIs = true;
-                if (appMaster._navbarSlimScroll) {
-                    appMaster._fixedNavbarScroll();
-                }
-
-                setTimeout((function () {
-                    appMaster._fixNavbarMaxHeight();
-                }), 500);
-
+                appMaster._fixNavbarMaxHeight();
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
@@ -139,31 +130,42 @@ var appMaster = {
                 alwaysVisible: false
             };
 
-            appMaster.slimScroll($(appMaster._navbarFixed), '.navbar-collapse', options);
-        }), 500);
+            appMaster.slimScroll($(appMaster._navbarFixed), $(appMaster._navbarCollapse), options);
+        }), 0);
     },
 
     // Remove slimScroll from fixed navbar layout
     _exitNavbarScroll: function () {
         setTimeout((function () {
-            $('.navbar-collapse').slimScroll({destroy: true});
-        }), 500); // Destroy if slimScroll exists
+            $(appMaster._navbarCollapse).slimScroll({destroy: true}).removeAttr("style");
+        }), 0); // Destroy if slimScroll exists
     },
 
     _fixNavbarMaxHeight: function () {
-        var maxHeight = $('.navbar-collapse').eq(0).css('max-height');
-        maxHeight = maxHeight.split('px')[0];//remove px
+        if (appMaster._navbarCollapsibleContentIs) {
+            setTimeout((function () {
+                var maxHeight = $(appMaster._navbarCollapse).eq(0).css('max-height');
+                maxHeight = maxHeight.split('px')[0]; //remove px
+                //alert(maxHeight);
 
-        var currHeight = $('.navbar-collapse')[0].scrollHeight;
+                var currHeight = $(appMaster._navbarCollapse)[0].scrollHeight;
+                //alert(currHeight);
 
-        // alert(currHeight);
-
-        if (currHeight >= maxHeight) {
-            $('.navbar-collapse').css('overflow-y', 'auto');
-        } else {
-            $('.navbar-collapse').css('overflow', '');
+                if (currHeight >= maxHeight) {
+                    if (appMaster._navbarSlimScroll) {
+                        appMaster._fixedNavbarScroll();
+                    } else {
+                        $(appMaster._navbarCollapse).css('overflow-y', 'auto');
+                    }
+                } else {
+                    if (appMaster._navbarSlimScroll) {
+                        appMaster._exitNavbarScroll();
+                    } else {
+                        $(appMaster._navbarCollapse).css('overflow', '');
+                    }
+                }
+            }), 500);
         }
-
     },
 
     sidebar: function () {
@@ -759,18 +761,9 @@ var appMaster = {
          }
          );*/
 
-        $('.navbar-nav .dropdown').on('show.bs.dropdown', function (e) {
-            setTimeout((function () {
-                appMaster._fixNavbarMaxHeight();
-            }), 500);
+        $('.navbar-nav .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
+            appMaster._fixNavbarMaxHeight();
         });
-
-        $('.navbar-nav .dropdown').on('hide.bs.dropdown', function (e) {
-            setTimeout((function () {
-                appMaster._fixNavbarMaxHeight();
-            }), 500);
-        });
-
 
         // On click Adapted from https://codepen.io/adammacias/pen/dozPVQ
         $('.dropdown').on('show.bs.dropdown', function (e) {

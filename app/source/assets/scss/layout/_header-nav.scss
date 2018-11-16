@@ -131,6 +131,11 @@ $nb: navbar;
 
         .nav-link {
           justify-content: flex-start;
+
+          .badge.floating {
+            @include center(y);
+          }
+
         }
 
         @if bool($navbar-item-mobile-bottom-border) == true {
@@ -146,10 +151,13 @@ $nb: navbar;
             }
           }
         }
-      }
-      .#{$nb}-nav{
         .dropdown-menu {
           margin-bottom: $dropdown-margin-bottom;
+        }
+      }
+
+      .#{$nb}-nav {
+        .dropdown-menu {
           &:before,
           &:after {
             display: none;
@@ -174,8 +182,6 @@ $nb: navbar;
       //@at-root .header-fixed #{&} .#{$nb}-collapse.show {
       @at-root .header-fixed #{&} .#{$nb}-collapse {
         max-height: calc(100vh - #{$header-height});
-        //overflow-x: hidden;
-        //overflow-y: auto;
       }
     }
   }
