@@ -94,6 +94,29 @@ components: true
                             {{#ddw_menu_has 'extended'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                                <li class="dropdown has-child">
+                                    <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks mr-2"></i>Submenu</a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+                                        <li class="dropdown has-child">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown has-child"><a class="dropdown-item dropdown-toggle" href="#">Second
+                                            subsubmenu</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                </li>
                             {{/ddw_menu_has}}
                         </li>
                         <li class="nav-item">

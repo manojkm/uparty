@@ -101,17 +101,39 @@ var appMaster = {
     navbar: function () {
         // Enable navbar toggle
         $(appMaster._navbarToggler).on('click', function (e) {
-            e.preventDefault();
-            if (appMaster._navbarCollapsibleContentIs) {
-                appMaster._navbarCollapsibleContentIs = false;
-                console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
-                Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
+            // e.preventDefault();
+            // if($(appMaster._navbarCollapse).css('display') !== 'none'){
+            // if (appMaster._navbarCollapsibleContentIs) {
+            var $this = $(this);
+            if ($this.hasClass('clicked')) {
+                // Adapted from https://stackoverflow.com/questions/6330431/jquery-bind-double-click-and-single-click-separately
+                // alert("Double click");
+                e.preventDefault(); //don't do anything
             }
-            else {
+            else if (!$this.hasClass('clicked') && $this.hasClass('collapsed')) {
+                $this.addClass('clicked');
                 appMaster._navbarCollapsibleContentIs = true;
+                if (appMaster._sidebarIsOpen) {
+                    $(appMaster._sidebarHide).click();
+                }
+                if (appMaster._asideIsOpen) {
+                    $(appMaster._aside).click();
+                }
                 appMaster._fixNavbarMaxHeight();
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
+                setTimeout(function () {
+                    $this.removeClass('clicked');
+                }, 500);
+            }
+            else if (!$this.hasClass('clicked') && !$this.hasClass('collapsed')) {
+                $this.addClass('clicked');
+                appMaster._navbarCollapsibleContentIs = false;
+                console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
+                Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
+                setTimeout(function () {
+                    $this.removeClass('clicked');
+                }, 500);
             }
         });
     },
@@ -141,6 +163,7 @@ var appMaster = {
         }), 0); // Destroy if slimScroll exists
     },
 
+    // Add scrollbar to the navbar collapsible element
     _fixNavbarMaxHeight: function () {
         if (appMaster._navbarCollapsibleContentIs) {
             setTimeout((function () {
@@ -191,6 +214,9 @@ var appMaster = {
                 if ($(window).width() <= 767 && !appMaster._overlayIsOpen && !appMaster._sidebarMiniIsOpen) {
                     appMaster._toggleOverlay();
                 }
+                if (appMaster._navbarCollapsibleContentIs) {
+                    $(appMaster._navbarToggler).click();
+                }
                 if (appMaster._asideIsOpen) {
                     $(appMaster._aside).click();
                 }
@@ -208,7 +234,7 @@ var appMaster = {
                 appMaster._changeLogo();
                 appMaster._resetSidebarPopOutMenu();
                 appMaster._sidebarMiniIsOpen = false;
-                if ($(window).width() <= 767 && appMaster._sidebarIsOpen && !appMaster._overlayIsOpen) {
+                if ($(window).width() <= 767 && appMaster._sidebarIsOpen && !appMaster._overlayIsOpen && !appMaster._asideIsOpen) {
                     appMaster._toggleOverlay();
                 }
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
@@ -219,7 +245,7 @@ var appMaster = {
                 appMaster._body.addClass('sidebar-mini');
                 appMaster._changeLogo();
                 appMaster._sidebarMiniIsOpen = true;
-                if ($(window).width() <= 767 && appMaster._overlayIsOpen) {
+                if ($(window).width() <= 767 && appMaster._overlayIsOpen && !appMaster._asideIsOpen) {
                     appMaster._toggleOverlay();
                 }
                 appMaster._stopMetisMenu(appMaster._sidebarFooterNav);
@@ -601,13 +627,17 @@ var appMaster = {
                     appMaster._toggleOverlay();
                 }
 
+                if (appMaster._navbarCollapsibleContentIs) {
+                    $(appMaster._navbarToggler).click();
+                }
+
                 if (!appMaster._sidebarMiniIsOpen) {
                     $(appMaster._sidebarMini).click();
                     sidebarMiniIsOpenedByAside = true;
                     console.log("Sidebar mini by aside is", sidebarMiniIsOpenedByAside);
                 }
 
-                console.log("Aside is", appMaster._asideIsOpen);
+                console.log('Aside is', appMaster._asideIsOpen);
                 Cookies.set('Aside', appMaster._asideIsOpen);
             }
             // appMaster._stopMetisMenu();
@@ -749,34 +779,20 @@ var appMaster = {
 
     dropdown: function () {
 
-        // On HOver
-        /* $(".dropdown").hover(
-         function () {
-         $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
-         $(this).toggleClass('open');
-         },
-         function () {
-         $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
-         $(this).toggleClass('open');
-         }
-         );*/
-
+        // Add scrollbar to the navbar collapsible element
         $('.navbar-nav .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
             appMaster._fixNavbarMaxHeight();
         });
 
-        // On click Adapted from https://codepen.io/adammacias/pen/dozPVQ
-        $('.dropdown').on('show.bs.dropdown', function (e) {
+        // Add slidedown animation to dropdown
+      /*  $('.dropdown').on('show.bs.dropdown', function (e) {
             $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);  // fade fadeOut(), fadeIn()
-
         });
-
         $('.dropdown').on('hide.bs.dropdown', function (e) {
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
-        });
+        });*/
 
         // Sub menu
-
         $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
 
             if (!$(this).next().hasClass('show')) {
@@ -787,8 +803,9 @@ var appMaster = {
             $subMenu.toggleClass('show').prev('.dropdown-toggle').toggleClass('active');
             // $(this).toggleClass('active');
 
-            $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
-                $('.dropdown-submenu .show').removeClass("show");
+            // Close all open sub-menu when top level menu item is clicked
+            $(this).parents('li.dropdown.show').on('hidden.bs.dropdown', function (e) {
+                $('.dropdown.has-child .show').removeClass("show");
                 $('.dropdown-menu a.dropdown-toggle').removeClass("active");
             });
 

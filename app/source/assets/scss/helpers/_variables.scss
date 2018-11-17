@@ -1072,12 +1072,17 @@ $dropdown-min-width:                    12rem;
 //$dropdown-max-width:                    15rem;
 $dropdown-bg:                           $white-color; // Background color for the dropdown menu container.
 $dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius to add rounded corners
+$dropdown-border-size:                  $border-thin; // Border width applied for Dropdown menu container (.dropdown-menu)
+$dropdown-border-color:                 rgba($black-color, .15) !default; // Dropdown menu container border color
 
 $dropdown-font-size:                    $font-size-sm; // Dropdown menu item font size.
 $dropdown-header-font-size:             $font-size-xs; // Dropdown section headers font size.
+$dropdown-header-color:                 $gray-600; // Dropdown section headers font color.
 
 $dropdown-margin-top:                   15px; // Positioning first level dropdown menu.
-$dropdown-margin-bottom:                15px; // Used for dropdowns in navbar nav (.navbar-nav) with .navbar-expand{-sm|-md|-lg|-xl} for responsive collapsing.
+$dropdown-margin-bottom:                15px; // Bottom for dropdown. Used for dropup variation and for dropdowns in navbar nav (.navbar-nav) with .navbar-expand{-sm|-md|-lg|-xl} for responsive collapsing.
+$dropdown-margin-left:                  15px; // Left margin for dropdown. Used for dropright variation
+$dropdown-margin-right:                 15px; // Right margin for dropdown. Used for dropleft variation
 $dropdown-padding-y:                    5px; // Dropdown menu container vertical padding.
 $dropdown-padding-x:                    0px; // Dropdown menu container horizontal padding.
 
@@ -1092,9 +1097,9 @@ $dropdown-link-hover-bg:                $gray-200; // Hover background for dropd
 $dropdown-link-active-color:            $gray-900; // Active dropdown menu item text color.
 $dropdown-link-active-bg:               $gray-300; // Active dropdown menu item background color.
 
-$dropdown-link-opacity-disabled-color:  0.6; // Disabled dropdown menu item text color/opacity.
+$dropdown-link-disabled-opacity:        0.6;// Disabled dropdown menu item opacity.
 
-$dropdown-divider-color:                $gray-400; // Divider color for between dropdown items.
+$dropdown-divider-color:                $gray-300; // Divider color for between dropdown items.
 $dropdown-divider-border-width:         $border-thin !default; // Border width of divider between dropdown items.
 
 $dropdown-icon-width:                   20px; // Dropdown menu item icon width for perfect alignment between icons and text.
@@ -1105,6 +1110,7 @@ $dropdown-icon-width:                   20px; // Dropdown menu item icon width f
 
 $dropdown-ext-theme-scheme:             header !default; // Theme color scheme applied to dropdown. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $dropdown-ext-item-border-theme-scheme: primary !default; // Theme color scheme applied to dropdown menu item border. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$dropdown-ext-item-border-size:         2px !default; // Left border size on hover for better highlighting
 
 //
 // 8.8 NAVS

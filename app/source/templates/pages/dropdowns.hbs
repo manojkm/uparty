@@ -2,7 +2,12 @@
 title: Dropdowns
 lead: Variations for an extended range of possible combinations.
 components: true
-posted: 2017-12-23
+
+js_vendors:
+- bootstrap-dropdown-hover/dist/jquery.bootstrap-dropdown-hover.min
+
+js_vendors_extended:
+- jquery.bootstrap-dropdown-hover
 ---
 
 {{!--For dropdown, we make use of the handlebars helpers.
@@ -14,49 +19,14 @@ OR you can type out the HTML if you prefer--}}
     <div class="row">
         <div class="col-md-6 pr-md-2">
             {{#card}}
-                {{{card_header 'Themed - Extended Dropdown'}}}
-                {{#card_body}}
-                    <!-- Themed - Extended Dropdown -->
-                    <p>Create themed - extended dropdown, by adding <code>.themed.extended</code> to <code>.dropdown-menu</code>.</p>
-                    <div class="row">
-                        <div class="col-md example">
-                            <p>Dropdown with badges and icons on left side.</p>
-                            {{#ddw_menu_has 'themed extended'}}
-                                {{{ddw_header 'Dropdown header'}}}
-                                {{#ddw_items dropdowns.items}}
-                                    <a class="{{class}}" href="{{url}}"><i class="{{class_i}} mr-2"></i>{{text}}<span
-                                            class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/ddw_items}}
-                                {{{ddw_divider}}}
-                                {{#ddw_items dropdowns.items_2}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                            {{/ddw_menu_has}}
-                        </div>
-                        <div class="col-md example">
-                            <p>Dropdown with icons on right side.</p>
-                            {{#ddw_menu_has 'themed extended'}}
-                                {{{ddw_header 'Dropdown header'}}}
-                                {{#ddw_items dropdowns.items}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                                {{{ddw_divider}}}
-                                {{#ddw_items dropdowns.items_2}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                            {{/ddw_menu_has}}
-                        </div>
-                    </div>
-                    <!-- /Themed - Extended Dropdown -->
-                {{/card_body}}
-            {{/card}}
-        </div>
-        <div class="col-md-6 pl-md-2">
-            {{#card}}
                 {{{card_header 'Extended Dropdown'}}}
                 {{#card_body}}
                     <!-- Extended Dropdown -->
-                    <p>Create extended dropdown, by adding <code>.extended</code> to .dropdown-menu.</p>
+                    <p>Create extended dropdown, by adding <code>.extended</code> to <code>.dropdown-menu</code>.
+                        Optional arrow and left border style for dropdown links displayed on hover can be added with <code>.bordered</code> and <code>.has-arrow</code> to<code>.dropdown-menu</code>.</p>
                     <div class="row">
-                        <div class="col-md example">
-                            <p>Dropdown with badges and icons on left side.</p>
-                            {{#ddw_menu_has 'extended'}}
+                        <div class="col-md example mb-3">
+                            {{#ddw_menu_has 'extended bordered has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items dropdowns.items}}
                                     <a class="{{class}}" href="{{url}}"><i class="{{class_i}}  mr-2"></i>{{text}}<span
@@ -66,9 +36,8 @@ OR you can type out the HTML if you prefer--}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                             {{/ddw_menu_has}}
                         </div>
-                        <div class="col-md example">
-                            <p>Dropdown with icons on right side.</p>
-                            {{#ddw_menu_has 'extended'}}
+                        <div class="col-md example mb-3">
+                            {{#ddw_menu_has 'extended bordered has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items dropdowns.items}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
@@ -79,6 +48,39 @@ OR you can type out the HTML if you prefer--}}
                         </div>
                     </div>
                     <!-- /Extended Dropdown -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Themed - Extended Dropdown'}}}
+                {{#card_body}}
+                    <!-- Themed - Extended Dropdown -->
+                    <p>Create themed - extended dropdown, by adding <code>.themed.extended</code> to <code>.dropdown-menu</code>.</p>
+                    <div class="row">
+                        <div class="col-md example mb-3">
+                            {{#ddw_menu_has 'themed extended bordered has-arrow'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}
+                                    <a class="{{class}}" href="{{url}}"><i class="{{class_i}} mr-2"></i>{{text}}<span
+                                            class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/ddw_items}}
+                                {{{ddw_divider}}}
+                                {{#ddw_items dropdowns.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </div>
+                        <div class="col-md example mb-3">
+                            {{#ddw_menu_has 'themed extended bordered has-arrow'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                                {{{ddw_divider}}}
+                                {{#ddw_items dropdowns.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </div>
+                    </div>
+                    <!-- /Themed - Extended Dropdown -->
                 {{/card_body}}
             {{/card}}
         </div>
@@ -93,8 +95,8 @@ OR you can type out the HTML if you prefer--}}
                         disabled.</p>
                     <!-- Dropdown with active and disabled menu -->
                     <div class="row">
-                        <div class="col-md example">
-                            {{#ddw_menu_has 'themed extended'}}
+                        <div class="col-md example mb-3">
+                            {{#ddw_menu_has 'themed extended bordered has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items dropdowns.items}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
@@ -105,8 +107,8 @@ OR you can type out the HTML if you prefer--}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                             {{/ddw_menu_has}}
                         </div>
-                        <div class="col-md example">
-                            {{#ddw_menu_has 'extended'}}
+                        <div class="col-md example mb-3">
+                            {{#ddw_menu_has 'extended bordered has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items dropdowns.items}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
@@ -129,27 +131,27 @@ OR you can type out the HTML if you prefer--}}
                     <p>Click on 'submenu' link to see what happens.</p>
                     <!-- Dropdown with submenu -->
                     <div class="row">
-                        <div class="col-md example">
+                        <div class="col-md example mb-3">
                             <!-- Drop-Right submenu -->
                             <p>Drop-Right submenu</p>
-                            {{#ddw_menu_has 'themed extended'}}
+                            {{#ddw_menu_has 'themed extended bordered has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items dropdowns.items}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks"></i>Submenu</a>
+                                <li class="dropdown has-child">
+                                    <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks mr-2"></i>Submenu</a>
 
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Submenu action</a></li>
                                         <li><a class="dropdown-item" href="#">Another submenu action</a></li>
-                                        <li class="dropdown-submenu">
+                                        <li class="dropdown has-child">
                                             <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
                                                 <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second
+                                        <li class="dropdown has-child"><a class="dropdown-item dropdown-toggle" href="#">Second
                                             subsubmenu</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
@@ -165,27 +167,27 @@ OR you can type out the HTML if you prefer--}}
                             {{/ddw_menu_has}}
                             <!-- /Drop-Right submenu -->
                         </div>
-                        <div class="col-md example">
+                        <div class="col-md example mb-3">
                             <!-- Drop-Left submenu -->
                             <p>Drop-Left submenu</p>
-                            {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
+                            {{#ddw_menu_has 'themed extended bordered dropdown-menu-right has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items dropdowns.items}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks"></i>Submenu</a>
+                                <li class="dropdown has-child">
+                                    <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks mr-2"></i>Submenu</a>
 
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Submenu action</a></li>
                                         <li><a class="dropdown-item" href="#">Another submenu action</a></li>
-                                        <li class="dropdown-submenu">
+                                        <li class="dropdown has-child">
                                             <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
                                                 <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second
+                                        <li class="dropdown has-child"><a class="dropdown-item dropdown-toggle" href="#">Second
                                             subsubmenu</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
@@ -216,7 +218,7 @@ OR you can type out the HTML if you prefer--}}
                     <!-- Dropdown with text -->
                     <p>Place any freeform text within a dropdown menu with text and use spacing, sizing utilities.</p>
                     <div class="example">
-                        {{#ddw_menu_has 'extended themed w-75'}}
+                        {{#ddw_menu_has 'extended themed bordered has-arrow w-75'}}
                             {{{ddw_header 'Dropdown header'}}}
                             <li><p class="px-2 py-2 mb-0 text-white">Some example text that's free-flowing within the dropdown menu.</p></li>
                             {{#ddw_items dropdowns.items}}
@@ -238,13 +240,13 @@ OR you can type out the HTML if you prefer--}}
                 {{#card_body}}
                     <!-- Dropdown with forms -->
                     <div class="example">
-                        {{#ddw_menu_has 'extended themed w-75'}}
+                        {{#ddw_menu_has 'extended themed bordered has-arrow w-75'}}
                             <form class="px-3 py-3">
-                                <div class="form-group">
+                                <div class="form-group mb-2">
                                     <label for="exampleDropdownFormEmail1" class="text-white">Email address</label>
                                     <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-2">
                                     <label for="exampleDropdownFormPassword1" class="text-white">Password</label>
                                     <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
                                 </div>
@@ -267,6 +269,29 @@ OR you can type out the HTML if you prefer--}}
         </div>
         <div class="col-xl-3 px-xl-2">
             {{#card}}
+                {{{card_header 'No optional classes'}}}
+                {{#card_body}}
+                    <p>Just remove the optional classes <code>.has-arrow</code> and <code>.bordered</code> from <code>.extended</code> to remove the arrows and border for dropdown links displayed on hover.</p>
+                    <!-- No optional classes -->
+                    <div class="example">
+                        {{#ddw_menu_has 'extended'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}
+                                <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                            {{#ddw_items dropdowns.items_active_disabled}}
+                                <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                            {{{ddw_divider}}}
+                            {{#ddw_items dropdowns.items_2}}
+                                <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /No optional classes -->
+                {{/card_body}}
+            {{/card}}
+
+        </div>
+        <div class="col-xl-3 pl-xl-2">
+            {{#card}}
                 {{{card_header 'Default dropdown'}}}
                 {{#card_body}}
                     <!-- Default dropdown -->
@@ -282,7 +307,49 @@ OR you can type out the HTML if you prefer--}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-xl-3 pl-xl-2">
+    </div>
+
+
+    <div class="row">
+        <div class="col-12 col-xl-4 pr-xl-2">
+            {{#card}}
+                {{{card_header 'Hide caret'}}}
+                {{#card_body}}
+                    <!-- Hide caret -->
+                    <p>Add <code>.no-caret</code> to <code>.dropdown-toggle</code> element.</p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle no-caret" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            No arrow
+                        </button>
+                        {{#ddw_menu_has 'extended has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Hide caret -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-xl-4 px-xl-2">
+            {{#card}}
+                {{{card_header 'Dropdown menu on hover'}}}
+                {{#card_body}}
+                    <p>Trigger dropdown menu on hover by adding <code>data-trigger="hover"</code> to the button.</p>
+                    <!-- Dropdown menu on hover -->
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-trigger="hover">
+                            Hover
+                        </button>
+                        {{#ddw_menu_has 'extended has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Dropdown menu on hover -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-xl-4 pl-xl-2">
             {{#card}}
                 {{{card_header 'Offset'}}}
                 {{#card_body}}
@@ -292,7 +359,7 @@ OR you can type out the HTML if you prefer--}}
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" data-offset="30,20">Offset
                         </button>
-                        {{#ddw_menu_has 'extended'}}
+                        {{#ddw_menu_has 'extended has-arrow'}}
                             {{{ddw_header 'Dropdown header'}}}
                             {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{{ddw_divider}}}
@@ -305,6 +372,7 @@ OR you can type out the HTML if you prefer--}}
         </div>
     </div>
 
+
     <div class="row">
         <div class="col-md-12">
             {{#card}}
@@ -315,7 +383,7 @@ OR you can type out the HTML if you prefer--}}
                         <div class="btn-group mb-1">
                             <button type="button" class="{{class}} {{modifier}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">{{text}}</button>
-                            {{#ddw_menu_has 'themed extended'}}
+                            {{#ddw_menu_has 'themed extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -336,7 +404,7 @@ OR you can type out the HTML if you prefer--}}
                         <div class="btn-group mb-1">
                             <button type="button" class="{{class}} {{modifier}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">{{text}}</button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -357,7 +425,7 @@ OR you can type out the HTML if you prefer--}}
                         <div class="btn-group mb-2">
                             <button type="button" class="{{class}} {{modifier}} btn-raised dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">{{text}}</button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -379,7 +447,7 @@ OR you can type out the HTML if you prefer--}}
                         <div class="btn-group mb-1">
                             <button type="button" class="{{class}} {{modifier}} btn-round dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">{{text}}</button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -401,7 +469,7 @@ OR you can type out the HTML if you prefer--}}
                         <div class="btn-group mb-1">
                             <button type="button" class="{{class}} {{modifier_outline}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">{{text}}</button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -422,7 +490,7 @@ OR you can type out the HTML if you prefer--}}
                         <div class="btn-group mb-1">
                             <button type="button" class="{{class}} {{modifier_outline}} btn-round dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">{{text}}</button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -518,7 +586,7 @@ OR you can type out the HTML if you prefer--}}
                                     aria-expanded="false">
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -543,7 +611,7 @@ OR you can type out the HTML if you prefer--}}
                                     aria-expanded="false">
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -567,7 +635,7 @@ OR you can type out the HTML if you prefer--}}
                                     aria-expanded="false">
                                 <i class="{{class_i}}"></i>
                             </button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -588,7 +656,7 @@ OR you can type out the HTML if you prefer--}}
                                     aria-expanded="false">
                                 <i class="{{class_i}}"></i>
                             </button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -613,7 +681,7 @@ OR you can type out the HTML if you prefer--}}
                                 <div class="btn-group">
                                     <button type="button" class="{{class}} btn-primary {{size}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">{{text}}</button>
-                                    {{#ddw_menu_has 'extended'}}
+                                    {{#ddw_menu_has 'extended has-arrow'}}
                                         {{{ddw_header 'Dropdown header'}}}
                                         {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                                     {{/ddw_menu_has}}
@@ -629,7 +697,7 @@ OR you can type out the HTML if you prefer--}}
                                             aria-haspopup="true" aria-expanded="false">
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
-                                    {{#ddw_menu_has 'extended'}}
+                                    {{#ddw_menu_has 'extended has-arrow'}}
                                         {{{ddw_header 'Dropdown header'}}}
                                         {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                                     {{/ddw_menu_has}}
@@ -642,7 +710,7 @@ OR you can type out the HTML if you prefer--}}
                                 <div class="btn-group">
                                     <button type="button" class="{{class}} btn-primary btn-round {{size}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">{{text}}</button>
-                                    {{#ddw_menu_has 'extended'}}
+                                    {{#ddw_menu_has 'extended has-arrow'}}
                                         {{{ddw_header 'Dropdown header'}}}
                                         {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                                     {{/ddw_menu_has}}
@@ -655,7 +723,7 @@ OR you can type out the HTML if you prefer--}}
                                 <div class="btn-group">
                                     <button type="button" class="{{class}} btn-primary btn-icon {{size}} has-dropdown dropdown-toggle" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"><i class="icon-heart"></i></button>
-                                    {{#ddw_menu_has 'extended'}}
+                                    {{#ddw_menu_has 'extended has-arrow'}}
                                         {{{ddw_header 'Dropdown header'}}}
                                         {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                                     {{/ddw_menu_has}}
@@ -670,7 +738,7 @@ OR you can type out the HTML if you prefer--}}
                                 <div class="btn-group">
                                     <button type="button" class="{{class}} btn-outline-primary {{size}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">{{text}}</button>
-                                    {{#ddw_menu_has 'extended'}}
+                                    {{#ddw_menu_has 'extended has-arrow'}}
                                         {{{ddw_header 'Dropdown header'}}}
                                         {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                                     {{/ddw_menu_has}}
@@ -686,7 +754,7 @@ OR you can type out the HTML if you prefer--}}
                                             aria-haspopup="true" aria-expanded="false">
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
-                                    {{#ddw_menu_has 'extended'}}
+                                    {{#ddw_menu_has 'extended has-arrow'}}
                                         {{{ddw_header 'Dropdown header'}}}
                                         {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                                     {{/ddw_menu_has}}
@@ -701,7 +769,7 @@ OR you can type out the HTML if you prefer--}}
                                             aria-haspopup="true" aria-expanded="false">
                                         {{text}}
                                     </button>
-                                    {{#ddw_menu_has 'extended'}}
+                                    {{#ddw_menu_has 'extended has-arrow'}}
                                         {{{ddw_header 'Dropdown header'}}}
                                         {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                                     {{/ddw_menu_has}}
@@ -715,7 +783,7 @@ OR you can type out the HTML if you prefer--}}
                                     <button type="button" class="{{class}} btn-outline-primary {{size}} has-dropdown dropdown-toggle" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"><i class="icon-heart"></i>
                                     </button>
-                                    {{#ddw_menu_has 'extended'}}
+                                    {{#ddw_menu_has 'extended has-arrow'}}
                                         {{{ddw_header 'Dropdown header'}}}
                                         {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                                     {{/ddw_menu_has}}
@@ -741,7 +809,7 @@ OR you can type out the HTML if you prefer--}}
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropup
                         </button>
-                        {{#ddw_menu_has 'extended'}}
+                        {{#ddw_menu_has 'extended has-arrow'}}
                             {{{ddw_header 'Dropdown header'}}}
                             {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                         {{/ddw_menu_has}}
@@ -753,7 +821,7 @@ OR you can type out the HTML if you prefer--}}
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
-                        {{#ddw_menu_has 'extended themed'}}
+                        {{#ddw_menu_has 'extended themed has-arrow'}}
                             {{{ddw_header 'Dropdown header'}}}
                             {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                         {{/ddw_menu_has}}
@@ -772,7 +840,7 @@ OR you can type out the HTML if you prefer--}}
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropright
                         </button>
-                        {{#ddw_menu_has 'extended'}}
+                        {{#ddw_menu_has 'extended has-arrow'}}
                             {{{ddw_header 'Dropdown header'}}}
                             {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                         {{/ddw_menu_has}}
@@ -784,7 +852,7 @@ OR you can type out the HTML if you prefer--}}
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropright</span>
                         </button>
-                        {{#ddw_menu_has 'extended'}}
+                        {{#ddw_menu_has 'extended has-arrow'}}
                             {{{ddw_header 'Dropdown header'}}}
                             {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                         {{/ddw_menu_has}}
@@ -803,7 +871,7 @@ OR you can type out the HTML if you prefer--}}
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropleft
                         </button>
-                        {{#ddw_menu_has 'extended'}}
+                        {{#ddw_menu_has 'extended has-arrow'}}
                             {{{ddw_header 'Dropdown header'}}}
                             {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                         {{/ddw_menu_has}}
@@ -816,7 +884,7 @@ OR you can type out the HTML if you prefer--}}
                                     aria-expanded="false">
                                 <span class="sr-only">Toggle Dropleft</span>
                             </button>
-                            {{#ddw_menu_has 'extended'}}
+                            {{#ddw_menu_has 'extended has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
                                 {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                             {{/ddw_menu_has}}
@@ -837,7 +905,7 @@ OR you can type out the HTML if you prefer--}}
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             This dropdown's menu is right-aligned
                         </button>
-                        {{#ddw_menu_has 'extended dropdown-menu-right'}}
+                        {{#ddw_menu_has 'extended dropdown-menu-right has-arrow'}}
                             {{{ddw_header 'Dropdown header'}}}
                             {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
                         {{/ddw_menu_has}}
