@@ -162,6 +162,7 @@
         right: 16px;
         left: auto;
       }
+
       &:after {
         left: auto;
         right: 14px;
@@ -269,7 +270,8 @@
     margin-left: 1px;
     @include max-screen($screen-md-max) {
       position: static;
-      margin: 0 !important;
+      margin: 4px !important;
+      box-shadow: none;
       //& .dropdown-item{ padding-left:20px}
     }
     &:before,
