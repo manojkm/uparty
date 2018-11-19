@@ -22,6 +22,8 @@
     z-index: map-get($zindex, dropdown);
     width: $dropdown-width;
     //max-width: $dropdown-max-width;
+    margin-top: $dropdown-margin-top;
+    margin-bottom: $dropdown-margin-bottom;
     min-width: $dropdown-min-width;
     padding: $dropdown-padding-y $dropdown-padding-x;
     background-color: $dropdown-bg;
@@ -30,7 +32,9 @@
   }
 
   &.has-arrow {
-    margin-top: $dropdown-margin-top; // Positioning first level dropdown menu
+    margin-top: $dropdown-has-arrow-margin-top;
+    margin-bottom: $dropdown-has-arrow-margin-bottom;
+
     // Add an arrow to the dropdown menus
     &:before {
       content: "";
@@ -57,7 +61,7 @@
     // Positioning arrow at the bottom for an 'up' menu
     &[x-placement="top-start"],
     &[x-placement="top-end"] {
-      margin-bottom: $dropdown-margin-bottom;
+      margin-bottom: $dropdown-has-arrow-margin-top;
       &:before {
         bottom: -6px;
         top: unset;
@@ -269,7 +273,7 @@
     left: 100%;
     margin-left: 1px;
     @include max-screen($screen-md-max) {
-      position: static;
+      position: static !important;
       margin: 4px !important;
       box-shadow: none;
       //& .dropdown-item{ padding-left:20px}
@@ -298,7 +302,7 @@
 .dropup {
   .dropdown-menu.extended {
     &.has-arrow {
-      margin-bottom: $dropdown-margin-bottom;
+      margin-bottom: $dropdown-has-arrow-margin-top;
       // Dropdown arrow
       &:before {
         bottom: -6px;
