@@ -1068,7 +1068,7 @@ $custom-file-text:                                      (en: "\e089   Browse") !
 // -----------------------------------------------------------------------------
 
 $dropdown-width:                        auto; // Dropdown menu container width.
-$dropdown-min-width:                    12rem;
+$dropdown-min-width:                    12rem; // Dropdown menu container minimum width.
 //$dropdown-max-width:                    15rem;
 $dropdown-bg:                           $white-color; // Background color for the dropdown menu container.
 $dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius to add rounded corners
@@ -1079,8 +1079,8 @@ $dropdown-font-size:                    $font-size-sm; // Dropdown menu item fon
 $dropdown-header-font-size:             $font-size-xs; // Dropdown section headers font size.
 $dropdown-header-color:                 $gray-600; // Dropdown section headers font color.
 
-$dropdown-margin-top:                   .325rem; // Top margin for dropdown menu.
-$dropdown-margin-bottom:                .325rem; // Bottom margin for dropdown menu.
+$dropdown-margin-top:                   0.325rem; // Top margin for dropdown menu.
+$dropdown-margin-bottom:                0.325rem; // Bottom margin for dropdown menu.
 $dropdown-margin-left:                  15px; // Left margin for dropdown. Used for dropright variation
 $dropdown-margin-right:                 15px; // Right margin for dropdown. Used for dropleft variation
 $dropdown-padding-y:                    5px; // Dropdown menu container vertical padding.

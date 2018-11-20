@@ -128,6 +128,7 @@ var appMaster = {
                 setTimeout(function () {
                     $this.removeClass('clicked');
                 }, 500);
+
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
@@ -150,10 +151,10 @@ var appMaster = {
             setTimeout((function () {
                 var maxHeight = $(appMaster._navbarCollapse).eq(0).css('max-height');
                 maxHeight = maxHeight.split('px')[0]; //remove px
-                // alert(maxHeight);
+                 // alert(maxHeight);
 
                 var currHeight = $(appMaster._navbarCollapse)[0].scrollHeight;
-                // alert(currHeight);
+                 // alert(currHeight);
 
                 if (currHeight >= maxHeight) {
                     if (appMaster._navbarSlimScroll) {
@@ -161,7 +162,7 @@ var appMaster = {
                     } else {
                         $(appMaster._navbarCollapse).css('overflow-y', 'auto');
                     }
-                } else {
+                } else if (currHeight <= maxHeight) {
                     if (appMaster._navbarSlimScroll) {
                         appMaster._exitNavbarSlimScroll();
                     } else {
@@ -264,7 +265,6 @@ var appMaster = {
         // Add slimScroll to fixed sidebar layout
         if (appMaster._sidebarSlimScroll) {
             appMaster._fixedSidebarScroll();
-
             $(window).on('resize', function () {
                 appMaster._fixedSidebarScroll();
             });
@@ -419,7 +419,7 @@ var appMaster = {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
 
                 // Stop metisMenu opening the menu for the particular list
-                $(this).children('a').attr("aria-disabled", "true");
+                $(this).children('a').attr('aria-disabled', 'true');
 
                 // Reset popout menu if mouse moves between list items, otherwise it leaves the previous one.
                 appMaster._resetSidebarPopOutMenu();
@@ -428,7 +428,7 @@ var appMaster = {
                 var listTemplate = $listItem.clone();
                 $('> a.sidebar__link > span.sidebar__link-icon', listTemplate).remove();
                 $('> a.sidebar__link', listTemplate).removeAttr("aria-disabled");
-                $(listTemplate).addClass("show");
+                $(listTemplate).addClass('show');
 
                 if ($listItem.hasClass('has-child')) {
                     $('> a.sidebar__link', listTemplate).attr('aria-expanded', 'true');
@@ -449,9 +449,9 @@ var appMaster = {
                     calcFromTop();
                 }
                 else {
-                    fromTop = $listItem.offset().top - $(window).scrollTop(); // Get the offset top of the list item and position it w.r.t window
                     // Fix the position to accommodate for the height of the sidebar brand
                     // fromTop = sidebar_brand_height + $listItem.position().top;
+                    fromTop = $listItem.offset().top - $(window).scrollTop(); // Get the offset top of the list item and position it w.r.t window
                 }
 
                 // Calculate max height
@@ -536,17 +536,17 @@ var appMaster = {
         }).on('click', 'li.sidebar__item', function (e) {
         });
 
-        // Prevent the popout menu exit function to run
-        $(appMaster._sidebarNav).on('mouseenter', function () {
-            if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
-                return clearTimeout(appMaster._exitSidebarPopOutMenuConfig);
-            }
-        });
-
         // Exit popout menu if mouse leaves sidebar navigation
         $(appMaster._sidebarNav).on('mouseleave', function () {
             if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
                 appMaster._exitSidebarPopOutMenu(animate_in_class, animate_out_class);
+            }
+        });
+
+        // Prevent the popout menu exit function to run
+        $(appMaster._sidebarNav).on('mouseenter', function () {
+            if (appMaster._sidebarMiniIsOpen && appMaster._sidebar.hasClass('popout')) {
+                return clearTimeout(appMaster._exitSidebarPopOutMenuConfig);
             }
         });
 
@@ -568,7 +568,7 @@ var appMaster = {
             $("ul#menu-popout").slimScroll({destroy: true}).removeAttr("style");
 
             // Remove wrapper for popout menu
-            $(appMaster._sidebarNav).children('#menu-popout-wrap').removeClass($animate_in_class).addClass($animate_out_class).fadeToggle(500, "swing", function () {
+            $(appMaster._sidebarNav).children('#menu-popout-wrap').removeClass($animate_in_class).addClass($animate_out_class).fadeToggle(500, 'swing', function () {
                 this.remove();
             });
 
@@ -786,22 +786,50 @@ var appMaster = {
 
     dropdown: function () {
 
-        // Add scrollbar to the navbar collapsible element
-        $('.navbar-nav .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
+        // Add scrollbar to the navbar collapsible element 'a.card__actions-item:not([data-card=fullscreen])'
+        $('.navbar-nav:not(.no-collapse) .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
             // Make sure there is fixed-element
             if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs) {
                 appMaster._fixNavbarMaxHeight();
-                alert('sd');
             }
         });
 
-        // Add slidedown animation to dropdown
-        /*  $('.dropdown').on('show.bs.dropdown', function (e) {
-         $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);  // fade fadeOut(), fadeIn()
-         });
-         $('.dropdown').on('hide.bs.dropdown', function (e) {
-         $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
-         });*/
+        $('.navbar-nav.no-collapse .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
+            // Make sure there is fixed-element
+            if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs) {
+                var $dropdown = $(this);
+                var fromTopD;
+                var calcFromTopD = function () {
+                    var scrollTopD = $(window).scrollTop(), divOffsetD = $dropdown.offset().top;
+                    fromTopD = (divOffsetD - scrollTopD);
+                };
+                calcFromTopD();
+
+                // Calculate max height
+                var menuTopD;
+                var winHeightD;
+                var popOutMenuHeightD = '';
+
+                var calcMaxHeight = function () {
+                    menuTopD = fromTopD;
+                    winHeightD = $(window).height() - $(appMaster._header).height();
+                    popOutMenuHeightD = winHeightD - menuTopD + $listItem.height() - 20; //TODO
+                };
+
+                calcMaxHeight();
+
+                alert(winHeightD);
+            }
+        });
+
+
+        // Add fade animation to dropdown
+        $('.dropdown').on('show.bs.dropdown', function (e) {
+            $(this).find('.dropdown-menu').first().stop(true, true).fadeIn(300);  // fade fadeOut(), fadeIn()
+        });
+        $('.dropdown').on('hide.bs.dropdown', function (e) {
+            $(this).find('.dropdown-menu').first().stop(true, true).fadeOut(200);
+        });
 
         // Sub menu
         $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
