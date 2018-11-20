@@ -1079,12 +1079,18 @@ $dropdown-font-size:                    $font-size-sm; // Dropdown menu item fon
 $dropdown-header-font-size:             $font-size-xs; // Dropdown section headers font size.
 $dropdown-header-color:                 $gray-600; // Dropdown section headers font color.
 
-$dropdown-margin-top:                   15px; // Positioning first level dropdown menu.
-$dropdown-margin-bottom:                15px; // Bottom for dropdown. Used for dropup variation and for dropdowns in navbar nav (.navbar-nav) with .navbar-expand{-sm|-md|-lg|-xl} for responsive collapsing.
+$dropdown-margin-top:                   .325rem; // Top margin for dropdown menu.
+$dropdown-margin-bottom:                .325rem; // Bottom margin for dropdown menu.
 $dropdown-margin-left:                  15px; // Left margin for dropdown. Used for dropright variation
 $dropdown-margin-right:                 15px; // Right margin for dropdown. Used for dropleft variation
 $dropdown-padding-y:                    5px; // Dropdown menu container vertical padding.
 $dropdown-padding-x:                    0px; // Dropdown menu container horizontal padding.
+
+$dropdown-has-arrow-margin-top:         15px; // Top margin for dropdown menu having top arrow. Also used as bottom margin for dropup variation having top arrow.
+$dropdown-has-arrow-margin-bottom:      0px; // Bottom margin for dropdown menu having top arrow.
+
+$dropdown-mobile-margin-top:            10px; // Top margin for dropdowns in navbar nav (.navbar-nav) with .navbar-expand{-sm|-md|-lg|-xl} for responsive collapsing.
+$dropdown-mobile-margin-bottom:         10px; // Bottom margin for dropdowns in navbar nav (.navbar-nav) with .navbar-expand{-sm|-md|-lg|-xl} for responsive collapsing.
 
 $dropdown-item-padding-y:               8px; // Dropdown menu item vertical padding.
 $dropdown-item-padding-x:               12px; // Dropdown menu item horizontal padding.

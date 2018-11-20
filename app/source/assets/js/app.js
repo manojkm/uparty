@@ -119,15 +119,21 @@ var appMaster = {
                 if (appMaster._asideIsOpen) {
                     $(appMaster._aside).click();
                 }
-                appMaster._fixNavbarMaxHeight();
-                console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
-                Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
+
+                // Make sure there is fixed-element
+                if ($(appMaster._navbarFixed).length) {
+                    appMaster._fixNavbarMaxHeight();
+                }
+
                 setTimeout(function () {
                     $this.removeClass('clicked');
                 }, 500);
+                console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
+                Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
             }
             else if (!$this.hasClass('clicked') && !$this.hasClass('collapsed')) {
                 $this.addClass('clicked');
+                appMaster._exitNavbarSlimScroll();
                 appMaster._navbarCollapsibleContentIs = false;
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
@@ -138,8 +144,36 @@ var appMaster = {
         });
     },
 
-    // Add slimScroll to fixed navbar layout
-    _fixedNavbarScroll: function () {
+    // Add scrollbar to the navbar collapsible element
+    _fixNavbarMaxHeight: function () {
+        if (appMaster._navbarCollapsibleContentIs) {
+            setTimeout((function () {
+                var maxHeight = $(appMaster._navbarCollapse).eq(0).css('max-height');
+                maxHeight = maxHeight.split('px')[0]; //remove px
+                // alert(maxHeight);
+
+                var currHeight = $(appMaster._navbarCollapse)[0].scrollHeight;
+                // alert(currHeight);
+
+                if (currHeight >= maxHeight) {
+                    if (appMaster._navbarSlimScroll) {
+                        appMaster._fixedNavbarSlimScroll();
+                    } else {
+                        $(appMaster._navbarCollapse).css('overflow-y', 'auto');
+                    }
+                } else {
+                    if (appMaster._navbarSlimScroll) {
+                        appMaster._exitNavbarSlimScroll();
+                    } else {
+                        $(appMaster._navbarCollapse).css('overflow', '');
+                    }
+                }
+            }), 500);
+        }
+    },
+
+    // Add slimScroll to fixed navbar collapsible element
+    _fixedNavbarSlimScroll: function () {
         setTimeout((function () {
             var options = {
                 height: '100%',
@@ -157,39 +191,12 @@ var appMaster = {
     },
 
     // Remove slimScroll from fixed navbar layout
-    _exitNavbarScroll: function () {
+    _exitNavbarSlimScroll: function () {
         setTimeout((function () {
             $(appMaster._navbarCollapse).slimScroll({destroy: true}).removeAttr("style");
         }), 0); // Destroy if slimScroll exists
     },
 
-    // Add scrollbar to the navbar collapsible element
-    _fixNavbarMaxHeight: function () {
-        if (appMaster._navbarCollapsibleContentIs) {
-            setTimeout((function () {
-                var maxHeight = $(appMaster._navbarCollapse).eq(0).css('max-height');
-                maxHeight = maxHeight.split('px')[0]; //remove px
-                //alert(maxHeight);
-
-                var currHeight = $(appMaster._navbarCollapse)[0].scrollHeight;
-                //alert(currHeight);
-
-                if (currHeight >= maxHeight) {
-                    if (appMaster._navbarSlimScroll) {
-                        appMaster._fixedNavbarScroll();
-                    } else {
-                        $(appMaster._navbarCollapse).css('overflow-y', 'auto');
-                    }
-                } else {
-                    if (appMaster._navbarSlimScroll) {
-                        appMaster._exitNavbarScroll();
-                    } else {
-                        $(appMaster._navbarCollapse).css('overflow', '');
-                    }
-                }
-            }), 500);
-        }
-    },
 
     sidebar: function () {
 
@@ -781,16 +788,20 @@ var appMaster = {
 
         // Add scrollbar to the navbar collapsible element
         $('.navbar-nav .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
-            appMaster._fixNavbarMaxHeight();
+            // Make sure there is fixed-element
+            if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs) {
+                appMaster._fixNavbarMaxHeight();
+                alert('sd');
+            }
         });
 
         // Add slidedown animation to dropdown
-      /*  $('.dropdown').on('show.bs.dropdown', function (e) {
-            $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);  // fade fadeOut(), fadeIn()
-        });
-        $('.dropdown').on('hide.bs.dropdown', function (e) {
-            $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
-        });*/
+        /*  $('.dropdown').on('show.bs.dropdown', function (e) {
+         $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);  // fade fadeOut(), fadeIn()
+         });
+         $('.dropdown').on('hide.bs.dropdown', function (e) {
+         $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+         });*/
 
         // Sub menu
         $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {

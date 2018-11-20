@@ -101,13 +101,6 @@ $nb: navbar;
 
   }
 
-  .#{$nb}-nav.no-collapse {
-    position: relative;
-    .dropdown-menu {
-      position: absolute;
-    }
-  }
-
   .slimScrollDiv {
     /*display: flex;
     flex-basis: auto;*/
@@ -152,15 +145,30 @@ $nb: navbar;
           }
         }
         .dropdown-menu {
-          margin-bottom: $dropdown-margin-bottom;
+          margin-top: $dropdown-mobile-margin-top;
+          margin-bottom: $dropdown-mobile-margin-bottom;
+          &.has-arrow {
+            margin-top: $dropdown-mobile-margin-top;
+            &:before,
+            &:after {
+              display: none;
+            }
+          }
         }
       }
 
-      .#{$nb}-nav {
+      .#{$nb}-nav.no-collapse {
+        position: relative;
         .dropdown-menu {
-          &:before,
-          &:after {
-            display: none;
+          position: absolute;
+          margin-top: $dropdown-mobile-margin-top;
+          margin-bottom: $dropdown-mobile-margin-bottom;
+          &.has-arrow {
+            margin-top: $dropdown-mobile-margin-top;
+            &:before,
+            &:after {
+              display: none;
+            }
           }
         }
       }
