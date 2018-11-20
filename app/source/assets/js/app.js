@@ -803,7 +803,7 @@ var appMaster = {
             $subMenu.toggleClass('show').prev('.dropdown-toggle').toggleClass('active');
             // $(this).toggleClass('active');
 
-            // Close all open sub-menu when top level menu item is clicked
+            // Close all open sub-menu when top level menu item (grand-parent) is clicked
             $(this).parents('li.dropdown.show').on('hidden.bs.dropdown', function (e) {
                 $('.dropdown.has-child .show').removeClass("show");
                 $('.dropdown-menu a.dropdown-toggle').removeClass("active");

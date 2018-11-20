@@ -54,9 +54,8 @@
       z-index: 9;
     }
 
-    // Positioning arrow at the bottom for an 'up' menu
-    &[x-placement="top-start"],
-    &[x-placement="top-end"] {
+    // Positioning arrow based on shifted properties like 'top-start' and 'top-end'. ie place the arrow at the bottom for an 'up' menu
+    &[x-placement^="top"] {
       margin-bottom: $dropdown-margin-bottom;
       &:before {
         bottom: -6px;
@@ -297,6 +296,7 @@
 // Dropup variation
 .dropup {
   .dropdown-menu.extended {
+    // Support to move the arrow to the bottom
     &.has-arrow {
       margin-bottom: $dropdown-margin-bottom;
       // Dropdown arrow
@@ -320,7 +320,7 @@
     margin-top: 0;
     &.has-arrow {
       margin-left: $dropdown-margin-left;
-      // Dropdown arrow
+      // Support to move the arrow to the left-hand-side
       &:before {
         top: 16px;
         left: -9px;
@@ -342,7 +342,7 @@
     margin-top: 0;
     &.has-arrow {
       margin-right: $dropdown-margin-right;
-      // Dropdown arrow
+      // Support to move the arrow to the right-hand-side
       &:before {
         top: 16px;
         right: -9px;
