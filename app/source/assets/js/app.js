@@ -38,6 +38,7 @@ var appMaster = {
     _navbarToggler: $(".navbar-toggler"),
     _navbarCollapse: $('.navbar-collapse'),
     _navbarCollapsibleContentIs: false,
+    _navbarMaxHeightIs: false,
     _aside: $("[data-toggle='aside']"),
     _asideIsOpen: false,
     _overlay: $('.overlay'),
@@ -135,9 +136,16 @@ var appMaster = {
             else if (!$this.hasClass('clicked') && !$this.hasClass('collapsed')) {
                 $this.addClass('clicked');
                 appMaster._exitNavbarSlimScroll();
+
+                if (appMaster._navbarMaxHeightIs) {
+                    appMaster._navbarMaxHeightIs = false;
+                    console.log('Navbar max-height is', appMaster._navbarMaxHeightIs);
+                }
+
                 appMaster._navbarCollapsibleContentIs = false;
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
+
                 setTimeout(function () {
                     $this.removeClass('clicked');
                 }, 500);
@@ -151,23 +159,28 @@ var appMaster = {
             setTimeout((function () {
                 var maxHeight = $(appMaster._navbarCollapse).eq(0).css('max-height');
                 maxHeight = maxHeight.split('px')[0]; //remove px
-                 // alert(maxHeight);
+                // alert(maxHeight);
 
                 var currHeight = $(appMaster._navbarCollapse)[0].scrollHeight;
-                 // alert(currHeight);
+                // alert(currHeight);
 
                 if (currHeight >= maxHeight) {
+                    appMaster._navbarMaxHeightIs = true;
                     if (appMaster._navbarSlimScroll) {
                         appMaster._fixedNavbarSlimScroll();
                     } else {
                         $(appMaster._navbarCollapse).css('overflow-y', 'auto');
                     }
+                    console.log("Navbar max-height is", appMaster._navbarMaxHeightIs);
+
                 } else if (currHeight <= maxHeight) {
+                    appMaster._navbarMaxHeightIs = false;
                     if (appMaster._navbarSlimScroll) {
                         appMaster._exitNavbarSlimScroll();
                     } else {
                         $(appMaster._navbarCollapse).css('overflow', '');
                     }
+                    console.log('Navbar max-height is', appMaster._navbarMaxHeightIs);
                 }
             }), 500);
         }
@@ -787,39 +800,73 @@ var appMaster = {
     dropdown: function () {
 
         // Add scrollbar to the navbar collapsible element 'a.card__actions-item:not([data-card=fullscreen])'
-        $('.navbar-nav:not(.no-collapse) .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
+        $('.navbar-nav:not(.no-collapse) > .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
             // Make sure there is fixed-element
             if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs) {
                 appMaster._fixNavbarMaxHeight();
             }
         });
 
-        $('.navbar-nav.no-collapse .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
-            // Make sure there is fixed-element
-            if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs) {
-                var $dropdown = $(this);
-                var fromTopD;
-                var calcFromTopD = function () {
-                    var scrollTopD = $(window).scrollTop(), divOffsetD = $dropdown.offset().top;
-                    fromTopD = (divOffsetD - scrollTopD);
-                };
-                calcFromTopD();
+        $('.navbar-nav.no-collapse > .dropdown').on('show.bs.dropdown', function (e) {
 
-                // Calculate max height
-                var menuTopD;
-                var winHeightD;
-                var popOutMenuHeightD = '';
+            var $dropdown = $(this);
 
-                var calcMaxHeight = function () {
-                    menuTopD = fromTopD;
-                    winHeightD = $(window).height() - $(appMaster._header).height();
-                    popOutMenuHeightD = winHeightD - menuTopD + $listItem.height() - 20; //TODO
-                };
+            setTimeout(function () {
+                if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs && !appMaster._navbarMaxHeightIs) {
 
-                calcMaxHeight();
+                    var fromTopD;
+                    var calcFromTopD = function () {
+                        var scrollTopD = $(window).scrollTop(), divOffsetD = $dropdown.offset().top;
+                        fromTopD = (divOffsetD - scrollTopD);
+                    };
+                    calcFromTopD();
 
-                alert(winHeightD);
-            }
+                    // Calculate max height
+                    var menuTopD;
+                    var winHeightD;
+                    var popOutMenuHeightD = '';
+
+                    var calcMaxHeight = function () {
+                        menuTopD = fromTopD;
+                        winHeightD = $(window).height();
+                        popOutMenuHeightD = winHeightD - menuTopD - $dropdown.height() - 10;
+                    };
+
+                    calcMaxHeight();
+                    $dropdown.find('.dropdown-menu').first().css({'max-height': popOutMenuHeightD, 'overflow-y': 'auto'});
+                }
+
+            }, 500);
+
+
+            // if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs && !appMaster._navbarMaxHeightIs) {
+            //
+            //     var $dropdown = $(this);
+            //     var fromTopD;
+            //     var calcFromTopD = function () {
+            //         var scrollTopD = $(window).scrollTop(), divOffsetD = $dropdown.offset().top;
+            //         fromTopD = (divOffsetD - scrollTopD);
+            //     };
+            //     calcFromTopD();
+            //
+            //     // Calculate max height
+            //     var menuTopD;
+            //     var winHeightD;
+            //     var popOutMenuHeightD = '';
+            //
+            //     var calcMaxHeight = function () {
+            //         menuTopD = fromTopD;
+            //         winHeightD = $(window).height();
+            //         popOutMenuHeightD = winHeightD - menuTopD - $dropdown.height() - 10;
+            //     };
+            //
+            //     calcMaxHeight();
+            //     $(this).find('.dropdown-menu').first().css({'max-height': popOutMenuHeightD, 'overflow-y': 'auto'});
+            // }
+        });
+
+        $('.navbar-nav.no-collapse > .dropdown').on('hide.bs.dropdown', function (e) {
+            $(this).find('.dropdown-menu').first().css({'max-height': '', 'overflow-y': ''});
         });
 
 
