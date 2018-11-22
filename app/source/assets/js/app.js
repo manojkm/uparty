@@ -34,7 +34,7 @@ var appMaster = {
     _sidebarMiniIsOpen: false,
     _exitSidebarPopOutMenuConfig: null,
     _navbarFixed: $('.header-fixed'),
-    _navbarSlimScroll: false,
+    _navbarSlimScroll: true,
     _navbarToggler: $(".navbar-toggler"),
     _navbarCollapse: $('.navbar-collapse'),
     _navbarCollapsibleContentIs: false,
@@ -54,7 +54,7 @@ var appMaster = {
 
 
     // This requires you to load the slimScroll plugin in every page before app.js
-    slimScroll: function (fixedElement, slimScrollElement, options) {
+    slimScroll: function (fixedElement, slimScrollElement, options, styleAttributes) {
 
         // Adapted from https://github.com/ludusrusso/pp-robot-2018/blob/master/server_ws/src/laser_bot_battle/scripts/static/js/app.js
 
@@ -89,7 +89,7 @@ var appMaster = {
                  });*/
 
                 var $self = $(this);
-                $self.slimScroll(options);
+                $self.slimScroll(options).parent().css(JSON.parse(JSON.stringify(styleAttributes)));
             });
 
         }
@@ -135,8 +135,9 @@ var appMaster = {
             }
             else if (!$this.hasClass('clicked') && !$this.hasClass('collapsed')) {
                 $this.addClass('clicked');
-                appMaster._exitNavbarSlimScroll();
-
+                if (appMaster._navbarSlimScroll) {
+                    appMaster._exitNavbarSlimScroll();
+                }
                 if (appMaster._navbarMaxHeightIs) {
                     appMaster._navbarMaxHeightIs = false;
                     console.log('Navbar max-height is', appMaster._navbarMaxHeightIs);
@@ -512,6 +513,7 @@ var appMaster = {
                     if (appMaster._sidebarSlimScroll) {
                         var options = {
                             height: '',
+                            width: '',
                             distance: '0',
                             size: '5px',
                             railOpacity: 0.3,
@@ -797,6 +799,7 @@ var appMaster = {
         appMaster._body.hasClass("sidebar-mini") ? appMaster._logo.attr('src', appMaster._logo.data('collapse')) : appMaster._logo.attr('src', appMaster._logo.data('expand'));
     },
 
+
     dropdown: function () {
 
         // Add scrollbar to the navbar collapsible element 'a.card__actions-item:not([data-card=fullscreen])'
@@ -814,61 +817,34 @@ var appMaster = {
             setTimeout(function () {
                 if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs && !appMaster._navbarMaxHeightIs) {
 
-                    var fromTopD;
-                    var calcFromTopD = function () {
-                        var scrollTopD = $(window).scrollTop(), divOffsetD = $dropdown.offset().top;
-                        fromTopD = (divOffsetD - scrollTopD);
-                    };
-                    calcFromTopD();
-
                     // Calculate max height
                     var menuTopD;
                     var winHeightD;
                     var popOutMenuHeightD = '';
 
                     var calcMaxHeight = function () {
-                        menuTopD = fromTopD;
+                        menuTopD = $dropdown.offset().top - $(window).scrollTop();
                         winHeightD = $(window).height();
                         popOutMenuHeightD = winHeightD - menuTopD - $dropdown.height() - 10;
                     };
 
                     calcMaxHeight();
-                    $dropdown.find('.dropdown-menu').first().css({'max-height': popOutMenuHeightD, 'overflow-y': 'auto'});
+
+                    if (appMaster._navbarSlimScroll) {
+                        appMaster._fixedNavbarDropdownSlimScroll($dropdown.find('.dropdown-menu').first());
+                        $dropdown.find('.dropdown-menu').first().css({'max-height': popOutMenuHeightD, 'position': 'static'});
+                    } else {
+                        $dropdown.find('.dropdown-menu').first().css({'max-height': popOutMenuHeightD, 'overflow-y': 'auto'});
+                    }
                 }
 
             }, 500);
 
-
-            // if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs && !appMaster._navbarMaxHeightIs) {
-            //
-            //     var $dropdown = $(this);
-            //     var fromTopD;
-            //     var calcFromTopD = function () {
-            //         var scrollTopD = $(window).scrollTop(), divOffsetD = $dropdown.offset().top;
-            //         fromTopD = (divOffsetD - scrollTopD);
-            //     };
-            //     calcFromTopD();
-            //
-            //     // Calculate max height
-            //     var menuTopD;
-            //     var winHeightD;
-            //     var popOutMenuHeightD = '';
-            //
-            //     var calcMaxHeight = function () {
-            //         menuTopD = fromTopD;
-            //         winHeightD = $(window).height();
-            //         popOutMenuHeightD = winHeightD - menuTopD - $dropdown.height() - 10;
-            //     };
-            //
-            //     calcMaxHeight();
-            //     $(this).find('.dropdown-menu').first().css({'max-height': popOutMenuHeightD, 'overflow-y': 'auto'});
-            // }
         });
 
         $('.navbar-nav.no-collapse > .dropdown').on('hide.bs.dropdown', function (e) {
             $(this).find('.dropdown-menu').first().css({'max-height': '', 'overflow-y': ''});
         });
-
 
         // Add fade animation to dropdown
         $('.dropdown').on('show.bs.dropdown', function (e) {
@@ -898,6 +874,31 @@ var appMaster = {
             return false;
         });
     },
+
+
+
+    _fixedNavbarDropdownSlimScroll: function (slimScrollElement) {
+        setTimeout((function () {
+            var options = {
+                height: '',
+                width: '',
+                distance: '0',
+                size: '5px',
+                railOpacity: 0.3,
+                position: 'right',
+                touchScrollStep: 50,
+                alwaysVisible: false
+            };
+
+            var styleAttributes = {
+                'position': 'absolute',
+                'z-index': '1000',
+            };
+
+            appMaster.slimScroll($(appMaster._navbarFixed), $(slimScrollElement), options, styleAttributes);
+        }), 0);
+    },
+
 
     tooltip: function () {
         $(appMaster._tooltip).each(function () {
