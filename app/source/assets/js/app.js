@@ -38,6 +38,7 @@ var appMaster = {
     _navbarToggler: $(".navbar-toggler"),
     _navbarCollapse: $('.navbar-collapse'),
     _navbarCollapsibleContentIs: false,
+    _navbarNoCollapseIs: false,
     _navbarMaxHeightIs: false,
     _aside: $("[data-toggle='aside']"),
     _asideIsOpen: false,
@@ -111,8 +112,7 @@ var appMaster = {
                 //  alert("Double click");
                 e.preventDefault(); //don't do anything
 
-            }
-            else if (!$this.hasClass('clicked') && $this.hasClass('collapsed')) {
+            } else if (!$this.hasClass('clicked') && $this.hasClass('collapsed')) {
                 $this.addClass('clicked');
                 appMaster._navbarCollapsibleContentIs = true;
                 if (appMaster._sidebarIsOpen) {
@@ -133,8 +133,7 @@ var appMaster = {
 
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
-            }
-            else if (!$this.hasClass('clicked') && !$this.hasClass('collapsed')) {
+            } else if (!$this.hasClass('clicked') && !$this.hasClass('collapsed')) {
                 $this.addClass('clicked');
                 appMaster._navbarCollapsibleContentIs = false;
 
@@ -169,12 +168,14 @@ var appMaster = {
 
                 if (currHeight >= maxHeight) {
                     appMaster._navbarMaxHeightIs = true;
-                    if (appMaster._navbarSlimScroll) {
+                    if (appMaster._navbarSlimScroll && !appMaster._navbarNoCollapseIs) {
                         appMaster._fixedNavbarSlimScroll();
+                    } else if (appMaster._navbarNoCollapseIs) {
+                        $(appMaster._navbarCollapse).css('overflow-y', '');
                     } else {
                         $(appMaster._navbarCollapse).css('overflow-y', 'auto');
                     }
-                    console.log("Navbar max-height is", appMaster._navbarMaxHeightIs);
+                    console.log('Navbar max-height is', appMaster._navbarMaxHeightIs);
 
                 } else if (currHeight <= maxHeight) {
                     appMaster._navbarMaxHeightIs = false;
@@ -233,8 +234,7 @@ var appMaster = {
                 appMaster._stopMetisMenu([appMaster._sidebarFooterNav]);
                 console.log("Sidebar is", appMaster._sidebarIsOpen);
                 Cookies.set('sidebarIs', appMaster._sidebarIsOpen);
-            }
-            else {
+            } else {
                 $(this).addClass('collapsed');
                 appMaster._body.removeClass('sidebar-is-closed').addClass('sidebar-is-open');
                 appMaster._sidebarIsOpen = true;
@@ -266,8 +266,7 @@ var appMaster = {
                 }
                 console.log("Sidebar mini is", appMaster._sidebarMiniIsOpen);
                 Cookies.set('sidebarMiniIs', appMaster._sidebarMiniIsOpen);
-            }
-            else {
+            } else {
                 $(this).addClass('collapsed');
                 appMaster._body.addClass('sidebar-mini');
                 appMaster._changeLogo();
@@ -295,8 +294,7 @@ var appMaster = {
                 var position;
                 if ($(appMaster._sidebarNav).find('li.active').parents('li').length > 0) {
                     position = $(appMaster._sidebarNav).find('li.active').parents('li').last().position();
-                }
-                else {
+                } else {
                     position = $(appMaster._sidebarNav).find('li.active').position();
                 }
 
@@ -467,8 +465,7 @@ var appMaster = {
                 if (!$(appMaster._sidebarFixed).length) {
                     // Adapted from https://stackoverflow.com/questions/12502769/how-to-get-the-div-top-position-value-while-scrolling
                     calcFromTop();
-                }
-                else {
+                } else {
                     // Fix the position to accommodate for the height of the sidebar brand
                     // fromTop = sidebar_brand_height + $listItem.position().top;
                     fromTop = $listItem.offset().top - $(window).scrollTop(); // Get the offset top of the list item and position it w.r.t window
@@ -647,8 +644,7 @@ var appMaster = {
 
                 console.log("Aside is", appMaster._asideIsOpen);
                 Cookies.set('Aside', appMaster._asideIsOpen);
-            }
-            else {
+            } else {
                 $(this).removeClass('collapsed');
                 appMaster._body.removeClass('aside-is-closed').addClass('aside-is-open');
                 appMaster._asideIsOpen = true;
@@ -810,7 +806,7 @@ var appMaster = {
     dropdown: function () {
 
         // Add scrollbar to the navbar collapsible element 'a.card__actions-item:not([data-card=fullscreen])'
-        $('.navbar-nav:not(.no-collapse) > .dropdown').on('hide.bs.dropdown show.bs.dropdown', function (e) {
+        $('.navbar-nav:not(.no-collapse) > .dropdown').on('hidden.bs.dropdown shown.bs.dropdown', function (e) {
             // Make sure there is fixed-element
             if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs) {
                 appMaster._fixNavbarMaxHeight();
@@ -819,48 +815,49 @@ var appMaster = {
 
         $('.navbar-nav.no-collapse > .dropdown').on('show.bs.dropdown', function (e) {
 
+            appMaster._exitNavbarSlimScroll();
+
             var $dropdown = $(this);
             var dropdownMenu = $dropdown.find('.dropdown-menu').first();
 
-            setTimeout(function () {
+            // setTimeout(function () { }, 500);
+            if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs) {
 
-                if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs && !appMaster._navbarMaxHeightIs) {
-                    // appMaster._fixNavbarMaxHeight();
-                    // Calculate max height
-                    var dropdownFromTop;
-                    var winHeight;
-                    var dropdownMenuHeight = '';
+                appMaster._navbarNoCollapseIs = true;
+                appMaster._fixNavbarMaxHeight();
 
-                    var calcMaxHeight = function () {
-                        dropdownFromTop = $dropdown.offset().top - $(window).scrollTop();
-                        winHeight = $(window).height();
-                        dropdownMenuHeight = winHeight - dropdownFromTop - $dropdown.height() - 10;
-                    };
+                // Calculate max height
+                var dropdownFromTop;
+                var winHeight;
+                var dropdownMenuHeight = '';
+                var calcMaxHeight = function () {
+                    dropdownFromTop = $dropdown.offset().top - $(window).scrollTop();
+                    winHeight = $(window).height();
+                    dropdownMenuHeight = winHeight - dropdownFromTop - $dropdown.height() - 10;
+                };
+                calcMaxHeight();
 
-                    calcMaxHeight();
-
-                    if (appMaster._navbarSlimScroll) {
-                        appMaster._fixedNavbarDropdownSlimScroll(dropdownMenu);
-                        dropdownMenu.css({'max-height': dropdownMenuHeight, 'position': 'static'});
-                    } else {
-                        dropdownMenu.css({'max-height': dropdownMenuHeight, 'overflow-y': 'auto'});
-                    }
+                if (appMaster._navbarSlimScroll) {
+                    appMaster._fixedNavbarDropdownSlimScroll(dropdownMenu);
+                    dropdownMenu.css({'max-height': dropdownMenuHeight, 'position': 'static'});
+                } else {
+                    dropdownMenu.css({'max-height': dropdownMenuHeight, 'overflow-y': 'auto'});
                 }
 
-            }, 500);
-
+            }
         });
 
         $('.navbar-nav.no-collapse > .dropdown').on('hide.bs.dropdown', function (e) {
 
-            // appMaster._fixNavbarMaxHeight();
+            appMaster._navbarNoCollapseIs = false;
+            appMaster._fixNavbarMaxHeight();
 
             var $dropdown = $(this);
             var dropdownMenu = $dropdown.find('.dropdown-menu').first();
 
             if (appMaster._navbarSlimScroll) {
                 appMaster._exitNavbarDropdownSlimScroll(dropdownMenu);
-                dropdownMenu.css({'max-height':'', 'position': ''});
+                dropdownMenu.css({'max-height': '', 'position': ''});
             } else {
                 dropdownMenu.css({'max-height': '', 'overflow-y': ''});
             }
