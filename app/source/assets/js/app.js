@@ -813,28 +813,29 @@ var appMaster = {
         $('.navbar-nav.no-collapse > .dropdown').on('show.bs.dropdown', function (e) {
 
             var $dropdown = $(this);
+            var dropdownMenu = $dropdown.find('.dropdown-menu').first();
 
             setTimeout(function () {
                 if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs && !appMaster._navbarMaxHeightIs) {
 
                     // Calculate max height
-                    var menuTopD;
-                    var winHeightD;
-                    var popOutMenuHeightD = '';
+                    var dropdownFromTop;
+                    var winHeight;
+                    var dropdownMenuHeight = '';
 
                     var calcMaxHeight = function () {
-                        menuTopD = $dropdown.offset().top - $(window).scrollTop();
-                        winHeightD = $(window).height();
-                        popOutMenuHeightD = winHeightD - menuTopD - $dropdown.height() - 10;
+                        dropdownFromTop = $dropdown.offset().top - $(window).scrollTop();
+                        winHeight = $(window).height();
+                        dropdownMenuHeight = winHeight - dropdownFromTop - $dropdown.height() - 10;
                     };
 
                     calcMaxHeight();
 
                     if (appMaster._navbarSlimScroll) {
-                        appMaster._fixedNavbarDropdownSlimScroll($dropdown.find('.dropdown-menu').first());
-                        $dropdown.find('.dropdown-menu').first().css({'max-height': popOutMenuHeightD, 'position': 'static'});
+                        appMaster._fixedNavbarDropdownSlimScroll(dropdownMenu);
+                        dropdownMenu.css({'max-height': dropdownMenuHeight, 'position': 'static'});
                     } else {
-                        $dropdown.find('.dropdown-menu').first().css({'max-height': popOutMenuHeightD, 'overflow-y': 'auto'});
+                        dropdownMenu.css({'max-height': dropdownMenuHeight, 'overflow-y': 'auto'});
                     }
                 }
 
@@ -892,7 +893,7 @@ var appMaster = {
 
             var styleAttributes = {
                 'position': 'absolute',
-                'z-index': '1000',
+                'z-index': '1000'
             };
 
             appMaster.slimScroll($(appMaster._navbarFixed), $(slimScrollElement), options, styleAttributes);
