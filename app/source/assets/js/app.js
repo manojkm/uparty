@@ -34,7 +34,7 @@ var appMaster = {
     _sidebarMiniIsOpen: false,
     _exitSidebarPopOutMenuConfig: null,
     _navbarFixed: $('.header-fixed'),
-    _navbarSlimScroll: true,
+    _navbarSlimScroll: false,
     _navbarToggler: $(".navbar-toggler"),
     _navbarCollapse: $('.navbar-collapse'),
     _navbarCollapsibleContentIs: false,
@@ -108,8 +108,9 @@ var appMaster = {
             var $this = $(this);
             if ($this.hasClass('clicked')) {
                 // Adapted from https://stackoverflow.com/questions/6330431/jquery-bind-double-click-and-single-click-separately
-                // alert("Double click");
+                //  alert("Double click");
                 e.preventDefault(); //don't do anything
+
             }
             else if (!$this.hasClass('clicked') && $this.hasClass('collapsed')) {
                 $this.addClass('clicked');
@@ -135,6 +136,8 @@ var appMaster = {
             }
             else if (!$this.hasClass('clicked') && !$this.hasClass('collapsed')) {
                 $this.addClass('clicked');
+                appMaster._navbarCollapsibleContentIs = false;
+
                 if (appMaster._navbarSlimScroll) {
                     appMaster._exitNavbarSlimScroll();
                 }
@@ -143,7 +146,6 @@ var appMaster = {
                     console.log('Navbar max-height is', appMaster._navbarMaxHeightIs);
                 }
 
-                appMaster._navbarCollapsibleContentIs = false;
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
 
@@ -201,7 +203,10 @@ var appMaster = {
                 alwaysVisible: false
             };
 
-            appMaster.slimScroll($(appMaster._navbarFixed), $(appMaster._navbarCollapse), options);
+            var styleAttributes = {};
+
+            appMaster.slimScroll($(appMaster._navbarFixed), $(appMaster._navbarCollapse), options, styleAttributes);
+
         }), 0);
     },
 
@@ -359,7 +364,8 @@ var appMaster = {
             allowPageScroll: false
         };
 
-        appMaster.slimScroll($(appMaster._sidebarFixed), $(appMaster._sidebarNav), options);
+        var styleAttributes = {};
+        appMaster.slimScroll($(appMaster._sidebarFixed), $(appMaster._sidebarNav), options, styleAttributes);
     },
 
     _exitSidebarScroll: function () {
@@ -522,7 +528,8 @@ var appMaster = {
                             alwaysVisible: false,
                             allowPageScroll: false
                         };
-                        appMaster.slimScroll($(iWrap), $(popOut), options);
+                        var styleAttributes = {};
+                        appMaster.slimScroll($(iWrap), $(popOut), options, styleAttributes);
                     }
                 }
 
@@ -816,8 +823,9 @@ var appMaster = {
             var dropdownMenu = $dropdown.find('.dropdown-menu').first();
 
             setTimeout(function () {
-                if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs && !appMaster._navbarMaxHeightIs) {
 
+                if ($(appMaster._navbarFixed).length && appMaster._navbarCollapsibleContentIs && !appMaster._navbarMaxHeightIs) {
+                    // appMaster._fixNavbarMaxHeight();
                     // Calculate max height
                     var dropdownFromTop;
                     var winHeight;
@@ -844,7 +852,19 @@ var appMaster = {
         });
 
         $('.navbar-nav.no-collapse > .dropdown').on('hide.bs.dropdown', function (e) {
-            $(this).find('.dropdown-menu').first().css({'max-height': '', 'overflow-y': ''});
+
+            // appMaster._fixNavbarMaxHeight();
+
+            var $dropdown = $(this);
+            var dropdownMenu = $dropdown.find('.dropdown-menu').first();
+
+            if (appMaster._navbarSlimScroll) {
+                appMaster._exitNavbarDropdownSlimScroll(dropdownMenu);
+                dropdownMenu.css({'max-height':'', 'position': ''});
+            } else {
+                dropdownMenu.css({'max-height': '', 'overflow-y': ''});
+            }
+
         });
 
         // Add fade animation to dropdown
@@ -877,7 +897,6 @@ var appMaster = {
     },
 
 
-
     _fixedNavbarDropdownSlimScroll: function (slimScrollElement) {
         setTimeout((function () {
             var options = {
@@ -898,6 +917,12 @@ var appMaster = {
 
             appMaster.slimScroll($(appMaster._navbarFixed), $(slimScrollElement), options, styleAttributes);
         }), 0);
+    },
+
+    _exitNavbarDropdownSlimScroll: function (slimScrollElement) {
+        setTimeout((function () {
+            $(slimScrollElement).slimScroll({destroy: true}).removeAttr("style");
+        }), 0); // Destroy if slimScroll exists
     },
 
 
