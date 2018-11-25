@@ -28,13 +28,13 @@ var appMaster = {
     _sidebarFooterNav: $('.sidebar .sidebar-footer nav.sidebar-footer__nav'),
     _sidebarItem: $('.sidebar__list > .sidebar__item'),
     _sidebarHide: $("[data-toggle='sidebar']"),
-    _sidebarMini: $("[data-toggle='sidebar-mini']"),
-    _sidebarSlimScroll: false,
+    _sidebarMini: $('[data-toggle="sidebar-mini"]'),
+    _sidebarSlimScroll: true,
     _sidebarIsOpen: false,
     _sidebarMiniIsOpen: false,
     _exitSidebarPopOutMenuConfig: null,
     _navbarFixed: $('.header-fixed'),
-    _navbarSlimScroll: false,
+    _navbarSlimScroll: true,
     _navbarToggler: $(".navbar-toggler"),
     _navbarCollapse: $('.navbar-collapse'),
     _navbarCollapsibleContentIs: false,
@@ -75,9 +75,10 @@ var appMaster = {
         if (typeof $.fn.slimScroll != 'undefined') {
 
             // Destroy if it exists
-            $(slimScrollElement).slimScroll({destroy: true}).height("auto");
+            $(slimScrollElement).slimScroll({destroy: true}).removeAttr('style');
 
             // Initialize slimScroll
+            if ($(window).width() >= 768) {    } // TODO tomorrow
             $(slimScrollElement).each(function () {
 
                 /*var $self = $(this), $slimResize;
@@ -159,7 +160,7 @@ var appMaster = {
         });
 
         $(window).on('resize', function () {
-             appMaster._fixNavbarMaxHeight();
+            appMaster._fixNavbarMaxHeight();
         });
 
     },
@@ -308,9 +309,9 @@ var appMaster = {
 
         // Add slimScroll to fixed sidebar layout
         if (appMaster._sidebarSlimScroll) {
-            appMaster._fixedSidebarScroll();
+            appMaster._fixedSidebarSlimScroll();
             $(window).on('resize', function () {
-                appMaster._fixedSidebarScroll();
+                appMaster._fixedSidebarSlimScroll();
             });
         }
 
@@ -371,7 +372,7 @@ var appMaster = {
 
     },
 
-    _fixedSidebarScroll: function () {
+    _fixedSidebarSlimScroll: function () {
         var sidebar_brand_height = ($(appMaster._sidebarBrand).length) ? $(appMaster._sidebarBrand).height() : 0;
         var sidebar_footer_height = ($(appMaster._sidebarFooter).length) ? $(appMaster._sidebarFooter).height() : 0;
         var options = {
@@ -385,10 +386,7 @@ var appMaster = {
             railOpacity: 0.3,
             position: 'right',
             touchScrollStep: 50,
-            alwaysVisible: false,
-            releaseScroll:false,
-            noWatch:true
-
+            alwaysVisible: false
         };
 
         var styleAttributes = {};
@@ -445,7 +443,7 @@ var appMaster = {
 
         // Execute on resize
         $(window).on('resize', function () {
-            fixResponsive()
+            fixResponsive();
         });
 
     },
@@ -533,8 +531,7 @@ var appMaster = {
 
                 // Append the whole list template onto the UL
                 var popOut = document.getElementById(iUl.id);
-                // $(popOut).css({'max-height': popOutMenuHeight}).append(listTemplate);
-                $(popOut).css({}).append(listTemplate);
+                $(popOut).css({'max-height': popOutMenuHeight}).append(listTemplate);
 
                 // Initialize plugins
                 if ($listItem.hasClass('has-child') && $listItem.hasClass('sidebar__item')) {
@@ -543,8 +540,6 @@ var appMaster = {
                     $(popOut).metisMenu({
                         parentTrigger: '.has-child'
                     });
-
-                    new SimpleBar($(iWrap)[0]);
 
                     // Initialize slimScroll to popout menu
                     if (appMaster._sidebarSlimScroll) {
@@ -573,7 +568,7 @@ var appMaster = {
                         calcFromTop();
                         calcMaxHeight();
                         if (!$(appMaster._sidebarFixed).length) {
-                            $(iWrap).css({'top': fromTop});
+                            // $(iWrap).css({'top': fromTop});
                         }
                         $(iWrap).stop().animate({'max-height': popOutMenuHeight}, 0);
                         $(popOut).stop().animate({'max-height': popOutMenuHeight}, 0);
@@ -884,7 +879,7 @@ var appMaster = {
 
             $(window).on('resize', function () {
                 calcMaxHeight();
-                 // alert($(window).innerHeight());
+                // alert($(window).innerHeight());
                 // dropdownMenu.innerHeight( $(this).innerHeight() );
                 dropdownMenu.stop().animate({'max-height': dropdownMenuHeight}, 500);
             });
