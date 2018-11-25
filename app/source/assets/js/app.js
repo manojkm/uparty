@@ -29,7 +29,7 @@ var appMaster = {
     _sidebarItem: $('.sidebar__list > .sidebar__item'),
     _sidebarHide: $("[data-toggle='sidebar']"),
     _sidebarMini: $("[data-toggle='sidebar-mini']"),
-    _sidebarSlimScroll: true,
+    _sidebarSlimScroll: false,
     _sidebarIsOpen: false,
     _sidebarMiniIsOpen: false,
     _exitSidebarPopOutMenuConfig: null,
@@ -103,7 +103,7 @@ var appMaster = {
     navbar: function () {
         // Enable navbar toggle
         $(appMaster._navbarToggler).on('click', function (e) {
-            // e.preventDefault();
+            e.preventDefault();
             // if($(appMaster._navbarCollapse).css('display') !== 'none'){
             // if (appMaster._navbarCollapsibleContentIs) {
             var $this = $(this);
@@ -113,8 +113,10 @@ var appMaster = {
                 e.preventDefault(); //don't do anything
 
             } else if (!$this.hasClass('clicked') && $this.hasClass('collapsed')) {
+
                 $this.addClass('clicked');
                 appMaster._navbarCollapsibleContentIs = true;
+
                 if (appMaster._sidebarIsOpen) {
                     $(appMaster._sidebarHide).click();
                 }
@@ -133,7 +135,9 @@ var appMaster = {
 
                 console.log("Navbar collapsible content is", appMaster._navbarCollapsibleContentIs);
                 Cookies.set('navbarCollapseContentIs', appMaster._navbarCollapsibleContentIs);
+
             } else if (!$this.hasClass('clicked') && !$this.hasClass('collapsed')) {
+
                 $this.addClass('clicked');
                 appMaster._navbarCollapsibleContentIs = false;
 
@@ -153,6 +157,11 @@ var appMaster = {
                 }, 500);
             }
         });
+
+        $(window).on('resize', function () {
+             appMaster._fixNavbarMaxHeight();
+        });
+
     },
 
     // Add scrollbar to the navbar collapsible element
@@ -201,7 +210,8 @@ var appMaster = {
                 railOpacity: 0.3,
                 position: 'right',
                 touchScrollStep: 50,
-                alwaysVisible: false
+                alwaysVisible: false,
+                allowPageScroll: true,
             };
 
             var styleAttributes = {};
@@ -218,6 +228,22 @@ var appMaster = {
         }), 0); // Destroy if slimScroll exists
     },
 
+    fixVHOnMobile: function () {
+        // Adapted from https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+        // CSS usage: calc(var(--vh, 1vh) * 100);
+
+        // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+        let vh = window.innerHeight * 0.01;
+        // Then we set the value in the --vh custom property to the root of the document
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+        // We listen to the resize event
+        window.addEventListener('resize', () => {
+            // We execute the same script as before
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
+    },
 
     sidebar: function () {
 
@@ -351,19 +377,24 @@ var appMaster = {
         var options = {
             //color: "rgba(0,0,0,0.8)",
             //height: 'auto',
-            //height: '100%',
-            height: ($(window).height() - sidebar_brand_height - sidebar_footer_height) + "px",
+            height: '100%',
+            //height: ($(window).innerHeight() - sidebar_brand_height - sidebar_footer_height) + 'px',
             distance: '0',
             size: '5px',
+            allowPageScroll: true,
             railOpacity: 0.3,
             position: 'right',
             touchScrollStep: 50,
             alwaysVisible: false,
-            allowPageScroll: false
+            releaseScroll:false,
+            noWatch:true
+
         };
 
         var styleAttributes = {};
+
         appMaster.slimScroll($(appMaster._sidebarFixed), $(appMaster._sidebarNav), options, styleAttributes);
+
     },
 
     _exitSidebarScroll: function () {
@@ -502,7 +533,8 @@ var appMaster = {
 
                 // Append the whole list template onto the UL
                 var popOut = document.getElementById(iUl.id);
-                $(popOut).css({'max-height': popOutMenuHeight}).append(listTemplate);
+                // $(popOut).css({'max-height': popOutMenuHeight}).append(listTemplate);
+                $(popOut).css({}).append(listTemplate);
 
                 // Initialize plugins
                 if ($listItem.hasClass('has-child') && $listItem.hasClass('sidebar__item')) {
@@ -511,6 +543,8 @@ var appMaster = {
                     $(popOut).metisMenu({
                         parentTrigger: '.has-child'
                     });
+
+                    new SimpleBar($(iWrap)[0]);
 
                     // Initialize slimScroll to popout menu
                     if (appMaster._sidebarSlimScroll) {
@@ -815,7 +849,9 @@ var appMaster = {
 
         $('.navbar-nav.no-collapse > .dropdown').on('show.bs.dropdown', function (e) {
 
-            appMaster._exitNavbarSlimScroll();
+            if (appMaster._navbarSlimScroll) {
+                appMaster._exitNavbarSlimScroll();
+            }
 
             var $dropdown = $(this);
             var dropdownMenu = $dropdown.find('.dropdown-menu').first();
@@ -833,6 +869,7 @@ var appMaster = {
                 var calcMaxHeight = function () {
                     dropdownFromTop = $dropdown.offset().top - $(window).scrollTop();
                     winHeight = $(window).height();
+                    // winHeight = $(window).innerHeight();
                     dropdownMenuHeight = winHeight - dropdownFromTop - $dropdown.height() - 10;
                 };
                 calcMaxHeight();
@@ -843,8 +880,15 @@ var appMaster = {
                 } else {
                     dropdownMenu.css({'max-height': dropdownMenuHeight, 'overflow-y': 'auto'});
                 }
-
             }
+
+            $(window).on('resize', function () {
+                calcMaxHeight();
+                 // alert($(window).innerHeight());
+                // dropdownMenu.innerHeight( $(this).innerHeight() );
+                dropdownMenu.stop().animate({'max-height': dropdownMenuHeight}, 500);
+            });
+
         });
 
         $('.navbar-nav.no-collapse > .dropdown').on('hide.bs.dropdown', function (e) {
@@ -857,11 +901,16 @@ var appMaster = {
 
             if (appMaster._navbarSlimScroll) {
                 appMaster._exitNavbarDropdownSlimScroll(dropdownMenu);
-                dropdownMenu.css({'max-height': '', 'position': ''});
+                // dropdownMenu.stop().animate({'max-height': '', 'position': ''}, 500);
+                setTimeout(function () {
+                    dropdownMenu.css({'max-height': '', 'position': ''});
+                }, 500);
             } else {
-                dropdownMenu.css({'max-height': '', 'overflow-y': ''});
+                // dropdownMenu.stop().animate({'max-height': '', 'overflow-y': ''}, 500);
+                setTimeout(function () {
+                    dropdownMenu.css({'max-height': '', 'overflow-y': ''});
+                }, 500);
             }
-
         });
 
         // Add fade animation to dropdown
@@ -1184,6 +1233,7 @@ $(document).ready(function () {
     appMaster.fullscreen();
     appMaster.tooltip();
     appMaster.popover();
+    appMaster.fixVHOnMobile();
     appMaster.inputGroupFocus();
     appMaster.card();
     appMaster.textareaCounter();

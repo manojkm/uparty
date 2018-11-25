@@ -98,14 +98,7 @@ $nb: navbar;
         }
       }
     }
-
   }
-
-  .slimScrollDiv {
-    /*display: flex;
-    flex-basis: auto;*/
-  }
-
 }
 
 // Generate series of `.#{$nb}-expand-*` responsive classes for configuring
@@ -161,10 +154,10 @@ $nb: navbar;
         position: relative;
         .dropdown-menu {
           position: absolute;
-          margin-top: $dropdown-mobile-margin-top;
-          margin-bottom: $dropdown-mobile-margin-bottom;
+          margin-top: $dropdown-margin-top;
+          margin-bottom: $dropdown-margin-bottom;
           &.has-arrow {
-            margin-top: $dropdown-mobile-margin-top;
+            margin-top: $dropdown-margin-top;
             &:before,
             &:after {
               display: none;

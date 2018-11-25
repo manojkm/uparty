@@ -36,7 +36,8 @@ module.exports = function (grunt) {
                 {expand: true, cwd: grunt.getPath('node') + 'typeahead.js', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'typeahead.js'},
                 {expand: true, cwd: grunt.getPath('node') + 'jquery-slimscroll', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'jquery-slimscroll'},
                 {expand: true, cwd: grunt.getPath('node') + 'js-cookie', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'js-cookie'},
-                {expand: true, cwd: grunt.getPath('node') + 'bootstrap-dropdown-hover', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'bootstrap-dropdown-hover'}
+                {expand: true, cwd: grunt.getPath('node') + 'bootstrap-dropdown-hover', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'bootstrap-dropdown-hover'},
+                {expand: true, cwd: grunt.getPath('node') + 'simplebar', src: ['**'], dest: grunt.getPath('vendors', false, true) + 'simplebar'}
                 // TODO This guy is copying from nodemodule https://github.com/thomaspark/bootswatch/blob/master/Gruntfile.js
             ]
         },

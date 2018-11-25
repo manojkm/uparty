@@ -22,43 +22,40 @@
 .sidebar {
   $s: sidebar;
   @include transition;
-  //@include background-theme($sidebar-theme-scheme);
   padding-bottom: $sidebar-footer-height;
   position: absolute;
   top: 0;
- //bottom: 0;
-  height: 100%;
   margin-left: -$sidebar-width;
   width: 0;
   left: 0;
   z-index: map-get($zindex, sidebar);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  transform: translateX(-$sidebar-width);
 
   // Sidebar inner wrapper
   .#{$s}__inner-wrap {
-    //top: 0;
-    //bottom: $sidebar-footer-height;
     position: relative;
-    height: calc(100vh - #{$sidebar-footer-height});
-    //height: 100%;
+    //height: calc(100% - #{$sidebar-footer-height});
+    height: 100%;
     width: 100%;
-    overflow-x: hidden;
-    //overflow: hidden;
-    //overflow-y: scroll;
     display: flex;
-    flex: 1;
+    //flex: 1;
     flex-direction: column;
   }
 
   .#{$s}__nav {
+    overflow-x: hidden;
     flex: 1;
     display: flex;
     flex-direction: column;
+
     ul {
       outline: 0;
       padding: 0;
       margin: 0;
+
       li {
         list-style: none;
         text-align: left;
@@ -76,14 +73,17 @@
   // Showing sidebar and its footer if body has class (.sidebar-is-open)
   &-is-open & {
     width: $sidebar-width;
+    transform: translateX(0);
 
     .#{$s}__inner-wrap > * {
       @include transition;
-      @extend %o-v-show;
+      //@extend %o-v-show;
     }
+
     .#{$s}-footer {
       width: $sidebar-footer-width;
     }
+
     .#{$s}-footer__nav > ul > .#{$s}-footer__item {
       @extend %o-v-show;
     }
@@ -91,11 +91,13 @@
 
   // Hiding sidebar if body has class (.sidebar-is-closed)
   &-is-closed & {
+
     .#{$s}__inner-wrap > * {
       @include transition;
-      @extend %o-v-none;
-      transform: translateX(-$sidebar-width);
+      //@extend %o-v-none;
+      //transform: translateX(-$sidebar-width);
     }
+
     .#{$s}-footer {
       overflow-x: hidden;
     }
@@ -105,11 +107,16 @@
   &-mobile & {
     left: $sidebar-width;
   }
+  &-mobile.#{$s}-is-open {
+    overflow: hidden
+  }
 
   // Fixed sidebar
   &-fixed & {
     position: fixed;
     left: $sidebar-width;
+    height: 100vh !important;
+    //height: calc(var(--vh, 1vh) * 100);
   }
 
   // Mini sidebar modifiers
@@ -131,6 +138,7 @@
   &-is-open.#{$s}-mini .#{$s}.collapsible:hover {
     width: $sidebar-width;
   }
+
   &-is-open.#{$s}-mini .#{$s}.collapsible:not(:hover),
   &-is-open.#{$s}-mini .#{$s}.popout {
     .#{$s}-footer {
@@ -145,7 +153,7 @@
 
         > .#{$s}-footer__link {
           i {
-           display: none;
+            display: none;
           }
         }
       }
@@ -155,6 +163,7 @@
         //@extend %o-v-show;
         width: $sidebar-mini-width;
       }
+
       .#{$s}-footer__child {
         display: none;
       }
@@ -162,9 +171,9 @@
   }
 
   // Sidebar mobile view
- /* &-mobile & {
-    overflow-y: auto;
-  }*/
+  /* &-mobile & {
+     overflow-y: auto;
+   }*/
 }
 
 // TODO sidebar variant from https://github.com/tannguyent/autoregistry-vue-netcore-ddd/blob/master/AutoRegistryClassDDD/scss/components/_sidebar.scss
