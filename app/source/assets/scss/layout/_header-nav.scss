@@ -21,18 +21,19 @@ $nb: navbar;
   // Navbar brand
   .#{$nb}-brand {
     @include transition;
-    padding-top: $navbar-brand-padding-y;
-    padding-bottom: $navbar-brand-padding-y;
-    font-size: $navbar-brand-font-size;
-    margin-right: $navbar-padding-x;
-    width: 0;
+    padding: 0;
+    font-size: 0;
+    margin: 0;
     @extend %o-v-none;
 
     .sidebar-is-closed & {
+      @include transition;
+      padding: $navbar-brand-padding-y $navbar-brand-padding-x;
+      font-size: $navbar-brand-font-size;
+      margin-right: $navbar-brand-margin-right;
+      margin-left: $navbar-brand-margin-left;
       @extend %o-v-show;
-      width: auto;
     }
-
   }
 
   // Navbar text
@@ -57,7 +58,8 @@ $nb: navbar;
       position: relative;
     }
 
-    // Navbar menu links
+    // Navbar menu links and text
+    .nav-text,
     .nav-link {
       @include transition;
       font-size: $navbar-font-size;
@@ -115,6 +117,7 @@ $nb: navbar;
           align-items: stretch;
         }
 
+        .nav-text,
         .nav-link {
           justify-content: flex-start;
 
@@ -163,6 +166,12 @@ $nb: navbar;
               display: none;
             }
           }
+        }
+      }
+
+      .#{$nb}-nav.no-collapse .slimScrollDiv{
+        .dropdown-menu {
+          position: static;
         }
       }
 

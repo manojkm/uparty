@@ -34,7 +34,7 @@ var appMaster = {
     _sidebarMiniIsOpen: false,
     _exitSidebarPopOutMenuConfig: null,
     _navbarFixed: $('.header-fixed'),
-    _navbarSlimScroll: true,
+    _navbarSlimScroll: false,
     _navbarToggler: $(".navbar-toggler"),
     _navbarCollapse: $('.navbar-collapse'),
     _navbarCollapsibleContentIs: false,
@@ -75,7 +75,7 @@ var appMaster = {
         if (typeof $.fn.slimScroll != 'undefined') {
 
             // Destroy if it exists
-            $(slimScrollElement).slimScroll({destroy: true}).removeAttr('style');
+            $(slimScrollElement).slimScroll({destroy: true});
 
             // Initialize slimScroll
             if ($(window).width() >= 768) {    } // TODO tomorrow
@@ -871,7 +871,8 @@ var appMaster = {
 
                 if (appMaster._navbarSlimScroll) {
                     appMaster._fixedNavbarDropdownSlimScroll(dropdownMenu);
-                    dropdownMenu.css({'max-height': dropdownMenuHeight, 'position': 'static'});
+                    // dropdownMenu.css({'max-height': dropdownMenuHeight, 'position': 'static'});
+                    dropdownMenu.css({'max-height': dropdownMenuHeight});
                 } else {
                     dropdownMenu.css({'max-height': dropdownMenuHeight, 'overflow-y': 'auto'});
                 }

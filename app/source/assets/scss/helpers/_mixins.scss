@@ -1232,7 +1232,13 @@
       }
     }
 
-    // Navbar links
+    // Navbar menu links and text
+    .nav-text {
+      @if bool($font) == true {
+        color: $font-link-color;
+      }
+    }
+
     .nav-link {
       @if bool($font) == true {
         color: $font-link-color;
