@@ -68,6 +68,10 @@
   .#{$s}__brand {
     padding: $sidebar-padding-y $sidebar-padding-x;
     height: $sidebar-brand-height;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
   }
 
   // Showing sidebar and its footer if body has class (.sidebar-is-open)
