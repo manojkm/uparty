@@ -12,6 +12,7 @@ task_css_prod:
 task_js_dev:
   - 'jshint'
   - 'copy:vendors_extended'
+  - 'copy:js'
   - 'concat'
   - 'jsbeautifier'
 task_js_prod:

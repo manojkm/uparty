@@ -47,11 +47,11 @@ module.exports = function (grunt) {
             ]
         },
 
-        /* js: {
-         files: [
-         {expand: true, cwd: grunt.getPath('js', true), src: ['**!/!*.js'], dest: grunt.getPath('js', false, true), filter: 'isFile'}
-         ]
-         },*/
+        js: {
+            files: [
+                {expand: true, cwd: grunt.getPath('js', true), src: ['**/*.js', '!**/app.js', '!**/custom.js'], dest: grunt.getPath('js', false, true), filter: 'isFile'}
+            ]
+        },
 
         images: {
             files: [
