@@ -5,14 +5,12 @@
 <script src="{{assets}}{{vendors}}bootstrap/dist/js/bootstrap.js"></script>
 <script src="{{assets}}{{vendors}}jquery-slimscroll/jquery.slimscroll.js"></script>
 <script src="{{assets}}{{vendors}}js-cookie/src/js.cookie.js"></script>
-
 <!-- /END GLOBAL VENDORS :JS -->
 
 <!-- BEGIN PAGE LEVEL VENDORS :JS -->
 {{#if js_cdn_vendors}}
     {{helper-cdn js_cdn_vendors}}
 {{/if}}
-
 {{#if js_vendors}}
     {{#each js_vendors}}
         <script src="{{../assets}}{{../vendors}}{{ this }}.js"></script>
@@ -28,9 +26,15 @@
 {{/if}}
 <!-- /END PAGE LEVEL VENDORS EXTENDED :JS -->
 
-{{!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.js"></script>--}}
-
 <!-- BEGIN OBEUS :JS -->
 <!-- Custom JavaScript code for all pages-->
 <script src="{{assets}}{{script}}{{ package.name }}{{#if production}}.min{{/if}}.js"></script>
 <!-- /END OBEUS :JS -->
+
+<!-- BEGIN PAGE-SPECIFIC :JS -->
+{{#if js_page_specific}}
+    {{#each js_page_specific}}
+        <script src="{{../assets}}{{../script}}pages/{{ this }}{{#if production}}.min{{/if}}.js"></script>
+    {{/each}}
+{{/if}}
+<!-- /END PAGE-SPECIFIC :JS -->

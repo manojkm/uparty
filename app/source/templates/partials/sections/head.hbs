@@ -42,7 +42,6 @@
 {{#if css_cdn_vendors}}
     {{helper-cdn css_cdn_vendors}}
 {{/if}}
-
 {{#if css_vendors}}
     {{#each css_vendors}}
         <link rel="stylesheet" href="{{../assets}}{{../vendors}}{{ this }}.css">
@@ -61,6 +60,14 @@
 <!-- BEGIN OBEUS :CSS -->
 <link rel="stylesheet" href="{{assets}}{{activeTheme}}/{{ package.name }}{{#if production}}.min{{/if}}.css" title="mainStyle">
 <!-- /END OBEUS :CSS -->
+
+<!-- BEGIN PAGE-SPECIFIC :CSS -->
+{{#if css_page_specific}}
+    {{#each css_page_specific}}
+        <link rel="stylesheet" href="{{../assets}}{{../activeTheme}}/pages/{{ this }}{{#if ../production}}.min{{/if}}.css">
+    {{/each}}
+{{/if}}
+<!-- /END PAGE-SPECIFIC :CSS -->
 
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
