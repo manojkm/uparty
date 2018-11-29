@@ -976,9 +976,10 @@
 @mixin progress-bar-theme($scheme, $tone:base, $font-color:font-color) {
   span.progress-label {
     @include background-text-theme($scheme);
-    &::after {
+    @include border-theme($scheme, $tone);
+   /* &::after {
       @include border-theme($scheme, $tone, $position: bottom);
-    }
+    }*/
   }
 }
 

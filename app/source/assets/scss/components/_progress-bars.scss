@@ -66,21 +66,89 @@
         font-size: $progress-label-font-size;
         line-height: $progress-height;
         position: absolute;
-        bottom: -25px;
         padding: 4px;
-        right: -1.4em;
 
+
+        &::before,
         &::after {
-          border: 5px solid transparent;
-          content: "";
-          bottom: 100%;
-          left: 50%;
-          margin-left: -5px;
-          height: 0;
-          width: 0;
+          content: '';
+          display: block;
           position: absolute;
-          pointer-events: none;
+          width: .6666em; // Badges arrow width. Height and width should be same to make triangle perfect.
+          height: .6666em; // Badges arrow height. Height and width should be same to make triangle perfect.
+          border: 1px solid;
+          border-color: inherit;
+          background-color: inherit;
+          transform: translateX(-50%) translateY(-50%) rotate(45deg);
         }
+
+        &::before {
+          z-index: -1;
+        }
+
+        // Label on top
+        &.bottom {
+          bottom: -25px;
+          right: -1.4em;
+          &::before,
+          &::after {
+            bottom: 100%;
+            left: 50%;
+            margin-bottom: -8px;
+            border-bottom: 0;
+            border-right: 0;
+          }
+        }
+
+        // Label on bottom
+        &.top {
+          top: -25px;
+          right: -1.4em;
+          &::before,
+          &::after {
+            top: 100%;
+            left: 50%;
+            margin-top: 0;
+            border-top: 0;
+            border-left: 0;
+          }
+        }
+
+        // Label on right
+        &.right {
+          right: -4em;
+          &::before,
+          &::after {
+            top: 50%;
+            left: 0;
+            border-top: 0;
+            border-right: 0;
+          }
+        }
+
+        // Label on left
+        &.left {
+          right: 1em;
+          &::before,
+          &::after {
+            top: 50%;
+            left: 100%;
+            border-bottom: 0;
+            border-left: 0;
+          }
+        }
+
+        /*  &::after {
+            border: 5px solid transparent;
+            content: "";
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+          }*/
       }
     }
 
