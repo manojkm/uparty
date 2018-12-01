@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name: jquery.raty.js
-// Description: Initialize bootstrap maxlength plugin
+// Description: Initialize jQuery Raty - A Star Rating Plugin
 // ----------------------------------------------------------------------------------------------
 // Item Name: xxx - Responsive Admin Theme
 // Version: 1.2
@@ -36,7 +36,7 @@ $(document).ready(function () {
                     {range: 5, on: "fas fa-snowflake mr-1 text-primary", off: "fas fa-snowflake mr-1"}],
                 starType: "i"
             }),
-            $("#cancel-star").raty({cancel: true})
+            $("#cancel-star").raty({cancel: true});
     }
     else {
         throw new Error('Please install Raty plugin! https://github.com/wbotelhos/raty');
