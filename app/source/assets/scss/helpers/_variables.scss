@@ -758,6 +758,8 @@ $sidebar-item-header-font-weight:       $font-wh-regular; //Font weight of secti
 $sidebar-item-header-letter-spacing:    0.1em; // Spacing in-between letters for section headers (.sidebar__item-header)
 $sidebar-item-header-height:            30px;
 $sidebar-item-header-opacity:           0.7;
+$sidebar-item-header-padding-y:         0; // Sidebar section headers vertical padding.
+$sidebar-item-header-padding-x:         $sidebar-padding-x; // Sidebar section headers horizontal padding
 
 // Sidebar link
 
@@ -785,7 +787,7 @@ $sidebar-submenu-link-margin-left:      ($sidebar-link-icon-width + $sidebar-lin
 
 $sidebar-divider-height:                1px;
 $sidebar-divider-margin-y:              5px;
-$sidebar-divider-margin-x:              0px;
+$sidebar-divider-margin-x:              0;
 
 // Sidebar footer
 

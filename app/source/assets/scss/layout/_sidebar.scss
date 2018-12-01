@@ -111,7 +111,8 @@
   &-mobile & {
     left: $sidebar-width;
   }
-  &-mobile.#{$s}-is-open {
+
+  &-mobile.#{$s}-is-open:not(.#{$s}-mini) {
     overflow: hidden
   }
 
@@ -156,8 +157,9 @@
         flex: 0;
 
         > .#{$s}-footer__link {
+          width: 0;
           i {
-            display: none;
+            //display: none;
           }
         }
       }
@@ -174,10 +176,6 @@
     }
   }
 
-  // Sidebar mobile view
-  /* &-mobile & {
-     overflow-y: auto;
-   }*/
 }
 
 // TODO sidebar variant from https://github.com/tannguyent/autoregistry-vue-netcore-ddd/blob/master/AutoRegistryClassDDD/scss/components/_sidebar.scss

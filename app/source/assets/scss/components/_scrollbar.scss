@@ -8,6 +8,46 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+
+/*
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #636269;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #636269;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #636269;
+}
+::-webkit-scrollbar-track {
+  background: #333238;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #333238;
+}
+::-webkit-scrollbar-track:active {
+  background: #333238;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+*/
+
+
+
 /*
 ::-webkit-scrollbar {
   position: absolute;
@@ -60,27 +100,30 @@
 }*/
 
 //TODO https://github.com/LirtosSkap/school/blob/5444379b249634451ea85a69f126334a524ba614/resources/assets/web/sass/scrollbar.scss
-/*
+
+/* Turn on custom 8px wide scrollbar */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 8px; /* 1px wider than Lion. */
+  /* This is more usable for users trying to click it. */
+  background-color: rgba(0,0,0,0);
+  -webkit-border-radius: 0px;
+}
+/* hover effect for both scrollbar area, and scrollbar 'thumb' */
+::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.09);
 }
 
-::-webkit-scrollbar-track {
-  background-color: rgba(0,0,0,.8);
-}
-
-::-webkit-scrollbar-thumb {
-  min-height: 50px;
-  background-color: rgba(255,255,255,.15);
-  border: 3px solid transparent;
-  border-radius: 8px;
+/* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
+::-webkit-scrollbar-thumb:vertical {
+  /* This is the EXACT color of Mac OS scrollbars.
+     Yes, I pulled out digital color meter */
+  background: rgba(0,0,0,0.4);
+  -webkit-border-radius: 0px;
   background-clip: padding-box;
+  border: 2px solid rgba(0, 0, 0, 0);
+  min-height: 10px; /*Prevent it from getting too small */
 }
-
-pre::-webkit-scrollbar-track {
-  background-color: rgba(255,255,255,.2);
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0,0,0,0.6); /* Some darker color when you click it */
+  -webkit-border-radius: 0px;
 }
-
-pre::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,.15);
-}*/

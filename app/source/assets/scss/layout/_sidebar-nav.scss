@@ -26,7 +26,7 @@ $s: sidebar;
 
   // Sidebar item heading
   .#{$s}__item-header {
-    padding: $sidebar-padding-y $sidebar-padding-x;
+    padding: $sidebar-item-header-padding-y $sidebar-item-header-padding-x;
     font-size: $sidebar-item-header-font-size;
     font-weight: $sidebar-item-header-font-weight;
     text-transform: uppercase;
@@ -185,8 +185,8 @@ $s: sidebar;
 
 .#{$s}-mini .#{$s}.popout .#{$s}__list.#{$s}__list-popout {
 
- /* overflow: hidden;
-  overflow-y: scroll;*/
+  /* overflow: hidden;
+   overflow-y: scroll;*/
   overflow-x: hidden;
 
   @for $i from 1 through $sidebar-submenu-max-levels {
@@ -209,6 +209,7 @@ $s: sidebar;
 // ======================================================
 
 .#{$s}-mini .#{$s}.collapsible:not(:hover) {
+
   .#{$s}__list {
 
     > .#{$s}__item-header {
@@ -295,6 +296,7 @@ $s: sidebar;
       }
     }
   }
+
 }
 
 //
@@ -314,12 +316,12 @@ $s: sidebar;
       width: $sidebar-active-border-type-size;
       height: 100%;
 
-   /*   .#{$s}-mini & {
-        width: 100%;
-        bottom: 0;
-        top: auto;
-        height:$sidebar-active-border-type-size;
-      }*/
+      /*   .#{$s}-mini & {
+           width: 100%;
+           bottom: 0;
+           top: auto;
+           height:$sidebar-active-border-type-size;
+         }*/
 
     }
 
@@ -370,7 +372,6 @@ $s: sidebar;
     .#{$s}-footer__nav > ul > .#{$s}-footer__item {
       @include transition;
       @extend %o-v-none;
-      //position: relative;
       display: flex;
       align-items: stretch;
       justify-content: center;
@@ -378,7 +379,7 @@ $s: sidebar;
 
       > .#{$s}-footer__link {
         @include transition;
-        //height: 100%;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -387,6 +388,12 @@ $s: sidebar;
         i {
           font-size: $sidebar-footer-icon-font-size;
         }
+
+        // Notification badge
+        .badge.floating {
+          left: 80%;
+        }
+
       }
 
     }
@@ -438,6 +445,7 @@ $s: sidebar;
       &:first-of-type {
         padding-top: 10px;
       }
+
       &:last-of-type {
         padding-bottom: 10px;
       }
