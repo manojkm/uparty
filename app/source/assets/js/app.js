@@ -17,7 +17,7 @@ if (typeof jQuery === 'undefined') {
 var appMaster = {
 
     _body: $('body'),
-    _logo: $('.sidebar__brand__logo'),
+    _logo: $('.sidebar__brand-logo'),
     _header: $('.master-header'),
     _sidebar: $('.sidebar'),
     _sidebarFixed: $('.sidebar-fixed'),

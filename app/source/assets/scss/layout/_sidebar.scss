@@ -70,8 +70,20 @@
     height: $sidebar-brand-height;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    //justify-content: center;
     width: 100%;
+
+    .#{$s}__brand-link {
+      height: $sidebar-brand-height - 15;
+      align-items: center;
+      display: flex;
+      //margin: 0 auto;
+    }
+    .#{$s}__brand-logo {
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+    }
   }
 
   // Showing sidebar and its footer if body has class (.sidebar-is-open)
