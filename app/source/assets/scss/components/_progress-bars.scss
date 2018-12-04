@@ -67,7 +67,7 @@
         line-height: $progress-height;
         position: absolute;
         padding: 4px;
-
+        z-index: map-get($zindex, progress-bar-label);
 
         &::before,
         &::after {
