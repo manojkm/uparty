@@ -1,0 +1,21 @@
+// ================================================================================================
+// File Name      : opacity.scss
+// Description    : Helper classes for adjusting opacity an element
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//
+// OPACITY
+// ======================================================
+// This generate a class name of .transparent-1 having
+// a style of opacity: 0.1;
+
+$num: 0;
+@while $num < 10 {
+  .op-#{$num} { opacity: 0 + ($num * 0.1) !important;}
+  $num: $num + 1;
+}

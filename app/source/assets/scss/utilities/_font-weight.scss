@@ -1,0 +1,22 @@
+// ================================================================================================
+// File Name      : font-weight.scss
+// Description    : Helper classes for adjusting font weights
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//
+// FONT WEIGHTS
+// ======================================================
+// Generate font weights based on `$font-weight-map` map
+
+@each $prefix in (fw) {
+  @each $size, $value in $font-weight-map {
+    .#{$prefix}-#{$size} {
+      font-weight: $value !important;
+    }
+  }
+}

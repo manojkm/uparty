@@ -23,6 +23,7 @@
     a.bg-#{$scheme} {
       $color: theme-main-color($scheme, font-color);
       color: rgba($color, 0.8) !important;
+
       &:hover,
       &:focus {
         @include background-text-theme($scheme, dark, $sledge-hammer: !important);
@@ -40,9 +41,39 @@
   a.bg-#{$scheme} {
     $color: contextual-color($scheme, font-color);
     color: rgba($color, 0.8) !important;
+
     &:hover,
     &:focus {
       @include background-text-theme($scheme, dark, $sledge-hammer: !important);
     }
   }
+}
+
+//
+// CONTEXTUAL & THEME TRANSPARENT BACKGROUND VARIANTS
+// ======================================================
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-transparent-force {
+  background-color: transparent !important;
+}
+@include bg-opacity('white',$white-color);
+@include bg-opacity('black',$black-color);
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $tone in $colors {
+    $color: theme-main-color($scheme);
+    @include bg-opacity($scheme, $color);
+  }
+}
+
+// Contextual variations
+@each $scheme, $tone in $contextual-palette-map {
+  $color: contextual-color($scheme);
+  @include bg-opacity($scheme, $color);
 }

@@ -252,11 +252,15 @@ $typography: (
         font-headings:                  ($font-family-display, $font-family-fallback),
         color-default:                  $gray-800, // Global text color on <body>
         color-headings:                 $gray-800,
+        weight-xx-light:                100,
+        weight-x-light:                 200,
         weight-light:                   300,
         weight-regular:                 400,
         weight-medium:                  500,
         weight-semi:                    600,
         weight-bold:                    700,
+        weight-x-bold:                  800,
+        weight-xx-bold:                 900,
 
         // Font size with line height (Order: font-size line-height)
         size-100:                       (100%, 1.375rem), // 100% 22px, font size of the <html> element
@@ -302,11 +306,28 @@ $lh-xl:                                 get-typography(size-xl, line-height);
 
 // Retrieve font weight
 
+$font-wh-xx-light:                      get-typography(weight-xx-light) !default; // 100
+$font-wh-x-light:                       get-typography(weight-x-light) !default; // 200
 $font-wh-light:                         get-typography(weight-light) !default; // 300
 $font-wh-regular:                       get-typography(weight-regular) !default; // 400
 $font-wh-medium:                        get-typography(weight-medium) !default; // 500
 $font-wh-semi:                          get-typography(weight-semi) !default; // 600
 $font-wh-bold:                          get-typography(weight-bold) !default; // 700
+$font-wh-x-bold:                        get-typography(weight-x-bold) !default; // 800
+$font-wh-xx-bold:                       get-typography(weight-xx-bold) !default; // 900
+
+// Font weight map to generate utility classes (ie. .fw-100, .fw-200, and so on.) to adjust font weight.
+$font-weight-map: (
+        100:    $font-wh-xx-light,
+        200:    $font-wh-x-light,
+        300:    $font-wh-light,
+        400:    $font-wh-regular,
+        500:    $font-wh-medium,
+        600:    $font-wh-semi,
+        700:    $font-wh-bold,
+        800:    $font-wh-x-bold,
+        900:    $font-wh-xx-bold,
+) !default;
 
 //
 // 3. CONFIGS
@@ -433,41 +454,57 @@ $extra-sizes: (
         10: 10%,
         15: 15%,
         20: 20%,
+        33: 33%,
+        66: 66%,
 ) !default;
+
+//
+// 4.6 OPACITY
+// -----------------------------------------------------------------------------
+
+$op-1:                                  0.1 !default;
+$op-2:                                  0.2 !default;
+$op-3:                                  0.3 !default;
+$op-4:                                  0.4 !default;
+$op-5:                                  0.5 !default;
+$op-6:                                  0.6 !default;
+$op-7:                                  0.7 !default;
+$op-8:                                  0.8 !default;
+$op-9:                                  0.9 !default;
 
 //
 // 4.6 WHITE OPACITY
 // -----------------------------------------------------------------------------
 
-$opacity-white-1:                       rgba($white-color, 0.1) !default;
-$opacity-white-2:                       rgba($white-color, 0.2) !default;
-$opacity-white-3:                       rgba($white-color, 0.3) !default;
-$opacity-white-4:                       rgba($white-color, 0.4) !default;
-$opacity-white-5:                       rgba($white-color, 0.5) !default;
-$opacity-white-6:                       rgba($white-color, 0.6) !default;
-$opacity-white-7:                       rgba($white-color, 0.7) !default;
-$opacity-white-8:                       rgba($white-color, 0.8) !default;
-$opacity-white-9:                       rgba($white-color, 0.9) !default;
+$op-white-1:                            rgba($white-color, 0.1) !default;
+$op-white-2:                            rgba($white-color, 0.2) !default;
+$op-white-3:                            rgba($white-color, 0.3) !default;
+$op-white-4:                            rgba($white-color, 0.4) !default;
+$op-white-5:                            rgba($white-color, 0.5) !default;
+$op-white-6:                            rgba($white-color, 0.6) !default;
+$op-white-7:                            rgba($white-color, 0.7) !default;
+$op-white-8:                            rgba($white-color, 0.8) !default;
+$op-white-9:                            rgba($white-color, 0.9) !default;
 
 //
 // 4.7 BLACK OPACITY
 // -----------------------------------------------------------------------------
 
-$opacity-black-1:                       rgba($black-color, 0.1) !default;
-$opacity-black-2:                       rgba($black-color, 0.2) !default;
-$opacity-black-3:                       rgba($black-color, 0.3) !default;
-$opacity-black-4:                       rgba($black-color, 0.4) !default;
-$opacity-black-5:                       rgba($black-color, 0.5) !default;
-$opacity-black-6:                       rgba($black-color, 0.6) !default;
-$opacity-black-7:                       rgba($black-color, 0.7) !default;
-$opacity-black-8:                       rgba($black-color, 0.8) !default;
-$opacity-black-9:                       rgba($black-color, 0.9) !default;
+$op-black-1:                            rgba($black-color, 0.1) !default;
+$op-black-2:                            rgba($black-color, 0.2) !default;
+$op-black-3:                            rgba($black-color, 0.3) !default;
+$op-black-4:                            rgba($black-color, 0.4) !default;
+$op-black-5:                            rgba($black-color, 0.5) !default;
+$op-black-6:                            rgba($black-color, 0.6) !default;
+$op-black-7:                            rgba($black-color, 0.7) !default;
+$op-black-8:                            rgba($black-color, 0.8) !default;
+$op-black-9:                            rgba($black-color, 0.9) !default;
 
 //
 // 4.8 OVERLAY
 // -----------------------------------------------------------------------------
 
-$overlay-bg:                            $opacity-black-5; // Background color for overlay.
+$overlay-bg:                            $op-black-5; // Background color for overlay.
 $overlay-bg-level:                      3 !default; // Used for card image overlays. Check `scss/components/_overlays.scss`
 $overlay-opacity-level:                 0.6 !default; // Used for card image overlays. Check `scss/components/_overlays.scss`
 
@@ -511,22 +548,22 @@ $general-transition-duration:           0.5s !default;
 // of components dependent on the z-axis and are designed to all work together.
 
 $zindex: (
-        number-spinner:                 100,
-        sidebar-footer:                 102,
-        overlay:                        800,
-        aside:                          840,
-        footer:                         850,
-        dropdown:                       850,
-        header:                         860,
-        progress-bar-label:             870,
-        chosen-drop:                    1010,
-        modal-backdrop:                 1040,
-        fullscreen_card:                1045,
-        modal:                          1050,
-        popover:                        1060,
-        tooltip:                        1070,
-        sidebar:                        1080,
-);
+        number-spinner:                100,
+        sidebar-footer:                102,
+        overlay:                       800,
+        aside:                         840,
+        footer:                        850,
+        dropdown:                      850,
+        header:                        860,
+        progress-bar-label:            870,
+        chosen-drop:                   1010,
+        modal-backdrop:                1040,
+        fullscreen_card:               1045,
+        modal:                         1050,
+        popover:                       1060,
+        tooltip:                       1070,
+        sidebar:                       1080,
+)!default;
 
 //
 // 4.13 BREAKPOINTS
@@ -588,16 +625,18 @@ $breakpoints-max-widths: (
 // -----------------------------------------------------------------------------
 // Cursors values for enabling the option of having custom cursors
 
-$cursor-crosshair:              crosshair;
-$cursor-default:                default;
-$cursor-pointer:                pointer;
-$cursor-help:                   help;
-$cursor-text:                   text;
-$cursor-text:                   text;
-$cursor-not-allowed:            not-allowed;
-$cursor-grab:                   grab;
-$cursor-grabbing:               grabbing;
-$cursor-move:                   move;
+$cursor-crosshair:                      crosshair;
+$cursor-default:                        default;
+$cursor-pointer:                        pointer;
+$cursor-help:                           help;
+$cursor-text:                           text;
+$cursor-not-allowed:                    not-allowed;
+$cursor-grab:                           grab;
+$cursor-grabbing:                       grabbing;
+$cursor-move:                           move;
+$cursor-auto:                           auto;
+$cursor-zoom-in:                        zoom-in;
+$cursor-zoom-out:                       zoom-out;
 
 //
 // 5. ELEMENTS
@@ -651,6 +690,24 @@ $h4-font-size:                          ($font-size-base * 1.5) !default; // <h4
 $h5-font-size:                          ($font-size-base * 1.25) !default; // <h5> font size
 $h6-font-size:                          $font-size-base !default; // <h6> font size
 
+// Display headings
+
+$display1-size:                         6rem !default;
+$display2-size:                         5.5rem !default;
+$display3-size:                         4.5rem !default;
+$display4-size:                         3.5rem !default;
+$display5-size:                         2.5rem !default;
+$display6-size:                         1.5rem !default;
+
+$display1-weight:                       $font-wh-light !default;
+$display2-weight:                       $font-wh-light !default;
+$display3-weight:                       $font-wh-light !default;
+$display4-weight:                       $font-wh-light !default;
+$display5-weight:                       $font-wh-light !default;
+$display6-weight:                       $font-wh-light !default;
+
+$display-line-height:                   $headings-line-height !default;
+
 //
 // 5.5 LEAD
 // -----------------------------------------------------------------------------
@@ -665,15 +722,15 @@ $lead-font-weight:                      $font-wh-light !default;
 // 6.1 MAIN CONTENT WRAPPERS
 // -----------------------------------------------------------------------------
 
-$main-content-padding-y:                20px; // Vertical padding for 'main content' wrapper
-$main-content-padding-x:                0; // Horizontal padding for 'main content' wrapper
+$main-content-padding-y:                20px !default; // Vertical padding for 'main content' wrapper
+$main-content-padding-x:                0 !default; // Horizontal padding for 'main content' wrapper
 
 //
 // 6.2 PAGE TITLE WRAPPERS
 // -----------------------------------------------------------------------------
 
-$page-title-padding-y:                  20px; // Vertical padding for 'page title' wrapper
-$page-title-padding-x:                  0; // Horizontal padding for 'page title' wrapper
+$page-title-padding-y:                  20px !default; // Vertical padding for 'page title' wrapper
+$page-title-padding-x:                  0 !default; // Horizontal padding for 'page title' wrapper
 
 //
 // 6.3 GLOBAL HEADER & NAVBAR
@@ -726,15 +783,15 @@ $navbar-active-color:                   theme-partial-color($navbar-theme-scheme
 
 // Navbar fonts against a dark background
 
-$navbar-dark-color:                     $opacity-white-8;
-$navbar-dark-link-color:                $opacity-white-8;
+$navbar-dark-color:                     $op-white-8;
+$navbar-dark-link-color:                $op-white-8;
 $navbar-dark-hover-color:               $white-color;
 $navbar-dark-active-color:              $white-color;
 
 // Navbar fonts against a light background
 
-$navbar-light-color:                    $opacity-black-7;
-$navbar-light-link-color:               $opacity-black-7;
+$navbar-light-color:                    $op-black-7;
+$navbar-light-link-color:               $op-black-7;
 $navbar-light-hover-color:              $black-color;
 $navbar-light-active-color:             $black-color;
 
@@ -742,96 +799,96 @@ $navbar-light-active-color:             $black-color;
 // 6.4 GLOBAL SIDEBAR
 // -----------------------------------------------------------------------------
 
-$sidebar-width:                         225px; // Sidebar Size
-$sidebar-padding-y:                     0px; // Sidebar vertical padding.
-$sidebar-padding-x:                     10px; // Sidebar horizontal padding
+$sidebar-width:                         225px !default; // Sidebar Size
+$sidebar-padding-y:                     0px !default; // Sidebar vertical padding.
+$sidebar-padding-x:                     10px !default; // Sidebar horizontal padding
 
 // Sidebar brand/project image
 
-$sidebar-brand-height:                  50px; // Sidebar branding header height
-$sidebar-brand-padding-y:               $sidebar-padding-y; // Sidebar branding vertical padding.
-$sidebar-brand-padding-x:               $sidebar-padding-x; // Sidebar branding horizontal padding
+$sidebar-brand-height:                  50px !default; // Sidebar branding header height
+$sidebar-brand-padding-y:               $sidebar-padding-y !default; // Sidebar branding vertical padding.
+$sidebar-brand-padding-x:               $sidebar-padding-x !default; // Sidebar branding horizontal padding
 
 // Sidebar item heading
 
-$sidebar-item-header-font-size:         $font-size-xs; // Font size of sidebar section headers (.sidebar__item-header)
-$sidebar-item-header-font-weight:       $font-wh-regular; //Font weight of section headers (.sidebar__item-header)
-$sidebar-item-header-letter-spacing:    0.1em; // Spacing in-between letters for section headers (.sidebar__item-header)
-$sidebar-item-header-height:            30px;
-$sidebar-item-header-opacity:           0.7;
-$sidebar-item-header-padding-y:         0; // Sidebar section headers vertical padding.
-$sidebar-item-header-padding-x:         $sidebar-padding-x; // Sidebar section headers horizontal padding
+$sidebar-item-header-font-size:         $font-size-xs !default; // Font size of sidebar section headers (.sidebar__item-header)
+$sidebar-item-header-font-weight:       $font-wh-regular !default; //Font weight of section headers (.sidebar__item-header)
+$sidebar-item-header-letter-spacing:    0.1em !default; // Spacing in-between letters for section headers (.sidebar__item-header)
+$sidebar-item-header-height:            30px !default;
+$sidebar-item-header-opacity:           0.7 !default;
+$sidebar-item-header-padding-y:         0 !default; // Sidebar section headers vertical padding.
+$sidebar-item-header-padding-x:         $sidebar-padding-x !default; // Sidebar section headers horizontal padding
 
 // Sidebar link
 
-$sidebar-link-font-size:                $font-size-base; // Sidebar menu link title font size (.sidebar__item > .sidebar__link).
-$sidebar-link-line-height:              $lh-base;
-$sidebar-link-padding-y:                8px;
-$sidebar-link-padding-x:                $sidebar-padding-x;
-$sidebar-link-caret-margin-right:       10px; // Right margin for sidebar menu link caret, so that there is space between link and caret.
+$sidebar-link-font-size:                $font-size-base !default; // Sidebar menu link title font size (.sidebar__item > .sidebar__link).
+$sidebar-link-line-height:              $lh-base !default;
+$sidebar-link-padding-y:                8px !default;
+$sidebar-link-padding-x:                $sidebar-padding-x !default;
+$sidebar-link-caret-margin-right:       10px !default; // Right margin for sidebar menu link caret, so that there is space between link and caret.
 
 // Sidebar link icon
 
-$sidebar-link-icon-width:               20px; // Width of sidebar link icon
-$sidebar-link-icon-font-size:           $sidebar-link-font-size; // Sidebar menu link icon font size (.sidebar__link-icon > i).
-$sidebar-link-icon-margin-right:        5px; // Right margin for sidebar menu link icon, so that there is space between title and icon.
+$sidebar-link-icon-width:               20px !default; // Width of sidebar link icon
+$sidebar-link-icon-font-size:           $sidebar-link-font-size !default; // Sidebar menu link icon font size (.sidebar__link-icon > i).
+$sidebar-link-icon-margin-right:        5px !default; // Right margin for sidebar menu link icon, so that there is space between title and icon.
 
 // Sidebar sub menu
 
 $sidebar-submenu-max-levels:            5 !default;
-$sidebar-submenu-link-font-size:        $font-size-sm; // Sidebar sub menu link font size (.sidebar__child .sidebar__item > .sidebar__link).
-$sidebar-submenu-link-padding-y:        6px;
-$sidebar-submenu-link-padding-x:        $sidebar-padding-x;
-$sidebar-submenu-link-margin-left:      ($sidebar-link-icon-width + $sidebar-link-icon-margin-right);
+$sidebar-submenu-link-font-size:        $font-size-sm !default; // Sidebar sub menu link font size (.sidebar__child .sidebar__item > .sidebar__link).
+$sidebar-submenu-link-padding-y:        6px !default;
+$sidebar-submenu-link-padding-x:        $sidebar-padding-x !default;
+$sidebar-submenu-link-margin-left:      ($sidebar-link-icon-width + $sidebar-link-icon-margin-right) !default;
 
 // Sidebar divider (.sidebar__divider)
 
-$sidebar-divider-height:                1px;
-$sidebar-divider-margin-y:              5px;
-$sidebar-divider-margin-x:              0;
+$sidebar-divider-height:                1px !default;
+$sidebar-divider-margin-y:              5px !default;
+$sidebar-divider-margin-x:              0 !default;
 
 // Sidebar footer
 
 //$sidebar-footer-theme-scheme:           $sidebar-theme-scheme !default; // So that sidebar footer takes the same theme scheme of the sidebar.
 $sidebar-footer-active-theme-scheme:    primary !default; // Theme color scheme applied to active item. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
-$sidebar-footer-width:                  $sidebar-width; // So that sidebar footer takes the same width of the sidebar.
-$sidebar-footer-height:                 40px; // Height of sidebar footer
-$sidebar-footer-child-border-top-size:  $border-thin; // Width of the top 'border'for submenu.
-$sidebar-footer-font-size:              $sidebar-submenu-link-font-size; // Submenu item font size (.sidebar-footer__child .sidebar-footer__item > a).
-$sidebar-footer-icon-font-size:         15px;
+$sidebar-footer-width:                  $sidebar-width !default; // So that sidebar footer takes the same width of the sidebar.
+$sidebar-footer-height:                 40px !default; // Height of sidebar footer
+$sidebar-footer-child-border-top-size:  $border-thin !default; // Width of the top 'border'for submenu.
+$sidebar-footer-font-size:              $sidebar-submenu-link-font-size !default; // Submenu item font size (.sidebar-footer__child .sidebar-footer__item > a).
+$sidebar-footer-icon-font-size:         15px !default;
 
 // Mini sidebar type adjustments
 
-$sidebar-mini-width:                    50px;
-$sidebar-mini-link-font-size:           $font-size-sm; // Sidebar menu link title font size (.sidebar__item > .sidebar__link).
+$sidebar-mini-width:                    50px !default;
+$sidebar-mini-link-font-size:           $font-size-sm !default; // Sidebar menu link title font size (.sidebar__item > .sidebar__link).
 
 // Sidebar theme
 
 $sidebar-theme-scheme:                  sidebar !default; // Theme color scheme applied to sidebar. NOTE: Retrieved from active theme palette map from `themes/theme-*`
-$sidebar-color:                         theme-partial-color($sidebar-theme-scheme, font-color);
-$sidebar-link-color:                    theme-partial-color($sidebar-theme-scheme, font-link-color);
-$sidebar-hover-color:                   theme-partial-color($sidebar-theme-scheme, font-hover-color);
-$sidebar-active-color:                  theme-partial-color($sidebar-theme-scheme, font-active-color);
+$sidebar-color:                         theme-partial-color($sidebar-theme-scheme, font-color) !default;
+$sidebar-link-color:                    theme-partial-color($sidebar-theme-scheme, font-link-color) !default;
+$sidebar-hover-color:                   theme-partial-color($sidebar-theme-scheme, font-hover-color) !default;
+$sidebar-active-color:                  theme-partial-color($sidebar-theme-scheme, font-active-color) !default;
 
 // Sidebar type with border on hover/active item
 
-$sidebar-active-border-type-size:       2px;
+$sidebar-active-border-type-size:       2px !default;
 $sidebar-hover-border-theme-scheme:     theme-partial-color($sidebar-theme-scheme, font-hover-color) !default; // Theme color scheme applied to hover state sidebar menu item. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $sidebar-active-border-theme-scheme:    theme-partial-color($sidebar-theme-scheme, font-active-color) !default; // Theme color scheme applied to active state sidebar menu item. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 // Sidebar fonts against a dark background
 
-$sidebar-dark-color:                    $opacity-white-8;
-$sidebar-dark-link-color:               $opacity-white-8;
-$sidebar-dark-hover-color:              $white-color;
-$sidebar-dark-active-color:             $white-color;
+$sidebar-dark-color:                    $op-white-8 !default;
+$sidebar-dark-link-color:               $op-white-8 !default;
+$sidebar-dark-hover-color:              $white-color !default;
+$sidebar-dark-active-color:             $white-color !default;
 
 // Sidebar fonts against a light background
 
-$sidebar-light-color:                   $opacity-black-7;
-$sidebar-light-link-color:              $opacity-black-7;
-$sidebar-light-hover-color:             $black-color;
-$sidebar-light-active-color:            $black-color;
+$sidebar-light-color:                   $op-black-7 !default;
+$sidebar-light-link-color:              $op-black-7 !default;
+$sidebar-light-hover-color:             $black-color !default;
+$sidebar-light-active-color:            $black-color !default;
 
 //
 // 6.5 GLOBAL ASIDE - 2nd SIDEBAR
@@ -842,9 +899,9 @@ $aside-theme-scheme:                   aside !default; // Theme color scheme app
 // 6.6 GLOBAL FOOTER
 // -----------------------------------------------------------------------------
 $footer-theme-scheme:                   footer !default; // Theme color scheme applied to footer. NOTE: Retrieved from active theme palette map from `themes/theme-*`
-$footer-min-height:                     30px;
-$footer-font-size:                      $font-size-sm;
-$footer-font-weight:                    $font-wh-regular;
+$footer-min-height:                     30px !default;
+$footer-font-size:                      $font-size-sm !default;
+$footer-font-weight:                    $font-wh-regular !default;
 
 //
 // 7. PAGE SPECIFIC
@@ -935,7 +992,7 @@ $btn-icon-size-lg:                      calc(#{$btn-icon-size-lg-inner} + #{$btn
 
 // Extra Large icon button (.btn-icon.btn-xl)
 
-$btn-icon-font-size-xl:                 $btn-font-size-xl; // Font size for icon
+$btn-icon-font-size-xl:                 $btn-font-size-xl !default; // Font size for icon
 $btn-icon-size-xl-inner:                ($btn-icon-font-size-xl * $btn-line-height-xl) + ($btn-padding-y-xl * 2) !default; // Required to compute icon button height and width
 $btn-icon-size-xl:                      calc(#{$btn-icon-size-xl-inner} + #{$btn-border-size * 2}) !default; // Compute the height and width so the icon button will have the same size as 'extra large' button (.btn-xl)
 
@@ -1600,68 +1657,68 @@ $spinner-icon-font-size:                $font-size-xs;
 // 8.27 TOGGLE SWITCH
 // -----------------------------------------------------------------------------
 
-$switch-bg:                       $white-color;
-$switch-border:                   $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
-$switch-border-radius:            $border-radius-100-px; // To add rounded corners to the Switch
-$switch-knob-bg:                  $input-border-color; // Background color for the Knob
-$switch-knob-border-radius:       $border-radius-100-px; // To add rounded corners to the Knob
+$switch-bg:                             $white-color;
+$switch-border:                         $input-border-size solid $input-border-color; // Border radius & color should be same as '<input>'s for consistency
+$switch-border-radius:                  $border-radius-100-px; // To add rounded corners to the Switch
+$switch-knob-bg:                        $input-border-color; // Background color for the Knob
+$switch-knob-border-radius:             $border-radius-100-px; // To add rounded corners to the Knob
 
 // Small size
 
-$switch-width-sm:                 40px;
-$switch-height-sm:                18px;
-$switch-font-size-sm:             $input-font-size-sm; // Font size for the description
-$switch-pseudo-font-size-sm:      $input-font-size-sm; // Font size for pseudo-element(s)
-$switch-knob-width-sm:            $switch-height-sm - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
-$switch-knob-height-sm:           $switch-knob-width-sm; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
-$switch-knob-spacing-x-sm:        ($switch-height-sm - $switch-knob-height-sm) / 2; // Spacing required between knob and switch holder.
-$switch-knob-active-width-sm:     $switch-knob-width-sm + 5; // Pressing and holding the knob looks little expanded
+$switch-width-sm:                       40px;
+$switch-height-sm:                      18px;
+$switch-font-size-sm:                   $input-font-size-sm; // Font size for the description
+$switch-pseudo-font-size-sm:            $input-font-size-sm; // Font size for pseudo-element(s)
+$switch-knob-width-sm:                  $switch-height-sm - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-height-sm:                 $switch-knob-width-sm; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-spacing-x-sm:              ($switch-height-sm - $switch-knob-height-sm) / 2; // Spacing required between knob and switch holder.
+$switch-knob-active-width-sm:           $switch-knob-width-sm + 5; // Pressing and holding the knob looks little expanded
 
 // Regular size
 
-$switch-width:                    50px;
-$switch-height:                   28px;
-$switch-font-size:                $input-font-size; // Font size for the description
-$switch-pseudo-font-size:         $input-font-size; // Font size for pseudo-element(s)
-$switch-knob-width:               $switch-height - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
-$switch-knob-height:              $switch-knob-width; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
-$switch-knob-spacing-x:           ($switch-height - $switch-knob-height) / 2; // Spacing required between knob and switch holder.
-$switch-knob-active-width:        $switch-knob-width + 5; // Pressing and holding the knob looks little expanded
+$switch-width:                          50px;
+$switch-height:                         28px;
+$switch-font-size:                      $input-font-size; // Font size for the description
+$switch-pseudo-font-size:               $input-font-size; // Font size for pseudo-element(s)
+$switch-knob-width:                     $switch-height - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-height:                    $switch-knob-width; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-spacing-x:                 ($switch-height - $switch-knob-height) / 2; // Spacing required between knob and switch holder.
+$switch-knob-active-width:              $switch-knob-width + 5; // Pressing and holding the knob looks little expanded
 
 // Large size
 
-$switch-width-lg:                 65px;
-$switch-height-lg:                38px;
-$switch-font-size-lg:             $input-font-size-lg; // Font size for the description
-$switch-pseudo-font-size-lg:      $input-font-size-lg; // Font size for pseudo-element(s)
-$switch-knob-width-lg:            $switch-height-lg - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
-$switch-knob-height-lg:           $switch-knob-width-lg; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
-$switch-knob-spacing-x-lg:        ($switch-height-lg - $switch-knob-height-lg) / 2; // Spacing required between knob and switch holder.
-$switch-knob-active-width-lg:     $switch-knob-width-lg + 5; // Pressing and holding the knob looks little expanded
+$switch-width-lg:                       65px;
+$switch-height-lg:                      38px;
+$switch-font-size-lg:                   $input-font-size-lg; // Font size for the description
+$switch-pseudo-font-size-lg:            $input-font-size-lg; // Font size for pseudo-element(s)
+$switch-knob-width-lg:                  $switch-height-lg - 8; // Knob width. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-height-lg:                 $switch-knob-width-lg; // Knob height. NOTE: Height and width should be same to make perfect circle shape.
+$switch-knob-spacing-x-lg:              ($switch-height-lg - $switch-knob-height-lg) / 2; // Spacing required between knob and switch holder.
+$switch-knob-active-width-lg:           $switch-knob-width-lg + 5; // Pressing and holding the knob looks little expanded
 
 // Mini type
 
-$switch-mini-height:              10px !default;
-$switch-mini-bg:                  $gray-100 !default;
+$switch-mini-height:                    10px !default;
+$switch-mini-bg:                        $gray-100 !default;
 
 // Square type
 
-$switch-square-border-radius:            $border-radius-md; // To add rounded corners to the Switch
-$switch-square-knob-border-radius:       $border-radius-md; // To add rounded corners to the Knob
+$switch-square-border-radius:           $border-radius-md; // To add rounded corners to the Switch
+$switch-square-knob-border-radius:      $border-radius-md; // To add rounded corners to the Knob
 
 // Flip type
 
-$switch-flip-width:              $switch-width;
-$switch-flip-height:             $switch-height;
-$switch-flip-border-radius:      $input-border-radius; // Border radius should be same as '<input>'s for consistency
-$switch-flip-off-state-color:    $gray-800 !default; // Text color for switch OFF state
-$switch-flip-off-state-bg:       $gray-400 !default; // Background color for switch OFF state
+$switch-flip-width:                     $switch-width;
+$switch-flip-height:                    $switch-height;
+$switch-flip-border-radius:             $input-border-radius; // Border radius should be same as '<input>'s for consistency
+$switch-flip-off-state-color:           $gray-800 !default; // Text color for switch OFF state
+$switch-flip-off-state-bg:              $gray-400 !default; // Background color for switch OFF state
 
 // Label type
 
-//$switch-label-width:              120px;
-//$switch-label-height:             $switch-height;
-$switch-label-spacing-x:          10px; // Spacing required between label and switch holder.
+//$switch-label-width:                  120px;
+//$switch-label-height:                 $switch-height;
+$switch-label-spacing-x:                10px; // Spacing required between label and switch holder.
 
 //
 // 8.28 TOGGLERS

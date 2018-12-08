@@ -10,13 +10,25 @@
 // ================================================================================================
 
 //
-// SIZING
+// WIDTH AND HEIGHT SIZING
 // ======================================================
 
+// Size in percentage
 @each $prop, $abbrev in (width: w, height: h) {
   @each $size, $length in $extra-sizes {
     .#{$abbrev}-#{$size} {
       #{$prop}: $length !important;
+    }
+  }
+}
+
+// Size in viewport
+@for $i from 5 through 100 {
+  @if($i%5 == 0){
+    @each $prop, $abbrev in (width: vw, height: vh) {
+      .#{$abbrev}-#{$i} {
+        #{$prop}: #{$i}#{$abbrev}!important;
+      }
     }
   }
 }
