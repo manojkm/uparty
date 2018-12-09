@@ -52,16 +52,8 @@
 //
 // CONTEXTUAL & THEME TRANSPARENT BACKGROUND VARIANTS
 // ======================================================
-
-.bg-transparent {
-  background-color: transparent;
-}
-
-.bg-transparent-force {
-  background-color: transparent !important;
-}
-@include bg-opacity('white',$white-color);
-@include bg-opacity('black',$black-color);
+// This generate utility classes (ie. .bg-primary-opacity-1, .bg-primary-opacity-2, and so on.)
+// to adjust `transparent background color` of an element.
 
 // Theme variations
 @each $themeName, $value in $themes-map {
@@ -76,4 +68,17 @@
 @each $scheme, $tone in $contextual-palette-map {
   $color: contextual-color($scheme);
   @include bg-opacity($scheme, $color);
+}
+
+// Black and white transparent background
+@include bg-opacity('white', $white-color);
+@include bg-opacity('black', $black-color);
+
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-transparent-force {
+  background-color: transparent !important;
 }
