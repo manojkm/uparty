@@ -1,0 +1,45 @@
+// ================================================================================================
+// File Name      : position.scss
+// Description    : Expand the Bootstrap's position utility to allow responsive classes.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//
+// POSITION
+// ======================================================
+// Sass list not in variables since it's not intended for customization.
+$positions: static, relative, absolute, fixed, sticky;
+
+@include max-screen($screen-xs-max) {
+  @each $position in $positions {
+    .position-xs-#{$position} { position: $position !important; }
+  }
+}
+
+@include min-screen($screen-sm-min) {
+  @each $position in $positions {
+    .position-sm-#{$position} { position: $position !important; }
+  }
+}
+
+@include min-screen($screen-md-min) {
+  @each $position in $positions {
+    .position-md-#{$position} { position: $position !important; }
+  }
+}
+
+@include min-screen($screen-lg-min) {
+  @each $position in $positions {
+    .position-lg-#{$position} { position: $position !important; }
+  }
+}
+
+@include min-screen($screen-xl-min) {
+  @each $position in $positions {
+    .position-xl-#{$position} { position: $position !important; }
+  }
+}
