@@ -154,7 +154,7 @@
 @if variable-exists(google-fonts-import) {
   //@import url($google-fonts-import);
   @if $enable-google-fonts-import {
-    @import url("http://fonts.googleapis.com/css?family=#{$google-fonts-import}");
+    @import url("https://fonts.googleapis.com/css?family=#{$google-fonts-import}");
   }
 }
 
