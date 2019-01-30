@@ -24,9 +24,9 @@
   @include transition;
   padding-bottom: $sidebar-footer-height;
   position: absolute;
+  width: 0;
   top: 0;
   margin-left: -$sidebar-width;
-  width: 0;
   left: 0;
   z-index: map-get($zindex, sidebar);
   display: flex;

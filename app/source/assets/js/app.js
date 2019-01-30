@@ -121,6 +121,7 @@ var appMaster = {
                 if (appMaster._sidebarIsOpen) {
                     $(appMaster._sidebarHide).click();
                 }
+
                 if (appMaster._asideIsOpen) {
                     $(appMaster._aside).click();
                 }
@@ -145,6 +146,7 @@ var appMaster = {
                 if (appMaster._navbarSlimScroll) {
                     appMaster._exitNavbarSlimScroll();
                 }
+
                 if (appMaster._navbarMaxHeightIs) {
                     appMaster._navbarMaxHeightIs = false;
                     console.log('Navbar max-height is', appMaster._navbarMaxHeightIs);
@@ -174,7 +176,7 @@ var appMaster = {
                 // alert(maxHeight);
 
                 var currHeight = $(appMaster._navbarCollapse)[0].scrollHeight;
-                // alert(currHeight);
+                 //alert(currHeight);
 
                 if (currHeight >= maxHeight) {
                     appMaster._navbarMaxHeightIs = true;
@@ -861,6 +863,7 @@ var appMaster = {
                 var dropdownFromTop;
                 var winHeight;
                 var dropdownMenuHeight = '';
+
                 var calcMaxHeight = function () {
                     dropdownFromTop = $dropdown.offset().top - $(window).scrollTop();
                     winHeight = $(window).height();
@@ -1030,8 +1033,6 @@ var appMaster = {
                 $('> i', this).addClass('icon-size-fullscreen').removeClass('icon-size-actual');
             }
         });
-
-
     },
 
     _isValid: function (str) {
@@ -1041,8 +1042,6 @@ var appMaster = {
     popover: function () {
         //TODO close button https://jsfiddle.net/vivekkupadhyay/bdkbq5sd/10/
         $(appMaster._popover).each(function () {
-
-
             var animate = $(this).data('animate');
             var color = $(this).data('color');
 
@@ -1237,8 +1236,6 @@ $(document).ready(function () {
     appMaster.setFooterHeight();
     appMaster.expandCollapse();
     appMaster.backToTop();
-
-
 });
 
 
