@@ -26,11 +26,12 @@
 // NOTE: To import Node Modules, the SASS compiler resolves each @import by considering each path
 // declared to 'includePaths' option in `grunt/sass.js` task file.
 /*!
- * Bootstrap v4.0.0 (https://getbootstrap.com)
+ * Bootstrap v4.2.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
 @import "functions";
 @import "variables";
 @import "mixins";
@@ -60,9 +61,11 @@
 @import "media";
 @import "list-group";
 @import "close";
+@import "toasts";
 @import "modal";
 @import "tooltip";
 @import "popover";
 @import "carousel";
+@import "spinners";
 @import "utilities";
 @import "print";
