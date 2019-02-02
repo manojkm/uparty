@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : badge.scss
-// Description    : Badges adjustments.
+// Description    : Badges adjustments
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -12,13 +12,14 @@
 // Base styles
 .badge {
   $b: badge;
-  @include set-border-radius($badge-border-radius);
   border: $badge-border-size solid transparent;
   padding: $badge-padding-y $badge-padding-x;
   position: relative;
   text-indent: 0;
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;
+  line-height: 1;
+  @include set-border-radius($badge-border-radius);
 
   // Account for icons in badges
   > i {

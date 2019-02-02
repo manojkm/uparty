@@ -15,21 +15,34 @@ button, .button {
 
 .btn {
   @extend %button;
+
   // Beta 3 Migration changes
-  #{$hover-focus-tags},
-  #{$active-tags},
-  .show > &.dropdown-toggle,
-  .show > &.dropdown-toggle:focus,
-  .show > &.dropdown-toggle:hover,
-  .open > &.dropdown-toggle {
+  //  @at-root .show > #{&},
+  #{$focus-tags}
+    //#{$active-tags},
+    //  .show > &.dropdown-toggle,
+    //  .show > &.dropdown-toggle:focus,
+    //  .show > &.dropdown-toggle:hover,
+    //  .open > &.dropdown-toggle
+  {
     outline: 0;
-    box-shadow: none;
+    @include box-shadow($btn-focus-box-shadow);
+  }
+
+  .show > &.dropdown-toggle,
+  #{$active-tags} {
+    @include box-shadow($btn-active-box-shadow);
+
+    &:focus {
+      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+    }
   }
 
   // Square buttons
-  &.btn-square{
+  &.btn-square {
     border-radius: 0;
   }
+
   // Icon Buttons
   &.btn-icon {
     min-width: $btn-icon-size;
@@ -45,7 +58,7 @@ button, .button {
       font-size: $btn-icon-font-size;
     }
 
-     // Small icon button
+    // Small icon button
     &.btn-sm {
       min-width: $btn-icon-size-sm;
       width: $btn-icon-size-sm;
@@ -89,18 +102,20 @@ button, .button {
 
   // Helper classes to make sure the icons are perfectly aligned on either sides of text.
   &.has-icon-left,
-  &.has-icon-right{
+  &.has-icon-right {
     #{$icon-tags} {
       position: relative;
       line-height: $btn-icon-lh;
     }
   }
-  &.has-icon-left{
+
+  &.has-icon-left {
     #{$icon-tags} {
       padding: 0 $btn-icon-padding-right 0 0;
     }
   }
-  &.has-icon-right{
+
+  &.has-icon-right {
     #{$icon-tags} {
       padding: 0 0 0 $btn-icon-padding-left;
     }
@@ -109,7 +124,7 @@ button, .button {
 
 // Block button
 .btn-block {
-  display: block!important;
+  display: block !important;
 }
 
 // Apply the mixin to the button variants.
@@ -157,12 +172,13 @@ button, .button {
 }
 
 // Disabled button
-fieldset[disabled] a.btn,
+fieldset:disabled a.btn,
 .btn {
   #{$disabled-tags} {
-    @include opacity($btn-disabled-opacity);
     cursor: $cursor-not-allowed;
     pointer-events: none;
+    @include opacity($btn-disabled-opacity);
+    @include box-shadow(none);
   }
 }
 
@@ -170,14 +186,16 @@ fieldset[disabled] a.btn,
 .btn-link {
   border: 0;
   background-color: transparent !important;
-  #{$hover-focus-tags},
-  #{$active-tags},
-  .show > &.dropdown-toggle,
-  .show > &.dropdown-toggle:focus,
-  .show > &.dropdown-toggle:hover,
-  .open > &.dropdown-toggle {
+
+  #{$hover-focus-tags}
+    //#{$active-tags},
+    //.show > &.dropdown-toggle,
+    //.show > &.dropdown-toggle:focus,
+    //.show > &.dropdown-toggle:hover,
+    //.open > &.dropdown-toggle
+  {
     text-decoration: none;
-    box-shadow: none;
+    @include box-shadow(none);
   }
 
 }
@@ -210,11 +228,11 @@ fieldset[disabled] a.btn,
   &:hover {
     bottom: $btn-raised-box-shadow-y-offset-hover - $btn-raised-box-shadow-y-offset;
   }
+
   .show > &.dropdown-toggle,
-  .show > &.dropdown-toggle:focus,
-  .show > &.dropdown-toggle:hover,
-  .open > &.dropdown-toggle,
-  &:active,
+  //.show > &.dropdown-toggle:focus,
+  //.show > &.dropdown-toggle:hover,
+  //.open > &.dropdown-toggle*
   &:active,
   &.active {
     box-shadow: none !important;

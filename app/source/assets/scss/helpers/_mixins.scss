@@ -194,6 +194,18 @@
 }
 
 //
+// BOX SHADOW
+// ======================================================
+@mixin box-shadow($shadow...) {
+  @if $enable-shadows {
+    box-shadow: $shadow;
+  } @else {
+    box-shadow: none;
+  }
+
+}
+
+//
 // TRANSITIONS
 // ======================================================
 // Usage @include transition(color .3s ease); @include transition;
@@ -467,19 +479,19 @@
 
   @if $bg-type == fill {
     @include background-text-theme($scheme, $tone, $font-color);
-    #{$disabled-tags} {
-      @include background-text-theme($scheme, light, $font-color);
-      @include border-theme($scheme, light);
-    }
+    //#{$disabled-tags} {
+    //  @include background-text-theme($scheme, light, $font-color);
+    //  @include border-theme($scheme, light);
+    //}
   }
 
   @if $bg-type == outline {
     background-color: transparent;
     @include text-theme($scheme, $tone);
-
-    #{$disabled-tags} {
-      @include text-theme($scheme, light);
-    }
+    //
+    //#{$disabled-tags} {
+    //  @include text-theme($scheme, light);
+    //}
   }
 
   #{$hover-tags} {
@@ -488,10 +500,11 @@
   }
 
   #{$active-tags},
-  #{$focus-tags},
-  .show > &.dropdown-toggle,
-  .show > &.dropdown-toggle:focus,
-  .show > &.dropdown-toggle:hover {
+    //#{$focus-tags},
+  .show > &.dropdown-toggle
+    //.show > &.dropdown-toggle:focus,
+    //.show > &.dropdown-toggle:hover
+  {
     @include border-theme($scheme, $tone-active);
     @include background-text-theme($scheme, $tone-active, $font-color);
   }
@@ -504,27 +517,29 @@
     }
 
     #{$active-tags},
-    #{$focus-tags},
-    .show > &.dropdown-toggle,
-    .show > &.dropdown-toggle:focus,
-    .show > &.dropdown-toggle:hover {
+      //#{$focus-tags},
+    .show > &.dropdown-toggle
+      //.show > &.dropdown-toggle:focus,
+      //.show > &.dropdown-toggle:hover
+    {
       @include text-theme($scheme, $tone-active);
     }
 
   }
   &.btn-raised {
     @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-      box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 contextual-color($scheme, $tone-hover);
+      box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 contextual-color($scheme, $tone-active);
     } @else { // Theme variations
-      $box-shadow-color: theme-main-color($scheme, $tone-hover);
+      $box-shadow-color: theme-main-color($scheme, $tone-active);
       box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 $box-shadow-color;
     }
 
-    #{$hover-focus-tags},
+    #{$hover-tags},
     #{$active-tags},
-    .show > &.dropdown-toggle,
-    .show > &.dropdown-toggle:focus,
-    .show > &.dropdown-toggle:hover {
+    .show > &.dropdown-toggle
+      //.show > &.dropdown-toggle:focus,
+      //.show > &.dropdown-toggle:hover
+    {
       @include border-theme($scheme, $tone);
       @include background-text-theme($scheme, $tone, $font-color);
     }
@@ -532,9 +547,9 @@
     #{$hover-tags},
     #{$active-tags} {
       @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-        box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 contextual-color($scheme, $tone-hover);
+        box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 contextual-color($scheme, $tone-active);
       } @else { // Theme variations
-        $box-shadow-color: theme-main-color($scheme, $tone-hover);
+        $box-shadow-color: theme-main-color($scheme, $tone-active);
         box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 $box-shadow-color;
       }
     }
@@ -568,10 +583,11 @@
   }
 
   #{$active-tags},
-  #{$focus-tags},
-  .show > &.dropdown-toggle,
-  .show > &.dropdown-toggle:focus,
-  .show > &.dropdown-toggle:hover {
+    //#{$focus-tags},
+  .show > &.dropdown-toggle
+    //.show > &.dropdown-toggle:focus,
+    //.show > &.dropdown-toggle:hover
+  {
     border-color: $tone-active;
     background-color: $tone-active;
     color: $font-color;
@@ -579,12 +595,14 @@
 
   &.btn-link {
     color: $tone;
+
     #{$hover-tags} {
       color: $tone-hover;
     }
 
-    #{$active-tags},
-    #{$focus-tags} {
+    #{$active-tags}
+      // #{$focus-tags}
+    {
       color: $tone-active;
     }
   }
@@ -621,12 +639,10 @@
   // Outline badge
   @if $bg-type == outline {
     background-color: transparent;
-
     &,
     & * {
       @include text-theme($scheme, $tone, $sledge-hammer);
     }
-
   }
 
   // Link Badges
@@ -636,8 +652,8 @@
       @include background-text-theme($scheme, $tone-hover, $font-color, $sledge-hammer);
     }
 
-    #{$active-tags},
-    #{$focus-tags} {
+    //#{$focus-tags}
+    #{$active-tags} {
       @include border-theme($scheme, $tone-active);
       @include background-text-theme($scheme, $tone-active, $font-color, $sledge-hammer);
     }
@@ -654,6 +670,7 @@
   &,
   &:hover {
     @include background-theme($scheme, $tone);
+
     &::after {
       @include border-theme($scheme, $tone, $position: left);
     }
@@ -780,6 +797,7 @@
         @include border-left-radius($border-radius);
       }
     }
+
     &:last-child {
       .page-link {
         @include border-right-radius($border-radius);
@@ -827,6 +845,7 @@
     &:after {
       @include background-theme($scheme, $font-color);
     }
+
     &:before {
       @include text-theme($scheme, $font-color);
     }
@@ -920,6 +939,7 @@
 
   a {
     color: $font-color !important;
+
     &:hover,
     &:focus {
       color: darken($font-color, $color-shade-amount) !important;
@@ -953,6 +973,7 @@
   .drag-content {
     color: $font-color;
     background-color: $tone;
+
     &:hover {
       color: darken($font-color, $color-shade-amount);
       background-color: darken($tone, $color-shade-amount);
@@ -960,6 +981,7 @@
 
     a {
       color: $font-color !important;
+
       &:hover,
       &:focus {
         color: darken($font-color, $color-shade-amount) !important;
@@ -989,9 +1011,9 @@
   span.progress-label {
     @include background-text-theme($scheme);
     @include border-theme($scheme, $tone);
-   /* &::after {
-      @include border-theme($scheme, $tone, $position: bottom);
-    }*/
+    /* &::after {
+       @include border-theme($scheme, $tone, $position: bottom);
+     }*/
   }
 }
 
@@ -1020,6 +1042,7 @@
     @if bool($font) == true {
       .#{$s}__item-header {
         color: $font-color;
+
         &::after {
           background-color: $font-color;
         }
@@ -1096,6 +1119,7 @@
           .#{$s}__divider {
             @include background-theme($scheme, 'xx-light');
           }
+
           > .#{$s}__item:not(.has-button) {
             > .#{$s}__child {
               &::before {
@@ -1194,6 +1218,7 @@
           background-color: $font-link-color;
         }
       }
+
       &.collapsed,
       &:hover {
         @if bool($bg) == true {
@@ -1238,10 +1263,10 @@
     @if bool($font) == true {
       @if bool($navbar-item-mobile-bottom-border) == true {
         .nav-item {
-            &::before {
-              background-color: $font-color;
-            }
+          &::before {
+            background-color: $font-color;
           }
+        }
       }
     }
 
@@ -1302,8 +1327,10 @@
   @if bool($font) == true {
     .#{$nb}-text {
       color: $font-color;
+
       a {
         color: $font-link-color;
+
         #{$hover-focus-tags} {
           color: $font-hover-color;
         }
@@ -1323,6 +1350,7 @@
     color: $input-focus-color;
     @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
     box-shadow: none;
+
     &:hover {
       @include border-theme($input-focus-border-theme-scheme, $input-focus-border-theme-tone);
     }
@@ -1344,9 +1372,11 @@
     border-color: $input-disabled-border-color;
     background-color: $input-disabled-bg;
     color: $input-disabled-color;
+
     &:hover:not([readonly]) {
       cursor: $cursor-not-allowed;
     }
+
     &::placeholder {
       color: $input-disabled-color;
     }
@@ -1364,6 +1394,7 @@
     &:focus {
       border-color: $color;
       box-shadow: none;
+
       &:hover {
         border-color: $color;
       }
@@ -1396,6 +1427,7 @@
       &:focus {
         border-color: $color;
         box-shadow: none;
+
         &:hover {
           border-color: $color;
         }
@@ -1418,6 +1450,7 @@
     &.is-#{$state} {
       ~ .custom-control-label {
         color: $color;
+
         &::before {
           background-color: lighten($color, 10%);
           border-color: transparent;
@@ -1459,6 +1492,7 @@
         ~ .custom-file-label {
           box-shadow: none;
           border-color: $color;
+
           &::after {
             border-color: $color;
           }
@@ -1519,12 +1553,14 @@
     &::placeholder {
       color: $placeholder-disable-color;
     }
+
     &:hover:not([disabled]):not([readonly]),
     &:focus:not([disabled]):not([readonly]) {
       color: $font-focus-color;
       border-color: $border-focus-color;
       background-color: $background-focus-color;
     }
+
     &:focus {
       &:hover {
         border-color: $border-focus-color;
@@ -1586,6 +1622,7 @@
     background-color: $background-color;
     color: $placeholder-disable-color;
     border: none;
+
     &::after {
       background-color: $background-color;
       color: $font-focus-color;
@@ -1600,6 +1637,7 @@
       .input-group-text {
         background-color: $background-color;
       }
+
       .input-group-prepend {
         margin-right: 0;
       }
@@ -1621,6 +1659,7 @@
     .custom-select {
       color: $font-focus-color;
     }
+
     &.input-group[class*="with-addon-icon"] {
       .input-group-text {
         background-color: $background-focus-color;

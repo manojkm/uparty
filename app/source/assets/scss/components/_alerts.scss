@@ -15,7 +15,6 @@
   @include set-border-radius($alert-border-radius);
   font-size: $alert-font-size;
   font-weight: $font-wh-regular;
-  position: relative;
 
   // Theme variations
   @each $themeName, $value in $themes-map {
@@ -45,11 +44,37 @@
     cursor: $cursor-pointer;
     text-decoration: underline;
     font-weight: $font-wh-regular;
+
     &:hover {
       @include opacity(0.9);
       text-decoration: none;
     }
   }
+
+
+  // Alerts with left/right icons
+  &.alert-icon-left {
+    border-left-width: 3rem;
+    i.icon-left{
+      @include center(y);
+      position: absolute;
+      width: 3rem;
+      left: -3rem;
+      text-align: center;
+    }
+  }
+
+  &.alert-icon-right {
+    border-right-width: 3rem;
+    i.icon-right{
+      @include center(y);
+      position: absolute;
+      width: 3rem;
+      right: -3rem;
+      text-align: center;
+    }
+  }
+
 }
 
 // Dismissible alerts
@@ -57,19 +82,23 @@
   @include opacity(.7);
 
   > span:not(.sr-only) {
-    background-color: rgba(255, 255, 255, .3);
-    line-height: 19px;
-    height: 20px;
-    width: 20px;
+    background-color: $op-white-3;
+    font-size: $alert-close-btn-font-size;
+    width: $alert-close-btn-width;
+    height: $alert-close-btn-height;
     border-radius: $border-radius-100;
-    font-size: 1.1rem;
-    display: block
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   }
 
   &:focus,
   &:hover {
     span:not(.sr-only) {
-      background-color: rgba(255, 255, 255, .4)
+      background-color: $op-white-5;
     }
   }
+
+
 }

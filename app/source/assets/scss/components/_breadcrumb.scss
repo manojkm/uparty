@@ -11,13 +11,12 @@
 
 // Base styles
 .breadcrumb {
-  @include set-border-radius($breadcrumb-border-radius);
-  @include add-border($breadcrumb-border-size, $breadcrumb-border-color, all);
   background-color: $breadcrumb-bg;
-  padding: 0 $breadcrumb-item-padding-x;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
   font-size: $breadcrumb-font-size;
   line-height: $breadcrumb-line-height;
-  display: flex;
+  @include set-border-radius($breadcrumb-border-radius);
+  @include add-border($breadcrumb-border-size, $breadcrumb-border-color, all);
 }
 
 .breadcrumb-item {
@@ -25,17 +24,23 @@
   padding: $breadcrumb-item-padding-y 0;
   color: $breadcrumb-color;
 
-  + .breadcrumb-item::before {
-    font-family: "Font Awesome 5 Free";
-    color: $breadcrumb-divider-color;
-    content: "#{$breadcrumb-divider}";
-    position: relative;
-    line-height: 1;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
+  + .breadcrumb-item {
+    padding-left: $breadcrumb-item-padding-x;
+
+    // The separator between breadcrumbs (by default, a forward-slash: "/")
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      color: $breadcrumb-divider-color;
+      content: "#{$breadcrumb-divider}";
+      padding-right: $breadcrumb-item-padding-x;
+      position: relative;
+      line-height: 1;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
   }
 
   &:after,
@@ -143,7 +148,6 @@
 // ======================================================
 
 .breadcrumb {
-
   &.extended-arrow {
     @include add-border($breadcrumb-border-size, $breadcrumb-ext-border-color, all);
     background-color: $breadcrumb-ext-bg;
@@ -196,7 +200,6 @@
     }
 
   }
-
 }
 
 //

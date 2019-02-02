@@ -276,6 +276,31 @@ components: true
     <div class="row">
         <div class="col-md-12">
             {{#card}}
+                {{{card_header 'Disabled badges'}}}
+                {{#card_body}}
+                    <p>Make badges look inactive by adding the <code>.disabled</code> class.</p>
+
+                    <!-- Disabled badges -->
+                    {{#each badges.list}}
+                        <span class="{{class}} {{modifier}} disabled">{{text}}</span>
+                    {{/each}}
+                    <!-- /Disabled badges -->
+
+                    <hr>
+                    {{{card_title 'Disabled link badges'}}}
+                    <!-- Disabled link badges -->
+                    {{#each badges.list}}
+                        <a href="#" class="{{class}} {{modifier}} disabled">{{text}}</a>
+                    {{/each}}
+                    <!-- /Disabled link badges -->
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
                 {{{card_header 'Match the size'}}}
                 {{#card_body}}
                     <!-- Match the size -->

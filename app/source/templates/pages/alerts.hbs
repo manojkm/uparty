@@ -50,6 +50,42 @@ OR you can type out the HTML if you prefer--}}
     <div class="row">
         <div class="col-md-6 pr-md-2">
             {{#card}}
+                {{{card_header 'Alerts with left icon'}}}
+                {{#card_body}}
+                   <p>To add left icon to the alert, use class <code>.alert-icon-left</code> to <code>.alert</code> container class and <code>.icon-left</code> to the icon</p>
+                    <!-- Basic alerts -->
+                    {{#each alerts.list}}
+                        {{{card_title title}}}
+                        <div class="{{class}} {{modifier}} alert-icon-left" role="alert">
+                            <i class="{{class_i}} icon-left"></i> {{text}} <a href="#" class="alert-link">Alert link</a>
+                        </div>
+                    {{/each}}
+                    <!-- /Basic alerts -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Alerts with right icon'}}}
+                {{#card_body}}
+                    <p>To add right icon to the alert, use class <code>.alert-icon-right</code> to <code>.alert</code> container class and <code>.icon-right</code> to the icon</p>
+                    <!-- Basic alerts -->
+                    {{#each alerts.list}}
+                        {{{card_title title}}}
+                        <div class="{{class}} {{modifier}} alert-icon-right" role="alert">
+                            <i class="{{class_i}} icon-right"></i> {{text}} <a href="#" class="alert-link">Alert link</a>
+                        </div>
+                    {{/each}}
+                    <!-- /Basic alerts -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
                 {{{card_header 'Alerts with solid background'}}}
                 {{#card_body}}
                     <p>To use solid background alerts, add background utility classes such as <code>.bg-*</code> to the <code>.alert</code> and color utility classes such as <code>.text-*</code> to the
@@ -80,6 +116,41 @@ OR you can type out the HTML if you prefer--}}
                         </div>
                     {{/each}}
                     <!-- /Dismissable alerts -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-md-2">
+            {{#card}}
+                {{{card_header 'Dismissable alerts with left icon'}}}
+                {{#card_body}}
+                    <!-- 'Dismissable alerts with left icon -->
+                    {{#each alerts.list}}
+                        {{{card_title title}}}
+                        <div class="{{class}} {{modifier}} alert-dismissible alert-icon-left fade show" role="alert">
+                            <i class="{{class_i}} icon-left"></i> {{text}} <a href="#" class="alert-link">Alert link</a>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                    {{/each}}
+                    <!-- /'Dismissable alerts with left icon -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6 pl-md-2">
+            {{#card}}
+                {{{card_header 'Dismissable alerts with right icon'}}}
+                {{#card_body}}
+                    <!-- Dismissable alerts with right icon -->
+                    {{#each alerts.list}}
+                        {{{card_title title}}}
+                        <div class="{{class}} {{modifier}} alert-dismissible alert-icon-right fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <i class="{{class_i}} icon-right"></i> {{text}} <a href="#" class="alert-link">Alert link</a>
+                        </div>
+                    {{/each}}
+                    <!-- /Dismissable alerts with right icon -->
                 {{/card_body}}
             {{/card}}
         </div>

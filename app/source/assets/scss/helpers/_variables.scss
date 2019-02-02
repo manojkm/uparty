@@ -340,6 +340,7 @@ $font-weight-map: (
 $enable-rounded:                        true !default; // Handle rounded corners
 $enable-breadcrumb:                     true !default; // If set to 'false' the breadcrumb will be disabled.
 $enable-sidebar-divider-underline-type: false !default; // If set to 'true' the sidebar menu divider 'after-line' type will be disabled.
+$enable-shadows:                        false !default;
 
 //
 // 3.2 ASSETS PATHS VARIABLE CONFIG
@@ -917,6 +918,8 @@ $footer-font-weight:                    $font-wh-regular !default;
 
 $btn-border-size:                       $border-thin !default; // Border width applied for all buttons (.btn)
 $btn-font-weight:                       $font-wh-regular !default; // Font weight applied for all buttons (.btn)
+$btn-focus-box-shadow:                  none !default;
+$btn-active-box-shadow:                 inset 0 3px 5px rgba($black-color, .125) !default;
 
 // Small button (.btn-sm)
 
@@ -999,7 +1002,7 @@ $btn-icon-size-xl:                      calc(#{$btn-icon-size-xl-inner} + #{$btn
 
 // Disabled button opacity
 
-$btn-disabled-opacity:                  0.5;
+$btn-disabled-opacity:                 .65 !default;
 
 //
 // 8.2 IMAGES
@@ -1288,12 +1291,15 @@ $breadcrumb-border-radius:                      $border-radius-md !default; // B
 $breadcrumb-border-size:                        $border-thin;
 $breadcrumb-border-color:                       $gray-400 !default;
 
-$breadcrumb-item-padding-y:                     .40rem !default; // Breadcrumb item vertical padding.
-$breadcrumb-item-padding-x:                     .85rem !default; // Breadcrumb item horizontal padding.
+$breadcrumb-padding-y:                          0rem !default;
+$breadcrumb-padding-x:                          .85rem !default;
+
+$breadcrumb-item-padding-y:                     .5rem !default; // Breadcrumb item vertical padding.
+$breadcrumb-item-padding-x:                     .5rem !default; // Breadcrumb item horizontal padding.
 
 $breadcrumb-font-size:                          $font-size-sm !default;
-$breadcrumb-color:                              $gray-700 !default; // Breadcrumb text color.
 $breadcrumb-line-height:                        $lh-sm !default;  // Centers the text vertically while matching height of breadcrumb item
+$breadcrumb-color:                              $gray-700 !default; // Breadcrumb text color.
 $breadcrumb-active-color:                       $gray-600 !default; // Text color of current page in the breadcrumb.
 
 $breadcrumb-divider:                            "/" !default; // Textual separator for between breadcrumb elements.
@@ -1306,7 +1312,7 @@ $breadcrumb-divider-type-5:                     "\f101" !default; // Textual sep
 $breadcrumb-divider-type-6:                     "\f105" !default; // Textual separator type - Font Awesome unicode.
 
 $breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
-$breadcrumb-link-hover-theme-tone:              dark !default; // Theme color tone applied to breadcrumb links on hover. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
+$breadcrumb-link-hover-theme-tone:              xx-dark !default; // Theme color tone applied to breadcrumb links on hover. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 
 $breadcrumb-inner-size:                         ($breadcrumb-font-size * $breadcrumb-line-height) + ($breadcrumb-item-padding-y * 2) !default;
 $breadcrumb-size:                               calc((#{$breadcrumb-inner-size} + #{$breadcrumb-border-size - 1}) / 2) !default; // Compute breadcrumb container height.
@@ -1458,23 +1464,23 @@ $pagination-ext-size-lg:                calc(#{$pagination-ext-inner-lg} + #{$pa
 
 $badge-border-radius:                   $border-radius-sm; // Border radius to add rounded corners
 $badge-border-size:                     $border-thin; // Badges border width
-$badge-padding-y:                       .18rem !default; // Badges vertical padding. Make sure that for small value, the badge will be big enough
+$badge-padding-y:                       .25rem !default; // Badges vertical padding. Make sure that for small value, the badge will be big enough
 $badge-padding-x:                       .3rem !default; // Badges horizontal padding. Make sure that for small value, the badge will be big enough
-$badge-font-size:                       80% !default; // Badges font size. Badges scale to match the size of the immediate parent element
+$badge-font-size:                       75% !default; // Badges font size. Badges scale to match the size of the immediate parent element
 $badge-font-weight:                     $font-wh-regular !default; // Badges font weight
 
 // Pill badges
-
-$badge-pill-border-radius:              10rem !default; // Border radius to add more rounded corners to form the pill shape
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+$badge-pill-border-radius:              $border-radius-30-px !default; // Border radius to add more rounded corners to form the pill shape
 
 // Round badges
 
 $badge-round-border-radius:             $border-radius-30-px; // Create a circle around the badges
 $badge-round-size:                      1.5em;  // Size used for both width and height to make perfect circle/rounded shape. When the value changes/increase the badge could get bigger
-$badge-round-padding-y:                 .18rem !default; // Used to add vertical padding around the round badges. Make sure that for small value, the badge will be big enough.
-$badge-round-padding-x:                 .3rem !default; // Used to add horizontal padding around the round badges. Make sure that for small value, the badge will be big enough.
-
-$badge-round-line-height:               1em;
+$badge-round-padding-y:                 0.25rem !default; // Used to add vertical padding around the round badges. Make sure that for small value, the badge will be big enough.
+$badge-round-padding-x:                 0.25rem !default; // Used to add horizontal padding around the round badges. Make sure that for small value, the badge will be big enough.
+$badge-round-line-height:               $badge-round-size;
 
 // Empty badges
 
@@ -1484,7 +1490,7 @@ $badge-empty-size:                      .5em; // Size used for both width and he
 
 $badge-image-font-size:                 $font-size-sm; // The image badge font size
 $badge-image-font-weight:               $font-wh-regular !default; // The image badge font weight
-$badge-image-line-height:               1.25; // Line height required for badge text to align vertically with the image.
+$badge-image-line-height:               $lh-sm; // Line height required for badge text to align vertically with the image.
 $badge-inner:                           ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
 $badge-size:                            calc(#{$badge-inner}) !default;
 
@@ -1503,6 +1509,10 @@ $alert-font-size:                       $font-size-base; // Alert font size.
 $alert-bg-level:                        -9 !default; // Used to generate stateful background color for contextual and theme variations
 $alert-border-level:                    -6 !default; // Used to generate stateful border color for contextual and theme variations
 $alert-color-level:                     6 !default; // Used to generate stateful text color for contextual and theme variations
+
+$alert-close-btn-width:                 20px !default; // Alert close button width. NOTE: Height and width should be same to make perfect circle shape.
+$alert-close-btn-height:                $alert-close-btn-width !default; // Alert close button height. NOTE: Height and width should be same to make perfect circle shape.
+$alert-close-btn-font-size:             $font-size-base !default; // Font size applied for close button.
 
 //
 // 8.18 PROGRESS BAR
@@ -1960,7 +1970,9 @@ $a-tags:                                '&:hover, &:active, &.active, &:active:f
 $hover-tags:                            '&:hover';
 $focus-tags:                            '&:focus, &.focus';
 $hover-focus-tags:                      '&:hover, &:focus, &.focus';
-$active-tags:                           '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
+//$active-tags:                           '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
+$active-tags:                           '&:not(:disabled):not(.disabled):active, &:not(:disabled):not(.disabled).active';
+$active-focus-tags:                     '&:not(:disabled):not(.disabled):active:focus, &:not(:disabled):not(.disabled).active:focus';
 
 //
 // 10.2 DISABLED SELECTORS
