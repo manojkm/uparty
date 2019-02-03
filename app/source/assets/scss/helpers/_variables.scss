@@ -340,7 +340,7 @@ $font-weight-map: (
 $enable-rounded:                        true !default; // Handle rounded corners
 $enable-breadcrumb:                     true !default; // If set to 'false' the breadcrumb will be disabled.
 $enable-sidebar-divider-underline-type: false !default; // If set to 'true' the sidebar menu divider 'after-line' type will be disabled.
-$enable-shadows:                        false !default;
+$enable-shadows:                        true !default;
 
 //
 // 3.2 ASSETS PATHS VARIABLE CONFIG
@@ -670,7 +670,7 @@ $body-line-height:                      $lh-base;  // Specifies the default line
 //$link-hover-color:                      darken($font-color-default, 15%) !default; // Global textual link hover color
 $link-color:                            $boston-blue !default; // Global textual link color.
 $link-hover-color:                      darken($link-color, 15%) !default; // Global textual link hover color
-$link-hover-decoration:                 none; // Global textual link hover decoration.
+$link-hover-decoration:                 underline; // Global textual link hover decoration.
 
 //
 // 5.4 HEADINGS
@@ -918,7 +918,9 @@ $footer-font-weight:                    $font-wh-regular !default;
 
 $btn-border-size:                       $border-thin !default; // Border width applied for all buttons (.btn)
 $btn-font-weight:                       $font-wh-regular !default; // Font weight applied for all buttons (.btn)
-$btn-focus-box-shadow:                  none !default;
+//TODO, fix these box shadows properly
+$btn-box-shadow:                        inset 0 1px 0 rgba($white-color, .15), 0 1px 1px rgba($black-color, .075) !default;
+$btn-focus-box-shadow:                  inset 0 3px 5px rgba($black-color, .125) !default;
 $btn-active-box-shadow:                 inset 0 3px 5px rgba($black-color, .125) !default;
 
 // Small button (.btn-sm)

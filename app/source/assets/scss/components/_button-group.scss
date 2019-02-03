@@ -16,21 +16,14 @@
   .btn {
     min-width: initial !important;
   }
+
   // Justified groups
   &-justified {
-    //display: table;
-    //table-layout: fixed;
-    //width: 100%;
-
     display: flex;
     border-collapse: separate;
 
     > .btn,
     > .btn-group {
-      //display: table-cell;
-      //float: none;
-      //width: auto;
-
       flex: 1 0 0;
     }
 
@@ -43,16 +36,8 @@
 
 // Vertical button groups
 .btn-group-vertical {
-  > .btn + .btn,
-  > .btn + .btn-group,
-  > .btn-group + .btn,
-  > .btn-group + .btn-group {
-    margin-top: -$btn-border-size;
-    margin-left: 0;
-  }
   .btn {
     min-width: initial !important;
-    //min-height: initial;
   }
 }
 
@@ -71,25 +56,30 @@
   @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
 }
 
-// Reset rounded corners
 .btn-group {
-  > .btn:not(:last-child):not(.dropdown-toggle),
-  > .btn-group:not(:last-child) > .btn {
-    @include border-right-radius(0);
-  }
+  // Prevent double borders when buttons are next to each other
   > .btn:not(:first-child),
-  > .btn-group:not(:first-child) > .btn {
-    @include border-left-radius(0);
+  > .btn-group:not(:first-child) {
+    margin-left: -$btn-border-size;
   }
 }
 
+// The clickable button for toggling the menu
+// Set the same inset shadow as the :active state
+.btn-group.show .dropdown-toggle {
+  @include box-shadow($btn-active-box-shadow);
+
+  // Show no shadow for `.btn-link` since it has no other button styles.
+  &.btn-link {
+    @include box-shadow(none);
+  }
+}
 
 //
 // TOGGLE STATE
 // ======================================================
 
 // Used for toggle only the tick icon on a button’s toggle state.
-
 i.icon-toggle{
   display: none;
   .active > & {

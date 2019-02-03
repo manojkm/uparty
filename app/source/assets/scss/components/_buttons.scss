@@ -194,8 +194,7 @@ fieldset:disabled a.btn,
     //.show > &.dropdown-toggle:hover,
     //.open > &.dropdown-toggle
   {
-    text-decoration: none;
-    @include box-shadow(none);
+    text-decoration: $link-hover-decoration;
   }
 
 }

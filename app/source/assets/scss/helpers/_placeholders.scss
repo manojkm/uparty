@@ -13,7 +13,6 @@
 // ======================================================
 
 %button {
-  @include set-border-radius($btn-border-radius);
   font-size: $btn-font-size;
   //border-width: $btn-border-size;
   font-weight: $btn-font-weight;
@@ -26,6 +25,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  @include set-border-radius($btn-border-radius);
+  @include box-shadow($btn-box-shadow);
 }
 
 //
