@@ -186,6 +186,11 @@ a:not(.btn) {
 
   #{$hover-focus-tags} {
     color: $link-hover-color;
+  }
+}
+
+a:not(.btn):not(.nav-link):not(.card-link){
+  #{$hover-focus-tags} {
     text-decoration: $link-hover-decoration;
   }
 }

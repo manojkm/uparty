@@ -32,13 +32,28 @@
     }
   }
 
+  // Prevent double borders when buttons are next to each other
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) {
+    margin-left: -$btn-border-size;
+  }
+
 }
 
-// Vertical button groups
+//
+// VERTICAL BUTTON GROUPS
+// ======================================================
+
 .btn-group-vertical {
   .btn {
     min-width: initial !important;
   }
+
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) {
+    margin-top: -$btn-border-size;
+  }
+
 }
 
 // Extra large group button
@@ -56,12 +71,28 @@
   @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
 }
 
-.btn-group {
-  // Prevent double borders when buttons are next to each other
-  > .btn:not(:first-child),
-  > .btn-group:not(:first-child) {
-    margin-left: -$btn-border-size;
-  }
+//
+// SPLIT BUTTON DROPDOWNS
+// ======================================================
+
+.dropdown-toggle-split {
+  padding-right: $btn-padding-x * .75;
+  padding-left: $btn-padding-x * .75;
+}
+
+.btn-sm + .dropdown-toggle-split {
+  padding-right: $btn-padding-x-sm * .75;
+  padding-left: $btn-padding-x-sm * .75;
+}
+
+.btn-lg + .dropdown-toggle-split {
+  padding-right: $btn-padding-x-lg * .75;
+  padding-left: $btn-padding-x-lg * .75;
+}
+
+.btn-xl + .dropdown-toggle-split {
+  padding-right: $btn-padding-x-xl * .75;
+  padding-left: $btn-padding-x-xl * .75;
 }
 
 // The clickable button for toggling the menu
@@ -80,7 +111,7 @@
 // ======================================================
 
 // Used for toggle only the tick icon on a button’s toggle state.
-i.icon-toggle{
+i.icon-toggle {
   display: none;
   .active > & {
     display: block;

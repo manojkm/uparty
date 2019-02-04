@@ -11,14 +11,12 @@
 
 // Base styles
 .card {
-
   @include transition;
   @include set-border-radius($card-border-radius);
   @include add-border($card-border-size, $card-border-color, all);
   background-color: $card-bg;
-  position: relative;
   margin-bottom: $card-margin-bottom;
-  box-shadow: $card-box-shadow;
+  @include box-shadow($card-box-shadow);
 
   // Fullscreen card
   &-fullscreen {
@@ -61,22 +59,38 @@
   }
 }
 
+
+.card-body {
+  padding: $card-spacer-x;
+}
+
+.card-title {
+  margin-bottom: $card-spacer-y;
+}
+
+.card-subtitle {
+  margin-top: -$card-spacer-y / 2;
+}
+
+.card-link {
+  + .card-link {
+    margin-left: $card-spacer-x;
+  }
+}
+
 // Card header
 .card-header {
-  @include add-border($card-border-size, $card-border-color, bottom);
   background-color: $card-header-bg;
   padding: $card-spacer-y $card-spacer-x;
   position: relative;
-  text-transform: capitalize;
-  //overflow: hidden; because dropdowns on header will become invisible.
   display: flex;
   align-items: center;
-  flex-direction: row;
+  @include add-border($card-border-size, $card-border-color, bottom);
 
   &:first-child {
     @include set-border-radius($card-inner-border-radius);
     @include border-bottom-radius(0);
-    box-shadow: $card-box-header-inset-shadow;
+    @include box-shadow($card-box-header-inset-shadow);
     //&::before {
     //     //background:rgba(255,255,255, 0.9);
     //     content: "";
@@ -93,6 +107,32 @@
   & .card-title {
     margin-bottom: 0;
   }
+}
+
+// Card footer
+.card-footer {
+  background-color: $card-footer-bg;
+  display: flex;
+  align-items: center;
+  padding: $card-spacer-y $card-spacer-x;
+  @include add-border($card-border-size, $card-border-color, top);
+
+  &:last-child {
+    @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
+  }
+}
+
+// Header navs
+.card-header-tabs {
+  margin-right: -$card-spacer-x / 2;
+  margin-bottom: -$card-spacer-y;
+  margin-left: -$card-spacer-x / 2;
+  border-bottom: 0 !important;
+}
+
+.card-header-pills {
+  margin-right: -$card-spacer-x / 2;
+  margin-left: -$card-spacer-x / 2;
 }
 
 // Card with actions
@@ -161,24 +201,6 @@
 .card-img-left {
   @include border-left-radius($card-inner-border-radius);
 }
-
-// Card footer
-.card-footer {
-  @include add-border($card-border-size, $card-border-color, top);
-  background-color: $card-footer-bg;
-  display: flex;
-  align-items: center;
-
-  &:last-child {
-    @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
-  }
-}
-
-// Header navs
-.card-header-tabs {
-  border-bottom: 0!important;
-}
-
 
 //
 // CARD EXTENDED

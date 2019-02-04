@@ -117,6 +117,21 @@ OR you can type out the HTML if you prefer--}}
                             </div>
                         </div>
                     </div>
+                    {{{spacer-xl-max}}}
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        {{#btn "outline-primary "}}1{{/btn}}
+                        {{#btn "outline-primary "}}2{{/btn}}
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-danger">Action</button>
+                            <button type="button" class="btn btn-outline-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu extended themed">
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                <a class="dropdown-item" href="#">Dropdown link</a>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- /Nesting horizontal -->
                     <hr>
