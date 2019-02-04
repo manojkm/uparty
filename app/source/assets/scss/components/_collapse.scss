@@ -135,6 +135,29 @@ a.accordion {
       }
     }
   }
+
+  &.separated{
+    .card {
+      &:not(:first-of-type) {
+        &:not(:last-of-type) {
+          @include add-border($card-border-size, $card-border-color, bottom);
+          @include border-theme($accordion-ext-theme-scheme);
+          @include set-border-radius($card-border-radius);
+        }
+      }
+
+      &:first-of-type {
+        @include add-border($card-border-size, $card-border-color, bottom);
+        @include border-theme($accordion-ext-theme-scheme);
+        @include set-border-radius($card-border-radius);
+      }
+
+      &:last-of-type {
+        @include set-border-radius($card-border-radius);
+      }
+
+    }
+  }
 }
 
 //

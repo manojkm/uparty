@@ -57,9 +57,9 @@ components: true
                 {{#card_body}}
                     <p>Using the card component, you can extend the default collapse behavior to create an accordion. The outermost wrapper element should have the <code>.accordion</code> class.</p>
                     <!-- Default accordion -->
-                    <div id="accordion" class="accordion" role="tablist">
-                        <div class="card mb-1">
-                            <a class="card-header h6 mb-0" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" role="tab" id="headingOne">
+                    <div id="accordion" class="accordion">
+                        <div class="card">
+                            <a class="card-header h6 mb-0" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="headingOne">
                                 Documentation
                             </a>
 
@@ -67,16 +67,16 @@ components: true
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
-                        <div class="card mb-1">
-                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" role="tab" id="headingTwo">
+                        <div class="card">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="headingTwo">
                                 Events & Task Management
                             </a>
                             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
-                        <div class="card mb-1">
-                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" role="tab" id="headingThree">
+                        <div class="card">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="headingThree">
                                 Invoicing & Financial
                             </a>
                             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
@@ -90,7 +90,7 @@ components: true
                     <p>Add class <code>.accordion.extended.outline</code> to outermost wrapper element.</p>
                     <!-- Default accordion styled with primary border & active background -->
                     <div id="accordion-eg2" class="accordion extended outline" role="tablist">
-                        <div class="card mb-1">
+                        <div class="card">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg2"
                                aria-expanded="false" aria-controls="collapseOne-eg2" role="tab" id="headingOne-eg2">
                                 Documentation
@@ -101,7 +101,7 @@ components: true
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
-                        <div class="card mb-1">
+                        <div class="card">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg2"
                                aria-expanded="false" aria-controls="collapseTwo-eg2" role="tab" id="headingTwo-eg2">
                                 Events & Task Management
@@ -111,7 +111,7 @@ components: true
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
-                        <div class="card mb-1">
+                        <div class="card">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg2"
                                aria-expanded="false" aria-controls="collapseThree-eg2" role="tab" id="headingThree-eg2">
                                 Invoicing & Financial
@@ -128,7 +128,7 @@ components: true
                     <p>Add class <code>.accordion.extended</code> to outermost wrapper element.</p>
                     <!-- Default accordion styled with primary background -->
                     <div id="accordion-eg7" class="accordion extended" role="tablist">
-                        <div class="card mb-1">
+                        <div class="card">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7" aria-expanded="false" aria-controls="collapseOne-eg7" role="tab" id="headingOne-eg7">
                                 Documentation
                             </a>
@@ -137,7 +137,7 @@ components: true
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
-                        <div class="card mb-1">
+                        <div class="card">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7" aria-expanded="false" aria-controls="collapseTwo-eg7" role="tab" id="headingTwo-eg7">
                                 Events & Task Management
                             </a>
@@ -145,7 +145,7 @@ components: true
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
-                        <div class="card mb-1">
+                        <div class="card">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7" aria-expanded="false" aria-controls="collapseThree-eg7" role="tab" id="headingThree-eg7">
                                 Invoicing & Financial
                             </a>
@@ -160,7 +160,7 @@ components: true
         </div>
         <div class="col-md-6 pl-md-2">
             {{#card}}
-                {{{card_header 'Group Accordion'}}}
+                {{{card_header 'Separated accordion'}}}
                 {{#card_body}}
                     <p>Wrap all cards into a single <code>.card</code> class to render as a group. Be sure to add class <code>.accordion</code> to outermost wrapper element.</p>
                     <!-- Group Accordion -->
@@ -170,12 +170,12 @@ components: true
                                aria-expanded="true" aria-controls="collapseOne-eg3" role="tab" id="headingOne-eg3">
                                 Documentation
                             </a>
-
                             <div id="collapseOne-eg3" class="collapse show" role="tabpanel"
                                  aria-labelledby="headingOne-eg3" data-parent="#accordion-eg3">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-
+                        </div>
+                        <div class="card">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg3"
                                aria-expanded="false" aria-controls="collapseTwo-eg3" role="tab" id="headingTwo-eg3">
                                 Events & Task Management
@@ -184,7 +184,8 @@ components: true
                                  data-parent="#accordion-eg3">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-
+                        </div>
+                        <div class="card">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg3"
                                aria-expanded="false" aria-controls="collapseThree-eg3" role="tab" id="headingThree-eg3">
                                 Invoicing & Financial
@@ -198,20 +199,20 @@ components: true
                     <!-- /Group Accordion -->
                     <hr>
                     {{{card_title_has_subtitle 'Styled' 'with primary border & active background'}}}
-                    <p>Be sure to add class <code>.accordion.extended.outline</code> to outermost wrapper element.</p>
+                    <p>Be sure to add class <code>.accordion.extended.outline.separated</code> to outermost wrapper element.</p>
                     <!-- Group Accordion styled with primary border & active background -->
-                    <div id="accordion-eg4" class="accordion extended outline" role="tablist">
-                        <div class="card">
+                    <div id="accordion-eg4" class="accordion extended outline separated" role="tablist">
+                        <div class="card mb-1">
                             <a class="h6 collapsed mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg4"
                                aria-expanded="false" aria-controls="collapseOne-eg4" role="tab" id="headingOne-eg4">
                                 Documentation
                             </a>
-
                             <div id="collapseOne-eg4" class="collapse" role="tabpanel"
                                  aria-labelledby="headingOne-eg4" data-parent="#accordion-eg4">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-
+                        </div>
+                        <div class="card mb-1">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg4"
                                aria-expanded="false" aria-controls="collapseTwo-eg4" role="tab" id="headingTwo-eg4">
                                 Events & Task Management
@@ -220,7 +221,8 @@ components: true
                                  data-parent="#accordion-eg4">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-
+                        </div>
+                        <div class="card mb-1">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg4"
                                aria-expanded="false" aria-controls="collapseThree-eg4" role="tab" id="headingThree-eg4">
                                 Invoicing & Financial
