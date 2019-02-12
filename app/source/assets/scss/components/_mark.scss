@@ -19,27 +19,115 @@ mark {
   position: relative;
   display: inline-block;
   color: inherit;
+}
 
-  &:after {
+// Top and bottom mark
+.mark-top,
+.mark-bottom {
+  &:after,
+  &:before {
     background-color: transparent;
     position: absolute;
     width: 100%;
-    height: $mark-underline-height;
     content: "";
     display: block;
-    bottom: -$mark-underline-height * 2;
     left: 0;
     right: 0;
     margin: 0 auto;
   }
 }
 
+// Bottom mark sizing
+.mark-bottom {
+  &:before {
+    display: none
+  }
+
+  @each $size, $length in (xs:$mark-size-xs, sm:$mark-size-sm, md:$mark-size-md, lg:$mark-size-lg, xl:$mark-size-xl) {
+    &.mark-#{$size} {
+      &:after {
+        height: $length;
+        bottom: -$length * 2;
+      }
+    }
+  }
+}
+
+// Top mark sizing
+.mark-top {
+  &:after {
+    display: none
+  }
+
+  @each $size, $length in (xs:$mark-size-xs, sm:$mark-size-sm, md:$mark-size-md, lg:$mark-size-lg, xl:$mark-size-xl) {
+    &.mark-#{$size} {
+      &:before {
+        height: $length;
+        top: -$length * 2;
+      }
+    }
+  }
+
+}
+
+
+.mark-left,
+.mark-right {
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    height: 100%;
+    background-color: transparent;
+    display: block;
+  }
+}
+
+// Left mark sizing
+.mark-left {
+  &:after {
+    display: none
+  }
+
+  @each $size, $length in (xs:$mark-size-xs, sm:$mark-size-sm, md:$mark-size-md, lg:$mark-size-lg, xl:$mark-size-xl) {
+    &.mark-#{$size} {
+      padding-left: $length * 2;
+      &:before {
+        width: $length;
+      }
+    }
+  }
+}
+
+// Right mark sizing
+.mark-right {
+  &:before {
+    display: none
+  }
+
+  @each $size, $length in (xs:$mark-size-xs, sm:$mark-size-sm, md:$mark-size-md, lg:$mark-size-lg, xl:$mark-size-xl) {
+    &.mark-#{$size} {
+      padding-right: $length * 2;
+      &:after {
+        width: $length;
+        left: 100%;
+      }
+    }
+  }
+}
+
+
+
 // Theme variations
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
   @each $scheme, $tone in $colors {
     .mark-#{$scheme} {
-      &:after {
+      &:after,
+      &:before {
         @include background-theme($scheme);
       }
     }
@@ -49,40 +137,9 @@ mark {
 // Contextual variations
 @each $scheme, $tone in $contextual-palette-map {
   .mark-#{$scheme} {
-    &:after {
+    &:after,
+    &:before {
       @include background-theme($scheme);
     }
-  }
-}
-
-// Extra small mark
-.mark-xs {
-  &:after {
-    height: $mark-underline-height-xs;
-    bottom: -$mark-underline-height-xs * 2;
-  }
-}
-
-// Small mark
-.mark-sm {
-  &:after {
-    height: $mark-underline-height-sm;
-    bottom: -$mark-underline-height-sm * 2;
-  }
-}
-
-// Large mark
-.mark-lg {
-  &:after {
-    height: $mark-underline-height-lg;
-    bottom: -$mark-underline-height-lg * 2;
-  }
-}
-
-// Extra large mark
-.mark-xl {
-  &:after {
-    height: $mark-underline-height-xl;
-    bottom: -$mark-underline-height-xl * 2;
   }
 }
