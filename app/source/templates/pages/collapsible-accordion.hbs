@@ -53,7 +53,7 @@ components: true
     <div class="row">
         <div class="col-md-6 pr-md-2">
             {{#card}}
-                {{{card_header 'Default accordion'}}}
+                {{{card_header 'Simple accordion'}}}
                 {{#card_body}}
                     <p>Using the card component, you can extend the default collapse behavior to create an accordion.
                         To properly achieve the accordion style, be sure to use <code>.accordion</code> as a wrapper.
@@ -86,10 +86,14 @@ components: true
                         </div>
                     </div>
                     <!-- /Default accordion -->
-                    <hr>
-                    {{{card_title_has_subtitle 'Styled' 'with primary border & active background'}}}
+                {{/card_body}}
+            {{/card}}
+
+            {{#card}}
+                {{{card_header 'Simple accordion with outline and active background'}}}
+                {{#card_body}}
                     <p>Add class <code>.accordion.extended.outline</code> to outermost wrapper element.</p>
-                    <!-- Default accordion styled with primary border & active background -->
+                    <!-- Simple accordion with outline and active background -->
                     <div id="accordion-eg2" class="accordion extended outline">
                         <div class="card">
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg2"
@@ -119,48 +123,277 @@ components: true
                             </div>
                         </div>
                     </div>
-                    <!-- /Default accordion styled with primary border & active background -->
-                    <hr>
-                    {{{card_title_has_subtitle 'Styled' 'with primary background'}}}
-                    <p>Add class <code>.accordion.extended</code> to outermost wrapper element.</p>
-                    <!-- Default accordion styled with primary background -->
-                    <div id="accordion-eg7" class="accordion extended">
-                        <div class="card">
+                    <!-- /Simple accordion with outline and active background -->
+                {{/card_body}}
+            {{/card}}
+
+            {{#card}}
+                {{{card_header 'Simple accordion themes'}}}
+                {{#card_body}}
+                    <!-- Simple accordion themes -->
+                    <p>Simple accordion themes are created with the <code>.accordion.extended</code> class, followed by one of the contextual classes
+                        <code>.accordion-success</code>, <code>.accordion-info</code>, <code>.accordion-warning</code>, <code>.accordion-danger</code>, <code>.accordion-primary</code>, <code>.accordion-secondary</code>,
+                        <code>.accordion-light</code>, <code>.accordion-dark</code>
+                    </p>
+
+                    {{{card_title 'Primary'}}}
+                    <!-- Simple accordion Primary theme -->
+                    <div id="accordion-eg7" class="accordion extended accordion-primary">
+                        {{#card}}
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7" aria-expanded="false" aria-controls="collapseOne-eg7" role="button" id="headingOne-eg7">
                                 Documentation
                             </a>
                             <div id="collapseOne-eg7" class="collapse" aria-labelledby="headingOne-eg7" data-parent="#accordion-eg7">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-                        </div>
-                        <div class="card">
+                        {{/card}}
+                        {{#card}}
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7" aria-expanded="false" aria-controls="collapseTwo-eg7" role="button" id="headingTwo-eg7">
                                 Events & Task Management
                             </a>
                             <div id="collapseTwo-eg7" class="collapse" aria-labelledby="headingTwo-eg7" data-parent="#accordion-eg7">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-                        </div>
-                        <div class="card">
+                        {{/card}}
+                        {{#card}}
                             <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7" aria-expanded="false" aria-controls="collapseThree-eg7" role="button" id="headingThree-eg7">
                                 Invoicing & Financial
                             </a>
                             <div id="collapseThree-eg7" class="collapse" aria-labelledby="headingThree-eg7" data-parent="#accordion-eg7">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
-                        </div>
+                        {{/card}}
                     </div>
-                    <!-- /Default accordion styled with primary background -->
+                    <!-- /Simple accordion Primary theme -->
+
+                    <hr>
+                    {{{card_title 'Secondary'}}}
+                    <!-- Simple accordion Secondary theme -->
+                    <div id="accordion-eg7-1" class="accordion extended accordion-secondary">
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7-1" aria-expanded="false" aria-controls="collapseOne-eg7-1" role="button" id="headingOne-eg7-1">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg7-1" class="collapse" aria-labelledby="headingOne-eg7-1" data-parent="#accordion-eg7-1">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7-1" aria-expanded="false" aria-controls="collapseTwo-eg7-1" role="button" id="headingTwo-eg7-1">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg7-1" class="collapse" aria-labelledby="headingTwo-eg7-1" data-parent="#accordion-eg7-1">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7-1" aria-expanded="false" aria-controls="collapseThree-eg7-1" role="button" id="headingThree-eg7-1">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg7-1" class="collapse" aria-labelledby="headingThree-eg7-1" data-parent="#accordion-eg7-1">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                    </div>
+                    <!-- /Simple accordion Secondary theme -->
+
+                    <hr>
+                    {{{card_title 'Info'}}}
+                    <!-- Simple accordion Info theme -->
+                    <div id="accordion-eg7-2" class="accordion extended accordion-info">
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7-2" aria-expanded="false" aria-controls="collapseOne-eg7-2" role="button" id="headingOne-eg7-2">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg7-2" class="collapse" aria-labelledby="headingOne-eg7-2" data-parent="#accordion-eg7-2">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7-2" aria-expanded="false" aria-controls="collapseTwo-eg7-2" role="button" id="headingTwo-eg7-2">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg7-2" class="collapse" aria-labelledby="headingTwo-eg7-2" data-parent="#accordion-eg7-2">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7-2" aria-expanded="false" aria-controls="collapseThree-eg7-2" role="button" id="headingThree-eg7-2">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg7-2" class="collapse" aria-labelledby="headingThree-eg7-2" data-parent="#accordion-eg7-2">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                    </div>
+                    <!-- /Simple accordion Info theme -->
+
+                    <hr>
+                    {{{card_title 'Success'}}}
+                    <!-- Simple accordion Success theme -->
+                    <div id="accordion-eg7-3" class="accordion extended accordion-success">
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7-3" aria-expanded="false" aria-controls="collapseOne-eg7-3" role="button" id="headingOne-eg7-3">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg7-3" class="collapse" aria-labelledby="headingOne-eg7-3" data-parent="#accordion-eg7-3">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7-3" aria-expanded="false" aria-controls="collapseTwo-eg7-3" role="button" id="headingTwo-eg7-3">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg7-3" class="collapse" aria-labelledby="headingTwo-eg7-3" data-parent="#accordion-eg7-3">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7-3" aria-expanded="false" aria-controls="collapseThree-eg7-3" role="button" id="headingThree-eg7-3">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg7-3" class="collapse" aria-labelledby="headingThree-eg7-3" data-parent="#accordion-eg7-3">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                    </div>
+                    <!-- /Simple accordion Success theme -->
+
+                    <hr>
+                    {{{card_title 'Warning'}}}
+                    <!-- Simple accordion Warning theme -->
+                    <div id="accordion-eg7-4" class="accordion extended accordion-warning">
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7-4" aria-expanded="false" aria-controls="collapseOne-eg7-4" role="button" id="headingOne-eg7-4">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg7-4" class="collapse" aria-labelledby="headingOne-eg7-4" data-parent="#accordion-eg7-4">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7-4" aria-expanded="false" aria-controls="collapseTwo-eg7-4" role="button" id="headingTwo-eg7-4">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg7-4" class="collapse" aria-labelledby="headingTwo-eg7-4" data-parent="#accordion-eg7-4">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7-4" aria-expanded="false" aria-controls="collapseThree-eg7-4" role="button" id="headingThree-eg7-4">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg7-4" class="collapse" aria-labelledby="headingThree-eg7-4" data-parent="#accordion-eg7-4">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                    </div>
+                    <!-- /Simple accordion Warning theme -->
+
+                    <hr>
+                    {{{card_title 'Danger'}}}
+                    <!-- Simple accordion Danger theme -->
+                    <div id="accordion-eg7-5" class="accordion extended accordion-danger">
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7-5" aria-expanded="false" aria-controls="collapseOne-eg7-5" role="button" id="headingOne-eg7-5">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg7-5" class="collapse" aria-labelledby="headingOne-eg7-5" data-parent="#accordion-eg7-5">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7-5" aria-expanded="false" aria-controls="collapseTwo-eg7-5" role="button" id="headingTwo-eg7-5">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg7-5" class="collapse" aria-labelledby="headingTwo-eg7-5" data-parent="#accordion-eg7-5">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7-5" aria-expanded="false" aria-controls="collapseThree-eg7-5" role="button" id="headingThree-eg7-5">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg7-5" class="collapse" aria-labelledby="headingThree-eg7-5" data-parent="#accordion-eg7-5">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                    </div>
+                    <!-- /Simple accordion Danger theme -->
+
+                    <hr>
+                    {{{card_title 'Light'}}}
+                    <!-- Simple accordion Light theme -->
+                    <div id="accordion-eg7-6" class="accordion extended accordion-light">
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7-6" aria-expanded="false" aria-controls="collapseOne-eg7-6" role="button" id="headingOne-eg7-6">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg7-6" class="collapse" aria-labelledby="headingOne-eg7-6" data-parent="#accordion-eg7-6">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7-6" aria-expanded="false" aria-controls="collapseTwo-eg7-6" role="button" id="headingTwo-eg7-6">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg7-6" class="collapse" aria-labelledby="headingTwo-eg7-6" data-parent="#accordion-eg7-6">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7-6" aria-expanded="false" aria-controls="collapseThree-eg7-6" role="button" id="headingThree-eg7-6">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg7-6" class="collapse" aria-labelledby="headingThree-eg7-6" data-parent="#accordion-eg7-6">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                    </div>
+                    <!-- /Simple accordion Light theme -->
+
+                    <hr>
+                    {{{card_title 'Dark'}}}
+                    <!-- Simple accordion Dark theme -->
+                    <div id="accordion-eg7-7" class="accordion extended accordion-dark">
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg7-7" aria-expanded="false" aria-controls="collapseOne-eg7-7" role="button" id="headingOne-eg7-7">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg7-7" class="collapse" aria-labelledby="headingOne-eg7-7" data-parent="#accordion-eg7-7">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg7-7" aria-expanded="false" aria-controls="collapseTwo-eg7-7" role="button" id="headingTwo-eg7-7">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg7-7" class="collapse" aria-labelledby="headingTwo-eg7-7" data-parent="#accordion-eg7-7">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                        {{#card}}
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg7-7" aria-expanded="false" aria-controls="collapseThree-eg7-7" role="button" id="headingThree-eg7-7">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg7-7" class="collapse" aria-labelledby="headingThree-eg7-7" data-parent="#accordion-eg7-7">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
+                        {{/card}}
+                    </div>
+                    <!-- /Simple accordion Dark theme -->
+
+                    <!-- /Simple accordion themes -->
                 {{/card_body}}
             {{/card}}
+
         </div>
         <div class="col-md-6 pl-md-2">
             {{#card}}
                 {{{card_header 'Separated accordion'}}}
                 {{#card_body}}
                     <p>Add <code>.separated</code> class along with <code>.accordion</code> class to separate the card component.</p>
-
-                    <!-- Group Accordion -->
+                    <!-- Separated accordion -->
                     <div id="accordion-eg3" class="accordion separated">
                         <div class="card mb-2">
                             <a class="h6 mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg3"
@@ -193,11 +426,14 @@ components: true
                             </div>
                         </div>
                     </div>
-                    <!-- /Group Accordion -->
-                    <hr>
-                    {{{card_title_has_subtitle 'Styled' 'with primary border & active background'}}}
+                    <!-- /Separated accordion -->
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                {{{card_header 'Separated accordion with outline and active background'}}}
+                {{#card_body}}
                     <p>Be sure to add class <code>.accordion.extended.outline.separated</code> to outermost wrapper element.</p>
-                    <!-- Group Accordion styled with primary border & active background -->
+                    <!-- Separated accordion with outline and active background -->
                     <div id="accordion-eg4" class="accordion extended outline separated">
                         <div class="card mb-1">
                             <a class="h6 collapsed mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg4"
@@ -230,47 +466,62 @@ components: true
                             </div>
                         </div>
                     </div>
-                    <!-- /Group Accordion styled with primary border & active background -->
-                    <hr>
-                    {{{card_title_has_subtitle 'Styled' 'with primary background'}}}
-                    <p>Be sure to add class <code>.accordion.extended.separated</code> to outermost wrapper element.</p>
-                    <!-- Group Accordion styled with primary background -->
-                    <div id="accordion-eg8" class="accordion extended separated">
-                        <div class="card mb-1">
-                            <a class="h6 collapsed mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg8"
-                               aria-expanded="false" aria-controls="collapseOne-eg8" role="button" id="headingOne-eg8">
+                    <!-- /Separated accordion with outline and active background -->
+                {{/card_body}}
+            {{/card}}
+
+            {{#card}}
+                {{{card_header 'Separated accordion themes'}}}
+                {{#card_body}}
+                    <!-- Separated accordion themes -->
+                    <p>Separated accordion themes are created with the <code>.accordion.extended.separated</code> class, followed by one of the contextual classes
+                        <code>.accordion-success</code>, <code>.accordion-info</code>, <code>.accordion-warning</code>, <code>.accordion-danger</code>, <code>.accordion-primary</code>, <code>.accordion-secondary</code>,
+                        <code>.accordion-light</code>, <code>.accordion-dark</code>
+                    </p>
+
+                    {{{card_title 'Dark'}}}
+                    <!-- Separated accordion Primary theme -->
+                    <div id="accordion-eg3-1" class="accordion extended separated accordion-primary">
+                        <div class="card mb-2">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg3-1"
+                               aria-expanded="true" aria-controls="collapseOne-eg3-1" role="button" id="headingOne-eg3-1">
                                 Documentation
                             </a>
-                            <div id="collapseOne-eg8" class="collapse"
-                                 aria-labelledby="headingOne-eg8" data-parent="#accordion-eg8">
+                            <div id="collapseOne-eg3-1" class="collapse" aria-labelledby="headingOne-eg3-1" data-parent="#accordion-eg3-1">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
-                        <div class="card mb-1">
-                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg8"
-                               aria-expanded="false" aria-controls="collapseTwo-eg8" role="button" id="headingTwo-eg8">
+                        <div class="card mb-2">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg3-1"
+                               aria-expanded="false" aria-controls="collapseTwo-eg3-1" role="button" id="headingTwo-eg3-1">
                                 Events & Task Management
                             </a>
-                            <div id="collapseTwo-eg8" class="collapse" aria-labelledby="headingTwo-eg8"
-                                 data-parent="#accordion-eg8">
+                            <div id="collapseTwo-eg3-1" class="collapse" aria-labelledby="headingTwo-eg3-1" data-parent="#accordion-eg3-1">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
-                        <div class="card mb-1">
-                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg8"
-                               aria-expanded="false" aria-controls="collapseThree-eg8" role="button" id="headingThree-eg8">
+                        <div class="card">
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg3-1"
+                               aria-expanded="false" aria-controls="collapseThree-eg3-1" role="button" id="headingThree-eg3-1">
                                 Invoicing & Financial
                             </a>
-                            <div id="collapseThree-eg8" class="collapse"
-                                 aria-labelledby="headingThree-eg8" data-parent="#accordion-eg8">
+                            <div id="collapseThree-eg3-1" class="collapse"
+                                 aria-labelledby="headingThree-eg3-1" data-parent="#accordion-eg3-1">
                                 {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
                             </div>
                         </div>
                     </div>
-                    <!-- /Group Accordion styled with primary background -->
+                    <!-- /Separated accordion Primary theme -->
+
+                    <!-- Separated accordion themes -->
                 {{/card_body}}
             {{/card}}
+
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 pr-md-2">asdasd</div>
+        <div class="col-md-6 pl-md-2">asdasd</div>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -353,9 +604,9 @@ components: true
             {{#card}}
                 {{{card_header_has_subtitle 'Underline' 'A styled accordion with underline adds basic formatting'}}}
                 {{#card_body}}
-                    <p>Add class <code>.accordion.extended-underline</code> to outermost wrapper element.</p>
+                    <p>Add class <code>.accordion.extended.underline</code> to outermost wrapper element.</p>
                     <!-- Underline accordion -->
-                    <div id="accordion-eg9" class="accordion extended-underline">
+                    <div id="accordion-eg9" class="accordion extended underline">
                         <div class="card mb-1">
                             <a class="h6 collapsed mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg9" aria-expanded="false" aria-controls="collapseOne" role="button" id="headingOne-eg9">
                                 Documentation
@@ -389,9 +640,9 @@ components: true
             {{#card}}
                 {{{card_header_has_subtitle 'Left line' 'A styled accordion with left line adds basic formatting'}}}
                 {{#card_body}}
-                    <p>Add class <code>.accordion.extended-left-line</code> to outermost wrapper element.</p>
+                    <p>Add class <code>.accordion.extended.left-line</code> to outermost wrapper element.</p>
                     <!-- Left line accordion -->
-                    <div id="accordion-eg10" class="accordion extended-left-line">
+                    <div id="accordion-eg10" class="accordion extended left-line">
                         <div class="card mb-1">
                             <a class="h6 collapsed mb-0 card-header" data-toggle="collapse" href="#collapseOne-eg10" aria-expanded="false" aria-controls="collapseOne" role="button" id="headingOne-eg10">
                                 Documentation
@@ -443,31 +694,31 @@ components: true
                     </div>
                     <div id="accordion-expand-collapse" class="accordion extended outline">
                         {{#card}}
-                                <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg11"
-                                   aria-expanded="false" aria-controls="collapseOne-eg11" data-parent="#accordion-expand-collapse" role="button" id="headingOne-eg11">
-                                    Documentation
-                                </a>
-                                <div id="collapseOne-eg11" class="collapse panel-collapse">
-                                    {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
-                                </div>
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseOne-eg11"
+                               aria-expanded="false" aria-controls="collapseOne-eg11" data-parent="#accordion-expand-collapse" role="button" id="headingOne-eg11">
+                                Documentation
+                            </a>
+                            <div id="collapseOne-eg11" class="collapse panel-collapse">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
                         {{/card}}
                         {{#card}}
-                                <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg11"
-                                   aria-expanded="false" aria-controls="collapseTwo-eg11" data-parent="#accordion-expand-collapse" role="button" id="headingTwo-eg11">
-                                    Events & Task Management
-                                </a>
-                                <div id="collapseTwo-eg11" class="collapse panel-collapse">
-                                    {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
-                                </div>
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseTwo-eg11"
+                               aria-expanded="false" aria-controls="collapseTwo-eg11" data-parent="#accordion-expand-collapse" role="button" id="headingTwo-eg11">
+                                Events & Task Management
+                            </a>
+                            <div id="collapseTwo-eg11" class="collapse panel-collapse">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
                         {{/card}}
                         {{#card}}
-                                <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg11"
-                                   aria-expanded="false" aria-controls="collapseThree-eg11" data-parent="#accordion-expand-collapse" role="button" id="headingThree-eg11">
-                                    Invoicing & Financial
-                                </a>
-                                <div id="collapseThree-eg11" class="collapse panel-collapse">
-                                    {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
-                                </div>
+                            <a class="h6 collapsed card-header mb-0" data-toggle="collapse" href="#collapseThree-eg11"
+                               aria-expanded="false" aria-controls="collapseThree-eg11" data-parent="#accordion-expand-collapse" role="button" id="headingThree-eg11">
+                                Invoicing & Financial
+                            </a>
+                            <div id="collapseThree-eg11" class="collapse panel-collapse">
+                                {{#card_body}}<p class="card-text">{{{placeholder-lorem-lng}}}</p>{{/card_body}}
+                            </div>
                         {{/card}}
                     </div>
                 {{/card_body}}

@@ -125,6 +125,7 @@ a.accordion {
 
 .accordion.extended {
 
+  // Theme variations
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $tone in $colors {
@@ -134,21 +135,14 @@ a.accordion {
         }
 
         & [data-toggle="collapse"] {
-          @include border-theme($scheme, dark);
-          @include background-text-theme($scheme, dark);
+          @include background-text-theme($scheme, x-dark);
 
           &.collapsed {
             @include background-theme($scheme);
 
             &:hover {
-              @include background-theme($scheme, dark);
+              @include background-theme($scheme, x-dark);
             }
-          }
-        }
-
-        &.outline {
-          & [data-toggle="collapse"] {
-            @include border-theme($scheme);
           }
         }
 
@@ -163,6 +157,41 @@ a.accordion {
             &:first-of-type {
               @include border-theme($scheme);
             }
+          }
+        }
+      }
+    }
+  }
+
+  // Contextual variations
+  @each $scheme, $tone in $contextual-palette-map {
+    &.accordion-#{$scheme} {
+      .card {
+        @include border-theme($scheme);
+      }
+
+      & [data-toggle="collapse"] {
+        @include background-text-theme($scheme, x-dark);
+
+        &.collapsed {
+          @include background-theme($scheme);
+
+          &:hover {
+            @include background-theme($scheme, x-dark);
+          }
+        }
+      }
+
+      &.separated {
+        .card {
+          &:not(:first-of-type) {
+            &:not(:last-of-type) {
+              @include border-theme($scheme);
+            }
+          }
+
+          &:first-of-type {
+            @include border-theme($scheme);
           }
         }
       }
@@ -190,37 +219,34 @@ a.accordion {
 // ACCORDION EXTENDED - UNDERLINE TYPE
 // ======================================================
 
-.accordion {
-  &.extended-underline {
-    .card {
-      border: 0;
+.accordion.extended.underline {
+  .card {
+    border: 0;
+  }
+
+  & [data-toggle="collapse"] {
+    @include add-border($accordion-ext-border-size, $card-border-color, bottom);
+    @include border-theme($accordion-ext-theme-scheme);
+    background-color: transparent;
+    padding-left: 40px;
+
+    &:before {
+      @extend %acc-pseudo;
+      right: 0;
+      left: 1rem;
     }
 
-    & [data-toggle="collapse"] {
+    &:after {
+      display: none;
+    }
+
+    &.collapsed {
       @include add-border($accordion-ext-border-size, $card-border-color, bottom);
-      //@include border-theme($accordion-ext-theme-scheme);
-      background-color: transparent;
-      padding-left: 40px;
 
       &:before {
-        @extend %acc-pseudo;
-        right: 0;
-        left: 1rem;
-      }
-
-      &:after {
-        display: none;
-      }
-
-      &.collapsed {
-        @include add-border($accordion-ext-border-size, $card-border-color, bottom);
-
-        &:before {
-          content: $accordion-icon-collapsed;
-        }
+        content: $accordion-icon-collapsed;
       }
     }
-
   }
 }
 
@@ -228,8 +254,7 @@ a.accordion {
 // ACCORDION EXTENDED - LEFT LINE TYPE
 // ======================================================
 
-.accordion {
-  &.extended-left-line {
+.accordion.extended.left-line {
     .card {
       @include set-border-radius(0);
       border: 0;
@@ -269,4 +294,3 @@ a.accordion {
       @include border-theme($accordion-ext-theme-scheme);
     }
   }
-}
