@@ -17,13 +17,16 @@
   .card {
     overflow: hidden
   }
+
   .card-header {
     position: relative;
+
     > i {
       float: left;
       margin-right: $accordion-icon-margin-left;
     }
   }
+
   [data-toggle="collapse"] {
     @include transition;
     @include add-border($card-border-size, transparent, top);
@@ -43,6 +46,7 @@
     & .card-subtitle {
       color: inherit
     }
+
     & .card-subtitle {
       @include opacity(0.8);
     }
@@ -55,9 +59,11 @@
     &.collapsed {
       color: $accordion-title-color;
       background-color: $accordion-header-collapsed-bg;
+
       &:after {
         content: $accordion-icon-collapsed;
       }
+
       &:hover {
         background-color: $accordion-header-collapsed-hover-bg;
         color: $accordion-title-hover-color;
@@ -68,6 +74,27 @@
 
   & .card-body {
     background-color: $accordion-body-bg;
+  }
+
+  &.separated {
+    .card {
+      &:not(:first-of-type) {
+        &:not(:last-of-type) {
+          @include add-border($card-border-size, $card-border-color, bottom);
+          @include set-border-radius($card-border-radius);
+        }
+      }
+
+      &:first-of-type {
+        @include add-border($card-border-size, $card-border-color, bottom);
+        @include set-border-radius($card-border-radius);
+      }
+
+      &:last-of-type {
+        @include set-border-radius($card-border-radius);
+      }
+
+    }
   }
 
 }
@@ -84,6 +111,7 @@ a.accordion {
     @extend %acc-pseudo;
     left: 0;
   }
+
   &.collapsed {
     &:before {
       content: $accordion-icon-collapsed;
@@ -96,68 +124,66 @@ a.accordion {
 // ======================================================
 
 .accordion.extended {
-  .card {
-    @include border-theme($accordion-ext-theme-scheme);
-  }
 
-  & [data-toggle="collapse"] {
-    @include add-border($card-border-size, transparent, top);
-    @include add-border(0, transparent, bottom);
-    @include border-theme($accordion-ext-theme-scheme, $accordion-ext-hover-theme-tone);
-    @include text-theme($accordion-ext-theme-scheme, 'font-color');
-    @include background-theme($accordion-ext-theme-scheme, $accordion-ext-active-theme-tone);
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $tone in $colors {
+      &.accordion-#{$scheme} {
+        .card {
+          @include border-theme($scheme);
+        }
 
-    &.collapsed {
-      @include background-theme($accordion-ext-theme-scheme);
-      &:hover {
-        @include background-theme($accordion-ext-theme-scheme, $accordion-ext-hover-theme-tone);
+        & [data-toggle="collapse"] {
+          @include border-theme($scheme, dark);
+          @include background-text-theme($scheme, dark);
+
+          &.collapsed {
+            @include background-theme($scheme);
+
+            &:hover {
+              @include background-theme($scheme, dark);
+            }
+          }
+        }
+
+        &.outline {
+          & [data-toggle="collapse"] {
+            @include border-theme($scheme);
+          }
+        }
+
+        &.separated {
+          .card {
+            &:not(:first-of-type) {
+              &:not(:last-of-type) {
+                @include border-theme($scheme);
+              }
+            }
+
+            &:first-of-type {
+              @include border-theme($scheme);
+            }
+          }
+        }
       }
-    }
-
-    &:first-child {
-      border-top: none;
     }
   }
 
   // Outline type
   &.outline {
     & [data-toggle="collapse"] {
-      @include border-theme($accordion-ext-theme-scheme);
-
       &.collapsed {
-        background-color: transparent;
-        color: $accordion-title-color;
+        background-color: transparent !important;
+        color: $accordion-title-color !important;
 
         &:hover {
-          background-color: $accordion-header-collapsed-hover-bg;
-          color: $accordion-title-hover-color;
+          background-color: $accordion-header-collapsed-hover-bg !important;
+          color: $accordion-title-hover-color !important;
         }
       }
     }
   }
 
-  &.separated{
-    .card {
-      &:not(:first-of-type) {
-        &:not(:last-of-type) {
-          @include add-border($card-border-size, $card-border-color, bottom);
-          @include border-theme($accordion-ext-theme-scheme);
-          @include set-border-radius($card-border-radius);
-        }
-      }
-
-      &:first-of-type {
-        @include add-border($card-border-size, $card-border-color, bottom);
-        @include border-theme($accordion-ext-theme-scheme);
-        @include set-border-radius($card-border-radius);
-      }
-
-      &:last-of-type {
-        @include set-border-radius($card-border-radius);
-      }
-
-    }
-  }
 }
 
 //
@@ -169,11 +195,13 @@ a.accordion {
     .card {
       border: 0;
     }
+
     & [data-toggle="collapse"] {
-      @include add-border($accordion-ext-border-size, transparent, bottom);
-      @include border-theme($accordion-ext-theme-scheme);
+      @include add-border($accordion-ext-border-size, $card-border-color, bottom);
+      //@include border-theme($accordion-ext-theme-scheme);
       background-color: transparent;
       padding-left: 40px;
+
       &:before {
         @extend %acc-pseudo;
         right: 0;
@@ -186,6 +214,7 @@ a.accordion {
 
       &.collapsed {
         @include add-border($accordion-ext-border-size, $card-border-color, bottom);
+
         &:before {
           content: $accordion-icon-collapsed;
         }
@@ -212,6 +241,7 @@ a.accordion {
       @include add-border(0, transparent, bottom);
       @include border-theme($accordion-ext-theme-scheme);
       padding-left: 40px;
+
       &:before {
         @extend %acc-pseudo;
         right: 0;
@@ -225,6 +255,7 @@ a.accordion {
       &.collapsed {
         @include add-border(0, transparent, bottom);
         @include border-theme($accordion-ext-theme-scheme);
+
         &:before {
           content: $accordion-icon-collapsed;
         }
