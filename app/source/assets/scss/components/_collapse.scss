@@ -97,6 +97,20 @@
     }
   }
 
+  // Outline type
+  &.outline {
+    & [data-toggle="collapse"] {
+      &.collapsed {
+        background-color: transparent !important;
+        color: $accordion-title-color !important;
+
+        &:hover {
+          background-color: $accordion-header-collapsed-hover-bg !important;
+          color: $accordion-title-hover-color !important;
+        }
+      }
+    }
+  }
 }
 
 //
@@ -159,6 +173,17 @@ a.accordion {
             }
           }
         }
+
+        &.outline {
+          & [data-toggle="collapse"] {
+            &.collapsed {
+              &:hover {
+                @include background-text-theme($scheme, $sledge-hammer: !important);
+              }
+            }
+          }
+        }
+
       }
     }
   }
@@ -195,21 +220,17 @@ a.accordion {
           }
         }
       }
-    }
-  }
 
-  // Outline type
-  &.outline {
-    & [data-toggle="collapse"] {
-      &.collapsed {
-        background-color: transparent !important;
-        color: $accordion-title-color !important;
-
-        &:hover {
-          background-color: $accordion-header-collapsed-hover-bg !important;
-          color: $accordion-title-hover-color !important;
+      &.outline {
+        & [data-toggle="collapse"] {
+          &.collapsed {
+            &:hover {
+              @include background-text-theme($scheme, $sledge-hammer: !important);
+            }
+          }
         }
       }
+
     }
   }
 
@@ -225,8 +246,7 @@ a.accordion {
   }
 
   & [data-toggle="collapse"] {
-    @include add-border($accordion-ext-border-size, $card-border-color, bottom);
-    @include border-theme($accordion-ext-theme-scheme);
+    @include add-border($accordion-ext-border-size, $op-black-3, bottom);
     background-color: transparent;
     padding-left: 40px;
 
@@ -248,6 +268,34 @@ a.accordion {
       }
     }
   }
+
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $tone in $colors {
+      &.underline-#{$scheme} {
+        & [data-toggle="collapse"]:not(.collapsed) {
+          @include border-theme($scheme);
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+
+  // Contextual variations
+  @each $scheme, $tone in $contextual-palette-map {
+    &.underline-#{$scheme} {
+      & [data-toggle="collapse"]:not(.collapsed) {
+        @include border-theme($scheme);
+        background-color: transparent;
+      }
+    }
+  }
+
+
+
+
 }
 
 //
@@ -255,42 +303,63 @@ a.accordion {
 // ======================================================
 
 .accordion.extended.left-line {
-    .card {
-      @include set-border-radius(0);
-      border: 0;
+  .card {
+    @include set-border-radius(0);
+    border: 0;
+  }
+
+  & [data-toggle="collapse"] {
+    @include set-border-radius(0);
+    @include add-border($accordion-ext-border-size, $card-border-color, left);
+    @include add-border(0, transparent, bottom);
+    //@include border-theme($accordion-ext-theme-scheme);
+    padding-left: 40px;
+
+    &:before {
+      @extend %acc-pseudo;
+      right: 0;
+      left: 1rem;
     }
 
-    & [data-toggle="collapse"] {
-      @include set-border-radius(0);
-      @include add-border($accordion-ext-border-size, transparent, left);
+    &:after {
+      display: none;
+    }
+
+    &.collapsed {
       @include add-border(0, transparent, bottom);
-      @include border-theme($accordion-ext-theme-scheme);
-      padding-left: 40px;
+      @include add-border($accordion-ext-border-size, $card-border-color, left);
+      //@include border-theme($accordion-ext-theme-scheme);
 
       &:before {
-        @extend %acc-pseudo;
-        right: 0;
-        left: 1rem;
+        content: $accordion-icon-collapsed;
       }
+    }
 
-      &:after {
-        display: none;
-      }
+  }
 
-      &.collapsed {
-        @include add-border(0, transparent, bottom);
-        @include border-theme($accordion-ext-theme-scheme);
+  & .collapsing,
+  & .collapse.show {
+    @include add-border($accordion-ext-border-size, $card-border-color, left);
+    //@include border-theme($accordion-ext-theme-scheme);
+  }
 
-        &:before {
-          content: $accordion-icon-collapsed;
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $tone in $colors {
+      &.left-line-#{$scheme} {
+        & [data-toggle="collapse"] {
+          @include border-theme($scheme);
+          &.collapsed {
+            @include border-theme($scheme);
+          }
+        }
+        & .collapsing,
+        & .collapse.show {
+          @include border-theme($scheme);
         }
       }
-
-    }
-
-    & .collapsing,
-    & .collapse.show {
-      @include add-border($accordion-ext-border-size, transparent, left);
-      @include border-theme($accordion-ext-theme-scheme);
     }
   }
+
+}
