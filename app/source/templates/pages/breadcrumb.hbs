@@ -37,6 +37,170 @@ components: true
             {{/card}}
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Standard breadcrumb themes'}}}
+                {{#card_body}}
+                    <p>You can change the appearance of a breadcrumb by simply adding color utility classes. For more information please review HTML</p>
+
+                    <!-- Standard breadcrumb themes -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {{#breadcrumb 'border-primary' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-primary"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-primary">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-primary">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'border-secondary' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-secondary"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-secondary">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-secondary">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'border-info' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-info"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-info">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-info">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'border-warning' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-warning"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-warning">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-warning">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                        </div>
+                        <div class="col-lg-6">
+                            {{#breadcrumb 'border-dark' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-dark"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-dark">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-dark">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'border-danger' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-danger"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-danger">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-danger">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'border-light' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-light"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-light">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-light">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {{#breadcrumb 'bg-primary-opacity-1 border-primary' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-primary"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-primary">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-primary">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-secondary-opacity-1 border-secondary' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-secondary"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-secondary">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-secondary">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-info-opacity-1 border-info' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-info"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-info">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-info">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-warning-opacity-1 border-warning' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-warning"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-warning">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-warning">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                        </div>
+                        <div class="col-lg-6">
+                            {{#breadcrumb 'bg-danger-opacity-1 border-danger' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-danger"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-danger">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-danger">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-dark-opacity-1 border-dark' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-dark"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-dark">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-dark">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-light-opacity-1 border-light' ''}}
+                                <li class="breadcrumb-item"><a href="#" class="text-light"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-light">Registration</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-light">Personal Information</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {{#breadcrumb 'bg-primary border-primary' ''}}
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Registration</a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Personal Information</a></li>
+                                <li class="breadcrumb-item active text-white op-8" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-secondary border-secondary' ''}}
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Registration</a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Personal Information</a></li>
+                                <li class="breadcrumb-item active text-white op-8" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-info border-info' ''}}
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Registration</a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Personal Information</a></li>
+                                <li class="breadcrumb-item active text-white op-8" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-warning border-warning' ''}}
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Registration</a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Personal Information</a></li>
+                                <li class="breadcrumb-item active text-white op-8" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                        </div>
+                        <div class="col-lg-6">
+                            {{#breadcrumb 'bg-danger border-danger' ''}}
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Registration</a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Personal Information</a></li>
+                                <li class="breadcrumb-item active text-white op-8" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-dark border-dark' ''}}
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Registration</a></li>
+                                <li class="breadcrumb-item text-white"><a href="#" class="text-white">Personal Information</a></li>
+                                <li class="breadcrumb-item active text-white op-8" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                            {{#breadcrumb 'bg-light border-light' ''}}
+                                <li class="breadcrumb-item text-dark"><a href="#" class="text-dark"><i class="icon-home" aria-hidden="true"></i></a></li>
+                                <li class="breadcrumb-item text-dark"><a href="#" class="text-dark">Registration</a></li>
+                                <li class="breadcrumb-item text-dark"><a href="#" class="text-dark">Personal Information</a></li>
+                                <li class="breadcrumb-item active text-dark op-8" aria-current="page">Photo Upload</li>
+                            {{/breadcrumb}}
+                        </div>
+                    </div>
+
+
+
+                    <!-- /Standard breadcrumb themes -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             {{#card}}
@@ -177,6 +341,16 @@ components: true
                         <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
                     {{/breadcrumb}}
                     <!-- /Divider type 6 -->
+
+                    <p class="mb-2">Divider type 6: Add class <code>.divider-type-7</code> to <code>.breadcrumb</code></p>
+                    <!-- Divider type 7 -->
+                    {{#breadcrumb 'divider-type-7' ''}}
+                        <li class="breadcrumb-item"><a href="#"><i class="icon-home" aria-hidden="true"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#">Registration</a></li>
+                        <li class="breadcrumb-item"><a href="#">Personal Information</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Photo Upload</li>
+                    {{/breadcrumb}}
+                    <!-- /Divider type 7 -->
 
                     <!-- /Divider types -->
                 {{/card_body}}

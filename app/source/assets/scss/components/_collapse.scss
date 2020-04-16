@@ -14,9 +14,6 @@
 // TODO https://www.codeply.com/go/506qHaPe9M
 
 .accordion {
-  .card {
-    overflow: hidden
-  }
 
   .card-header {
     position: relative;
@@ -38,6 +35,12 @@
     display: flex;
     align-items: flex-start;
 
+    &:focus,
+    &:active,
+    {
+      color: $accordion-title-active-color;
+    }
+
     &:first-child {
       border-top: none;
     }
@@ -51,18 +54,10 @@
       @include opacity(0.8);
     }
 
-    &:after {
-      @extend %acc-pseudo
-    }
-
     // Collapsed state
     &.collapsed {
       color: $accordion-title-color;
       background-color: $accordion-header-collapsed-bg;
-
-      &:after {
-        content: $accordion-icon-collapsed;
-      }
 
       &:hover {
         background-color: $accordion-header-collapsed-hover-bg;
@@ -76,23 +71,27 @@
     background-color: $accordion-body-bg;
   }
 
+  // Separated accordion
   &.separated {
     .card {
-      &:not(:first-of-type) {
-        &:not(:last-of-type) {
-          @include add-border($card-border-size, $card-border-color, bottom);
-          @include set-border-radius($card-border-radius);
-        }
-      }
+      @include add-border($card-border-size, $card-border-color, bottom);
+      @include set-border-radius($card-border-radius);
 
-      &:first-of-type {
-        @include add-border($card-border-size, $card-border-color, bottom);
-        @include set-border-radius($card-border-radius);
-      }
-
-      &:last-of-type {
-        @include set-border-radius($card-border-radius);
-      }
+      //&:not(:first-of-type) {
+      //  &:not(:last-of-type) {
+      //    @include add-border($card-border-size, $card-border-color, bottom);
+      //    @include set-border-radius($card-border-radius);
+      //  }
+      //}
+      //
+      //&:first-of-type {
+      //  @include add-border($card-border-size, $card-border-color, bottom);
+      //  @include set-border-radius($card-border-radius);
+      //}
+      //
+      //&:last-of-type {
+      //  @include set-border-radius($card-border-radius);
+      //}
 
     }
   }
@@ -111,6 +110,7 @@
       }
     }
   }
+
 }
 
 //
@@ -120,17 +120,11 @@
 a.accordion {
   position: relative;
 
-  &:before {
-    @include transition;
-    @extend %acc-pseudo;
+  &:after {
+
     left: 0;
   }
 
-  &.collapsed {
-    &:before {
-      content: $accordion-icon-collapsed;
-    }
-  }
 }
 
 //
@@ -145,7 +139,7 @@ a.accordion {
     @each $scheme, $tone in $colors {
       &.accordion-#{$scheme} {
         .card {
-          @include border-theme($scheme);
+          @include border-theme($scheme, x-dark);
         }
 
         & [data-toggle="collapse"] {
@@ -162,15 +156,16 @@ a.accordion {
 
         &.separated {
           .card {
-            &:not(:first-of-type) {
-              &:not(:last-of-type) {
-                @include border-theme($scheme);
-              }
-            }
-
-            &:first-of-type {
-              @include border-theme($scheme);
-            }
+            @include border-theme($scheme, x-dark);
+            //&:not(:first-of-type) {
+            //  &:not(:last-of-type) {
+            //    @include border-theme($scheme);
+            //  }
+            //}
+            //
+            //&:first-of-type {
+            //  @include border-theme($scheme);
+            //}
           }
         }
 
@@ -192,7 +187,7 @@ a.accordion {
   @each $scheme, $tone in $contextual-palette-map {
     &.accordion-#{$scheme} {
       .card {
-        @include border-theme($scheme);
+        @include border-theme($scheme, x-dark);
       }
 
       & [data-toggle="collapse"] {
@@ -209,15 +204,16 @@ a.accordion {
 
       &.separated {
         .card {
-          &:not(:first-of-type) {
-            &:not(:last-of-type) {
-              @include border-theme($scheme);
-            }
-          }
-
-          &:first-of-type {
-            @include border-theme($scheme);
-          }
+          @include border-theme($scheme, x-dark);
+          //&:not(:first-of-type) {
+          //  &:not(:last-of-type) {
+          //    @include border-theme($scheme);
+          //  }
+          //}
+          //
+          //&:first-of-type {
+          //  @include border-theme($scheme);
+          //}
         }
       }
 
@@ -243,6 +239,7 @@ a.accordion {
 .accordion.extended.underline {
   .card {
     border: 0;
+    box-shadow: none;
   }
 
   & [data-toggle="collapse"] {
@@ -250,22 +247,12 @@ a.accordion {
     background-color: transparent;
     padding-left: 40px;
 
-    &:before {
-      @extend %acc-pseudo;
-      right: 0;
-      left: 1rem;
-    }
-
     &:after {
-      display: none;
+      left: 0.8rem;
     }
 
     &.collapsed {
       @include add-border($accordion-ext-border-size, $card-border-color, bottom);
-
-      &:before {
-        content: $accordion-icon-collapsed;
-      }
     }
   }
 
@@ -276,7 +263,6 @@ a.accordion {
       &.underline-#{$scheme} {
         & [data-toggle="collapse"]:not(.collapsed) {
           @include border-theme($scheme);
-          background-color: transparent;
         }
       }
     }
@@ -288,13 +274,9 @@ a.accordion {
     &.underline-#{$scheme} {
       & [data-toggle="collapse"]:not(.collapsed) {
         @include border-theme($scheme);
-        background-color: transparent;
       }
     }
   }
-
-
-
 
 }
 
@@ -306,6 +288,7 @@ a.accordion {
   .card {
     @include set-border-radius(0);
     border: 0;
+    box-shadow: none;
   }
 
   & [data-toggle="collapse"] {
@@ -315,24 +298,19 @@ a.accordion {
     //@include border-theme($accordion-ext-theme-scheme);
     padding-left: 40px;
 
-    &:before {
-      @extend %acc-pseudo;
+    &:after {
       right: 0;
-      left: 1rem;
+      left: 0.8rem;
     }
 
-    &:after {
-      display: none;
-    }
+    /* &:after {
+       display: none;
+     }*/
 
     &.collapsed {
       @include add-border(0, transparent, bottom);
       @include add-border($accordion-ext-border-size, $card-border-color, left);
       //@include border-theme($accordion-ext-theme-scheme);
-
-      &:before {
-        content: $accordion-icon-collapsed;
-      }
     }
 
   }
@@ -350,10 +328,12 @@ a.accordion {
       &.left-line-#{$scheme} {
         & [data-toggle="collapse"] {
           @include border-theme($scheme);
+
           &.collapsed {
             @include border-theme($scheme);
           }
         }
+
         & .collapsing,
         & .collapse.show {
           @include border-theme($scheme);
@@ -362,4 +342,85 @@ a.accordion {
     }
   }
 
+}
+
+
+//
+// ACCORDION INDICATORS TYPE
+// ======================================================
+
+// Default - Arrow up/down
+.accordion {
+  &[data-toggle="collapse"], //workaround for Standard accordion type
+  & [data-toggle="collapse"] {
+    &:after {
+      font-family: 'simple-line-icons';
+      content: $accordion-icon-active-default;
+      @extend %acc-pseudo;
+    }
+
+    &.collapsed {
+      &:after {
+        content: $accordion-icon-collapsed-default;
+      }
+    }
+  }
+}
+
+// Plus/minus
+.accordion {
+  &[data-toggle="collapse"].plus-minus,
+  & [data-toggle="collapse"].plus-minus {
+    &:after {
+      font-family: 'themify-icons';
+      font-size: 0.85rem;
+      content: '\e622';
+      @extend %acc-pseudo;
+
+    }
+
+    &.collapsed {
+      &:after {
+        content: '\e61a';
+      }
+    }
+  }
+}
+
+// Angle double
+.accordion {
+  &[data-toggle="collapse"].angle-double,
+  & [data-toggle="collapse"].angle-double {
+    &:after {
+      font-family: 'themify-icons';
+      font-size: 0.85rem;
+      content: '\e660';
+      @extend %acc-pseudo;
+    }
+
+    &.collapsed {
+      &:after {
+        content: '\e663';
+      }
+    }
+  }
+}
+
+// Arrow circle
+.accordion {
+  &[data-toggle="collapse"].arrow-circle,
+  & [data-toggle="collapse"].arrow-circle {
+    &:after {
+      font-family: 'themify-icons';
+      font-size: 0.85rem;
+      content: '\e65c';
+      @extend %acc-pseudo;
+    }
+
+    &.collapsed {
+      &:after {
+        content: '\e65f';
+      }
+    }
+  }
 }

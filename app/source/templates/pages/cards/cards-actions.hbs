@@ -1,13 +1,13 @@
 ---
 title: Card with actions
-lead: A card can also contains action links in icon format.
+lead: Add as many actions in a card header. Given actions are for fullscreen, refresh, close, collapse and dropdown.
 components: true
 categories: Cards
 ---
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-md-4 col-sm-12">
             <!-- Collapsible card -->
             <div class="card">
                 <div class="card-header">
@@ -24,8 +24,7 @@ categories: Cards
             </div>
             <!-- /Collapsible card -->
         </div>
-
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-md-4 col-sm-12">
             <!-- Dismissible card -->
             <div class="card">
                 <div class="card-header">
@@ -41,8 +40,7 @@ categories: Cards
             </div>
             <!-- /Dismissible card -->
         </div>
-
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-md-4 col-sm-12">
             <!-- Fullscreen card -->
             <div class="card">
                 <div class="card-header">
@@ -59,15 +57,17 @@ categories: Cards
             </div>
             <!-- /Fullscreen card -->
         </div>
+    </div>
 
-        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
             <!-- Card with dropdowns -->
             <div class="card">
                 <div class="card-header">
                     {{{card_title 'Card with dropdowns'}}}
                     <div class="card__actions ml-auto">
-                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                        <a class="card__actions-item dropdown-toggle no-caret" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-options-vertical" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
                         </a>
                         {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
                             {{{ddw_header 'Dropdown header'}}}
@@ -85,19 +85,52 @@ categories: Cards
             </div>
             <!-- /Card with dropdowns -->
         </div>
+        <div class="col-md-4 col-sm-12">
+            <!-- Refreshable card -->
+            <div class="card card-refresh">
+                <div class="refresh-container">
+                    <div class="loader spinner-border spinner-border-sm" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="card-header">
+                    {{{card_title 'Refreshable card'}}}
+                    <div class="card__actions ml-auto">
+                        <a href="#" class="card__actions-item" data-card="refresh">
+                            <ion-icon name="refresh-outline" size="small" data-toggle="tooltip" data-placement="top" title="Refresh"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+                {{#card_body}}
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                {{/card_body}}
+                <div class="card-footer bg-white text-muted">Card footer</div>
+            </div>
+            <!-- /Refreshable card -->
+        </div>
     </div>
+
     <div class="row">
-        <div class="col-xl-6 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-md-6 col-sm-12">
             <!-- Group actions -->
-            <div class="card">
+            <div class="card card-refresh">
+                <div class="refresh-container">
+                    <div class="loader spinner-border spinner-border-sm" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
                 <div class="card-header">
                     {{{card_title 'Group actions'}}}
                     <div class="card__actions ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top"
-                                                                                       title="Collapse"></i></a>
-                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown"
+                        <a href="#" class="card__actions-item" data-card="collapse">
+                            <i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i>
+                        </a>
+                        <a href="#" class="card__actions-item" data-card="refresh">
+                            <ion-icon name="refresh-outline" size="small" data-toggle="tooltip" data-placement="top" title="Refresh"></ion-icon>
+                        </a>
+                        <a class="card__actions-item dropdown-toggle no-caret" href="#" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                            <i class="icon-options-vertical" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
                         </a>
                         {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
                             {{{ddw_header 'Dropdown header'}}}
@@ -106,9 +139,12 @@ categories: Cards
                                     <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
                             {{/ddw_items}}
                         {{/ddw_menu_has}}
-                        <a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand" data-toggle="tooltip" data-placement="top"
-                                                                                         title="Fullscreen"></i></a>
-                        <a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i></a>
+                        <a href="#" class="card__actions-item" data-card="fullscreen">
+                            <i class="fa fa-expand" data-toggle="tooltip" data-placement="top" title="Fullscreen"></i>
+                        </a>
+                        <a href="#" class="card__actions-item" data-card="close">
+                            <i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Close"></i>
+                        </a>
                     </div>
                 </div>
                 {{#card_body}}
@@ -118,17 +154,26 @@ categories: Cards
             </div>
             <!-- /Group actions -->
         </div>
-        <div class="col-xl-6 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-md-6 col-sm-12">
             <!-- Group actions - Toolbar style -->
-            <div class="card">
+            <div class="card card-refresh">
+                <div class="refresh-container">
+                    <div class="loader spinner-border spinner-border-sm" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
                 <div class="card-header">
                     {{{card_title 'Group actions - Toolbar style'}}}
                     <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top"
-                                                                                       title="Collapse"></i></a>
-                        <a class="card__actions-item dropdown-toggle" href="#" data-toggle="dropdown"
+                        <a href="#" class="card__actions-item" data-card="collapse">
+                            <i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i>
+                        </a>
+                        <a href="#" class="card__actions-item" data-card="refresh">
+                            <ion-icon name="refresh-outline" size="small" data-toggle="tooltip" data-placement="top" title="Refresh"></ion-icon>
+                        </a>
+                        <a class="card__actions-item dropdown-toggle no-caret" href="#" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                            <i class="icon-options-vertical" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
                         </a>
                         {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
                             {{{ddw_header 'Dropdown header'}}}
@@ -151,17 +196,25 @@ categories: Cards
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-6 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-md-6 col-sm-12">
             <!-- Group actions -->
-            <div class="card">
+            <div class="card card-refresh">
+                <div class="refresh-container">
+                    <div class="loader spinner-border spinner-border-sm" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
                 <div class="card-header bg-primary">
                     <h5 class="card-title text-white">Group actions</h5>
                     <div class="card__actions ml-auto">
-                        <a href="#" class="card__actions-item text-white" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top"
-                                                                                                  title="Collapse"></i></a>
-                        <a class="card__actions-item text-white dropdown-toggle" href="#" data-toggle="dropdown"
+                        <a href="#" class="card__actions-item text-white" data-card="collapse">
+                            <i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i></a>
+                        <a href="#" class="card__actions-item text-white" data-card="refresh">
+                            <ion-icon name="refresh-outline" size="small" data-toggle="tooltip" data-placement="top" title="Refresh"></ion-icon>
+                        </a>
+                        <a class="card__actions-item text-white dropdown-toggle no-caret" href="#" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                            <i class="icon-options-vertical" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
                         </a>
                         {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
                             {{{ddw_header 'Dropdown header'}}}
@@ -183,17 +236,25 @@ categories: Cards
             </div>
             <!-- /Group actions -->
         </div>
-        <div class="col-xl-6 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-md-6 col-sm-12">
             <!-- Group actions - Toolbar style -->
-            <div class="card">
+            <div class="card card-refresh">
+                <div class="refresh-container">
+                    <div class="loader spinner-border spinner-border-sm" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
                 <div class="card-header bg-primary">
                     <h5 class="card-title text-white">Group actions - Toolbar style</h5>
                     <div class="card__actions window ml-auto">
-                        <a href="#" class="card__actions-item text-white" data-card="collapse"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top"
-                                                                                                  title="Collapse"></i></a>
-                        <a class="card__actions-item  text-white dropdown-toggle" href="#" data-toggle="dropdown"
+                        <a href="#" class="card__actions-item text-white" data-card="collapse">
+                            <i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Collapse"></i></a>
+                        <a href="#" class="card__actions-item text-white" data-card="refresh">
+                            <ion-icon name="refresh-outline" size="small" data-toggle="tooltip" data-placement="top" title="Refresh"></ion-icon>
+                        </a>
+                        <a class="card__actions-item text-white dropdown-toggle no-caret" href="#" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-wrench" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
+                            <i class="icon-options-vertical" data-toggle="tooltip" data-placement="top" title="Dropdown"></i>
                         </a>
                         {{#ddw_menu_has 'themed extended dropdown-menu-right'}}
                             {{{ddw_header 'Dropdown header'}}}

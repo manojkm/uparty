@@ -11,7 +11,9 @@ OR you can type out the HTML if you prefer--}}
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 pr-md-2">
+
+        <!--Group Variations-->
+        <div class="col-12">
             {{#card}}
                 {{{card_header 'Group Variations'}}}
                 {{#card_body}}
@@ -35,7 +37,7 @@ OR you can type out the HTML if you prefer--}}
                         {{#btn "secondary"}}Middle{{/btn}}
                         {{#btn "secondary btn-round"}}Right{{/btn}}
                     </div>
-                     {{{spacer-xl-max}}}
+                    {{{spacer-xl-max}}}
                     <div class="btn-group" role="group" aria-label="Basic example">
                         {{#btn "secondary"}}Left{{/btn}}
                         {{#btn "primary"}}Middle{{/btn}}
@@ -89,7 +91,7 @@ OR you can type out the HTML if you prefer--}}
                             </div>
                         </div>
                     </div>
-                     {{{spacer-xl-max}}}
+                    {{{spacer-xl-max}}}
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         {{#btn "primary"}}1{{/btn}}
                         {{#btn "primary"}}2{{/btn}}
@@ -103,7 +105,7 @@ OR you can type out the HTML if you prefer--}}
                             </div>
                         </div>
                     </div>
-                     {{{spacer-xl-max}}}
+                    {{{spacer-common}}}
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         {{#btn "outline-primary "}}1{{/btn}}
                         {{#btn "outline-primary "}}2{{/btn}}
@@ -188,7 +190,7 @@ OR you can type out the HTML if you prefer--}}
                         </div>
                         {{#btn "primary"}}Button{{/btn}}
                     </div>
-                     {{{spacer-xl-max}}}
+                    {{{spacer-xl-max}}}
                     <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
                         {{#btn "outline-primary"}}Button{{/btn}}
                         <div class="btn-group" role="group">
@@ -219,14 +221,18 @@ OR you can type out the HTML if you prefer--}}
             {{/card}}
 
         </div>
-        <div class="col-md-6 pl-md-2">
+        <!--/Group Variations-->
+
+        <!-- Toggle Buttons -->
+        <div class="col-12">
             {{#card}}
                 {{{card_header 'Toggle Buttons'}}}
                 {{#card_body}}
                     <p>Button groups can act as a radio or a switch or even a single toggle. Below are some examples click to see what happens</p>
                     <!-- Toggle states -->
                     {{{card_title 'Toggle states'}}}
-                    <p>Add <code>data-toggle="button"</code> to toggle a button’s <code>active</code> state. If you’re pre-toggling a button, you must manually add the <code>.active</code> class <strong>and</strong> <code>aria-pressed="true"</code> to the <code>&lt;button&gt;</code>.</p>
+                    <p>Add <code>data-toggle="button"</code> to toggle a button’s <code>active</code> state. If you’re pre-toggling a button, you must manually add the <code>.active</code> class <strong>and</strong>
+                        <code>aria-pressed="true"</code> to the <code>&lt;button&gt;</code>.</p>
                     <button type="button" class="btn btn-primary mb-2" data-toggle="button" aria-pressed="false" autocomplete="off">
                         <i class="icon-check icon-toggle mr-2"></i>Single toggle 1
                     </button>
@@ -234,8 +240,8 @@ OR you can type out the HTML if you prefer--}}
                     <button type="button" class="btn btn-success mb-2" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="icon-check icon-toggle mr-2"></i>Single toggle 3</button>
 
                     <button type="button" class="btn btn-primary text-toggle mb-2" data-toggle="button" aria-pressed="false" autocomplete="off">
-                        <span class="text-collapsed"><i class="fa fa-minus mr-2"></i>Collpase All</span>
-                        <span class="text-expanded"><i class="fa fa-plus mr-2"></i> Expand All</span>
+                        <span class="text-collapsed"><i class="icon-minus mr-2"></i>Collpase all</span>
+                        <span class="text-expanded"><i class="icon-plus mr-2"></i> Expand all</span>
                     </button>
                     <!-- /Toggle states -->
                     <hr>
@@ -255,6 +261,18 @@ OR you can type out the HTML if you prefer--}}
                             <input type="radio" name="options" id="option3" autocomplete="off"> Radio
                         </label>
                     </div>
+
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-light btn-round px-4">
+                            <input type="radio" name="options" id="option-or-1" autocomplete="off"> One
+                        </label>
+                        <div class="or"></div>
+                        <label class="btn btn-light btn-round px-4">
+                            <input type="radio" name="options" id="option-or-2" autocomplete="off"> Two
+                        </label>
+                    </div>
+
+
                     {{{spacer-common}}}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-success">
@@ -425,14 +443,28 @@ OR you can type out the HTML if you prefer--}}
                             <input type="checkbox" autocomplete="off"><i class="fas fa-italic"></i>
                         </label>
                     </div>
+                    {{{spacer-common}}}
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-light">
+                            <input type="checkbox" autocomplete="off"><i class="icon-microphone mr-2"></i>Singing
+                        </label>
+                        <label class="btn btn-light">
+                            <input type="checkbox" autocomplete="off"><i class="icon-eyeglass mr-2"></i>Reading
+                        </label>
+                        <label class="btn btn-light">
+                            <input type="checkbox" autocomplete="off"><i class="icon-game-controller mr-2"></i>Playing
+                        </label>
+                    </div>
+
                     <!-- Checkbox toggles -->
                 {{/card_body}}
             {{/card}}
         </div>
+        <!-- /Toggle Buttons -->
     </div>
     <div class="row">
         <!-- Sizing -->
-        <div class="col-12 col-xl-7 pr-xl-2">
+        <div class="col-12">
             {{#card}}
                 {{{card_header 'Sizing'}}}
                 {{#card_body}}
@@ -440,58 +472,58 @@ OR you can type out the HTML if you prefer--}}
                         But in the case of 'icon button' you should add extra sizing classes <code>.btn-*</code> to each <code>.btn-icon</code> like it shown below.
                     </p>
                     <div class="row">
-                        <div class="col-12 col-md-6 col-xl-4 mb-2">
+                        <div class="col-12 col-md-6 col-xl-3 mb-2">
                             <div class="btn-group btn-group-xl" role="group" aria-label="Basic example">
-                                {{#btn "secondary"}}Left{{/btn}}
-                                {{#btn "secondary"}}Middle{{/btn}}
-                                {{#btn "secondary"}}Right{{/btn}}
+                                {{#btn "primary"}}Left{{/btn}}
+                                {{#btn "primary"}}Middle{{/btn}}
+                                {{#btn "primary"}}Right{{/btn}}
                             </div>
                             {{{spacer-common}}}
                             <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                                {{#btn "secondary"}}Left{{/btn}}
-                                {{#btn "secondary"}}Middle{{/btn}}
-                                {{#btn "secondary"}}Right{{/btn}}
+                                {{#btn "primary"}}Left{{/btn}}
+                                {{#btn "primary"}}Middle{{/btn}}
+                                {{#btn "primary"}}Right{{/btn}}
                             </div>
                             {{{spacer-common}}}
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                {{#btn "secondary"}}Left{{/btn}}
-                                {{#btn "secondary"}}Middle{{/btn}}
-                                {{#btn "secondary"}}Right{{/btn}}
+                                {{#btn "primary"}}Left{{/btn}}
+                                {{#btn "primary"}}Middle{{/btn}}
+                                {{#btn "primary"}}Right{{/btn}}
                             </div>
                             {{{spacer-common}}}
                             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                {{#btn "secondary"}}Left{{/btn}}
-                                {{#btn "secondary"}}Middle{{/btn}}
-                                {{#btn "secondary"}}Right{{/btn}}
+                                {{#btn "primary"}}Left{{/btn}}
+                                {{#btn "primary"}}Middle{{/btn}}
+                                {{#btn "primary"}}Right{{/btn}}
                             </div>
                         </div>
-                        <div class="col-12 col-md-6 col-xl-4 mb-2">
+                        <div class="col-12 col-md-6 col-xl-3 mb-2">
                             <div class="btn-group btn-group-toggle btn-group-xl" data-toggle="buttons">
-                                <label class="btn btn-icon btn-xl btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-align-left"></i>
                                 </label>
-                                <label class="btn btn-icon btn-xl btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-align-center"></i>
                                 </label>
-                                <label class="btn btn-icon btn-xl btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-align-right"></i>
                                 </label>
-                                <label class="btn btn-icon btn-xl btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-align-justify"></i>
                                 </label>
                             </div>
                             {{{spacer-common}}}
                             <div class="btn-group btn-group-toggle btn-group-lg" data-toggle="buttons">
-                                <label class="btn btn-icon btn-lg btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-align-left"></i>
                                 </label>
-                                <label class="btn btn-icon btn-lg btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-align-center"></i>
                                 </label>
-                                <label class="btn btn-icon btn-lg btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-align-right"></i>
                                 </label>
-                                <label class="btn btn-icon btn-lg btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-align-justify"></i>
                                 </label>
                             </div>
@@ -512,77 +544,120 @@ OR you can type out the HTML if you prefer--}}
                             </div>
                             {{{spacer-common}}}
                             <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
-                                <label class="btn btn-icon btn-sm btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-align-left"></i>
                                 </label>
-                                <label class="btn btn-icon btn-sm btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-align-center"></i>
                                 </label>
-                                <label class="btn btn-icon btn-sm btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-align-right"></i>
                                 </label>
-                                <label class="btn btn-icon btn-sm btn-secondary">
+                                <label class="btn btn-icon btn-secondary">
                                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-align-justify"></i>
                                 </label>
                             </div>
                         </div>
-                        <div class="col-12 col-xl-4 mb-2">
+                        <div class="col-12 col-md-6 col-xl-3 mb-2">
                             <div class="btn-group-vertical btn-group-toggle btn-group-xl" data-toggle="buttons">
-                                <label class="btn btn-icon btn-xl btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
                                 </label>
-                                <label class="btn btn-icon btn-xl btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
                                 </label>
-                                <label class="btn btn-icon btn-xl btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
                                 </label>
-                                <label class="btn btn-icon btn-xl btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
                                 </label>
                             </div>
                             <div class="btn-group-vertical btn-group-toggle btn-group-lg" data-toggle="buttons">
-                                <label class="btn btn-icon btn-lg btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
                                 </label>
-                                <label class="btn btn-icon btn-lg btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
                                 </label>
-                                <label class="btn btn-icon btn-lg btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
                                 </label>
-                                <label class="btn btn-icon btn-lg btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
                                 </label>
                             </div>
                             <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-icon btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
                                 </label>
-                                <label class="btn btn-icon btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
                                 </label>
-                                <label class="btn btn-icon btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
                                 </label>
-                                <label class="btn btn-icon btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
                                 </label>
                             </div>
                             <div class="btn-group-vertical btn-group-toggle btn-group-sm" data-toggle="buttons">
-                                <label class="btn btn-icon btn-sm btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off" checked><i class="icon-feed"></i>
                                 </label>
-                                <label class="btn btn-icon btn-sm btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-bubbles"></i>
                                 </label>
-                                <label class="btn btn-icon btn-sm btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-calendar"></i>
                                 </label>
-                                <label class="btn btn-icon btn-sm btn-secondary">
+                                <label class="btn btn-icon btn-info">
                                     <input type="radio" name="options" autocomplete="off"><i class="icon-picture"></i>
                                 </label>
                             </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-3 mb-2">
+                            <div class="btn-group btn-group-xl btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-light btn-round px-5">
+                                    <input type="radio" name="options" autocomplete="off"> One
+                                </label>
+                                <div class="or"></div>
+                                <label class="btn btn-light btn-round px-5">
+                                    <input type="radio" name="options" autocomplete="off"> Two
+                                </label>
+                            </div>
+                            {{{spacer-common}}}
+                            <div class="btn-group btn-group-lg btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-light btn-round px-5">
+                                    <input type="radio" name="options" autocomplete="off"> One
+                                </label>
+                                <div class="or"></div>
+                                <label class="btn btn-light btn-round px-5">
+                                    <input type="radio" name="options" autocomplete="off"> Two
+                                </label>
+                            </div>
+                            {{{spacer-common}}}
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-light btn-round px-5">
+                                    <input type="radio" name="options" autocomplete="off"> One
+                                </label>
+                                <div class="or"></div>
+                                <label class="btn btn-light btn-round px-5">
+                                    <input type="radio" name="options" autocomplete="off"> Two
+                                </label>
+                            </div>
+                            {{{spacer-common}}}
+                            <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-light btn-round px-5">
+                                    <input type="radio" name="options" autocomplete="off"> One
+                                </label>
+                                <div class="or"></div>
+                                <label class="btn btn-light btn-round px-5">
+                                    <input type="radio" name="options" autocomplete="off"> Two
+                                </label>
+                            </div>
+
+
                         </div>
                     </div>
                 {{/card_body}}
@@ -591,7 +666,7 @@ OR you can type out the HTML if you prefer--}}
         </div>
         <!-- /Sizing -->
         <!-- /Justified Groups -->
-        <div class="col-12 col-xl-5 pl-xl-2">
+        <div class="col-12">
             {{#card}}
                 {{{card_header 'Justified groups'}}}
                 {{#card_body}}

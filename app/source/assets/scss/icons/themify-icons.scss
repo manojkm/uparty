@@ -1,0 +1,55 @@
+// ================================================================================================
+// File Name      : all.scss
+// Description    : Sass manifest file for include vendors (Third-Party Styles) that will merge
+//                  with the others in the resulting stylesheet. This file should only comprise
+//                  of @imports.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ------------------------------------------------------------------------------------------------
+// Guidelines     : One @import per folder;
+//                  A linebreak after @import;
+//                  Each file on its own line;
+//                  A new line after the last import from a folder;
+//                  File extensions and leading underscores omitted;
+// ------------------------------------------------------------------------------------------------
+// ATTENTION      : These third-Party styles will merge with the others in the resulting stylesheet
+// ------------------------------------------------------------------------------------------------
+// TIP            : To import, place your third-Party styles inside this folder and just change
+//                  the extension to ".scss" and add "_" to the beginning and import in this file
+//                  like so:
+// ================================================================================================
+
+//
+// DEPENDENCIES IMPORT
+// ======================================================
+// xxxx
+
+@import
+    'dependencies';
+
+//
+// THEMIFY ICONS
+// ======================================================
+//
+//@font-face {
+//  font-family: 'themify';
+//  src:url('#{$vendors-path}/themify-icons/themify-icons/fonts/themify.eot?-fvbane');
+//  src:url('#{$vendors-path}/themify-icons/themify-icons/fonts/themify.eot?#iefix-fvbane') format('embedded-opentype'),
+//  url('#{$vendors-path}/themify-icons/themify-icons/fonts/themify.woff?-fvbane') format('woff'),
+//  url('#{$vendors-path}/themify-icons/themify-icons/fonts/themify.ttf?-fvbane') format('truetype'),
+//  url('#{$vendors-path}/themify-icons/themify-icons/fonts/themify.svg?-fvbane#themify') format('svg');
+//  font-weight: normal;
+//  font-style: normal;
+//}
+//
+//@import
+//    'themify-icons/variables',
+//    'themify-icons/mixins',
+//    //'themify-icons/path',
+//    'themify-icons/core',
+//    'themify-icons/extras',
+//    'themify-icons/icons';
+//

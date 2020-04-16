@@ -9,10 +9,14 @@
 // ================================================================================================
 //TODO https://codepen.io/simeonoff/pen/QKYwba
 
-// Base styles
+//
+// BASE STYLING
+// ======================================================
+
 .alert {
   $a: alert;
   @include set-border-radius($alert-border-radius);
+  border: $alert-border-size solid transparent;
   font-size: $alert-font-size;
   font-weight: $font-wh-regular;
 
@@ -51,7 +55,6 @@
     }
   }
 
-
   // Alerts with left/right icons
   &.alert-icon-left {
     border-left-width: 3rem;
@@ -77,7 +80,10 @@
 
 }
 
-// Dismissible alerts
+//
+// DISMISSIBLE ALERTS
+// ======================================================
+
 .alert-dismissible > .close {
   @include opacity(.7);
 
@@ -99,6 +105,5 @@
       background-color: $op-white-5;
     }
   }
-
 
 }

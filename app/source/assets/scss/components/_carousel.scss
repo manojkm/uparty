@@ -11,18 +11,24 @@
 // Optional captions
 .carousel-caption {
   background-color: rgba(0, 0, 0, .5);
+
   * {
     color: inherit;
   }
 }
 
-.carousel-indicators {
-  li {
-    cursor: $cursor-pointer;
-  }
-}
+//.carousel-indicators {
+//  li {
+//    cursor: $cursor-pointer;
+//  }
+//}
 
 // Next/Prev icons
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 15;
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   @include add-border($carousel-control-border-size, $carousel-control-border-color, all);
@@ -34,7 +40,6 @@
   font-size: $carousel-control-icon-font-size;
 
   &::before {
-    font-family: 'simple-line-icons';
     font-size: inherit;
     position: absolute;
     left: 0;
@@ -45,42 +50,111 @@
     align-items: center;
     justify-content: center;
     text-shadow: $carousel-control-prev-icon-text-shadow;
+    color: $carousel-control-next-prev-icon-color;
   }
 }
 
 // Next icon
 .carousel-control-next-icon {
   &::before {
+    font-family: 'simple-line-icons';
     content: $carousel-control-next-icon;
-    color: $carousel-control-next-prev-icon-color;
   }
 }
 
 // Prev icon
 .carousel-control-prev-icon {
   &::before {
+    font-family: 'simple-line-icons';
     content: $carousel-control-prev-icon;
-    color: $carousel-control-next-prev-icon-color;
   }
 }
 
-// Theming - light
-.carousel {
+//
+// CONTROLS ARROW VARIATIONS
+// ======================================================
 
-  &.light {
-    .carousel-caption {
-      color: rgba(0, 0, 0, .9);
-    }
-    .carousel-indicators {
-      li {
-        background-color: rgba($carousel-indicator-light-active-bg, .5);
-      }
-      .active {
-        background-color: $carousel-indicator-light-active-bg;
+// Long arrows
+.carousel-control-next-icon.arrow-long {
+  &::before {
+    font-family: 'themify-icons';
+    content: '\e628';
+  }
+}
+
+.carousel-control-prev-icon.arrow-long {
+  &::before {
+    font-family: 'themify-icons';
+    content: '\e629';
+  }
+}
+
+// Double arrows
+.carousel-control-next-icon.arrow-double {
+  &::before {
+    font-family: 'themify-icons';
+    content: '\e661';
+  }
+}
+
+.carousel-control-prev-icon.arrow-double {
+  &::before {
+    font-family: 'themify-icons';
+    content: '\e662';
+  }
+}
+
+
+//
+// CONTROLS & INDICATORS THEMES
+// ======================================================
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $tone in $colors {
+    .bg-#{$scheme}.carousel-control-prev-icon,
+    .bg-#{$scheme}.carousel-control-next-icon{
+      &::before {
+        color: inherit;
       }
     }
   }
 }
+
+// Contextual variations
+@each $scheme, $tone in $contextual-palette-map {
+ .bg-#{$scheme}.carousel-control-prev-icon,
+ .bg-#{$scheme}.carousel-control-next-icon{
+    &::before {
+      color: inherit;
+    }
+  }
+}
+
+//
+// CONTROLS & INDICATORS VARIATIONS
+// ======================================================
+
+.round {
+  &.carousel-indicators {
+    li {
+      width: 10px;
+      height: 10px;
+      border-radius: $border-radius-100;
+    }
+  }
+}
+
+.square {
+  &.carousel-indicators {
+    li {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
 
 //
 // CAPTIONS ONLY
@@ -102,8 +176,64 @@
 .carousel-item.carousel-caption-centered {
   transform-style: preserve-3d; // Prevent blurry elements when it's placed on half a pixel.
   .carousel-caption {
-    top: 50%;
-    transform: translateY(-50%);
+    @include center(y);
     bottom: initial;
+  }
+}
+
+//
+// CAPTIONS ON LEFT
+// ======================================================
+
+.carousel-item.carousel-caption-left {
+  transform-style: preserve-3d;
+
+  .carousel-caption {
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    width: $carousel-caption-width-left;
+  }
+}
+
+//
+// CAPTIONS ON RIGHT
+// ======================================================
+
+.carousel-item.carousel-caption-right {
+  transform-style: preserve-3d;
+
+  .carousel-caption {
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    width: $carousel-caption-width-left;
+    left: auto;
+  }
+}
+
+//
+// CAPTIONS AT TOP
+// ======================================================
+
+.carousel-item.carousel-caption-top {
+  transform-style: preserve-3d;
+
+  .carousel-caption {
+    top: 0;
+    bottom: auto;
+  }
+}
+
+//
+// FIXED CAPTIONS
+// ======================================================
+
+.carousel-item.carousel-caption-bottom-fixed {
+  transform-style: preserve-3d; // Prevent blurry elements when it's placed on half a pixel.
+  .carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
   }
 }

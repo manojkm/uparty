@@ -1,7 +1,6 @@
 // ================================================================================================
 // File Name      : breadcrumb.scss
-// Description    : Indicate the current page's location within a navigational hierarchy that
-//                  automatically adds separators via CSS.
+// Description    : Breadcrumb adjustments
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -9,7 +8,10 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// Base styles
+//
+// BASE STYLING
+// ======================================================
+
 .breadcrumb {
   background-color: $breadcrumb-bg;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
@@ -51,7 +53,8 @@
   // Breadcrumb links
   & a {
     @include transition;
-    @include text-theme($breadcrumb-link-theme-scheme);
+    color: $link-color;
+    //@include text-theme($breadcrumb-link-theme-scheme);
 
     &:after,
     &:before {
@@ -61,7 +64,8 @@
     &:focus,
     &:active,
     &:hover {
-      @include text-theme($breadcrumb-link-theme-scheme, $breadcrumb-link-hover-theme-tone);
+      color: $link-hover-color;
+      //@include text-theme($breadcrumb-link-theme-scheme, $breadcrumb-link-hover-theme-tone);
     }
 
     &.collapsed {
@@ -83,6 +87,36 @@
   &.active {
     color: $breadcrumb-active-color;
   }
+}
+
+//
+// BREADCRUMB THEMES
+// ======================================================
+
+.breadcrumb {
+  // Adjustment to the separator color between breadcrumb elements.
+
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $tone in $colors {
+      &.bg-#{$scheme} .breadcrumb-item {
+        &::before {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  // Contextual variations
+  @each $scheme, $tone in $contextual-palette-map {
+    &.bg-#{$scheme} .breadcrumb-item {
+      &::before {
+        color: inherit;
+      }
+    }
+  }
+
 }
 
 //
@@ -136,6 +170,14 @@
     .breadcrumb-item {
       + .breadcrumb-item::before {
         content: "#{$breadcrumb-divider-type-6}";
+        font-weight: 900;
+      }
+    }
+  }
+  &.divider-type-7 {
+    .breadcrumb-item {
+      + .breadcrumb-item::before {
+        content: "#{$breadcrumb-divider-type-7}";
         font-weight: 900;
       }
     }
@@ -390,4 +432,3 @@
   }
 
 }
-

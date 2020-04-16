@@ -69,6 +69,7 @@
 // 4.12 Z-INDEX LAYERS
 // 4.13 BREAKPOINTS
 // 4.14 CURSORS
+// 4.15 OVERFLOW
 
 //
 // 5. ELEMENTS
@@ -78,6 +79,7 @@
 // 5.3 HYPERLINKS
 // 5.4 HEADINGS
 // 5.5 LEAD
+// 5.6 BLOCKQUOTES
 
 //
 // 6. LAYOUT
@@ -350,8 +352,9 @@ $enable-shadows:                        true !default;
 // background-image: url('#{$image-path}/arrow-down.png')
 
 $assets-relative-path-prod:             '../../' !default; // Set the directory relative to production assets path.
-$font-path:                             '#{$assets-relative-path-prod}fonts' !default;
-$image-path:                            '#{$assets-relative-path-prod}img' !default;
+$font-path:                             '#{$assets-relative-path-prod}fonts/' !default;
+$image-path:                            '#{$assets-relative-path-prod}img/' !default;
+$vendors-path:                          '#{$assets-relative-path-prod}vendors/' !default;
 
 //
 // 4. UTILITIES FOR LAYOUT
@@ -411,31 +414,14 @@ $border-radius-map: (
 ) !default;
 
 // Border size map to generate utility classes (ie. .border-0, .border-1, and so on.) to add or remove an element’s border size.
-$border-sizes-map: (
-        0: 0px,
-        1: 1px,
-        2: 2px,
-        3: 3px,
-        4: 4px,
-        5: 5px,
-        6: 6px,
-        7: 7px,
-        8: 8px,
-) !default;
+$border-sizes-map: (0,1,2,3,4,5,6,7,8,9,10) !default;
 
 //
 // 4.3 IMAGES
 // -----------------------------------------------------------------------------
-// Image size map to generate utility classes (ie. .img-xs, .img-sm, and so on.) to adjust image sizes.
-$image-sizes-map: (
-        xs:     16px,
-        sm:     24px,
-        md:     32px,
-        lg:     48px,
-        xl:     64px,
-        xxl:    128px,
-        xxxl:   256px,
-) !default;
+// Image size map to generate utility classes (ie. .img-16, .img-24, and so on.) to adjust image sizes.
+
+$image-sizes-map: (16,24,32,48,64,128,256,512) !default;
 
 //
 // 4.4 MARK
@@ -522,7 +508,7 @@ $popover-shadow:                                0 5px 10px rgba($black-color, 0.
 $sidebar-footer-shadow:                         0 1px 10px rgba($black-color, 0.3), inset 0 1px 0 rgba($white-color, 0.08);
 $progress-box-shadow:                           inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 $card-box-shadow:                               0 1px 2px rgba(0, 0, 0, .075) !default;
-$card-box-header-inset-shadow:                  inset 0px 1px 0px 0px rgba(255, 255, 255, 0.9);
+$card-box-header-inset-shadow:                  none;
 $pagination-ext-indicator-box-shadow:           inset 0 .1rem .1rem rgba($gray-800, 00.5) !default;
 $modal-content-box-shadow-xs:                   0 5px 10px rgba($black-color, 0.1);
 $chosen-select-box-shadow:                      0 5px 10px rgba($black-color, 0.1);
@@ -560,11 +546,11 @@ $zindex: (
         progress-bar-label:            870,
         chosen-drop:                   1010,
         modal-backdrop:                1040,
-        fullscreen_card:               1045,
         modal:                         1050,
         popover:                       1060,
         tooltip:                       1070,
         sidebar:                       1080,
+        fullscreen_card:               1090,
 )!default;
 
 //
@@ -639,6 +625,13 @@ $cursor-move:                           move;
 $cursor-auto:                           auto;
 $cursor-zoom-in:                        zoom-in;
 $cursor-zoom-out:                       zoom-out;
+
+//
+// 4.15 OVERFLOW
+// -----------------------------------------------------------------------------
+// Generate overflow utility classes (ie. .of-h, of-x-h, of-y-h and so on.)
+
+$overflow: (h:hidden, v:visible, s:scroll, a:auto );
 
 //
 // 5. ELEMENTS
@@ -716,6 +709,14 @@ $display-line-height:                   $headings-line-height !default;
 
 $lead-font-size:                        ($font-size-base * 1.25) !default;
 $lead-font-weight:                      $font-wh-light !default;
+
+//
+// 5.6 BLOCKQUOTES
+// -----------------------------------------------------------------------------
+
+$blockquote-font-size:                  $font-size-lg !default;
+$blockquote-small-font-size:            $font-size-sm !default;
+$blockquote-small-color:                $gray-600 !default;
 
 //
 // 6. LAYOUT
@@ -968,6 +969,12 @@ $btn-border-radius-xl:                  $border-radius-xl; // Border radius to a
 $btn-icon-padding-left:                 5px !default; // Spacing inside buttons with icon on right
 $btn-icon-padding-right:                5px !default; // Spacing inside buttons with icon on left
 $btn-icon-lh:                           $btn-line-height !default; // Line height for icon to align vertically with the button.
+
+// Light button type (.btn-light-*)
+
+$btn-light-bg-level:                    -9 !default; // Used to generate stateful background color for contextual and theme variations
+$btn-light-border-level:                -6 !default; // Used to generate stateful border color for contextual and theme variations
+$btn-light-color-level:                 6 !default; // Used to generate stateful text color for contextual and theme variations
 
 // Rounded button type (.btn-round)
 
@@ -1276,7 +1283,8 @@ $card-link-hover-color:                 $gray-800; // Text color for card links 
 // Card tools
 
 $card-tools-color:                      $gray-600 !default; // Text color for card action items
-$card-tools-font-size:                  $font-size-xs !default; // Font size for card action items
+$card-tools-hover-color:                $gray-900 !default; // Text color for card action items on hover
+$card-tools-font-size:                  $font-size-sm !default; // Font size for card action items
 $card-toolbar-icon-width:               30px; // Width of the icons for each card action items
 
 // Window type card actions toolbar
@@ -1289,7 +1297,7 @@ $card-toolbar-icon-height:              25px; // Height of the icons for Window 
 
 $breadcrumb-bg:                                 $white-color !default; // Breadcrumb background color.
 
-$breadcrumb-border-radius:                      $border-radius-md !default; // Border radius to add rounded corners
+$breadcrumb-border-radius:                      $border-radius-md !default; // Border radius to add rounded corners.
 $breadcrumb-border-size:                        $border-thin;
 $breadcrumb-border-color:                       $gray-400 !default;
 
@@ -1312,6 +1320,7 @@ $breadcrumb-divider-type-3:                     "\f061" !default; // Textual sep
 $breadcrumb-divider-type-4:                     "\f0a9" !default; // Textual separator type - Font Awesome unicode.
 $breadcrumb-divider-type-5:                     "\f101" !default; // Textual separator type - Font Awesome unicode.
 $breadcrumb-divider-type-6:                     "\f105" !default; // Textual separator type - Font Awesome unicode.
+$breadcrumb-divider-type-7:                     "•" !default; // Textual separator type
 
 $breadcrumb-link-theme-scheme:                  primary !default; // Theme color scheme applied to breadcrumb link text. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $breadcrumb-link-hover-theme-tone:              xx-dark !default; // Theme color tone applied to breadcrumb links on hover. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
@@ -1470,6 +1479,7 @@ $badge-padding-y:                       .25rem !default; // Badges vertical padd
 $badge-padding-x:                       .3rem !default; // Badges horizontal padding. Make sure that for small value, the badge will be big enough
 $badge-font-size:                       75% !default; // Badges font size. Badges scale to match the size of the immediate parent element
 $badge-font-weight:                     $font-wh-regular !default; // Badges font weight
+$badge-line-height:                     1em!default;
 
 // Pill badges
 // Use a higher than normal value to ensure completely rounded edges when
@@ -1490,11 +1500,40 @@ $badge-empty-size:                      .5em; // Size used for both width and he
 
 // Image badges
 
-$badge-image-font-size:                 $font-size-sm; // The image badge font size
-$badge-image-font-weight:               $font-wh-regular !default; // The image badge font weight
+$badge-image-font-size:                 $font-size-sm; // The badge font size
+$badge-image-font-weight:               $font-wh-regular !default; // The badge font weight
 $badge-image-line-height:               $lh-sm; // Line height required for badge text to align vertically with the image.
-$badge-inner:                           ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
-$badge-size:                            calc(#{$badge-inner}) !default;
+$badge-image-inner:                     ($badge-image-font-size * $badge-image-line-height) + ($badge-padding-y * 2) !default;
+$badge-image-size:                      calc(#{$badge-image-inner}) !default;
+
+// Corner badges
+
+$badge-corner-size:                     4em !default; // Size used for both width, height and border to make perfect triangle /\.
+$badge-corner-icon-font-size:           $font-size-sm !default; // The badge icon font size
+
+// Tag badges
+
+$badge-tag-font-size:                   $font-size-sm; // The badge font size
+$badge-tag-font-weight:                 $font-wh-regular !default; // The  badge font weight
+$badge-tag-line-height:                 1.1; // Line height required for badge text to align vertically with the badge.
+$badge-tag-inner:                       ($badge-tag-font-size * $badge-tag-line-height) + ($badge-padding-y * 2) !default;
+$badge-tag-size:                        calc(#{$badge-tag-inner} + #{$badge-border-size * 2}) !default;
+
+// Ribbon badges
+
+$badge-ribbon-font-size:                $font-size-sm; // The badge font size
+$badge-ribbon-font-weight:              $font-wh-regular !default; // The  badge font weight
+$badge-ribbon-line-height:              1.1; // Line height required for badge text to align vertically with the badge.
+$badge-ribbon-inner:                    ($badge-ribbon-font-size * $badge-ribbon-line-height) + ($badge-padding-y * 2) !default;
+
+// Corner ribbon badges
+
+$badge-corner-ribbon-width:             200px; // Width of the ribbon
+$badge-corner-ribbon-font-size:         $font-size-sm; // The badge font size
+$badge-corner-ribbon-font-weight:       $font-wh-regular !default; // The badge font weight
+$badge-corner-ribbon-line-height:       1.1; // Line height required for badge text to align vertically with the badge.
+$badge-corner-ribbon-inner:             ($badge-corner-ribbon-font-size * $badge-corner-ribbon-line-height) + ($badge-padding-y * 2) !default;
+$badge-corner-ribbon-height:            calc(#{$badge-corner-ribbon-inner} + #{$badge-border-size * 2}) !default;
 
 // Disabled badges
 
@@ -1617,16 +1656,25 @@ $tooltip-line-height:                   $lh-sm !default;
 // -----------------------------------------------------------------------------
 
 $carousel-control-icon-size:                    40px !default; // Left/right controls size
-$carousel-control-icon-font-size:               1.5rem; // Left/right controls icon font size
+$carousel-control-icon-font-size:               1rem; // Left/right controls icon font size
 $carousel-control-icon-bg:                      rgba(0, 0, 0, 0.5); // Left/right controls background color
 $carousel-control-next-icon:                    '\e606'; // Next icon (Simple Line Icons) unicode.
 $carousel-control-prev-icon:                    '\e605'; // Prev icon (Simple Line Icons) unicode.
 $carousel-control-next-prev-icon-color:         $white-color !default; // Carousel indicator background color for lighter theme
 //$carousel-control-prev-icon-text-shadow:      1px 2px 2px rgba(0, 0, 0, 0.5); // Next/Prev icons text shadow.
 $carousel-control-prev-icon-text-shadow:        none; // Next/Prev icons text shadow.
-$carousel-control-border-size:                  $border-thin; // Left/right controls border width
-$carousel-control-border-color:                 transparent !default; // Left/right controls border color
-$carousel-indicator-light-active-bg:            $black-color !default; // Carousel indicator background color for lighter theme
+$carousel-control-border-size:                  $border-thick; // Left/right controls border width
+$carousel-control-border-color:                 $white-color !default; // Left/right controls border color
+//$carousel-indicator-light-active-bg:            $black-color !default; // Carousel indicator background color for lighter theme
+
+// Captions on left
+
+$carousel-caption-width-left:                   50%; // Width of the caption component alongside the image
+
+// Captions on right
+
+$carousel-caption-width-right:                  50%; // Width of the caption component alongside the image
+
 
 //
 // 8.24 ACCORDION / COLLAPSE
@@ -1647,8 +1695,8 @@ $accordion-header-active-bg:                    $accordion-header-collapsed-hove
 
 // Accordion caret icon
 
-$accordion-icon-collapsed:                      "\e604" !default; // Collapsed accordion icon (Simple Line Icons) unicode
-$accordion-icon-active:                         "\e607" !default; // Active accordion icon (Simple Line Icons) unicode
+$accordion-icon-collapsed-default:              '\e604' !default; // Collapsed accordion icon (Simple Line Icons) unicode
+$accordion-icon-active-default:                 '\e607' !default; // Active accordion icon (Simple Line Icons) unicode
 
 //
 // 8.25 ACCORDION EXTENDED

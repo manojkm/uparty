@@ -1,0 +1,42 @@
+// ================================================================================================
+// File Name      : dependencies.scss
+// Description    : Vendors dependencies. This file should only comprise of @imports.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ------------------------------------------------------------------------------------------------
+// NOTE           : Make sure to import this dependencies file for all vendors extensions as
+//                  they're necessary for all vendors extensions to function.
+// ================================================================================================
+
+//
+// VENDORS DEPENDENCIES
+// ======================================================
+
+@import
+'bourbon',
+'media-queries',
+'../themes/config';
+
+//
+// DISABLE GOOGLE FONT IMPORT
+// ======================================================
+// Ensure to disable the `@import` directive for load Google fonts as they are already imported on compiled sass manifest file (app.css)
+
+$enable-google-fonts-import: false;
+
+//
+// DISABLE CUSTOM FONTS
+// ======================================================
+// Ensure to disable the `@font-face` directive for load custom "font face" fonts as they are already imported on compiled sass manifest file (app.css)
+
+$enable-typefaces: false;
+
+//
+// VENDORS DEPENDENCIES
+// ======================================================
+
+@import
+'../helpers/all';

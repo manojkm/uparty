@@ -142,6 +142,23 @@ module.exports.register = function (Handlebars, options, params) {
         return new Handlebars.SafeString(combo);
     });
 
+//
+// CHECK STRING
+// ======================================================
+  Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  });
+
+//
+// LIMIT ARRAY
+// ======================================================
+// limit an array to a maximum of elements (from the start)
+
+  Handlebars.registerHelper('limit', function (arr, limit) {
+    if (!Array.isArray(arr)) { return []; }
+    return arr.slice(0, limit);
+  });
+
 
 //
 // MISC
@@ -157,4 +174,13 @@ module.exports.register = function (Handlebars, options, params) {
         var content = '<p class="spacer10"></p>';
         return new Handlebars.SafeString(content);
     });
+
+// Easily clear floats by adding .clearfix to the parent element.
+  Handlebars.registerHelper('clearfix', function () {
+    var content = '<div class="clearfix"></div>';
+    return new Handlebars.SafeString(content);
+  });
+
 };
+
+

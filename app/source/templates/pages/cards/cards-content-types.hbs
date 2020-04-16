@@ -1,5 +1,5 @@
 ---
-title: Content types
+title: Content types (to fix)
 lead: Cards support a wide variety of content, including images, text, list groups, links, and more. Mix and match multiple content types to create the card you need.
 components: true
 categories: Cards
@@ -32,22 +32,23 @@ js_vendors_extended:
         </div>
     </div>
 
-    <!--<h6 class="mb-3">A card can contain buttons on header</h6>-->
     <div class="row">
-        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with buttons on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-start">
                     {{{card_title 'Button on header'}}}
-                    <div class="heading-elements ml-sm-auto mt-2 mt-sm-0"><button type="button" class="btn btn-facebook btn-sm">Like</button></div>
+                    <div class="heading-elements ml-sm-auto mt-2 mt-sm-0">
+                        <button type="button" class="btn btn-facebook btn-sm">Like</button>
+                    </div>
                 </div>
                 <div class="card-body">
-                     <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
                 </div>
             </div>
             <!-- /Card with buttons on header -->
         </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with button group on header 1 -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-start">
@@ -65,8 +66,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with button group on header 1 -->
         </div>
-
-        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with button group on header 2 -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-start">
@@ -86,9 +86,7 @@ js_vendors_extended:
             </div>
             <!-- Card with button group on header 2 -->
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with badges on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-start">
@@ -104,7 +102,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with badges on header -->
         </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with links on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-start">
@@ -121,8 +119,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with links on header -->
         </div>
-
-        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with pagination on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-start">
@@ -145,9 +142,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with pagination on header -->
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with multiple checkboxes on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-start">
@@ -170,12 +165,11 @@ js_vendors_extended:
             </div>
             <!-- /Card with multiple checkboxes on header -->
         </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with multiple radios on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-center">
                     {{{card_title 'Multiple radios on header'}}}
-
                     <div class="heading-elements ml-sm-auto mt-2 mt-sm-0">
                         <div class="custom-control custom-radio custom-control-inline ml-md-auto">
                             <input type="radio" id="customRadioInline1" name="customRadioInline"
@@ -186,8 +180,8 @@ js_vendors_extended:
                             <input type="radio" id="customRadioInline2" name="customRadioInline"
                                    class="custom-control-input" checked>
                             <label class="custom-control-label" for="customRadioInline2">Pasta</label>
-                        </div></div>
-
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <p class="card-text">{{{placeholder-lorem-sht}}}</p>
@@ -195,8 +189,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with multiple radios on header -->
         </div>
-
-        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with dropdown on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-start">
@@ -221,7 +214,7 @@ js_vendors_extended:
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with Toggle switch on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-center">
@@ -241,12 +234,14 @@ js_vendors_extended:
             </div>
             <!-- /Card with Toggle switch on header -->
         </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with ratings on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-center">
                     {{{card_title 'Ratings on header'}}}
-                    <div class="heading-elements ml-sm-auto mt-2 mt-sm-0"><div id="default-star-rating"></div></div>
+                    <div class="heading-elements ml-sm-auto mt-2 mt-sm-0">
+                        <div id="default-star-rating"></div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <p class="card-text">{{{placeholder-lorem-sht}}}</p>
@@ -254,7 +249,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with ratings on header -->
         </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with search on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-center">
@@ -276,7 +271,7 @@ js_vendors_extended:
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Bootstrap toggle on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-center">
@@ -301,7 +296,7 @@ js_vendors_extended:
                 </div>
             </div>
             <!-- /Bootstrap toggle on header --> </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with select menu on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-center">
@@ -321,7 +316,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with select menu on header -->
         </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with social buttons on header -->
             <div class="card">
                 <div class="card-header flex-column flex-sm-row align-items-center">
@@ -339,8 +334,44 @@ js_vendors_extended:
             <!-- /Card with social buttons on header -->
         </div>
     </div>
+
     <div class="row">
-        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
+            <!-- Card with single thumbnail on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-center">
+                    {{{card_title 'Single thumbnail on header'}}}
+                    <div class="heading-elements ml-sm-auto mt-2 mt-sm-0">
+                        <img src="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/portrait/small/avatar-s-2.png" class="img-32 rounded-circle" alt="">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with single thumbnail on header -->
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12">
+            <!-- Card with multiple thumbnail on header -->
+            <div class="card">
+                <div class="card-header flex-column flex-sm-row align-items-center">
+                    {{{card_title 'Multiple thumbnail on header'}}}
+                    <div class="heading-elements ml-sm-auto mt-2 mt-sm-0">
+                        <img src="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/portrait/small/avatar-s-2.png" class="img-32 rounded-circle ml-1" alt="">
+                        <img src="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/portrait/small/avatar-s-4.png" class="img-32 rounded-circle ml-1" alt="">
+                        <img src="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/portrait/small/avatar-s-21.png" class="img-32 rounded-circle ml-1" alt="">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                </div>
+            </div>
+            <!-- /Card with multiple thumbnail on header -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with white background on header -->
             <div class="card">
                 <div class="card-header bg-white">
@@ -352,7 +383,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with white background on header -->
         </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card without border on header -->
             <div class="card">
                 <div class="card-header bg-white border-0">
@@ -364,7 +395,7 @@ js_vendors_extended:
             </div>
             <!-- /Card without border on header -->
         </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with inline subtitle on header -->
             <div class="card">
                 <div class="card-header">
@@ -378,7 +409,7 @@ js_vendors_extended:
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-4 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-4 col-md-6 col-sm-12">
             <!-- Card with block subtitle on header -->
             <div class="card">
                 <div class="card-header">
@@ -390,8 +421,8 @@ js_vendors_extended:
             </div>
             <!-- /Card with block subtitle on header -->
         </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 px-md-2"></div>
-        <div class="col-xl-4 col-md-6 col-sm-12 pl-md-2"></div>
+        <div class="col-xl-4 col-md-6 col-sm-12"></div>
+        <div class="col-xl-4 col-md-6 col-sm-12"></div>
     </div>
 
     <div class="row">
@@ -411,7 +442,7 @@ js_vendors_extended:
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Card with buttons on footer variation 1 -->
             <div class="card">
                 <div class="card-body">
@@ -425,7 +456,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with buttons on footer variation 1 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Card with buttons on footer variation 2 -->
             <div class="card">
                 <div class="card-body">
@@ -441,7 +472,7 @@ js_vendors_extended:
             </div>
             <!-- Card with buttons on footer variation 2 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Card with buttons on footer variation 3 -->
             <div class="card">
                 <div class="card-body">
@@ -457,7 +488,7 @@ js_vendors_extended:
             </div>
             <!-- Card with buttons on footer variation 3 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Card with buttons on footer variation 4 -->
             <div class="card">
                 <div class="card-body">
@@ -470,7 +501,7 @@ js_vendors_extended:
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Card with badges on footer variation 1 -->
             <div class="card">
                 <div class="card-body">
@@ -484,7 +515,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with badges on footer variation 1 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Card with pagination  on footer variation 1 -->
             <div class="card">
                 <div class="card-body">
@@ -515,7 +546,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with pagination on footer variation 1 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Card with white background on footer -->
             <div class="card">
                 <div class="card-body">
@@ -529,7 +560,7 @@ js_vendors_extended:
             </div>
             <!-- /Card with white background on footer -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Card without border on footer -->
             <div class="card">
                 <div class="card-body">
@@ -549,7 +580,7 @@ js_vendors_extended:
     <h6 class="mb-3">A card can contain titles, subtitles, text, links etc... </h6>
 
     <div class="row">
-        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Titles, text, and links variation 1 -->
             <div class="card">
                 <div class="card-body">
@@ -561,7 +592,7 @@ js_vendors_extended:
             </div>
             <!-- /Titles, text, and links variation 1 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Titles, text, and links variation 2 -->
             <div class="card">
                 <div class="card-body">
@@ -573,7 +604,7 @@ js_vendors_extended:
             </div>
             <!-- /Titles, text, and links variation 2 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Titles, text, and links variation 3 -->
             <div class="card">
                 <div class="card-body">
@@ -585,7 +616,7 @@ js_vendors_extended:
             </div>
             <!-- /Titles, text, and links variation 3 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Titles, text, and links variation 4 -->
             <div class="card">
                 <div class="card-body">
@@ -601,7 +632,7 @@ js_vendors_extended:
 
     <h4 class="mt-4">Title sizing</h4>
     <div class="row">
-        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- H1 title sizing -->
             <div class="card">
                 <div class="card-body">
@@ -611,7 +642,7 @@ js_vendors_extended:
             </div>
             <!-- /H1 title sizing -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- H2 title sizing -->
             <div class="card">
                 <div class="card-body">
@@ -621,7 +652,7 @@ js_vendors_extended:
             </div>
             <!-- /H2 title sizing -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- H3 title sizing -->
             <div class="card">
                 <div class="card-body">
@@ -631,7 +662,7 @@ js_vendors_extended:
             </div>
             <!-- /H3 title sizing -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- H4 title sizing -->
             <div class="card">
                 <div class="card-body">
@@ -643,7 +674,7 @@ js_vendors_extended:
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- H5 title sizing -->
             <div class="card">
                 <div class="card-body">
@@ -653,7 +684,7 @@ js_vendors_extended:
             </div>
             <!-- /H5 title sizing -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- H6 title sizing -->
             <div class="card">
                 <div class="card-body">
@@ -665,11 +696,48 @@ js_vendors_extended:
         </div>
     </div>
 
+    <h4 class="mt-4">Blockquotes</h4>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p class="card-text"><i class="fas fa-quote-left text-primary mr-2"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            <i class="fas fa-quote-right text-primary ml-2"></i></p>
+                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0 text-center">
+                        <p class="card-text"><i class="fas fa-quote-left text-primary mr-2"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            <i class="fas fa-quote-right text-primary ml-2"></i></p>
+                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0 text-right">
+                        <p class="card-text"><i class="fas fa-quote-left text-primary mr-2"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            <i class="fas fa-quote-right text-primary ml-2"></i></p>
+                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <h4 class="mt-4">List groups</h4>
     <h6 class="mb-3">Create lists of content in a card with a flush list group.</h6>
 
     <div class="row">
-        <div class="col-xl-3 col-md-6 col-sm-12 pr-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- List groups variation 1 -->
             <div class="card">
                 <div class="card-body">
@@ -693,7 +761,7 @@ js_vendors_extended:
             </div>
             <!-- /List groups variation 1 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- List groups variation 2 -->
             <div class="card">
                 <div class="card-header">
@@ -708,23 +776,24 @@ js_vendors_extended:
             </div>
             <!-- /List groups variation 2 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 px-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- List groups variation 3 -->
 
             <!-- /List groups variation 3 -->
         </div>
-        <div class="col-xl-3 col-md-6 col-sm-12 pl-md-2">
+        <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- List groups variation 4 -->
             <!-- /List groups variation 4 -->
         </div>
     </div>
 
     <h4 class="mt-4">Kitchen sink</h4>
-    <h6 class="mb-3">Mix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width card.</h6>
+    <h6 class="mb-3">Mix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width
+        card.</h6>
     <div class="row">
         <div class="col-xl-3 col-md-6 col-sm-12">
             <!-- Kitchen sink -->
-            <div class="card"  style="width: 18rem;">
+            <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="https://source.unsplash.com/EObuHoP0L_U/350x150" alt="Card image cap">
                 <div class="card-body">
                     {{{card_title 'Card title'}}}

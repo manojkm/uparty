@@ -11,52 +11,30 @@
 //
 // OVERFLOW
 // ======================================================
+// // Generate overflow utility classes based on `$overflow` map
 // Adapted from https://github.com/peterbenoit/UsabilityRocks/blob/master/src/scss/_utility.scss
 
-.of-v {
-  overflow: visible;
+@each $prefix in (of) {
+  @each $size, $value in $overflow {
+    .#{$prefix}-#{$size} {
+      overflow : $value;
+    }
+  }
+}
+// overflow-x
+@each $prefix in (of-x) {
+  @each $size, $value in $overflow {
+    .#{$prefix}-#{$size} {
+      overflow-x : $value;
+    }
+  }
 }
 
-.of-h {
-  overflow: hidden;
-}
-
-.of-s {
-  overflow: scroll;
-}
-
-.of-a {
-  overflow: auto;
-}
-
-.of-x-s {
-  overflow-x: scroll;
-}
-
-.of-x-h {
-  overflow-x: hidden;
-}
-
-.of-x-v {
-  overflow-x: visible;
-}
-
-.of-x-a {
-  overflow-x: auto;
-}
-
-.of-y-s {
-  overflow-y: scroll;
-}
-
-.of-y-h {
-  overflow-y: hidden;
-}
-
-.of-y-v {
-  overflow-y: visible;
-}
-
-.of-y-a {
-  overflow-y: auto;
+// overflow-y
+@each $prefix in (of-y) {
+  @each $size, $value in $overflow {
+    .#{$prefix}-#{$size} {
+      overflow-y : $value;
+    }
+  }
 }

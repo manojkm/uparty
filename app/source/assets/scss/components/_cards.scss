@@ -9,7 +9,10 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// Base styles
+//
+// BASE STYLING
+// ======================================================
+
 .card {
   @include transition;
   @include set-border-radius($card-border-radius);
@@ -23,14 +26,13 @@
     @include transition;
     z-index: map-get($zindex, fullscreen_card);
     position: fixed;
-    //display: block;
-    width: 99%;
-    //height: 95%;
-    top: 2%;
+    width: 100%;
+    top: 0;
     right: 0;
     left: 0;
-    bottom: 2%;
+    bottom: 0;
     margin: 0 auto;
+    @include set-border-radius(0);
 
     .card-body {
       overflow-y: auto;
@@ -59,7 +61,6 @@
   }
 }
 
-
 .card-body {
   padding: $card-spacer-x;
 }
@@ -78,7 +79,6 @@
   }
 }
 
-// Card header
 .card-header {
   background-color: $card-header-bg;
   padding: $card-spacer-y $card-spacer-x;
@@ -109,7 +109,6 @@
   }
 }
 
-// Card footer
 .card-footer {
   background-color: $card-footer-bg;
   display: flex;
@@ -122,7 +121,6 @@
   }
 }
 
-// Header navs
 .card-header-tabs {
   margin-right: -$card-spacer-x / 2;
   margin-bottom: -$card-spacer-y;
@@ -135,10 +133,60 @@
   margin-left: -$card-spacer-x / 2;
 }
 
-// Card with actions
+// Card image and positions
+
+.card-img {
+  @include border-radius($card-inner-border-radius);
+}
+
+.card-img-top {
+  @include border-top-radius($card-inner-border-radius);
+}
+
+.card-img-bottom {
+  @include border-bottom-radius($card-inner-border-radius);
+}
+
+.card-img-right {
+  @include border-right-radius($card-inner-border-radius);
+}
+
+.card-img-left {
+  @include border-left-radius($card-inner-border-radius);
+}
+
+
+//
+// FULLSCREEN CARD
+// ======================================================
+
+.card {
+  &-fullscreen {
+    @include transition;
+    z-index: map-get($zindex, fullscreen_card);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0 auto;
+    @include set-border-radius(0);
+
+    .card-body {
+      overflow-y: auto;
+    }
+  }
+}
+
+
+//
+// CARD WITH ACTIONS
+// ======================================================
+
 .card__actions {
   $ca: card__actions;
-  margin-right: -$card-spacer-x;
+  margin-right: -$card-spacer-x / 2;
   color: $card-tools-color;
   display: flex;
   align-items: center;
@@ -147,7 +195,7 @@
 
   a.card__actions-item {
     @include transition;
-    @include opacity(0.8);
+    //@include opacity(0.8);
     color: $card-tools-color;
     width: $card-toolbar-icon-width;
     font-size: $card-tools-font-size;
@@ -158,7 +206,7 @@
 
     //#{$a-tags},
     #{$hover-focus-tags} {
-      color: $card-tools-color;
+      color: $card-tools-hover-color;
       @include opacity(1);
     }
   }
@@ -181,27 +229,6 @@
 
 }
 
-// Card image and positions
-.card-img {
-  @include border-radius($card-inner-border-radius);
-}
-
-.card-img-top {
-  @include border-top-radius($card-inner-border-radius);
-}
-
-.card-img-bottom {
-  @include border-bottom-radius($card-inner-border-radius);
-}
-
-.card-img-right {
-  @include border-right-radius($card-inner-border-radius);
-}
-
-.card-img-left {
-  @include border-left-radius($card-inner-border-radius);
-}
-
 //
 // CARD EXTENDED
 // ======================================================
@@ -212,11 +239,11 @@
     & .card-body {
       position: relative;
     }
-    & .btn {
+
+    & .btn-action {
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0 !important;
+      @include center(xy);
     }
   }
 }
@@ -228,5 +255,33 @@
 .accordion {
   .card {
     margin-bottom: 0;
+  }
+}
+
+.card {
+  &.card-refresh {
+    position: relative;
+
+    > .refresh-container {
+      background-color: rgba($white-color, 0.9);
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      display: none;
+      z-index: 5;
+      cursor: wait;
+      overflow: hidden;
+
+      .loader {
+        margin: 20px;
+        //top: 50%;
+        //margin: 0 auto;
+        //display: block;
+        //position: relative;
+      }
+
+    }
   }
 }

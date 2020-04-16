@@ -51,6 +51,7 @@ var appMaster = {
     _cardClose: $("[data-card='close']"),
     _cardCollapse: $("[data-card='collapse']"),
     _cardFullscreen: $("[data-card='fullscreen']"),
+    _cardRefresh: $("[data-card='refresh']"),
     _wSize: $(window).width(),
 
 
@@ -701,79 +702,101 @@ var appMaster = {
     },
 
     card: function () {
-        $(appMaster._cardClose).on('click', function (event) {
-            event.preventDefault();
-            // $(this).closest(".card").hide("slow");
-            // $(this).closest(".card").fadeOut();
-            $(this).closest(".card").addClass('animated fadeOut').animate({
-                height: 0,
-                opacity: 0,
-                margin: 0,
-                padding: 0
-            }).fadeToggle(500, "swing", function () {
-                this.remove();
-            });
-
-            // $(this).closest(".card").animate({
-            //     height: 0,
-            //     opacity: 0,
-            //     margin: 0,
-            //     padding: 0
-            // }, 'slow', function(){
-            //     $(this).hide();
-            // });
-
+      $(appMaster._cardClose).on('click', function (event) {
+        event.preventDefault();
+        // $(this).closest(".card").hide("slow");
+        // $(this).closest(".card").fadeOut();
+        $(this).closest(".card").addClass('animated fadeOut').animate({
+          height: 0,
+          opacity: 0,
+          margin: 0,
+          padding: 0
+        }).fadeToggle(500, "swing", function () {
+          this.remove();
         });
 
-        $(appMaster._cardCollapse).on('click', function (event) {
-            event.preventDefault();
+        // $(this).closest(".card").animate({
+        //     height: 0,
+        //     opacity: 0,
+        //     margin: 0,
+        //     padding: 0
+        // }, 'slow', function(){
+        //     $(this).hide();
+        // });
 
-            var $this = $(this);
-            if (!$this.hasClass('card-collapsed')) {
-                $this.parents('.card').find('.card-body, .card-footer').slideUp();
-                $this.addClass('card-collapsed');
-                $this.find('i').removeClass('fa fa-chevron-up').addClass('fa fa-chevron-down');
-            } else {
-                $this.parents('.card').find('.card-body, .card-footer').slideDown();
-                $this.removeClass('card-collapsed');
-                $this.find('i').removeClass('fa fa-chevron-down').addClass('fa fa-chevron-up');
-            }
-        });
+      });
 
-        $(appMaster._cardFullscreen).on('click', function (event) {
-            event.preventDefault();
-            var $this = $(this);
+      $(appMaster._cardCollapse).on('click', function (event) {
+        event.preventDefault();
 
-            if (!$this.hasClass('fullscreen-enabled')) {
-                $this.parents('.card').addClass('card-fullscreen animated fadeIn');
-                $this.parents('.card').find('.card-body').slideDown();
-                $this.addClass('fullscreen-enabled');
-                $this.find('i').removeClass('fa fa-expand').addClass('fa fa-compress');
-                // $this.parents('.card').find("[data-card=close], [data-card=collapse], [data-toggle=dropdown]").addClass('d-none');
-                $this.parents('.card').find('.card__actions').children('a.card__actions-item:not([data-card=fullscreen])').addClass('d-none');
-            } else {
-                $this.parents('.card').removeClass('card-fullscreen animated fadeIn');
-                $this.removeClass('fullscreen-enabled');
-                $this.find('i').removeClass('fa fa-compress').addClass('fa fa-expand');
-                // $this.parents('.card').find("[data-card=close], [data-card=collapse], [data-toggle=dropdown]").removeClass('d-none');
-                $this.parents('.card').find('.card__actions').children('a.card__actions-item').removeClass('d-none');
-            }
+        var $this = $(this);
+        if (!$this.hasClass('card-collapsed')) {
+          $this.parents('.card').find('.card-body, .card-footer').slideUp();
+          $this.addClass('card-collapsed');
+          $this.find('i').removeClass('fa fa-chevron-up').addClass('fa fa-chevron-down');
+        } else {
+          $this.parents('.card').find('.card-body, .card-footer').slideDown();
+          $this.removeClass('card-collapsed');
+          $this.find('i').removeClass('fa fa-chevron-down').addClass('fa fa-chevron-up');
+        }
+      });
+
+      $(appMaster._cardFullscreen).on('click', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+
+        if (!$this.hasClass('fullscreen-enabled')) {
+          $this.parents('.card').addClass('card-fullscreen animated fadeIn');
+          $this.parents('.card').find('.card-body').slideDown();
+          $this.addClass('fullscreen-enabled');
+          $this.find('i').removeClass('fa fa-expand').addClass('fa fa-compress');
+          // $this.parents('.card').find("[data-card=close], [data-card=collapse], [data-toggle=dropdown]").addClass('d-none');
+          $this.parents('.card').find('.card__actions').children('a.card__actions-item:not([data-card=fullscreen])').addClass('d-none');
+        } else {
+          $this.parents('.card').removeClass('card-fullscreen animated fadeIn');
+          $this.removeClass('fullscreen-enabled');
+          $this.find('i').removeClass('fa fa-compress').addClass('fa fa-expand');
+          // $this.parents('.card').find("[data-card=close], [data-card=collapse], [data-toggle=dropdown]").removeClass('d-none');
+          $this.parents('.card').find('.card__actions').children('a.card__actions-item').removeClass('d-none');
+        }
 
 
-            // if ($this.children('i').hasClass('fa-expand'))
-            // {
-            //     $this.children('i').removeClass('fa-expand');
-            //     $this.children('i').addClass('fa-compress');
-            // }
-            // else if ($this.children('i').hasClass('fa-compress'))
-            // {
-            //     $this.children('i').removeClass('fa-compress');
-            //     $this.children('i').addClass('fa-expand');
-            // }
-            // $(this).closest('.card').toggleClass('card-fullscreen animated fadeIn');
+        // if ($this.children('i').hasClass('fa-expand'))
+        // {
+        //     $this.children('i').removeClass('fa-expand');
+        //     $this.children('i').addClass('fa-compress');
+        // }
+        // else if ($this.children('i').hasClass('fa-compress'))
+        // {
+        //     $this.children('i').removeClass('fa-compress');
+        //     $this.children('i').addClass('fa-expand');
+        // }
+        // $(this).closest('.card').toggleClass('card-fullscreen animated fadeIn');
 
-        });
+      });
 
+      $(appMaster._cardRefresh).on('click', function (event) {
+
+        event.preventDefault();
+
+        var panelToRefresh = $(this).closest('.card').find('.refresh-container');
+        var loadingAnim = panelToRefresh.find('.la-anim-1');
+        panelToRefresh.show();
+
+        setTimeout(function(){
+          loadingAnim.addClass('la-animate');
+        },100);
+
+        setTimeout(function(){
+          panelToRefresh.fadeOut(800);
+          setTimeout(function(){
+            loadingAnim.removeClass('la-animate');
+          },800);
+        },1500);
+
+        return false;
+
+      });
 
     },
 

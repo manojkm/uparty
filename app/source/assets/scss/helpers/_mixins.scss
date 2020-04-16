@@ -479,20 +479,26 @@
 
   @if $bg-type == fill {
     @include background-text-theme($scheme, $tone, $font-color);
-    //#{$disabled-tags} {
-    //  @include background-text-theme($scheme, light, $font-color);
-    //  @include border-theme($scheme, light);
-    //}
+    #{$focus-tags} {
+      @include background-text-theme($scheme, $tone-hover, $font-color);
+      @include border-theme($scheme, $tone);
+    }
   }
 
   @if $bg-type == outline {
     background-color: transparent;
     @include text-theme($scheme, $tone);
-    //
-    //#{$disabled-tags} {
-    //  @include text-theme($scheme, light);
-    //}
   }
+
+  @if $bg-type == light {
+    $tone-bg: theme-color-level($scheme, $tone, $btn-light-bg-level);
+    $tone-border: theme-color-level($scheme, $tone, $btn-light-border-level);
+    $font: theme-color-level($scheme, $tone, $btn-light-color-level);
+    color: $font;
+    border-color: $tone-border;
+    background-color: $tone-bg;
+  }
+
 
   #{$hover-tags} {
     @include border-theme($scheme, $tone-hover);
@@ -500,10 +506,7 @@
   }
 
   #{$active-tags},
-    //#{$focus-tags},
   .show > &.dropdown-toggle
-    //.show > &.dropdown-toggle:focus,
-    //.show > &.dropdown-toggle:hover
   {
     @include border-theme($scheme, $tone-active);
     @include background-text-theme($scheme, $tone-active, $font-color);
@@ -517,10 +520,7 @@
     }
 
     #{$active-tags},
-      //#{$focus-tags},
     .show > &.dropdown-toggle
-      //.show > &.dropdown-toggle:focus,
-      //.show > &.dropdown-toggle:hover
     {
       @include text-theme($scheme, $tone-active);
     }
@@ -635,6 +635,13 @@
     * {
       @include text-theme($scheme, $font-color, $sledge-hammer);
     }
+
+    &.ribbon {
+      &::before{
+        @include border-theme($scheme, xx-dark, top,  $sledge-hammer: !important);
+      }
+    }
+
   }
   // Outline badge
   @if $bg-type == outline {
@@ -652,10 +659,11 @@
       @include background-text-theme($scheme, $tone-hover, $font-color, $sledge-hammer);
     }
 
-    //#{$focus-tags}
+    #{$focus-tags},
     #{$active-tags} {
       @include border-theme($scheme, $tone-active);
       @include background-text-theme($scheme, $tone-active, $font-color, $sledge-hammer);
+      @include box-shadow(none);
     }
   }
 

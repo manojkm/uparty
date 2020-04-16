@@ -7,270 +7,570 @@ components: true
 <!--TODO spacing good example https://www.codeply.com/go/kaWaobOUD8/bootstrap-4-spacing-utils-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 pr-md-2">
-            <div class="row">
-                <div class="col-md-12">
-                    {{#card}}
-                        {{{card_header 'Badges'}}}
-                        {{#card_body}}
-                            {{{card_title 'Basic badges'}}}
-                            <p>Use any of the contextual classes <code>.badge-*</code> to change the color of a badge. Note that badges scale to match the size of the
-                                parent element (if any).</p>
-                            <!-- Basic badges -->
-                            {{#each badges.list}}
-                                <span class="{{class}} {{modifier}}">{{text}}</span>
-                            {{/each}}
-                            <!-- /Basic badges -->
-                            <hr>
-                            {{{card_title 'Outline variations'}}}
-                            <p>Use any of the outline contextual classes <code>.badge-outline-*</code> to create outline/bordered badges.</p>
-                            <!-- Outline badges -->
-                            {{#each badges.list}}
-                                <span class="{{class}} {{modifier_outline}}">{{text}}</span>
-                            {{/each}}
-                            <!-- /Outline badges -->
-                        {{/card_body}}
-                    {{/card}}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-
-                    {{#card}}
-                        {{{card_header 'Pointed badges'}}}
-                        {{#card_body}}
-                            <p>Use the <code>.pointed</code> class together with a arrow class (like <code>.arrow-left</code>, <code>.arrow-top</code>, <code>.arrow-bottom</code>,
-                                <code>.arrow-right</code>) to create pointed badges.</p>
-                            <!-- Pointed badges -->
-                            {{#each badges.list}}
-                                <span class="{{class}} {{modifier}} pointed arrow-left m-1">{{text}}</span>
-                                <span class="{{class}} {{modifier}} pointed arrow-top m-1">{{text}}</span>
-                                <span class="{{class}} {{modifier}} pointed arrow-bottom m-1">{{text}}</span>
-                                <span class="{{class}} {{modifier}} pointed arrow-right m-1">{{text}}</span>
-                                {{{spacer-common}}}
-                            {{/each}}
-                            <!-- /Pointed badges -->
-
-                            <hr>
-                            {{{card_title 'Outline variations'}}}
-                            <p>Use any of the outline contextual classes <code>.badge-outline-*</code> to create outline/bordered pointed badges.</p>
-                            <!-- Pointed badges - Outline variations -->
-                            {{#each badges.list}}
-                                <span class="{{class}} {{modifier_outline}} pointed arrow-left m-1">{{text}}</span>
-                                <span class="{{class}} {{modifier_outline}} pointed arrow-top m-1">{{text}}</span>
-                                <span class="{{class}} {{modifier_outline}} pointed arrow-bottom m-1">{{text}}</span>
-                                <span class="{{class}} {{modifier_outline}} pointed arrow-right m-1">{{text}}</span>
-                                {{{spacer-common}}}
-                            {{/each}}
-                            <!-- /Pointed badges - Outline variations -->
-
-                        {{/card_body}}
-                    {{/card}}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-
-                    {{#card}}
-                        {{{card_header 'Pill badges'}}}
-                        {{#card_body}}
-                            <p>Use the <code>.badge-pill</code> modifier class to make badges more rounded.</p>
-
-                            <!-- Pill badges -->
-                            {{#each badges.list}}
-                                <span class="{{class}} {{modifier}} badge-pill">{{text}}</span>
-                            {{/each}}
-                            <!-- /Pill badges -->
-
-                            <hr>
-                            {{{card_title 'Outline variations'}}}
-                            <p>Use any of the outline contextual classes <code>.badge-outline-*</code> to create outline/bordered pill badges.</p>
-                            <!-- Outline pill badges -->
-                            {{#each badges.list}}
-                                <span class="{{class}} {{modifier_outline}} badge-pill">{{text}}</span>
-                            {{/each}}
-                            <!-- /Outline pill badges -->
-
-                        {{/card_body}}
-                    {{/card}}
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    {{#card}}
-                        {{{card_header 'Link badges'}}}
-                        {{#card_body}}
-
-                            <p>Using the contextual <code>.badge-*</code> classes on an <code>&lt;a&gt;</code> element
-                                quickly provide <em>actionable</em> badges with hover and focus states.</p>
-
-                            <!-- Link badges -->
-                            {{#each badges.list}}
-                                <a href="#" class="{{class}} {{modifier}}">{{text}}</a>
-                            {{/each}}
-                            <!-- /Link badges -->
-
-                            <hr>
-                            {{{card_title 'Outline variations'}}}
-                            <p>Use any of the outline contextual classes <code>.badge-outline-*</code> to create outline/bordered link badges.</p>
-                            <!-- Outline link badges -->
-                            {{#each badges.list}}
-                                <a href="#" class="{{class}} {{modifier_outline}}">{{text}}</a>
-                            {{/each}}
-                            <!-- /Outline link badges -->
-
-                        {{/card_body}}
-                    {{/card}}
-
-                </div>
-            </div>
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Badges'}}}
+                {{#card_body}}
+                    {{{card_title 'Basic badges'}}}
+                    <p>Use any of the contextual classes <code>.badge-*</code> to change the color of a badge. Note that badges scale to match the size of the
+                        parent element (if any).</p>
+                    <!-- Basic badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier '' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Basic badges -->
+                    <hr>
+                    {{{card_title 'Outline variations'}}}
+                    <p>Use any of the outline contextual classes <code>.badge-outline-*</code> to create outline/bordered badges.</p>
+                    <!-- Outline badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier_outline '' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Outline badges -->
+                {{/card_body}}
+            {{/card}}
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Square badges'}}}
+                {{#card_body}}
+                    <p>Create squared badges, by adding <code>.square</code></p>
+                    <!-- Square badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier 'square' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Square badges -->
+                    <hr>
+                    {{{card_title 'Outline square variations'}}}
+                    <!-- Outline square badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier_outline 'square' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Outline square badges -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            {{#card}}
+                {{{card_header 'Pointed badges'}}}
+                {{#card_body}}
+                    <p>Use the <code>.pointed</code> class together with a arrow class (like <code>.arrow-left</code>, <code>.arrow-top</code>, <code>.arrow-bottom</code>,
+                        <code>.arrow-right</code>) to create pointed badges.</p>
+                    <!-- Pointed badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier 'pointed arrow-left m-1' }}{{text}}{{/badge}}
+                        {{#badge modifier 'pointed arrow-top m-1' }}{{text}}{{/badge}}
+                        {{#badge modifier 'pointed arrow-bottom m-1' }}{{text}}{{/badge}}
+                        {{#badge modifier 'pointed arrow-right m-1' }}{{text}}{{/badge}}
+                        {{{spacer-common}}}
+                    {{/each}}
+                    <!-- /Pointed badges -->
+
+                    <hr>
+                    {{{card_title 'Outline variations'}}}
+                    <p>Use any of the outline contextual classes <code>.badge-outline-*</code> to create outline/bordered pointed badges.</p>
+                    <!-- Pointed badges - Outline variations -->
+                    {{#each badges.list}}
+                        {{#badge modifier_outline 'pointed arrow-left m-1' }}{{text}}{{/badge}}
+                        {{#badge modifier_outline 'pointed arrow-top m-1' }}{{text}}{{/badge}}
+                        {{#badge modifier_outline 'pointed arrow-bottom m-1' }}{{text}}{{/badge}}
+                        {{#badge modifier_outline 'pointed arrow-right m-1' }}{{text}}{{/badge}}
+                        {{{spacer-common}}}
+                    {{/each}}
+                    <!-- /Pointed badges - Outline variations -->
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            {{#card}}
+                {{{card_header 'Pill badges'}}}
+                {{#card_body}}
+                    <p>Use the <code>.badge-pill</code> modifier class to make badges more rounded.</p>
+
+                    <!-- Pill badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier 'badge-pill' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Pill badges -->
+
+                    <hr>
+                    {{{card_title 'Outline variations'}}}
+                    <p>Use any of the outline contextual classes <code>.badge-outline-*</code> to create outline/bordered pill badges.</p>
+                    <!-- Outline pill badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier_outline 'badge-pill' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Outline pill badges -->
+
+                {{/card_body}}
+            {{/card}}
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Link badges'}}}
+                {{#card_body}}
+
+                    <p>Using the contextual <code>.badge-*</code> classes on an <code>&lt;a&gt;</code> element
+                        quickly provide <em>actionable</em> badges with hover and focus states.</p>
+                    <!-- Link badges -->
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier '' }}{{text}}{{/badge-link}}
+                    {{/each}}
+                    <!-- /Link badges -->
+                    <hr>
+                    {{{card_title 'Outline variations'}}}
+                    <p>Use any of the outline contextual classes <code>.badge-outline-*</code> to create outline/bordered link badges.</p>
+                    <!-- Outline link badges -->
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier_outline '' }}{{text}}{{/badge-link}}
+                    {{/each}}
+                    <!-- /Outline link badges -->
+
+                {{/card_body}}
+            {{/card}}
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Badges with dropdown'}}}
+                {{#card_body}}
+                    <p>Dropdowns can be triggered from badges to better fit your potential needs.</p>
+                    <!-- Badges with dropdown -->
+                    {{#each badges.list}}
+                        <a href="#" class="{{class}} {{modifier}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</a>
+                        {{#ddw_menu_has 'extended has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    {{/each}}
+                    <!-- /Badges with dropdown -->
+
+                    <hr>
+                    {{{card_title 'Outline variations'}}}
+                    <!-- Outline link badges with dropdown -->
+                    {{#each badges.list}}
+                        <a href="#" class="{{class}} {{modifier_outline}} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{text}}</a>
+                        {{#ddw_menu_has 'extended has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items ../dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    {{/each}}
+                    <!-- /Outline link badges with dropdown -->
+
+                {{/card_body}}
+            {{/card}}
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Round badges'}}}
+                {{#card_body}}
+                    <!-- Round badges -->
+                    <p>Use the <code>.badge-round</code> modifier class to make round badges.</p>
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier 'badge-round' }}5{{/badge-link}}
+                    {{/each}}
+                    {{{spacer-common}}}
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier 'badge-round' }}45{{/badge-link}}
+                    {{/each}}
+                    {{{spacer-common}}}
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier 'badge-round' }}567{{/badge-link}}
+                    {{/each}}
+                    {{{spacer-common}}}
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier_outline 'badge-round' }}8{{/badge-link}}
+                    {{/each}}
+                    {{{spacer-common}}}
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier_outline 'badge-round' }}56{{/badge-link}}
+                    {{/each}}
+                    {{{spacer-common}}}
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier_outline 'badge-round' }}567{{/badge-link}}
+                    {{/each}}
+                    <!-- /Round badges -->
+                    <hr>
+                    {{{card_title 'Round badge sizes'}}}
+                    <!-- Round badge sizes -->
+                    <p>Badges scale to match the size of the immediate parent element.</p>
+                    <div class="d-flex align-items-center">
+                        <h1>{{#badge 'badge-primary' 'badge-round mr-1' }}1{{/badge}}</h1>
+                        <h2>{{#badge 'badge-secondary' 'badge-round mr-1' }}2{{/badge}}</h2>
+                        <h3>{{#badge 'badge-warning' 'badge-round mr-1' }}3{{/badge}}</h3>
+                        <h4>{{#badge 'badge-info' 'badge-round mr-1' }}4{{/badge}}</h4>
+                        <h5>{{#badge 'badge-danger' 'badge-round mr-1' }}5{{/badge}}</h5>
+                        <h6>{{#badge 'badge-dark' 'badge-round mr-1' }}6{{/badge}}</h6>
+                        <h6><small>{{#badge 'badge-light' 'badge-round mr-1' }}7{{/badge}}</small></h6>
+                    </div>
+                    <!-- /Round badge sizes -->
+                {{/card_body}}
+            {{/card}}
 
 
-        <div class="col-md-6 pl-md-2">
-            <div class="row">
-                <div class="col-md-12">
-                    {{#card}}
-                        {{{card_header 'Round badges'}}}
-                        {{#card_body}}
-                            <!-- Round badges -->
-                            <p>Use the <code>.badge-round</code> modifier class to make round badges.</p>
-                            {{#each badges.list}}
-                                <a href="#" class="{{class}} {{modifier}} badge-round">5</a>
-                            {{/each}}
-                            {{{spacer-common}}}
-                            {{#each badges.list}}
-                                <a href="#" class="{{class}} {{modifier_outline}} badge-round">6</a>
-                            {{/each}}
-                            <!-- /Round badges -->
-                            <hr>
-                            {{{card_title 'Round badge sizes'}}}
-                            <!-- Round badge sizes -->
-                            <p>Badges scale to match the size of the immediate parent element.</p>
-                            <div class="d-flex align-items-center">
-                                <h1><span class="badge badge-round badge-primary mr-1">1</span></h1>
-                                <h2><span class="badge badge-round badge-secondary mr-1">2</span></h2>
-                                <h3><span class="badge badge-round badge-warning mr-1">3</span></h3>
-                                <h4><span class="badge badge-round badge-info mr-1">4</span></h4>
-                                <h5><span class="badge badge-round badge-danger mr-1">5</span></h5>
-                                <h6><span class="badge badge-round badge-dark mr-1">6</span></h6>
-                                <h6>
-                                    <small><span class="badge badge-round badge-light mr-1">7</span></small>
-                                </h6>
+            {{#card}}
+                {{{card_header 'Empty badges'}}}
+                {{#card_body}}
+                    <!-- Empty badges -->
+                    <p>Use the <code>.badge-round.empty</code> modifier class to make empty badges.</p>
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier 'badge-round empty' }}{{/badge-link}}
+                    {{/each}}
+                    <!-- /Empty badges -->
+                    <hr>
+                    {{{card_title 'Empty badge sizes'}}}
+                    <!-- Empty badges sizes -->
+                    {{#badge-link '' 'badge-primary' 'badge-round empty p-0' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-secondary' 'badge-round empty p-1' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-success' 'badge-round empty p-2' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-danger' 'badge-round empty p-3' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-warning' 'badge-round empty p-4' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-info' 'badge-round empty p-3' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-light' 'badge-round empty p-2' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-dark' 'badge-round empty p-1' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-primary' 'badge-round empty p-0' }}{{/badge-link}}
+                    <!-- /Empty badges sizes -->
+                {{/card_body}}
+            {{/card}}
+
+            {{#card}}
+                {{{card_header 'Examples'}}}
+                {{#card_body}}
+                    <!-- Badges with icon -->
+                    {{{card_title 'Badges with icon'}}}
+                    {{#badge-link '' 'badge-primary' '' }}<i class="icon-envelope mr-1"></i> 23{{/badge-link}}
+                    {{#badge-link '' 'badge-secondary' '' }}23<i class="icon-bell ml-1"></i>{{/badge-link}}
+                    {{#badge-link '' 'badge-info' '' }}<i class="icon-bubbles mr-1"></i>45{{/badge-link}}
+                    {{#badge-link '' 'badge-danger' '' }}<i class="icon-envelope mr-1"></i>23 View email{{/badge-link}}
+
+
+                    <!-- /Badges with icon -->
+                    <hr>
+                    <!-- Notifications using badges -->
+                    {{{card_title 'Notifications using badges'}}}
+                    <small class="text-muted d-flex align-items-center">
+                        {{#badge 'badge-info' 'pointed arrow-right mr-2' }}<i class="icon-bell mr-0"></i>{{/badge}}Avail free monthly access! details
+                    </small>
+                    {{{spacer-common}}}
+                    {{{spacer-common}}}
+
+                    <a href="#" class="text-info d-flex align-items-center"><i class="icon-envelope"></i>
+                        {{#badge 'badge-info' 'pointed arrow-left ml-2' }}You have a new message{{/badge}}
+                    </a>
+
+                    {{{spacer-common}}}
+                    {{{spacer-common}}}
+                    <a href="#" class="text-primary">New vistors</a>
+                    {{#badge 'badge-primary' 'pointed arrow-left ml-2' }}0{{/badge}}
+
+                    <hr>
+                    {{{card_title 'Floating notifications using badges'}}}
+
+                    <a href="#" style="position: relative" class="mr-4">Messages{{#badge 'badge-danger' 'badge-round floating' }}5{{/badge}}</a>
+
+                    <a href="#" style="position: relative" class="mr-4">Notification{{#badge 'badge-info' 'floating' }}5{{/badge}}</a>
+
+                    {{{spacer-common}}}
+                    {{{spacer-common}}}
+                    <button type="button" class="btn btn-outline-primary btn-icon btn-round mr-4">
+                        <i class="icon-envelope"></i>{{#badge 'badge-primary' 'badge-round floating' }}5{{/badge}}
+                    </button>
+
+                    <button type="button" class="btn btn-warning btn-icon mr-4">
+                        <i class="icon-bell"></i>{{#badge 'badge-danger' 'badge-round floating' }}5{{/badge}}
+                    </button>
+
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-light">
+                            {{#badge 'badge-danger' 'floating' }}55{{/badge}}
+                            <i class="icon-envelope mr-2"></i>Message
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            {{#badge 'badge-success' 'floating' }}25{{/badge}}
+                            <i class="icon-people mr-2"></i>Friends
+                        </button>
+                    </div>
+
+                    <!-- /Notifications using badges -->
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                {{{card_header 'Badge inside an Element'}}}
+                {{#card_body}}
+                    <!-- Badge inside an Element -->
+                    <p>Badges can be used as part of links or buttons to provide a counter.</p>
+                    <button type="button" class="btn btn-sm btn-primary">
+                        Notifications {{#badge 'badge-danger' 'ml-1' }}4{{/badge}}
+                    </button>
+                    {{{spacer-common}}}
+                    <button type="button" class="btn btn-secondary">
+                        Notifications {{#badge 'badge-info' ' badge-round ml-1' }}4{{/badge}}
+                    </button>
+                    {{{spacer-common}}}
+                    <button type="button" class="btn btn-lg btn-danger">
+                        Notifications {{#badge 'badge-warning' ' badge-pill ml-1' }}44{{/badge}}
+                    </button>
+                    <!-- /Badge inside an Element -->
+                {{/card_body}}
+            {{/card}}
+            {{#card}}
+                {{{card_header 'Image badges'}}}
+                {{#card_body}}
+                    <!-- Image badges -->
+                    <p>Adding images to the badges by wrapping them in <code>.image.border-0</code> class together with contextual classes <code>.badge-*</code>. </p>
+                    {{#each badges.list}}
+                        {{#badge modifier 'image border-0' }}<img src="https://semantic-ui.com/images/avatar/small/joe.jpg" alt="">Setvie{{/badge}}
+                    {{/each}}
+                    {{{spacer-common}}}
+                    <p>Note that to remove class <code>.border-0</code> to create outline/bordered image badges</p>
+                    {{#each badges.list}}
+                        {{#badge modifier_outline 'image' }}<img src="https://semantic-ui.com/images/avatar/small/joe.jpg" alt="">Setvie{{/badge}}
+                    {{/each}}
+                    <hr>
+                    {{{card_title 'Image badges with link'}}}
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier 'image border-0' }}<img src="https://semantic-ui.com/images/avatar/small/elliot.jpg" alt="">Elliot{{/badge-link}}
+                    {{/each}}
+                    {{{spacer-common}}}
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier 'image border-0 py-1 px-2' }}<img src="https://semantic-ui.com/images/avatar/small/elliot.jpg" class="rounded-circle m-0 mr-2" alt="">Elliot{{/badge-link}}
+                    {{/each}}
+                    {{{spacer-common}}}
+                    {{#each badges.list}}
+                        {{#badge-link '' modifier 'image border-0 p-1' }}<img src="https://semantic-ui.com/images/avatar/small/elliot.jpg" class="rounded-lg m-0 mr-2" alt="">Elliot{{/badge-link}}
+                    {{/each}}
+                    {{{spacer-common}}}
+
+                    {{#badge-link '' 'badge-dark' 'image border-0' }}
+                        <img src="https://semantic-ui.com/images/avatar/small/elliot.jpg" alt="">Elliot<h6 class="p-0 m-0">{{#badge 'badge-primary' 'square ml-3' }}Co-worker{{/badge}}</h6>
+                    {{/badge-link}}
+
+                    {{#badge-link '' 'badge-danger' 'image border-0' }}
+                        <img src="https://semantic-ui.com/images/avatar/small/joe.jpg" alt="">Setvie<h6 class="p-0 m-0">{{#badge 'badge-warning' 'square ml-3' }}Student{{/badge}}</h6>
+                    {{/badge-link}}
+
+                    <!-- /Image badges -->
+                {{/card_body}}
+            {{/card}}
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Tag badges'}}}
+                {{#card_body}}
+                    <p>A badge can appear as a tag. Use the <code>.pointed-tag</code> class together with a tag class (like <code>.tag-left</code>, <code>.tag-right</code>) to create tag badges.</p>
+                    <!-- Tag badges left -->
+                    {{#each badges.list}}
+                        {{#badge modifier 'pointed-tag tag-left ml-3 px-3' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Tag badges left -->
+                    {{{spacer-common}}}
+                    <!-- Tag badges right -->
+                    {{#each badges.list}}
+                        {{#badge modifier 'pointed-tag tag-right mr-3 px-3' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Tag badges right -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Ribbon badges'}}}
+                {{#card_body}}
+                    <p>A badge can appear as a ribbon attaching itself to an element. Use the <code>.ribbon</code> class together with a tag class (like <code>.ribbon-left</code>, <code>.ribbon-right</code>) to create
+                        tag badges.</p>
+                    <!-- Ribbon badges left -->
+                    {{#each badges.list}}
+                        {{#badge modifier 'ribbon ribbon-left px-3' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Ribbon badges left -->
+                    {{{spacer-common}}} {{{spacer-common}}} {{{spacer-common}}} {{{spacer-common}}}
+                    <!-- Ribbon badges right -->
+                    {{#each badges.list}}
+                        {{#badge modifier 'ribbon ribbon-right px-3' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Ribbon badges right -->
+                    <div class="spacer50"></div>
+                    <div class="row mt-3">
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            {{#card}}
+                                {{#card_body}}
+                                    <span class="badge badge-primary ribbon ribbon-left px-3 float-left" style="margin-left: -35px">Fearured</span>
+                                    {{{clearfix}}}
+                                    <p class="card-text mt-3">{{{placeholder-lorem-sht}}}</p>
+                                    <span class="badge badge-secondary ribbon ribbon-left px-3 float-left" style="margin-left: -35px">Fearured</span>
+                                    {{{clearfix}}}
+                                    <p class="card-text mt-3">{{{placeholder-lorem-sht}}}</p>
+                                {{/card_body}}
+                            {{/card}}
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            {{#card}}
+                                {{#card_body}}
+                                    <span class="badge badge-success ribbon ribbon-right px-3 float-right" style="margin-right: -35px">Fearured</span>
+                                    {{{clearfix}}}
+                                    <p class="card-text mt-3">{{{placeholder-lorem-sht}}}</p>
+                                    <span class="badge badge-info ribbon ribbon-right px-3 float-right" style="margin-right: -35px">Fearured</span>
+                                    {{{clearfix}}}
+                                    <p class="card-text mt-3">{{{placeholder-lorem-sht}}}</p>
+                                {{/card_body}}
+                            {{/card}}
+                        </div>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Corner badges'}}}
+                {{#card_body}}
+                    <p>A badge can position itself in the corner of an element. Use the <code>.corner</code> class together with a tag class (like <code>.top-left</code>, <code>.top-right</code>,
+                        <code>.bottom-right</code>, <code>.bottom-right</code>) to create corner badges.</p>
+                    <p>A corner badge must be positioned inside a container with <code>position:relative</code> to display properly. If a container is rounded you will need to add <code>overflow:hidden</code> to the
+                        container to produce a rounded badge.
+                    </p>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <!-- Corner badges 1 -->
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#badge-link '' 'badge-primary' 'corner top-left' }}<i class="fas fa-heart"></i>{{/badge-link}}
+                                <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
                             </div>
-                            <!-- /Round badge sizes -->
-                        {{/card_body}}
-                    {{/card}}
+                            <!-- /Corner badges 1 -->
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <!-- Corner badges 2 -->
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#badge-link '' 'badge-secondary' 'corner top-right' }}<i class="fas fa-heart"></i>{{/badge-link}}
+                                <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                            </div>
+                            <!-- /Corner badges 2 -->
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <!-- Corner badges 3 -->
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#badge-link '' 'badge-danger' 'corner bottom-right' }}<i class="fas fa-heart"></i>{{/badge-link}}
+                                <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                            </div>
+                            <!-- /Corner badges 3 -->
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <!-- Corner badges 4 -->
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#badge-link '' 'badge-info' 'corner bottom-left' }}<i class="fas fa-heart"></i>{{/badge-link}}
+                                <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                            </div>
+                            <!-- /Corner badges 4 -->
+                        </div>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Corner ribbon badges'}}}
+                {{#card_body}}
+                    <p>A badge can position itself in the corner of an element. Use the <code>.corner-ribbon</code> class together with a tag class (like <code>.top-left</code>, <code>.top-right</code>,
+                        <code>.bottom-right</code>, <code>.bottom-right</code>) to create corner badges.</p>
+                    <p>A corner ribbon badge must be positioned inside a container with <code>position:relative</code> and <code>overflow:hidden</code> to display properly.</p>
+                    <!-- Corner ribbon badges -->
+                    <div class="row mt-3">
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#card_body}}
+                                    {{#badge 'badge-warning' 'corner-ribbon top-left' }}Fearured{{/badge}}
+                                    {{#badge 'badge-dark' 'corner-ribbon bottom-right' }}Fearured{{/badge}}
+                                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                                {{/card_body}}
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#card_body}}
+                                    {{#badge 'badge-info' 'corner-ribbon top-right' }}Fearured{{/badge}}
+                                    {{#badge 'badge-danger' 'corner-ribbon bottom-left' }}Fearured{{/badge}}
+                                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                                {{/card_body}}
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#card_body}}
+                                    {{#badge 'badge-primary' 'corner-ribbon top-right' }}Fearured{{/badge}}
+                                    {{#badge 'badge-secondary' 'corner-ribbon bottom-left' }}Fearured{{/badge}}
+                                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                                {{/card_body}}
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#card_body}}
+                                    {{#badge 'badge-light' 'corner-ribbon top-left' }}Fearured{{/badge}}
+                                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                                    <p class="card-text">{{{placeholder-lorem-sht}}}</p>
+                                {{/card_body}}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Corner ribbon badges -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
 
-                    {{#card}}
-                        {{{card_header 'Empty badges'}}}
-                        {{#card_body}}
-                            <!-- Empty badges -->
-                            <p>Use the <code>.badge-round.empty</code> modifier class to make empty badges.</p>
-                            {{#each badges.list}}
-                                <a href="#" class="{{class}} {{modifier}} badge-round empty"></a>
-                            {{/each}}
-                            <!-- /Empty badges -->
-                            <hr>
-                            {{{card_title 'Empty badge sizes'}}}
-                            <!-- Empty badges sizes -->
-                            <a href="#" class="badge badge-round empty badge-primary p-0"></a>
-                            <a href="#" class="badge badge-round empty badge-secondary p-1"></a>
-                            <a href="#" class="badge badge-round empty badge-success p-2"></a>
-                            <a href="#" class="badge badge-round empty badge-danger p-3"></a>
-                            <a href="#" class="badge badge-round empty badge-warning p-4"></a>
-                            <a href="#" class="badge badge-round empty badge-info p-3"></a>
-                            <a href="#" class="badge badge-round empty badge-light p-2"></a>
-                            <a href="#" class="badge badge-round empty badge-dark p-1"></a>
-                            <a href="#" class="badge badge-round empty badge-primary p-0"></a>
-                            <!-- /Empty badges sizes -->
-                        {{/card_body}}
-                    {{/card}}
-
-                    {{#card}}
-                        {{{card_header 'Examples'}}}
-                        {{#card_body}}
-                            <!-- Badges with icon -->
-                            {{{card_title 'Badges with icon'}}}
-                            <a href="#" class="badge badge-primary"><i class="icon-envelope"></i> 23</a>
-                            <a href="#" class="badge badge-secondary"><i class="icon-bell"></i> 23</a>
-                            <a href="#" class="badge badge-info"><i class="icon-bubbles"></i> 23</a>
-                            <span class="badge badge-primary"><i class="icon-envelope"></i>23<a href="#" class="ml-2">View email</a></span>
-                            <!-- /Badges with icon -->
-                            <hr>
-                            <!-- Notifications using badges -->
-                            {{{card_title 'Notifications using badges'}}}
-                            <small class="text-muted d-flex align-items-center">
-                                <span class="badge badge-info pointed arrow-right mr-2"><i class="icon-bell mr-0"></i></span> Avail free monthly access! details
-                            </small>
-                            <p></p>
-                            <a href="#" class="text-info d-flex align-items-center"><i class="icon-envelope"></i><span
-                                    class="badge badge-info pointed arrow-left ml-2"> You have a new message</span></a>
-                            <p></p>
-                            <a href="#" class="text-primary">New vistors</a><span
-                                class="badge badge-primary pointed arrow-left ml-2">0</span>
-                            <p></p>
-                            <a href="#" style="position: relative" class="mr-4">Messages<span
-                                    class="badge badge-round badge-danger floating">5</span></a>
-                            <a href="#" style="position: relative" class="mr-4">Notification<span
-                                    class="badge badge-info floating">5</span></a>
-                            <p></p>
-                            <button type="button" class="btn btn-outline-primary btn-icon btn-round mr-4">
-                                <i class="icon-envelope"></i><span class="badge badge-round badge-primary floating">5</span>
-                            </button>
-
-                            <button type="button" class="btn btn-warning btn-icon mr-4">
-                                <i class="icon-bell"></i><span class="badge badge-round badge-danger floating">5</span>
-                            </button>
-                            <!-- /Notifications using badges -->
-                        {{/card_body}}
-                    {{/card}}
-
-                    {{#card}}
-                        {{{card_header 'Image badges'}}}
-                        {{#card_body}}
-                            <!-- Image badges -->
-                            <p>Adding images to the badges by wrapping them in <code>.image.border-0</code> class together with contextual classes <code>.badge-*</code>. </p>
-                            {{#each badges.list}}
-                                <span class="{{class}} {{modifier}} image border-0"><img src="https://semantic-ui.com/images/avatar/small/joe.jpg" alt="">Setvie</span>
-                            {{/each}}
-                            {{{spacer-common}}}
-                            <p>Note that to remove class <code>.border-0</code> to create outline/bordered image badges</p>
-                            {{#each badges.list}}
-                                <span class="{{class}} {{modifier_outline}} image"><img src="https://semantic-ui.com/images/avatar/small/joe.jpg" alt="">Setvie</span>
-                            {{/each}}
-                            <hr>
-                            {{{card_title 'Image badges with link'}}}
-                            {{#each badges.list}}
-                                <a href="#" class="{{class}} {{modifier}} image border-0"><img src="https://semantic-ui.com/images/avatar/small/elliot.jpg" alt="">Elliot</a>
-                            {{/each}}
-                            <!-- /Image badges -->
-                        {{/card_body}}
-                    {{/card}}
-
-                    {{#card}}
-                        {{{card_header 'Badge inside an Element'}}}
-                        {{#card_body}}
-                            <!-- Badge inside an Element -->
-                            <p>Badges can be used as part of links or buttons to provide a counter.</p>
-                            <button type="button" class="btn btn-sm btn-primary">
-                                Notifications <span class="badge badge-danger ml-1">4</span>
-                            </button>
-                            {{{spacer-common}}}
-                            <button type="button" class="btn btn-secondary">
-                                Notifications <span class="badge badge-round badge-info ml-1">4</span>
-                            </button>
-                            {{{spacer-common}}}
-                            <button type="button" class="btn btn-lg btn-danger">
-                                Notifications <span class="badge badge-pill badge-warning ml-1">44</span>
-                            </button>
-                            <!-- /Badge inside an Element -->
-                        {{/card_body}}
-                    {{/card}}
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Block badges'}}}
+                {{#card_body}}
+                    <p>Use <code>.d-block</code> class with .badge, to set block badge.</p>
+                    <!-- Block badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier 'd-block mb-1' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Block badges -->
+                    <hr>
+                    {{{card_title 'Outline variations'}}}
+                    <!-- Outline block badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier_outline 'd-block mb-1' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Outline block badges -->
+                {{/card_body}}
+            {{/card}}
         </div>
     </div>
     <div class="row">
@@ -282,7 +582,7 @@ components: true
 
                     <!-- Disabled badges -->
                     {{#each badges.list}}
-                        <span class="{{class}} {{modifier}} disabled">{{text}}</span>
+                        {{#badge modifier 'disabled' }}{{text}}{{/badge}}
                     {{/each}}
                     <!-- /Disabled badges -->
 
@@ -290,7 +590,7 @@ components: true
                     {{{card_title 'Disabled link badges'}}}
                     <!-- Disabled link badges -->
                     {{#each badges.list}}
-                        <a href="#" class="{{class}} {{modifier}} disabled">{{text}}</a>
+                        {{#badge-link '' modifier 'disabled' }}{{text}}{{/badge-link}}
                     {{/each}}
                     <!-- /Disabled link badges -->
 
@@ -304,19 +604,19 @@ components: true
                 {{{card_header 'Match the size'}}}
                 {{#card_body}}
                     <!-- Match the size -->
-                    <h1>Example heading <span class="badge badge-secondary">New</span></h1>
-                    <h2>Example heading <span class="badge badge-secondary">New</span></h2>
-                    <h3>Example heading <span class="badge badge-secondary">New</span></h3>
-                    <h4>Example heading <span class="badge badge-secondary">New</span></h4>
-                    <h5>Example heading <span class="badge badge-secondary">New</span></h5>
-                    <h6>Example heading <span class="badge badge-secondary">New</span></h6>
-                    <p></p>
-                    <span class="badge badge-primary"><h6 class="m-0 p-0">Heading</h6></span>
-                    <span class="badge badge-secondary"><h5 class="m-0 p-0">Heading</h5></span>
-                    <span class="badge badge-warning"><h4 class="m-0 p-0">Heading</h4></span>
-                    <span class="badge badge-info"><h3 class="m-0 p-0">Heading</h3></span>
-                    <span class="badge badge-danger"><h2 class="m-0 p-0">Heading</h2></span>
-                    <span class="badge badge-dark"><h1 class="m-0 p-0">Heading</h1></span>
+                    <h1>Example heading {{#badge 'badge-secondary' '' }}New{{/badge}}</h1>
+                    <h2>Example heading {{#badge 'badge-secondary' '' }}New{{/badge}}</h2>
+                    <h3>Example heading {{#badge 'badge-secondary' '' }}New{{/badge}}</h3>
+                    <h4>Example heading {{#badge 'badge-secondary' '' }}New{{/badge}}</h4>
+                    <h5>Example heading {{#badge 'badge-secondary' '' }}New{{/badge}}</h5>
+                    <h6>Example heading {{#badge 'badge-secondary' '' }}New{{/badge}}</h6>
+                    {{{spacer-common}}}
+                    {{#badge 'badge-primary' '' }}<h6 class="m-0 p-0">Heading</h6>{{/badge}}
+                    {{#badge 'badge-secondary' '' }}<h5 class="m-0 p-0">Heading</h5>{{/badge}}
+                    {{#badge 'badge-warning' '' }}<h4 class="m-0 p-0">Heading</h4>{{/badge}}
+                    {{#badge 'badge-info' '' }}<h3 class="m-0 p-0">Heading</h3>{{/badge}}
+                    {{#badge 'badge-danger' '' }}<h2 class="m-0 p-0">Heading</h2>{{/badge}}
+                    {{#badge 'badge-dark' '' }}<h1 class="m-0 p-0">Heading</h1>{{/badge}}
                     <!-- /Match the size -->
                 {{/card_body}}
             {{/card}}

@@ -64,6 +64,40 @@ OR you can type out the HTML if you prefer--}}
         </div>
     </div>
 
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{#card}}
+                {{{card_header 'Light Buttons'}}}
+                {{#card_body}}
+                    <p>
+                        Create light buttons, by replace the default modifier classes with the <code>.btn-light-*</code> ones to change all background colors to light tone.
+                    </p>
+                    {{#btns buttons.list}}
+                        <button type="button" class="{{class}} {{modifier_light}} mb-1">{{text}}</button>
+                    {{/btns}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{#card}}
+                {{{card_header 'Light Rounded Buttons'}}}
+                {{#card_body}}
+                    <p>
+                        Create light buttons, by replace the default modifier classes with the <code>.btn-light-*</code> and <code>btn-round</code> ones to change all background colors to light tone.
+                    </p>
+                    {{#btns buttons.list}}
+                        <button type="button" class="{{class}} {{modifier_light}} btn-round mb-1">{{text}}</button>
+                    {{/btns}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+
     <div class="row">
         <div class="col-sm-12">
             {{#card}}
@@ -341,7 +375,7 @@ OR you can type out the HTML if you prefer--}}
     </div>
 
     <div class="row">
-        <div class="col-md-6 pr-md-2">
+        <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Disabled state'}}}
                 {{#card_body}}
@@ -359,20 +393,41 @@ OR you can type out the HTML if you prefer--}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-md-2">
+
+    </div>
+
+    <div class="row">
+    <div class="col-md-12">
+        {{#card}}
+            {{{card_header 'Active state'}}}
+            {{#card_body}}
+                <p>A button can show it is currently the active user selection</p>
+                {{#btn "primary active mb-1"}}Primary{{/btn}}
+                {{#btn "secondary btn-round active mb-1"}}Secondary{{/btn}}
+                {{#btn "success btn-icon active mb-1"}}<i class="icon-check"></i>{{/btn}}
+                {{#btn "danger btn-icon btn-round active mb-1"}}<i class="icon-close"></i>{{/btn}}
+                {{#btn "warning btn-link active mb-1"}}Warning{{/btn}}
+            {{/card_body}}
+        {{/card}}
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col-md-12">
             {{#card}}
-                {{{card_header 'Active state'}}}
+                {{{card_header 'Toggle State Buttons'}}}
                 {{#card_body}}
-                    <p>A button can show it is currently the active user selection</p>
-                    {{#btn "primary active mb-1"}}Primary{{/btn}}
-                    {{#btn "secondary btn-round active mb-1"}}Secondary{{/btn}}
-                    {{#btn "success btn-icon active mb-1"}}<i class="icon-check"></i>{{/btn}}
-                    {{#btn "danger btn-icon btn-round active mb-1"}}<i class="icon-close"></i>{{/btn}}
-                    {{#btn "warning btn-link active mb-1"}}Warning{{/btn}}
+                    <p>Add <code>data-toggle="button"</code> to toggle a button’s <code>active</code> state. If you’re pre-toggling a button, you must manually add the <code>.active</code> class <strong>and</strong> <code>aria-pressed="true"</code> to the <code>&lt;button&gt;</code>.</p>
+                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
+                        Single toggle
+                    </button>
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
+
+
 
     <div class="row">
         <div class="col-md-12">
@@ -440,7 +495,7 @@ OR you can type out the HTML if you prefer--}}
                         <div class="col-12 col-md-3">
                             {{#btns buttons.list_size}}
                                     <button type="button" class="{{class}} btn-outline-primary btn-icon {{size}}"><i class="icon-heart"></i></button>
-                                {{{spacer-common}}} 
+                                {{{spacer-common}}}
                             {{/btns}}
                         </div>
                         <div class="col-12 col-md-3">
@@ -498,10 +553,10 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Block level buttons'}}}
                 {{#card_body}}
                     <p>Create block level buttons—those that span the full width of a parent—by adding <code>.btn-block</code>.</p>
-                    {{#btn "primary btn-block"}}Block button{{/btn}}
-                    {{#btn "outline-primary btn-block"}}Outline Block button{{/btn}}
-                    {{#btn "secondary btn-round btn-block"}}Rounded Block button{{/btn}}
-                    {{#btn "outline-secondary btn-round btn-block"}}Rounded Outline Block button{{/btn}}
+                    {{#btn "primary btn-block btn-lg"}}Block button{{/btn}}
+                    {{#btn "outline-primary btn-block btn-lg"}}Outline Block button{{/btn}}
+                    {{#btn "secondary btn-round btn-block btn-lg"}}Rounded Block button{{/btn}}
+                    {{#btn "outline-secondary btn-round btn-block btn-lg"}}Rounded Outline Block button{{/btn}}
                 {{/card_body}}
             {{/card}}
         </div>
@@ -509,10 +564,11 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Block level buttons with icon'}}}
                 {{#card_body}}
-                    {{#btn "primary btn-block has-icon-right"}}Block button with icon on right side<i class="icon-heart"></i>{{/btn}}
-                    {{#btn "primary btn-block has-icon-left"}}<i class="icon-heart"></i>Block button with icon on left side{{/btn}}
-                    {{#btn "secondary btn-block has-icon-left"}}<i class="icon-heart float-left"></i>Block button with icon on start{{/btn}}
-                    {{#btn "secondary btn-block has-icon-right"}}<i class="icon-heart float-right"></i>Block button with icon on end{{/btn}}
+                    <p>Create block level buttons—those that span the full width of a parent—by adding <code>.btn-block</code>.</p>
+                    {{#btn "primary btn-block btn-lg has-icon-right"}}Block button with icon on right side<i class="icon-heart"></i>{{/btn}}
+                    {{#btn "primary btn-block btn-lg has-icon-left"}}<i class="icon-heart"></i>Block button with icon on left side{{/btn}}
+                    {{#btn "secondary btn-block btn-lg has-icon-left"}}<i class="icon-heart float-left"></i>Block button with icon on start{{/btn}}
+                    {{#btn "secondary btn-block btn-lg has-icon-right"}}<i class="icon-heart float-right"></i>Block button with icon on end{{/btn}}
                 {{/card_body}}
             {{/card}}
         </div>

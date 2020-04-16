@@ -8,27 +8,26 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// Regular button and base styling.
-button, .button {
-  cursor: $cursor-pointer;
-}
+//
+// BASE STYLING
+// ======================================================
 
 .btn {
   @extend %button;
+  @include box-shadow(none);
 
-  // Beta 3 Migration changes
-  //  @at-root .show > #{&},
-  #{$focus-tags}
-    //#{$active-tags},
-    //  .show > &.dropdown-toggle,
-    //  .show > &.dropdown-toggle:focus,
-    //  .show > &.dropdown-toggle:hover,
-    //  .open > &.dropdown-toggle
-  {
-    outline: 0;
+  #{$focus-tags} {
     @include box-shadow($btn-focus-box-shadow);
   }
 
+  // Disabled comes first so active can properly restyle
+  #{$disabled-tags} {
+    cursor: $cursor-not-allowed;
+    pointer-events: none;
+    @include opacity($btn-disabled-opacity);
+  }
+
+  // The clickable button for toggling the menu
   .show > &.dropdown-toggle,
   #{$active-tags} {
     @include box-shadow($btn-active-box-shadow);
@@ -41,6 +40,16 @@ button, .button {
   // Square buttons
   &.btn-square {
     border-radius: 0;
+  }
+
+  // Round button
+  &.btn-round {
+    @include border-radius($btn-round-radius);
+  }
+
+  // Block button
+  &.btn-block {
+    display: block !important;
   }
 
   // Icon Buttons
@@ -122,11 +131,6 @@ button, .button {
   }
 }
 
-// Block button
-.btn-block {
-  display: block !important;
-}
-
 // Apply the mixin to the button variants.
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons.
@@ -141,6 +145,9 @@ button, .button {
     .btn-outline-#{$scheme} {
       @include btn-theme($scheme, outline);
     }
+    .btn-light-#{$scheme} {
+      @include btn-theme($scheme, light);
+    }
   }
 }
 
@@ -151,6 +158,9 @@ button, .button {
   }
   .btn-outline-#{$scheme} {
     @include btn-theme($scheme, outline);
+  }
+  .btn-light-#{$scheme} {
+    @include btn-theme($scheme, light);
   }
 }
 
@@ -171,33 +181,40 @@ button, .button {
   }
 }
 
-// Disabled button
-fieldset:disabled a.btn,
-.btn {
-  #{$disabled-tags} {
-    cursor: $cursor-not-allowed;
-    pointer-events: none;
-    @include opacity($btn-disabled-opacity);
-    @include box-shadow(none);
-  }
+// Future-proof disabling of clicks on `<a>` elements
+fieldset:disabled a.btn {
+  cursor: $cursor-not-allowed;
+  pointer-events: none;
+  @include opacity($btn-disabled-opacity);
 }
 
+//
+// LINK BUTTONS
+// ======================================================
 // Make a button look and behave like a link
+
 .btn-link {
   border: 0;
   background-color: transparent !important;
 
-  #{$hover-focus-tags}
-    //#{$active-tags},
-    //.show > &.dropdown-toggle,
-    //.show > &.dropdown-toggle:focus,
-    //.show > &.dropdown-toggle:hover,
-    //.open > &.dropdown-toggle
-  {
+  #{$hover-focus-tags} {
     text-decoration: $link-hover-decoration;
+    @include box-shadow(none);
   }
 
+  .show > &.dropdown-toggle,
+  #{$active-tags} {
+    @include box-shadow(none);
+
+    &:focus {
+      @include box-shadow(none);
+    }
+  }
 }
+
+//
+// SIZING
+// ======================================================
 
 // Extra large button
 .btn-xl {
@@ -214,12 +231,10 @@ fieldset:disabled a.btn,
   @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
 }
 
-// Round button
-.btn-round {
-  @include border-radius($btn-round-radius);
-}
+//
+// RAISED BUTTONS
+// ======================================================
 
-// Raised buttons
 .btn-raised {
   position: relative;
   transition: box-shadow 0s;
@@ -229,9 +244,9 @@ fieldset:disabled a.btn,
   }
 
   .show > &.dropdown-toggle,
-  //.show > &.dropdown-toggle:focus,
-  //.show > &.dropdown-toggle:hover,
-  //.open > &.dropdown-toggle*
+    //.show > &.dropdown-toggle:focus,
+    //.show > &.dropdown-toggle:hover,
+    //.open > &.dropdown-toggle*
   &:active,
   &.active {
     box-shadow: none !important;

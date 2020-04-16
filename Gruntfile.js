@@ -35,6 +35,7 @@ module.exports = function (grunt) {
 
     var sassMainFiles = {};
     var sassPagesTasks = {};
+    var sassIconsTasks = {};
     var sassVendorsExtTasks = {};
     var cssMinTasks = {};
     var importPaths = [];
@@ -83,6 +84,15 @@ module.exports = function (grunt) {
                 extDot: 'last'
             }];
 
+            sassIconsTasks = [{
+              expand: true,
+              cwd: getPath('sass_icons', true),
+              src: ['**/*.{sass,scss}', '!**/_*'], // take sass files & ignore partials
+              dest: getPath('assets', false, true) + theme + '/' + 'icons',
+              ext: '.css',
+              extDot: 'last'
+            }];
+
             sassVendorsExtTasks = [{
                 expand: true,
                 cwd: getPath('sass_vi', true),
@@ -115,6 +125,7 @@ module.exports = function (grunt) {
     grunt.getPath = getPath;
     grunt.sassMainFiles = sassMainFiles;
     grunt.sassPagesTasks = sassPagesTasks;
+    grunt.sassIconsTasks = sassIconsTasks;
     grunt.sassVendorsExtTasks = sassVendorsExtTasks;
     grunt.importPaths = importPaths;
     grunt.activeTheme = activeTheme;

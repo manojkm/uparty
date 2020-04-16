@@ -11,7 +11,8 @@ var options = {
         JS_VI: 'assets/js/vendors-extended/',
         VENDORS: 'assets/vendors/',
         SASS: 'assets/scss/',
-        SASS_PAGES: 'assets/scss/pages',
+        SASS_PAGES: 'assets/scss/pages/',
+        SASS_ICONS: 'assets/scss/icons/',
         SASS_THEMES: 'assets/scss/themes/',
         SASS_VI: 'assets/scss/vendors-extended/',
 

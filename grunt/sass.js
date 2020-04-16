@@ -21,7 +21,8 @@ module.exports = function (grunt) {
         includePaths: [
             require('bourbon').includePaths,
             grunt.getPath('node') + 'bootstrap/scss',
-            grunt.getPath('node') + 'sass-mediaqueries'
+            grunt.getPath('node') + 'sass-mediaqueries',
+            grunt.getPath('node') + 'themify-icons'
         ],
         banner: '<%= meta.banner %>',
         // outDir: grunt.importPaths,
@@ -42,6 +43,10 @@ module.exports = function (grunt) {
 
         pages: {
             files: grunt.sassPagesTasks
+        },
+
+        icons: {
+          files: grunt.sassIconsTasks
         },
 
         vendors_extended: {

@@ -16,12 +16,13 @@
   font-size: $btn-font-size;
   //border-width: $btn-border-size;
   font-weight: $btn-font-weight;
+  color: $body-color;
+  border: $btn-border-size solid transparent;
   padding: $btn-padding-y $btn-padding-x;
   line-height: $btn-line-height;
   min-width: $btn-min-width;
   min-height: $btn-min-height;
   cursor: $cursor-pointer;
-  border: $btn-border-size solid transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -61,10 +62,8 @@
 
 %acc-pseudo {
   @include center(y);
-  font-family: 'simple-line-icons';
   font-style: normal;
-  content: $accordion-icon-active;
-  //color: $accordion-icon-color; 
+  //color: $accordion-icon-color;
   color: inherit;
   float: right;
   font-size: 0.75rem;
@@ -106,14 +105,14 @@
   display: block;
   width: 0;
   height: 0;
-  @include add-border($breadcrumb-ext-top-bottom-border-size, transparent, top-bottom);
-  @include add-border($breadcrumb-ext-left-border-size, transparent, left);
   position: absolute;
   top: 0;
   //top: 50%;
   //margin-top: -$breadcrumb-ext-top-bottom-border-size;
   left: 100%;
   z-index: 3;
+  @include add-border($breadcrumb-ext-top-bottom-border-size, transparent, top-bottom);
+  @include add-border($breadcrumb-ext-left-border-size, transparent, left);
 }
 
 //

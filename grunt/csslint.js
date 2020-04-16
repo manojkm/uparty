@@ -8,7 +8,7 @@ module.exports = function (grunt) {
         },
 
         lint: {
-            src: [grunt.importPaths + '**/*.css', '!' + grunt.importPaths + '**/*.min.css']
+            src: [grunt.importPaths + '**/*.css', '!' + grunt.importPaths + '**/*.min.css', '!' + grunt.importPaths + 'icons/**/*']
         }
     };
 };

@@ -63,12 +63,16 @@ span.placeholder code,
 span.placeholder a {
   background: hsl(0, 0%, 90%);
   color: hsl(0, 0%, 90%);
-  line-height: 1.70rem;
+  line-height: 1rem;
 }
 
 span.placeholder code {
   padding-top: 0;
   padding-bottom: 0;
+}
+
+span.placeholder.small{
+  font-size: 50%;
 }
 
 hr.placeholder {

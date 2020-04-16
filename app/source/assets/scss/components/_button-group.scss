@@ -1,6 +1,6 @@
 // ================================================================================================
 // File Name      : button-group.scss
-// Description    : Adjust Button Groups.
+// Description    : Adjustments Button Groups.
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
@@ -9,7 +9,7 @@
 // ================================================================================================
 
 //
-// BUTTON GROUP
+// BASE STYLING
 // ======================================================
 
 .btn-group {
@@ -32,10 +32,9 @@
     }
   }
 
-  // Prevent double borders when buttons are next to each other
-  > .btn:not(:first-child),
-  > .btn-group:not(:first-child) {
-    margin-left: -$btn-border-size;
+  // Round button
+  .btn-round {
+    @include border-radius($btn-round-radius);
   }
 
 }
@@ -49,26 +48,31 @@
     min-width: initial !important;
   }
 
-  > .btn:not(:first-child),
-  > .btn-group:not(:first-child) {
-    margin-top: -$btn-border-size;
-  }
+  //
+  //> .btn:not(:first-child),
+  //> .btn-group:not(:first-child) {
+  //  margin-top: -$btn-border-size;
+  //}
 
 }
 
+//
+// SIZING
+// ======================================================
+
 // Extra large group button
-.btn-group-xl .btn {
-  @include btn-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-min-width-xl, $btn-min-height-xl, $btn-font-size-xl, $btn-border-radius-xl, $btn-line-height-xl);
+.btn-group-xl > .btn {
+  @extend .btn-xl;
 }
 
 // Large group button
-.btn-group-lg .btn {
-  @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-border-radius-lg, $btn-line-height-lg);
+.btn-group-lg > .btn {
+  @extend .btn-lg;
 }
 
 // Small group button
-.btn-group-sm .btn {
-  @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
+.btn-group-sm > .btn {
+  @extend .btn-sm;
 }
 
 //
@@ -113,6 +117,7 @@
 // Used for toggle only the tick icon on a button’s toggle state.
 i.icon-toggle {
   display: none;
+
   .active > & {
     display: block;
   }
@@ -125,4 +130,70 @@ i.icon-toggle {
 
 .text-toggle[aria-pressed=true] .text-collapsed {
   display: none;
+}
+
+//
+// OR BUTTON
+// ======================================================
+
+.btn-group {
+
+  .or {
+    position: relative;
+    width: .3em;
+    height: auto;
+    z-index: 3;
+
+    &::before {
+      position: absolute;
+      content: 'or';
+      background-color: $white-color;
+      text-shadow: none;
+      min-width: $btn-icon-size;
+      width: $btn-icon-size;
+      min-height: $btn-icon-size;
+      line-height: $btn-line-height;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $btn-icon-font-size;
+      @include border-radius($btn-round-radius);
+      @include center(xy);
+
+    }
+  }
+
+  &.btn-group-sm {
+    .or {
+      &::before {
+        min-width: $btn-icon-size-sm;
+        width: $btn-icon-size-sm;
+        min-height: $btn-icon-size-sm;
+        font-size: $btn-icon-font-size-sm;
+      }
+    }
+  }
+
+  &.btn-group-lg {
+    .or {
+      &::before {
+        min-width: $btn-icon-size-lg;
+        width: $btn-icon-size-lg;
+        min-height: $btn-icon-size-lg;
+        font-size: $btn-icon-font-size-lg;
+      }
+    }
+  }
+
+  &.btn-group-xl {
+    .or {
+      &::before {
+        min-width: $btn-icon-size-xl;
+        width: $btn-icon-size-xl;
+        min-height: $btn-icon-size-xl;
+        font-size: $btn-icon-font-size-xl;
+      }
+    }
+  }
+
 }

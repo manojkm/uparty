@@ -14,10 +14,18 @@
 // Generate image sizes based on `$image-sizes-map` map
 
 @each $prefix in (img) {
-    @each $size, $value in $image-sizes-map {
-        .#{$prefix}-#{$size} {
-            width : $value !important;
-            height : $value !important;
-        }
+  @each $size in $image-sizes-map {
+    .#{$prefix}-#{$size} {
+      width : #{$size}px !important;
+      height : #{$size}px !important;
     }
+  }
 }
+
+//$i:8;
+//@while $i<=600 {
+//  .img-#{$i} {
+//    width:#{$i}px !important;
+//  }
+//  $i:$i*2;
+//}

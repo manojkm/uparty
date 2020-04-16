@@ -54,9 +54,9 @@
 // ======================================================
 
 @each $prop, $abbrev in (border-width:border) {
-  @each $size, $length in $border-sizes-map {
+  @each $size in $border-sizes-map {
     .#{$abbrev}-#{$size} {
-      #{$prop}: $length !important;
+      #{$prop}: #{$size}px !important;
     }
   }
 }

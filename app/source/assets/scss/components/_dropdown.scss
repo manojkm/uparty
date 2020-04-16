@@ -29,6 +29,24 @@
     background-color: $dropdown-bg;
     box-shadow: $dropdown-shadow;
     @include add-border($dropdown-border-size, $dropdown-border-color, all);
+
+    // Prevent dropdown overflow if there's no padding
+    // See https://github.com/twbs/bootstrap/pull/27703
+    @if ($dropdown-padding-y == 0 and bool($enable-rounded) == true) {
+      li {
+        &:first-child {
+          .dropdown-item {
+            @include border-top-radius($dropdown-border-radius);
+          }
+        }
+
+        &:last-child {
+          .dropdown-item {
+            @include border-bottom-radius($dropdown-border-radius);
+          }
+        }
+      }
+    }
   }
 
   &.has-arrow {
@@ -61,11 +79,13 @@
     // Positioning arrow based on shifted properties like 'top-start' and 'top-end'. ie place the arrow at the bottom for an 'up' menu
     &[x-placement^="top"] {
       margin-bottom: $dropdown-margin-bottom;
+
       &:before {
         bottom: -6px;
         top: unset;
         transform: rotate(180deg);
       }
+
       &:after {
         bottom: -8px;
         top: unset;
@@ -105,6 +125,10 @@
     }
 
     @at-root .bordered#{&} {
+      @if ($dropdown-padding-y == 0 and bool($enable-rounded) == true) {
+        overflow: hidden; // Prevent dropdown overflow if there's no padding. See https://github.com/twbs/bootstrap/pull/27703
+      }
+
       // Showing left border styling on hover for better highlighting
       &::before {
         @include transition;
@@ -122,12 +146,15 @@
       &.active::before {
         opacity: 1;
       }
+
+
     }
 
     // Change the hover, focus, active state links for better highlighting
     #{$hover-focus-tags} {
       color: $dropdown-link-hover-color;
       background: $dropdown-link-hover-bg;
+
       i {
         color: $dropdown-link-hover-color;
       }
@@ -140,6 +167,7 @@
       color: $dropdown-link-active-color;
       background-color: $dropdown-link-active-bg;
       text-decoration: none;
+
       i {
         color: $dropdown-link-active-color;
       }
@@ -219,6 +247,7 @@
     // Change the hover, focus, active state links for better highlighting
     #{$hover-focus-tags} {
       @include background-text-theme($dropdown-ext-theme-scheme, 'dark', 'font-hover-color');
+
       i {
         @include text-theme($dropdown-ext-theme-scheme, 'font-hover-color');
       }
@@ -229,6 +258,7 @@
     &.active:hover,
     &:active {
       @include background-text-theme($dropdown-ext-theme-scheme, 'x-dark', 'font-active-color');
+
       i {
         @include text-theme($dropdown-ext-theme-scheme, 'font-active-color');
       }
@@ -277,6 +307,7 @@
       box-shadow: none;
       //& .dropdown-item{ padding-left:20px}
     }
+
     &:before,
     &:after {
       display: none;
@@ -300,6 +331,7 @@
 // Dropup variation
 .dropup {
   .dropdown-menu.extended {
+    margin-top: 0;
     // Support to move the arrow to the bottom
     &.has-arrow {
       margin-bottom: $dropdown-has-arrow-margin-top;
@@ -309,12 +341,15 @@
         top: unset;
         transform: rotate(180deg);
       }
+
       &:after {
         bottom: -8px;
         top: unset;
         transform: rotate(180deg);
       }
     }
+
+
   }
 }
 
@@ -322,6 +357,7 @@
 .dropright {
   .dropdown-menu.extended {
     margin-top: 0;
+
     &.has-arrow {
       margin-left: $dropdown-margin-left;
       // Support to move the arrow to the left-hand-side
@@ -344,6 +380,7 @@
 .dropleft {
   .dropdown-menu.extended {
     margin-top: 0;
+
     &.has-arrow {
       margin-right: $dropdown-margin-right;
       // Support to move the arrow to the right-hand-side
