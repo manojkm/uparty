@@ -3,7 +3,7 @@
 // ======================================================
 // Please make sure to import these dependencies as they're necessary for all themes to function.
 @import
-    '../dependencies';
+'../dependencies';
 
 //
 // BRAND COLORS VARIABLES // TODO.. https://github.com/manojkm/flask
@@ -17,37 +17,37 @@
 
 // PRIMARY
 
-$primary-background: $turquoise; // Used as the background for primary buttons, color for primary links etc...
-$primary-foreground: $white-color; // Used as the text color on primary background.
+$primary-background: $turquoise !default; // Used as the background for primary buttons, color for primary links etc...
+$primary-foreground: $white-color !default; // Used as the text color on primary background.
 
 // SECONDARY
 
-$secondary-background: $mauve; // Used as the background for secondary buttons, color for secondary links etc...
-$secondary-foreground: $white-color; // Used as the text color on secondary background.
+$secondary-background: $mauve !default; // Used as the background for secondary buttons, color for secondary links etc...
+$secondary-foreground: $white-color !default; // Used as the text color on secondary background.
 
 // HEADER
 
-$header-background: $midnight-blue; // Used as the background color of Header.
-$header-colors: lighten($midnight-blue, 60%), lighten($midnight-blue, 65%), lighten($midnight-blue, 100%), lighten($turquoise, 10%); // Order: font, link, hover, active. Use darken(), lighten() functions if required.
+$header-background: $midnight-blue !default; // Used as the background color of Header.
+$header-colors: lighten($midnight-blue, 60%), lighten($midnight-blue, 65%), lighten($midnight-blue, 100%), lighten($turquoise, 10%) !default; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 // SIDEBAR
 
-$sidebar-background: $midnight-blue; // Used as the background color of Sidebar.
-$sidebar-colors: lighten($midnight-blue, 60%), lighten($midnight-blue, 65%), lighten($midnight-blue, 100%), lighten($turquoise, 10%); // Order: font, link, hover, active. Use darken(), lighten() functions if required.
+$sidebar-background: $midnight-blue !default; // Used as the background color of Sidebar.
+$sidebar-colors: lighten($midnight-blue, 60%), lighten($midnight-blue, 65%), lighten($midnight-blue, 100%), lighten($turquoise, 10%) !default; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 // ASIDE
 
-$aside-background: $midnight-blue; // Used as the background color of Aside.
-$aside-colors: #fff, #fff, #fff, #fff; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
+$aside-background: $midnight-blue !default; // Used as the background color of Aside.
+$aside-colors: #fff, #fff, #fff, #fff !default; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 // FOOTER
 
-$footer-background: $midnight-blue; // Used as the background color of Footer.
-$footer-colors: #fff, #ccc, #fff, #fff; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
+$footer-background: $midnight-blue !default; // Used as the background color of Footer.
+$footer-colors: #fff, #ccc, #fff, #fff !default; // Order: font, link, hover, active. Use darken(), lighten() functions if required.
 
 // COLOR SHADES INTERVAL
 
-$color-shade-interval: 3%; // Set a specific jump point for requesting color jumps Used to generate base, light & dark color shades.
+$color-shade-interval: 3% !default; // Set a specific jump point for requesting color jumps Used to generate base, light & dark color shades.
 
 // TODO for  tomorrow https://stackoverflow.com/questions/33856034/dynamically-build-up-a-sass-map-and-then-use-the-values
 //
@@ -71,81 +71,81 @@ $color-shade-interval: 3%; // Set a specific jump point for requesting color jum
 
 // Palette name
 $rebecca-palette-map: (
-        'main-colors': (
-                'primary': (
-                        'base': $primary-background,
-                        'light': lighten($primary-background, $color-shade-interval), // Light form of base value
-                        'x-light': lighten($primary-background, ($color-shade-interval * 2)), // Lighter form of base value
-                        'xx-light': lighten($primary-background, ($color-shade-interval  * 3)), // Lightest form of base value
-                        'dark':darken($primary-background, $color-shade-interval), // Dark form of base value
-                        'x-dark':darken($primary-background, ($color-shade-interval * 2)), // Darker form of base value
-                        'xx-dark':darken($primary-background, ($color-shade-interval * 3)), // Darkest form of base value
-                        'font-color':$primary-foreground,
-                ),
-                'secondary': (
-                        'base': $secondary-background,
-                        'light': lighten($secondary-background, $color-shade-interval),
-                        'x-light': lighten($secondary-background, ($color-shade-interval * 2)),
-                        'xx-light': lighten($secondary-background, ($color-shade-interval * 3)),
-                        'dark':darken($secondary-background, $color-shade-interval),
-                        'x-dark':darken($secondary-background, ($color-shade-interval  * 2)),
-                        'xx-dark':darken($secondary-background, ($color-shade-interval * 3)),
-                        'font-color':$secondary-foreground,
-                )
-        ),
-        'partial-colors': (
-                'header': (
-                        'base': $header-background,
-                        'light': lighten($header-background, $color-shade-interval),
-                        'x-light': lighten($header-background, ($color-shade-interval * 2)),
-                        'xx-light': lighten($header-background, ($color-shade-interval * 3)),
-                        'dark': darken($header-background, $color-shade-interval),
-                        'x-dark':darken($header-background, ($color-shade-interval  * 2)),
-                        'xx-dark':darken($header-background, ($color-shade-interval * 3)),
-                        'font-color': nth($header-colors, 1),
-                        'font-link-color': nth($header-colors, 2),
-                        'font-hover-color': nth($header-colors, 3),
-                        'font-active-color': nth($header-colors, 4),
-                ),
-                'sidebar': (
-                        'base': $sidebar-background,
-                        'light': lighten($sidebar-background, $color-shade-interval),
-                        'x-light': lighten($sidebar-background, ($color-shade-interval * 2)),
-                        'xx-light': lighten($sidebar-background, ($color-shade-interval * 3)),
-                        'dark': darken($sidebar-background, $color-shade-interval),
-                        'x-dark':darken($sidebar-background, ($color-shade-interval  * 2)),
-                        'xx-dark':darken($sidebar-background, ($color-shade-interval * 3)),
-                        'font-color': nth($sidebar-colors, 1),
-                        'font-link-color': nth($sidebar-colors, 2),
-                        'font-hover-color': nth($sidebar-colors, 3),
-                        'font-active-color': nth($sidebar-colors, 4),
-                ),
-                'aside': (
-                        'base': $aside-background,
-                        'light': lighten($aside-background, $color-shade-interval),
-                        'x-light': lighten($aside-background, ($color-shade-interval * 2)),
-                        'xx-light': lighten($aside-background, ($color-shade-interval * 3)),
-                        'dark': darken($aside-background, $color-shade-interval),
-                        'x-dark':darken($aside-background, ($color-shade-interval  * 2)),
-                        'xx-dark':darken($aside-background, ($color-shade-interval * 3)),
-                        'font-color': nth($aside-colors, 1),
-                        'font-link-color': nth($aside-colors, 2),
-                        'font-hover-color': nth($aside-colors, 3),
-                        'font-active-color': nth($aside-colors, 4),
-                ),
-                'footer': (
-                        'base': $footer-background,
-                        'light': lighten($footer-background, $color-shade-interval),
-                        'x-light': lighten($footer-background, ($color-shade-interval * 2)),
-                        'xx-light': lighten($footer-background, ($color-shade-interval * 3)),
-                        'dark': darken($footer-background, $color-shade-interval),
-                        'x-dark':darken($footer-background, ($color-shade-interval  * 2)),
-                        'xx-dark':darken($footer-background, ($color-shade-interval * 3)),
-                        'font-color': nth($footer-colors, 1),
-                        'font-link-color': nth($footer-colors, 2),
-                        'font-hover-color': nth($footer-colors, 3),
-                        'font-active-color': nth($footer-colors, 4),
-                ),
-          //'green': #71d366,  // non-nested values
-        ),
-);
+  'main-colors': (
+    'primary': (
+      'base': $primary-background,
+      'light': lighten($primary-background, $color-shade-interval), // Light form of base value
+      'x-light': lighten($primary-background, ($color-shade-interval * 2)), // Lighter form of base value
+      'xx-light': lighten($primary-background, ($color-shade-interval  * 3)), // Lightest form of base value
+      'dark':darken($primary-background, $color-shade-interval), // Dark form of base value
+      'x-dark':darken($primary-background, ($color-shade-interval * 2)), // Darker form of base value
+      'xx-dark':darken($primary-background, ($color-shade-interval * 3)), // Darkest form of base value
+      'font-color':$primary-foreground,
+    ),
+    'secondary': (
+      'base': $secondary-background,
+      'light': lighten($secondary-background, $color-shade-interval),
+      'x-light': lighten($secondary-background, ($color-shade-interval * 2)),
+      'xx-light': lighten($secondary-background, ($color-shade-interval * 3)),
+      'dark':darken($secondary-background, $color-shade-interval),
+      'x-dark':darken($secondary-background, ($color-shade-interval  * 2)),
+      'xx-dark':darken($secondary-background, ($color-shade-interval * 3)),
+      'font-color':$secondary-foreground,
+    )
+  ),
+  'partial-colors': (
+    'header': (
+      'base': $header-background,
+      'light': lighten($header-background, $color-shade-interval),
+      'x-light': lighten($header-background, ($color-shade-interval * 2)),
+      'xx-light': lighten($header-background, ($color-shade-interval * 3)),
+      'dark': darken($header-background, $color-shade-interval),
+      'x-dark':darken($header-background, ($color-shade-interval  * 2)),
+      'xx-dark':darken($header-background, ($color-shade-interval * 3)),
+      'font-color': nth($header-colors, 1),
+      'font-link-color': nth($header-colors, 2),
+      'font-hover-color': nth($header-colors, 3),
+      'font-active-color': nth($header-colors, 4),
+    ),
+    'sidebar': (
+      'base': $sidebar-background,
+      'light': lighten($sidebar-background, $color-shade-interval),
+      'x-light': lighten($sidebar-background, ($color-shade-interval * 2)),
+      'xx-light': lighten($sidebar-background, ($color-shade-interval * 3)),
+      'dark': darken($sidebar-background, $color-shade-interval),
+      'x-dark':darken($sidebar-background, ($color-shade-interval  * 2)),
+      'xx-dark':darken($sidebar-background, ($color-shade-interval * 3)),
+      'font-color': nth($sidebar-colors, 1),
+      'font-link-color': nth($sidebar-colors, 2),
+      'font-hover-color': nth($sidebar-colors, 3),
+      'font-active-color': nth($sidebar-colors, 4),
+    ),
+    'aside': (
+      'base': $aside-background,
+      'light': lighten($aside-background, $color-shade-interval),
+      'x-light': lighten($aside-background, ($color-shade-interval * 2)),
+      'xx-light': lighten($aside-background, ($color-shade-interval * 3)),
+      'dark': darken($aside-background, $color-shade-interval),
+      'x-dark':darken($aside-background, ($color-shade-interval  * 2)),
+      'xx-dark':darken($aside-background, ($color-shade-interval * 3)),
+      'font-color': nth($aside-colors, 1),
+      'font-link-color': nth($aside-colors, 2),
+      'font-hover-color': nth($aside-colors, 3),
+      'font-active-color': nth($aside-colors, 4),
+    ),
+    'footer': (
+      'base': $footer-background,
+      'light': lighten($footer-background, $color-shade-interval),
+      'x-light': lighten($footer-background, ($color-shade-interval * 2)),
+      'xx-light': lighten($footer-background, ($color-shade-interval * 3)),
+      'dark': darken($footer-background, $color-shade-interval),
+      'x-dark':darken($footer-background, ($color-shade-interval  * 2)),
+      'xx-dark':darken($footer-background, ($color-shade-interval * 3)),
+      'font-color': nth($footer-colors, 1),
+      'font-link-color': nth($footer-colors, 2),
+      'font-hover-color': nth($footer-colors, 3),
+      'font-active-color': nth($footer-colors, 4),
+    ),
+    //'green': #71d366,  // non-nested values
+  ),
+) !default;

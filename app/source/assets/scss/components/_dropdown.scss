@@ -99,7 +99,6 @@
     font-size: $dropdown-header-font-size;
     color: $dropdown-header-color;
     padding: $dropdown-item-padding-y $dropdown-item-padding-x;
-    white-space: nowrap;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: $font-wh-semi;
@@ -146,15 +145,12 @@
       &.active::before {
         opacity: 1;
       }
-
-
     }
 
     // Change the hover, focus, active state links for better highlighting
     #{$hover-focus-tags} {
       color: $dropdown-link-hover-color;
       background: $dropdown-link-hover-bg;
-
       i {
         color: $dropdown-link-hover-color;
       }
@@ -167,7 +163,6 @@
       color: $dropdown-link-active-color;
       background-color: $dropdown-link-active-bg;
       text-decoration: none;
-
       i {
         color: $dropdown-link-active-color;
       }
@@ -182,31 +177,78 @@
 
   }
 
+  // Dropdown text
+  & .dropdown-item-text {
+    font-size: $dropdown-font-size;
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    color: $dropdown-link-color;
+  }
+
   & .dropdown-divider {
     @include add-border($dropdown-divider-border-width, $dropdown-divider-color, top);
   }
 
-  // Positioning submenu layout. Add extra class to `.dropdown-menu` to flip the alignment of the dropdown.
-  &.dropdown-menu-right {
-    @at-root .has-arrow#{&} {
-      &:before {
-        right: 16px;
-        left: auto;
-      }
+}
 
-      &:after {
-        left: auto;
-        right: 14px;
-      }
+//
+// RESPONSIVE ALIGNMENT
+// ======================================================
+
+.dropdown-menu-right {
+  @at-root .has-arrow#{&} {
+    &:before {
+      right: 16px;
+      left: auto !important;
     }
-
-    // Second, Third and more levels
-    & .dropdown-menu {
-      top: 0;
-      left: -100%;
-      margin-left: -1px;
+    &:after {
+      right: 14px;
+      left: auto !important;
     }
   }
+
+  // Positioning submenu layout (Second, Third and more levels).
+  // Add extra class `dropdown-menu-right` to the parent`.dropdown-menu` to flip the alignment of the dropdown.
+  & .dropdown-menu {
+    top: 0 !important;
+    left: -100% !important;
+    margin-left: -1px !important;
+  }
+}
+
+// Generate series of `.dropdown-menu-{sm|md|lg|xl}-{right|left}` classes for responsive alignment
+
+@each $next-breakpoint, $length in $breakpoints-max-widths {
+  $next-breakpoint: breakpoint-next($next-breakpoint, $breakpoints-min-widths);
+  $next-length: map-get-strict($breakpoints-min-widths,$next-breakpoint);
+
+  @media only screen and (min-width: #{$next-length}){
+    .dropdown-menu-#{$next-breakpoint}-right {
+      @at-root .has-arrow#{&} {
+        &:before {
+          right: 16px;
+          left: auto !important;
+        }
+        &:after {
+          right: 14px;
+          left: auto !important;
+        }
+      }
+    }
+    .dropdown-menu-#{$next-breakpoint}-left {
+      @at-root .has-arrow#{&} {
+        &:before {
+          right:auto;
+          left: 16px !important;
+        }
+        &:after {
+          right: auto;
+          left: 14px !important;
+        }
+      }
+
+    }
+  }
+
 }
 
 //
@@ -233,12 +275,12 @@
   }
 
   // Dropdown section headers
-  .dropdown-header {
+  & .dropdown-header {
     @include text-theme($dropdown-ext-theme-scheme, 'font-color');
   }
 
   // Dropdown menu links
-  .dropdown-item {
+  & .dropdown-item {
     &,
     i {
       @include text-theme($dropdown-ext-theme-scheme, 'font-link-color');
@@ -268,6 +310,11 @@
       background-color: transparent !important;
     }
 
+  }
+
+  // Dropdown text
+  & .dropdown-item-text {
+    @include text-theme($dropdown-ext-theme-scheme, 'font-link-color');
   }
 
   & .dropdown-divider {
@@ -348,8 +395,6 @@
         transform: rotate(180deg);
       }
     }
-
-
   }
 }
 

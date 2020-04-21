@@ -89,7 +89,7 @@ OR you can type out the HTML if you prefer--}}
     <div class="row">
         <div class="col-md-6 pr-md-2">
             {{#card}}
-                {{{card_header 'Dropdown with active and disabled menu'}}}
+                {{{card_header 'Dropdown with active, disabled and non-interactive items'}}}
                 {{#card_body}}
                     <p>Add <code>.active</code> to items in the dropdown to style them as active. Add <code>.disabled</code> to items in the dropdown to style them as
                         disabled.</p>
@@ -98,10 +98,9 @@ OR you can type out the HTML if you prefer--}}
                         <div class="col-md example mb-3">
                             {{#ddw_menu_has 'themed extended bordered has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
-                                {{#ddw_items dropdowns.items}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                                 {{#ddw_items dropdowns.items_active_disabled}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                                <li><span class="dropdown-item-text">I'm non-interactive item</span></li>
                                 {{{ddw_divider}}}
                                 {{#ddw_items dropdowns.items_2}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
@@ -110,10 +109,9 @@ OR you can type out the HTML if you prefer--}}
                         <div class="col-md example mb-3">
                             {{#ddw_menu_has 'extended bordered has-arrow'}}
                                 {{{ddw_header 'Dropdown header'}}}
-                                {{#ddw_items dropdowns.items}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                                 {{#ddw_items dropdowns.items_active_disabled}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                                <li><span class="dropdown-item-text">I'm non-interactive item</span></li>
                                 {{{ddw_divider}}}
                                 {{#ddw_items dropdowns.items_2}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}

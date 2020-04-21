@@ -117,53 +117,23 @@ h6, .h6 {
 
 .display-6 {
   font-size: $display6-size;
-   font-weight: $display6-weight;
-   line-height: $display-line-height;
+  font-weight: $display6-weight;
+  line-height: $display-line-height;
 }
 
-@include max-screen($screen-xs-max) {
-  .display-xs-1 { font-size: $display1-size; font-weight: $display1-weight; line-height: $display-line-height; }
-  .display-xs-2 { font-size: $display2-size; font-weight: $display2-weight; line-height: $display-line-height; }
-  .display-xs-3 { font-size: $display3-size; font-weight: $display3-weight; line-height: $display-line-height; }
-  .display-xs-4 { font-size: $display4-size; font-weight: $display4-weight; line-height: $display-line-height; }
-  .display-xs-5 { font-size: $display5-size; font-weight: $display5-weight; line-height: $display-line-height; }
-  .display-xs-6 { font-size: $display6-size; font-weight: $display6-weight; line-height: $display-line-height; }
-}
+// Generate series of `.display-{sm|md|lg|xl}-{1|2|3|4|5|6}` responsive classes
 
-@include min-screen($screen-sm-min) {
-  .display-sm-1 { font-size: $display1-size; font-weight: $display1-weight; line-height: $display-line-height; }
-  .display-sm-2 { font-size: $display2-size; font-weight: $display2-weight; line-height: $display-line-height; }
-  .display-sm-3 { font-size: $display3-size; font-weight: $display3-weight; line-height: $display-line-height; }
-  .display-sm-4 { font-size: $display4-size; font-weight: $display4-weight; line-height: $display-line-height; }
-  .display-sm-5 { font-size: $display5-size; font-weight: $display5-weight; line-height: $display-line-height; }
-  .display-sm-6 { font-size: $display6-size; font-weight: $display6-weight; line-height: $display-line-height; }
-}
-
-@include min-screen($screen-md-min) {
-  .display-md-1 { font-size: $display1-size; font-weight: $display1-weight; line-height: $display-line-height; }
-  .display-md-2 { font-size: $display2-size; font-weight: $display2-weight; line-height: $display-line-height; }
-  .display-md-3 { font-size: $display3-size; font-weight: $display3-weight; line-height: $display-line-height; }
-  .display-md-4 { font-size: $display4-size; font-weight: $display4-weight; line-height: $display-line-height; }
-  .display-md-5 { font-size: $display5-size; font-weight: $display5-weight; line-height: $display-line-height; }
-  .display-md-6 { font-size: $display6-size; font-weight: $display6-weight; line-height: $display-line-height; }
-}
-
-@include min-screen($screen-lg-min) {
-  .display-lg-1 { font-size: $display1-size; font-weight: $display1-weight; line-height: $display-line-height; }
-  .display-lg-2 { font-size: $display2-size; font-weight: $display2-weight; line-height: $display-line-height; }
-  .display-lg-3 { font-size: $display3-size; font-weight: $display3-weight; line-height: $display-line-height; }
-  .display-lg-4 { font-size: $display4-size; font-weight: $display4-weight; line-height: $display-line-height; }
-  .display-lg-5 { font-size: $display5-size; font-weight: $display5-weight; line-height: $display-line-height; }
-  .display-lg-6 { font-size: $display6-size; font-weight: $display6-weight; line-height: $display-line-height; }
-}
-
-@include min-screen($screen-xl-min) {
-  .display-xl-1 { font-size: $display1-size; font-weight: $display1-weight; line-height: $display-line-height; }
-  .display-xl-2 { font-size: $display2-size; font-weight: $display2-weight; line-height: $display-line-height; }
-  .display-xl-3 { font-size: $display3-size; font-weight: $display3-weight; line-height: $display-line-height; }
-  .display-xl-4 { font-size: $display4-size; font-weight: $display4-weight; line-height: $display-line-height; }
-  .display-xl-5 { font-size: $display5-size; font-weight: $display5-weight; line-height: $display-line-height; }
-  .display-xl-6 { font-size: $display6-size; font-weight: $display6-weight; line-height: $display-line-height; }
+@each $breakpoint, $length in $breakpoints-max-widths {
+  $next-breakpoint: breakpoint-next($breakpoint, $breakpoints-min-widths);
+  $next-length: map-get-strict($breakpoints-min-widths,$next-breakpoint);
+  @include min-screen(#{$next-length}) {
+    .display-#{$next-breakpoint}-1 { font-size: $display1-size; font-weight: $display1-weight; line-height: $display-line-height; }
+    .display-#{$next-breakpoint}-2 { font-size: $display2-size; font-weight: $display2-weight; line-height: $display-line-height; }
+    .display-#{$next-breakpoint}-3 { font-size: $display3-size; font-weight: $display3-weight; line-height: $display-line-height; }
+    .display-#{$next-breakpoint}-4 { font-size: $display4-size; font-weight: $display4-weight; line-height: $display-line-height; }
+    .display-#{$next-breakpoint}-5 { font-size: $display5-size; font-weight: $display5-weight; line-height: $display-line-height; }
+    .display-#{$next-breakpoint}-6 { font-size: $display6-size; font-weight: $display6-weight; line-height: $display-line-height; }
+  }
 }
 
 //

@@ -8,7 +8,7 @@ module.exports = function (grunt) {
             files: [{
                 expand: true,
                 cwd: grunt.getPath('img', false, true),
-                src: ['**/*.{png,jpg,gif,ico}'],
+                src: ['**/*.{png,jpg,jpeg,gif,ico}'],
                 dest: grunt.getPath('img', false, true)
             }]
         }

@@ -44,8 +44,8 @@ $activeTheme: 'rebecca';
 // Import your themes here.
 
 @import
-    'theme-rebecca/rebecca',
-    'theme-unicorn/unicorn';
+    'theme-rebecca/rebecca';
+    //'theme-unicorn/unicorn'; FIX  - importing this theme cause the theme variable usage on pages css take from this theme
 
 //
 // DEFINE THEMES MAP
@@ -56,5 +56,5 @@ $activeTheme: 'rebecca';
 // Define the name of your theme (imported above) as the key and corresponding palette map variable name as the value.
 $themes-map: (
         rebecca: $rebecca-palette-map,
-        unicorn: $unicorn-palette-map,
+        //unicorn: $unicorn-palette-map,
 );

@@ -103,13 +103,13 @@ $nb: navbar;
   }
 }
 
-// Generate series of `.#{$nb}-expand-*` responsive classes for configuring
+// Generate series of `.#{$nb}-expand-{sm|md|lg|xl}` responsive classes for configuring
 // where your navbar collapses.
 
-@each $size, $length in $breakpoints-max-widths {
-  $next: breakpoint-next($size, $breakpoints-min-widths);
+@each $breakpoint, $length in $breakpoints-max-widths {
+  $next-breakpoint: breakpoint-next($breakpoint, $breakpoints-min-widths);
   @include max-screen(#{$length}) {
-    .#{$nb}-expand-#{$next}.master-header__#{$nb} {
+    .#{$nb}-expand-#{$next-breakpoint}.master-header__#{$nb} {
 
       .#{$nb}-nav:not(.no-collapse) {
 

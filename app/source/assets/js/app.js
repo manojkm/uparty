@@ -34,6 +34,7 @@ var appMaster = {
     _sidebarMiniIsOpen: false,
     _exitSidebarPopOutMenuConfig: null,
     _navbarFixed: $('.header-fixed'),
+    _footerFixed: $('.footer-fixed'),
     _navbarSlimScroll: false,
     _navbarToggler: $(".navbar-toggler"),
     _navbarCollapse: $('.navbar-collapse'),
@@ -1142,19 +1143,20 @@ var appMaster = {
     },
 
     setFooterHeight: function () {
-        function set_heights() {
-            var footerHeight = $('.master-footer').height();
-            $('.content__inner-wrap').css('padding-bottom', footerHeight + 'px');
+      function set_heights() {
+        if ($(appMaster._footerFixed).length) {  // Make sure there is fixed-element
+          var footerHeight = $('.master-footer').height();
+          $('.content__inner-wrap').css('padding-bottom', footerHeight + 'px');
         }
+      }
 
-        // Execute on load
+      // Execute on load
+      set_heights();
+
+      // Execute on resize
+      $(window).on('resize', function () {
         set_heights();
-
-        // Execute on resize
-        $(window).on('resize', function () {
-            set_heights()
-        });
-
+      });
     },
 
     expandCollapse: function () {

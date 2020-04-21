@@ -351,7 +351,7 @@ $enable-shadows:                        true !default;
 // Use with #{} interpolation syntax:
 // background-image: url('#{$image-path}/arrow-down.png')
 
-$assets-relative-path-prod:             '../../' !default; // Set the directory relative to production assets path.
+$assets-relative-path-prod:             '../' !default; // Set the directory relative to production assets path.
 $font-path:                             '#{$assets-relative-path-prod}fonts/' !default;
 $image-path:                            '#{$assets-relative-path-prod}img/' !default;
 $vendors-path:                          '#{$assets-relative-path-prod}vendors/' !default;
@@ -725,6 +725,7 @@ $blockquote-small-color:                $gray-600 !default;
 // 6.1 MAIN CONTENT WRAPPERS
 // -----------------------------------------------------------------------------
 
+$app-bg:                                $gray-200 !default; // Background color for application wrapper `section.app`
 $main-content-padding-y:                20px !default; // Vertical padding for 'main content' wrapper
 $main-content-padding-x:                0 !default; // Horizontal padding for 'main content' wrapper
 
@@ -1971,19 +1972,19 @@ $slider-tooltip-box-shadow:             0 3px 15px rgba($gray-400, 0.1), 0 2px 3
 // -----------------------------------------------------------------------------
 
 // Placeholder(ph)
-$html-sortable-ph-border-color:                         #b6bcbf !default; // Placeholder border color
-$html-sortable-ph-border-style:                         dashed !default; // Placeholder border style
-$html-sortable-ph-border-width:                         $border-thin !default; // Placeholder border size
-$html-sortable-ph-background-color:                     #f2fbff !default; // Placeholder background color
-$html-sortable-ph-margin-y:                             5px !default; // Placeholder vertical margin, so that there is space between list item while dragging
+$html-sortable-ph-border-color:         #b6bcbf !default; // Placeholder border color
+$html-sortable-ph-border-style:         dashed !default; // Placeholder border style
+$html-sortable-ph-border-width:         $border-thin !default; // Placeholder border size
+$html-sortable-ph-background-color:     #f2fbff !default; // Placeholder background color
+$html-sortable-ph-margin-y:             5px !default; // Placeholder vertical margin, so that there is space between list item while dragging
 
 // Drag handle
 
-$html-sortable-drag-handle-width:                       35px; // Drag handle Size
+$html-sortable-drag-handle-width:       35px; // Drag handle Size
 
 // Sortable cards
 
-$html-sortable-card-ph-margin-y:                        30px !default; // Placeholder vertical margin, so that there is space between cards while dragging
+$html-sortable-card-ph-margin-y:        30px !default; // Placeholder vertical margin, so that there is space between cards while dragging
 
 //
 // 9.8 JQUERY NESTABLE

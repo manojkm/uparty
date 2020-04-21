@@ -336,6 +336,7 @@
 @mixin bg-opacity($class-slug, $color) {
   @for $i from 1 through 9 {
     .bg-#{$class-slug}-opacity-#{$i} {
+      @include transition;
       background-color: rgba($color, 0 + ($i * 0.1)) !important;
     }
   }
