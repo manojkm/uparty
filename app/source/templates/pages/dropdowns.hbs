@@ -17,7 +17,7 @@ OR you can type out the HTML if you prefer--}}
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 pr-md-2">
+        <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Extended Dropdown'}}}
                 {{#card_body}}
@@ -51,7 +51,7 @@ OR you can type out the HTML if you prefer--}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-md-2">
+        <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Themed - Extended Dropdown'}}}
                 {{#card_body}}
@@ -87,7 +87,7 @@ OR you can type out the HTML if you prefer--}}
     </div>
 
     <div class="row">
-        <div class="col-md-6 pr-md-2">
+        <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Dropdown with active, disabled and non-interactive items'}}}
                 {{#card_body}}
@@ -101,9 +101,6 @@ OR you can type out the HTML if you prefer--}}
                                 {{#ddw_items dropdowns.items_active_disabled}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                                 <li><span class="dropdown-item-text">I'm non-interactive item</span></li>
-                                {{{ddw_divider}}}
-                                {{#ddw_items dropdowns.items_2}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                             {{/ddw_menu_has}}
                         </div>
                         <div class="col-md example mb-3">
@@ -112,9 +109,6 @@ OR you can type out the HTML if you prefer--}}
                                 {{#ddw_items dropdowns.items_active_disabled}}
                                     <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                                 <li><span class="dropdown-item-text">I'm non-interactive item</span></li>
-                                {{{ddw_divider}}}
-                                {{#ddw_items dropdowns.items_2}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                             {{/ddw_menu_has}}
                         </div>
                     </div>
@@ -122,7 +116,7 @@ OR you can type out the HTML if you prefer--}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-md-2">
+        <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Dropdown with submenu'}}}
                 {{#card_body}}
@@ -133,23 +127,18 @@ OR you can type out the HTML if you prefer--}}
                             <!-- Drop-Right submenu -->
                             <p>Drop-Right submenu</p>
                             {{#ddw_menu_has 'themed extended bordered has-arrow'}}
-                                {{{ddw_header 'Dropdown header'}}}
-                                {{#ddw_items dropdowns.items}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                                <li class="dropdown has-child">
-                                    <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks mr-2"></i>Submenu</a>
-
+                                {{{ddw_header 'Menu direction'}}}
+                                <li class="dropdown has-child show-right">
+                                    <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks mr-2"></i>Right</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Submenu action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another submenu action</a></li>
-                                        <li class="dropdown has-child">
+                                        <li class="dropdown has-child show-right">
                                             <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
                                                 <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown has-child"><a class="dropdown-item dropdown-toggle" href="#">Second
+                                        <li class="dropdown has-child show-right"><a class="dropdown-item dropdown-toggle" href="#">Second
                                             subsubmenu</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
@@ -159,9 +148,6 @@ OR you can type out the HTML if you prefer--}}
                                     </ul>
 
                                 </li>
-                                {{{ddw_divider}}}
-                                {{#ddw_items dropdowns.items_2}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                             {{/ddw_menu_has}}
                             <!-- /Drop-Right submenu -->
                         </div>
@@ -169,23 +155,18 @@ OR you can type out the HTML if you prefer--}}
                             <!-- Drop-Left submenu -->
                             <p>Drop-Left submenu</p>
                             {{#ddw_menu_has 'themed extended bordered dropdown-menu-right has-arrow'}}
-                                {{{ddw_header 'Dropdown header'}}}
-                                {{#ddw_items dropdowns.items}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
-                                <li class="dropdown has-child">
-                                    <a class="dropdown-item dropdown-toggle" href="#"><i class="fa fa-tasks mr-2"></i>Submenu</a>
-
+                                {{{ddw_header 'Menu direction'}}}
+                                <li class="dropdown has-child show-left">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Left<i class="fa fa-tasks ml-auto"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Submenu action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another submenu action</a></li>
-                                        <li class="dropdown has-child">
+                                        <li class="dropdown has-child show-left">
                                             <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
                                                 <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown has-child"><a class="dropdown-item dropdown-toggle" href="#">Second
+                                        <li class="dropdown has-child show-left"><a class="dropdown-item dropdown-toggle" href="#">Second
                                             subsubmenu</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
@@ -193,11 +174,7 @@ OR you can type out the HTML if you prefer--}}
                                             </ul>
                                         </li>
                                     </ul>
-
                                 </li>
-                                {{{ddw_divider}}}
-                                {{#ddw_items dropdowns.items_2}}
-                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                             {{/ddw_menu_has}}
                             <!-- /Drop-Left submenu -->
                         </div>
@@ -209,36 +186,33 @@ OR you can type out the HTML if you prefer--}}
     </div>
 
     <div class="row">
-        <div class="col-xl-3 pr-xl-2">
+        <div class="col-12">
             {{#card}}
                 {{{card_header 'Dropdown with text'}}}
                 {{#card_body}}
                     <!-- Dropdown with text -->
                     <p>Place any freeform text within a dropdown menu with text and use spacing, sizing utilities.</p>
                     <div class="example">
-                        {{#ddw_menu_has 'extended themed bordered has-arrow w-75'}}
+                        {{#ddw_menu_has 'extended themed bordered has-arrow'}}
                             {{{ddw_header 'Dropdown header'}}}
                             <li><p class="px-2 py-2 mb-0 text-white">Some example text that's free-flowing within the dropdown menu.</p></li>
                             {{#ddw_items dropdowns.items}}
                                 <a class="{{class}}" href="{{url}}"><i class="{{class_i}} mr-2"></i>{{text}}
                                     <span class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>
                             {{/ddw_items}}
-                            {{{ddw_divider}}}
-                            {{#ddw_items dropdowns.items_2}}
-                                <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
                         {{/ddw_menu_has}}
                     </div>
                     <!-- /Dropdown with text -->
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-xl-3 px-xl-2">
+        <div class="col-12">
             {{#card}}
                 {{{card_header 'Dropdown with forms'}}}
                 {{#card_body}}
                     <!-- Dropdown with forms -->
                     <div class="example">
-                        {{#ddw_menu_has 'extended themed bordered has-arrow w-75'}}
+                        {{#ddw_menu_has 'extended themed bordered has-arrow'}}
                             <form class="px-3 py-3">
                                 <div class="form-group mb-2">
                                     <label for="exampleDropdownFormEmail1" class="text-white">Email address</label>
@@ -257,15 +231,15 @@ OR you can type out the HTML if you prefer--}}
                                 <button type="submit" class="btn btn-primary mt-2">Sign in</button>
                             </form>
                             {{{ddw_divider}}}
-                            <a class="dropdown-item" href="#">New around here? Sign up</a>
-                            <a class="dropdown-item" href="#">Forgot password?</a>
+                            <li><span class="dropdown-item-text">New around here?  <a href="#" class="text-primary">Sign up</a></span></li>
+                            <li><a class="dropdown-item" href="#">Forgot password?</a></li>
                         {{/ddw_menu_has}}
                     </div>
                     <!-- /Dropdown with forms -->
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-xl-3 px-xl-2">
+        <div class="col-12">
             {{#card}}
                 {{{card_header 'No optional classes'}}}
                 {{#card_body}}
@@ -288,7 +262,7 @@ OR you can type out the HTML if you prefer--}}
             {{/card}}
 
         </div>
-        <div class="col-xl-3 pl-xl-2">
+        <div class="col-12">
             {{#card}}
                 {{{card_header 'Default dropdown'}}}
                 {{#card_body}}
@@ -309,7 +283,7 @@ OR you can type out the HTML if you prefer--}}
 
 
     <div class="row">
-        <div class="col-12 col-xl-4 pr-xl-2">
+        <div class="col-12 col-xl-4">
             {{#card}}
                 {{{card_header 'Hide caret'}}}
                 {{#card_body}}
@@ -328,7 +302,7 @@ OR you can type out the HTML if you prefer--}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-12 col-xl-4 px-xl-2">
+        <div class="col-12 col-xl-4">
             {{#card}}
                 {{{card_header 'Dropdown menu on hover'}}}
                 {{#card_body}}
@@ -347,7 +321,7 @@ OR you can type out the HTML if you prefer--}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-12 col-xl-4 pl-xl-2">
+        <div class="col-12 col-xl-4">
             {{#card}}
                 {{{card_header 'Offset'}}}
                 {{#card_body}}
@@ -370,6 +344,166 @@ OR you can type out the HTML if you prefer--}}
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12 col-xl-4">
+            {{#card}}
+                {{{card_header 'Dropup variation'}}}
+                {{#card_body}}
+                    <!-- Default dropup button -->
+                    <p>Trigger dropdown menus above elements by adding <code>.dropup</code> to the parent element.</p>
+                    <div class="btn-group dropup mb-1">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropup
+                        </button>
+                        {{#ddw_menu_has 'extended has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Default dropup button -->
+                    <!-- Split dropup button -->
+                    <div class="btn-group dropup mb-1">
+                        {{#btn "secondary"}}Split dropup{{/btn}}
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        {{#ddw_menu_has 'extended themed has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Split dropup button -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-xl-4">
+            {{#card}}
+                {{{card_header 'Dropright variation'}}}
+                {{#card_body}}
+                    <p>Trigger dropdown menus at the right of the elements by adding <code>.dropright</code> to the parent element.</p>
+                    <!-- Default dropright button -->
+                    <div class="btn-group dropright mb-1">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropright
+                        </button>
+                        {{#ddw_menu_has 'extended has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Default dropright button -->
+                    <!-- Split dropright button -->
+                    <div class="btn-group dropright mb-1">
+                        {{#btn "secondary"}}Split dropright{{/btn}}
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropright</span>
+                        </button>
+                        {{#ddw_menu_has 'extended has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Split dropright button -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-xl-4">
+            {{#card}}
+                {{{card_header 'Dropleft variation'}}}
+                {{#card_body}}
+                    <p>Trigger dropdown menus at the left of the elements by adding <code>.dropleft</code> to the parent element.</p>
+                    <!-- Default dropleft button -->
+                    <div class="btn-group dropleft mb-1">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropleft
+                        </button>
+                        {{#ddw_menu_has 'extended has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Default dropleft button -->
+                    <!-- Split dropleft button -->
+                    <div class="btn-group mb-1">
+                        <div class="btn-group dropleft" role="group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                <span class="sr-only">Toggle Dropleft</span>
+                            </button>
+                            {{#ddw_menu_has 'extended has-arrow'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </div>
+                        {{#btn "secondary"}}Split dropleft{{/btn}}
+                    </div>
+                    <!-- /Split dropleft button -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-xl-4">
+            {{#card}}
+                {{{card_header 'Menu alignment'}}}
+                {{#card_body}}
+                    <!-- Menu alignment -->
+                    <p> Add <code>.dropdown-menu-right</code> to a <code>.dropdown-menu</code> to right align the dropdown menu.</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            This dropdown's menu is right-aligned
+                        </button>
+                        {{#ddw_menu_has 'extended dropdown-menu-right has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Menu alignment -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+
+        <div class="col-12 col-xl-4">
+            {{#card}}
+                {{{card_header 'Responsive right alignment'}}}
+                {{#card_body}}
+                    <!-- Responsive right alignment -->
+                    <p>To align <strong>right</strong> the dropdown menu with the given breakpoint or larger, add <code>.dropdown-menu{-sm|-md|-lg|-xl}-right</code>.</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            Left-aligned but right aligned when large screen
+                        </button>
+                        {{#ddw_menu_has 'extended dropdown-menu-lg-right has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Responsive right alignment -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-12 col-xl-4">
+            {{#card}}
+                {{{card_header 'Responsive left alignment'}}}
+                {{#card_body}}
+                    <!-- Responsive left alignment -->
+                    <p>To align <strong>left</strong> the dropdown menu with the given breakpoint or larger, add <code>.dropdown-menu-right</code> and <code>.dropdown-menu{-sm|-md|-lg|-xl}-left</code>.</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            Right-aligned but left aligned when large screen
+                        </button>
+                        {{#ddw_menu_has 'extended dropdown-menu-right dropdown-menu-lg-left has-arrow'}}
+                            {{{ddw_header 'Dropdown header'}}}
+                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                        {{/ddw_menu_has}}
+                    </div>
+                    <!-- /Responsive left alignment -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+
+    </div>
 
     <div class="row">
         <div class="col-md-12">
@@ -622,7 +756,7 @@ OR you can type out the HTML if you prefer--}}
     </div>
 
     <div class="row">
-        <div class="col-md-6 pr-md-2">
+        <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Icon Button Dropdowns'}}}
                 {{#card_body}}
@@ -643,7 +777,7 @@ OR you can type out the HTML if you prefer--}}
                 {{/card_body}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-md-2">
+        <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Outline icon buttons'}}}
                 {{#card_body}}
@@ -791,124 +925,6 @@ OR you can type out the HTML if you prefer--}}
                         </div>
                     </div>
                     <!-- /Button sizes -->
-                {{/card_body}}
-            {{/card}}
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12 col-xl-3 pr-xl-2">
-            {{#card}}
-                {{{card_header 'Dropup variation'}}}
-                {{#card_body}}
-                    <!-- Default dropup button -->
-                    <p>Trigger dropdown menus above elements by adding <code>.dropup</code> to the parent element.</p>
-                    <div class="btn-group dropup mb-1">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropup
-                        </button>
-                        {{#ddw_menu_has 'extended has-arrow'}}
-                            {{{ddw_header 'Dropdown header'}}}
-                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
-                        {{/ddw_menu_has}}
-                    </div>
-                    <!-- /Default dropup button -->
-                    <!-- Split dropup button -->
-                    <div class="btn-group dropup mb-1">
-                        {{#btn "secondary"}}Split dropup{{/btn}}
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        {{#ddw_menu_has 'extended themed has-arrow'}}
-                            {{{ddw_header 'Dropdown header'}}}
-                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
-                        {{/ddw_menu_has}}
-                    </div>
-                    <!-- /Split dropup button -->
-                {{/card_body}}
-            {{/card}}
-        </div>
-        <div class="col-12 col-xl-3 px-xl-2">
-            {{#card}}
-                {{{card_header 'Dropright variation'}}}
-                {{#card_body}}
-                    <p>Trigger dropdown menus at the right of the elements by adding <code>.dropright</code> to the parent element.</p>
-                    <!-- Default dropright button -->
-                    <div class="btn-group dropright mb-1">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropright
-                        </button>
-                        {{#ddw_menu_has 'extended has-arrow'}}
-                            {{{ddw_header 'Dropdown header'}}}
-                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
-                        {{/ddw_menu_has}}
-                    </div>
-                    <!-- /Default dropright button -->
-                    <!-- Split dropright button -->
-                    <div class="btn-group dropright mb-1">
-                        {{#btn "secondary"}}Split dropright{{/btn}}
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropright</span>
-                        </button>
-                        {{#ddw_menu_has 'extended has-arrow'}}
-                            {{{ddw_header 'Dropdown header'}}}
-                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
-                        {{/ddw_menu_has}}
-                    </div>
-                    <!-- /Split dropright button -->
-                {{/card_body}}
-            {{/card}}
-        </div>
-        <div class="col-12 col-xl-3 px-xl-2">
-            {{#card}}
-                {{{card_header 'Dropleft variation'}}}
-                {{#card_body}}
-                    <p>Trigger dropdown menus at the left of the elements by adding <code>.dropleft</code> to the parent element.</p>
-                    <!-- Default dropleft button -->
-                    <div class="btn-group dropleft mb-1">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropleft
-                        </button>
-                        {{#ddw_menu_has 'extended has-arrow'}}
-                            {{{ddw_header 'Dropdown header'}}}
-                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
-                        {{/ddw_menu_has}}
-                    </div>
-                    <!-- /Default dropleft button -->
-                    <!-- Split dropleft button -->
-                    <div class="btn-group mb-1">
-                        <div class="btn-group dropleft" role="group">
-                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                <span class="sr-only">Toggle Dropleft</span>
-                            </button>
-                            {{#ddw_menu_has 'extended has-arrow'}}
-                                {{{ddw_header 'Dropdown header'}}}
-                                {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
-                            {{/ddw_menu_has}}
-                        </div>
-                        {{#btn "secondary"}}Split dropleft{{/btn}}
-                    </div>
-                    <!-- /Split dropleft button -->
-                {{/card_body}}
-            {{/card}}
-        </div>
-        <div class="col-12 col-xl-3 pl-xl-2">
-            {{#card}}
-                {{{card_header 'Menu alignment'}}}
-                {{#card_body}}
-                    <!-- Menu alignment -->
-                    <p> Add <code>.dropdown-menu-right</code> to a <code>.dropdown-menu</code> to right align the dropdown menu.</p>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            This dropdown's menu is right-aligned
-                        </button>
-                        {{#ddw_menu_has 'extended dropdown-menu-right has-arrow'}}
-                            {{{ddw_header 'Dropdown header'}}}
-                            {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
-                        {{/ddw_menu_has}}
-                    </div>
-                    <!-- /Menu alignment -->
                 {{/card_body}}
             {{/card}}
         </div>

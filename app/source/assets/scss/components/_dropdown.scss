@@ -151,6 +151,7 @@
     #{$hover-focus-tags} {
       color: $dropdown-link-hover-color;
       background: $dropdown-link-hover-bg;
+
       i {
         color: $dropdown-link-hover-color;
       }
@@ -163,6 +164,7 @@
       color: $dropdown-link-active-color;
       background-color: $dropdown-link-active-bg;
       text-decoration: none;
+
       i {
         color: $dropdown-link-active-color;
       }
@@ -200,18 +202,11 @@
       right: 16px;
       left: auto !important;
     }
+
     &:after {
       right: 14px;
       left: auto !important;
     }
-  }
-
-  // Positioning submenu layout (Second, Third and more levels).
-  // Add extra class `dropdown-menu-right` to the parent`.dropdown-menu` to flip the alignment of the dropdown.
-  & .dropdown-menu {
-    top: 0 !important;
-    left: -100% !important;
-    margin-left: -1px !important;
   }
 }
 
@@ -219,15 +214,16 @@
 
 @each $next-breakpoint, $length in $breakpoints-max-widths {
   $next-breakpoint: breakpoint-next($next-breakpoint, $breakpoints-min-widths);
-  $next-length: map-get-strict($breakpoints-min-widths,$next-breakpoint);
+  $next-length: map-get-strict($breakpoints-min-widths, $next-breakpoint);
 
-  @media only screen and (min-width: #{$next-length}){
+  @media only screen and (min-width: #{$next-length}) {
     .dropdown-menu-#{$next-breakpoint}-right {
       @at-root .has-arrow#{&} {
         &:before {
           right: 16px;
           left: auto !important;
         }
+
         &:after {
           right: 14px;
           left: auto !important;
@@ -237,9 +233,10 @@
     .dropdown-menu-#{$next-breakpoint}-left {
       @at-root .has-arrow#{&} {
         &:before {
-          right:auto;
+          right: auto;
           left: 16px !important;
         }
+
         &:after {
           right: auto;
           left: 14px !important;
@@ -329,37 +326,59 @@
 // TODO Adapted from https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation/45755948#45755948
 
 .dropdown.has-child {
-  position: relative;
 
-  // Arrow icon
-  .dropdown-toggle:after {
-    @include center(y);
-    //top: 50%;
-    transform: rotate(-90deg);
-    position: absolute;
-    right: 1em;
-    @include max-screen($screen-md-max) {
-      transform: rotate(0deg);
+  // Positioning submenu layout (Second, Third and more levels).
+  // Add extra class `.show-{right | left}` to the parent`.dropdown-menu` to flip the alignment of the dropdown.
+
+  &.show-right {
+    .dropdown-toggle:after {
+      transform: rotate(-90deg);
+      position: absolute;
+      right: 0.7em;
+      margin-left: 0;
+      @include max-screen($screen-md-max) {
+        transform: rotate(0deg);
+      }
+    }
+    .dropdown-menu {
+      top: 0;
+      left: 95%;
+      margin-left: 1px;
     }
   }
 
-  // Second, Third and more levels
+  &.show-left {
+    .dropdown-toggle:after {
+      transform: rotate(90deg);
+      position: absolute;
+      left: 0.7em;
+      margin-left: 0;
+      @include max-screen($screen-md-max) {
+        transform: rotate(0deg);
+      }
+    }
+    .dropdown-item:before {
+      right: 0;
+      left: auto;
+    }
+    .dropdown-toggle {
+      padding-left: 30px;
+    }
+    .dropdown-menu {
+      top: 0;
+      left: -95%;
+      margin-left: -1px;
+    }
+  }
+
   & .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-left: 1px;
     @include max-screen($screen-md-max) {
       position: static !important;
       margin: 4px !important;
       box-shadow: none;
-      //& .dropdown-item{ padding-left:20px}
-    }
-
-    &:before,
-    &:after {
-      display: none;
     }
   }
+
 }
 
 //
