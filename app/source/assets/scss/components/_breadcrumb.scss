@@ -31,7 +31,7 @@
 
     // The separator between breadcrumbs (by default, a forward-slash: "/")
     &::before {
-      font-family: "Font Awesome 5 Free";
+      font-family: $font-family-font-awesome;
       color: $breadcrumb-divider-color;
       content: "#{$breadcrumb-divider}";
       padding-right: $breadcrumb-item-padding-x;

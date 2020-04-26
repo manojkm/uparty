@@ -26,13 +26,13 @@
 }
 
 //
-// REM FONT SIZE CALCULATING
+// CONVERT PX INTO REM
 // ======================================================
-// Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+// The default font size for html is 16px. Check $font-size-base
+// You can replace rem with any other value you want (rem is most preferred value for web)
 
-@function calculateRem($size) {
-  $remSize: $size / 16px;
-  @return #{$remSize}rem;
+@function calculateRem($target, $context: 16) {
+  @return ($target / $context) * 1rem;
 }
 
 //

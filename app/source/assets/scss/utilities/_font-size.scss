@@ -1,0 +1,25 @@
+// ================================================================================================
+// File Name      : font-size.scss
+// Description    : Helper classes for extra font sizes
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//
+// FONT SIZES
+// ======================================================
+// This generate utility font classes (ie. .fs-10, .fs-12, and so on.) to adjust the font size
+// of an element.
+
+@for $i from 10 through 50 {
+  @if($i%2 == 0){
+    @each $prop, $abbrev in (font-size: fs) {
+      .#{$abbrev}-#{$i} {
+        #{$prop}:calculateRem($i)!important;
+      }
+    }
+  }
+}

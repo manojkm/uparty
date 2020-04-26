@@ -354,7 +354,7 @@ a.accordion {
   &[data-toggle="collapse"], //workaround for Standard accordion type
   & [data-toggle="collapse"] {
     &:after {
-      font-family: 'simple-line-icons';
+      font-family: $font-family-sli;
       content: $accordion-icon-active-default;
       @extend %acc-pseudo;
     }
@@ -372,7 +372,7 @@ a.accordion {
   &[data-toggle="collapse"].plus-minus,
   & [data-toggle="collapse"].plus-minus {
     &:after {
-      font-family: 'themify-icons';
+      font-family: $font-family-themify;
       font-size: 0.85rem;
       content: '\e622';
       @extend %acc-pseudo;
@@ -392,7 +392,7 @@ a.accordion {
   &[data-toggle="collapse"].angle-double,
   & [data-toggle="collapse"].angle-double {
     &:after {
-      font-family: 'themify-icons';
+      font-family: $font-family-themify;
       font-size: 0.85rem;
       content: '\e660';
       @extend %acc-pseudo;
@@ -411,7 +411,7 @@ a.accordion {
   &[data-toggle="collapse"].arrow-circle,
   & [data-toggle="collapse"].arrow-circle {
     &:after {
-      font-family: 'themify-icons';
+      font-family: $font-family-themify;
       font-size: 0.85rem;
       content: '\e65c';
       @extend %acc-pseudo;

@@ -1,0 +1,493 @@
+---
+title: Media object
+lead: Media object are to construct highly repetitive components like blog comments, tweets, and the like.
+components: true
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            {{#card}}
+                {{{card_header 'Single media object'}}}
+                {{#card_body}}
+                    <p>The media object helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
+                    </p>
+                    <!-- Single media object -->
+                    {{#media_has 'mb-3 p-3' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h5 class="mt-0">Media heading</h5>
+                            <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                        {{/media_body}}
+                    {{/media_has}}
+                    <!-- /Single media object -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6">
+            {{#card}}
+                {{{card_header 'Single media object - Right aligned'}}}
+                {{#card_body}}
+                    <p>Change the order of content in media objects by modifying the HTML itself, or by adding some custom flexbox CSS to set the order property (to an integer of your choosing).
+                    </p>
+                    <!-- Single media object - Right aligned -->
+                    {{#media_has 'mb-3 p-3' ''}}
+                        {{#media_body}}
+                            <h5 class="mt-0">Media heading</h5>
+                            <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                        {{/media_body}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="ml-3 img-64 rounded-circle" alt="Media object image">
+                    {{/media_has}}
+                    <!-- /Single media object - Right aligned -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'Bordered media object'}}}
+                {{#card_body}}
+                    <p>Add <code>.media-bordered</code> to <code>.media</code> for bordered Media Object. As always, use border utilities wherever needed to fine tune.</p>
+                    <!-- Bordered media object -->
+                    {{#media_has 'media-bordered rounded mb-3 p-3' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h5 class="mt-0">Media heading</h5>
+                            <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                        {{/media_body}}
+                    {{/media_has}}
+
+                    {{#media_has 'media-bordered rounded mb-3 p-3' ''}}
+                        {{#media_body}}
+                            <h5 class="mt-0">Media heading</h5>
+                            <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                        {{/media_body}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="ml-3 img-64 rounded-circle" alt="Media object image">
+                    {{/media_has}}
+                    <!-- /Bordered media object -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            {{#card}}
+                {{{card_header 'Nesting'}}}
+                {{#card_body}}
+                    <p>Media objects can be infinitely nested, though we suggest you stop at some point. Place nested <code>.media</code> within the <code>.media-body</code> of a parent media object.</p>
+                    <!-- Nesting -->
+                    {{#media_has 'rounded p-3' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h5 class="mt-0">Media heading</h5>
+                            <p class="m-0 p-0">{{{placeholder-lorem-md}}}</p>
+
+                            {{#media_has 'mt-3 pt-3' ''}}
+                                <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                                {{#media_body}}
+                                    <h5 class="mt-0">Media heading</h5>
+                                    <p class="m-0 p-0">{{{placeholder-lorem-md}}}</p>
+
+                                    {{#media_has 'mt-3 pt-3' ''}}
+                                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                                        {{#media_body}}
+                                            <h5 class="mt-0">Media heading</h5>
+                                            <p class="m-0 p-0">{{{placeholder-lorem-md}}}</p>
+                                        {{/media_body}}
+                                    {{/media_has}}
+                                {{/media_body}}
+                            {{/media_has}}
+
+                        {{/media_body}}
+                    {{/media_has}}
+                    <!-- /Nesting -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-6">
+            {{#card}}
+                {{{card_header 'Nesting bordered'}}}
+                {{#card_body}}
+                    <p>Add <code>.media-bordered</code> to the parent <code>.media</code></p>
+                    <!-- Nesting bordered -->
+                    {{#media_has 'media-bordered rounded p-3' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h5 class="mt-0">Media heading</h5>
+                            <p class="m-0 p-0">{{{placeholder-lorem-md}}}</p>
+
+                            {{#media_has 'mt-3 pt-3' ''}}
+                                <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                                {{#media_body}}
+                                    <h5 class="mt-0">Media heading</h5>
+                                    <p class="m-0 p-0">{{{placeholder-lorem-md}}}</p>
+
+                                    {{#media_has 'mt-3 pt-3' ''}}
+                                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                                        {{#media_body}}
+                                            <h5 class="mt-0">Media heading</h5>
+                                            <p class="m-0 p-0">{{{placeholder-lorem-md}}}</p>
+                                        {{/media_body}}
+                                    {{/media_has}}
+                                {{/media_body}}
+                            {{/media_has}}
+
+                        {{/media_body}}
+                    {{/media_has}}
+                    <!-- /Nesting bordered -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'Alignment'}}}
+                {{#card_body}}
+                    <p>Media in a media object can be aligned with flexbox utilities to the top (default), center, or bottom of your <code>.media-body</code> content.</p>
+                    <!-- Top-aligned media -->
+                    {{#media_has 'media-bordered rounded p-3 mb-3' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 align-self-start img-64 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h5 class="mt-0">Top-aligned media</h5>
+                            <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                            <p class="mt-2 p-0">{{{placeholder-lorem-md}}}</p>
+                        {{/media_body}}
+                    {{/media_has}}
+                    <!-- /Top-aligned media -->
+
+                    <!-- Center-aligned media -->
+                    {{#media_has 'media-bordered rounded p-3 mb-3' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 align-self-center img-64 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h5 class="mt-0">Center-aligned media</h5>
+                            <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                            <p class="mt-2 p-0">{{{placeholder-lorem-md}}}</p>
+                        {{/media_body}}
+                    {{/media_has}}
+                    <!-- /Center-aligned media -->
+
+                    <!-- Bottom-aligned media -->
+                    {{#media_has 'media-bordered rounded p-3' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 align-self-end img-64 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h5 class="mt-0">Bottom-aligned media</h5>
+                            <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                            <p class="mt-2 p-0">{{{placeholder-lorem-md}}}</p>
+                        {{/media_body}}
+                    {{/media_has}}
+                    <!-- /Bottom-aligned media -->
+
+                {{/card_body}}
+            {{/card}}
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'Media list'}}}
+                {{#card_body}}
+                    <p>On <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>, add the <code>.list-unstyled</code> to remove any browser default list styles, and then apply <code>.media</code> to the
+                        <code>&lt;li&gt;</code>s. As always, use spacing utilities wherever needed to fine tune.</p>
+
+                    <!-- Media list -->
+                    <ul class="media-list list-unstyled">
+                        <li class="media mb-3">
+                            <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                            {{#media_body}}
+                                <h5 class="mt-0">List-based media object</h5>
+                                <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                            {{/media_body}}
+                        </li>
+                        <li class="media mb-3">
+                            <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                            {{#media_body}}
+                                <h5 class="mt-0">List-based media object</h5>
+                                <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                            {{/media_body}}
+                        </li>
+                        <li class="media mb-3">
+                            <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                            {{#media_body}}
+                                <h5 class="mt-0">List-based media object</h5>
+                                <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                            {{/media_body}}
+                        </li>
+                    </ul>
+                    <!-- /Media list -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'Bordered and nested media list'}}}
+                {{#card_body}}
+                    <p>Add <code>.media-bordered</code> to the parent <code>.media-list</code>. As always, use spacing utilities wherever needed to fine tune.</p>
+
+                    <!-- Bordered and nested media list -->
+                    <ul class="media-list media-bordered list-unstyled">
+                        <li class="media p-3">
+                            <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                            {{#media_body}}
+                                <h5 class="mt-0">List-based media object</h5>
+                                <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                                {{#media_has 'mt-3 pt-3' ''}}
+                                    <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                                    {{#media_body}}
+                                        <h5 class="mt-0">Media heading</h5>
+                                        <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+
+                                        {{#media_has 'mt-3 pt-3' ''}}
+                                            <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                                            {{#media_body}}
+                                                <h5 class="mt-0">Media heading</h5>
+                                                <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                                            {{/media_body}}
+                                        {{/media_has}}
+                                    {{/media_body}}
+                                {{/media_has}}
+                            {{/media_body}}
+                        </li>
+                        <li class="media p-3">
+                            <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-64 rounded-circle" alt="Media object image">
+                            {{#media_body}}
+                                <h5 class="mt-0">List-based media object</h5>
+                                <p class="m-0 p-0">{{{placeholder-lorem-lg}}}</p>
+                            {{/media_body}}
+                        </li>
+                    </ul>
+                    <!-- /Bordered and nested media list -->
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+
+    <h4 class="mt-4">Custom content</h4>
+    <h6 class="mb-3">Add nearly any HTML within media object like the samples below, with the help of flexbox utilities.</h6>
+
+    <div class="row">
+        <div class="col-md-4">
+            {{#card}}
+                {{{card_header 'Media: Badge'}}}
+                {{#card_body}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Kristy</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <span class="badge badge-light">Offline</span>
+                    {{/media_has}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Matthew Hamilton</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <span class="badge badge-danger">Busy</span>
+                    {{/media_has}}
+                    {{#media_has '' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">María Victoria</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <span class="badge badge-success">Online</span>
+                    {{/media_has}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-4">
+            {{#card}}
+                {{{card_header 'Media: Status icon'}}}
+                {{#card_body}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Kristy</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <span class="badge badge-warning badge-round empty p-1"></span>
+                    {{/media_has}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Matthew Hamilton</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <span class="badge badge-danger badge-round empty p-1"></span>
+                    {{/media_has}}
+                    {{#media_has '' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">María Victoria</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <span class="badge badge-success badge-round empty p-1"></span>
+                    {{/media_has}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-4">
+            {{#card}}
+                {{{card_header 'Media: Color header'}}}
+                {{#card_body}}
+                    {{#media_has 'mb-4' ''}}
+                        {{#media_body}}
+                            <h6 class="m-0 text-danger">Kristy</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="ml-3 img-48 rounded-circle" alt="Media object image">
+                    {{/media_has}}
+                    {{#media_has 'mb-4' ''}}
+                        {{#media_body}}
+                            <h6 class="m-0 text-success">Matthew Hamilton</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="ml-3 img-48 rounded-circle" alt="Media object image">
+                    {{/media_has}}
+                    {{#media_has '' ''}}
+                        {{#media_body}}
+                            <h6 class="m-0 text-warning">María Victoria</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="ml-3 img-48 rounded-circle" alt="Media object image">
+                    {{/media_has}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            {{#card}}
+                {{{card_header 'Media: Right icon'}}}
+                {{#card_body}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Kristy</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <i class="ti ti-user text-light fs-14"></i>
+                    {{/media_has}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Matthew Hamilton</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <i class="ti ti-settings text-light fs-14"></i>
+                    {{/media_has}}
+                    {{#media_has '' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">María Victoria</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <i class="ti ti-alert text-light fs-14"></i>
+                    {{/media_has}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-4">
+
+            {{#card}}
+                {{{card_header 'Media: Right button'}}}
+                {{#card_body}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Kristy</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <button type="button" class="btn btn-outline-light btn-icon btn-sm ml-3"><i class="ti ti-user"></i></button>
+                    {{/media_has}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Matthew Hamilton</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <button type="button" class="btn btn-outline-light btn-icon btn-sm ml-3"><i class="ti ti-settings"></i></button>
+                    {{/media_has}}
+                    {{#media_has '' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">María Victoria</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <button type="button" class="btn btn-outline-light btn-icon btn-sm ml-3"><i class="ti ti-alert"></i></button>
+                    {{/media_has}}
+                {{/card_body}}
+            {{/card}}
+
+        </div>
+        <div class="col-md-4">
+            {{#card}}
+                {{{card_header 'Media: Dropdown'}}}
+                {{#card_body}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Kristy</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light btn-icon btn-round btn-sm dropdown-toggle no-caret" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="icon-options-vertical"></i>
+                            </button>
+                            {{#ddw_menu_has 'extended has-arrow dropdown-menu-right'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </div>
+                    {{/media_has}}
+                    {{#media_has 'mb-4' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">Matthew Hamilton</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <div class="dropdown">
+                            <button class="btn btn-outline-primary btn-icon btn-round btn-sm dropdown-toggle no-caret" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="icon-options-vertical"></i>
+                            </button>
+                            {{#ddw_menu_has 'extended has-arrow dropdown-menu-right'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </div>
+                    {{/media_has}}
+                    {{#media_has '' ''}}
+                        <img src="https://source.unsplash.com/collection/895539/100x100" class="mr-3 img-48 rounded-circle" alt="Media object image">
+                        {{#media_body}}
+                            <h6 class="m-0">María Victoria</h6>
+                            <p class="m-0 p-0">{{{placeholder-lorem-sm}}}</p>
+                        {{/media_body}}
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary btn-icon btn-round btn-sm dropdown-toggle no-caret" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="icon-options-vertical"></i>
+                            </button>
+                            {{#ddw_menu_has 'extended has-arrow dropdown-menu-right'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}<a class="{{class}}" href="{{url}}">{{text}}</a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </div>
+                    {{/media_has}}
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+
+</div>

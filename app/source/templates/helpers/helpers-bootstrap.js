@@ -13,8 +13,16 @@ module.exports.register = function (Handlebars, options) {
   'use strict';
 
 //
+// VALIDATOR
+// ======================================================
+  function isValid(str) {
+     return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
+  }
+
+//
 // BOOTSTRAP BUTTONS
 // ======================================================
+
 // Usage: {{#btn "primary"}}Primary{{/btn}}
   Handlebars.registerHelper('btn', function (context, options) {
     return '<button type="button" class="btn btn-' + context + '">' + options.fn(this) + '</button>';
@@ -111,9 +119,8 @@ module.exports.register = function (Handlebars, options) {
 // Usage {{#badge "primary"}}Alert{{/badge}}
   Handlebars.registerHelper("badge", function (mdf, exCl, options) {
 
-    function isValid(str) {
-      return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
-    }
+
+
     var class_selector = (isValid(exCl)) ? ' ' + exCl : '';
 
     var content = '<span class="badge ' + mdf + class_selector + '">' + options.fn(this) + '</span>';
@@ -124,13 +131,12 @@ module.exports.register = function (Handlebars, options) {
 // Usage {{#badge-link "primary"}}Alert{{/badge-link}}
   Handlebars.registerHelper("badge-link", function (href, mdf, exCl, options) {
 
-    function isValid(str) {
-      return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
-    }
+
+
     var class_selector = (isValid(exCl)) ? ' ' + exCl : '';
     var href_selector = (isValid(href)) ? href : '#';
 
-    var content = '<a href="'+ href_selector+'" class="badge ' + mdf + class_selector + '">' + options.fn(this) + '</a>';
+    var content = '<a href="' + href_selector + '" class="badge ' + mdf + class_selector + '">' + options.fn(this) + '</a>';
     return new Handlebars.SafeString(content);
   });
 
@@ -141,9 +147,7 @@ module.exports.register = function (Handlebars, options) {
 // Usage {{#breadcrumb "myClass" "myId"}}<li class="breadcrumb-item"><a href="#">Home</a></li>{{/breadcrumb}}
   Handlebars.registerHelper("breadcrumb", function (cl, id, options) {
 
-    function isValid(str) {
-      return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
-    }
+
 
     var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
     var class_selector = (isValid(cl)) ? 'class="breadcrumb' + ' ' + cl + '"' : 'class="breadcrumb"';
@@ -157,18 +161,16 @@ module.exports.register = function (Handlebars, options) {
 // BOOTSTRAP CARD
 // ======================================================
 
-  // Card wrapper
+// Card wrapper
+// Usage: {{#card}}{{/card}}
   Handlebars.registerHelper('card', function (options) {
     var content = options.fn(this);
     return '<div class="card">' + content + '</div>';
   });
 
-  // Card wrapper with id & class
-  // Usage : {{#card_has 'my-class' 'my-id'}}
+// Card with id and class
+// Usage: {{#card_has 'my-class' 'my-id'}}{{/card_has}}
   Handlebars.registerHelper('card_has', function (cl, id, options) {
-    function isValid(str) {
-      return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
-    }
 
     var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
     var class_selector = (isValid(cl)) ? 'class="card' + ' ' + cl + '"' : 'class="card"';
@@ -177,45 +179,46 @@ module.exports.register = function (Handlebars, options) {
     return '<div ' + class_selector + ' ' + id_selector + '>' + content + '</div>';
   });
 
-  // Card title
+// Card title
+// Usage: {{{card_title 'Title'}}}
   Handlebars.registerHelper('card_title', function (context) {
     var content = '<h5 class="card-title">' + context + '</h5>';
     return new Handlebars.SafeString(content);
   });
 
-  // Card subtitle
+// Card with title and subtitle
+// Usage: {{{card_title_has_subtitle 'Title' 'Subtitle'}}}
   Handlebars.registerHelper('card_title_has_subtitle', function (title, subtitle) {
     var content = '<h5 class="card-title">' + title + '</h5> <h6 class="card-subtitle mb-2 text-muted">' + subtitle + '</h6>';
     return new Handlebars.SafeString(content);
   });
 
-  // Card header
+// Card header
+// Usage: {{{card_header 'Title'}}}
   Handlebars.registerHelper('card_header', function (title) {
     return '<div class="card-header"><h5 class="card-title">' + title + '</h5><div class="card__actions window ml-auto">' +
-      '<a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>' +
-      '<a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>' +
-      '<a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a></div></div>';
+      '<a href="#" class="card__actions-item" data-card="collapse"><i class="ti ti-angle-up"></i></a>' +
+      '<a href="#" class="card__actions-item" data-card="fullscreen"><i class="ti ti-fullscreen"></i></a>' +
+      '<a href="#" class="card__actions-item" data-card="close"><i class="ti ti-close"></i></a></div></div>';
   });
 
-  // Card header with subtitle
+// Card header with subtitle
+// Usage: {{{card_header_has_subtitle 'Title' 'Subtitle'}}}
   Handlebars.registerHelper('card_header_has_subtitle', function (title, subtitle) {
     return '<div class="card-header"><h5 class="card-title">' + title + '<small class="card-subtitle text-muted"> ' + subtitle + '</small></h5><div class="card__actions window ml-auto">' +
-      '<a href="#" class="card__actions-item" data-card="collapse"><i class="fa fa-chevron-up"></i></a>' +
-      '<a href="#" class="card__actions-item" data-card="fullscreen"><i class="fa fa-expand"></i></a>' +
-      '<a href="#" class="card__actions-item" data-card="close"><i class="fa fa-times"></i></a></div></div>';
+      '<a href="#" class="card__actions-item" data-card="collapse"><i class="ti ti-angle-up"></i></a>' +
+      '<a href="#" class="card__actions-item" data-card="fullscreen"><i class="ti ti-fullscreen"></i></a>' +
+      '<a href="#" class="card__actions-item" data-card="close"><i class="ti ti-close"></i></a></div></div>';
   });
 
-  // Card body
+// Card body
   Handlebars.registerHelper('card_body', function (options) {
     var content = options.fn(this);
     return new Handlebars.SafeString('<div class="card-body">' + content + '</div>');
   });
 
-  // Card body with class
+// Card body with class
   Handlebars.registerHelper('card_body_has', function (cl, id, options) {
-    function isValid(str) {
-      return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
-    }
 
     var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
     var class_selector = (isValid(cl)) ? 'class="card-body' + ' ' + cl + '"' : 'class="card-body"';
@@ -223,7 +226,6 @@ module.exports.register = function (Handlebars, options) {
 
     return '<div ' + class_selector + ' ' + id_selector + '>' + content + '</div>';
   });
-
 
 //
 // BOOTSTRAP MODAL
@@ -253,4 +255,42 @@ module.exports.register = function (Handlebars, options) {
     return '<div class="modal-footer"><button type="button" class="btn btn-light" data-dismiss="modal">Close</button></div>';
   });
 
+//
+// BOOTSTRAP MEDIA OBJECT
+// ======================================================
+
+// Media
+// Usage: {{#media}}{{/media}}
+  Handlebars.registerHelper('media', function (options) {
+    var content = options.fn(this);
+    return new Handlebars.SafeString('<div class="media">' + content + '</div>');
+  });
+
+// Media with id & class
+// Usage: {{#media_has 'my-class' 'my-id'}}{{/media_has}}
+  Handlebars.registerHelper('media_has', function (cl, id, options) {
+    var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
+    var class_selector = (isValid(cl)) ? 'class="media' + ' ' + cl + '"' : 'class="media"';
+    var content = options.fn(this);
+    return '<div ' + class_selector + ' ' + id_selector + '>' + content + '</div>';
+  });
+
+// Media body
+// Usage: {{#media_body}}{{/media_body}}
+  Handlebars.registerHelper('media_body', function (options) {
+    var content = options.fn(this);
+    return new Handlebars.SafeString('<div class="media-body">' + content + '</div>');
+  });
+
+// Media body with id and class
+// Usage: {{#media_body_has 'my-class' 'my-id'}}{{/media_body_has}}
+  Handlebars.registerHelper('media_body_has', function (cl, id, options) {
+    var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
+    var class_selector = (isValid(cl)) ? 'class="media-body' + ' ' + cl + '"' : 'class="media-body"';
+    var content = options.fn(this);
+    return '<div ' + class_selector + ' ' + id_selector + '>' + content + '</div>';
+  });
+
 };
+
+

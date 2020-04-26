@@ -734,11 +734,11 @@ var appMaster = {
         if (!$this.hasClass('card-collapsed')) {
           $this.parents('.card').find('.card-body, .card-footer').slideUp();
           $this.addClass('card-collapsed');
-          $this.find('i').removeClass('fa fa-chevron-up').addClass('fa fa-chevron-down');
+          $this.find('i').removeClass('ti ti-angle-up').addClass('ti ti-angle-down');
         } else {
           $this.parents('.card').find('.card-body, .card-footer').slideDown();
           $this.removeClass('card-collapsed');
-          $this.find('i').removeClass('fa fa-chevron-down').addClass('fa fa-chevron-up');
+          $this.find('i').removeClass('ti ti-angle-down').addClass('ti ti-angle-up');
         }
       });
 
@@ -750,13 +750,13 @@ var appMaster = {
           $this.parents('.card').addClass('card-fullscreen animated fadeIn');
           $this.parents('.card').find('.card-body').slideDown();
           $this.addClass('fullscreen-enabled');
-          $this.find('i').removeClass('fa fa-expand').addClass('fa fa-compress');
+          $this.find('i').removeClass('ti ti-fullscreen').addClass('ti ti-close');
           // $this.parents('.card').find("[data-card=close], [data-card=collapse], [data-toggle=dropdown]").addClass('d-none');
           $this.parents('.card').find('.card__actions').children('a.card__actions-item:not([data-card=fullscreen])').addClass('d-none');
         } else {
           $this.parents('.card').removeClass('card-fullscreen animated fadeIn');
           $this.removeClass('fullscreen-enabled');
-          $this.find('i').removeClass('fa fa-compress').addClass('fa fa-expand');
+          $this.find('i').removeClass('ti ti-close').addClass('ti ti-fullscreen');
           // $this.parents('.card').find("[data-card=close], [data-card=collapse], [data-toggle=dropdown]").removeClass('d-none');
           $this.parents('.card').find('.card__actions').children('a.card__actions-item').removeClass('d-none');
         }

@@ -172,17 +172,6 @@
 }
 
 //
-// REM FONT SIZING  - ADVANCED
-// ======================================================
-// Adapted from http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
-// Usage @include fontSize(16px);
-
-@mixin font-size($size) {
-  font-size: $size; //Fallback in px
-  font-size: calculateRem($size);
-}
-
-//
 // TEXT SHADOW
 // ======================================================
 

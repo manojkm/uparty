@@ -378,7 +378,7 @@
   @each $lang, $value in $custom-file-text {
     &:lang(#{$lang}) ~ .custom-file-label::after {
       //font-family: simple-line-icons, Arial;
-      font-family: 'simple-line-icons', get-typography(font-default);
+      font-family: $font-family-sli, get-typography(font-default);
       content: $value;
     }
   }

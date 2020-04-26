@@ -18,17 +18,19 @@
 
   &,
   .dropdown-menu {
-    @include set-border-radius($dropdown-border-radius);
     z-index: map-get($zindex, dropdown);
     width: $dropdown-width;
-    //max-width: $dropdown-max-width;
     margin-top: $dropdown-margin-top;
     margin-bottom: $dropdown-margin-bottom;
     min-width: $dropdown-min-width;
     padding: $dropdown-padding-y $dropdown-padding-x;
     background-color: $dropdown-bg;
     box-shadow: $dropdown-shadow;
+    @include set-border-radius($dropdown-border-radius);
     @include add-border($dropdown-border-size, $dropdown-border-color, all);
+    @include min-screen($screen-md-min) {
+      max-width: $dropdown-max-width;
+    }
 
     // Prevent dropdown overflow if there's no padding
     // See https://github.com/twbs/bootstrap/pull/27703
@@ -67,7 +69,8 @@
 
     &:after {
       content: "";
-      border-bottom: 8px solid $dropdown-border-color;
+      border-bottom: 8px solid;
+      border-bottom-color: inherit;
       border-right: 8px solid transparent;
       border-left: 8px solid transparent;
       position: absolute;
@@ -216,7 +219,7 @@
   $next-breakpoint: breakpoint-next($next-breakpoint, $breakpoints-min-widths);
   $next-length: map-get-strict($breakpoints-min-widths, $next-breakpoint);
 
-  @media only screen and (min-width: #{$next-length}) {
+  @include min-screen(#{$next-length}) {
     .dropdown-menu-#{$next-breakpoint}-right {
       @at-root .has-arrow#{&} {
         &:before {
@@ -340,6 +343,7 @@
         transform: rotate(0deg);
       }
     }
+
     .dropdown-menu {
       top: 0;
       left: 95%;
@@ -357,13 +361,16 @@
         transform: rotate(0deg);
       }
     }
+
     .dropdown-item:before {
       right: 0;
       left: auto;
     }
+
     .dropdown-toggle {
       padding-left: 30px;
     }
+
     .dropdown-menu {
       top: 0;
       left: -95%;
@@ -461,6 +468,84 @@
         left: unset;
         transform: rotate(90deg);
       }
+    }
+  }
+}
+
+//
+// CUSTOM DROPDOWN MENU - BLOCK
+// ======================================================
+
+$dc: dropdown-custom;
+.dropdown-menu.extended.#{$dc} {
+  width: 100vw;
+
+  .#{$dc}__header {
+    background-color: $dropdown-custom-header-bg;
+    padding: $dropdown-custom-spacer-y $dropdown-custom-spacer-x;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: $dropdown-custom-header-border-size solid;
+    border-bottom-color: $dropdown-custom-header-border-color;
+
+    &:first-child {
+      @include set-border-radius($dropdown-border-radius);
+      @include border-bottom-radius(0);
+    }
+
+    .#{$dc}__title {
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
+
+  .#{$dc}__toolbar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    @include center(y);
+    right: 0.5rem;
+
+    &-icon {
+      @include transition;
+      color: $dropdown-custom-toolbar-icon-color;
+      width: $dropdown-custom-toolbar-icon-width;
+      height: $dropdown-custom-toolbar-icon-height;
+      font-size: $dropdown-custom-toolbar-icon-font-size;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include opacity(0.8);
+
+      #{$hover-focus-tags} {
+        color: $dropdown-custom-toolbar-icon-hover-color;
+        @include opacity(1);
+      }
+
+      #{$icon-tags} {
+        font-size: $dropdown-custom-toolbar-icon-font-size;
+      }
+    }
+
+  }
+
+  .#{$dc}__body {
+    padding: $dropdown-custom-spacer-y $dropdown-custom-spacer-x;
+  }
+
+  .#{$dc}__footer {
+    background-color: $dropdown-custom-footer-bg;
+    display: flex;
+    align-items: center;
+    padding: $dropdown-custom-spacer-y $dropdown-custom-spacer-x;
+    border-top: $dropdown-custom-footer-border-size solid;
+    border-top-color: $dropdown-custom-footer-border-color;
+
+    &:last-child {
+      @include set-border-radius($dropdown-border-radius);
+      @include border-top-radius(0);
     }
   }
 }

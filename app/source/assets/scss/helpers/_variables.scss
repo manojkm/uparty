@@ -129,6 +129,7 @@
 // 8.28 TOGGLERS
 // 8.29 SEARCH
 // 8.30 MEGA MENU
+// 8.31 MEDIA OBJECT
 
 //
 // 9. VENDOR'S VARIABLES
@@ -250,7 +251,7 @@ $contextual-palette-map: (
 // Make sure all the names match the above fonts variable names (`helpers/_fonts.scss`) for clarity.
 
 $typography: (
-        font-default:                   ($font-family-default, $font-family-fallback),
+        font-default:                   ($font-family-default-google, $font-family-fallback),
         font-headings:                  ($font-family-display, $font-family-fallback),
         color-default:                  $gray-800, // Global text color on <body>
         color-headings:                 $gray-800,
@@ -282,6 +283,11 @@ $typography: (
 
 $font-family-default:                   get-typography(font-default);
 $font-family-headings:                  get-typography(font-headings);
+$font-family-font-awesome:              "Font Awesome 5 Free" !default; // Font Awesome third-party icons plugin
+$font-family-et-line:                   et-line !default; // Et Line Icons third-party icons plugin
+$font-family-themify:                   themify-icons !default; // Themify Icons third-party icons plugin
+$font-family-sli:                       simple-line-icons !default; // Simple-line-icons third-party icons plugin
+
 
 // Retrieve font color
 
@@ -509,6 +515,7 @@ $sidebar-footer-shadow:                         0 1px 10px rgba($black-color, 0.
 $progress-box-shadow:                           inset 0 .1rem .1rem rgba($gray-800, .15) !default;
 $card-box-shadow:                               0 1px 2px rgba(0, 0, 0, .075) !default;
 $card-box-header-inset-shadow:                  none;
+$dropdown-custom-header-inset-shadow:           none;
 $pagination-ext-indicator-box-shadow:           inset 0 .1rem .1rem rgba($gray-800, 00.5) !default;
 $modal-content-box-shadow-xs:                   0 5px 10px rgba($black-color, 0.1);
 $chosen-select-box-shadow:                      0 5px 10px rgba($black-color, 0.1);
@@ -1148,7 +1155,7 @@ $custom-file-text:                                      (en: "\e089   Browse") !
 
 $dropdown-width:                        auto; // Dropdown menu container width.
 $dropdown-min-width:                    12rem; // Dropdown menu container minimum width.
-//$dropdown-max-width:                    15rem;
+$dropdown-max-width:                    20rem; // Dropdown menu container maximum width.
 $dropdown-bg:                           $white-color; // Background color for the dropdown menu container.
 $dropdown-border-radius:                $border-radius-md; // Dropdown menu container border radius to add rounded corners
 $dropdown-border-size:                  $border-thin; // Border width applied for Dropdown menu container (.dropdown-menu)
@@ -1188,6 +1195,26 @@ $dropdown-divider-color:                $gray-300; // Divider color for between 
 $dropdown-divider-border-width:         $border-thin !default; // Border width of divider between dropdown items.
 
 $dropdown-icon-width:                   20px; // Dropdown menu item icon width for perfect alignment between icons and text.
+
+// Custom dropdown
+
+$dropdown-custom-spacer-y:              .75rem !default; // Dropdown vertical padding helper variable.
+$dropdown-custom-spacer-x:              1.25rem !default; // Dropdown horizontal padding helper variable.
+
+$dropdown-custom-header-bg:             $white-color !default; // Background color for dropdown header
+$dropdown-custom-header-border-size:    $dropdown-border-size; // Border width applied for dropdown header
+$dropdown-custom-header-border-color:   inherit !default; // Dropdown header border color
+
+$dropdown-custom-footer-bg:             $dropdown-custom-header-bg; // Background color for dropdown footer
+$dropdown-custom-footer-border-size:    $dropdown-border-size; // Border width applied for dropdown footer
+$dropdown-custom-footer-border-color:   inherit !default; // Dropdown footer border color
+
+$dropdown-custom-toolbar-icon-color:            $gray-800 !default; // Text color for dropdown toolbar icon
+$dropdown-custom-toolbar-icon-hover-color:      $gray-900 !default; // Text color for dropdown toolbar icon on hover
+$dropdown-custom-toolbar-icon-font-size:        $font-size-sm !default; // Font size for dropdown toolbar icon
+$dropdown-custom-toolbar-icon-width:            30px; // Width of the icons for each dropdown toolbar icon
+$dropdown-custom-toolbar-icon-height:           30px; // Height of the icons for each dropdown toolbar icon
+
 
 //
 // 8.7 DROPDOWN MENU - EXTENDED & THEMED (.dropdown-menu.extended.themed)
@@ -1283,7 +1310,7 @@ $card-link-hover-color:                 $gray-800; // Text color for card links 
 
 // Card tools
 
-$card-tools-color:                      $gray-600 !default; // Text color for card action items
+$card-tools-color:                      $gray-700 !default; // Text color for card action items
 $card-tools-hover-color:                $gray-900 !default; // Text color for card action items on hover
 $card-tools-font-size:                  $font-size-sm !default; // Font size for card action items
 $card-toolbar-icon-width:               30px; // Width of the icons for each card action items
@@ -1818,6 +1845,14 @@ $aside-toggler-icon-bar-active-theme-scheme:    primary !default; // Color schem
 // -----------------------------------------------------------------------------
 
 //
+// 8.31 MEDIA OBJECT
+// -----------------------------------------------------------------------------
+
+$media-border-radius:                   $border-radius-md; // Media border radius to add rounded corners
+$media-border-size:                     $border-thin; // Media border width
+$media-border-color:                    $gray-400 !default;// Media border color
+
+//
 // 9. VENDOR'S VARIABLES
 // =============================================================================
 //
@@ -2037,4 +2072,4 @@ $disabled-tags:                         '&.disabled, &:disabled';
 // 10.3 ICON SELECTORS
 // -----------------------------------------------------------------------------
 
-$icon-tags:                             'i[class*="fa-"], i[class*="icon-"]';
+$icon-tags:                             'i[class*="fa-"], i[class*="icon-"], i[class*="ti-"]';

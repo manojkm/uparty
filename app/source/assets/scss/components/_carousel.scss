@@ -57,7 +57,7 @@
 // Next icon
 .carousel-control-next-icon {
   &::before {
-    font-family: 'simple-line-icons';
+    font-family: $font-family-sli;
     content: $carousel-control-next-icon;
   }
 }
@@ -65,7 +65,7 @@
 // Prev icon
 .carousel-control-prev-icon {
   &::before {
-    font-family: 'simple-line-icons';
+    font-family: $font-family-sli;
     content: $carousel-control-prev-icon;
   }
 }
@@ -77,14 +77,14 @@
 // Long arrows
 .carousel-control-next-icon.arrow-long {
   &::before {
-    font-family: 'themify-icons';
+    font-family: $font-family-themify;
     content: '\e628';
   }
 }
 
 .carousel-control-prev-icon.arrow-long {
   &::before {
-    font-family: 'themify-icons';
+    font-family: $font-family-themify;
     content: '\e629';
   }
 }
@@ -92,14 +92,14 @@
 // Double arrows
 .carousel-control-next-icon.arrow-double {
   &::before {
-    font-family: 'themify-icons';
+    font-family: $font-family-themify;
     content: '\e661';
   }
 }
 
 .carousel-control-prev-icon.arrow-double {
   &::before {
-    font-family: 'themify-icons';
+    font-family: $font-family-themify;
     content: '\e662';
   }
 }

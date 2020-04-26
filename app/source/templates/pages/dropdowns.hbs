@@ -19,6 +19,88 @@ OR you can type out the HTML if you prefer--}}
     <div class="row">
         <div class="col-md-12">
             {{#card}}
+                {{{card_header 'Custom dropdown'}}}
+                {{#card_body}}
+                <div class="row">
+                    <div class="col-md example mb-3">
+                        <div class="dropdown-menu extended dropdown-custom has-arrow py-0">
+                            <div class="dropdown-custom__header">
+                                <h5 class="dropdown-custom__title text-center w-100">
+                                    Dropdown header
+                                </h5>
+                                <div class="dropdown-custom__toolbar ml-auto">
+                                    <a href="#" class="dropdown-custom__toolbar-icon" data-toggle="tooltip" data-placement="top" title="Add">
+                                        <ion-icon name="add-outline" size="small"></ion-icon>
+                                    </a>
+                                    <a href="#" class="dropdown-custom__toolbar-icon" data-toggle="tooltip" data-placement="top" title="Refresh">
+                                        <ion-icon name="refresh-outline" size="small"></ion-icon>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="dropdown-custom__body">Dropdown body</div>
+                            <div class="dropdown-custom__footer">Dropdown footer</div>
+                        </div>
+                    </div>
+                    <div class="col-md example mb-3">
+                        <div class="dropdown-menu extended dropdown-custom has-arrow py-0">
+                            <div class="dropdown-custom__header">
+                                <h5 class="dropdown-custom__title">
+                                    Dropdown header
+                                </h5>
+                                <div class="dropdown-custom__toolbar ml-auto">
+                                    <a href="#" class="dropdown-custom__toolbar-icon" data-toggle="tooltip" data-placement="top" title="Add">
+                                        <ion-icon name="add-outline" size="small"></ion-icon>
+                                    </a>
+                                    <a href="#" class="dropdown-custom__toolbar-icon" data-toggle="tooltip" data-placement="top" title="Refresh">
+                                        <ion-icon name="refresh-outline" size="small"></ion-icon>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="dropdown-custom__body">Dropdown body</div>
+                            <div class="dropdown-custom__footer">Dropdown footer</div>
+                        </div>
+                    </div>
+                </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Themed - Extended Dropdown'}}}
+                {{#card_body}}
+                    <!-- Themed - Extended Dropdown -->
+                    <p>Create themed - extended dropdown, by adding <code>.themed.extended</code> to <code>.dropdown-menu</code>.</p>
+                    <div class="row">
+                        <div class="col-md example mb-3">
+                            {{#ddw_menu_has 'themed extended bordered has-arrow'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}
+                                    <a class="{{class}}" href="{{url}}"><i class="{{class_i}} mr-2"></i>{{text}}<span
+                                            class="{{class_badge_modifier}} ml-auto">{{badge_count}}</span></a>{{/ddw_items}}
+                                {{{ddw_divider}}}
+                                {{#ddw_items dropdowns.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </div>
+                        <div class="col-md example mb-3">
+                            {{#ddw_menu_has 'themed extended bordered has-arrow'}}
+                                {{{ddw_header 'Dropdown header'}}}
+                                {{#ddw_items dropdowns.items}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                                {{{ddw_divider}}}
+                                {{#ddw_items dropdowns.items_2}}
+                                    <a class="{{class}}" href="{{url}}">{{text}}<i class="{{class_i}} ml-auto"></i></a>{{/ddw_items}}
+                            {{/ddw_menu_has}}
+                        </div>
+                    </div>
+                    <!-- /Themed - Extended Dropdown -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
                 {{{card_header 'Extended Dropdown'}}}
                 {{#card_body}}
                     <!-- Extended Dropdown -->

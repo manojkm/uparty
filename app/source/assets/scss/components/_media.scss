@@ -1,0 +1,22 @@
+// ================================================================================================
+// File Name      : media.scss
+// Description    : Adjustments for Bootstrap's media object
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+//
+// BORDERED MEDIA OBJECT
+// ======================================================
+.media-bordered {
+  @include set-border-radius($media-border-radius);
+  @include add-border($media-border-size, $media-border-color, all);
+
+  .media:not(:first-child) {
+    @include add-border($media-border-size, $media-border-color, top);
+  }
+}
+

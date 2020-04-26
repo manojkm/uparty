@@ -117,7 +117,8 @@
   @include add-border($card-border-size, $card-border-color, top);
 
   &:last-child {
-    @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
+    @include set-border-radius($card-inner-border-radius);
+    @include border-top-radius(0);
   }
 }
 
@@ -155,7 +156,6 @@
   @include border-left-radius($card-inner-border-radius);
 }
 
-
 //
 // FULLSCREEN CARD
 // ======================================================
@@ -179,7 +179,6 @@
   }
 }
 
-
 //
 // CARD WITH ACTIONS
 // ======================================================
@@ -189,13 +188,10 @@
   margin-right: -$card-spacer-x / 2;
   color: $card-tools-color;
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-end;
 
   a.card__actions-item {
     @include transition;
-    //@include opacity(0.8);
+    @include opacity(0.8);
     color: $card-tools-color;
     width: $card-toolbar-icon-width;
     font-size: $card-tools-font-size;
@@ -204,10 +200,9 @@
     align-items: center;
     justify-content: center;
 
-    //#{$a-tags},
     #{$hover-focus-tags} {
-      color: $card-tools-hover-color;
       @include opacity(1);
+      color: $card-tools-hover-color;
     }
   }
 
@@ -258,10 +253,12 @@
   }
 }
 
+//
+// REFRESHABLE CARD
+// ======================================================
+
 .card {
   &.card-refresh {
-    position: relative;
-
     > .refresh-container {
       background-color: rgba($white-color, 0.9);
       height: 100%;
@@ -276,10 +273,6 @@
 
       .loader {
         margin: 20px;
-        //top: 50%;
-        //margin: 0 auto;
-        //display: block;
-        //position: relative;
       }
 
     }
