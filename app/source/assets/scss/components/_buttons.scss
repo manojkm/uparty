@@ -4,254 +4,266 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
+@if (map-get-strict($components, 'buttons')) {
 
-//
-// BASE STYLING
-// ======================================================
+  //
+  // BASE STYLING
+  // ======================================================
 
-.btn {
-  @extend %button;
-  @include box-shadow(none);
+  .btn {
+    @extend %button;
+    @include box-shadow(none);
 
-  #{$focus-tags} {
-    @include box-shadow($btn-focus-box-shadow);
-  }
-
-  // Disabled comes first so active can properly restyle
-  #{$disabled-tags} {
-    cursor: $cursor-not-allowed;
-    pointer-events: none;
-    @include opacity($btn-disabled-opacity);
-  }
-
-  // The clickable button for toggling the menu
-  .show > &.dropdown-toggle,
-  #{$active-tags} {
-    @include box-shadow($btn-active-box-shadow);
-
-    &:focus {
-      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
-    }
-  }
-
-  // Square buttons
-  &.btn-square {
-    border-radius: 0;
-  }
-
-  // Round button
-  &.btn-round {
-    @include border-radius($btn-round-radius);
-  }
-
-  // Block button
-  &.btn-block {
-    display: block !important;
-  }
-
-  // Icon Buttons
-  &.btn-icon {
-    min-width: $btn-icon-size;
-    width: $btn-icon-size;
-    min-height: $btn-icon-size;
-    position: relative;
-    line-height: $btn-line-height;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    #{$icon-tags} {
-      font-size: $btn-icon-font-size;
+    #{$focus-tags-btn} {
+      @include box-shadow($btn-focus-box-shadow);
     }
 
-    // Small icon button
-    &.btn-sm {
-      min-width: $btn-icon-size-sm;
-      width: $btn-icon-size-sm;
-      min-height: $btn-icon-size-sm;
+    // Disabled comes first so active can properly restyle
+    #{$disabled-tags-btn} {
+      cursor: $cursor-not-allowed;
+      pointer-events: none;
+      @include opacity($btn-disabled-opacity);
+    }
 
-      #{$icon-tags} {
-        font-size: $btn-icon-font-size-sm;
+    // The clickable button for toggling the menu
+    .show > &.dropdown-toggle,
+    #{$active-tags-btn} {
+      @include box-shadow($btn-active-box-shadow);
+
+      #{$focus-tags} {
+        @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
       }
     }
 
-    // Large icon button
-    &.btn-lg {
-      min-width: $btn-icon-size-lg;
-      width: $btn-icon-size-lg;
-      min-height: $btn-icon-size-lg;
-
-      #{$icon-tags} {
-        font-size: $btn-icon-font-size-lg;
-      }
+    // Square buttons
+    &.btn-square {
+      border-radius: 0;
     }
 
-    // Extra large icon button
-    &.btn-xl {
-      min-width: $btn-icon-size-xl;
-      width: $btn-icon-size-xl;
-      min-height: $btn-icon-size-xl;
-
-      #{$icon-tags} {
-        font-size: $btn-icon-font-size-xl;
-      }
+    // Round button
+    &.btn-circle {
+      @include border-radius($btn-circle-radius);
     }
 
-    // Icon button with drop down
-    &.has-dropdown {
-      width: auto;
-      //min-width: 0;
-      //display: table;
+    // Block button
+    &.btn-block {
+      display: block !important;
     }
 
-  }
-
-  // Helper classes to make sure the icons are perfectly aligned on either sides of text.
-  &.has-icon-left,
-  &.has-icon-right {
-    #{$icon-tags} {
+    // Icon Buttons
+    &.btn-icon {
+      min-width: $btn-icon-size;
+      width: $btn-icon-size;
+      min-height: $btn-icon-size;
       position: relative;
-      line-height: $btn-icon-lh;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $btn-icon-font-size;
+      line-height: $btn-icon-font-size;
+
+      //#{$icon-tags} {
+      //  font-size: inherit;
+      //}
+
+      // Small icon button
+      &.btn-sm {
+        min-width: $btn-icon-size-sm;
+        width: $btn-icon-size-sm;
+        min-height: $btn-icon-size-sm;
+        font-size: $btn-icon-font-size-sm;
+        line-height: $btn-icon-font-size-sm;
+        //#{$icon-tags} {
+        //  font-size: inherit;
+        //}
+      }
+
+      // Large icon button
+      &.btn-lg {
+        min-width: $btn-icon-size-lg;
+        width: $btn-icon-size-lg;
+        min-height: $btn-icon-size-lg;
+        font-size: $btn-icon-font-size-lg;
+        line-height: $btn-icon-font-size-lg;
+        //#{$icon-tags} {
+        //  font-size: inherit;
+        //}
+      }
+
+      // Extra large icon button
+      &.btn-xl {
+        min-width: $btn-icon-size-xl;
+        width: $btn-icon-size-xl;
+        min-height: $btn-icon-size-xl;
+        font-size: $btn-icon-font-size-xl;
+        line-height: $btn-icon-font-size-xl;
+        //#{$icon-tags} {
+        //  font-size: inherit;
+        //}
+      }
+
+      // Icon button with drop down
+      &.has-dropdown {
+        width: auto;
+        //min-width: 0;
+        //display: table;
+      }
+
+    }
+
+    // Helper classes to make sure the icons are perfectly aligned on either sides of text.
+    &.has-icon-left,
+    &.has-icon-right {
+      #{$icon-tags} {
+        position: relative;
+        line-height: $btn-icon-lh;
+      }
+    }
+
+    &.has-icon-left {
+      #{$icon-tags} {
+        padding: 0 $btn-icon-padding-right 0 0;
+      }
+    }
+
+    &.has-icon-right {
+      #{$icon-tags} {
+        padding: 0 0 0 $btn-icon-padding-left;
+      }
     }
   }
 
-  &.has-icon-left {
-    #{$icon-tags} {
-      padding: 0 $btn-icon-padding-right 0 0;
+  // Apply the mixin to the button variants.
+  // Easily pump out default styles, as well as :hover, :focus, :active,
+  // and disabled options for all buttons.
+
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $tone in $colors {
+      .btn-#{$scheme} {
+        @include btn-theme($scheme);
+      }
+      .btn-outline-#{$scheme} {
+        @include btn-theme($scheme, outline);
+      }
+      .btn-soft-#{$scheme} {
+        @include btn-theme($scheme, soft);
+      }
     }
   }
 
-  &.has-icon-right {
-    #{$icon-tags} {
-      padding: 0 0 0 $btn-icon-padding-left;
-    }
-  }
-}
-
-// Apply the mixin to the button variants.
-// Easily pump out default styles, as well as :hover, :focus, :active,
-// and disabled options for all buttons.
-
-// Theme variations
-@each $themeName, $value in $themes-map {
-  $colors: map-get-strict($value, 'main-colors');
-  @each $scheme, $tone in $colors {
+  // Contextual variations
+  @each $scheme, $tone in $contextual-palette-map {
     .btn-#{$scheme} {
       @include btn-theme($scheme);
     }
     .btn-outline-#{$scheme} {
       @include btn-theme($scheme, outline);
     }
-    .btn-light-#{$scheme} {
-      @include btn-theme($scheme, light);
+    .btn-soft-#{$scheme} {
+      @include btn-theme($scheme, soft);
     }
   }
-}
 
-// Contextual variations
-@each $scheme, $tone in $contextual-palette-map {
-  .btn-#{$scheme} {
-    @include btn-theme($scheme);
-  }
-  .btn-outline-#{$scheme} {
-    @include btn-theme($scheme, outline);
-  }
-  .btn-light-#{$scheme} {
-    @include btn-theme($scheme, light);
-  }
-}
-
-// Social button
-@each $scheme, $value in $social-colors {
-  $tone-hover: darken($value, 6%);
-  $tone-active: darken($value, 10%);
-  .btn-#{$scheme} {
-    @include btn-social-theme($value, $tone-hover, $tone-active, $white-color);
-  }
-}
-
-@each $scheme, $value in $social-colors {
-  $tone-hover: darken($value, 6%);
-  $tone-active: darken($value, 10%);
-  .btn-outline-#{$scheme} {
-    @include btn-social-theme($value, $tone-hover, $tone-active, $white-color, outline);
-  }
-}
-
-// Future-proof disabling of clicks on `<a>` elements
-fieldset:disabled a.btn {
-  cursor: $cursor-not-allowed;
-  pointer-events: none;
-  @include opacity($btn-disabled-opacity);
-}
-
-//
-// LINK BUTTONS
-// ======================================================
-// Make a button look and behave like a link
-
-.btn-link {
-  border: 0;
-  background-color: transparent !important;
-
-  #{$hover-focus-tags} {
-    text-decoration: $link-hover-decoration;
-    @include box-shadow(none);
+  // Social button
+  @each $scheme, $value in $social-colors {
+    $tone-hover: darken($value, 6%);
+    $tone-active: darken($value, 10%);
+    .btn-#{$scheme} {
+      @include btn-social-theme($value, $tone-hover, $tone-active, $white-color);
+    }
   }
 
-  .show > &.dropdown-toggle,
-  #{$active-tags} {
-    @include box-shadow(none);
+  @each $scheme, $value in $social-colors {
+    $tone-hover: darken($value, 6%);
+    $tone-active: darken($value, 10%);
+    .btn-outline-#{$scheme} {
+      @include btn-social-theme($value, $tone-hover, $tone-active, $white-color, outline);
+    }
+  }
 
-    &:focus {
+  // Future-proof disabling of clicks on `<a>` elements
+  a.btn.disabled,
+  fieldset:disabled a.btn {
+    cursor: $cursor-not-allowed;
+    pointer-events: none;
+    @include opacity($btn-disabled-opacity);
+  }
+
+  //
+  // LINK BUTTONS
+  // ======================================================
+  // Make a button look and behave like a link
+
+  .btn-link {
+    border: 0;
+    background-color: transparent !important;
+
+    #{$hover-tags} {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+
+    #{$focus-tags} {
+      text-decoration: $link-hover-decoration;
       @include box-shadow(none);
     }
-  }
-}
 
-//
-// SIZING
-// ======================================================
+    #{$active-tags-btn},
+    .show > &.dropdown-toggle {
+      box-shadow: none !important;
 
-// Extra large button
-.btn-xl {
-  @include btn-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-min-width-xl, $btn-min-height-xl, $btn-font-size-xl, $btn-border-radius-xl, $btn-line-height-xl);
-}
-
-// Large button
-.btn-lg {
-  @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-border-radius-lg, $btn-line-height-lg);
-}
-
-// Small button
-.btn-sm {
-  @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
-}
-
-//
-// RAISED BUTTONS
-// ======================================================
-
-.btn-raised {
-  position: relative;
-  transition: box-shadow 0s;
-
-  &:hover {
-    bottom: $btn-raised-box-shadow-y-offset-hover - $btn-raised-box-shadow-y-offset;
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
   }
 
-  .show > &.dropdown-toggle,
-    //.show > &.dropdown-toggle:focus,
-    //.show > &.dropdown-toggle:hover,
-    //.open > &.dropdown-toggle*
-  &:active,
-  &.active {
-    box-shadow: none !important;
-    margin-bottom: -$btn-raised-box-shadow-y-offset;
-    margin-top: $btn-raised-box-shadow-y-offset;
-    bottom: 0;
+  //
+  // SIZING
+  // ======================================================
+
+  // Extra large button
+  .btn-xl {
+    @include btn-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-min-width-xl, $btn-min-height-xl, $btn-font-size-xl, $btn-border-radius-xl, $btn-line-height-xl);
+  }
+
+  // Large button
+  .btn-lg {
+    @include btn-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-min-width-lg, $btn-min-height-lg, $btn-font-size-lg, $btn-border-radius-lg, $btn-line-height-lg);
+  }
+
+  // Small button
+  .btn-sm {
+    @include btn-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-min-width-sm, $btn-min-height-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
+  }
+
+  //
+  // RAISED BUTTONS
+  // ======================================================
+
+  .btn-raised {
+    position: relative;
+    transition: box-shadow 0s;
+
+    &:hover {
+      bottom: $btn-raised-box-shadow-y-offset-hover - $btn-raised-box-shadow-y-offset;
+    }
+
+    .show > &.dropdown-toggle,
+      //.show > &.dropdown-toggle:focus,
+      //.show > &.dropdown-toggle:hover,
+      //.open > &.dropdown-toggle*
+    &:active,
+    &.active {
+      box-shadow: none !important;
+      margin-bottom: -$btn-raised-box-shadow-y-offset;
+      margin-top: $btn-raised-box-shadow-y-offset;
+      bottom: 0;
+    }
   }
 }

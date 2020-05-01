@@ -55,6 +55,21 @@ components: true
     </div>
     <div class="row">
         <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Light badges'}}}
+                {{#card_body}}
+                    <p>Create light badges, by replace the default modifier classes with the <code>.badge-soft-*</code> ones to change all background colors to light tone.</p>
+                    <!-- Light badges -->
+                    {{#each badges.list}}
+                        {{#badge modifier_soft '' }}{{text}}{{/badge}}
+                    {{/each}}
+                    <!-- /Light badges -->
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
 
             {{#card}}
                 {{{card_header 'Pointed badges'}}}
@@ -183,29 +198,29 @@ components: true
                 {{{card_header 'Round badges'}}}
                 {{#card_body}}
                     <!-- Round badges -->
-                    <p>Use the <code>.badge-round</code> modifier class to make round badges.</p>
+                    <p>Use the <code>.badge-circle</code> modifier class to make round badges.</p>
                     {{#each badges.list}}
-                        {{#badge-link '' modifier 'badge-round' }}5{{/badge-link}}
+                        {{#badge-link '' modifier 'badge-circle' }}5{{/badge-link}}
                     {{/each}}
                     {{{spacer-common}}}
                     {{#each badges.list}}
-                        {{#badge-link '' modifier 'badge-round' }}45{{/badge-link}}
+                        {{#badge-link '' modifier 'badge-circle' }}45{{/badge-link}}
                     {{/each}}
                     {{{spacer-common}}}
                     {{#each badges.list}}
-                        {{#badge-link '' modifier 'badge-round' }}567{{/badge-link}}
+                        {{#badge-link '' modifier 'badge-circle' }}567{{/badge-link}}
                     {{/each}}
                     {{{spacer-common}}}
                     {{#each badges.list}}
-                        {{#badge-link '' modifier_outline 'badge-round' }}8{{/badge-link}}
+                        {{#badge-link '' modifier_outline 'badge-circle' }}8{{/badge-link}}
                     {{/each}}
                     {{{spacer-common}}}
                     {{#each badges.list}}
-                        {{#badge-link '' modifier_outline 'badge-round' }}56{{/badge-link}}
+                        {{#badge-link '' modifier_outline 'badge-circle' }}56{{/badge-link}}
                     {{/each}}
                     {{{spacer-common}}}
                     {{#each badges.list}}
-                        {{#badge-link '' modifier_outline 'badge-round' }}567{{/badge-link}}
+                        {{#badge-link '' modifier_outline 'badge-circle' }}567{{/badge-link}}
                     {{/each}}
                     <!-- /Round badges -->
                     <hr>
@@ -213,13 +228,13 @@ components: true
                     <!-- Round badge sizes -->
                     <p>Badges scale to match the size of the immediate parent element.</p>
                     <div class="d-flex align-items-center">
-                        <h1>{{#badge 'badge-primary' 'badge-round mr-1' }}1{{/badge}}</h1>
-                        <h2>{{#badge 'badge-secondary' 'badge-round mr-1' }}2{{/badge}}</h2>
-                        <h3>{{#badge 'badge-warning' 'badge-round mr-1' }}3{{/badge}}</h3>
-                        <h4>{{#badge 'badge-info' 'badge-round mr-1' }}4{{/badge}}</h4>
-                        <h5>{{#badge 'badge-danger' 'badge-round mr-1' }}5{{/badge}}</h5>
-                        <h6>{{#badge 'badge-dark' 'badge-round mr-1' }}6{{/badge}}</h6>
-                        <h6><small>{{#badge 'badge-light' 'badge-round mr-1' }}7{{/badge}}</small></h6>
+                        <h1>{{#badge 'badge-primary' 'badge-circle mr-1' }}1{{/badge}}</h1>
+                        <h2>{{#badge 'badge-secondary' 'badge-circle mr-1' }}2{{/badge}}</h2>
+                        <h3>{{#badge 'badge-warning' 'badge-circle mr-1' }}3{{/badge}}</h3>
+                        <h4>{{#badge 'badge-info' 'badge-circle mr-1' }}4{{/badge}}</h4>
+                        <h5>{{#badge 'badge-danger' 'badge-circle mr-1' }}5{{/badge}}</h5>
+                        <h6>{{#badge 'badge-dark' 'badge-circle mr-1' }}6{{/badge}}</h6>
+                        <h6><small>{{#badge 'badge-light' 'badge-circle mr-1' }}7{{/badge}}</small></h6>
                     </div>
                     <!-- /Round badge sizes -->
                 {{/card_body}}
@@ -230,23 +245,23 @@ components: true
                 {{{card_header 'Empty badges'}}}
                 {{#card_body}}
                     <!-- Empty badges -->
-                    <p>Use the <code>.badge-round.empty</code> modifier class to make empty badges.</p>
+                    <p>Use the <code>.badge-circle.empty</code> modifier class to make empty badges.</p>
                     {{#each badges.list}}
-                        {{#badge-link '' modifier 'badge-round empty' }}{{/badge-link}}
+                        {{#badge-link '' modifier 'badge-circle empty' }}{{/badge-link}}
                     {{/each}}
                     <!-- /Empty badges -->
                     <hr>
                     {{{card_title 'Empty badge sizes'}}}
                     <!-- Empty badges sizes -->
-                    {{#badge-link '' 'badge-primary' 'badge-round empty p-0' }}{{/badge-link}}
-                    {{#badge-link '' 'badge-secondary' 'badge-round empty p-1' }}{{/badge-link}}
-                    {{#badge-link '' 'badge-success' 'badge-round empty p-2' }}{{/badge-link}}
-                    {{#badge-link '' 'badge-danger' 'badge-round empty p-3' }}{{/badge-link}}
-                    {{#badge-link '' 'badge-warning' 'badge-round empty p-4' }}{{/badge-link}}
-                    {{#badge-link '' 'badge-info' 'badge-round empty p-3' }}{{/badge-link}}
-                    {{#badge-link '' 'badge-light' 'badge-round empty p-2' }}{{/badge-link}}
-                    {{#badge-link '' 'badge-dark' 'badge-round empty p-1' }}{{/badge-link}}
-                    {{#badge-link '' 'badge-primary' 'badge-round empty p-0' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-primary' 'badge-circle empty p-0' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-secondary' 'badge-circle empty p-1' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-success' 'badge-circle empty p-2' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-danger' 'badge-circle empty p-3' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-warning' 'badge-circle empty p-4' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-info' 'badge-circle empty p-3' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-light' 'badge-circle empty p-2' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-dark' 'badge-circle empty p-1' }}{{/badge-link}}
+                    {{#badge-link '' 'badge-primary' 'badge-circle empty p-0' }}{{/badge-link}}
                     <!-- /Empty badges sizes -->
                 {{/card_body}}
             {{/card}}
@@ -284,18 +299,18 @@ components: true
                     <hr>
                     {{{card_title 'Floating notifications using badges'}}}
 
-                    <a href="#" style="position: relative" class="mr-4">Messages{{#badge 'badge-danger' 'badge-round floating' }}5{{/badge}}</a>
+                    <a href="#" style="position: relative" class="mr-4">Messages{{#badge 'badge-danger' 'badge-circle floating' }}5{{/badge}}</a>
 
                     <a href="#" style="position: relative" class="mr-4">Notification{{#badge 'badge-info' 'floating' }}5{{/badge}}</a>
 
                     {{{spacer-common}}}
                     {{{spacer-common}}}
-                    <button type="button" class="btn btn-outline-primary btn-icon btn-round mr-4">
-                        <i class="icon-envelope"></i>{{#badge 'badge-primary' 'badge-round floating' }}5{{/badge}}
+                    <button type="button" class="btn btn-outline-primary btn-icon btn-circle mr-4">
+                        <i class="icon-envelope"></i>{{#badge 'badge-primary' 'badge-circle floating' }}5{{/badge}}
                     </button>
 
                     <button type="button" class="btn btn-warning btn-icon mr-4">
-                        <i class="icon-bell"></i>{{#badge 'badge-danger' 'badge-round floating' }}5{{/badge}}
+                        <i class="icon-bell"></i>{{#badge 'badge-danger' 'badge-circle floating' }}5{{/badge}}
                     </button>
 
                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -322,7 +337,7 @@ components: true
                     </button>
                     {{{spacer-common}}}
                     <button type="button" class="btn btn-secondary">
-                        Notifications {{#badge 'badge-info' ' badge-round ml-1' }}4{{/badge}}
+                        Notifications {{#badge 'badge-info' ' badge-circle ml-1' }}4{{/badge}}
                     </button>
                     {{{spacer-common}}}
                     <button type="button" class="btn btn-lg btn-danger">
@@ -441,6 +456,32 @@ components: true
                             {{/card}}
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            {{#card}}
+                                {{#card_body}}
+                                    <span class="badge badge-soft-primary ribbon ribbon-left px-3 float-left" style="margin-left: -35px">Fearured</span>
+                                    {{{clearfix}}}
+                                    <p class="card-text mt-3">{{{placeholder-lorem-sm}}}</p>
+                                    <span class="badge badge-soft-secondary ribbon ribbon-left px-3 float-left" style="margin-left: -35px">Fearured</span>
+                                    {{{clearfix}}}
+                                    <p class="card-text mt-3">{{{placeholder-lorem-sm}}}</p>
+                                {{/card_body}}
+                            {{/card}}
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            {{#card}}
+                                {{#card_body}}
+                                    <span class="badge badge-soft-success ribbon ribbon-right px-3 float-right" style="margin-right: -35px">Fearured</span>
+                                    {{{clearfix}}}
+                                    <p class="card-text mt-3">{{{placeholder-lorem-sm}}}</p>
+                                    <span class="badge badge-soft-info ribbon ribbon-right px-3 float-right" style="margin-right: -35px">Fearured</span>
+                                    {{{clearfix}}}
+                                    <p class="card-text mt-3">{{{placeholder-lorem-sm}}}</p>
+                                {{/card_body}}
+                            {{/card}}
+                        </div>
+                    </div>
                 {{/card_body}}
             {{/card}}
         </div>
@@ -488,6 +529,40 @@ components: true
                                 <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
                             </div>
                             <!-- /Corner badges 4 -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <!-- Corner badges 5 -->
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#badge-link '' 'badge-soft-primary' 'corner top-left' }}<i class="fas fa-heart"></i>{{/badge-link}}
+                                <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                            </div>
+                            <!-- /Corner badges 5 -->
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <!-- Corner badges 6 -->
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#badge-link '' 'badge-soft-secondary' 'corner top-right' }}<i class="fas fa-heart"></i>{{/badge-link}}
+                                <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                            </div>
+                            <!-- /Corner badges 6 -->
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <!-- Corner badges 7 -->
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#badge-link '' 'badge-soft-danger' 'corner bottom-right' }}<i class="fas fa-heart"></i>{{/badge-link}}
+                                <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                            </div>
+                            <!-- /Corner badges 7 -->
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <!-- Corner badges 8 -->
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#badge-link '' 'badge-soft-info' 'corner bottom-left' }}<i class="fas fa-heart"></i>{{/badge-link}}
+                                <img class="card-img-top" src="https://source.unsplash.com/llkVQVjns80/350x300" alt="Card image">
+                            </div>
+                            <!-- /Corner badges 8 -->
                         </div>
                     </div>
                 {{/card_body}}
@@ -539,6 +614,47 @@ components: true
                             <div class="card of-h" style="width: 18rem;position: relative">
                                 {{#card_body}}
                                     {{#badge 'badge-light' 'corner-ribbon top-left' }}Fearured{{/badge}}
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                {{/card_body}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#card_body}}
+                                    {{#badge 'badge-soft-warning' 'corner-ribbon top-left' }}Fearured{{/badge}}
+                                    {{#badge 'badge-soft-dark' 'corner-ribbon bottom-right' }}Fearured{{/badge}}
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                {{/card_body}}
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#card_body}}
+                                    {{#badge 'badge-soft-info' 'corner-ribbon top-right' }}Fearured{{/badge}}
+                                    {{#badge 'badge-soft-danger' 'corner-ribbon bottom-left' }}Fearured{{/badge}}
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                {{/card_body}}
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#card_body}}
+                                    {{#badge 'badge-soft-primary' 'corner-ribbon top-right' }}Fearured{{/badge}}
+                                    {{#badge 'badge-soft-secondary' 'corner-ribbon bottom-left' }}Fearured{{/badge}}
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                {{/card_body}}
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-12">
+                            <div class="card of-h" style="width: 18rem;position: relative">
+                                {{#card_body}}
+                                    {{#badge 'badge-soft-light' 'corner-ribbon top-left' }}Fearured{{/badge}}
                                     <p class="card-text">{{{placeholder-lorem-sm}}}</p>
                                     <p class="card-text">{{{placeholder-lorem-sm}}}</p>
                                 {{/card_body}}

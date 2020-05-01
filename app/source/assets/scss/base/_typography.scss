@@ -13,7 +13,7 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
@@ -125,14 +125,38 @@ h6, .h6 {
 
 @each $breakpoint, $length in $breakpoints-max-widths {
   $next-breakpoint: breakpoint-next($breakpoint, $breakpoints-min-widths);
-  $next-length: map-get-strict($breakpoints-min-widths,$next-breakpoint);
+  $next-length: map-get-strict($breakpoints-min-widths, $next-breakpoint);
   @include min-screen(#{$next-length}) {
-    .display-#{$next-breakpoint}-1 { font-size: $display1-size; font-weight: $display1-weight; line-height: $display-line-height; }
-    .display-#{$next-breakpoint}-2 { font-size: $display2-size; font-weight: $display2-weight; line-height: $display-line-height; }
-    .display-#{$next-breakpoint}-3 { font-size: $display3-size; font-weight: $display3-weight; line-height: $display-line-height; }
-    .display-#{$next-breakpoint}-4 { font-size: $display4-size; font-weight: $display4-weight; line-height: $display-line-height; }
-    .display-#{$next-breakpoint}-5 { font-size: $display5-size; font-weight: $display5-weight; line-height: $display-line-height; }
-    .display-#{$next-breakpoint}-6 { font-size: $display6-size; font-weight: $display6-weight; line-height: $display-line-height; }
+    .display-#{$next-breakpoint}-1 {
+      font-size: $display1-size;
+      font-weight: $display1-weight;
+      line-height: $display-line-height;
+    }
+    .display-#{$next-breakpoint}-2 {
+      font-size: $display2-size;
+      font-weight: $display2-weight;
+      line-height: $display-line-height;
+    }
+    .display-#{$next-breakpoint}-3 {
+      font-size: $display3-size;
+      font-weight: $display3-weight;
+      line-height: $display-line-height;
+    }
+    .display-#{$next-breakpoint}-4 {
+      font-size: $display4-size;
+      font-weight: $display4-weight;
+      line-height: $display-line-height;
+    }
+    .display-#{$next-breakpoint}-5 {
+      font-size: $display5-size;
+      font-weight: $display5-weight;
+      line-height: $display-line-height;
+    }
+    .display-#{$next-breakpoint}-6 {
+      font-size: $display6-size;
+      font-weight: $display6-weight;
+      line-height: $display-line-height;
+    }
   }
 }
 
@@ -154,12 +178,13 @@ a:not(.btn) {
   text-decoration: none;
   transition: color 250ms ease-in-out;
 
-  #{$hover-focus-tags} {
+  #{$hover-focus-tags},
+  #{$active-tags} {
     color: $link-hover-color;
   }
 }
 
-a:not(.btn):not(.nav-link):not(.card-link){
+a:not(.btn):not(.nav-link):not(.card-link) {
   #{$hover-focus-tags} {
     text-decoration: $link-hover-decoration;
   }
@@ -200,3 +225,11 @@ strong {
   color: $blockquote-small-color;
 }
 
+
+//
+// BOLD
+// ======================================================
+
+b, .b, strong, .strong {
+  font-weight: $font-wh-bold;
+}

@@ -4,11 +4,11 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 // TODO Adapted from https://codepen.io/uimax/pen/kkadmY
-
+@if (map-get-strict($components, 'badge')) {
 //
 // BASE STYLING
 // ======================================================
@@ -41,6 +41,9 @@
       &.#{$b}-outline-#{$scheme} {
         @include badges-theme($scheme, outline);
       }
+      &.#{$b}-soft-#{$scheme} {
+        @include badges-theme($scheme, soft);
+      }
     }
   }
 
@@ -51,6 +54,9 @@
     }
     &.#{$b}-outline-#{$scheme} {
       @include badges-theme($scheme, outline);
+    }
+    &.#{$b}-soft-#{$scheme} {
+      @include badges-theme($scheme, soft);
     }
   }
 
@@ -100,12 +106,12 @@
   }
 
   // Round badges
-  &.badge-round {
-    @include border-radius($badge-round-border-radius);
-    min-width: $badge-round-size;
-    height: $badge-round-size;
-    padding: $badge-round-padding-y $badge-round-padding-x;
-    line-height: $badge-round-line-height;
+  &.badge-circle {
+    @include border-radius($badge-circle-border-radius);
+    min-width: $badge-circle-size;
+    height: $badge-circle-size;
+    padding: $badge-circle-padding-y $badge-circle-padding-x;
+    line-height: $badge-circle-line-height;
     text-align: center;
     display: inline-flex;
     align-items: center;
@@ -463,4 +469,6 @@ a.badge {
   &.dropdown-toggle::after {
     vertical-align: middle;
   }
+}
+
 }

@@ -55,9 +55,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card}}
                 {{{card_header 'Rounded Buttons'}}}
                 {{#card_body}}
-                    <p>Create rounded buttons, by adding <code>.btn-round</code>. </p>
+                    <p>Create rounded buttons, by adding <code>.btn-circle</code>. </p>
                     {{#btns buttons.list}}
-                        <button type="button" class="{{class}} {{modifier}} btn-round mb-1">{{text}}</button>
+                        <button type="button" class="{{class}} {{modifier}} btn-circle mb-1">{{text}}</button>
                     {{/btns}}
                 {{/card_body}}
             {{/card}}
@@ -71,10 +71,10 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Light Buttons'}}}
                 {{#card_body}}
                     <p>
-                        Create light buttons, by replace the default modifier classes with the <code>.btn-light-*</code> ones to change all background colors to light tone.
+                        Create light buttons, by replace the default modifier classes with the <code>.btn-soft-*</code> ones to change all background colors to light tone.
                     </p>
                     {{#btns buttons.list}}
-                        <button type="button" class="{{class}} {{modifier_light}} mb-1">{{text}}</button>
+                        <button type="button" class="{{class}} {{modifier_soft}} mb-1">{{text}}</button>
                     {{/btns}}
                 {{/card_body}}
             {{/card}}
@@ -87,10 +87,10 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Light Rounded Buttons'}}}
                 {{#card_body}}
                     <p>
-                        Create light buttons, by replace the default modifier classes with the <code>.btn-light-*</code> and <code>btn-round</code> ones to change all background colors to light tone.
+                        Create light buttons, by replace the default modifier classes with the <code>.btn-soft-*</code> and <code>btn-circle</code> ones to change all background colors to light tone.
                     </p>
                     {{#btns buttons.list}}
-                        <button type="button" class="{{class}} {{modifier_light}} btn-round mb-1">{{text}}</button>
+                        <button type="button" class="{{class}} {{modifier_light}} btn-circle mb-1">{{text}}</button>
                     {{/btns}}
                 {{/card_body}}
             {{/card}}
@@ -156,11 +156,11 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Rounded outline buttons'}}}
                 {{#card_body}}
                     <p>
-                        Create rounded outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-round</code> ones to
+                        Create rounded outline buttons, by replace the default modifier classes with the <code>.btn-outline-*</code> and <code>.btn-circle</code> ones to
                         remove all background images and colors on any button.
                     </p>
                     {{#btns buttons.list}}
-                        <button type="button" class="{{class}} {{modifier_outline}} btn-round mb-1">{{text}}</button>
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-circle mb-1">{{text}}</button>
                     {{/btns}}
                 {{/card_body}}
             {{/card}}
@@ -201,7 +201,7 @@ OR you can type out the HTML if you prefer--}}
                     <p>Rounded buttons with icon on right side.</p>
                     <p>
                         {{#btns buttons.list}}
-                            <button type="button" class="{{class}} {{modifier}} btn-round has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
+                            <button type="button" class="{{class}} {{modifier}} btn-circle has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
                         {{/btns}}
                     </p>
                     <hr>
@@ -215,7 +215,7 @@ OR you can type out the HTML if you prefer--}}
                     <p>Outlined buttons with icon on right side.</p>
                     <p>
                         {{#btns buttons.list}}
-                            <button type="button" class="{{class}} {{modifier_outline}} btn-round has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
+                            <button type="button" class="{{class}} {{modifier_outline}} btn-circle has-icon-right mb-1">{{text}}<i class="{{class_i}}"></i></button>
                         {{/btns}}
                     </p>
                     <hr>
@@ -266,7 +266,7 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Circle icon buttons'}}}
                 {{#card_body}}
                     {{#btns buttons.list}}
-                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
+                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-circle mb-1"><i class="{{class_i}}"></i></button>
                     {{/btns}}
                 {{/card_body}}
             {{/card}}
@@ -276,7 +276,7 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Outline circle icon buttons'}}}
                 {{#card_body}}
                     {{#btns buttons.list}}
-                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-circle mb-1"><i class="{{class_i}}"></i></button>
                     {{/btns}}
                 {{/card_body}}
             {{/card}}
@@ -298,7 +298,7 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Social link icon buttons'}}}
                 {{#card_body}}
                     {{#btns buttons.list_social}}
-                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-round btn-link"><i class="{{class_i}}"></i></button>
+                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-circle btn-link"><i class="{{class_i}}"></i></button>
                     {{/btns}}
                 {{/card_body}}
             {{/card}}
@@ -357,7 +357,7 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Social circle icon buttons'}}}
                 {{#card_body}}
                     {{#btns buttons.list_social}}
-                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
+                        <button type="button" class="{{class}} {{modifier}} btn-icon btn-circle mb-1"><i class="{{class_i}}"></i></button>
                     {{/btns}}
                 {{/card_body}}
             {{/card}}
@@ -367,7 +367,7 @@ OR you can type out the HTML if you prefer--}}
                 {{{card_header 'Social outline circle icon buttons'}}}
                 {{#card_body}}
                     {{#btns buttons.list_social}}
-                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-round mb-1"><i class="{{class_i}}"></i></button>
+                        <button type="button" class="{{class}} {{modifier_outline}} btn-icon btn-circle mb-1"><i class="{{class_i}}"></i></button>
                     {{/btns}}
                 {{/card_body}}
             {{/card}}
@@ -383,12 +383,12 @@ OR you can type out the HTML if you prefer--}}
                     <a href="#" class="btn btn-primary disabled mb-1" role="button" aria-disabled="true">Primary link</a>
                     {{#btn_disabled "primary mb-1"}}Primary{{/btn_disabled}}
                     {{#btn_disabled "outline-primary mb-1"}}Primary{{/btn_disabled}}
-                    {{#btn_disabled "secondary btn-round mb-1"}}Secondary{{/btn_disabled}}
-                    {{#btn_disabled "outline-secondary btn-round mb-1"}}Secondary{{/btn_disabled}}
+                    {{#btn_disabled "secondary btn-circle mb-1"}}Secondary{{/btn_disabled}}
+                    {{#btn_disabled "outline-secondary btn-circle mb-1"}}Secondary{{/btn_disabled}}
                     {{#btn_disabled "success btn-icon mb-1"}}<i class="icon-check"></i>{{/btn_disabled}}
                     {{#btn_disabled "outline-success btn-icon mb-1"}}<i class="icon-check"></i>{{/btn_disabled}}
-                    {{#btn_disabled "danger btn-icon btn-round mb-1"}}<i class="icon-close"></i>{{/btn_disabled}}
-                    {{#btn_disabled "outline-danger btn-icon btn-round mb-1"}}<i class="icon-close"></i>{{/btn_disabled}}
+                    {{#btn_disabled "danger btn-icon btn-circle mb-1"}}<i class="icon-close"></i>{{/btn_disabled}}
+                    {{#btn_disabled "outline-danger btn-icon btn-circle mb-1"}}<i class="icon-close"></i>{{/btn_disabled}}
                     {{#btn_disabled "danger btn-link mb-1"}}Warning{{/btn_disabled}}
                 {{/card_body}}
             {{/card}}
@@ -403,9 +403,9 @@ OR you can type out the HTML if you prefer--}}
             {{#card_body}}
                 <p>A button can show it is currently the active user selection</p>
                 {{#btn "primary active mb-1"}}Primary{{/btn}}
-                {{#btn "secondary btn-round active mb-1"}}Secondary{{/btn}}
+                {{#btn "secondary btn-circle active mb-1"}}Secondary{{/btn}}
                 {{#btn "success btn-icon active mb-1"}}<i class="icon-check"></i>{{/btn}}
-                {{#btn "danger btn-icon btn-round active mb-1"}}<i class="icon-close"></i>{{/btn}}
+                {{#btn "danger btn-icon btn-circle active mb-1"}}<i class="icon-close"></i>{{/btn}}
                 {{#btn "warning btn-link active mb-1"}}Warning{{/btn}}
             {{/card_body}}
         {{/card}}
@@ -450,7 +450,7 @@ OR you can type out the HTML if you prefer--}}
                         </div>
                         <div class="col-12 col-md-3">
                             {{#btns buttons.list_size}}
-                                    <button type="button" class="{{class}} btn-primary btn-round {{size}}">{{text}}</button>
+                                    <button type="button" class="{{class}} btn-primary btn-circle {{size}}">{{text}}</button>
                                 {{{spacer-common}}}
                             {{/btns}}
                         </div>
@@ -475,7 +475,7 @@ OR you can type out the HTML if you prefer--}}
                         </div>
                         <div class="col-12 col-md-3">
                             {{#btns buttons.list_size}}
-                                    <button type="button" class="{{class}} btn-outline-primary btn-round {{size}}">{{text}}</button>
+                                    <button type="button" class="{{class}} btn-outline-primary btn-circle {{size}}">{{text}}</button>
                                 {{{spacer-common}}}
                             {{/btns}}
                         </div>
@@ -500,13 +500,13 @@ OR you can type out the HTML if you prefer--}}
                         </div>
                         <div class="col-12 col-md-3">
                             {{#btns buttons.list_size}}
-                                    <button type="button" class="{{class}} btn-primary btn-icon btn-round {{size}}"><i class="icon-heart"></i></button>
+                                    <button type="button" class="{{class}} btn-primary btn-icon btn-circle {{size}}"><i class="icon-heart"></i></button>
                                 {{{spacer-common}}}
                             {{/btns}}
                         </div>
                         <div class="col-12 col-md-3">
                             {{#btns buttons.list_size}}
-                                    <button type="button" class="{{class}} btn-outline-primary btn-icon btn-round {{size}}"><i class="icon-heart"></i></button>
+                                    <button type="button" class="{{class}} btn-outline-primary btn-icon btn-circle {{size}}"><i class="icon-heart"></i></button>
                                 {{{spacer-common}}}
                             {{/btns}}
                         </div>
@@ -555,8 +555,8 @@ OR you can type out the HTML if you prefer--}}
                     <p>Create block level buttons—those that span the full width of a parent—by adding <code>.btn-block</code>.</p>
                     {{#btn "primary btn-block btn-lg"}}Block button{{/btn}}
                     {{#btn "outline-primary btn-block btn-lg"}}Outline Block button{{/btn}}
-                    {{#btn "secondary btn-round btn-block btn-lg"}}Rounded Block button{{/btn}}
-                    {{#btn "outline-secondary btn-round btn-block btn-lg"}}Rounded Outline Block button{{/btn}}
+                    {{#btn "secondary btn-circle btn-block btn-lg"}}Rounded Block button{{/btn}}
+                    {{#btn "outline-secondary btn-circle btn-block btn-lg"}}Rounded Outline Block button{{/btn}}
                 {{/card_body}}
             {{/card}}
         </div>

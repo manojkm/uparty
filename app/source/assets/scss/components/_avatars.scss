@@ -1,0 +1,491 @@
+// ================================================================================================
+// File Name      : avatars.scss
+// Description    : Avatars
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+@if (map-get-strict($components, 'avatars')) {
+
+  //
+  // BASE STYLING
+  // ======================================================
+  // Refactored, new avatar stack:
+
+  //.AvatarStack {
+  //  position: relative;
+  //  min-width: 26px;
+  //  height: 20px;
+  //
+  //  .AvatarStack-body {
+  //    position: absolute;
+  //    display: flex;
+  //    background: $white-color;
+  //  }
+  //
+  //  &.AvatarStack--two {
+  //    min-width: 36px;
+  //  }
+  //
+  //}
+  //
+  //.AvatarStack-body {
+  //
+  //  .avatar {
+  //    position: relative;
+  //    z-index: 2;
+  //    display: flex;
+  //    width: 20px;
+  //    height: 20px;
+  //    box-sizing: content-box;
+  //    margin-right: -11px;
+  //    background-color: $white-color;
+  //    border-right: 1px solid $white-color;
+  //    border-radius: 2px;
+  //    transition: margin 0.1s ease-in-out;
+  //
+  //    &:first-child {
+  //      z-index: 3;
+  //    }
+  //
+  //    &:last-child {
+  //      z-index: 1;
+  //    }
+  //
+  //    // Account for 4+ avatars
+  //    &:nth-child(n+4) {
+  //      display: none;
+  //      opacity: 0;
+  //    }
+  //  }
+  //
+  //  &:hover {
+  //    .avatar {
+  //      margin-right: 3px;
+  //    }
+  //
+  //    .avatar:nth-child(n+4) {
+  //      display: flex;
+  //      opacity: 1;
+  //    }
+  //
+  //    .avatar-more {
+  //      display: none !important;
+  //    }
+  //  }
+  //}
+  //
+  //.avatar.avatar-more {
+  //  z-index: 1;
+  //  margin-right: 0;
+  //  background: $gray-100;
+  //
+  //  &::before,
+  //  &::after {
+  //    position: absolute;
+  //    display: block;
+  //    height: 20px;
+  //    content: "";
+  //    border-radius: 2px;
+  //    outline: 1px solid $white-color;
+  //  }
+  //
+  //  &::before {
+  //    width: 17px;
+  //    background: $gray-200;
+  //  }
+  //
+  //  &::after {
+  //    width: 14px;
+  //    background: $gray-300;
+  //  }
+  //}
+
+
+  .avatar {
+    width: $avatar-size;
+    height: $avatar-size;
+    position: relative;
+    display: inline-block;
+
+    #{&}__content {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      border-radius: inherit;
+
+      // Images within avatars
+      &.avatar-img img {
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        height: auto;
+        border: 0;
+        opacity: 1;
+        @include transition(opacity .15s linear);
+        @at-root a#{&} {
+          &:hover, &:active {
+            opacity: $alpha-8;
+          }
+        }
+      }
+
+      // Character within avatars
+      &.avatar-char {
+        text-transform: uppercase;
+        text-align: center;
+        white-space: nowrap;
+        font-size: $avatar-char-font-size;
+        line-height: $avatar-char-font-size;
+        font-weight: $font-wh-bold;
+
+        #{$icon-tags} {
+          font-size: inherit;
+          line-height: inherit;
+        }
+
+        &[data-initial]::before {
+          color: currentColor;
+          content: attr(data-initial);
+          position: absolute;
+          //left: 50%;
+          //top: 50%;
+          //transform: translate(-50%, -50%);
+          @include center(xy);
+          z-index: 0;
+        }
+      }
+    }
+
+
+    // Theme variations
+    @each $themeName, $value in $themes-map {
+      $colors: map-get-strict($value, 'main-colors');
+      @each $scheme, $tone in $colors {
+        &.avatar--#{$scheme} {
+          @include avatar-theme($scheme);
+        }
+        &.avatar-soft--#{$scheme} {
+          @include avatar-theme($scheme, soft);
+        }
+      }
+    }
+
+    // Contextual variations
+    @each $scheme, $tone in $contextual-palette-map {
+      &.avatar--#{$scheme} {
+        @include avatar-theme($scheme);
+      }
+      &.avatar-soft--#{$scheme} {
+        @include avatar-theme($scheme, soft);
+      }
+    }
+  }
+
+  //
+  // AVATAR GROUP (OVERLAPPED AVATARS)
+  // ======================================================
+
+  .avatar-stack {
+    display: inline-flex;
+    white-space: nowrap;
+
+    .avatar {
+      @include add-border(2px, $white-color, all);
+      @include transition($transition-fade);
+      z-index: 2;
+
+      &:hover {
+        z-index: 3;
+      }
+    }
+
+    .avatar:hover ~ .avatar {
+      opacity: 0.5;
+    }
+
+    .avatar + .avatar {
+      margin-left: -.75rem;
+    }
+
+    .avatar--sm + .avatar--sm {
+      margin-left: -.625rem;
+    }
+
+    .avatar--lg + .avatar--lg {
+      margin-left: -1rem;
+    }
+
+    .avatar--xl + .avatar--xl {
+      margin-left: -1.25rem;
+    }
+  }
+
+  // Reveal single avatar
+  .avatar-stack-reveal-single {
+    display: inline-flex;
+    white-space: nowrap;
+
+    .avatar {
+      margin-right: -.75rem;
+      @include transition(margin 0.25s);
+      @include add-border(2px, $white-color, all);
+
+      &:hover {
+        margin-right: 0 !important;
+      }
+    }
+
+    .avatar--sm {
+      margin-right: -.625rem;
+    }
+
+    .avatar--lg {
+      margin-right: -1rem;
+    }
+
+    .avatar--xl {
+      margin-right: -1.25rem;
+    }
+  }
+
+  // Reveal full stack
+  .avatar-stack-reveal-full {
+    display: inline-flex;
+    white-space: nowrap;
+
+    .avatar {
+      margin-right: -.75rem;
+      @include transition(margin 0.1s ease-in-out);
+      @include add-border(2px, $white-color, all);
+    }
+
+    .avatar--sm {
+      margin-right: -.625rem;
+    }
+
+    .avatar--lg {
+      margin-right: -1rem;
+    }
+
+    .avatar--xl {
+      margin-right: -1.25rem;
+    }
+
+    // When more than one avatar, then reveal the stack
+    &:hover {
+      .avatar {
+        margin-right: 3px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .avatar-stack-collapse {
+    display: inline-flex;
+
+    .avatar {
+      margin-right: -1.375rem;
+      z-index: 2;
+      box-sizing: content-box;
+      @include add-border(2px, $white-color, all);
+      @include transition(margin 0.1s ease-in-out);
+
+      &:first-child {
+        z-index: 3;
+      }
+
+      &:last-child {
+        z-index: 1;
+      }
+
+      // Account for 4+ avatars
+      &:nth-child(n+4) {
+        display: none;
+        opacity: 0;
+      }
+    }
+
+    .avatar--sm {
+      margin-right: -1.25rem;
+    }
+
+    .avatar--lg {
+      margin-right: -1.5rem;
+    }
+
+    .avatar--xl {
+      margin-right: -1.75rem;
+    }
+
+    &:hover {
+      .avatar {
+        margin-right: 3px;
+      }
+
+      .avatar:nth-child(n+4) {
+        display: block;
+        opacity: 1;
+      }
+
+      .avatar-more {
+        display: none !important;
+      }
+    }
+
+    .avatar.avatar-more {
+      z-index: 1;
+      margin-right: 0;
+      background: $gray-200;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        height: 100%;
+        content: "";
+        box-shadow: 0 0 0 2px $white-color;
+        //outline: 2px solid $white-color;
+        border-radius: inherit;
+      }
+
+      &::before {
+        width: 100%;
+        transform: translateX(-14%); // Hiding aide as default
+        background: $gray-300;
+      }
+
+      &::after {
+        width: 100%;
+        transform: translateX(-32%); // Hiding aide as default
+        background: $gray-400;
+      }
+    }
+  }
+
+  //
+  // AVATAR INDICATORS (STATUS etc.)
+  // ======================================================
+  // adapted from https://github.com/moltentheory/LINFadmin/blob/a45983e87962d40b445a5d07560693ab2110e100/public/assets/sass/atlantis/components/_avatars.scss
+
+  .avatar {
+
+    // Status
+    &-online,
+    &-offline,
+    &-away,
+    &-busy {
+      &::before {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 30%;
+        height: 30%;
+        border-radius: $border-radius-50;
+        content: '';
+        @include add-border(2px, $white-color, all);
+      }
+    }
+
+    &-online::before {
+      background-color: $avatar-online-color;
+    }
+
+    &-offline::before {
+      background-color: $avatar-offline-color;
+    }
+
+    &-away::before {
+      background-color: $avatar-away-color;
+    }
+
+    &-busy::before {
+      background-color: $avatar-busy-color;
+    }
+
+    // Icon
+    #{&}__icon {
+      background: inherit;
+      bottom: 14.64%;
+      height: 50%;
+      width: 50%;
+      padding: .2rem;
+      position: absolute;
+      right: 14.64%;
+      transform: translate(50%, 50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      @include add-border(2px, $white-color, all);
+      font-size: $font-size-xs;
+      line-height: $font-size-xs;
+
+      #{$icon-tags} {
+        font-size: inherit;
+        line-height: inherit;
+      }
+    }
+
+    // Badge
+    #{&}__badge {
+
+    }
+  }
+
+  //
+  // SIZING
+  // ======================================================
+
+  .avatar {
+    // Extra large
+    &.avatar--xl {
+      width: $avatar-size-xl;
+      height: $avatar-size-xl;
+
+      .avatar__content {
+        &.avatar-char {
+          font-size: $avatar-char-font-size-xl;
+          line-height: $avatar-char-font-size-xl;
+        }
+      }
+    }
+
+    // Large
+    &.avatar--lg {
+      width: $avatar-size-lg;
+      height: $avatar-size-lg;
+
+      .avatar__content {
+        &.avatar-char {
+          font-size: $avatar-char-font-size-lg;
+          line-height: $avatar-char-font-size-lg;
+        }
+      }
+    }
+
+    // Small
+    &.avatar--sm {
+      width: $avatar-size-sm;
+      height: $avatar-size-sm;
+
+      .avatar__content {
+        &.avatar-char {
+          font-size: $avatar-char-font-size-sm;
+          line-height: $avatar-char-font-size-sm;
+        }
+      }
+    }
+  }
+}

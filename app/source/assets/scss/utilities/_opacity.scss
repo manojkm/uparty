@@ -4,18 +4,18 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
 //
-// OPACITY
+// ALPHA- OPACITY
 // ======================================================
-// This generate a utility class name of .op-1 having a
+// This generate a utility class name of .alpha-1 having a
 // style of opacity: 0.1;
 
 $num: 0;
 @while $num < 10 {
-  .op-#{$num} { opacity: 0 + ($num * 0.1) !important;}
+  .alpha-#{$num} { opacity: 0 + ($num * 0.1) !important;}
   $num: $num + 1;
 }

@@ -4,7 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ------------------------------------------------------------------------------------------------
 // WARNING        : PLEASE DO NOT CHANGE THIS VARIABLE FILE. THIS FILE WILL GET OVERWRITTEN WITH
@@ -31,6 +31,8 @@
 // https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
 // USE THIS WAY TOMORROW https://github.com/edx/ux-pattern-library/blob/master/pattern-library/sass/global/_reset.scss
 // https://github.com/andaistvan/bardoni-theme/blob/2f6c72e67a4fde923884cac79a2b75ef19004cab/assets/theme/_variables.scss
+// https://github.com/0bie/pattern-lib
+// https://github.com/0bie/pattern-lib/blob/master/src/components/avatar/_index.scss
 
 // TABLE OF CONTENTS
 //
@@ -51,6 +53,7 @@
 // -----------------------------------------------------------------------------
 // 3.1 LAYOUT/STYLING CONFIGS
 // 3.2 ASSETS PATHS VARIABLE CONFIG
+// 3.3 SOFT COLOR LEVELS
 
 //
 // 4. UTILITIES FOR LAYOUT
@@ -60,16 +63,17 @@
 // 4.3 IMAGES
 // 4.4 MARK
 // 4.5 SIZES
-// 4.6 WHITE OPACITY
-// 4.7 BLACK OPACITY
-// 4.8 OVERLAY
-// 4.9 SHADOWS
-// 4.10 EASINGS
-// 4.11 TRANSITIONS
-// 4.12 Z-INDEX LAYERS
-// 4.13 BREAKPOINTS
-// 4.14 CURSORS
-// 4.15 OVERFLOW
+// 4.6 ALPHA- OPACITY
+// 4.7 ALPHA- WHITE OPACITY
+// 4.8 ALPHA- BLACK OPACITY
+// 4.9 OVERLAY
+// 4.10 SHADOWS
+// 4.11 EASINGS
+// 4.12 TRANSITIONS
+// 4.13 Z-INDEX LAYERS
+// 4.14 BREAKPOINTS
+// 4.15 CURSORS
+// 4.16 OVERFLOW
 
 //
 // 5. ELEMENTS
@@ -130,6 +134,7 @@
 // 8.29 SEARCH
 // 8.30 MEGA MENU
 // 8.31 MEDIA OBJECT
+// 8.32 AVATARS
 
 //
 // 9. VENDOR'S VARIABLES
@@ -363,6 +368,14 @@ $image-path:                            '#{$assets-relative-path-prod}img/' !def
 $vendors-path:                          '#{$assets-relative-path-prod}vendors/' !default;
 
 //
+// 3.3 SOFT COLOR LEVELS
+// -----------------------------------------------------------------------------
+
+$soft-bg-level:                         -9 !default; // Used to generate soft background color for contextual and theme variations
+$soft-border-level:                     -6 !default; // Used to generate soft border color for contextual and theme variations
+$soft-color-level:                      6 !default; // Used to generate soft text color for contextual and theme variations
+
+//
 // 4. UTILITIES FOR LAYOUT
 // =============================================================================
 //
@@ -442,69 +455,73 @@ $mark-size-xl:                          1rem; // 16px. Extra large (.mark-xl)
 //
 // 4.5 SIZES
 // -----------------------------------------------------------------------------
+// Display size map to generate utility classes (ie. .d-16, .d-24, and so on.) to adjust image sizes.
 
-$extra-sizes: (
-        5: 5%,
-        10: 10%,
-        15: 15%,
-        20: 20%,
-        33: 33%,
-        66: 66%,
-) !default;
+$display-sizes-map: (16,24,32,48,64,128,256,512) !default;
 
-//
-// 4.6 OPACITY
-// -----------------------------------------------------------------------------
 
-$op-1:                                  0.1 !default;
-$op-2:                                  0.2 !default;
-$op-3:                                  0.3 !default;
-$op-4:                                  0.4 !default;
-$op-5:                                  0.5 !default;
-$op-6:                                  0.6 !default;
-$op-7:                                  0.7 !default;
-$op-8:                                  0.8 !default;
-$op-9:                                  0.9 !default;
+//$extra-sizes: (
+//        5: 5%,
+//        10: 10%,
+//        15: 15%,
+//        20: 20%,
+//        33: 33%,
+//        66: 66%,
+//) !default;
 
 //
-// 4.6 WHITE OPACITY
+// 4.6 ALPHA- OPACITY
 // -----------------------------------------------------------------------------
 
-$op-white-1:                            rgba($white-color, 0.1) !default;
-$op-white-2:                            rgba($white-color, 0.2) !default;
-$op-white-3:                            rgba($white-color, 0.3) !default;
-$op-white-4:                            rgba($white-color, 0.4) !default;
-$op-white-5:                            rgba($white-color, 0.5) !default;
-$op-white-6:                            rgba($white-color, 0.6) !default;
-$op-white-7:                            rgba($white-color, 0.7) !default;
-$op-white-8:                            rgba($white-color, 0.8) !default;
-$op-white-9:                            rgba($white-color, 0.9) !default;
+$alpha-1:                               0.1 !default;
+$alpha-2:                               0.2 !default;
+$alpha-3:                               0.3 !default;
+$alpha-4:                               0.4 !default;
+$alpha-5:                               0.5 !default;
+$alpha-6:                               0.6 !default;
+$alpha-7:                               0.7 !default;
+$alpha-8:                               0.8 !default;
+$alpha-9:                               0.9 !default;
 
 //
-// 4.7 BLACK OPACITY
+// 4.7 ALPHA- WHITE OPACITY
 // -----------------------------------------------------------------------------
 
-$op-black-1:                            rgba($black-color, 0.1) !default;
-$op-black-2:                            rgba($black-color, 0.2) !default;
-$op-black-3:                            rgba($black-color, 0.3) !default;
-$op-black-4:                            rgba($black-color, 0.4) !default;
-$op-black-5:                            rgba($black-color, 0.5) !default;
-$op-black-6:                            rgba($black-color, 0.6) !default;
-$op-black-7:                            rgba($black-color, 0.7) !default;
-$op-black-8:                            rgba($black-color, 0.8) !default;
-$op-black-9:                            rgba($black-color, 0.9) !default;
+$alpha-white-1:                         rgba($white-color, 0.1) !default;
+$alpha-white-2:                         rgba($white-color, 0.2) !default;
+$alpha-white-3:                         rgba($white-color, 0.3) !default;
+$alpha-white-4:                         rgba($white-color, 0.4) !default;
+$alpha-white-5:                         rgba($white-color, 0.5) !default;
+$alpha-white-6:                         rgba($white-color, 0.6) !default;
+$alpha-white-7:                         rgba($white-color, 0.7) !default;
+$alpha-white-8:                         rgba($white-color, 0.8) !default;
+$alpha-white-9:                         rgba($white-color, 0.9) !default;
 
 //
-// 4.8 OVERLAY
+// 4.8 ALPHA- BLACK OPACITY
 // -----------------------------------------------------------------------------
 
-$overlay-bg:                            $op-black-5; // Background color for overlay.
+$alpha-black-1:                         rgba($black-color, 0.1) !default;
+$alpha-black-2:                         rgba($black-color, 0.2) !default;
+$alpha-black-3:                         rgba($black-color, 0.3) !default;
+$alpha-black-4:                         rgba($black-color, 0.4) !default;
+$alpha-black-5:                         rgba($black-color, 0.5) !default;
+$alpha-black-6:                         rgba($black-color, 0.6) !default;
+$alpha-black-7:                         rgba($black-color, 0.7) !default;
+$alpha-black-8:                         rgba($black-color, 0.8) !default;
+$alpha-black-9:                         rgba($black-color, 0.9) !default;
+
+//
+// 4.9 OVERLAY
+// -----------------------------------------------------------------------------
+
+$overlay-bg:                            $alpha-black-5; // Background color for overlay.
 $overlay-bg-level:                      3 !default; // Used for card image overlays. Check `scss/components/_overlays.scss`
 $overlay-opacity-level:                 0.6 !default; // Used for card image overlays. Check `scss/components/_overlays.scss`
 
 
 //
-// 4.9 SHADOWS TODO, make the below perfect later ->  https://github.com/backstopmedia/riot-book-example/blob/843c5f79ac02727cc4b3eecc7ad043e2aa55e1db/src/assets/styles/mixins/shadow.scss
+// 4.10 SHADOWS TODO, make the below perfect later ->  https://github.com/backstopmedia/riot-book-example/blob/843c5f79ac02727cc4b3eecc7ad043e2aa55e1db/src/assets/styles/mixins/shadow.scss
 // -----------------------------------------------------------------------------
 
 $container-shadow:                              0.5rem 0.5rem 2rem 0 rgba($black-color, 0.2);
@@ -524,20 +541,23 @@ $slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-8
 $toastr-box-shadow:                             0 5px 10px rgba($black-color, 0.1);
 
 //
-// 4.10 EASINGS
+// 4.11 EASINGS
 // -----------------------------------------------------------------------------
 
 $ease-in-out-circ:                      cubic-bezier(.27, .01, .38, 1.06);
 
 //
-// 4.11 TRANSITIONS
+// 4.12 TRANSITIONS
 // -----------------------------------------------------------------------------
 
 $theme-transition-duration:             1.5s; // TODO, delete this if not using.
 $general-transition-duration:           0.5s !default;
+$transition-base:                       all .15s ease !default;
+$transition-fade:                       opacity .15s linear !default;
+$transition-collapse:                   height .35s ease !default;
 
 //
-// 4.12 Z-INDEX LAYERS
+// 4.13 Z-INDEX LAYERS
 // -----------------------------------------------------------------------------
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
@@ -561,7 +581,7 @@ $zindex: (
 )!default;
 
 //
-// 4.13 BREAKPOINTS
+// 4.14 BREAKPOINTS
 // -----------------------------------------------------------------------------
 
 // Extra small devices (portrait phones, 480px and up)
@@ -616,7 +636,7 @@ $breakpoints-max-widths: (
 ) !default;
 
 //
-// 4.14 CURSORS
+// 4.15 CURSORS
 // -----------------------------------------------------------------------------
 // Cursors values for enabling the option of having custom cursors
 
@@ -634,7 +654,7 @@ $cursor-zoom-in:                        zoom-in;
 $cursor-zoom-out:                       zoom-out;
 
 //
-// 4.15 OVERFLOW
+// 4.16 OVERFLOW
 // -----------------------------------------------------------------------------
 // Generate overflow utility classes (ie. .of-h, of-x-h, of-y-h and so on.)
 
@@ -794,15 +814,15 @@ $navbar-active-color:                   theme-partial-color($navbar-theme-scheme
 
 // Navbar fonts against a dark background
 
-$navbar-dark-color:                     $op-white-8;
-$navbar-dark-link-color:                $op-white-8;
+$navbar-dark-color:                     $alpha-white-8;
+$navbar-dark-link-color:                $alpha-white-8;
 $navbar-dark-hover-color:               $white-color;
 $navbar-dark-active-color:              $white-color;
 
 // Navbar fonts against a light background
 
-$navbar-light-color:                    $op-black-7;
-$navbar-light-link-color:               $op-black-7;
+$navbar-light-color:                    $alpha-black-7;
+$navbar-light-link-color:               $alpha-black-7;
 $navbar-light-hover-color:              $black-color;
 $navbar-light-active-color:             $black-color;
 
@@ -889,15 +909,15 @@ $sidebar-active-border-theme-scheme:    theme-partial-color($sidebar-theme-schem
 
 // Sidebar fonts against a dark background
 
-$sidebar-dark-color:                    $op-white-8 !default;
-$sidebar-dark-link-color:               $op-white-8 !default;
+$sidebar-dark-color:                    $alpha-white-8 !default;
+$sidebar-dark-link-color:               $alpha-white-8 !default;
 $sidebar-dark-hover-color:              $white-color !default;
 $sidebar-dark-active-color:             $white-color !default;
 
 // Sidebar fonts against a light background
 
-$sidebar-light-color:                   $op-black-7 !default;
-$sidebar-light-link-color:              $op-black-7 !default;
+$sidebar-light-color:                   $alpha-black-7 !default;
+$sidebar-light-link-color:              $alpha-black-7 !default;
 $sidebar-light-hover-color:             $black-color !default;
 $sidebar-light-active-color:            $black-color !default;
 
@@ -978,15 +998,9 @@ $btn-icon-padding-left:                 5px !default; // Spacing inside buttons 
 $btn-icon-padding-right:                5px !default; // Spacing inside buttons with icon on left
 $btn-icon-lh:                           $btn-line-height !default; // Line height for icon to align vertically with the button.
 
-// Light button type (.btn-light-*)
+// Rounded button type (.btn-circle)
 
-$btn-light-bg-level:                    -9 !default; // Used to generate stateful background color for contextual and theme variations
-$btn-light-border-level:                -6 !default; // Used to generate stateful border color for contextual and theme variations
-$btn-light-color-level:                 6 !default; // Used to generate stateful text color for contextual and theme variations
-
-// Rounded button type (.btn-round)
-
-$btn-round-radius:                      30px; // Extra border radius to add more rounded corners
+$btn-circle-radius:                      30px; // Extra border radius to add more rounded corners
 
 // Raised button type (.btn-raised)
 
@@ -1037,7 +1051,7 @@ $input-bg:                              $white-color; // <input> background colo
 $input-color:                           $gray-700; // Text color for inputs
 $input-label-color:                     $gray-800; // Text color for inputs labels and legends.
 $input-placeholder-color:               $gray-500; // Placeholder text color
-$input-round-radius:                    $btn-round-radius; // Rounded input (.form-control.input-round) type border radius
+$input-round-radius:                    $btn-circle-radius; // Rounded input (.form-control.input-round) type border radius
 $input-border-color:                    $gray-400; // Border color for inputs
 $input-border-size:                     $border-thin; // '.form-control' border width
 $input-focus-color:                     $gray-700; // Text color for inputs on focus
@@ -1514,13 +1528,13 @@ $badge-line-height:                     1em!default;
 // customizing padding or font-size on labels.
 $badge-pill-border-radius:              $border-radius-30-px !default; // Border radius to add more rounded corners to form the pill shape
 
-// Round badges
+// Circle/Rounded badges
 
-$badge-round-border-radius:             $border-radius-30-px; // Create a circle around the badges
-$badge-round-size:                      1.5em;  // Size used for both width and height to make perfect circle/rounded shape. When the value changes/increase the badge could get bigger
-$badge-round-padding-y:                 0.25rem !default; // Used to add vertical padding around the round badges. Make sure that for small value, the badge will be big enough.
-$badge-round-padding-x:                 0.25rem !default; // Used to add horizontal padding around the round badges. Make sure that for small value, the badge will be big enough.
-$badge-round-line-height:               $badge-round-size;
+$badge-circle-border-radius:             $border-radius-30-px; // Create a circle around the badges
+$badge-circle-size:                      1.5em;  // Size used for both width and height to make perfect circle/rounded shape. When the value changes/increase the badge could get bigger
+$badge-circle-padding-y:                 0.25rem !default; // Used to add vertical padding around the circle badges. Make sure that for small value, the badge will be big enough.
+$badge-circle-padding-x:                 0.25rem !default; // Used to add horizontal padding around the circle badges. Make sure that for small value, the badge will be big enough.
+$badge-circle-line-height:               $badge-circle-size;
 
 // Empty badges
 
@@ -1848,9 +1862,38 @@ $aside-toggler-icon-bar-active-theme-scheme:    primary !default; // Color schem
 // 8.31 MEDIA OBJECT
 // -----------------------------------------------------------------------------
 
-$media-border-radius:                   $border-radius-md; // Media border radius to add rounded corners
-$media-border-size:                     $border-thin; // Media border width
-$media-border-color:                    $gray-400 !default;// Media border color
+$media-border-radius:                           $border-radius-md; // Media border radius to add rounded corners
+$media-border-size:                             $border-thin; // Media border width
+$media-border-color:                            $gray-400 !default;// Media border color
+
+//
+// 8.32 AVATARS
+// -----------------------------------------------------------------------------
+
+$avatar-online-color:                           contextual-color(success)!default;
+$avatar-offline-color:                          $gray-600!default;
+$avatar-away-color:                             contextual-color(warning)!default;
+$avatar-busy-color:                             contextual-color(danger)!default;
+
+// Small size
+
+$avatar-size-sm:                                $btn-icon-size-sm !default;
+$avatar-char-font-size-sm:                      $btn-icon-font-size-sm !default;
+
+// Regular size
+
+$avatar-size:                                   $btn-icon-size !default;
+$avatar-char-font-size:                         $btn-font-size !default;
+
+// Large size
+
+$avatar-size-lg:                                $btn-icon-size-lg !default;
+$avatar-char-font-size-lg:                      $btn-icon-font-size-lg !default;
+
+// Extra large
+
+$avatar-size-xl:                                $btn-icon-size-xl !default;
+$avatar-char-font-size-xl:                      $btn-icon-font-size-xl !default;
 
 //
 // 9. VENDOR'S VARIABLES
@@ -1955,6 +1998,7 @@ $steps-circle-title-font-size:          $font-size-base !default; // Step item t
 $steps-circle-title-color:              $gray-800 !default; // Step item title text color
 
 // Circle wizard outline type
+
 $steps-circle-outline-active-bg:        $white-color; // Background color applied to the tab of current step.
 $steps-circle-outline-error-bg:         $white-color; // Background color applied to the tab if current step have any validation errors.
 
@@ -2053,12 +2097,21 @@ $a-href-tags:                           '&[href]:hover, &[href]:focus, &[href].f
 // Removed &:focus, &.focus due to the focus issues on buttons
 $a-tags:                                '&:hover, &:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
 
+//TODO NEED CORRECTING THIS AND APPLY THESE TAG PROPERLY ON ALL SCSS FILES
 $hover-tags:                            '&:hover';
-$focus-tags:                            '&:focus, &.focus';
-$hover-focus-tags:                      '&:hover, &:focus, &.focus';
-//$active-tags:                           '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
-$active-tags:                           '&:not(:disabled):not(.disabled):active, &:not(:disabled):not(.disabled).active';
-$active-focus-tags:                     '&:not(:disabled):not(.disabled):active:focus, &:not(:disabled):not(.disabled).active:focus';
+$focus-tags:                            '&:focus';
+$hover-focus-tags:                      '&:hover, &:focus';
+$active-tags:                           '&:active';
+
+$focus-tags-btn:                        '&:focus, &.focus';
+$active-tags-btn:                       '&:not(:disabled):not(.disabled):active, &:not(:disabled):not(.disabled).active';
+
+//$hover-tags:                            '&:hover';
+//$focus-tags:                            '&:focus, &.focus';
+//$hover-focus-tags:                      '&:hover, &:focus, &.focus';
+////$active-tags:                           '&:active, &.active, &:active:focus, &.active:focus, &:active:hover, &.active:hover, &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active, &:not([disabled]):not(.disabled):active:focus, &:not([disabled]):not(.disabled).active:focus';
+//$active-tags:                           '&:not(:disabled):not(.disabled):active, &:not(:disabled):not(.disabled).active';
+//$active-focus-tags:                     '&:not(:disabled):not(.disabled):active:focus, &:not(:disabled):not(.disabled).active:focus';
 
 //
 // 10.2 DISABLED SELECTORS
@@ -2066,6 +2119,7 @@ $active-focus-tags:                     '&:not(:disabled):not(.disabled):active:
 
 //$disabled-tags:                         '&.disabled, &.disabled:focus, &.disabled:hover, &:disabled, &[disabled]';
 $disabled-tags:                         '&.disabled, &:disabled';
+$disabled-tags-btn:                     '&.disabled, &:disabled';
 //TODO, make sure the above disabled tag change doesn't affect an components.
 
 //

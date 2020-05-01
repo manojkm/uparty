@@ -1,0 +1,82 @@
+// Adapted from Pattern Library
+// https://github.com/0bie/pattern-lib/blob/master/src/styles/base/_defaults.scss
+
+
+/* Manifest maps */
+
+/**
+ * Components
+ * Collection of components
+ * Set `true` to include stylesheet
+ * Refer to `components.scss`
+ */
+
+$components-default: (
+  images: false,
+  tables: false,
+  forms: false,
+  buttons: false,
+  dropdown: false,
+  button-group: false,
+  input-group: false,
+  custom-forms: false,
+  nav: false,
+  tabs-and-pills: false,
+  cards: false,
+  breadcrumb: false,
+  breadcrumb-menu: false,
+  pagination: false,
+  badge: false,
+  alerts: false,
+  progress-bars: false,
+  media: false,
+  list-group: false,
+  modals: false,
+  tooltips: false,
+  popovers: false,
+  carousel: false,
+  collapse: false,
+  sections: false,
+  avatars: false,
+  search: false,
+  inputs: false,
+  mark: false,
+  sliders: false,
+  social: false,
+  clearfix: false,
+  overlays: false,
+  breakpoints: false,
+  cover: false,
+  checkbox-radio: false,
+  tags: false,
+  togglers: false,
+  thumbnails: false,
+  labels: false,
+  chat-message: false,
+  number-spinner: false,
+  scrollbar: false,
+  misc: false,
+  example: false
+);
+
+/**
+ * Merge `components-default`
+ * Required to prevent `get` function from throwing error
+ * if a component stylesheet is excluded from `$components` map
+ */
+
+$components: () !default;
+$components: map-merge($components-default, $components);
+
+
+$utils-default: (
+);
+
+/**
+ * Merge `utils-default`
+ * Required to prevent `get` function from throwing error
+ * if a utility stylesheet is excluded from `$utils` map
+ */
+
+$utils: () !default;
+$utils: map-merge($utils-default, $utils);

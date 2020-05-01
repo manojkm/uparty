@@ -5,7 +5,7 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
@@ -256,9 +256,9 @@ select.form-control-lg {
 // ======================================================
 
 .has-bg-dark {
-  @include transparent-forms($op-white-3, $op-white-4, $op-white-3, $op-white-4, $white-color, $white-color, $white-color, $op-white-5);
+  @include transparent-forms($alpha-white-3, $alpha-white-4, $alpha-white-3, $alpha-white-4, $white-color, $white-color, $white-color, $alpha-white-5);
 }
 
 .has-bg-light {
-  @include transparent-forms($op-black-3, $op-black-4, $op-black-3, $op-black-4, $op-white-8, $white-color, $black-color, $op-white-5);
+  @include transparent-forms($alpha-black-3, $alpha-black-4, $alpha-black-3, $alpha-black-4, $alpha-white-8, $white-color, $black-color, $alpha-white-5);
 }

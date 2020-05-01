@@ -4,7 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
@@ -87,4 +87,34 @@
 .bg-transparent-force {
   @include transition;
   background-color: transparent !important;
+}
+
+
+//
+// SHAPE (SVG) FILL COLORS
+// ======================================================
+
+// Theme variations
+@each $themeName, $value in $themes-map {
+  $colors: map-get-strict($value, 'main-colors');
+  @each $scheme, $tone in $colors {
+    $color: theme-main-color($scheme);
+    .fill-#{$scheme} {
+      fill: $color;
+    }
+    .stroke-#{$scheme} {
+      stroke: $color;
+    }
+  }
+}
+
+// Contextual variations
+@each $scheme, $tone in $contextual-palette-map {
+  $color: contextual-color($scheme);
+  .fill-#{$scheme} {
+    fill: $color;
+  }
+  .stroke-#{$scheme} {
+    stroke: $color;
+  }
 }

@@ -4,12 +4,12 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
 //
-// MAP GET ERROR HANDLING
+// GET KEYS FROM A MAP WITH ERROR HANDLING
 // ======================================================
 // This function should warn if a theme requirement isn't met,
 // helping to catch any issues at compile time in development
@@ -17,7 +17,7 @@
 // Usage map-get-strict($font-html, size);
 
 @function map-get-strict($map, $key) {
-  @if map-has-key($map, $key) {
+  @if (map-has-key($map, $key) and type-of($key) == string) and (type-of($map) == map) {
     @return map-get($map, $key);
   } @else {
     @warn 'Unfortunately, no value could be retrieved from "#{$key}". '

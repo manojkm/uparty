@@ -4,7 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
@@ -465,11 +465,10 @@
 
 @mixin btn-theme($scheme, $bg-type:fill, $tone:base, $tone-hover:dark, $tone-active:xx-dark, $font-color:font-color) {
 
-  @include border-theme($scheme, $tone);
-
   @if $bg-type == fill {
     @include background-text-theme($scheme, $tone, $font-color);
-    #{$focus-tags} {
+    @include border-theme($scheme, $tone);
+    #{$focus-tags-btn} {
       @include background-text-theme($scheme, $tone-hover, $font-color);
       @include border-theme($scheme, $tone);
     }
@@ -477,25 +476,22 @@
 
   @if $bg-type == outline {
     background-color: transparent;
+    @include border-theme($scheme, $tone);
     @include text-theme($scheme, $tone);
   }
 
-  @if $bg-type == light {
-    $tone-bg: theme-color-level($scheme, $tone, $btn-light-bg-level);
-    $tone-border: theme-color-level($scheme, $tone, $btn-light-border-level);
-    $font: theme-color-level($scheme, $tone, $btn-light-color-level);
-    color: $font;
-    border-color: $tone-border;
-    background-color: $tone-bg;
+  @if $bg-type == soft {
+    color: theme-color-level($scheme, $tone, $soft-color-level);
+    border-color: theme-color-level($scheme, $tone, $soft-border-level);
+    background-color: theme-color-level($scheme, $tone, $soft-bg-level);
   }
-
 
   #{$hover-tags} {
     @include border-theme($scheme, $tone-hover);
     @include background-text-theme($scheme, $tone-hover, $font-color);
   }
 
-  #{$active-tags},
+  #{$active-tags-btn},
   .show > &.dropdown-toggle
   {
     @include border-theme($scheme, $tone-active);
@@ -509,13 +505,14 @@
       @include text-theme($scheme, $tone-hover);
     }
 
-    #{$active-tags},
+    #{$active-tags-btn},
     .show > &.dropdown-toggle
     {
       @include text-theme($scheme, $tone-active);
     }
 
   }
+
   &.btn-raised {
     @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
       box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 contextual-color($scheme, $tone-active);
@@ -618,10 +615,10 @@
 
 @mixin badges-theme($scheme, $bg-type:fill, $tone:base, $tone-hover:dark, $tone-active:x-dark,  $font-color:font-color, $sledge-hammer:null) {
 
-  @include border-theme($scheme, $tone);
   // Filled badge
   @if $bg-type == fill {
     @include background-text-theme($scheme, $tone, $font-color, $sledge-hammer);
+    @include border-theme($scheme, $tone);
     * {
       @include text-theme($scheme, $font-color, $sledge-hammer);
     }
@@ -631,11 +628,26 @@
         @include border-theme($scheme, xx-dark, top,  $sledge-hammer: !important);
       }
     }
-
   }
+
+  @if $bg-type == soft {
+    background-color: theme-color-level($scheme, $tone, $soft-bg-level);
+    border-color: theme-color-level($scheme, $tone, $soft-border-level);
+    &,
+    & * {
+      color: theme-color-level($scheme, $tone, $soft-color-level);
+    }
+    &.ribbon {
+      &::before{
+        border-top-color: theme-color-level($scheme, $tone, $soft-border-level)!important;
+      }
+    }
+  }
+
   // Outline badge
   @if $bg-type == outline {
     background-color: transparent;
+    @include border-theme($scheme, $tone);
     &,
     & * {
       @include text-theme($scheme, $tone, $sledge-hammer);
@@ -647,6 +659,10 @@
     #{$hover-tags} {
       @include border-theme($scheme, $tone-hover);
       @include background-text-theme($scheme, $tone-hover, $font-color, $sledge-hammer);
+      * {
+        @include text-theme($scheme, $font-color, $sledge-hammer);
+      }
+
     }
 
     #{$focus-tags},
@@ -656,6 +672,34 @@
       @include box-shadow(none);
     }
   }
+
+}
+
+//
+// AVATARS THEME
+// ======================================================
+@mixin avatar-theme($scheme, $bg-type:fill, $tone:base, $tone-hover:dark, $tone-active:xx-dark, $font-color:font-color, $sledge-hammer:null){
+
+  @if $bg-type == fill {
+    @include background-text-theme($scheme, $tone, $font-color);
+  }
+
+  @if $bg-type == soft {
+    color: theme-color-level($scheme, $tone, $soft-color-level);
+    background-color: theme-color-level($scheme, $tone, $soft-bg-level);
+  }
+
+  // Link Badges
+  @at-root a#{&} {
+    #{$hover-focus-tags} {
+      @include background-text-theme($scheme, $tone-hover, $font-color, $sledge-hammer);
+    }
+
+    #{$active-tags} {
+      @include background-text-theme($scheme, $tone-active, $font-color, $sledge-hammer);
+    }
+  }
+
 
 }
 

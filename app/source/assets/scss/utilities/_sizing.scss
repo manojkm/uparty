@@ -5,25 +5,47 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
 //
-// WIDTH AND HEIGHT SIZING
+// DISPLAY SIZES
 // ======================================================
+// Generate display sizes based on `$display-sizes-map` map
 
-// Size in percentage
-@each $prop, $abbrev in (width: w, height: h) {
-  @each $size, $length in $extra-sizes {
-    .#{$abbrev}-#{$size} {
-      #{$prop}: $length !important;
+@each $prefix in (d) {
+  @each $size in $display-sizes-map {
+    .#{$prefix}-#{$size} {
+      width : #{$size}px !important;
+      height : #{$size}px !important;
     }
   }
 }
 
-// Size in viewport
-@for $i from 5 through 100 {
+
+//
+// WIDTH AND HEIGHT IN PERCENTAGE
+// ======================================================
+// Generate Width and height utility classes (ie. .w-10, .h-10, and so on.) in percentage
+
+@for $i from 10 through 100 {
+  @if($i%5 == 0){
+    @each $prop, $abbrev in (width: w, height: h) {
+      .#{$abbrev}-#{$i} {
+        #{$prop}:$i*1%!important;
+      }
+    }
+  }
+}
+
+//
+// VIEWPORT SIZES
+// ======================================================
+// Generate utility classes (ie. .vw-10, .vh-10, and so on.) to set the width and height relative
+// to the viewport.
+
+@for $i from 10 through 100 {
   @if($i%5 == 0){
     @each $prop, $abbrev in (width: vw, height: vh) {
       .#{$abbrev}-#{$i} {

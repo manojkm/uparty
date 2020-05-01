@@ -4,7 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
@@ -33,8 +33,8 @@
   }
 
   // Round button
-  .btn-round {
-    @include border-radius($btn-round-radius);
+  .btn-circle {
+    @include border-radius($btn-circle-radius);
   }
 
 }
@@ -157,7 +157,7 @@ i.icon-toggle {
       align-items: center;
       justify-content: center;
       font-size: $btn-icon-font-size;
-      @include border-radius($btn-round-radius);
+      @include border-radius($btn-circle-radius);
       @include center(xy);
 
     }

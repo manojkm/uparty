@@ -4,7 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 // Item Name      : xxx - Responsive Admin Theme
 // Version        : 1.2
-// Author         : MANOJ
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 //TODO https://codepen.io/simeonoff/pen/QKYwba
@@ -24,9 +24,9 @@
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $tone in $colors {
-      $tone-bg: theme-color-level($scheme, base, $alert-bg-level);
-      $tone-border: theme-color-level($scheme, base, $alert-border-level);
-      $font-color: theme-color-level($scheme, base, $alert-color-level);
+      $tone-bg: theme-color-level($scheme, base, $soft-bg-level);
+      $tone-border: theme-color-level($scheme, base, $soft-border-level);
+      $font-color: theme-color-level($scheme, base, $soft-color-level);
       &.#{$a}-#{$scheme} {
         @include alert-theme($tone-bg, $tone-border, $font-color);
       }
@@ -35,9 +35,9 @@
 
   // Contextual variations
   @each $scheme, $tone in $contextual-palette-map {
-    $tone-bg: theme-color-level($scheme, base, $alert-bg-level);
-    $tone-border: theme-color-level($scheme, base, $alert-border-level);
-    $font-color: theme-color-level($scheme, base, $alert-color-level);
+    $tone-bg: theme-color-level($scheme, base, $soft-bg-level);
+    $tone-border: theme-color-level($scheme, base, $soft-border-level);
+    $font-color: theme-color-level($scheme, base, $soft-color-level);
     &.#{$a}-#{$scheme} {
       @include alert-theme($tone-bg, $tone-border, $font-color);
     }
@@ -88,7 +88,7 @@
   @include opacity(.7);
 
   > span:not(.sr-only) {
-    background-color: $op-white-3;
+    background-color: $alpha-white-3;
     font-size: $alert-close-btn-font-size;
     width: $alert-close-btn-width;
     height: $alert-close-btn-height;
@@ -102,7 +102,7 @@
   &:focus,
   &:hover {
     span:not(.sr-only) {
-      background-color: $op-white-5;
+      background-color: $alpha-white-5;
     }
   }
 
