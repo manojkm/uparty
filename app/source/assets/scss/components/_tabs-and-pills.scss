@@ -369,7 +369,7 @@
       .nav-item.show .nav-link {
         border-color: $nav-tabs-border-color;
         border-right-color: $nav-tabs-link-active-bg;
-        @include add-border($nav-tabs-ext-outline-active-border-size, theme-main-color($nav-tabs-active-theme-scheme), left);
+        @include add-border($nav-tabs-ext-outline-active-border-size, get-theme-main-color($nav-tabs-active-theme-scheme), left);
       }
     }
 
@@ -378,7 +378,7 @@
       .nav-item.show .nav-link {
         border-color: $nav-tabs-border-color;
         border-left-color: $nav-tabs-link-active-bg;
-        @include add-border($nav-tabs-ext-outline-active-border-size, theme-main-color($nav-tabs-active-theme-scheme), right);
+        @include add-border($nav-tabs-ext-outline-active-border-size, get-theme-main-color($nav-tabs-active-theme-scheme), right);
       }
     }
   }

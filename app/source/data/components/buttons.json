@@ -1,28 +1,152 @@
 {
-  "list": [
-    { "class": "btn", "modifier": "btn-primary",   "modifier_outline": "btn-outline-primary",   "modifier_soft": "btn-soft-primary",   "class_i": "icon-heart",    "text": "Primary" },
-    { "class": "btn", "modifier": "btn-secondary", "modifier_outline": "btn-outline-secondary", "modifier_soft": "btn-soft-secondary", "class_i": "icon-list",     "text": "Secondary" },
-    { "class": "btn", "modifier": "btn-success",   "modifier_outline": "btn-outline-success",   "modifier_soft": "btn-soft-success",   "class_i": "icon-check",    "text": "Success" },
-    { "class": "btn", "modifier": "btn-danger",    "modifier_outline": "btn-outline-danger",    "modifier_soft": "btn-soft-danger",    "class_i": "icon-close",    "text": "Danger" },
-    { "class": "btn", "modifier": "btn-warning",   "modifier_outline": "btn-outline-warning",   "modifier_soft": "btn-soft-warning",   "class_i": "icon-bell",     "text": "Warning" },
-    { "class": "btn", "modifier": "btn-info",      "modifier_outline": "btn-outline-info",      "modifier_soft": "btn-soft-info",      "class_i": "icon-info",     "text": "Info" },
-    { "class": "btn", "modifier": "btn-light",     "modifier_outline": "btn-outline-light",     "modifier_soft": "btn-soft-light",     "class_i": "icon-bubbles",  "text": "Light" },
-    { "class": "btn", "modifier": "btn-dark",      "modifier_outline": "btn-outline-dark",      "modifier_soft": "btn-soft-dark",      "class_i": "icon-lock",     "text": "Dark" }
-  ],
-  "list_social": [
-    { "class": "btn", "modifier": "btn-facebook",    "modifier_outline": "btn-outline-facebook",     "class_i": "fab fa-facebook-f",    "text": "Facebook" },
-    { "class": "btn", "modifier": "btn-twitter",     "modifier_outline": "btn-outline-twitter",      "class_i": "fab fa-twitter",       "text": "Twitter" },
-    { "class": "btn", "modifier": "btn-google-plus", "modifier_outline": "btn-outline-google-plus",  "class_i": "fab fa-google-plus-g", "text": "Google Plus" },
-    { "class": "btn", "modifier": "btn-linkedin",    "modifier_outline": "btn-outline-linkedin",     "class_i": "fab fa-linkedin-in",   "text": "LinkedIn" },
-    { "class": "btn", "modifier": "btn-instagram",   "modifier_outline": "btn-outline-instagram",    "class_i": "fab fa-instagram",     "text": "Instagram" },
-    { "class": "btn", "modifier": "btn-pinterest",   "modifier_outline": "btn-outline-pinterest",    "class_i": "fab fa-pinterest-p",   "text": "Pinterest" },
-    { "class": "btn", "modifier": "btn-dribbble",    "modifier_outline": "btn-outline-dribbble",     "class_i": "fab fa-dribbble",      "text": "Dribbble" },
-    { "class": "btn", "modifier": "btn-youtube",     "modifier_outline": "btn-outline-youtube",      "class_i": "fab fa-youtube",       "text": "Youtube" }
-  ],
-  "list_size": [
-    { "class": "btn", "size": "btn-xl", "text": "Extra large button", "text_split_button": "Extra large split button" },
-    { "class": "btn", "size": "btn-lg", "text": "Large button",       "text_split_button": "Large split button" },
-    { "class": "btn", "size": "",       "text": "Default button",     "text_split_button": "Default split button" },
-    { "class": "btn", "size": "btn-sm", "text": "Small button",       "text_split_button": "Small split button"}
-  ]
+    "list": [
+        {
+            "class": "btn",
+            "modifier": "btn-primary",
+            "modifier_outline": "btn-outline-primary",
+            "modifier_soft": "btn-soft-primary",
+            "class_i": "icon-heart",
+            "text": "Primary"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-secondary",
+            "modifier_outline": "btn-outline-secondary",
+            "modifier_soft": "btn-soft-secondary",
+            "class_i": "icon-list",
+            "text": "Secondary"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-success",
+            "modifier_outline": "btn-outline-success",
+            "modifier_soft": "btn-soft-success",
+            "class_i": "icon-check",
+            "text": "Success"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-danger",
+            "modifier_outline": "btn-outline-danger",
+            "modifier_soft": "btn-soft-danger",
+            "class_i": "icon-close",
+            "text": "Danger"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-warning",
+            "modifier_outline": "btn-outline-warning",
+            "modifier_soft": "btn-soft-warning",
+            "class_i": "icon-bell",
+            "text": "Warning"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-info",
+            "modifier_outline": "btn-outline-info",
+            "modifier_soft": "btn-soft-info",
+            "class_i": "icon-info",
+            "text": "Info"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-light",
+            "modifier_outline": "btn-outline-light",
+            "modifier_soft": "btn-soft-light",
+            "class_i": "icon-bubbles",
+            "text": "Light"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-dark",
+            "modifier_outline": "btn-outline-dark",
+            "modifier_soft": "btn-soft-dark",
+            "class_i": "icon-lock",
+            "text": "Dark"
+        }
+    ],
+    "list_social": [
+        {
+            "class": "btn",
+            "modifier": "btn-facebook",
+            "modifier_outline": "btn-outline-facebook",
+            "class_i": "fab fa-facebook-f",
+            "text": "Facebook"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-twitter",
+            "modifier_outline": "btn-outline-twitter",
+            "class_i": "fab fa-twitter",
+            "text": "Twitter"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-google-plus",
+            "modifier_outline": "btn-outline-google-plus",
+            "class_i": "fab fa-google-plus-g",
+            "text": "Google Plus"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-linkedin",
+            "modifier_outline": "btn-outline-linkedin",
+            "class_i": "fab fa-linkedin-in",
+            "text": "LinkedIn"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-instagram",
+            "modifier_outline": "btn-outline-instagram",
+            "class_i": "fab fa-instagram",
+            "text": "Instagram"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-pinterest",
+            "modifier_outline": "btn-outline-pinterest",
+            "class_i": "fab fa-pinterest-p",
+            "text": "Pinterest"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-dribbble",
+            "modifier_outline": "btn-outline-dribbble",
+            "class_i": "fab fa-dribbble",
+            "text": "Dribbble"
+        },
+        {
+            "class": "btn",
+            "modifier": "btn-youtube",
+            "modifier_outline": "btn-outline-youtube",
+            "class_i": "fab fa-youtube",
+            "text": "Youtube"
+        }
+    ],
+    "list_size": [
+        {
+            "class": "btn",
+            "size": "btn-xl",
+            "text": "Extra large button",
+            "text_split_button": "Extra large split button"
+        },
+        {
+            "class": "btn",
+            "size": "btn-lg",
+            "text": "Large button",
+            "text_split_button": "Large split button"
+        },
+        {
+            "class": "btn",
+            "size": "",
+            "text": "Default button",
+            "text_split_button": "Default split button"
+        },
+        {
+            "class": "btn",
+            "size": "btn-sm",
+            "text": "Small button",
+            "text_split_button": "Small split button"
+        }
+    ]
 }

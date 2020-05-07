@@ -7,6 +7,7 @@
 // https://tutorialzine.com/2015/01/learn-handlebars-in-10-minutes
 // https://github.com/chapmanu/cascade-assets/tree/development/subprojects/degrees-and-programs/source/static/app/assemble/helpers
 // https://github.com/BarkleyREI/Front-End-Coding-Standards/blob/7843e8ad0be388b457c8fb1b0a97679591047b8b/app/assemble/helpers/helpers.js
+// https://github.com/guimarin/orion/blob/b4c34568a4363da240052a419e794bd3c54e4a3b/client/helpers.js
 
 
 module.exports.register = function (Handlebars, options) {
@@ -117,26 +118,26 @@ module.exports.register = function (Handlebars, options) {
 
 // Badges
 // Usage {{#badge "primary"}}Alert{{/badge}}
-  Handlebars.registerHelper("badge", function (mdf, exCl, options) {
+  Handlebars.registerHelper("badge", function (modifier, exCl, options) {
 
 
 
     var class_selector = (isValid(exCl)) ? ' ' + exCl : '';
 
-    var content = '<span class="badge ' + mdf + class_selector + '">' + options.fn(this) + '</span>';
+    var content = '<span class="badge ' + modifier + class_selector + '">' + options.fn(this) + '</span>';
     return new Handlebars.SafeString(content);
   });
 
 // Link badges
 // Usage {{#badge-link "primary"}}Alert{{/badge-link}}
-  Handlebars.registerHelper("badge-link", function (href, mdf, exCl, options) {
+  Handlebars.registerHelper("badge-link", function (href, modifier, exCl, options) {
 
 
 
     var class_selector = (isValid(exCl)) ? ' ' + exCl : '';
     var href_selector = (isValid(href)) ? href : '#';
 
-    var content = '<a href="' + href_selector + '" class="badge ' + mdf + class_selector + '">' + options.fn(this) + '</a>';
+    var content = '<a href="' + href_selector + '" class="badge ' + modifier + class_selector + '">' + options.fn(this) + '</a>';
     return new Handlebars.SafeString(content);
   });
 
@@ -169,7 +170,7 @@ module.exports.register = function (Handlebars, options) {
   });
 
 // Card with id and class
-// Usage: {{#card_has 'my-class' 'my-id'}}{{/card_has}}
+// Usage: {{#card_has 'class' 'id'}}{{/card_has}}
   Handlebars.registerHelper('card_has', function (cl, id, options) {
 
     var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
@@ -267,7 +268,7 @@ module.exports.register = function (Handlebars, options) {
   });
 
 // Media with id & class
-// Usage: {{#media_has 'my-class' 'my-id'}}{{/media_has}}
+// Usage: {{#media_has 'class' 'id'}}{{/media_has}}
   Handlebars.registerHelper('media_has', function (cl, id, options) {
     var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
     var class_selector = (isValid(cl)) ? 'class="media' + ' ' + cl + '"' : 'class="media"';
@@ -283,12 +284,67 @@ module.exports.register = function (Handlebars, options) {
   });
 
 // Media body with id and class
-// Usage: {{#media_body_has 'my-class' 'my-id'}}{{/media_body_has}}
+// Usage: {{#media_body_has 'class' 'id'}}{{/media_body_has}}
   Handlebars.registerHelper('media_body_has', function (cl, id, options) {
     var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
     var class_selector = (isValid(cl)) ? 'class="media-body' + ' ' + cl + '"' : 'class="media-body"';
     var content = options.fn(this);
     return '<div ' + class_selector + ' ' + id_selector + '>' + content + '</div>';
+  });
+
+//
+// AVATARS
+// ======================================================
+
+// Avatar
+// Usage: {{#avatar_has 'modifier' 'class'}}{{/avatar_has}}
+  Handlebars.registerHelper('avatar_has', function ( modifier, cl, options) {
+    var class_selector = (isValid(cl)) ? ' ' + cl : '';
+    var modifier_selector = (isValid(modifier)) ? ' ' + modifier : '';
+    var content = '<div class="avatar' + modifier_selector + class_selector + '">' + options.fn(this) + '</div>';
+    return new Handlebars.SafeString(content);
+  });
+
+  // Usage: {{#avatar_link_has 'modifier' 'class'}}{{/avatar_link_has}}
+  Handlebars.registerHelper('avatar_link_has', function ( modifier, cl, options) {
+    var class_selector = (isValid(cl)) ? ' ' + cl : '';
+    var modifier_selector = (isValid(modifier)) ? ' ' + modifier : '';
+    var content = '<a href="#" class="avatar' + modifier_selector + class_selector + '">' + options.fn(this) + '</a>';
+    return new Handlebars.SafeString(content);
+  });
+
+// Avatar image
+// Usage: {{#avatar_img 'class'}}{{/avatar_img}}
+  Handlebars.registerHelper('avatar_img', function (cl, options) {
+    var class_selector = (isValid(cl)) ? ' ' + cl : '';
+    var content = '<div class="avatar__content avatar-img' + class_selector + '">' + options.fn(this) + '</div>';
+    return new Handlebars.SafeString(content);
+  });
+
+// Avatar character
+// Usage: {{#avatar_char 'class' 'DS'}}{{/avatar_char}}
+  Handlebars.registerHelper('avatar_char', function (cl, initial, options) {
+    // var initial_selector = (isValid(initial)) ? 'data-initial="' + initial + '"' : '';
+    var initial_selector = (Handlebars.Utils.isEmpty(initial)) ? '' : 'data-initial="' + initial + '"';
+    var class_selector = (isValid(cl)) ? ' ' + cl : '';
+    var content = '<div class="avatar__content avatar-char' + class_selector +'" '+ initial_selector +'>' + options.fn(this) + '</div>';
+    return new Handlebars.SafeString(content);
+  });
+
+// Avatar stack
+// Usage: {{#avatar_stack 'class'}}{{/avatar_stack}}
+  Handlebars.registerHelper('avatar_stack', function (cl, options) {
+    var class_selector = (isValid(cl)) ? ' ' + cl : '';
+    var content = '<div class="avatar-stack' + class_selector + '">' + options.fn(this) + '</div>';
+    return new Handlebars.SafeString(content);
+  });
+
+// Avatar badge
+// Usage: {{#avatar_badge 'class'}}{{/avatar_badge}}
+  Handlebars.registerHelper('avatar_badge', function (cl, options) {
+    var class_selector = (isValid(cl)) ? ' ' + cl : '';
+    var content = '<div class="avatar__badge' + class_selector + '">' + options.fn(this) + '</div>';
+    return new Handlebars.SafeString(content);
   });
 
 };

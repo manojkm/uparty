@@ -138,6 +138,7 @@
 //
 // LIST GROUP ITEM
 // ======================================================
+
 %list-group-item {
   font-size: $list-group-font-size;
   font-weight: $list-group-font-weight;
@@ -147,4 +148,32 @@
   background-color: $list-group-bg;
   color: $list-group-item-color;
   @include add-border($list-group-border-width, $list-group-border-color, all);
+}
+
+//
+// AVATAR INDICATORS/CHILD POSITIONS
+// ======================================================
+
+%avatar-ind-top-left {
+  top: 14.64%;
+  left: 14.64%;
+  transform: translate(-50%, -50%);
+}
+
+%avatar-ind-top-right {
+  top: 14.64%;
+  right: 14.64%;
+  transform: translate(50%, -50%);
+}
+
+%avatar-ind-bottom-left {
+  bottom: 14.64%;
+  left: 14.64%;
+  transform: translate(-50%, 50%);
+}
+
+%avatar-ind-bottom-right {
+  bottom: 14.64%;
+  right: 14.64%;
+  transform: translate(50%, 50%);
 }

@@ -112,8 +112,8 @@
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
   @each $scheme, $tone in $colors {
-    $font-color: theme-color-level($scheme, base, $list-group-color-level);
-    $tone: theme-color-level($scheme, base, $list-group-bg-level);
+    $font-color: get-theme-color-level($scheme, base, $list-group-color-level);
+    $tone: get-theme-color-level($scheme, base, $list-group-bg-level);
     .list-group-item-#{$scheme} {
       @include list-group-theme($scheme, $tone, xx-dark, $font-color, 5%);
     }
@@ -122,8 +122,8 @@
 
 // Contextual variations
 @each $scheme, $tone in $contextual-palette-map {
-  $font-color: theme-color-level($scheme, base, $list-group-color-level);
-  $tone: theme-color-level($scheme, base, $list-group-bg-level);
+  $font-color: get-theme-color-level($scheme, base, $list-group-color-level);
+  $tone: get-theme-color-level($scheme, base, $list-group-bg-level);
   .list-group-item-#{$scheme} {
     @include list-group-theme($scheme, $tone, xx-dark, $font-color, 5%);
   }

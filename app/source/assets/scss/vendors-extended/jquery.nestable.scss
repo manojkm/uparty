@@ -98,8 +98,8 @@ $nestable-content-class: drag-content;
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
   @each $scheme, $tone in $colors {
-    $font-color: theme-color-level($scheme, base, $list-group-color-level);
-    $tone: theme-color-level($scheme, base, $list-group-bg-level);
+    $font-color: get-theme-color-level($scheme, base, $list-group-color-level);
+    $tone: get-theme-color-level($scheme, base, $list-group-bg-level);
     .nestable-#{$scheme} {
       @include nestable-theme($tone, $font-color, 5%);
     }
@@ -108,8 +108,8 @@ $nestable-content-class: drag-content;
 
 // Contextual variations
 @each $scheme, $tone in $contextual-palette-map {
-  $font-color: theme-color-level($scheme, base, $list-group-color-level);
-  $tone: theme-color-level($scheme, base, $list-group-bg-level);
+  $font-color: get-theme-color-level($scheme, base, $list-group-color-level);
+  $tone: get-theme-color-level($scheme, base, $list-group-bg-level);
   .nestable-#{$scheme} {
     @include nestable-theme($tone, $font-color, 5%);
   }

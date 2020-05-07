@@ -23,7 +23,7 @@
 
     a.bg-#{$scheme} {
       @include transition;
-      $color: theme-main-color($scheme, font-color);
+      $color: get-theme-main-color($scheme, font-color);
       color: rgba($color, 0.8) !important;
 
       &:hover,
@@ -43,7 +43,7 @@
 
   a.bg-#{$scheme} {
     @include transition;
-    $color: contextual-color($scheme, font-color);
+    $color: get-contextual-color($scheme, font-color);
     color: rgba($color, 0.8) !important;
 
     &:hover,
@@ -63,14 +63,14 @@
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
   @each $scheme, $tone in $colors {
-    $color: theme-main-color($scheme);
+    $color: get-theme-main-color($scheme);
     @include bg-opacity($scheme, $color);
   }
 }
 
 // Contextual variations
 @each $scheme, $tone in $contextual-palette-map {
-  $color: contextual-color($scheme);
+  $color: get-contextual-color($scheme);
   @include bg-opacity($scheme, $color);
 }
 
@@ -98,7 +98,7 @@
 @each $themeName, $value in $themes-map {
   $colors: map-get-strict($value, 'main-colors');
   @each $scheme, $tone in $colors {
-    $color: theme-main-color($scheme);
+    $color: get-theme-main-color($scheme);
     .fill-#{$scheme} {
       fill: $color;
     }
@@ -110,7 +110,7 @@
 
 // Contextual variations
 @each $scheme, $tone in $contextual-palette-map {
-  $color: contextual-color($scheme);
+  $color: get-contextual-color($scheme);
   .fill-#{$scheme} {
     fill: $color;
   }

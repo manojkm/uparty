@@ -42,7 +42,7 @@
   $colors: map-get-strict($value, 'main-colors');
   @each $scheme, $tone in $colors {
     .overlay-#{$scheme} {
-      background-color: rgba(theme-color-level($scheme, base, $overlay-bg-level), $overlay-opacity-level);
+      background-color: rgba(get-theme-color-level($scheme, base, $overlay-bg-level), $overlay-opacity-level);
     }
   }
 }
@@ -50,6 +50,6 @@
 // Contextual variations
 @each $scheme, $tone in $contextual-palette-map {
   .overlay-#{$scheme} {
-    background-color: rgba(theme-color-level($scheme, base, $overlay-bg-level), $overlay-opacity-level);
+    background-color: rgba(get-theme-color-level($scheme, base, $overlay-bg-level), $overlay-opacity-level);
   }
 }

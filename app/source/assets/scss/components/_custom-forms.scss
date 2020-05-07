@@ -775,8 +775,8 @@
   // YES/NO flipped toggle switch
   &.yes-no .#{$ccind} {
     &:before {
-      background-color: contextual-color(danger, base);
-      color: contextual-color(danger, font-color);
+      background-color: get-contextual-color(danger, base);
+      color: get-contextual-color(danger, font-color);
     }
     &:after {
       transform: rotateX(-180deg);

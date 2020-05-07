@@ -1,257 +1,726 @@
 ---
 title: Avatars
-lead: Media object are to construct highly repetitive components like blog comments, tweets, and the like.
+lead: The Avatar component is used to represent user, and displays the profile picture, user initials or fallback icon.
 components: true
 ---
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             {{#card}}
-                {{{card_header 'Avatars'}}}
+                {{{card_header 'Avatar types'}}}
+                {{#card_body}}
+                    <p>Avatar component supports images, user initials and icons.</p>
 
-                {{#card_body}}
-                    <div class="avatar rounded-circle avatar--info avatar--xl">
-                        <div class="avatar__icon rounded-circle">
-                            <i class="ti ti-plus"></i>
-                        </div>
-                        <div class="avatar__content avatar-char" data-initial="HD"></div>
-                    </div>
-                {{/card_body}}
+                    <!-- Avatars: Image -->
+                    {{#avatar_has 'avatar--lg' 'mr-2'}}
+                        {{#avatar_img ''}}
+                            <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                        {{/avatar_img}}
+                    {{/avatar_has}}
+                    <!-- /Avatars: Image -->
 
-                {{#card_body}}
-                    <div class="avatar-stack-collapse">
-                        <div class="avatar rounded-circle avatar--info avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="A"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--primary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="B"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar-more avatar--xl"></div>
-                        <div class="avatar rounded-circle avatar--secondary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="C"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--warning avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--info avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                    </div>
-                {{/card_body}}
+                    <!-- Avatars: Initials -->
+                    {{#avatar_has 'avatar--primary avatar--lg' 'mr-2'}}
+                        {{#avatar_char '' 'DS'}}{{/avatar_char}}
+                    {{/avatar_has}}
+                    <!-- /Avatars: Initials -->
 
+                    <!-- Avatars: Icon -->
+                    {{#avatar_has 'avatar--secondary avatar--lg' 'mr-2'}}
+                        {{#avatar_char '' ''}}<i class="fas fa-user"></i>{{/avatar_char}}
+                    {{/avatar_has}}
+                    <!-- /Avatars: Icon -->
 
-                {{#card_body}}
-                    <div class="avatar-stack-collapse">
-                        <div class="avatar avatar--info avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="A"></div>
-                        </div>
-                        <div class="avatar avatar--primary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="B"></div>
-                        </div>
-                        <div class="avatar avatar-more avatar--xl"></div>
-                        <div class="avatar avatar--secondary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="C"></div>
-                        </div>
-                        <div class="avatar avatar--warning avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                        <div class="avatar avatar--info avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                    </div>
                 {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Shapes'}}}
+                {{#card_body}}
+                    <p>Avatar component comes in 3 shapes. Default avatar is square in shape.
+                        Use <code>.rounded-{sm|lg}</code> for rounded shape and use <code>.rounded-circle</code> for circle shape.
+                    </p>
+                    {{#each avatars.list_shape}}
+                        <!-- {{text}}: Image -->
+                        {{#avatar_has modifier 'avatar--lg mr-2'}}
+                            {{#avatar_img ''}}
+                                <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                            {{/avatar_img}}
+                        {{/avatar_has}}
+                        <!-- /{{text}}: Image -->
+                    {{/each}}
 
-                {{#card_body}}
-                    <div class="avatar-stack-reveal-full">
-                        <div class="avatar rounded-circle avatar--info avatar--sm">
-                            <div class="avatar__content avatar-char" data-initial="A"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--primary avatar--sm">
-                            <div class="avatar__content avatar-char" data-initial="B"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--secondary avatar--sm">
-                            <div class="avatar__content avatar-char" data-initial="C"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--warning avatar--sm">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                    </div>
-                {{/card_body}}
-                {{#card_body}}
-                    <div class="avatar-stack-reveal-full">
-                        <div class="avatar rounded-circle avatar--info">
-                            <div class="avatar__content avatar-char" data-initial="A"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--primary">
-                            <div class="avatar__content avatar-char" data-initial="B"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--secondary">
-                            <div class="avatar__content avatar-char" data-initial="C"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--warning">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                    </div>
-                {{/card_body}}
+                    {{#each avatars.list_shape}}
+                        <!-- {{text}}: Initials -->
+                        {{#avatar_has modifier 'avatar--primary avatar--lg mr-2'}}
+                            {{#avatar_char '' 'DS'}}{{/avatar_char}}
+                        {{/avatar_has}}
+                        <!-- /{{text}}: Initials -->
+                    {{/each}}
 
-                {{#card_body}}
-                    <div class="avatar-stack-reveal-full">
-                        <div class="avatar rounded-circle avatar--info avatar--lg">
-                            <div class="avatar__content avatar-char" data-initial="A"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--primary avatar--lg">
-                            <div class="avatar__content avatar-char" data-initial="B"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--secondary avatar--lg">
-                            <div class="avatar__content avatar-char" data-initial="C"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--warning avatar--lg">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                    </div>
-                {{/card_body}}
+                    {{#each avatars.list_shape}}
+                        <!-- {{text}}: Icon -->
+                        {{#avatar_has modifier 'avatar--secondary avatar--lg mr-2'}}
+                            {{#avatar_char '' ''}}<i class="fas fa-user"></i>{{/avatar_char}}
+                        {{/avatar_has}}
+                        <!-- /{{text}}: Icon -->
+                    {{/each}}
 
-                {{#card_body}}
-                    <div class="avatar-stack-reveal-full">
-                        <div class="avatar rounded-circle avatar--info avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="A"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--primary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="B"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--secondary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="C"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--warning avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                    </div>
                 {{/card_body}}
-                {{#card_body}}
-                    <div class="avatar-stack">
-                        <div class="avatar rounded-circle avatar--info avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="A"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--primary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="B"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--secondary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="C"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--warning avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                    </div>
-                {{/card_body}}
-                {{#card_body}}
-                    <div class="avatar-stack-reveal-single">
-                        <div class="avatar rounded-circle avatar--info avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="A"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--primary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="B"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--secondary avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="C"></div>
-                        </div>
-                        <div class="avatar rounded-circle avatar--warning avatar--xl">
-                            <div class="avatar__content avatar-char" data-initial="D"></div>
-                        </div>
-                    </div>
-                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Avatar sizes'}}}
                 {{#card_body}}
+                    <p>Fancy larger or smaller avatar? Default avatar is medium in size. Add <code>.avatar--{sm|lg|xl}</code> for additional sizes.
+                    </p>
 
-                    <div class="avatar rounded-circle avatar--xl">
-                        <div class="avatar__content avatar-img">
-                            <img src="https://source.unsplash.com/collection/895539/100x100" class="" alt="Avatar image">
+                    {{#each avatars.list_size}}
+                        <!-- {{text}}: Image -->
+                        {{#avatar_has modifier 'rounded-circle mr-2'}}
+                            {{#avatar_img ''}}
+                                <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                            {{/avatar_img}}
+                        {{/avatar_has}}
+                        <!-- /{{text}}: Image -->
+                    {{/each}}
+
+                    {{{spacer-common}}}
+
+                    {{#each avatars.list_size}}
+                        <!-- {{text}}: Initials -->
+                        {{#avatar_has modifier 'avatar--primary rounded-circle mr-2'}}
+                            {{#avatar_char '' 'DS'}}{{/avatar_char}}
+                        {{/avatar_has}}
+                        <!-- /{{text}}: Initials -->
+                    {{/each}}
+
+                    {{{spacer-common}}}
+
+                    {{#each avatars.list_size}}
+                        <!-- {{text}}: Icon -->
+                        {{#avatar_has modifier 'avatar--secondary rounded-circle mr-2'}}
+                            {{#avatar_char '' ''}}<i class="fas fa-user"></i>{{/avatar_char}}
+                        {{/avatar_has}}
+                        <!-- /{{text}}: Icon -->
+                    {{/each}}
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Avatar custom sizes'}}}
+                {{#card_body}}
+                    <p>For custom sizes use display sizing utilities - e.g. <code>.d-16, .d-24, .d-32</code> and font sizing utilities - e.g. <code>.fs-10, .fs-12, .fs-14</code> and so on.
+                    </p>
+
+                    <!-- Custom sizes: Image -->
+                    {{#avatar_has 'avatar--xl' 'rounded-circle d-64 mr-2'}}
+                        {{#avatar_img ''}}
+                            <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                        {{/avatar_img}}
+                    {{/avatar_has}}
+                    <!-- /Custom sizes: Image -->
+
+                    <!-- Custom sizes: Initials -->
+                    {{#avatar_has 'avatar--primary avatar--xl' 'rounded-circle d-64 mr-2'}}
+                        {{#avatar_char 'fs-26' 'DS'}}{{/avatar_char}}
+                    {{/avatar_has}}
+                    <!-- /Custom sizes: Initials -->
+
+                    <!-- Custom sizes: Icon -->
+                    {{#avatar_has 'avatar--secondary avatar--xl' 'rounded-circle d-64'}}
+                        {{#avatar_char 'fs-26' ''}}<i class="fas fa-user"></i>{{/avatar_char}}
+                    {{/avatar_has}}
+                    <!-- /Custom sizes: Icon -->
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Avatar themes'}}}
+                {{#card_body}}
+                    <p>Use any of the contextual classes (e.g., <code>.avatar--secondary</code>) to change the color of a avatar.</p>
+                    {{#each avatars.list}}
+                        <!-- {{text}} -->
+                        {{#avatar_has modifier 'avatar--lg rounded-circle mr-2'}}
+                            {{#avatar_char '' initial}}{{/avatar_char}}
+                        {{/avatar_has}}
+                        <!-- /{{text}} -->
+                    {{/each}}
+
+                    {{{spacer-common}}}
+
+                    {{#each avatars.list}}
+                        <!-- {{text}} -->
+                        {{#avatar_has modifier 'avatar--lg rounded-circle mr-2'}}
+                            {{#avatar_char '' ''}}<i class="fas fa-user"></i>{{/avatar_char}}
+                        {{/avatar_has}}
+                        <!-- /{{text}} -->
+                    {{/each}}
+                    {{{spacer-common}}}
+
+                    <hr>
+                    {{{card_title 'Light colors'}}}
+                    <p>Create light color avatars, by replace the default modifier classes with the <code>.avatar-soft--*</code> ones to change all background colors to light tone.
+                    </p>
+                    {{#each avatars.list}}
+                        <!-- {{text}} -->
+                        {{#avatar_has modifier_soft 'avatar--lg rounded-circle mr-2'}}
+                            {{#avatar_char '' initial}}{{/avatar_char}}
+                        {{/avatar_has}}
+                        <!-- /{{text}} -->
+                    {{/each}}
+                    {{{spacer-common}}}
+                    {{#each avatars.list}}
+                        <!-- {{text}} -->
+                        {{#avatar_has modifier_soft 'avatar--lg rounded-circle mr-2'}}
+                            {{#avatar_char '' ''}}<i class="fas fa-user"></i>{{/avatar_char}}
+                        {{/avatar_has}}
+                        <!-- /{{text}} -->
+                    {{/each}}
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Avatar stack'}}}
+                {{#card_body}}
+                    <p>Stacked avatars can be used to show multiple collaborators or participants when there is limited space available. When you hover over the stack, the avatars will reveal themselves.
+                    </p>
+                    <p>To create the stack, wrap a series of avatars with <code>.avatar-stack</code>.</p>
+                    <hr>
+
+                    {{{card_title 'Simple'}}}
+                    <p>Just add <code>.stack--simple</code> to <code>.avatar-stack</code>. Use <code>stack--right</code> to right-align the avatar stack.</p>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Simple -->
+                            {{#avatar_stack 'stack--simple'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--primary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'PR'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--secondary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'SC'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Simple -->
                         </div>
                     </div>
-                    <div class="avatar rounded-circle avatar--info avatar--xl">
-                        <div class="avatar__content avatar-char">H</div>
-                    </div>
-                {{/card_body}}
-                {{#card_body}}
-                    <div class="avatar avatar--sm">
-                        <div class="avatar__content avatar-img">
-                            <img src="https://source.unsplash.com/collection/895539/100x100" class="" alt="Avatar image">
+
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <!-- Simple: right-align -->
+                            {{#avatar_stack 'stack--simple stack--right'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--primary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'PR'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--secondary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'SC'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Simple: right-align -->
                         </div>
                     </div>
-                    <div class="avatar">
-                        <div class="avatar__content avatar-img">
-                            <img src="https://source.unsplash.com/collection/895539/100x100" class="" alt="Avatar image">
+                    <hr>
+
+                    {{{card_title 'Reveal single'}}}
+                    <p>Just add <code>.stack--reveal-single</code> to <code>.avatar-stack</code>.</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Reveal single: right-align -->
+                            {{#avatar_stack 'stack--reveal-single'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--secondary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'SC'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--warning avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'WN'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal single: right-align -->
                         </div>
                     </div>
-                    <div class="avatar avatar--lg">
-                        <div class="avatar__content avatar-img">
-                            <img src="https://source.unsplash.com/collection/895539/100x100" class="" alt="Avatar image">
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <!-- Reveal single: right-align -->
+                            {{#avatar_stack 'stack--reveal-single stack--right'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--secondary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'SC'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--warning avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'WN'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal single: right-align -->
                         </div>
                     </div>
-                    <div class="avatar avatar--xl">
-                        <div class="avatar__content avatar-img">
-                            <img src="https://source.unsplash.com/collection/895539/100x100" class="" alt="Avatar image">
+                    <hr>
+                    {{{card_title 'Reveal full'}}}
+                    <p>Just add <code>.stack--reveal-full</code> to <code>.avatar-stack</code>.</p>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Reveal full -->
+                            {{#avatar_stack 'stack--reveal-full'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--warning avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'WN'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--info avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'IF'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal full -->
                         </div>
                     </div>
-                {{/card_body}}
-                {{#card_body}}
-                    <div class="avatar avatar--primary avatar--sm">
-                        <div class="avatar__content avatar-char">H</div>
+
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <!-- Reveal full: right-align -->
+                            {{#avatar_stack 'stack--reveal-full stack--right'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--warning avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'WN'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--info avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'IF'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal full: right-align -->
+                        </div>
                     </div>
-                    <div class="avatar avatar--secondary">
-                        <div class="avatar__content avatar-char">H</div>
+
+                    <hr>
+                    {{{card_title 'Reveal 3+ Square'}}}
+                    <p>Just add <code>.stack--three-plus</code> to <code>.avatar-stack</code> and a div with the classes <code>.avatar.avatar-more-shaded</code> as the third avatar in the stack.
+                    </p>
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Reveal 3+ Square -->
+                            {{#avatar_stack 'stack--three-plus'}}
+                                {{#avatar_has 'avatar--lg' ''}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--info avatar--lg' ''}}
+                                    {{#avatar_char '' 'IF'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'avatar-more-shaded'}}{{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' ''}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--danger avatar--lg' ''}}
+                                    {{#avatar_char '' 'DN'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal 3+ Square -->
+                        </div>
                     </div>
-                    <div class="avatar avatar--warning avatar--lg">
-                        <div class="avatar__content avatar-char">H</div>
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <!-- Reveal 3+ Square: right-align -->
+                            {{#avatar_stack 'stack--three-plus stack--right'}}
+                                {{#avatar_has 'avatar--lg' ''}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--info avatar--lg' ''}}
+                                    {{#avatar_char '' 'IF'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'avatar-more-shaded'}}{{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' ''}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--danger avatar--lg' ''}}
+                                    {{#avatar_char '' 'DN'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal 3+ Square: right-align -->
+                        </div>
                     </div>
-                    <div class="avatar avatar--info avatar--xl">
-                        <div class="avatar__content avatar-char">H</div>
+                    <hr>
+                    {{{card_title 'Reveal 3+ Circle'}}}
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Reveal 3+ Circle: more-shaded -->
+                            {{#avatar_stack 'stack--three-plus'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--primary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'SS'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'avatar-more-shaded rounded-circle'}}{{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--dark avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'DK'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal 3+ Circle: more-shaded -->
+                        </div>
                     </div>
-                {{/card_body}}
-                {{#card_body}}
-                    <div class="avatar avatar--primary rounded-circle avatar-online avatar--sm">
-                        <div class="avatar__content avatar-char">H</div>
+
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <!-- Reveal 3+ Circle: more-shaded right-align -->
+                            {{#avatar_stack 'stack--three-plus stack--right'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--primary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'SS'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'avatar-more-shaded rounded-circle'}}{{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--dark avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'DK'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal 3+ Circle: more-shaded right-align -->
+                        </div>
                     </div>
-                    <div class="avatar avatar--secondary rounded-circle avatar-offline">
-                        <div class="avatar__content avatar-char">H</div>
+
+                    <p>To reveal the 3rd initial avatar type, add a div with the classes <code>.avatar.avatar-more-x</code> as the third avatar in the stack. </p>
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Reveal 3+ Circle: more-x -->
+                            {{#avatar_stack 'stack--three-plus'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--secondary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'SS'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--light avatar--lg' 'avatar-more-x rounded-circle'}}
+                                    {{#avatar_char '' '+3'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--info avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'DK'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal 3+ Circle: more-x -->
+                        </div>
                     </div>
-                    <div class="avatar avatar--warning avatar-away rounded-circle avatar--lg">
-                        <div class="avatar__content avatar-char">H</div>
-                    </div>
-                    <div class="avatar avatar--info avatar-busy rounded-circle avatar--xl">
-                        <div class="avatar__content avatar-char">H</div>
-                    </div>
-                {{/card_body}}
-                {{#card_body}}
-                    <div class="avatar avatar-soft--primary avatar--sm">
-                        <div class="avatar__content avatar-char">H</div>
-                    </div>
-                    <div class="avatar avatar-soft--secondary">
-                        <div class="avatar__content avatar-char">H</div>
-                    </div>
-                    <div class="avatar avatar-soft--warning avatar--lg">
-                        <div class="avatar__content avatar-char">H</div>
-                    </div>
-                    <div class="avatar avatar-soft--info avatar--xl">
-                        <div class="avatar__content avatar-char">GH</div>
-                    </div>
-                {{/card_body}}
-                {{#card_body}}
-                    <div class="avatar avatar-soft--primary avatar--sm">
-                        <div class="avatar__content avatar-char"><i class="fa fa-user"></i></div>
-                    </div>
-                    <div class="avatar avatar-soft--secondary">
-                        <div class="avatar__content avatar-char"><i class="fa fa-user"></i></div>
-                    </div>
-                    <div class="avatar avatar-soft--warning avatar--lg">
-                        <div class="avatar__content avatar-char"><i class="fa fa-user"></i></div>
-                    </div>
-                    <div class="avatar avatar-soft--info avatar--xl">
-                        <div class="avatar__content avatar-char"><i class="fa fa-user"></i></div>
+
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <!-- Reveal 3+ Circle: more-x right-align -->
+                            {{#avatar_stack 'stack--three-plus stack--right'}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--secondary avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'SS'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--light avatar--lg' 'avatar-more-x rounded-circle'}}
+                                    {{#avatar_char '' '+3'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_img ''}}
+                                        <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                                    {{/avatar_img}}
+                                {{/avatar_has}}
+                                {{#avatar_has 'avatar--info avatar--lg' 'rounded-circle'}}
+                                    {{#avatar_char '' 'DK'}}{{/avatar_char}}
+                                {{/avatar_has}}
+                            {{/avatar_stack}}
+                            <!-- /Reveal 3+ Circle: more-x right-align -->
+                        </div>
                     </div>
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Avatar status'}}}
+                {{#card_body}}
+                    <p>Add class <code>.avatar-{online|offline|away|busy}</code> to create avatar with status.
+                    </p>
+
+                    {{#each avatars.list_status}}
+                        <!-- {{text}} -->
+                        {{#avatar_has modifier 'avatar--lg bottom-right rounded-circle mr-2'}}
+                            {{#avatar_img ''}}
+                                <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                            {{/avatar_img}}
+                        {{/avatar_has}}
+                        <!-- /{{text}} -->
+                    {{/each}}
+
+                    <hr>
+                    {{{card_title 'Status indicator position'}}}
+                    <p> Use {{#each avatars.list_position}}{{#if @last}}and {{/if}}<code>{{modifier}}</code>{{#if @last}}{{else}}, {{/if}}{{/each}} classes to change the position of the status indicator</p>
+
+                    {{#each avatars.list_position}}
+                        <!-- {{text}} -->
+                        {{#avatar_has modifier 'avatar-online avatar--lg rounded-circle mr-2'}}
+                            {{#avatar_img ''}}
+                                <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                            {{/avatar_img}}
+                        {{/avatar_has}}
+                        <!-- /{{text}} -->
+                    {{/each}}
+
+                    <hr>
+                    {{{card_title 'Status sizes'}}}
+                    <p>Status indicator come in 4 different sizes by applying <code>.avatar--{sm|lg|xl}</code> to <code>.avatar</code>.
+                        If the size modifier class is not used, medium is also the default size.</p>
+                    {{#each avatars.list_size}}
+                        <!-- {{text}} -->
+                        {{#avatar_has modifier 'avatar-online bottom-right rounded-circle mr-2'}}
+                            {{#avatar_img ''}}
+                                <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                            {{/avatar_img}}
+                        {{/avatar_has}}
+                        <!-- /{{text}} -->
+                    {{/each}}
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Parent-child avatars'}}}
+                {{#card_body}}
+                    <p>When you need a larger parent avatar, and a smaller child one, overlaid slightly, use the child class <code>.avatar__child</code> to the child <code>.avatar</code>.
+                        Use font sizing utilities - e.g. <code>.fs-10</code>, <code>.fs-12</code>, <code>.fs-14</code> to the child avatar if they are initial or icon type.
+                    </p>
+
+                    <!-- Parent-child avatars: Image -->
+                    {{#avatar_has 'avatar--xl' 'rounded-circle mr-2'}}
+                        {{#avatar_img ''}}
+                            <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                        {{/avatar_img}}
+                        {{#avatar_has 'avatar__child' ''}}
+                            {{#avatar_img ''}}
+                                <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                            {{/avatar_img}}
+                        {{/avatar_has}}
+                    {{/avatar_has}}
+                    <!-- /Parent-child avatars: Image -->
+
+                    <!-- Parent-child avatars: Initials -->
+                    {{#avatar_has 'avatar--primary avatar--xl' 'rounded-circle mr-2'}}
+                        {{#avatar_char '' 'PR'}}{{/avatar_char}}
+                        {{#avatar_has 'avatar--secondary avatar__child' ''}}
+                            {{#avatar_char 'fs-16' 'S'}}{{/avatar_char}}
+                        {{/avatar_has}}
+                    {{/avatar_has}}
+                    <!-- /Parent-child avatars: Initials -->
+
+                    <!-- Parent-child avatars: Icon -->
+                    {{#avatar_has 'avatar--info avatar--xl' 'rounded-circle mr-2'}}
+                        {{#avatar_char '' 'IF'}}{{/avatar_char}}
+                        {{#avatar_has 'avatar--danger avatar__child' ''}}
+                            {{#avatar_char 'fs-10' ''}}<i class="fas fa-user"></i>{{/avatar_char}}
+                        {{/avatar_has}}
+                    {{/avatar_has}}
+                    <!-- /Parent-child avatars: Icon -->
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Badged avatar'}}}
+                {{#card_body}}
+                    <p>Add a notification badge to your avatar.
+                        Use {{#each avatars.list_position}}{{#if @last}}and {{/if}}<code>{{modifier}}</code>{{#if @last}}{{else}}, {{/if}}{{/each}} classes to change the position of the badges.
+                       Also use font sizing utilities - e.g. <code>.fs-10</code>, <code>.fs-12</code>, <code>.fs-14</code> to the badges.
+                    </p>
+
+                    {{#avatar_has 'avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_img ''}}
+                            <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                        {{/avatar_img}}
+                        {{#avatar_badge 'top-left fs-16'}}
+                            <span class="badge badge-primary badge-circle">5</span>
+                        {{/avatar_badge}}
+                    {{/avatar_has}}
+
+                    {{#avatar_has 'avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_img ''}}
+                            <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                        {{/avatar_img}}
+                        {{#avatar_badge 'bottom-left fs-16'}}
+                            <span class="badge badge-secondary badge-circle">555</span>
+                        {{/avatar_badge}}
+                    {{/avatar_has}}
+
+                    {{#avatar_has 'avatar--info avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_char '' 'IF'}}{{/avatar_char}}
+                        {{#avatar_badge 'top-right fs-14'}}
+                            <span class="badge badge-danger pointed arrow-bottom">555</span>
+                        {{/avatar_badge}}
+                    {{/avatar_has}}
+
+                    {{#avatar_has 'avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_img ''}}
+                            <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                        {{/avatar_img}}
+                        {{#avatar_badge 'bottom-right fs-16'}}
+                            <span class="badge badge-dark">5</span>
+                        {{/avatar_badge}}
+                    {{/avatar_has}}
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Avatar link'}}}
+                {{#card_body}}
+                    <p>You can also link individual avatars. To do this shift the avatar class over to the anchor:</p>
+
+                    <!-- Avatar link: Image -->
+                    {{#avatar_link_has 'avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_img ''}}
+                            <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                        {{/avatar_img}}
+                    {{/avatar_link_has}}
+                    <!-- /Avatar link: Image -->
+
+                    <!-- Avatar link: Initials -->
+                    {{#avatar_link_has 'avatar--primary avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_char '' 'DS'}}{{/avatar_char}}
+                    {{/avatar_link_has}}
+
+                    {{#avatar_link_has 'avatar-soft--secondary avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_char '' 'SC'}}{{/avatar_char}}
+                    {{/avatar_link_has}}
+                    <!-- /Avatar link: Initials -->
+
+                    <!-- Avatar link: Icon -->
+                    {{#avatar_link_has 'avatar--warning avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_char '' ''}}<i class="fas fa-user"></i>{{/avatar_char}}
+                    {{/avatar_link_has}}
+
+                    {{#avatar_link_has 'avatar-soft--info avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_char '' ''}}<i class="fas fa-user"></i>{{/avatar_char}}
+                    {{/avatar_link_has}}
+                    <!-- /Avatar link: Icon -->
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
 </div>

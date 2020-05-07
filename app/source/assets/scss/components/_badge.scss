@@ -101,12 +101,12 @@
   }
 
   // Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false)
-  &.badge-pill {
+  &.#{$b}-pill {
     @include border-radius($badge-pill-border-radius);
   }
 
   // Round badges
-  &.badge-circle {
+  &.#{$b}-circle {
     @include border-radius($badge-circle-border-radius);
     min-width: $badge-circle-size;
     height: $badge-circle-size;

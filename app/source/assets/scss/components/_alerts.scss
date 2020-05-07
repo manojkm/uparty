@@ -24,9 +24,9 @@
   @each $themeName, $value in $themes-map {
     $colors: map-get-strict($value, 'main-colors');
     @each $scheme, $tone in $colors {
-      $tone-bg: theme-color-level($scheme, base, $soft-bg-level);
-      $tone-border: theme-color-level($scheme, base, $soft-border-level);
-      $font-color: theme-color-level($scheme, base, $soft-color-level);
+      $tone-bg: get-theme-color-level($scheme, base, $soft-bg-level);
+      $tone-border: get-theme-color-level($scheme, base, $soft-border-level);
+      $font-color: get-theme-color-level($scheme, base, $soft-color-level);
       &.#{$a}-#{$scheme} {
         @include alert-theme($tone-bg, $tone-border, $font-color);
       }
@@ -35,9 +35,9 @@
 
   // Contextual variations
   @each $scheme, $tone in $contextual-palette-map {
-    $tone-bg: theme-color-level($scheme, base, $soft-bg-level);
-    $tone-border: theme-color-level($scheme, base, $soft-border-level);
-    $font-color: theme-color-level($scheme, base, $soft-color-level);
+    $tone-bg: get-theme-color-level($scheme, base, $soft-bg-level);
+    $tone-border: get-theme-color-level($scheme, base, $soft-border-level);
+    $font-color: get-theme-color-level($scheme, base, $soft-color-level);
     &.#{$a}-#{$scheme} {
       @include alert-theme($tone-bg, $tone-border, $font-color);
     }

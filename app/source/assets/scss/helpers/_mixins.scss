@@ -33,7 +33,7 @@
         $theme-color: map-get-strict(map-get-strict($partial-colors, $key), $color-variant) !global;
       } @else {
         @warn 'Unfortunately, no value could be retrieved from "#{$key}". '
-        + 'Please make sure it is defined in $#{$themeName}-palette-map.';
+        + 'Please make sure it is defined in this map: $#{$themeName}-palette-map.';
       }
     } @else {
       @if map-has-key($main-colors, $key) {
@@ -42,7 +42,7 @@
         $theme-color: map-get-strict($partial-colors, $key) !global;
       } @else {
         @warn 'Unfortunately, no value could be retrieved from "#{$key}". '
-        + 'Please make sure it is defined in $#{$themeName}-palette-map.';
+        + 'Please make sure it is defined in this map: $#{$themeName}-palette-map.';
       }
     }
 
@@ -141,30 +141,30 @@
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
 
-    $r: red(contextual-color($scheme, $font-color));
-    $g: green(contextual-color($scheme, $font-color));
-    $b: blue(contextual-color($scheme, $font-color));
+    $r: red(get-contextual-color($scheme, $font-color));
+    $g: green(get-contextual-color($scheme, $font-color));
+    $b: blue(get-contextual-color($scheme, $font-color));
 
     $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
 
     @if ($yiq >=150) {
-      color: darken(contextual-color($scheme, $font-color), 50) $sledge-hammer;
+      color: darken(get-contextual-color($scheme, $font-color), 50) $sledge-hammer;
     } @else {
-      color: contextual-color($scheme, $font-color) $sledge-hammer;
+      color: get-contextual-color($scheme, $font-color) $sledge-hammer;
     }
 
   } @else { // Theme variations
 
-    $r: red(theme-main-color($scheme, $font-color));
-    $g: green(theme-main-color($scheme, $font-color));
-    $b: blue(theme-main-color($scheme, $font-color));
+    $r: red(get-theme-main-color($scheme, $font-color));
+    $g: green(get-theme-main-color($scheme, $font-color));
+    $b: blue(get-theme-main-color($scheme, $font-color));
 
     $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
 
     @if ($yiq >=150) {
-      color: darken(theme-main-color($scheme, $font-color), 50) $sledge-hammer;
+      color: darken(get-theme-main-color($scheme, $font-color), 50) $sledge-hammer;
     } @else {
-      color: theme-main-color($scheme, $font-color) $sledge-hammer;
+      color: get-theme-main-color($scheme, $font-color) $sledge-hammer;
     }
 
   }
@@ -259,6 +259,42 @@
 }
 
 //
+// DIVIDER
+// ======================================================
+// @include divider(#333333, horizontal, top);
+
+@mixin divider($color: $gray-200, $direction: 'horizontal', $pos: 'none', $size: 1px, $opacity: $alpha-5) {
+  position: relative;
+
+  &::after {
+    background-color: $color;
+    content: '';
+    left: 0;
+    opacity: $opacity;
+    position: absolute;
+
+    @if ($pos == 'top') {
+      bottom: 100%;
+    }
+
+    @if ($pos == 'bottom') {
+      top: 100%;
+    }
+
+    @if ($direction == 'horizontal') {
+      height: $size;
+      width: 100%;
+    }
+
+    @if ($direction == 'vertical') {
+      height: 100%;
+      top: 0;
+      width: $size;
+    }
+  }
+}
+
+//
 // OPACITY
 // ======================================================
 // Usage @include opacity(1);
@@ -341,7 +377,7 @@
     @if ($scheme == 'light') { // Fix colors on light outlined buttons, tabs etc..
       @include text-theme-color-yiq($scheme, $font-color, $sledge-hammer);
     } @else {
-      color: contextual-color($scheme, $font-color) $sledge-hammer;
+      color: get-contextual-color($scheme, $font-color) $sledge-hammer;
     }
   } @else { // Theme variations
     @include color($scheme, $font-color, $sledge-hammer);
@@ -356,7 +392,7 @@
 @mixin background-theme($scheme, $tone:base, $sledge-hammer:null) {
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-    background-color: contextual-color($scheme, $tone) $sledge-hammer;
+    background-color: get-contextual-color($scheme, $tone) $sledge-hammer;
   } @else { // Theme variations
     @include background-color($scheme, $tone, $sledge-hammer);
   }
@@ -369,7 +405,7 @@
 @mixin background-text-theme($scheme, $tone:base, $font-color:font-color, $sledge-hammer:null) {
 
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-    background-color: contextual-color($scheme, $tone) $sledge-hammer;
+    background-color: get-contextual-color($scheme, $tone) $sledge-hammer;
     @include text-theme($scheme, $font-color, $sledge-hammer);
   } @else { // Theme variations
     @include background-color($scheme, $tone, $sledge-hammer);
@@ -386,24 +422,24 @@
   @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
 
     @if $position == 'all' {
-      border-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-color: get-contextual-color($scheme, $tone) $sledge-hammer;
     } @else if $position == 'top' {
-      border-top-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-top-color: get-contextual-color($scheme, $tone) $sledge-hammer;
     } @else if $position == 'bottom' {
-      border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-bottom-color: get-contextual-color($scheme, $tone) $sledge-hammer;
     } @else if $position == 'right' {
-      border-right-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-right-color: get-contextual-color($scheme, $tone) $sledge-hammer;
     } @else if $position == 'left' {
-      border-left-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-left-color: get-contextual-color($scheme, $tone) $sledge-hammer;
     } @else if $position == 'top-bottom' {
-      border-top-color: contextual-color($scheme, $tone) $sledge-hammer;
-      border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-top-color: get-contextual-color($scheme, $tone) $sledge-hammer;
+      border-bottom-color: get-contextual-color($scheme, $tone) $sledge-hammer;
     } @else if $position == 'right-left' {
-      border-left-color: contextual-color($scheme, $tone) $sledge-hammer;
-      border-right-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-left-color: get-contextual-color($scheme, $tone) $sledge-hammer;
+      border-right-color: get-contextual-color($scheme, $tone) $sledge-hammer;
     } @else if $position == 'left-bottom' {
-      border-left-color: contextual-color($scheme, $tone) $sledge-hammer;
-      border-bottom-color: contextual-color($scheme, $tone) $sledge-hammer;
+      border-left-color: get-contextual-color($scheme, $tone) $sledge-hammer;
+      border-bottom-color: get-contextual-color($scheme, $tone) $sledge-hammer;
     }
 
   } @else { // Theme variations
@@ -481,9 +517,9 @@
   }
 
   @if $bg-type == soft {
-    color: theme-color-level($scheme, $tone, $soft-color-level);
-    border-color: theme-color-level($scheme, $tone, $soft-border-level);
-    background-color: theme-color-level($scheme, $tone, $soft-bg-level);
+    color: get-theme-color-level($scheme, $tone, $soft-color-level);
+    border-color: get-theme-color-level($scheme, $tone, $soft-border-level);
+    background-color: get-theme-color-level($scheme, $tone, $soft-bg-level);
   }
 
   #{$hover-tags} {
@@ -515,9 +551,9 @@
 
   &.btn-raised {
     @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-      box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 contextual-color($scheme, $tone-active);
+      box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 get-contextual-color($scheme, $tone-active);
     } @else { // Theme variations
-      $box-shadow-color: theme-main-color($scheme, $tone-active);
+      $box-shadow-color: get-theme-main-color($scheme, $tone-active);
       box-shadow: 0 $btn-raised-box-shadow-y-offset 0 0 $box-shadow-color;
     }
 
@@ -534,9 +570,9 @@
     #{$hover-tags},
     #{$active-tags} {
       @if map-has-key($contextual-palette-map, $scheme) { // Contextual variations
-        box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 contextual-color($scheme, $tone-active);
+        box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 get-contextual-color($scheme, $tone-active);
       } @else { // Theme variations
-        $box-shadow-color: theme-main-color($scheme, $tone-active);
+        $box-shadow-color: get-theme-main-color($scheme, $tone-active);
         box-shadow: 0 $btn-raised-box-shadow-y-offset-hover 0 0 $box-shadow-color;
       }
     }
@@ -631,15 +667,15 @@
   }
 
   @if $bg-type == soft {
-    background-color: theme-color-level($scheme, $tone, $soft-bg-level);
-    border-color: theme-color-level($scheme, $tone, $soft-border-level);
+    background-color: get-theme-color-level($scheme, $tone, $soft-bg-level);
+    border-color: get-theme-color-level($scheme, $tone, $soft-border-level);
     &,
     & * {
-      color: theme-color-level($scheme, $tone, $soft-color-level);
+      color: get-theme-color-level($scheme, $tone, $soft-color-level);
     }
     &.ribbon {
       &::before{
-        border-top-color: theme-color-level($scheme, $tone, $soft-border-level)!important;
+        border-top-color: get-theme-color-level($scheme, $tone, $soft-border-level)!important;
       }
     }
   }
@@ -685,8 +721,8 @@
   }
 
   @if $bg-type == soft {
-    color: theme-color-level($scheme, $tone, $soft-color-level);
-    background-color: theme-color-level($scheme, $tone, $soft-bg-level);
+    color: get-theme-color-level($scheme, $tone, $soft-color-level);
+    background-color: get-theme-color-level($scheme, $tone, $soft-bg-level);
   }
 
   // Link Badges

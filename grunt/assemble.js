@@ -43,7 +43,7 @@ module.exports = function (grunt) {
             root: grunt.getPath('root'),
             dest: grunt.getPath('dest'),
             data: grunt.getPath('data', true) + '**/*.{json,yml}',
-            helpers: grunt.getPath('helpers', true) + '**/*.js',
+            helpers: [grunt.getPath('helpers', true) + 'helpers-*.js'],
 
             // Templates
             partials: grunt.getPath('partials', true) + '**/*.hbs',
