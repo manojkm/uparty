@@ -25,12 +25,12 @@
     .nav-link {
       //@include color($breadcrumb-link-theme-scheme, $breadcrumb-link-theme-scheme-tone);
       @include transition;
-      color: $breadcrumb-menu-color;
-      line-height: $breadcrumb-line-height;
-      padding: $breadcrumb-item-padding-y 0;
       position: relative;
       display: flex;
       align-items: center;
+      padding: $breadcrumb-item-padding-y 0;
+      color: $breadcrumb-menu-color;
+      line-height: $breadcrumb-line-height;
       // Change the hover, focus, active state links for better highlighting
       //#{$a-tags},
       #{$hover-focus-tags} {
@@ -39,8 +39,8 @@
       }
 
       #{$icon-tags} {
-        top: 1px;
         position: relative;
+        top: 1px;
         line-height: 1;
       }
 

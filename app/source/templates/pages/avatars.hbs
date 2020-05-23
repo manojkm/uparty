@@ -123,7 +123,7 @@ components: true
             {{#card}}
                 {{{card_header 'Avatar custom sizes'}}}
                 {{#card_body}}
-                    <p>For custom sizes use display sizing utilities - e.g. <code>.d-16, .d-24, .d-32</code> and font sizing utilities - e.g. <code>.fs-10, .fs-12, .fs-14</code> and so on.
+                    <p>For custom sizes use display sizing utilities - e.g. <code>.d-16</code>, <code>.d-24</code>, <code>.d-32</code> and font sizing utilities - e.g. <code>.fs-10</code>, <code>.fs-12</code>, <code>.fs-14</code> and so on.
                     </p>
 
                     <!-- Custom sizes: Image -->
@@ -629,6 +629,15 @@ components: true
                     {{/avatar_has}}
                     <!-- /Parent-child avatars: Icon -->
 
+                    <!-- Parent-child avatars: Icon -->
+                    {{#avatar_link_has 'avatar--light avatar--xl' 'rounded-circle'}}
+                        {{#avatar_char '' 'LT'}}{{/avatar_char}}
+                        {{#avatar_has 'avatar--dark avatar__child' ''}}
+                            {{#avatar_char '' ''}}<ion-icon name="add-outline" size="small"></ion-icon>{{/avatar_char}}
+                        {{/avatar_has}}
+                    {{/avatar_link_has}}
+                    <!-- /Parent-child avatars: Icon -->
+
                 {{/card_body}}
             {{/card}}
         </div>
@@ -675,6 +684,15 @@ components: true
                         {{/avatar_img}}
                         {{#avatar_badge 'bottom-right fs-16'}}
                             <span class="badge badge-dark">5</span>
+                        {{/avatar_badge}}
+                    {{/avatar_has}}
+
+                    {{#avatar_has 'avatar--lg' 'rounded-circle mr-2'}}
+                        {{#avatar_img ''}}
+                            <img src="https://semantic-ui.com/images/avatar/large/joe.jpg" alt="Avatar image">
+                        {{/avatar_img}}
+                        {{#avatar_badge 'bottom-right fs-16'}}
+                            <a href="#" class="badge badge-success badge-circle"><i class="icon-bubbles"></i></a>
                         {{/avatar_badge}}
                     {{/avatar_has}}
 

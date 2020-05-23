@@ -363,7 +363,7 @@
   }
 
   &:disabled + .custom-file-label {
-    @include opacity(0.8);
+    opacity:0.8;
     border-color: $input-disabled-border-color;
     background-color: $input-disabled-bg;
     color: $input-disabled-color;
@@ -545,7 +545,7 @@
 
   // Checked + Disabled state
   .#{$cci}:disabled:checked + .#{$ccind} {
-    @include opacity(0.5);
+    opacity:0.5;
   }
 
   // Mini type
@@ -769,7 +769,7 @@
 
   // Checked + Disabled state
   .#{$cci}:disabled:checked + .#{$ccind} {
-    @include opacity(0.5);
+    opacity:0.5;
   }
 
   // YES/NO flipped toggle switch
@@ -796,7 +796,7 @@
 
   // YES/NO flipped toggle switch disabled state
   &.yes-no .#{$cci}:disabled + .#{$ccind} {
-    @include opacity(0.5);
+    opacity:0.5;
   }
 
   // Theme variations

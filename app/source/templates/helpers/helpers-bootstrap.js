@@ -17,7 +17,7 @@ module.exports.register = function (Handlebars, options) {
 // VALIDATOR
 // ======================================================
   function isValid(str) {
-     return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
+    return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
   }
 
 //
@@ -121,7 +121,6 @@ module.exports.register = function (Handlebars, options) {
   Handlebars.registerHelper("badge", function (modifier, exCl, options) {
 
 
-
     var class_selector = (isValid(exCl)) ? ' ' + exCl : '';
 
     var content = '<span class="badge ' + modifier + class_selector + '">' + options.fn(this) + '</span>';
@@ -131,7 +130,6 @@ module.exports.register = function (Handlebars, options) {
 // Link badges
 // Usage {{#badge-link "primary"}}Alert{{/badge-link}}
   Handlebars.registerHelper("badge-link", function (href, modifier, exCl, options) {
-
 
 
     var class_selector = (isValid(exCl)) ? ' ' + exCl : '';
@@ -147,7 +145,6 @@ module.exports.register = function (Handlebars, options) {
 
 // Usage {{#breadcrumb "myClass" "myId"}}<li class="breadcrumb-item"><a href="#">Home</a></li>{{/breadcrumb}}
   Handlebars.registerHelper("breadcrumb", function (cl, id, options) {
-
 
 
     var id_selector = (isValid(id)) ? 'id="' + id + '"' : '';
@@ -232,27 +229,37 @@ module.exports.register = function (Handlebars, options) {
 // BOOTSTRAP MODAL
 // ======================================================
 
-  Handlebars.registerHelper('modal', function (cl, context, cl_modal_dialog, options) {
+  Handlebars.registerHelper('modal', function (cl, id, cl_modal_dialog, options) {
+    var class_selector = (Handlebars.Utils.isEmpty(cl)) ? '' : ' ' + cl;
+    var cl_modal_selector = (Handlebars.Utils.isEmpty(cl_modal_dialog)) ? '' : ' ' + cl_modal_dialog;
+    var id_selector = (Handlebars.Utils.isEmpty(id)) ? '' : id;
     var content = options.fn(this);
-    return '<div class="modal ' + cl + '" id="' + context + '" tabindex="-1" role="dialog" aria-labelledby="' + context + 'Label" aria-hidden="true"><div class="modal-dialog ' + cl_modal_dialog + '" role="document"><div class="modal-content">' + content + '</div></div></div>';
+    return '<div class="modal fade' + class_selector + '" id="' + id_selector + '" tabindex="-1" role="dialog" aria-labelledby="' + id_selector + 'Label" aria-hidden="true">' +
+      '<div class="modal-dialog' + cl_modal_selector + '" role="document">' +
+      '<div class="modal-content">' + content + '</div></div></div>';
   });
 
-  Handlebars.registerHelper('modalHeader', function (title) {
-    return '<div class="modal-header"><h5 class="modal-title">' + title + '</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+  Handlebars.registerHelper('modal_header', function (title) {
+    return '<div class="modal-header"><h5 class="modal-title">' + title + '</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><ion-icon aria-hidden="true" name="close-outline"></ion-icon></button></div>';
   });
 
-  Handlebars.registerHelper('modalContent', function (options) {
-    var content = options.fn(this);
-
-    return '<div class="modal-body">' + content + '</div>';
+  Handlebars.registerHelper('modal_body', function (cl, options) {
+    var class_selector = (Handlebars.Utils.isEmpty(cl)) ? '' : ' ' + cl;
+    var content = '<div class="modal-body' + class_selector + '">' + options.fn(this) + '</div>';
+    return new Handlebars.SafeString(content);
   });
 
-  Handlebars.registerHelper('modalFooter', function (type, text, btnclass) {
+  Handlebars.registerHelper('modal_footer', function (btn_type, text, btn_class) {
+    var buttonType = btn_type === "insert" || btn_type === "update" ? "submit" : "button";
+    return '<div class="modal-footer bg-light-opacity-5"><button type="button" class="btn btn-outline-' + btn_class + '" data-dismiss="modal">Close</button><button type="' + buttonType + '" class="btn btn-' + btn_class + '">' + text + '</button></div>';
+  });
+
+  Handlebars.registerHelper('modal_footer_soft', function (type, text, btn_class) {
     var buttonType = type === "insert" || type === "update" ? "submit" : "button";
-    return '<div class="modal-footer"><button type="button" class="btn btn-light" data-dismiss="modal">Close</button><button type="' + buttonType + '" class="btn btn-' + btnclass + '">' + text + '</button></div>';
+    return '<div class="modal-footer justify-content-center"><button type="button" class="btn btn-link btn-' + btn_class + '" data-dismiss="modal">Close</button><button type="' + buttonType + '" class="btn btn-' + btn_class + '">' + text + '</button></div>';
   });
 
-  Handlebars.registerHelper('modalFooterSimple', function (type) {
+  Handlebars.registerHelper('modal_footer_simple', function (type) {
     return '<div class="modal-footer"><button type="button" class="btn btn-light" data-dismiss="modal">Close</button></div>';
   });
 
@@ -298,7 +305,7 @@ module.exports.register = function (Handlebars, options) {
 
 // Avatar
 // Usage: {{#avatar_has 'modifier' 'class'}}{{/avatar_has}}
-  Handlebars.registerHelper('avatar_has', function ( modifier, cl, options) {
+  Handlebars.registerHelper('avatar_has', function (modifier, cl, options) {
     var class_selector = (isValid(cl)) ? ' ' + cl : '';
     var modifier_selector = (isValid(modifier)) ? ' ' + modifier : '';
     var content = '<div class="avatar' + modifier_selector + class_selector + '">' + options.fn(this) + '</div>';
@@ -306,7 +313,7 @@ module.exports.register = function (Handlebars, options) {
   });
 
   // Usage: {{#avatar_link_has 'modifier' 'class'}}{{/avatar_link_has}}
-  Handlebars.registerHelper('avatar_link_has', function ( modifier, cl, options) {
+  Handlebars.registerHelper('avatar_link_has', function (modifier, cl, options) {
     var class_selector = (isValid(cl)) ? ' ' + cl : '';
     var modifier_selector = (isValid(modifier)) ? ' ' + modifier : '';
     var content = '<a href="#" class="avatar' + modifier_selector + class_selector + '">' + options.fn(this) + '</a>';
@@ -327,7 +334,7 @@ module.exports.register = function (Handlebars, options) {
     // var initial_selector = (isValid(initial)) ? 'data-initial="' + initial + '"' : '';
     var initial_selector = (Handlebars.Utils.isEmpty(initial)) ? '' : 'data-initial="' + initial + '"';
     var class_selector = (isValid(cl)) ? ' ' + cl : '';
-    var content = '<div class="avatar__content avatar-char' + class_selector +'" '+ initial_selector +'>' + options.fn(this) + '</div>';
+    var content = '<div class="avatar__content avatar-char' + class_selector + '" ' + initial_selector + '>' + options.fn(this) + '</div>';
     return new Handlebars.SafeString(content);
   });
 
@@ -347,6 +354,33 @@ module.exports.register = function (Handlebars, options) {
     return new Handlebars.SafeString(content);
   });
 
+//
+// LIST GROUP
+// ======================================================
+
+// List group
+// Usage: {{#list-group 'class'}}{{/list-group}}
+  Handlebars.registerHelper('list-group', function (cl, options) {
+    var class_selector = (Handlebars.Utils.isEmpty(cl)) ? '' : ' ' + cl;
+    var content = '<ul class="list-group' + class_selector + '">' + options.fn(this) + '</ul>';
+    return new Handlebars.SafeString(content);
+  });
+
+// List group item
+// Usage: {{#list-group-item 'class'}}{{/list-group-item}}
+  Handlebars.registerHelper('list-group-item', function (cl, options) {
+    var class_selector = (Handlebars.Utils.isEmpty(cl)) ? '' : ' ' + cl;
+    var content = '<li class="list-group-item' + class_selector + '">' + options.fn(this) + '</li>';
+    return new Handlebars.SafeString(content);
+  });
+
+// List group item action
+// Usage: {{#list-group-item-action 'class'}}{{/list-group-item-action}}
+  Handlebars.registerHelper('list-group-item-action', function (cl, options) {
+    var class_selector = (Handlebars.Utils.isEmpty(cl)) ? '' : ' ' + cl;
+    var content = '<a href="#" class="list-group-item list-group-item-action' + class_selector + '">' + options.fn(this) + '</a>';
+    return new Handlebars.SafeString(content);
+  });
+
+
 };
-
-

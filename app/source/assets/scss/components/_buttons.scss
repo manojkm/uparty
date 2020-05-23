@@ -25,16 +25,19 @@
     #{$disabled-tags-btn} {
       cursor: $cursor-not-allowed;
       pointer-events: none;
-      @include opacity($btn-disabled-opacity);
+      opacity:$btn-disabled-opacity;
     }
 
     // The clickable button for toggling the menu
     .show > &.dropdown-toggle,
-    #{$active-tags-btn} {
-      @include box-shadow($btn-active-box-shadow);
+    &:not(:disabled):not(.disabled) {
+      &:active,
+      &.active {
+        @include box-shadow($btn-active-box-shadow);
 
-      #{$focus-tags} {
-        @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+        #{$focus-tags} {
+          @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+        }
       }
     }
 
@@ -55,13 +58,13 @@
 
     // Icon Buttons
     &.btn-icon {
-      min-width: $btn-icon-size;
-      width: $btn-icon-size;
-      min-height: $btn-icon-size;
       position: relative;
       display: inline-flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      width: $btn-icon-size;
+      min-width: $btn-icon-size;
+      min-height: $btn-icon-size;
       font-size: $btn-icon-font-size;
       line-height: $btn-icon-font-size;
 
@@ -71,8 +74,8 @@
 
       // Small icon button
       &.btn-sm {
-        min-width: $btn-icon-size-sm;
         width: $btn-icon-size-sm;
+        min-width: $btn-icon-size-sm;
         min-height: $btn-icon-size-sm;
         font-size: $btn-icon-font-size-sm;
         line-height: $btn-icon-font-size-sm;
@@ -83,8 +86,8 @@
 
       // Large icon button
       &.btn-lg {
-        min-width: $btn-icon-size-lg;
         width: $btn-icon-size-lg;
+        min-width: $btn-icon-size-lg;
         min-height: $btn-icon-size-lg;
         font-size: $btn-icon-font-size-lg;
         line-height: $btn-icon-font-size-lg;
@@ -95,8 +98,8 @@
 
       // Extra large icon button
       &.btn-xl {
-        min-width: $btn-icon-size-xl;
         width: $btn-icon-size-xl;
+        min-width: $btn-icon-size-xl;
         min-height: $btn-icon-size-xl;
         font-size: $btn-icon-font-size-xl;
         line-height: $btn-icon-font-size-xl;
@@ -191,7 +194,7 @@
   fieldset:disabled a.btn {
     cursor: $cursor-not-allowed;
     pointer-events: none;
-    @include opacity($btn-disabled-opacity);
+    opacity:$btn-disabled-opacity;
   }
 
   //
@@ -200,8 +203,8 @@
   // Make a button look and behave like a link
 
   .btn-link {
-    border: 0;
     background-color: transparent !important;
+    border: 0;
 
     #{$hover-tags} {
       color: $link-hover-color;
@@ -213,7 +216,7 @@
       @include box-shadow(none);
     }
 
-    #{$active-tags-btn},
+    &:not(:disabled):not(.disabled),
     .show > &.dropdown-toggle {
       box-shadow: none !important;
 
@@ -260,10 +263,10 @@
       //.open > &.dropdown-toggle*
     &:active,
     &.active {
-      box-shadow: none !important;
-      margin-bottom: -$btn-raised-box-shadow-y-offset;
-      margin-top: $btn-raised-box-shadow-y-offset;
       bottom: 0;
+      margin-top: $btn-raised-box-shadow-y-offset;
+      margin-bottom: -$btn-raised-box-shadow-y-offset;
+      box-shadow: none !important;
     }
   }
 }

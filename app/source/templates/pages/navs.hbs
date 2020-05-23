@@ -1,0 +1,31 @@
+---
+title: "Navs"
+lead: A navigation component that displays grouped navigation actions
+components: true
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Base nav'}}}
+                {{#card_body}}
+                    <ul class="nav extended">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Active</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+</div>

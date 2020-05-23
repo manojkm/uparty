@@ -50,7 +50,7 @@
     font-weight: $font-wh-regular;
 
     &:hover {
-      @include opacity(0.9);
+      opacity:0.9;
       text-decoration: none;
     }
   }
@@ -61,8 +61,8 @@
     i.icon-left{
       @include center(y);
       position: absolute;
-      width: 3rem;
       left: -3rem;
+      width: 3rem;
       text-align: center;
     }
   }
@@ -72,8 +72,8 @@
     i.icon-right{
       @include center(y);
       position: absolute;
-      width: 3rem;
       right: -3rem;
+      width: 3rem;
       text-align: center;
     }
   }
@@ -85,17 +85,17 @@
 // ======================================================
 
 .alert-dismissible > .close {
-  @include opacity(.7);
+  opacity:.7;
 
   > span:not(.sr-only) {
-    background-color: $alpha-white-3;
-    font-size: $alert-close-btn-font-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: $alert-close-btn-width;
     height: $alert-close-btn-height;
+    background-color: $alpha-white-3;
     border-radius: $border-radius-100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: $alert-close-btn-font-size;
 
   }
 

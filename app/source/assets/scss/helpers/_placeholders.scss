@@ -47,12 +47,12 @@
 }
 
 %o-v-none {
-  @include opacity(0);
+  opacity:0;
   visibility: hidden;
 }
 
 %o-v-show {
-  @include opacity(1);
+  opacity:1;
   visibility: visible;
 }
 
@@ -142,11 +142,11 @@
 %list-group-item {
   font-size: $list-group-font-size;
   font-weight: $list-group-font-weight;
-  padding: $list-group-item-padding-y $list-group-item-padding-x;
   line-height: $list-group-line-height;
-  margin-bottom: -$list-group-border-width;
-  background-color: $list-group-bg;
+  //margin-bottom: -$list-group-border-width;
+  padding: $list-group-item-padding-y $list-group-item-padding-x;
   color: $list-group-item-color;
+  background-color: $list-group-bg;
   @include add-border($list-group-border-width, $list-group-border-color, all);
 }
 

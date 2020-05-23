@@ -27,7 +27,7 @@
       @include color($footer-theme-scheme, 'font-active-color');
     }
     &.disabled {
-      @include opacity(0.3);
+      opacity:0.3;
       cursor: $cursor-not-allowed;
     }
   }

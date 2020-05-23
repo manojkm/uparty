@@ -101,7 +101,7 @@
   & .dropdown-header:not([href]):not([tabindex]) {
     font-size: $dropdown-header-font-size;
     color: $dropdown-header-color;
-    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    padding: $dropdown-header-padding;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: $font-wh-semi;
@@ -214,9 +214,8 @@
 }
 
 // Generate series of `.dropdown-menu-{sm|md|lg|xl}-{right|left}` classes for responsive alignment
-
-@each $next-breakpoint, $length in $breakpoints-max-widths {
-  $next-breakpoint: breakpoint-next($next-breakpoint, $breakpoints-min-widths);
+@each $breakpoint, $length in $breakpoints-max-widths {
+  $next-breakpoint: breakpoint-next($breakpoint, $breakpoints-min-widths);
   $next-length: map-get-strict($breakpoints-min-widths, $next-breakpoint);
 
   @include min-screen(#{$next-length}) {
@@ -517,11 +516,11 @@ $dc: dropdown-custom;
       display: flex;
       align-items: center;
       justify-content: center;
-      @include opacity(0.8);
+      opacity:0.8;
 
       #{$hover-focus-tags} {
         color: $dropdown-custom-toolbar-icon-hover-color;
-        @include opacity(1);
+        opacity:1;
       }
 
       #{$icon-tags} {

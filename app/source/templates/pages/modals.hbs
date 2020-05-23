@@ -6,57 +6,72 @@ components: true
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 pr-md-2">
+        <div class="col-md-6">
             {{#card}}
-                {{{card_header 'Default modal'}}}
+                {{{card_header 'Standard modal'}}}
                 {{#card_body_has 'example bg-dark'''}}
                     <!-- Default modal -->
-                    {{#modal '''defaultModal' ''}}
-                        {{{modalHeader 'Modal title'}}}
-                        {{#modalContent}}
+                    {{#modal 'show' 'defaultModal' ''}}
+                        {{{modal_header 'Modal title'}}}
+                        {{#modal_body ''}}
                             <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                        {{/modalContent}}
-                        {{{modalFooter 'button' 'Save changes' 'primary'}}}
+                        {{/modal_body}}
+                        {{{modal_footer 'button' 'Save changes' 'primary'}}}
                     {{/modal}}
                     <!-- /Default modal -->
                 {{/card_body_has}}
             {{/card}}
         </div>
-        <div class="col-md-6 pl-md-2">
-
-            {{#card}}
-                {{{card_header 'Extended modal'}}}
-                {{#card_body_has 'example bg-dark'''}}
-                    <!-- Extended modal -->
-                    {{#modal 'modal-primary''extendedModal' ''}}
-                        {{{modalHeader 'Modal title'}}}
-                        {{#modalContent}}
-                            <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                        {{/modalContent}}
-                        {{{modalFooter 'button' 'Save changes' 'primary'}}}
-                    {{/modal}}
-                    <!-- /Extended modal -->
-                {{/card_body_has}}
-            {{/card}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             {{#card}}
                 {{{card_header 'Minimal modal'}}}
                 {{#card_body_has 'example bg-dark'''}}
                     <!-- Minimal modal -->
-                    {{#modal 'minimal''minimalModal' ''}}
-                        {{#modalContent}}
+                    {{#modal 'minimal show' 'minimalModal' ''}}
+                        {{#modal_body ''}}
                             <h5 class="modal-title text-white">Delete Your Account</h5>
                             <p class="card-text text-white">Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-                        {{/modalContent}}
+                        {{/modal_body}}
                         <div class="modal-footer border-0">
                             <button type="button" class="btn btn-outline-danger btn-sm has-icon-left" data-dismiss="modal"><i class="icon-close"></i>No</button>
                             <button type="button" class="btn btn-outline-success btn-sm has-icon-left"><i class="icon-check"></i>Yes</button>
                         </div>
                     {{/modal}}
                     <!-- /Minimal modal -->
+                {{/card_body_has}}
+            {{/card}}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{#card}}
+                {{{card_header 'Extended modal'}}}
+                {{#card_body_has 'example bg-dark'''}}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Extended modal -->
+                            {{#modal 'modal-primary show' 'extendedModal' ''}}
+                                {{{modal_header 'Modal title'}}}
+                                {{#modal_body ''}}
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                {{/modal_body}}
+                                {{{modal_footer 'button' 'Save changes' 'primary'}}}
+                            {{/modal}}
+                            <!-- /Extended modal -->
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Extended modal close button -->
+                            {{#modal 'modal-primary show close--up' 'extendedModalCloseUp' ''}}
+                                {{{modal_header 'Modal title'}}}
+                                {{#modal_body ''}}
+                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                {{/modal_body}}
+                                {{{modal_footer 'button' 'Save changes' 'primary'}}}
+                            {{/modal}}
+                            <!-- /Extended modal close button -->
+                        </div>
+                    </div>
                 {{/card_body_has}}
             {{/card}}
         </div>
@@ -67,32 +82,33 @@ components: true
             {{#card}}
                 {{{card_header 'Modal themes'}}}
                 {{#card_body}}
-                    <div class="row mb-4">
-                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
                             {{{card_title 'Standard modal'}}}
                             <p>Below is a standard modal example.</p>
-                            <a href="#" class="btn btn-outline-primary btn-block" role="button" data-toggle="modal" data-target="#exampleModal">Launch standard modal</a>
                             <!-- Standard modal -->
-                            {{#modal 'fade''exampleModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
+                            <a href="#" class="btn btn-outline-primary btn-block" role="button" data-toggle="modal" data-target="#exampleModal">Launch standard modal</a>
+                            {{#modal '' 'exampleModal' ''}}
+                                {{{modal_header 'Standard modal'}}}
+                                {{#modal_body ''}}
                                     <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'primary'}}}
+                                {{/modal_body}}
+                                {{{modal_footer 'button' 'Save changes' 'primary'}}}
                             {{/modal}}
                             <!-- /Standard modal -->
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
                             {{{card_title 'Minimal modal'}}}
-                            <p>A modal can reduce its complexity. To use minimal modal theme, add <code>.minimal</code> class to <code>.modal</code></p>
-                            <button type="button" class="btn btn-outline-primary btn-block" data-toggle="modal" data-target="#minimalModal-eg2">Launch minimal modal
-                            </button>
+                            <p>A modal can reduce its complexity. To use minimal modal theme, add <code>.minimal</code> to <code>.modal</code>.
+                                For more information please review HTML.
+                            </p>
                             <!-- Minimal modal -->
-                            {{#modal 'fade minimal''minimalModal-eg2' 'modal-dialog-centered'}}
-                                {{#modalContent}}
+                            <button type="button" class="btn btn-outline-primary btn-block" data-toggle="modal" data-target="#minimalModal-eg2">Launch minimal modal</button>
+                            {{#modal 'minimal' 'minimalModal-eg2' 'modal-dialog-centered'}}
+                                {{#modal_body ''}}
                                     <h5 class="modal-title text-white">Delete Your Account</h5>
                                     <p class="card-text text-white">Are you sure you want to delete your account</p>
-                                {{/modalContent}}
+                                {{/modal_body}}
                                 <div class="modal-footer border-0">
                                     <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
                                     <button type="button" class="btn btn-success btn-sm has-icon-left"><i class="icon-check"></i>Yes</button>
@@ -102,218 +118,140 @@ components: true
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Primary modal'}}}
-                            <p>To use primary modal theme, add <code>.modal-primary</code> class to the <code>.modal</code></p>
-                            <a href="#" class="btn btn-primary btn-block" role="button" data-toggle="modal" data-target="#primaryModal">Launch primary modal</a>
-                            <!-- Primary modal -->
-                            {{#modal 'fade modal-primary''primaryModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'primary'}}}
-                            {{/modal}}
-                            <!-- /Primary modal -->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Secondary modal'}}}
-                            <p>To use secondary modal theme, add <code>.modal-secondary</code> class to the <code>.modal</code></p>
-                            <a href="#" class="btn btn-secondary btn-block" role="button" data-toggle="modal" data-target="#secondaryModal">Launch secondary modal</a>
-                            <!-- Secondary modal -->
-                            {{#modal 'fade modal-secondary''secondaryModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'secondary'}}}
-                            {{/modal}}
-                            <!-- /Secondary modal -->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Success modal'}}}
-                            <p>To use success modal theme, add <code>.modal-success</code> class to the <code>.modal</code></p>
-                            <a href="#" class="btn btn-success btn-block" role="button" data-toggle="modal" data-target="#successModal">Launch success modal</a>
-                            <!-- Success modal -->
-                            {{#modal 'fade modal-success''successModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'success'}}}
-                            {{/modal}}
-                            <!-- /Success modal -->
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Danger modal'}}}
-                            <p>To use danger modal theme, add <code>.modal-danger</code> class to the <code>.modal</code></p>
-                            <a href="#" class="btn btn-danger btn-block" role="button" data-toggle="modal" data-target="#dangerModal">Launch danger modal</a>
-                            <!-- Danger modal -->
-                            {{#modal 'fade modal-danger''dangerModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'danger'}}}
-                            {{/modal}}
-                            <!-- /Danger modal -->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Warning modal'}}}
-                            <p>To use warning modal theme, add <code>.modal-warning</code> class to the <code>.modal</code></p>
-                            <a href="#" class="btn btn-warning btn-block" role="button" data-toggle="modal" data-target="#warningModal">Launch warning modal</a>
-                            <!-- Warning modal -->
-                            {{#modal 'fade modal-warning''warningModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'warning'}}}
-                            {{/modal}}
-                            <!-- /Warning modal -->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Info modal'}}}
-                            <p>To use info modal theme, add <code>.modal-info</code> class to the <code>.modal</code></p>
-                            <a href="#" class="btn btn-info btn-block" role="button" data-toggle="modal" data-target="#infoModal">Launch info modal</a>
-                            <!-- Info modal -->
-                            {{#modal 'fade modal-info''infoModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'info'}}}
-                            {{/modal}}
-                            <!-- /Info modal -->
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Light modal'}}}
-                            <p>To use light modal theme, add <code>.modal-light</code> class to the <code>.modal</code></p>
-                            <a href="#" class="btn btn-light btn-block" role="button" data-toggle="modal" data-target="#lightModal">Launch light modal</a>
-                            <!-- Light modal -->
-                            {{#modal 'fade modal-light''lightModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'light'}}}
-                            {{/modal}}
-                            <!-- /Light modal -->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Dark modal'}}}
-                            <p>To use dark modal theme, add <code>.modal-dark</code> class to the <code>.modal</code></p>
-                            <a href="#" class="btn btn-dark btn-block" role="button" data-toggle="modal" data-target="#darkModal">Launch dark modal</a>
-                            <!-- Dark modal -->
-                            {{#modal 'fade modal-dark''darkModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'dark'}}}
-                            {{/modal}}
-                            <!-- /Dark modal -->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4"></div>
+                        {{#each modal.list}}
+                            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                                {{{card_title title}}}
+                                <p>Add <code>.{{modifier}}</code> to <code>.{{class}}</code></p>
+                                <!-- {{title}} -->
+                                <a href="#" class="btn btn-{{modifier_btn}} btn-block" role="button" data-toggle="modal" data-target="#{{data_target}}">Launch modal</a>
+                                {{#modal modifier data_target ''}}
+                                    {{{modal_header title}}}
+                                    {{#modal_body ''}}
+                                        <p class="card-text">{{{placeholder-lorem-sm}}}</p>
+                                    {{/modal_body}}
+                                    {{{modal_footer 'button' 'Save changes' modifier_btn}}}
+                                {{/modal}}
+                                <!-- /{{title}} -->
+                            </div>
+                        {{/each}}
                     </div>
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Modal Alerts'}}}
+                {{#card_body}}
+                    <div class="row mb-4">
+                        {{#each modal.list}}
+                            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                                {{{card_title title}}}
+                                <p>Add <code>.{{modifier_soft}}</code> to <code>.{{class}}</code></p>
+                                <!-- {{title}} -->
+                                <a href="#" class="btn btn-soft-{{modifier_btn}} btn-block" role="button" data-toggle="modal" data-target="#{{data_target_soft}}">Launch modal</a>
+                                {{#modal modifier_soft data_target_soft ''}}
+                                    {{#modal_body 'text-center'}}
+                                        <h3 class="modal-title">{{title_soft}}</h3>
+                                        <ion-icon name="{{icon_name_ion}}" class="fs-50 my-3"></ion-icon>
+                                        <p>{{{text_soft}}}</p>
+                                    {{/modal_body}}
+                                    {{{modal_footer_soft 'button' 'Save changes' modifier_btn}}}
+                                {{/modal}}
+                                <!-- /{{title}} -->
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+
     <div class="row">
         <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Modal sizes'}}}
                 {{#card_body}}
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Small modal size'}}}
-                            <p>Add class <code>.modal-sm</code> to <code>.modal-dialog</code> to use small size of modal.</p>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#smallSizeModal">Small modal</button>
-                            <!-- Small modal size -->
-                            {{#modal 'fade modal-success' 'smallSizeModal' 'modal-sm'}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
+                        {{#each modal.list_size}}
+                            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                                {{{card_title title}}}
+                                {{#ifEquals title "Default"}}
+                                    <p>Our default modal without modifier class constitutes the “medium” size modal.</p>
+                                {{else}}
+                                    <p>Add class <code>.{{modifier}}</code> to <code>.modal-dialog</code></p>
+                                {{/ifEquals}}
+                                <!-- {{title}} modal size -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{data_target}}">{{title}} modal</button>
+                                {{#modal 'modal-primary' data_target modifier}}
+                                    {{{modal_header 'Modal title'}}}
+                                    {{#modal_body ''}}
+                                        <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                                    {{/modal_body}}
+                                    {{{modal_footer 'button' 'Save changes' 'primary'}}}
+                                {{/modal}}
+                                <!-- /{{title}} modal size -->
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Close button position'}}}
+                {{#card_body}}
+                    <div class="row">
+                        <div class="col-12">
+                            <p>To change the close button position to outside of the dialog, just add class <code>.close--up</code> to <code>.modal</code>.</p>
+                            <!-- Standard modal -->
+                            <a href="#" class="btn btn-primary" role="button" data-toggle="modal" data-target="#exampleModalCloseUp">Launch modal</a>
+                            {{#modal 'close--up' 'exampleModalCloseUp' ''}}
+                                {{{modal_header 'Standard modal'}}}
+                                {{#modal_body ''}}
                                     <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'success'}}}
+                                {{/modal_body}}
+                                {{{modal_footer 'button' 'Save changes' 'primary'}}}
                             {{/modal}}
-                            <!-- /Small modal size -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Default modal size'}}}
-                            <p>For default size, modal markup doesn't require any additional sizing class.</p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#defaultSizeModal">Default size modal</button>
-                            <!-- Default modal size -->
-                            {{#modal 'fade modal-primary''defaultSizeModal' ''}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'primary'}}}
-                            {{/modal}}
-                            <!-- /Default modal size -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Large modal size'}}}
-                            <p>Add class <code>.modal-lg</code> to <code>.modal-dialog</code> to use large size of modal.</p>
-                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#largeSizeModal">Large modal</button>
-                            <!-- Large modal size -->
-                            {{#modal 'fade modal-secondary' 'largeSizeModal' 'modal-lg'}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'secondary'}}}
-                            {{/modal}}
-                            <!-- /Large modal size -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                            {{{card_title 'Full Screen modal size'}}}
-                            <p>Add class <code>.modal-fullscreen</code> to <code>.modal-dialog</code> to use full screen size of modal.</p>
-                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#fullscreenSizeModal">Full Screen modal</button>
-                            <!-- Full Screen modal size -->
-                            {{#modal 'fade modal-info' 'fullscreenSizeModal' 'modal-fullscreen'}}
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
-                                    <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'info'}}}
-                            {{/modal}}
-                            <!-- /Full Screen modal size -->
+                            <!-- /Standard modal -->
                         </div>
                     </div>
                 {{/card_body}}
             {{/card}}
         </div>
     </div>
+
+
     <div class="row">
         <div class="col-md-12">
             {{#card}}
-                {{{card_header 'Modal animation'}}}
+                {{{card_header 'Animated modals'}}}
                 {{#card_body}}
                     <div class="row">
-                        {{#each modal.anim_list}}
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#animated{{modifier}}Modal">{{text}}</button>
-                                <p>Add class <code>.{{class}}.{{modifier}}</code> to <code>.modal-dialog</code></p>
+                        {{#each modal.list_animation}}
+                            <div class="col-12 col-md-6 col-lg-4 mb-4">
                                 <!-- {{text}} animation -->
-                                <div class="modal fade modal-success" id="animated{{modifier}}Modal" tabindex="-1" role="dialog" aria-labelledby="animated{{modifier}}Modal" aria-hidden="true">
+                                <button type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#animated{{modifier}}Modal">{{text}}</button>
+                                <div class="modal fade" id="animated{{modifier}}Modal" tabindex="-1" role="dialog" aria-labelledby="animated{{modifier}}Modal" aria-hidden="true">
                                     <div class="modal-dialog {{class}} {{modifier}}" role="document">
                                         <div class="modal-content">
-                                            {{{modalHeader 'Modal title'}}}
-                                            {{#modalContent}}
+                                            {{{modal_header 'Modal title'}}}
+                                            {{#modal_body ''}}
                                                 <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                            {{/modalContent}}
-                                            {{{modalFooter 'button' 'Save changes' 'success'}}}
+                                            {{/modal_body}}
+                                            {{{modal_footer 'button' 'Save changes' 'primary'}}}
                                         </div>
                                     </div>
                                 </div>
                                 <!-- /{{text}} animation -->
+                                <p>Add class <code>.{{class}}.{{modifier}}</code> to <code>.modal-dialog</code></p>
                             </div>
                         {{/each}}
                     </div>
@@ -327,16 +265,14 @@ components: true
                 {{{card_header 'Vertically centered'}}}
                 {{#card_body}}
                     <p>Add <code>.modal-dialog-centered</code> to <code>.modal-dialog</code> to vertically center the modal.</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#vCenteredModal">
-                        Launch vertically centered modal
-                    </button>
                     <!-- Vertically centered -->
-                    {{#modal 'fade modal-primary''vCenteredModal' 'modal-dialog-centered'}}
-                        {{{modalHeader 'Modal title'}}}
-                        {{#modalContent}}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#vCenteredModal">Launch vertically centered modal</button>
+                    {{#modal 'modal-primary''vCenteredModal' 'modal-dialog-centered'}}
+                        {{{modal_header 'Modal title'}}}
+                        {{#modal_body ''}}
                             <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                        {{/modalContent}}
-                        {{{modalFooter 'button' 'Save changes' 'primary'}}}
+                        {{/modal_body}}
+                        {{{modal_footer 'button' 'Save changes' 'primary'}}}
                     {{/modal}}
                     <!-- /Vertically centered -->
                 {{/card_body}}
@@ -349,25 +285,47 @@ components: true
                 {{{card_header 'Scrolling long content'}}}
                 {{#card_body}}
                     <p>When modals become too long for the user’s viewport or device, they scroll independent of the page itself. Try the demo below to see what we mean.</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                        Launch long content modal
-                    </button>
+
                     <!-- Scrolling long content -->
-                    {{#modal 'fade modal-danger''exampleModalLong' 'modal-dialog-centered'}}
-                        {{{modalHeader 'Modal title'}}}
-                        {{#modalContent}}
-                            <p class="card-text">{{{placeholder-lorem-md}}}</p>
-                            <p class="card-text">{{{placeholder-lorem-md}}}</p>
-                            <p class="card-text">{{{placeholder-lorem-md}}}</p>
-                            <p class="card-text">{{{placeholder-lorem-md}}}</p>
-                            <p class="card-text">{{{placeholder-lorem-md}}}</p>
-                            <p class="card-text">{{{placeholder-lorem-md}}}</p>
-                            <p class="card-text">{{{placeholder-lorem-md}}}</p>
-                            <p class="card-text">{{{placeholder-lorem-md}}}</p>
-                        {{/modalContent}}
-                        {{{modalFooter 'button' 'Save changes' 'danger'}}}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Launch long content modal</button>
+                    {{#modal 'modal-primary''exampleModalLong' 'modal-dialog-centered'}}
+                        {{{modal_header 'Modal title'}}}
+                        {{#modal_body ''}}
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                        {{/modal_body}}
+                        {{{modal_footer 'button' 'Save changes' 'primary'}}}
                     {{/modal}}
                     <!-- /Scrolling long content -->
+
+                    <hr>
+                    {{{card_title 'Scrollable modal'}}}
+                    <p>You can also create a scrollable modal that allows scroll the modal body by adding <code>.modal-dialog-scrollable</code> to <code>.modal-dialog</code>.</p>
+
+                    <!-- Scrollable modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#scrollableModal">Launch scrollable modal</button>
+                    {{#modal 'modal-primary''scrollableModal' 'modal-dialog-scrollable'}}
+                        {{{modal_header 'Modal title'}}}
+                        {{#modal_body ''}}
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                            <p class="card-text">{{{placeholder-lorem-lg}}}</p>
+                        {{/modal_body}}
+                        {{{modal_footer 'button' 'Save changes' 'primary'}}}
+                    {{/modal}}
+                    <!-- /Scrollable modal -->
+
                 {{/card_body}}
             {{/card}}
         </div>
@@ -386,11 +344,11 @@ components: true
                          aria-hidden="true" data-backdrop="false">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
+                                {{{modal_header 'Modal title'}}}
+                                {{#modal_body ''}}
                                     <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'info'}}}
+                                {{/modal_body}}
+                                {{{modal_footer 'button' 'Save changes' 'info'}}}
                             </div>
                         </div>
                     </div>
@@ -409,11 +367,11 @@ components: true
                          aria-hidden="true" data-backdrop="static">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
+                                {{{modal_header 'Modal title'}}}
+                                {{#modal_body ''}}
                                     <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'info'}}}
+                                {{/modal_body}}
+                                {{{modal_footer 'button' 'Save changes' 'info'}}}
                             </div>
                         </div>
                     </div>
@@ -432,11 +390,11 @@ components: true
                          aria-hidden="true" data-keyboard="false">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                {{{modalHeader 'Modal title'}}}
-                                {{#modalContent}}
+                                {{{modal_header 'Modal title'}}}
+                                {{#modal_body ''}}
                                     <p class="card-text">{{{placeholder-lorem-sm}}}</p>
-                                {{/modalContent}}
-                                {{{modalFooter 'button' 'Save changes' 'info'}}}
+                                {{/modal_body}}
+                                {{{modal_footer 'button' 'Save changes' 'info'}}}
                             </div>
                         </div>
                     </div>

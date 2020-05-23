@@ -8,78 +8,133 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-.modal {
-  z-index: map-get($zindex, modal);
-  // Actual modal
-  &-content {
-    @include set-border-radius($modal-border-radius);
-    @include add-border(0, transparent, all);
-    box-shadow: $modal-content-box-shadow-xs;
-    background-color: $modal-content-bg;
-    overflow: hidden;
-  }
-  // Modal header
-  &-header {
-    //@include set-border-radius($modal-border-radius);
-    //@include border-bottom-radius(0);
-    @include set-border-radius(0);
-    @include add-border($modal-header-border-size, $modal-header-border-color, bottom);
-    padding: $modal-header-padding;
-  }
-  // Modal body
-  &-body {
-    padding: $modal-body-padding;
-  }
-  // Modal footer
-  &-footer {
-    @include add-border($modal-footer-border-width, $modal-footer-border-color, top);
-    padding: $modal-footer-padding;
-  }
-  // Modal close button
-  button.close {
-    box-shadow: none;
-  }
-}
+@if (map-get-strict($components, 'modals')) {
 
-// Minimal modal
-.minimal.modal {
-  & .modal-content {
-    background: transparent;
-    box-shadow: none;
-  }
-}
+  //
+  // BASE STYLING
+  // ======================================================
 
-// Fullscreen modal
-.modal-fullscreen {
-  width: 95%;
-  max-width: none;
-}
+  .modal {
+    z-index: map-get($zindex, modal);
+    // Actual modal
+    &-content {
+      @include set-border-radius($modal-content-border-radius);
+      @include add-border(0, transparent, all);
+      @include box-shadow($modal-content-box-shadow-xs);
+      background-color: $modal-content-bg;
+      //overflow: hidden;
+    }
 
-// Modal background
-.modal-backdrop {
-  z-index: map-get($zindex, modal-backdrop);
-  background-color: $modal-backdrop-bg;
-  &.fade {
-    @include opacity(0);
-  }
-  &.show {
-    @include opacity($modal-backdrop-opacity);
-  }
-}
+    // Modal header
+    &-header {
+      //@include set-border-radius($modal-content-border-radius);
+      padding: $modal-header-padding;
+      @include add-border($modal-header-border-size, $modal-header-border-color, bottom);
+      @include set-border-top-radius($modal-content-inner-border-radius);
 
-// Theme variations
-@each $themeName, $value in $themes-map {
-  $colors: map-get-strict($value, 'main-colors');
-  @each $scheme, $tone in $colors {
+    }
+
+    // Modal body
+    &-body {
+      padding: $modal-body-padding;
+    }
+
+    // Modal footer
+    &-footer {
+      padding: $modal-footer-padding;
+      @include add-border($modal-header-border-size, $modal-footer-border-color, top);
+      @include set-border-bottom-radius($modal-content-inner-border-radius);
+    }
+
+  }
+
+  // Change the position of close button
+  .modal.close--up {
+    .modal-header {
+      .close {
+        position: absolute;
+        top: -2rem;
+        right: -.5rem;
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        color: $white-color;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+    .modal-content {
+      margin-top: 4rem;
+    }
+  }
+
+    // Title text within header
+  .modal-title {
+    line-height: $modal-title-line-height;
+  }
+
+  // Modal background
+  .modal-backdrop {
+    z-index: map-get($zindex, modal-backdrop);
+    background-color: $modal-backdrop-bg;
+
+    &.fade {
+      opacity: 0;
+    }
+
+    &.show {
+      opacity: $modal-backdrop-opacity;
+    }
+  }
+
+  //
+  // MINIMAL MODAL
+  // ======================================================
+
+  .minimal.modal {
+    & .modal-content {
+      box-shadow: none;
+      background: transparent;
+    }
+  }
+
+  //
+  // FULLSCREEN MODAL
+  // ======================================================
+
+  .modal-fullscreen {
+    width: 95%;
+    max-width: none;
+  }
+
+  //
+  // MODAL THEMES
+  // ======================================================
+
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $tone in $colors {
+      .modal-#{$scheme} {
+        @include modal-theme($scheme);
+      }
+      .modal-soft--#{$scheme} {
+        @include modal-theme($scheme, soft);
+      }
+    }
+  }
+
+  // Contextual variations
+  @each $scheme, $tone in $contextual-palette-map {
     .modal-#{$scheme} {
       @include modal-theme($scheme);
     }
+    .modal-soft--#{$scheme} {
+      @include modal-theme($scheme, soft);
+    }
   }
-}
 
-// Contextual variations
-@each $scheme, $tone in $contextual-palette-map {
-  .modal-#{$scheme} {
-    @include modal-theme($scheme);
-  }
 }

@@ -111,7 +111,7 @@
   }
 
   .nav-link {
-    @include opacity(0.8);
+    opacity:0.8;
     @include transition;
     margin-top: $nav-tabs-ext-box-spacing;
 
@@ -124,7 +124,7 @@
   .nav-link:hover,
   .nav-link:focus,
   .nav-item.show .nav-link {
-    @include opacity(1);
+    opacity:1;
   }
 
   + .tab-content {

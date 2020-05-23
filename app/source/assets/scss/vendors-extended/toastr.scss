@@ -25,11 +25,11 @@
 
 #toast-container > div {
   @include set-border-radius($toastr-radius);
-  @include opacity($toastr-opacity);
+  opacity:$toastr-opacity;
   box-shadow: $toastr-box-shadow;
   &:hover {
     box-shadow: $toastr-box-shadow;
-    @include opacity(1);
+    opacity:1;
   }
 }
 

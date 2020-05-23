@@ -273,7 +273,7 @@ forms-ui: true
                     </button>
 
                     {{#modal 'fade modal-primary''exampleModal1' 'modal-dialog-centered modal-lg'}}
-                        {{{modalHeader 'Modal form 1'}}}
+                        {{{modal_header 'Modal form 1'}}}
                         {{#modalContent}}
                             <form>
                                 <div class="form-group">
@@ -302,12 +302,12 @@ forms-ui: true
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         {{/modalContent}}
-                        {{{modalFooterSimple}}}
+                        {{{modal_footer_simple}}}
                     {{/modal}}
 
 
                     {{#modal 'fade modal-secondary''exampleModal2' 'modal-dialog-centered modal-fullscreen'}}
-                        {{{modalHeader 'Modal form 2'}}}
+                        {{{modal_header 'Modal form 2'}}}
                         {{#modalContent}}
                             <form>
                                 <div class="form-group row">
@@ -364,7 +364,7 @@ forms-ui: true
                     {{/modal}}
 
                     {{#modal 'fade modal-info''exampleModal3' 'modal-dialog-centered modal-lg'}}
-                        {{{modalHeader 'Modal form 3'}}}
+                        {{{modal_header 'Modal form 3'}}}
                         {{#modalContent}}
                             <form class="form-inline">
                                 <label class="sr-only" for="inlineModalFormUsername2">Username</label>

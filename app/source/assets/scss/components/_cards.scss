@@ -17,20 +17,20 @@
   @include transition;
   @include set-border-radius($card-border-radius);
   @include add-border($card-border-size, $card-border-color, all);
-  background-color: $card-bg;
   margin-bottom: $card-margin-bottom;
+  background-color: $card-bg;
   @include box-shadow($card-box-shadow);
 
   // Fullscreen card
   &-fullscreen {
     @include transition;
-    z-index: map-get($zindex, fullscreen_card);
     position: fixed;
-    width: 100%;
     top: 0;
     right: 0;
-    left: 0;
     bottom: 0;
+    left: 0;
+    z-index: map-get($zindex, fullscreen_card);
+    width: 100%;
     margin: 0 auto;
     @include set-border-radius(0);
 
@@ -39,14 +39,12 @@
     }
   }
 
-  > .list-group:first-child {
-    .list-group-item:first-child {
+  > .list-group {
+    &:first-child {
       @include border-top-radius($card-border-radius);
     }
-  }
 
-  > .list-group:last-child {
-    .list-group-item:last-child {
+    &:last-child {
       @include border-bottom-radius($card-border-radius);
     }
   }
@@ -80,11 +78,11 @@
 }
 
 .card-header {
-  background-color: $card-header-bg;
-  padding: $card-spacer-y $card-spacer-x;
   position: relative;
   display: flex;
   align-items: center;
+  padding: $card-spacer-y $card-spacer-x;
+  background-color: $card-header-bg;
   @include add-border($card-border-size, $card-border-color, bottom);
 
   &:first-child {
@@ -110,10 +108,10 @@
 }
 
 .card-footer {
-  background-color: $card-footer-bg;
   display: flex;
   align-items: center;
   padding: $card-spacer-y $card-spacer-x;
+  background-color: $card-footer-bg;
   @include add-border($card-border-size, $card-border-color, top);
 
   &:last-child {
@@ -163,13 +161,13 @@
 .card {
   &-fullscreen {
     @include transition;
-    z-index: map-get($zindex, fullscreen_card);
     position: fixed;
-    width: 100%;
     top: 0;
     right: 0;
-    left: 0;
     bottom: 0;
+    left: 0;
+    z-index: map-get($zindex, fullscreen_card);
+    width: 100%;
     margin: 0 auto;
     @include set-border-radius(0);
 
@@ -185,23 +183,23 @@
 
 .card__actions {
   $ca: card__actions;
+  display: flex;
   margin-right: -$card-spacer-x / 2;
   color: $card-tools-color;
-  display: flex;
 
   a.card__actions-item {
     @include transition;
-    @include opacity(0.8);
-    color: $card-tools-color;
-    width: $card-toolbar-icon-width;
-    font-size: $card-tools-font-size;
-    text-decoration: none;
+    opacity:0.8;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    width: $card-toolbar-icon-width;
+    color: $card-tools-color;
+    text-decoration: none;
+    font-size: $card-tools-font-size;
 
     #{$hover-focus-tags} {
-      @include opacity(1);
+      opacity:1;
       color: $card-tools-hover-color;
     }
   }
@@ -213,8 +211,8 @@
     @include border-top-radius(0);
     @include border-right-radius(0);
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
     margin: 0;
 
     & .#{$ca}-item {
@@ -260,14 +258,14 @@
 .card {
   &.card-refresh {
     > .refresh-container {
-      background-color: rgba($white-color, 0.9);
-      height: 100%;
-      left: 0;
       position: absolute;
       top: 0;
-      width: 100%;
+      left: 0;
       display: none;
       z-index: 5;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($white-color, 0.9);
       cursor: wait;
       overflow: hidden;
 

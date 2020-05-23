@@ -1,5 +1,132 @@
 {
-    "anim_list": [
+    "list": [
+        {
+            "class": "modal",
+            "title": "Primary modal",
+            "title_soft": "Welcome",
+            "modifier": "modal-primary",
+            "modifier_soft": "modal-soft--primary",
+            "modifier_btn": "primary",
+            "data_target": "primaryModal",
+            "data_target_soft": "primarySoftModal",
+            "text_soft": "We're glad to see you again and wish you a nice day.",
+            "icon_name_ion": "beer-outline"
+        },
+        {
+            "class": "modal",
+            "title": "Secondary modal",
+            "title_soft": "Well done",
+            "modifier": "modal-secondary",
+            "modifier_soft": "modal-soft--secondary",
+            "modifier_btn": "secondary",
+            "data_target": "secondaryModal",
+            "data_target_soft": "secondarySoftModal",
+            "text_soft": "Data uploaded to the server. Fire on!",
+            "icon_name_ion": "happy-outline"
+        },
+        {
+            "class": "modal",
+            "title": "Success modal",
+            "title_soft": "Success",
+            "modifier": "modal-success",
+            "modifier_soft": "modal-soft--success",
+            "modifier_btn": "success",
+            "data_target": "successModal",
+            "data_target_soft": "successSoftModal",
+            "text_soft": "Thanks for submitting your application. Our team will get back to you soon.",
+            "icon_name_ion": "checkmark-outline"
+        },
+        {
+            "class": "modal",
+            "title": "Info modal",
+            "title_soft": "Information",
+            "modifier": "modal-info",
+            "modifier_soft": "modal-soft--info",
+            "modifier_btn": "info",
+            "data_target": "infoModal",
+            "data_target_soft": "infoSoftModal",
+            "text_soft": "We're going live on August 30th. Get ready!",
+            "icon_name_ion": "information-outline"
+        },
+        {
+            "class": "modal",
+            "title": "Warning modal",
+            "title_soft": "Warning",
+            "modifier": "modal-warning",
+            "modifier_soft": "modal-soft--warning",
+            "modifier_btn": "warning",
+            "data_target": "warningModal",
+            "data_target_soft": "warningSoftModal",
+            "text_soft": "Seems your account is about to expire, upgrade now!",
+            "icon_name_ion": "warning-outline"
+        },
+        {
+            "class": "modal",
+            "title": "Danger modal",
+            "title_soft": "Danger",
+            "modifier": "modal-danger",
+            "modifier_soft": "modal-soft--danger",
+            "modifier_btn": "danger",
+            "data_target": "dangerModal",
+            "data_target_soft": "dangerSoftModal",
+            "text_soft": "There was an error processing your request.",
+            "icon_name_ion": "close-circle-outline"
+        },
+        {
+            "class": "modal",
+            "title": "Light modal",
+            "title_soft": "Attention",
+            "modifier": "modal-light",
+            "modifier_soft": "modal-soft--light",
+            "modifier_btn": "light",
+            "data_target": "lightModal",
+            "data_target_soft": "lightSoftModal",
+            "text_soft": "This alert needs your attention, but it's not important.",
+            "icon_name_ion": "hand-left-outline"
+        },
+        {
+            "class": "modal",
+            "title": "Dark modal",
+            "title_soft": "Offline",
+            "modifier": "modal-dark",
+            "modifier_soft": "modal-soft--dark",
+            "modifier_btn": "dark",
+            "data_target": "darkModal",
+            "data_target_soft": "darkSoftModal",
+            "text_soft": "You are in offline mode.",
+            "icon_name_ion": "cafe-outline"
+        }
+    ],
+
+    "list_size": [
+        {
+            "modifier": "modal-sm",
+            "title": "Small",
+            "data_target": "smallSizeModal"
+        },
+        {
+            "modifier": "",
+            "title": "Default",
+            "data_target": "defaultSizeModal"
+        },
+        {
+            "modifier": "modal-lg",
+            "title": "Large",
+            "data_target": "largeModal"
+        },
+        {
+            "modifier": "modal-xl",
+            "title": "Extra large",
+            "data_target": "extraLargeSizeModal"
+        },
+        {
+            "modifier": "modal-fullscreen",
+            "title": "Full screen",
+            "data_target": "fullsSreenModal"
+        }
+    ],
+
+    "list_animation": [
         {
             "class": "animated",
             "modifier": "fadeInDown",

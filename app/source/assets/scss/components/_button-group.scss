@@ -140,23 +140,23 @@ i.icon-toggle {
 
   .or {
     position: relative;
+    z-index: 3;
     width: .3em;
     height: auto;
-    z-index: 3;
 
     &::before {
       position: absolute;
-      content: 'or';
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: $btn-icon-size;
+      min-width: $btn-icon-size;
+      min-height: $btn-icon-size;
       background-color: $white-color;
       text-shadow: none;
-      min-width: $btn-icon-size;
-      width: $btn-icon-size;
-      min-height: $btn-icon-size;
-      line-height: $btn-line-height;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       font-size: $btn-icon-font-size;
+      line-height: $btn-line-height;
+      content: 'or';
       @include border-radius($btn-circle-radius);
       @include center(xy);
 
@@ -166,8 +166,8 @@ i.icon-toggle {
   &.btn-group-sm {
     .or {
       &::before {
-        min-width: $btn-icon-size-sm;
         width: $btn-icon-size-sm;
+        min-width: $btn-icon-size-sm;
         min-height: $btn-icon-size-sm;
         font-size: $btn-icon-font-size-sm;
       }
@@ -177,8 +177,8 @@ i.icon-toggle {
   &.btn-group-lg {
     .or {
       &::before {
-        min-width: $btn-icon-size-lg;
         width: $btn-icon-size-lg;
+        min-width: $btn-icon-size-lg;
         min-height: $btn-icon-size-lg;
         font-size: $btn-icon-font-size-lg;
       }
@@ -188,8 +188,8 @@ i.icon-toggle {
   &.btn-group-xl {
     .or {
       &::before {
-        min-width: $btn-icon-size-xl;
         width: $btn-icon-size-xl;
+        min-width: $btn-icon-size-xl;
         min-height: $btn-icon-size-xl;
         font-size: $btn-icon-font-size-xl;
       }

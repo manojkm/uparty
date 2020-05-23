@@ -21,7 +21,7 @@
 
   /* Form text input */
   input[type="text"] {
-    @include opacity(0);
+    opacity:0;
     border: 0;
     background: none;
     z-index: 1;
@@ -46,7 +46,7 @@
 
     &:focus {
       @include text-theme('header', 'font-link-color');
-      @include opacity(1);
+      opacity:1;
       width: 200px;
       padding: 0 10px;
       outline: none;
@@ -55,7 +55,7 @@
         width: 200px;
         &::before {
           width: 2px;
-          @include opacity(0);
+          opacity:0;
           transition: all .25s ease-in;
         }
       }

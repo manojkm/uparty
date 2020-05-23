@@ -13,8 +13,8 @@
 // ======================================================
 
 .breadcrumb {
-  background-color: $breadcrumb-bg;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  background-color: $breadcrumb-bg;
   font-size: $breadcrumb-font-size;
   line-height: $breadcrumb-line-height;
   @include set-border-radius($breadcrumb-border-radius);
@@ -31,16 +31,14 @@
 
     // The separator between breadcrumbs (by default, a forward-slash: "/")
     &::before {
-      font-family: $font-family-font-awesome;
-      color: $breadcrumb-divider-color;
-      content: "#{$breadcrumb-divider}";
-      padding-right: $breadcrumb-item-padding-x;
       position: relative;
-      line-height: 1;
-      display: inline-block;
+      padding-right: $breadcrumb-item-padding-x;
+      color: $breadcrumb-divider-color;
+      text-rendering: auto;
+      font-family: $font-family-font-awesome;
       font-style: normal;
       font-variant: normal;
-      text-rendering: auto;
+      content: "#{$breadcrumb-divider}";
       -webkit-font-smoothing: antialiased;
     }
   }
@@ -69,13 +67,13 @@
     }
 
     &.collapsed {
+      display: inline-block;
+      vertical-align: top;
       width: 50px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       overflow: hidden;
       -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
-      display: inline-block;
-      white-space: nowrap;
-      vertical-align: top;
 
       &:hover,
       &:active {
@@ -127,8 +125,8 @@
   &.divider-type-1 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-type-1}";
         font-weight: 900;
+        content: "#{$breadcrumb-divider-type-1}";
       }
     }
   }
@@ -136,24 +134,24 @@
   &.divider-type-2 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-type-2}";
         font-weight: 900;
+        content: "#{$breadcrumb-divider-type-2}";
       }
     }
   }
   &.divider-type-3 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-type-3}";
         font-weight: 900;
+        content: "#{$breadcrumb-divider-type-3}";
       }
     }
   }
   &.divider-type-4 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-type-4}";
         font-weight: 900;
+        content: "#{$breadcrumb-divider-type-4}";
       }
     }
   }
@@ -161,24 +159,24 @@
   &.divider-type-5 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-type-5}";
         font-weight: 900;
+        content: "#{$breadcrumb-divider-type-5}";
       }
     }
   }
   &.divider-type-6 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-type-6}";
         font-weight: 900;
+        content: "#{$breadcrumb-divider-type-6}";
       }
     }
   }
   &.divider-type-7 {
     .breadcrumb-item {
       + .breadcrumb-item::before {
-        content: "#{$breadcrumb-divider-type-7}";
         font-weight: 900;
+        content: "#{$breadcrumb-divider-type-7}";
       }
     }
   }
@@ -192,8 +190,8 @@
 .breadcrumb {
   &.extended-arrow {
     @include add-border($breadcrumb-border-size, $breadcrumb-ext-border-color, all);
-    background-color: $breadcrumb-ext-bg;
     padding: 0;
+    background-color: $breadcrumb-ext-bg;
 
     & .breadcrumb-item {
       position: relative;
@@ -252,8 +250,8 @@
 .breadcrumb {
   &.extended-arrow-wrap {
     @include set-border-radius(0);
-    background-color: $breadcrumb-ext-wrap-bg;
     padding: 0;
+    background-color: $breadcrumb-ext-wrap-bg;
     border: 0;
 
     & .breadcrumb-item {
@@ -265,11 +263,11 @@
       }
 
       a {
-        display: block;
-        background: $breadcrumb-ext-wrap-item-bg;
-        padding: $breadcrumb-item-padding-y 12px $breadcrumb-item-padding-y 24px;
         position: relative;
+        display: block;
+        padding: $breadcrumb-item-padding-y 12px $breadcrumb-item-padding-y 24px;
         margin: 0 10px 0 0;
+        background: $breadcrumb-ext-wrap-item-bg;
         color: $breadcrumb-ext-wrap-color;
 
         &:after,
@@ -422,8 +420,8 @@
   & .incomplete {
     a,
     a:hover {
-      color: $breadcrumb-wizard-incomplete-color;
       background-color: $breadcrumb-wizard-incomplete-bg;
+      color: $breadcrumb-wizard-incomplete-color;
       &:after {
         border-left-color: $breadcrumb-wizard-incomplete-bg;
       }

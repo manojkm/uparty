@@ -32,25 +32,25 @@
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   @include add-border($carousel-control-border-size, $carousel-control-border-color, all);
-  background-color: $carousel-control-icon-bg;
+  position: relative;
   width: $carousel-control-icon-size;
   height: $carousel-control-icon-size;
+  background-color: $carousel-control-icon-bg;
   background-image: none;
-  position: relative;
   font-size: $carousel-control-icon-font-size;
 
   &::before {
-    font-size: inherit;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-shadow: $carousel-control-prev-icon-text-shadow;
     color: $carousel-control-next-prev-icon-color;
+    text-shadow: $carousel-control-prev-icon-text-shadow;
+    font-size: inherit;
   }
 }
 
@@ -162,10 +162,10 @@
 
 .captions-only {
   .carousel-caption {
-    background-color: transparent;
     position: relative;
     right: 0;
     left: 0;
+    background-color: transparent;
   }
 }
 
@@ -189,10 +189,10 @@
   transform-style: preserve-3d;
 
   .carousel-caption {
-    height: 100%;
     bottom: 0;
     left: 0;
     width: $carousel-caption-width-left;
+    height: 100%;
   }
 }
 
@@ -204,11 +204,11 @@
   transform-style: preserve-3d;
 
   .carousel-caption {
-    height: 100%;
-    bottom: 0;
     right: 0;
-    width: $carousel-caption-width-left;
+    bottom: 0;
     left: auto;
+    width: $carousel-caption-width-left;
+    height: 100%;
   }
 }
 
@@ -233,7 +233,7 @@
   transform-style: preserve-3d; // Prevent blurry elements when it's placed on half a pixel.
   .carousel-caption {
     position: relative;
-    left: 0;
     top: 0;
+    left: 0;
   }
 }

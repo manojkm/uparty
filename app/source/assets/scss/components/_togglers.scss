@@ -119,7 +119,7 @@
 }
 
 .x .icon-bar:nth-of-type(2) {
-  @include opacity(0);
+  opacity:0;
   filter: alpha(opacity=0);
 }
 
@@ -143,7 +143,7 @@
 }
 
 .x.collapsed .icon-bar:nth-of-type(2) {
-  @include opacity(1);
+  opacity:1;
   filter: alpha(opacity=100);
 }
 

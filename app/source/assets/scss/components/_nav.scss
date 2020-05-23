@@ -7,8 +7,12 @@
 // Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
+@if (map-get-strict($components, 'nav')) {
 
-// Base styles
+//
+// BASE STYLING
+// ======================================================
+
 .nav {
   font-size: $nav-font-size;
   font-weight: $nav-font-weight;
@@ -21,13 +25,14 @@
   // Disabled state lightens text
   &.disabled {
     color: $nav-link-disabled-color !important;
-    cursor: $cursor-not-allowed;
-    &:hover,
-    &:active,
-    &:focus {
-      border-color: transparent !important;
-      color: $nav-link-disabled-color !important;
-      background-color: transparent !important;
-    }
+    //&:hover,
+    //&:active,
+    //&:focus {
+    //  border-color: transparent !important;
+    //  color: $nav-link-disabled-color !important;
+    //  background-color: transparent !important;
+    //}
   }
+}
+
 }

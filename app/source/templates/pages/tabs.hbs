@@ -6,14 +6,14 @@ components: true
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-6 col-md-12 pr-xl-2">
+        <div class="col-md-12">
 
             {{#card}}
                 {{{card_header 'Basic'}}}
                 {{#card_body}}
                     <p>Turn the nav menu into navigation tabs with the <code>.nav-tabs</code> class. Add the <code>.active</code> class to the active/current link.</p>
                     <!-- Basic tab -->
-                    {{#tab_has 'nav-tabs''basic' tabs.items}}
+                    {{#tab_has 'nav-tabs' 'basic' tabs.items}}
                         <a class="{{class}}" id="{{id}}-basic" data-toggle="tab" href="#{{id}}-tab-basic" role="tab" aria-controls="{{id}}"
                            aria-selected="{{aria-selected}}">{{text}}</a>
                     {{/tab_has}}
@@ -74,7 +74,6 @@ components: true
 
                 {{/card_body}}
             {{/card}}
-
 
             {{#card}}
                 {{{card_header 'Tabs with dropdowns'}}}
@@ -434,8 +433,7 @@ components: true
 
 
         </div>
-        <div class="col-xl-6 col-md-12 pl-xl-2">
-
+        <div class="col-md-12">
             {{#card}}
                 {{{card_header 'Extended bordered tabs'}}}
                 {{#card_body}}

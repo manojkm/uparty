@@ -8,124 +8,158 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
-// Individual list items
-//
-// Use on `li`s or `div`s within the `.list-group` parent.
+@if (map-get-strict($components, 'list-group')) {
 
-.list-group-item {
+  //
+  // BASE STYLING
+  // ======================================================
 
-  @extend %list-group-item;
-
-  &:first-child {
-    @include border-top-radius($list-group-border-radius);
+  .list-group {
+    @include set-border-radius($list-group-border-radius);
   }
 
-  &:last-child {
-    @include border-bottom-radius($list-group-border-radius);
+  //
+  // INDIVIDUAL LIST ITEMS
+  // ======================================================
+
+  .list-group-item {
+
+    @extend %list-group-item;
+
+    &:first-child {
+      @include border-top-radius(inherit);
+    }
+
+    &:last-child {
+      @include border-bottom-radius(inherit);
+    }
+
+    #{$disabled-tags} {
+      background-color: $list-group-disabled-bg;
+      opacity: $list-group-disabled-opacity;
+      color: $list-group-disabled-color !important;
+    }
+
+    // Include both here for `<a>`s and `<button>`s
+    &.active {
+      @include background-text-theme($list-group-active-theme-scheme, $sledge-hammer: !important);
+      @include border-theme($list-group-active-theme-scheme);
+    }
+
+    & + & {
+      &.active {
+        margin-top: -$list-group-border-width;
+        border-top-width: $list-group-border-width;
+      }
+    }
+
+    // Separated list group item
+    .separated > & {
+      margin-bottom: $list-group-separated-margin-bottom;
+      border-top-width: $list-group-border-width;
+    }
+
+    // Animated list group item
+    .animated > & {
+      @include transition(padding-left .15s $ease-in-quad);
+
+      &:hover {
+        padding-left: $list-group-item-padding-x+.75;
+      }
+    }
+
   }
 
-  // Separated list group item
-  .separated > & {
-    margin: 0 0 $list-group-separated-margin-bottom 0;
-  }
+  //
+  // SIZING
+  // ======================================================
 
-  // Animated list group item
-  .animated > & {
-    transition: padding-left .3s ease !important;
-    &:hover {
-      padding-left: $list-group-item-padding-x+.75;
+  .list-group-item {
+
+    // Extra large size
+    .list-group-xl & {
+      @include list-group-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-font-size-xl, $btn-border-radius-xl, $btn-line-height-xl);
+    }
+
+    // Large size
+    .list-group-lg & {
+      @include list-group-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg, $btn-line-height-lg);
+    }
+
+    // Small size
+    .list-group-sm & {
+      @include list-group-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
     }
   }
 
-  // Extra large size
-  .list-group-xl & {
-    @include list-group-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-font-size-xl, $btn-border-radius-xl, $btn-line-height-xl);
+  //
+  // INTERACTIVE LIST ITEM
+  // ======================================================
+
+  .list-group-item-action {
+    color: $list-group-action-color !important;
+
+    // Hover state
+    #{$hover-focus-tags} {
+      background-color: $list-group-hover-bg;
+      color: $list-group-action-hover-color !important;
+    }
+
+    &:active {
+      background-color: $list-group-action-active-bg;
+      color: $list-group-action-active-color !important;
+    }
   }
 
-  // Large size
-  .list-group-lg & {
-    @include list-group-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg, $btn-line-height-lg);
+  //
+  // HORIZONTAL VARIATION
+  // ======================================================
+
+  .list-group-horizontal {
+    > .list-group-item {
+      @include list-group-item-horizontal();
+    }
   }
 
-  // Small size
-  .list-group-sm & {
-    @include list-group-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm, $btn-line-height-sm);
-  }
+  // Generate series of `.list-group-horizontal-{sm|md|lg|xl}` classes to make a list group
+  // horizontal starting at that breakpoint’s min-width
+  @each $breakpoint, $length in $breakpoints-max-widths {
+    $next-breakpoint: breakpoint-next($breakpoint, $breakpoints-min-widths);
+    $next-length: map-get-strict($breakpoints-min-widths, $next-breakpoint);
 
-  // Disabled item
-  &.disabled,
-  &:disabled {
-    color: $list-group-disabled-color !important;
-    background-color: $list-group-disabled-bg;
-    cursor: $cursor-not-allowed;
-    opacity: $list-group-disabled-opacity;
-    pointer-events: none;
-  }
-
-  // Include both here for `<a>`s and `<button>`s
-  &.active {
-    @include background-text-theme($list-group-active-theme-scheme, $sledge-hammer: !important);
-    @include border-theme($list-group-active-theme-scheme);
-  }
-
-}
-
-// Interactive list items
-.list-group-item-action {
-  color: $list-group-action-color !important;
-
-  // Hover state
-  &:hover,
-  &:focus {
-    color: $list-group-action-hover-color !important;
-    background-color: $list-group-hover-bg;
-  }
-
-  &:active {
-    color: $list-group-action-active-color !important;
-    background-color: $list-group-action-active-bg;
-  }
-}
-
-// Horizontal variation
-.list-group.horizontal {
-
-  @include min-screen($screen-md-min) {
-    .list-group-item {
-      flex: 1 100%;
-      margin-bottom: 0;
-      margin-left: -$list-group-border-width;
-      &:first-child {
-        @include border-left-radius($list-group-border-radius);
-        border-top-right-radius: 0;
-      }
-
-      &:last-child {
-        @include border-right-radius($list-group-border-radius);
-        border-bottom-left-radius: 0;
+    @include min-screen(#{$next-length}) {
+      .list-group-horizontal-#{$next-breakpoint} {
+        > .list-group-item {
+          @include list-group-item-horizontal();
+        }
       }
     }
   }
-}
 
-// Theme variations
-@each $themeName, $value in $themes-map {
-  $colors: map-get-strict($value, 'main-colors');
-  @each $scheme, $tone in $colors {
+  //
+  // LIST GROUP THEMES
+  // ======================================================
+
+  // Theme variations
+  @each $themeName, $value in $themes-map {
+    $colors: map-get-strict($value, 'main-colors');
+    @each $scheme, $tone in $colors {
+      $font-color: get-theme-color-level($scheme, base, $list-group-color-level);
+      $tone: get-theme-color-level($scheme, base, $list-group-bg-level);
+      .list-group-item-#{$scheme} {
+        @include list-group-theme($scheme, $tone, xx-dark, $font-color, 5%);
+      }
+    }
+  }
+
+  // Contextual variations
+  @each $scheme, $tone in $contextual-palette-map {
     $font-color: get-theme-color-level($scheme, base, $list-group-color-level);
     $tone: get-theme-color-level($scheme, base, $list-group-bg-level);
     .list-group-item-#{$scheme} {
       @include list-group-theme($scheme, $tone, xx-dark, $font-color, 5%);
     }
   }
-}
 
-// Contextual variations
-@each $scheme, $tone in $contextual-palette-map {
-  $font-color: get-theme-color-level($scheme, base, $list-group-color-level);
-  $tone: get-theme-color-level($scheme, base, $list-group-bg-level);
-  .list-group-item-#{$scheme} {
-    @include list-group-theme($scheme, $tone, xx-dark, $font-color, 5%);
-  }
 }
 
