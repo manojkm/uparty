@@ -14,7 +14,7 @@
 // This generate utility line height classes (ie. .lh-10, .lh-12, and so on.) to adjust
 // the line size of an element.
 
-@for $i from 10 through 50 {
+@for $i from 0 through 50 {
   @if($i%2 == 0){
     @each $prop, $abbrev in (line-height: lh) {
       .#{$abbrev}-#{$i} {

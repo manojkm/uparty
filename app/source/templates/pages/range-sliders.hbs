@@ -1,0 +1,34 @@
+---
+title: "Range sliders"
+lead: A navigation component that displays grouped navigation actions
+components: true
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Range sliders'}}}
+                {{#card_body}}
+
+                    https://css-tricks.com/value-bubbles-for-range-inputs/
+
+                    <div class="range-slider range-progress mb-3">
+                        <input class="range-slider__range" type="range" value="100" min="0" max="500">
+                        <span class="range-slider__value arrow-top">0</span>
+                    </div>
+
+                    <div class="range-slider range-right mb-3">vw
+                        <input class="range-slider__range" type="range" value="250" min="0" max="500" step="50">
+                        <span class="range-slider__value arrow-left">0</span>
+                    </div>
+
+                    <div class="range-slider range-right mb-3">
+                        <input class="range-slider__range" type="range" value="400" min="0" max="500">
+                        <span class="range-slider__value arrow-left">0</span>
+                    </div>
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+</div>

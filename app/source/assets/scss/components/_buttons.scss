@@ -15,7 +15,6 @@
 
   .btn {
     @extend %button;
-    @include box-shadow(none);
 
     #{$focus-tags-btn} {
       @include box-shadow($btn-focus-box-shadow);

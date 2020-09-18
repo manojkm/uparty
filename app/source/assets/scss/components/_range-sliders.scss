@@ -1,0 +1,177 @@
+// ================================================================================================
+// File Name      : range-sliders.scss
+// Description    : REQUIRED FOR NEXT TEMPLATE RELEASE.
+// ------------------------------------------------------------------------------------------------
+// Item Name      : xxx - Responsive Admin Theme
+// Version        : 1.2
+// Author         : MANOJ, <manoj [at] xxx [dot] net>
+// Author URL     : http://www.themeforest.net/user/xxx
+// ================================================================================================
+
+@if (map-get-strict($components, 'range-sliders')) {
+
+  //
+  // BASE STYLING
+  // ======================================================
+
+  .range-slider {
+    width: $range-width;
+    position: relative;
+  }
+
+  .range-slider__range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: $range-track-height;
+    padding: 0;
+    margin: 0;
+    background: $range-track-color;
+    border-radius: 5px;
+    outline: none;
+
+    // Range Handle
+    &::-webkit-slider-thumb {
+      width: $range-handle-size;
+      height: $range-handle-size;
+      border-radius: $border-radius-50;
+      appearance: none;
+      @include background-theme($range-handle-color);
+      cursor: pointer;
+      transition: $transition-base;
+
+      &:hover {
+        @include background-theme($range-handle-color, $range-handle-color-hover);
+      }
+    }
+
+    &:active::-webkit-slider-thumb {
+      @include background-theme($range-handle-color, $range-handle-color-hover);
+    }
+
+    &::-moz-range-thumb {
+      width: $range-handle-size;
+      height: $range-handle-size;
+      border: 0;
+      border-radius: $border-radius-50;
+      @include background-theme($range-handle-color);
+      cursor: pointer;
+      transition: $transition-base;
+
+      &:hover {
+        @include background-theme($range-handle-color, $range-handle-color-hover);
+      }
+    }
+
+    &:active::-moz-range-thumb {
+      @include background-theme($range-handle-color, $range-handle-color-hover);
+    }
+
+    // Focus state
+    &:focus {
+      &::-webkit-slider-thumb {
+        @include box-shadow($range-handle-box-shadow);
+      }
+    }
+  }
+
+  // Range Label
+  .range-slider__value {
+    position: relative;
+    display: inline-block;
+    width: $range-label-width;
+    border-radius: $range-label-border-radius;
+    text-align: center;
+    font-size: $range-label-font-size;
+    line-height: $range-label-lh;
+    @include background-text-theme($range-label-color);
+    @include add-border(1px, transparent, all);
+    @include border-theme($range-label-color);
+    padding: $range-label-padding;
+    margin-left: 8px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      display: block;
+      width: $range-label-arrow-size; // Arrow width. Height and width should be same to make triangle perfect.
+      height: $range-label-arrow-size; // Arrow height. Height and width should be same to make triangle perfect.
+      background-color: inherit;
+      border: 1px solid;
+      border-color: inherit;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      content: '';
+    }
+
+    &::before {
+      z-index: -1;
+    }
+
+    // Caret on top
+    &.arrow-top:before,
+    &.arrow-top:after {
+      bottom: 100%;
+      left: 50%;
+      border-right: 0;
+      border-bottom: 0;
+      top: 0;
+      margin-top: -1px;
+    }
+
+    // Caret on bottom
+    &.arrow-bottom:before,
+    &.arrow-bottom:after {
+      top: 100%;
+      left: 50%;
+      border-top: 0;
+      border-left: 0;
+      bottom: 0;
+      margin-bottom: -1px;
+    }
+
+    // Caret on right
+    &.arrow-right:before,
+    &.arrow-right:after {
+      top: 50%;
+      left: 100%;
+      margin-left: 1px;
+      border-bottom: 0;
+      border-left: 0;
+    }
+
+    // Caret on left
+    &.arrow-left:before,
+    &.arrow-left:after {
+      top: 50%;
+      left: 0;
+      margin-left: -1px;
+      border-top: 0;
+      border-right: 0;
+    }
+  }
+
+  // Firefox Overrides
+  ::-moz-range-track {
+    background: $range-track-color;
+    border: 0;
+  }
+
+
+  .range-slider {
+    &.range-right {
+      .range-slider__range {
+        width: calc(100% - (#{$range-label-width + 13px}));
+      }
+    }
+  }
+
+  .range-slider {
+    &.range-progress {
+      .range-slider__value {
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 0;
+        margin-top: 15px;
+      }
+    }
+  }
+}

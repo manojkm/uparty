@@ -22,6 +22,21 @@
   }
 }
 
+// Generate series of `.ds-{sm|md|lg|xl}-{16|24|32|48|64|128|256|512}` classes
+@each $next-breakpoint, $length in $breakpoints-max-widths {
+  $next-breakpoint: breakpoint-next($next-breakpoint, $breakpoints-min-widths);
+  $next-length: map-get-strict($breakpoints-min-widths, $next-breakpoint);
+  @each $prefix in (d) {
+    @each $size in $display-sizes-map {
+      @media (min-width: #{$next-length}) {
+        .#{$prefix}-#{$next-breakpoint}-#{$size} {
+          width : #{$size}px !important;
+          height : #{$size}px !important;
+        }
+      }
+    }
+  }
+}
 
 //
 // WIDTH AND HEIGHT IN PERCENTAGE

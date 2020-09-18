@@ -22,6 +22,22 @@
   }
 }
 
+// Generate series of `.img-{sm|md|lg|xl}-{16|24|32|48|64|128|256|512}` classes
+@each $next-breakpoint, $length in $breakpoints-max-widths {
+  $next-breakpoint: breakpoint-next($next-breakpoint, $breakpoints-min-widths);
+  $next-length: map-get-strict($breakpoints-min-widths, $next-breakpoint);
+  @each $prefix in (img) {
+    @each $size in $image-sizes-map {
+      @media (min-width: #{$next-length}) {
+        .#{$prefix}-#{$next-breakpoint}-#{$size} {
+          width : #{$size}px !important;
+          height : #{$size}px !important;
+        }
+      }
+    }
+  }
+}
+
 //$i:8;
 //@while $i<=600 {
 //  .img-#{$i} {

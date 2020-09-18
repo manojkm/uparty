@@ -9,32 +9,46 @@
 // ================================================================================================
 // TODO Adapted from https://codepen.io/uimax/pen/kkadmY
 @if (map-get-strict($components, 'badge')) {
-//
-// BASE STYLING
-// ======================================================
+  //
+  // BASE STYLING
+  // ======================================================
 
-.badge {
-  $b: badge;
-  position: relative;
-  padding: $badge-padding-y $badge-padding-x;
-  border: $badge-border-size solid transparent;
-  text-indent: 0;
-  font-size: $badge-font-size;
-  font-weight: $badge-font-weight;
-  line-height: $badge-line-height;
-  @include set-border-radius($badge-border-radius);
+  .badge {
+    $b: badge;
+    position: relative;
+    padding: $badge-padding-y $badge-padding-x;
+    border: $badge-border-size solid transparent;
+    text-indent: 0;
+    font-size: $badge-font-size;
+    font-weight: $badge-font-weight;
+    line-height: $badge-line-height;
+    @include set-border-radius($badge-border-radius);
 
-  // Account for icons in badges
-  > i {
-    //position: relative;
-    top: 1px;
-    line-height: 1;
-  }
+    // Account for icons in badges
+    > i {
+      //position: relative;
+      top: 1px;
+      line-height: 1;
+    }
 
-  // Theme variations
-  @each $themeName, $value in $themes-map {
-    $colors: map-get-strict($value, 'main-colors');
-    @each $scheme, $tone in $colors {
+    // Theme variations
+    @each $themeName, $value in $themes-map {
+      $colors: map-get-strict($value, 'main-colors');
+      @each $scheme, $tone in $colors {
+        &.#{$b}-#{$scheme} {
+          @include badges-theme($scheme);
+        }
+        &.#{$b}-outline-#{$scheme} {
+          @include badges-theme($scheme, outline);
+        }
+        &.#{$b}-soft-#{$scheme} {
+          @include badges-theme($scheme, soft);
+        }
+      }
+    }
+
+    // Contextual variations
+    @each $scheme, $tone in $contextual-palette-map {
       &.#{$b}-#{$scheme} {
         @include badges-theme($scheme);
       }
@@ -45,305 +59,119 @@
         @include badges-theme($scheme, soft);
       }
     }
-  }
 
-  // Contextual variations
-  @each $scheme, $tone in $contextual-palette-map {
-    &.#{$b}-#{$scheme} {
-      @include badges-theme($scheme);
+    // Disabled badge
+    #{$disabled-tags} {
+      opacity: $badge-disabled-opacity;
+      pointer-events: none;
     }
-    &.#{$b}-outline-#{$scheme} {
-      @include badges-theme($scheme, outline);
-    }
-    &.#{$b}-soft-#{$scheme} {
-      @include badges-theme($scheme, soft);
-    }
-  }
 
-  // Disabled badge
-  #{$disabled-tags} {
-    opacity:$badge-disabled-opacity;
-    pointer-events: none;
-  }
-
-  // Floating badges
-  &.floating {
-    position: absolute;
-    top: -0.45rem;
-    left: 100%;
-    z-index: 10;
-    margin: 0 0 0 -0.80rem !important;
-  }
-
-  // Square buttons
-  &.square {
-    border-radius: 0;
-  }
-
-  // Image badges
-  &.image {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-size: $badge-image-font-size;
-    font-weight: $badge-image-font-weight;
-    line-height: $badge-image-line-height;
-    overflow: hidden;
-
-    > img {
-      //@include border-left-radius($badge-border-radius);
-      vertical-align: top;
-      width: auto !important;
-      height: $badge-image-size;
-      max-width: 100%;
-      margin: (-$badge-padding-y) 0.4rem (-$badge-padding-y) (-$badge-padding-x);
-    }
-  }
-
-  // Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false)
-  &.#{$b}-pill {
-    @include border-radius($badge-pill-border-radius);
-  }
-
-  // Round badges
-  &.#{$b}-circle {
-    @include border-radius($badge-circle-border-radius);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: $badge-circle-size;
-    min-width: $badge-circle-size;
-    padding: $badge-circle-padding-y $badge-circle-padding-x;
-    text-align: center;
-    line-height: $badge-circle-line-height;
-
-    &.empty {
-      display: inline-block;
-      vertical-align: baseline;
-      width: $badge-empty-size;
-      height: $badge-empty-size;
-      min-width: 0;
-      min-height: 0;
-      padding: $badge-empty-size;
-      overflow: hidden;
-    }
-  }
-
-
-  // Pointed Badges using CSS triangles
-  &.pointed {
-    &::before,
-    &::after {
+    // Floating badges
+    &.floating {
       position: absolute;
-      display: block;
-      width: .6666em; // Badges arrow width. Height and width should be same to make triangle perfect.
-      height: .6666em; // Badges arrow height. Height and width should be same to make triangle perfect.
-      background-color: inherit;
-      border: 1px solid;
-      border-color: inherit;
-      transform: translateX(-50%) translateY(-50%) rotate(45deg);
-      content: '';
-    }
-
-    &::before {
-      z-index: -1;
-    }
-
-    // Caret on top
-    &.arrow-top:before,
-    &.arrow-top:after {
-      bottom: 100%;
-      left: 50%;
-      margin-bottom: -7px;
-      border-right: 0;
-      border-bottom: 0;
-    }
-
-    // Caret on bottom
-    &.arrow-bottom:before,
-    &.arrow-bottom:after {
-      top: 100%;
-      left: 50%;
-      margin-top: 1px;
-      border-top: 0;
-      border-left: 0;
-    }
-
-    // Caret on right
-    &.arrow-right:before,
-    &.arrow-right:after {
-      top: 50%;
+      top: -0.45rem;
       left: 100%;
-      margin-left: 1px;
-      border-bottom: 0;
-      border-left: 0;
+      z-index: 10;
+      margin: 0 0 0 -0.80rem !important;
     }
 
-    // Caret on left
-    &.arrow-left:before,
-    &.arrow-left:after {
-      top: 50%;
-      left: 0;
-      margin-left: -1px;
-      border-top: 0;
-      border-right: 0;
+    // Square buttons
+    &.square {
+      border-radius: 0;
     }
 
-  }
+    // Image badges
+    &.image {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: $badge-image-font-size;
+      font-weight: $badge-image-font-weight;
+      line-height: $badge-image-line-height;
+      overflow: hidden;
 
-  &[class*="badge-outline-"].pointed {
-    background-color: $white-color;
-  }
-
-  // Corner badges
-  &.corner {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    width: $badge-corner-size;
-    height: $badge-corner-size;
-    padding: 0;
-    margin: 0;
-    background-color: transparent !important;
-    border-width: 0;
-    text-align: center;
-
-    &:hover {
-      background-color: transparent !important;
+      > img {
+        //@include border-left-radius($badge-border-radius);
+        vertical-align: top;
+        width: auto !important;
+        height: $badge-image-size;
+        max-width: 100%;
+        margin: (-$badge-padding-y) 0.4rem (-$badge-padding-y) (-$badge-padding-x);
+      }
     }
 
-    > i {
-      position: relative;
-      display: inline-block;
-      width: auto;
-      margin: 0;
-      font-size: $badge-corner-icon-font-size;
+    // Pill badges still have radius if bootstrap variable is set to false ($enable-rounded: false)
+    &.#{$b}-pill {
+      @include border-radius($badge-pill-border-radius);
     }
 
-    &::after {
-      position: absolute;
-      z-index: -1;
-      width: 0;
-      height: 0;
-      content: "";
+    // Round badges
+    &.#{$b}-circle {
+      @include border-radius($badge-circle-border-radius);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: $badge-circle-size;
+      min-width: $badge-circle-size;
+      padding: $badge-circle-padding-y $badge-circle-padding-x;
+      text-align: center;
+      line-height: $badge-circle-line-height;
+
+      &.empty {
+        display: inline-block;
+        vertical-align: baseline;
+        width: $badge-empty-size;
+        height: $badge-empty-size;
+        min-width: 0;
+        min-height: 0;
+        padding: $badge-empty-size;
+        overflow: hidden;
+      }
     }
 
-    &.top-left {
-      right: auto;
-      left: 0;
 
+    // Pointed Badges using CSS triangles
+    &.pointed {
+      &::before,
       &::after {
-        @include add-border($badge-corner-size, transparent, top);
-        @include add-border($badge-corner-size, transparent, right);
-        @include add-border(0, transparent, bottom);
-        @include add-border(0, transparent, left);
-        left: 0;
-        border-top-color: inherit;
+        position: absolute;
+        display: block;
+        width: .6666em; // Badges arrow width. Height and width should be same to make triangle perfect.
+        height: .6666em; // Badges arrow height. Height and width should be same to make triangle perfect.
+        background-color: inherit;
+        border: 1px solid;
+        border-color: inherit;
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        content: '';
       }
 
-      > i {
-        top: 15%;
-        left: -20%;
-      }
-
-    }
-
-    &.top-right {
-      right: 0;
-      left: auto;
-
-      &::after {
-        @include add-border($badge-corner-size, transparent, top);
-        @include add-border(0, transparent, right);
-        @include add-border(0, transparent, bottom);
-        @include add-border($badge-corner-size, transparent, left);
-        left: 0;
-        border-top-color: inherit;
-      }
-
-      > i {
-        top: 15%;
-        right: -20%;
-      }
-    }
-
-    &.bottom-right {
-      top: auto;
-      bottom: 0;
-      left: auto;
-
-      &::after {
-        @include add-border(0, transparent, top);
-        @include add-border(0, transparent, right);
-        @include add-border($badge-corner-size, transparent, bottom);
-        @include add-border($badge-corner-size, transparent, left);
-        left: 0;
-        border-bottom-color: inherit;
-      }
-
-      > i {
-        top: 55%;
-        right: -20%;
-      }
-    }
-
-    &.bottom-left {
-      top: auto;
-      right: auto;
-      bottom: 0;
-
-      &::after {
-        @include add-border(0, transparent, top);
-        @include add-border($badge-corner-size, transparent, right);
-        @include add-border($badge-corner-size, transparent, bottom);
-        @include add-border(0, transparent, left);
-        left: 0;
-        border-bottom-color: inherit;
-      }
-
-      > i {
-        top: 55%;
-        left: -20%;
-      }
-
-    }
-
-  }
-
-  // Tag badges
-  &.pointed-tag {
-
-    height: $badge-tag-size;
-    font-size: $badge-tag-font-size;
-    font-weight: $badge-tag-font-weight;
-    line-height: $badge-tag-line-height;
-
-    &::before {
-      position: absolute;
-      display: block;
-      width: 1.2em; // Badges arrow width. Height and width should be same to make triangle perfect.
-      height: 1.2em; // Badges arrow height. Height and width should be same to make triangle perfect.
-      background-color: inherit;
-      border: 1px solid;
-      border-color: inherit;
-      transform: translateX(-50%) translateY(-50%) rotate(45deg);
-      content: '';
-    }
-
-    &::after {
-      position: absolute;
-      width: .4em;
-      height: .4em;
-      box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, .3);
-      background-color: $white-color;
-      border-radius: $border-radius-30-px;
-      content: '';
-    }
-
-    // Caret on right
-    &.tag-right {
       &::before {
+        z-index: -1;
+      }
+
+      // Caret on top
+      &.arrow-top:before,
+      &.arrow-top:after {
+        bottom: 100%;
+        left: 50%;
+        margin-bottom: -7px;
+        border-right: 0;
+        border-bottom: 0;
+      }
+
+      // Caret on bottom
+      &.arrow-bottom:before,
+      &.arrow-bottom:after {
+        top: 100%;
+        left: 50%;
+        margin-top: 1px;
+        border-top: 0;
+        border-left: 0;
+      }
+
+      // Caret on right
+      &.arrow-right:before,
+      &.arrow-right:after {
         top: 50%;
         left: 100%;
         margin-left: 1px;
@@ -351,16 +179,9 @@
         border-left: 0;
       }
 
-      &::after {
-        top: 50%;
-        right: -.25em;
-        margin-top: -.26em;
-      }
-    }
-
-    // Caret on left
-    &.tag-left {
-      &::before {
+      // Caret on left
+      &.arrow-left:before,
+      &.arrow-left:after {
         top: 50%;
         left: 0;
         margin-left: -1px;
@@ -368,107 +189,286 @@
         border-right: 0;
       }
 
-      &::after {
-        top: 50%;
-        left: -.25em;
-        margin-top: -.26em;
-      }
     }
 
-  }
+    &[class*="badge-outline-"].pointed {
+      background-color: $white-color;
+    }
 
-  // Ribbon badges
-  &.ribbon {
-
-    font-size: $badge-ribbon-font-size;
-    font-weight: $badge-ribbon-font-weight;
-    line-height: $badge-ribbon-line-height;
-
-    &::before {
+    // Corner badges
+    &.corner {
       position: absolute;
-      top: 100%;
+      top: 0;
+      right: 0;
       z-index: 1;
-      width: 0;
-      height: 0;
-      margin-top: $badge-border-size;
-      content: "";
+      width: $badge-corner-size;
+      height: $badge-corner-size;
+      padding: 0;
+      margin: 0;
+      background-color: transparent !important;
+      border-width: 0;
+      text-align: center;
+
+      &:hover {
+        background-color: transparent !important;
+      }
+
+      > i {
+        position: relative;
+        display: inline-block;
+        width: auto;
+        margin: 0;
+        font-size: $badge-corner-icon-font-size;
+      }
+
+      &::after {
+        position: absolute;
+        z-index: -1;
+        width: 0;
+        height: 0;
+        content: "";
+      }
+
+      &.top-left {
+        right: auto;
+        left: 0;
+
+        &::after {
+          @include add-border($badge-corner-size, transparent, top);
+          @include add-border($badge-corner-size, transparent, right);
+          @include add-border(0, transparent, bottom);
+          @include add-border(0, transparent, left);
+          left: 0;
+          border-top-color: inherit;
+        }
+
+        > i {
+          top: 15%;
+          left: -20%;
+        }
+
+      }
+
+      &.top-right {
+        right: 0;
+        left: auto;
+
+        &::after {
+          @include add-border($badge-corner-size, transparent, top);
+          @include add-border(0, transparent, right);
+          @include add-border(0, transparent, bottom);
+          @include add-border($badge-corner-size, transparent, left);
+          left: 0;
+          border-top-color: inherit;
+        }
+
+        > i {
+          top: 15%;
+          right: -20%;
+        }
+      }
+
+      &.bottom-right {
+        top: auto;
+        bottom: 0;
+        left: auto;
+
+        &::after {
+          @include add-border(0, transparent, top);
+          @include add-border(0, transparent, right);
+          @include add-border($badge-corner-size, transparent, bottom);
+          @include add-border($badge-corner-size, transparent, left);
+          left: 0;
+          border-bottom-color: inherit;
+        }
+
+        > i {
+          top: 55%;
+          right: -20%;
+        }
+      }
+
+      &.bottom-left {
+        top: auto;
+        right: auto;
+        bottom: 0;
+
+        &::after {
+          @include add-border(0, transparent, top);
+          @include add-border($badge-corner-size, transparent, right);
+          @include add-border($badge-corner-size, transparent, bottom);
+          @include add-border(0, transparent, left);
+          left: 0;
+          border-bottom-color: inherit;
+        }
+
+        > i {
+          top: 55%;
+          left: -20%;
+        }
+
+      }
+
     }
 
-    // Ribbon on right
-    &.ribbon-right {
-      @include border-right-radius(0);
+    // Tag badges
+    &.pointed-tag {
+
+      height: $badge-tag-size;
+      font-size: $badge-tag-font-size;
+      font-weight: $badge-tag-font-weight;
+      line-height: $badge-tag-line-height;
 
       &::before {
-        @include add-border(1em, transparent, top);
-        @include add-border(1em, transparent, right);
-        @include add-border(0, transparent, bottom);
-        @include add-border(0, transparent, left);
-        right: -1px;
+        position: absolute;
+        display: block;
+        width: 1.2em; // Badges arrow width. Height and width should be same to make triangle perfect.
+        height: 1.2em; // Badges arrow height. Height and width should be same to make triangle perfect.
+        background-color: inherit;
+        border: 1px solid;
+        border-color: inherit;
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        content: '';
+      }
 
+      &::after {
+        position: absolute;
+        width: .4em;
+        height: .4em;
+        box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, .3);
+        background-color: $white-color;
+        border-radius: $border-radius-30-px;
+        content: '';
+      }
+
+      // Caret on right
+      &.tag-right {
+        &::before {
+          top: 50%;
+          left: 100%;
+          margin-left: 1px;
+          border-bottom: 0;
+          border-left: 0;
+        }
+
+        &::after {
+          top: 50%;
+          right: -.25em;
+          margin-top: -.26em;
+        }
+      }
+
+      // Caret on left
+      &.tag-left {
+        &::before {
+          top: 50%;
+          left: 0;
+          margin-left: -1px;
+          border-top: 0;
+          border-right: 0;
+        }
+
+        &::after {
+          top: 50%;
+          left: -.25em;
+          margin-top: -.26em;
+        }
+      }
+
+    }
+
+    // Ribbon badges
+    &.ribbon {
+
+      font-size: $badge-ribbon-font-size;
+      font-weight: $badge-ribbon-font-weight;
+      line-height: $badge-ribbon-line-height;
+
+      &::before {
+        position: absolute;
+        top: 100%;
+        z-index: 1;
+        width: 0;
+        height: 0;
+        margin-top: $badge-border-size;
+        content: "";
+      }
+
+      // Ribbon on right
+      &.ribbon-right {
+        @include border-right-radius(0);
+
+        &::before {
+          @include add-border(1em, transparent, top);
+          @include add-border(1em, transparent, right);
+          @include add-border(0, transparent, bottom);
+          @include add-border(0, transparent, left);
+          right: -1px;
+
+        }
+      }
+
+      // Ribbon on left
+      &.ribbon-left {
+        @include border-left-radius(0);
+
+        &::before {
+          @include add-border(1em, transparent, top);
+          @include add-border(0, transparent, right);
+          @include add-border(0, transparent, bottom);
+          @include add-border(1em, transparent, left);
+          left: -1px;
+        }
+      }
+
+    }
+
+    //Corner ribbon badges
+    &.corner-ribbon {
+      position: absolute;
+      width: $badge-corner-ribbon-width;
+      height: $badge-corner-ribbon-height;
+      text-align: center;
+      font-size: $badge-corner-ribbon-font-size;
+      font-weight: $badge-corner-ribbon-font-weight;
+      line-height: $badge-corner-ribbon-line-height;
+
+      &.top-left {
+        top: 25px;
+        left: -60px;
+        transform: rotate(-45deg);
+      }
+
+      &.top-right {
+        top: 25px;
+        right: -60px;
+        left: auto;
+        transform: rotate(45deg);
+      }
+
+      &.bottom-left {
+        top: auto;
+        bottom: 25px;
+        left: -60px;
+        transform: rotate(45deg);
+      }
+
+      &.bottom-right {
+        top: auto;
+        right: -60px;
+        bottom: 25px;
+        left: auto;
+        transform: rotate(-45deg);
       }
     }
 
-    // Ribbon on left
-    &.ribbon-left {
-      @include border-left-radius(0);
-
-      &::before {
-        @include add-border(1em, transparent, top);
-        @include add-border(0, transparent, right);
-        @include add-border(0, transparent, bottom);
-        @include add-border(1em, transparent, left);
-        left: -1px;
-      }
-    }
-
   }
 
-  //Corner ribbon badges
-  &.corner-ribbon {
-    position: absolute;
-    width: $badge-corner-ribbon-width;
-    height: $badge-corner-ribbon-height;
-    text-align: center;
-    font-size: $badge-corner-ribbon-font-size;
-    font-weight: $badge-corner-ribbon-font-weight;
-    line-height: $badge-corner-ribbon-line-height;
-
-    &.top-left {
-      top: 25px;
-      left: -60px;
-      transform: rotate(-45deg);
-    }
-
-    &.top-right {
-      top: 25px;
-      right: -60px;
-      left: auto;
-      transform: rotate(45deg);
-    }
-
-    &.bottom-left {
-      top: auto;
-      bottom: 25px;
-      left: -60px;
-      transform: rotate(45deg);
-    }
-
-    &.bottom-right {
-      top: auto;
-      right: -60px;
-      bottom: 25px;
-      left: auto;
-      transform: rotate(-45deg);
+  // Link Badges
+  a.badge {
+    &.dropdown-toggle::after {
+      vertical-align: middle;
     }
   }
-
-}
-
-// Link Badges
-a.badge {
-  &.dropdown-toggle::after {
-    vertical-align: middle;
-  }
-}
 
 }

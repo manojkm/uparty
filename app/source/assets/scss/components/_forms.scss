@@ -25,6 +25,8 @@
   color: $input-color;
   //height: $input-height;
 
+  box-shadow: $input-box-shadow;
+
   @include form-control-hover();
   @include form-control-focus();
 
@@ -125,6 +127,13 @@ form {
   line-height: $btn-line-height;
 }
 
+.col-form-label-xl {
+  padding-top: calc(#{$btn-padding-y-xl} + #{$input-border-size});
+  padding-bottom: calc(#{$btn-padding-y-xl} + #{$input-border-size});
+  font-size: $input-font-size-xl;
+  line-height: $btn-line-height-xl;
+}
+
 .col-form-label-lg {
   padding-top: calc(#{$btn-padding-y-lg} + #{$input-border-size});
   padding-bottom: calc(#{$btn-padding-y-lg} + #{$input-border-size});
@@ -207,6 +216,21 @@ select.form-control-lg {
     height: $input-height-lg;
   }
 }
+
+.form-control-xl {
+  @include set-border-radius($input-border-radius-xl);
+  padding: $btn-padding-y-xl $btn-padding-x-xl;
+  font-size: $input-font-size-xl;
+  line-height: $btn-line-height-xl;
+  height: $input-height-xl;
+}
+
+select.form-control-xl {
+  &:not([size]):not([multiple]) {
+    height: $input-height-xl;
+  }
+}
+
 
 //
 // FORM VALIDATION

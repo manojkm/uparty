@@ -1,0 +1,36 @@
+---
+title: "Image Editor"
+lead: A navigation component that displays grouped navigation actions
+components: true
+
+css_vendors:
+- tui-image-editor/dist/tui-image-editor
+
+js_vendors:
+- fabric/dist/fabric
+- tui-code-snippet/dist/tui-code-snippet
+- tui-color-picker/dist/tui-color-picker
+- tui-image-editor/dist/tui-image-editor
+
+js_vendors_extended:
+- tui-image-editor
+
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            {{#card}}
+                {{{card_header 'Image Editor'}}}
+                {{#card_body}}
+                    <div  style="height: 800px">
+                    <div id="tui-image-editor-container">
+                        <canvas></canvas>
+                    </div>
+                    </div>
+
+                {{/card_body}}
+            {{/card}}
+        </div>
+    </div>
+</div>

@@ -391,7 +391,8 @@
 // HIDE DROPDOWN TRIGGER ELEMENT CARET
 // ======================================================
 .dropdown-toggle.no-caret {
-  &:after {
+  &:after,
+  &:before{
     content: none;
   }
 }

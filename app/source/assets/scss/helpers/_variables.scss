@@ -138,6 +138,7 @@
 // 8.31 MEGA MENU
 // 8.32 MEDIA OBJECT
 // 8.33 AVATARS
+// 8.34 RANGE SLIDERS
 
 //
 // 9. VENDOR'S VARIABLES
@@ -543,6 +544,18 @@ $multiple-select-box-shadow:                    0 5px 10px rgba($black-color, 0.
 $slider-base-box-shadow:                        inset 0 .1rem .1rem rgba($gray-800, 0.15) !default;
 $toastr-box-shadow:                             0 5px 10px rgba($black-color, 0.1);
 
+$bs-1:                                          0 0 50px 10px rgba(0, 0, 0, 0.10)!default
+$bs-2:                                          10px 10px 5px 0 rgba(0, 0, 0, 0.5)!default
+$bs-3:                                          0 10px 5px 0 rgba(0, 0, 0, 0.5)!default
+$bs-4:                                          -10px 10px 5px 0 rgba(0, 0, 0, 0.5)!default
+$bs-5:                                          inset 0 0 10px rgba(0, 0, 0, 0.5)!default
+$bs-6:                                          0 5px 5px 0 rgba(0, 0, 0, 0.5)!default
+$bs-7:                                          0 0 8px rgba(0, 0, 0, 0.23)!default
+$bs-8:                                          0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15)!default
+$bs-9:                                          0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)!default
+$bs-10:                                         inset 0 3px 5px rgba(0, 0, 0, .125)!default
+
+
 //
 // 4.11 EASINGS
 // -----------------------------------------------------------------------------
@@ -640,7 +653,7 @@ $screen-sm-max:                         ($screen-md-min - 1) !default; // 767px
 $screen-md-max:                         ($screen-lg-min - 1) !default; // 991px
 
 // Large devices (desktops, less than 1200px)
-$screen-lg-max:                         ($screen-xl-min - 1) !default; // 1999px
+$screen-lg-max:                         ($screen-xl-min - 1) !default; // 1199px
 
 // Breakpoints map to define the minimum width for different screen sizes.
 $breakpoints-min-widths: (
@@ -723,7 +736,7 @@ $link-hover-decoration:                 none; // Global textual link hover decor
 
 $headings-color:                        $font-color-headings; // Text color for headings <h1> <h2> etc...
 $headings-font-family:                  $font-family-headings; // Font family for headings
-$headings-font-weight:                  $font-wh-medium; // Font weight for headings
+$headings-font-weight:                  $font-wh-medium !default; // Font weight for headings
 $headings-line-height:                  1.2;
 $headings-letter-spacing:               -.0625rem !default; // ~1px, Character spacing for headings.
 
@@ -978,13 +991,13 @@ $btn-active-box-shadow:                 inset 0 3px 5px rgba($black-color, .125)
 
 // Small button (.btn-sm)
 
-$btn-font-size-sm:                      $font-size-sm;  // Font size for small button
+$btn-font-size-sm:                      $font-size-sm !default;  // Font size for small button
 $btn-padding-y-sm:                      0.25rem !default; // 4px. Small button vertical padding.
 $btn-padding-x-sm:                      0.5rem !default; // 8px. Small button horizontal padding.
 $btn-min-width-sm:                      80px !default;
 $btn-min-height-sm:                     initial !default;
 $btn-line-height-sm:                    $lh-sm !default;
-$btn-border-radius-sm:                  $border-radius-sm; // Border radius to add rounded corners
+$btn-border-radius-sm:                  $border-radius-sm !default; // Border radius to add rounded corners
 
 // Regular button (.btn)
 
@@ -1004,7 +1017,7 @@ $btn-padding-x-lg:                      1rem !default; // 16px. Large button hor
 $btn-min-width-lg:                      120px !default;
 $btn-min-height-lg:                     initial !default;
 $btn-line-height-lg:                    $lh-lg !default;
-$btn-border-radius-lg:                  $border-radius-lg; // Border radius to add rounded corners
+$btn-border-radius-lg:                  $border-radius-lg !default; // Border radius to add rounded corners
 
 // Extra Large button (.btn-xl)
 
@@ -1014,7 +1027,7 @@ $btn-padding-x-xl:                      1.25rem !default; // 20px. Extra Large b
 $btn-min-width-xl:                      140px !default;
 $btn-min-height-xl:                     initial !default;
 $btn-line-height-xl:                    $lh-xl !default;
-$btn-border-radius-xl:                  $border-radius-xl; // Border radius to add rounded corners
+$btn-border-radius-xl:                  $border-radius-xl !default; // Border radius to add rounded corners
 
 // Button with icon (.has-icon-left / .has-icon-right)
 
@@ -1074,11 +1087,13 @@ $btn-disabled-opacity:                 .65 !default;
 $input-bg:                              $white-color; // <input> background color
 $input-color:                           $gray-700; // Text color for inputs
 $input-label-color:                     $gray-800; // Text color for inputs labels and legends.
-$input-placeholder-color:               $gray-500; // Placeholder text color
+$input-placeholder-color:               $gray-500 !default; // Placeholder text color
 $input-round-radius:                    $btn-circle-radius; // Rounded input (.form-control.input-round) type border radius
 $input-border-color:                    $gray-400; // Border color for inputs
 $input-border-size:                     $border-thin; // '.form-control' border width
+$input-box-shadow:                      $bs-5 !default;
 $input-focus-color:                     $gray-700; // Text color for inputs on focus
+$input-focus-box-shadow:                $bs-7 !default;
 $input-focus-border-theme-scheme:       primary !default; // Theme color scheme applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $input-focus-border-theme-tone:         base !default; // Theme color tone applied to border of inputs on focus. NOTE: Retrieved from active theme palette map from `themes/theme-*`.
 $input-hover-border-color:              $gray-500; // Border color for inputs on hover
@@ -1118,6 +1133,13 @@ $input-font-size-lg:                    $font-size-lg !default; // Font size for
 $input-border-radius-lg:                $border-radius-lg !default; // Border radius to add rounded corners
 $input-height-inner-lg:                 ($font-size-lg * $btn-line-height-lg) + ($btn-padding-y-lg * 2) !default;
 $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
+
+// Extra large input (.form-control-xl)
+
+$input-font-size-xl:                    $font-size-xl !default; // Font size for large input
+$input-border-radius-xl:                $border-radius-xl !default; // Border radius to add rounded corners
+$input-height-inner-xl:                 ($font-size-xl * $btn-line-height-xl) + ($btn-padding-y-xl * 2) !default;
+$input-height-xl:                       calc(#{$input-height-inner-xl} + #{$input-height-border}) !default; // Compute the input height so the input will have the same height as buttons.
 
 // Form groups
 
@@ -1339,7 +1361,7 @@ $card-margin-bottom:                    15px !default; // Margin for the bottom 
 $card-spacer-y:                         .75rem !default; // Card vertical padding helper variable.
 $card-spacer-x:                         1.25rem !default; // Card horizontal padding helper variable.
 
-$card-bg:                               $white-color; // Background color for entire card
+$card-bg:                               $white-color !default; // Background color for entire card
 $card-border-radius:                    $border-radius-lg; // Card border radius to add rounded corners
 $card-border-size:                      $border-thin; // Card border width
 $card-border-color:                     rgba($black-color, 0.2) !default; // Card border color
@@ -1942,6 +1964,28 @@ $avatar-stack-margin-xl:                        -1.25rem;
 //$avatar-stack-hidden-margin-sm:               -1.25rem;
 //$avatar-stack-hidden-margin-lg:               -1.5rem;
 //$avatar-stack-hidden-margin-xl:               -1.75rem;
+
+//
+// 8.34 RANGE SLIDERS
+// -----------------------------------------------------------------------------
+
+$range-width: 100% !default;
+
+$range-handle-color:                    primary !default;
+$range-handle-color-hover:              dark !default;
+$range-handle-size:                     20px !default;
+$range-handle-box-shadow:               0 0 0 3px $white-color, 0 0 0 5px get-theme-main-color($range-handle-color) !default;
+
+$range-track-color:                     $gray-400 !default;
+$range-track-height:                    6px !default;
+
+$range-label-font-size:                 $font-size-base;
+$range-label-color:                     primary !default;
+$range-label-width:                     60px !default;
+$range-label-lh:                        20px !default;
+$range-label-border-radius:             $border-radius-md!default;
+$range-label-padding:                   5px 10px !default;
+$range-label-arrow-size:                .6666em !default;
 
 //
 // 9. VENDOR'S VARIABLES
