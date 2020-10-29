@@ -7,6 +7,7 @@
 // Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
+@if (map-get-strict($components, 'breadcrumb')) {
 
 //
 // BASE STYLING
@@ -428,5 +429,7 @@
 
     }
   }
+
+}
 
 }

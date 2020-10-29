@@ -21,27 +21,27 @@
 // BASE
 // ======================================================
 
-html {
-  font-size: $html-font-size;
-}
-
-body {
-  font-family: $body-font-family;
-  font-size: $body-font-size;
-  font-weight: $body-font-weight;
-  line-height: $body-line-height;
-  color: $body-color;
-}
-
-* {
-  // Antialiasing mode font rendering.
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
-  // Optimizes font rendering for legibility.
-  // May break with some browsers, comment out as necessary.
-  text-rendering: optimizeLegibility;
-}
+//html {
+//  font-size: $html-font-size;
+//}
+//
+//body {
+//  font-family: $body-font-family;
+//  font-size: $body-font-size;
+//  font-weight: $body-font-weight;
+//  line-height: $body-line-height;
+//  color: $body-color;
+//}
+//
+//* {
+//  // Antialiasing mode font rendering.
+//  -webkit-font-smoothing: antialiased;
+//  -moz-osx-font-smoothing: grayscale;
+//  font-smoothing: antialiased;
+//  // Optimizes font rendering for legibility.
+//  // May break with some browsers, comment out as necessary.
+//  text-rendering: optimizeLegibility;
+//}
 
 //
 // HEADINGS
@@ -164,31 +164,31 @@ h6, .h6 {
 // PARAGRAPHS
 // ======================================================
 
-p {
-  color: $font-color-default;
-}
+//p {
+//  color: $font-color-default;
+//}
 
 //
 // LINKS
 // ======================================================
 
 //a:not(.btn), a:visited:not(.btn) {
-a:not(.btn) {
-  color: $link-color;
-  text-decoration: none;
-  transition: color 250ms ease-in-out;
-
-  #{$hover-focus-tags},
-  #{$active-tags} {
-    color: $link-hover-color;
-  }
-}
-
-a:not(.btn):not(.nav-link):not(.card-link) {
-  #{$hover-focus-tags} {
-    text-decoration: $link-hover-decoration;
-  }
-}
+//a:not(.btn) {
+//  color: $link-color;
+//  text-decoration: none;
+//  transition: color 250ms ease-in-out;
+//
+//  #{$hover-focus-tags},
+//  #{$active-tags} {
+//    color: $link-hover-color;
+//  }
+//}
+//
+//a:not(.btn):not(.nav-link):not(.card-link) {
+//  #{$hover-focus-tags} {
+//    text-decoration: $link-hover-decoration;
+//  }
+//}
 
 //
 // SMALL

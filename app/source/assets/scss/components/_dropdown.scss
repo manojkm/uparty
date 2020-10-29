@@ -8,6 +8,8 @@
 // Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
+@if (map-get-strict($components, 'dropdown')) {
+
 
 //
 // BOOTSTRAP DROPDOWN MENU - EXTENDED
@@ -548,4 +550,6 @@ $dc: dropdown-custom;
       @include border-top-radius(0);
     }
   }
+}
+
 }

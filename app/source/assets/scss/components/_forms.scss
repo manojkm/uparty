@@ -8,6 +8,7 @@
 // Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
+@if (map-get-strict($components, 'forms')) {
 
 //
 // TEXTUAL FORM CONTROLS
@@ -285,4 +286,6 @@ select.form-control-xl {
 
 .has-bg-light {
   @include transparent-forms($alpha-black-3, $alpha-black-4, $alpha-black-3, $alpha-black-4, $alpha-white-8, $white-color, $black-color, $alpha-white-5);
+}
+
 }

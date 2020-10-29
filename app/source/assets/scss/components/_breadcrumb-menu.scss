@@ -8,6 +8,9 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+@if (map-get-strict($components, 'breadcrumb-menu')) {
+
+
 // Breadcrumb with menu
 .breadcrumb.has-menu {
   padding-right: 0;
@@ -46,4 +49,6 @@
 
     }
   }
+}
+
 }

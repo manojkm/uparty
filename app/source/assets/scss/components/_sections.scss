@@ -8,6 +8,8 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+@if (map-get-strict($components, 'sections')) {
+
 // Custom get started section
 section.get-started {
   & .card {
@@ -18,4 +20,6 @@ section.get-started {
 section.contact-us {
   & .card {
   }
+}
+
 }

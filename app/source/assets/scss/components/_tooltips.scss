@@ -8,6 +8,8 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+@if (map-get-strict($components, 'tooltips')) {
+
 //
 // TOOLTIP
 // ======================================================
@@ -61,5 +63,8 @@
       @include tooltip-theme($scheme);
     }
   }
+
+}
+
 
 }

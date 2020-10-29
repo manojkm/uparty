@@ -8,6 +8,8 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+@if (map-get-strict($components, 'carousel')) {
+
 // Optional captions
 .carousel-caption {
   background-color: rgba(0, 0, 0, .5);
@@ -236,4 +238,7 @@
     top: 0;
     left: 0;
   }
+}
+
+
 }

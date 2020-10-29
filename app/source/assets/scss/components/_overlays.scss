@@ -8,6 +8,8 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+@if (map-get-strict($components, 'overlays')) {
+
 .overlay {
   position: fixed;
   top: 0;
@@ -52,4 +54,5 @@
   .overlay-#{$scheme} {
     background-color: rgba(get-theme-color-level($scheme, base, $overlay-bg-level), $overlay-opacity-level);
   }
+}
 }

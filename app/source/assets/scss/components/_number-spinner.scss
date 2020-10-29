@@ -8,6 +8,8 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+@if (map-get-strict($components, 'number-spinner')) {
+
 .number-spinner > .btn-group-vertical {
 
   z-index: map-get($zindex, number-spinner);
@@ -44,4 +46,6 @@
   > .btn {
     @include border-right-radius(0);
   }
+}
+
 }

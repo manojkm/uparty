@@ -8,6 +8,8 @@
 // Author         : MANOJ, <manoj [at] xxx [dot] net>
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
+@if (map-get-strict($components, 'input-group')) {
+
 
 //
 // BASE STYLES FOR INPUT GROUP AND ADDONS
@@ -233,4 +235,6 @@
       cursor: $cursor-not-allowed;
     }
   }
+}
+
 }

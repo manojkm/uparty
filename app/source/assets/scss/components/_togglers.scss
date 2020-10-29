@@ -8,6 +8,8 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+@if (map-get-strict($components, 'togglers')) {
+
 // Navbar toggle button - Bootstrap default class name .navbar-toggler
 .navbar-toggler {
   position: relative;
@@ -324,4 +326,6 @@
 
 .mini .icon-bar:nth-of-type(3) {
   transform: translate3d(0, -6px, 0);
+}
+
 }

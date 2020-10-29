@@ -53,7 +53,7 @@ $typefaces: (
 //
 // If it is `true` the values ​​of the `$google-fonts-import` will be read.
 // @type Boolen
-$enable-google-fonts-import:            true !default;
+$enable-google-fonts-import:            false !default;
 
 // Includes:
 // Source Sans Pro:                     Light, Regular, Medium, Semi-bold, Bold;
@@ -64,6 +64,8 @@ $google-fonts-import:                   unquote("Source+Sans+Pro:300,400,500,600
 // CONFIG FONTS STACKS
 // ======================================================
 
-$font-family-default-google:            'Source Sans Pro' !default; // Define Google font stack used for body, paragraphs.
+$font-family-default-google:            'Roboto' !default; // Define Google font stack used for body, paragraphs.
 $font-family-display:                   $font-family-default-google !default; // Define font stack used for headings <h1> <h2> etc...
 $font-family-fallback:                  'Arial', sans-serif !default; // Define font to ensure embedded fonts fall back to appropriate system fonts.
+
+

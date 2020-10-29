@@ -9,6 +9,9 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+@if (map-get-strict($components, 'progress-bars')) {
+
+
 // Base styles
 .progress {
   @include set-border-radius($progress-border-radius);
@@ -170,4 +173,7 @@
     }
 
   }
+}
+
+
 }

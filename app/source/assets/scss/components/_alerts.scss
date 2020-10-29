@@ -9,21 +9,34 @@
 // ================================================================================================
 //TODO https://codepen.io/simeonoff/pen/QKYwba
 
-//
-// BASE STYLING
-// ======================================================
+@if (map-get-strict($components, 'alerts')) {
 
-.alert {
-  $a: alert;
-  @include set-border-radius($alert-border-radius);
-  border: $alert-border-size solid transparent;
-  font-size: $alert-font-size;
-  font-weight: $font-wh-regular;
+  //
+  // BASE STYLING
+  // ======================================================
 
-  // Theme variations
-  @each $themeName, $value in $themes-map {
-    $colors: map-get-strict($value, 'main-colors');
-    @each $scheme, $tone in $colors {
+  .alert {
+    $a: alert;
+    @include set-border-radius($alert-border-radius);
+    border: $alert-border-size solid transparent;
+    font-size: $alert-font-size;
+    font-weight: $font-wh-regular;
+
+    // Theme variations
+    @each $themeName, $value in $themes-map {
+      $colors: map-get-strict($value, 'main-colors');
+      @each $scheme, $tone in $colors {
+        $tone-bg: get-theme-color-level($scheme, base, $soft-bg-level);
+        $tone-border: get-theme-color-level($scheme, base, $soft-border-level);
+        $font-color: get-theme-color-level($scheme, base, $soft-color-level);
+        &.#{$a}-#{$scheme} {
+          @include alert-theme($tone-bg, $tone-border, $font-color);
+        }
+      }
+    }
+
+    // Contextual variations
+    @each $scheme, $tone in $contextual-palette-map {
       $tone-bg: get-theme-color-level($scheme, base, $soft-bg-level);
       $tone-border: get-theme-color-level($scheme, base, $soft-border-level);
       $font-color: get-theme-color-level($scheme, base, $soft-color-level);
@@ -31,79 +44,73 @@
         @include alert-theme($tone-bg, $tone-border, $font-color);
       }
     }
-  }
 
-  // Contextual variations
-  @each $scheme, $tone in $contextual-palette-map {
-    $tone-bg: get-theme-color-level($scheme, base, $soft-bg-level);
-    $tone-border: get-theme-color-level($scheme, base, $soft-border-level);
-    $font-color: get-theme-color-level($scheme, base, $soft-color-level);
-    &.#{$a}-#{$scheme} {
-      @include alert-theme($tone-bg, $tone-border, $font-color);
+    // Provide class for links that match alerts (.alert-link)
+    & .#{$a}-link {
+      cursor: $cursor-pointer;
+      text-decoration: underline;
+      font-weight: $font-wh-regular;
+
+      &:hover {
+        opacity: 0.9;
+        text-decoration: none;
+      }
     }
+
+    // Alerts with left/right icons
+    &.alert-icon-left {
+      border-left-width: 3rem;
+
+      i.icon-left {
+        @include center(y);
+        position: absolute;
+        left: -3rem;
+        width: 3rem;
+        text-align: center;
+      }
+    }
+
+    &.alert-icon-right {
+      border-right-width: 3rem;
+
+      i.icon-right {
+        @include center(y);
+        position: absolute;
+        right: -3rem;
+        width: 3rem;
+        text-align: center;
+      }
+    }
+
   }
 
-  // Provide class for links that match alerts (.alert-link)
-  & .#{$a}-link {
-    cursor: $cursor-pointer;
-    text-decoration: underline;
-    font-weight: $font-wh-regular;
+  //
+  // DISMISSIBLE ALERTS
+  // ======================================================
 
+  .alert-dismissible > .close {
+    opacity: .7;
+
+    > span:not(.sr-only) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $alert-close-btn-width;
+      height: $alert-close-btn-height;
+      background-color: $alpha-white-3;
+      border-radius: $border-radius-100;
+      font-size: $alert-close-btn-font-size;
+
+    }
+
+    &:focus,
     &:hover {
-      opacity:0.9;
-      text-decoration: none;
+      span:not(.sr-only) {
+        background-color: $alpha-white-5;
+      }
     }
-  }
-
-  // Alerts with left/right icons
-  &.alert-icon-left {
-    border-left-width: 3rem;
-    i.icon-left{
-      @include center(y);
-      position: absolute;
-      left: -3rem;
-      width: 3rem;
-      text-align: center;
-    }
-  }
-
-  &.alert-icon-right {
-    border-right-width: 3rem;
-    i.icon-right{
-      @include center(y);
-      position: absolute;
-      right: -3rem;
-      width: 3rem;
-      text-align: center;
-    }
-  }
-
-}
-
-//
-// DISMISSIBLE ALERTS
-// ======================================================
-
-.alert-dismissible > .close {
-  opacity:.7;
-
-  > span:not(.sr-only) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: $alert-close-btn-width;
-    height: $alert-close-btn-height;
-    background-color: $alpha-white-3;
-    border-radius: $border-radius-100;
-    font-size: $alert-close-btn-font-size;
 
   }
 
-  &:focus,
-  &:hover {
-    span:not(.sr-only) {
-      background-color: $alpha-white-5;
-    }
-  }
 
 }

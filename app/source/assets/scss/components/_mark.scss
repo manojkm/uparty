@@ -9,6 +9,8 @@
 // Author URL     : http://www.themeforest.net/user/xxx
 // ================================================================================================
 
+@if (map-get-strict($components, 'mark')) {
+
 //
 // EMPHASIS
 // ======================================================
@@ -139,4 +141,6 @@ mark {
       @include background-theme($scheme);
     }
   }
+}
+
 }

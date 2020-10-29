@@ -36,7 +36,7 @@ $dynamicTheme: false;
 // ACTIVE THEME NAME
 // ======================================================
 
-$activeTheme: 'rebecca';
+$activeTheme: 'uparty';
 
 //
 // IMPORT THEMES
@@ -44,7 +44,7 @@ $activeTheme: 'rebecca';
 // Import your themes here.
 
 @import
-    'theme-rebecca/rebecca';
+    'theme-uparty/uparty';
     //'theme-unicorn/unicorn'; FIX  - importing this theme cause the theme variable usage on pages css take from this theme
 
 //
@@ -55,6 +55,6 @@ $activeTheme: 'rebecca';
 
 // Define the name of your theme (imported above) as the key and corresponding palette map variable name as the value.
 $themes-map: (
-        rebecca: $rebecca-palette-map,
+  uparty: $uparty-palette-map,
         //unicorn: $unicorn-palette-map,
 );
