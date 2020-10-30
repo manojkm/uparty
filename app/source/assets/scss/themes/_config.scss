@@ -37,6 +37,7 @@ $dynamicTheme: false;
 // ======================================================
 
 $activeTheme: 'uparty';
+//$activeTheme: 'isac';
 
 //
 // IMPORT THEMES
@@ -44,6 +45,7 @@ $activeTheme: 'uparty';
 // Import your themes here.
 
 @import
+  //'theme-isac/isac';
     'theme-uparty/uparty';
     //'theme-unicorn/unicorn'; FIX  - importing this theme cause the theme variable usage on pages css take from this theme
 
@@ -55,6 +57,7 @@ $activeTheme: 'uparty';
 
 // Define the name of your theme (imported above) as the key and corresponding palette map variable name as the value.
 $themes-map: (
-  uparty: $uparty-palette-map,
-        //unicorn: $unicorn-palette-map,
+    uparty: $uparty-palette-map,
+    //isac: $isac-palette-map,
+    //unicorn: $unicorn-palette-map,
 );
